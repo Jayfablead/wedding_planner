@@ -67,14 +67,14 @@ class _MainScreenState extends State<MainScreen> {
             )),
         Positioned(
           top: 84.h,
-          left: 10.w,
+          left: 4.5.w,
           child: InkWell(
             onTap: () {
               Get.offAll(LoginPage());
             },
             child: Container(
               height: 7.h,
-              width: 80.w,
+              width: 90.w,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(80), color: Colors.pink),

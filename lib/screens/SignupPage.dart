@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/HomePage.dart';
 
 import 'LoginPage.dart';
 
@@ -443,10 +444,9 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      if (_formKey.currentState!.validate()) {}
-                    },
+Get.off(HomeScreen());                    },
                     child: Container(
-                      width: 80.w,
+                      width: 90.w,
                       height: 7.h,
                       decoration: BoxDecoration(
                         color: Colors.pink,

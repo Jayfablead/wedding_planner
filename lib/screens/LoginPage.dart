@@ -215,7 +215,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (_formKey.currentState!.validate()) {}
                     },
                     child: Container(
-                      width: 80.w,
+                      width: 90.w,
                       height: 7.h,
                       decoration: BoxDecoration(
                         color: Colors.pink,
