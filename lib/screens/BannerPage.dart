@@ -30,7 +30,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                       },
                       icon: Icon(Icons.arrow_back_ios_new_rounded)),
                   Text(
-                    "Boards",
+                    "Place",
                     style: TextStyle(
                       fontSize: 15.sp,
                       fontWeight: FontWeight.bold,
@@ -80,7 +80,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                               height: 1.h,
                             ),
                             Text(
-                              "Supplier ${index + 1}",
+                              "Place ${index + 1}",
                               style: TextStyle(
                                 fontSize: 10.sp,
                               ),
@@ -94,7 +94,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
               ),
               Container(
                 height: 76.h,
-                child: ListView.builder(
+                child: ListView.builder(padding: EdgeInsets.zero,
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return InkWell(
@@ -137,7 +137,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                       CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Supplier " + '${index + 1}',
+                                      "Place " + '${index + 1}',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 17.sp),

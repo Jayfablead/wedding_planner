@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/SupplierPage.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,11 +14,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 TextEditingController _search = TextEditingController();
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: drawer1(),key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -44,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Colors.pink),
                           ),
                           IconButton(onPressed: () {
-
+_scaffoldKey?.currentState?.openDrawer();
                           }, icon: Icon(Icons.menu_rounded,color: Colors.pink,size: 23.sp,))
                         ],
                       ),
@@ -56,8 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Choose a Venue For Your Wedding',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.w600,
+                          fontFamily: 'sofi',
+                          fontWeight: FontWeight.bold,
                           letterSpacing: 1,
                           color: Colors.black),
                     ),
@@ -103,8 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Categories',
                   style: TextStyle(
                       fontSize: 14.sp,
-                      fontFamily: 'get',
-                      fontWeight: FontWeight.w600,
+                      fontFamily: 'sofi',
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       color: Colors.black),
                 ),
@@ -171,8 +174,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Wedding Suppliers',
                   style: TextStyle(
                       fontSize: 14.sp,
-                      fontFamily: 'get',
-                      fontWeight: FontWeight.w600,
+                  fontFamily: 'sofi',
+                            fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       color: Colors.black),
                 ),
@@ -256,8 +259,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Wedding Venue',
                   style: TextStyle(
                       fontSize: 14.sp,
-                      fontFamily: 'get',
-                      fontWeight: FontWeight.w600,
+                  fontFamily: 'sofi',
+                            fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       color: Colors.black),
                 ),
