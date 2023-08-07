@@ -83,7 +83,7 @@ class _DecorationPageState extends State<DecorationPage> {
                                           EdgeInsets.symmetric(horizontal: 1.w),
                                       height: 70.h,
                                       width: 40.w,
-                                      child: Image.asset('assets/pic.png')),
+                                      child: Image.asset('assets/copl.png')),
                                   SizedBox(width: 1.w),
                                   SizedBox(
                                     width: 44.w,

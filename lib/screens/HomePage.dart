@@ -13,6 +13,22 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+class cate {
+  String? image;
+  String? name;
+
+  cate(
+    this.image,
+    this.name,
+  );
+}
+
+List<cate> Categories = [
+  cate('https://media.weddingz.in/images/bbda52972b1de50671f1b9de639610de/Anais-Events-6.jpg', 'Wedding Decor'),
+  cate('https://i.pinimg.com/originals/1f/84/20/1f8420a90aacebb1e64255bc4d57c5ad.jpg', 'Engagement Decor'),
+  cate('https://m.media-amazon.com/images/I/71xdPvVRJwL.jpg', 'Anniversary Decor'),
+  cate('https://content.jdmagicbox.com/comp/surat/z9/0261px261.x261.210715153040.p8z9/catalogue/om-yash-collection-ballon-decoration-vesu-surat-birthday-party-decorators-6evf9oecpb.jpg', 'Birthday Decor'),
+];
 TextEditingController _search = TextEditingController();
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -20,7 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: drawer1(),key: _scaffoldKey,
+      drawer: drawer1(),
+      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -34,8 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(width: 92.w,
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(
+                      width: 92.w,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             'Hi, Zoro',
@@ -46,9 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 letterSpacing: 1,
                                 color: Colors.pink),
                           ),
-                          IconButton(onPressed: () {
-_scaffoldKey?.currentState?.openDrawer();
-                          }, icon: Icon(Icons.menu_rounded,color: Colors.pink,size: 23.sp,))
+                          IconButton(
+                              onPressed: () {
+                                _scaffoldKey?.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.menu_rounded,
+                                color: Colors.pink,
+                                size: 23.sp,
+                              ))
                         ],
                       ),
                     ),
@@ -131,25 +156,27 @@ _scaffoldKey?.currentState?.openDrawer();
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 1.w),
                                 height: 9.h,
-                                width: 25.w,
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.fill,
-                                  imageUrl:
-                                      'https://www.clipartmax.com/png/full/391-3918431_transparent-decoration-wedding-indian-flower-transparent-decoration-wedding-indian-flower.png',
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                          Center(child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/icons/deprf.png',
+                                width: 30.w,
+                                child: ClipRRect(borderRadius: BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl:
+                                        Categories[index].image.toString(),
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/icons/deprf.png',
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(height: 1.h),
                               SizedBox(
-                                  width: 25.w,
+                                  width: 30.w,
                                   child: Text(
-                                    'Ceremony',
+                                    Categories[index].name.toString(),
                                     style: TextStyle(
                                         color: Colors.pink,
                                         fontSize: 20,
@@ -158,7 +185,7 @@ _scaffoldKey?.currentState?.openDrawer();
                             ],
                           ));
                     },
-                    itemCount: 10,
+                    itemCount: Categories.length,
                   ),
                 )
               ],
@@ -174,8 +201,8 @@ _scaffoldKey?.currentState?.openDrawer();
                   'Wedding Suppliers',
                   style: TextStyle(
                       fontSize: 14.sp,
-                  fontFamily: 'sofi',
-                            fontWeight: FontWeight.bold,
+                      fontFamily: 'sofi',
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       color: Colors.black),
                 ),
@@ -196,7 +223,7 @@ _scaffoldKey?.currentState?.openDrawer();
                             margin: EdgeInsets.symmetric(horizontal: 1.w),
                             height: 70.h,
                             width: 40.w,
-                            child: Image.asset('assets/pic.png')),
+                            child: Image.asset('assets/copl.png')),
                         SizedBox(width: 1.w),
                         SizedBox(
                           width: 44.w,
@@ -222,7 +249,9 @@ _scaffoldKey?.currentState?.openDrawer();
                                     fontFamily: 'sofi'),
                               ),
                               InkWell(
-                                onTap: () {Get.to(MoodBordsScreen());},
+                                onTap: () {
+                                  Get.to(MoodBordsScreen());
+                                },
                                 child: Container(
                                   width: 28.w,
                                   height: 5.h,
@@ -259,18 +288,19 @@ _scaffoldKey?.currentState?.openDrawer();
                   'Wedding Venue',
                   style: TextStyle(
                       fontSize: 14.sp,
-                  fontFamily: 'sofi',
-                            fontWeight: FontWeight.bold,
+                      fontFamily: 'sofi',
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       color: Colors.black),
                 ),
                 SizedBox(height: 1.h),
-                SizedBox(height: 27.h,
-                  child: ListView.builder(scrollDirection: Axis.horizontal,
+                SizedBox(
+                  height: 27.h,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return InkWell(onTap: (){
-
-                        },
+                        return InkWell(
+                          onTap: () {},
                           child: Card(
                             elevation: 5,
                             shape: RoundedRectangleBorder(
@@ -293,8 +323,9 @@ _scaffoldKey?.currentState?.openDrawer();
                                         imageUrl:
                                             'https://t4.ftcdn.net/jpg/05/89/07/29/360_F_589072985_iturA1VUTCERL6JQd7QxDDey1JzUcdzo.jpg',
                                         progressIndicatorBuilder:
-                                            (context, url, progress) =>
-                                                Center(child: CircularProgressIndicator()),
+                                            (context, url, progress) => Center(
+                                                child:
+                                                    CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
                                           'assets/icons/deprf.png',
@@ -306,8 +337,10 @@ _scaffoldKey?.currentState?.openDrawer();
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 3.w, vertical: 1.5.h),
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'A & D',
