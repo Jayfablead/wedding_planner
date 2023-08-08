@@ -154,7 +154,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                     decoration: BoxDecoration(
                                         color: Colors.pink,
                                         borderRadius:
-                                            BorderRadius.circular(10)),
+                                            BorderRadius.circular(90)),
                                     padding: EdgeInsets.all(3.w),
                                     child: Row(
                                       mainAxisAlignment:
@@ -164,13 +164,13 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                       children: [
                                         Icon(
                                           Icons.add,
-                                          size: 3.h,
+                                          size: 2.4.h,
                                           color: Colors.white,
                                         ),
                                         Text(
                                           "Add",
                                           style: TextStyle(
-                                              fontSize: 17.sp,
+                                              fontSize: 15.sp,
                                               color: Colors.white),
                                         )
                                       ],

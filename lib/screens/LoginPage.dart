@@ -5,6 +5,8 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/SignupPage.dart';
 import 'package:wedding_planner/screens/forgot%20password%20Page.dart';
 
+import 'HomePage.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -226,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 InkWell(
                   onTap: () {
-                    if (_formKey.currentState!.validate()) {}
+                    Get.off(HomeScreen());
                   },
                   child: Container(
                     width: 90.w,

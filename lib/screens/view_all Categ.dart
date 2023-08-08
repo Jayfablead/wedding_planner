@@ -74,6 +74,7 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                       icon: Icon(Icons.menu_rounded))
                 ],
               ),
+              SizedBox(height: 3.h),
               SizedBox(
                 height: 70.h,
                 child: GridView.builder(padding: EdgeInsets.zero,

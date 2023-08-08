@@ -80,7 +80,7 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                       },
                       icon: Icon(Icons.arrow_back_ios_new_rounded)),
                   Text(
-                    "Categories",
+                    "Venue",
                     style: TextStyle(
                       fontSize: 15.sp,
                       fontWeight: FontWeight.bold,
@@ -93,6 +93,7 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                       icon: Icon(Icons.menu_rounded))
                 ],
               ),
+              SizedBox(height: 2.h),
               SizedBox(
                 height: 87.h,
                 child: GridView.builder(padding: EdgeInsets.zero,

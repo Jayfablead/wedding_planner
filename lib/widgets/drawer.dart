@@ -12,6 +12,7 @@ import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/DecorationsPage.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
 import 'package:wedding_planner/screens/changePassword.dart';
+import 'package:wedding_planner/screens/profilePage.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -63,7 +64,9 @@ class _drawer1State extends State<drawer1> {
                   //padding: EdgeInsets.all(2.w),
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(MyProfile());
+                      },
                       child: Container(
                         height: 12.h,
                         padding: EdgeInsets.all(1.w),
@@ -193,6 +196,98 @@ class _drawer1State extends State<drawer1> {
                         SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
+                            Get.to(MyProfile());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.person,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Profile",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            // Get.to(ChangePassword());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.chat_bubble_text,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Chat",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
                             Get.to(MoodBordsScreen());
                           },
                           child: Container(
@@ -211,6 +306,51 @@ class _drawer1State extends State<drawer1> {
                                         children: [
                                           Icon(
                                             CupertinoIcons.placemark,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Place",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            Get.to(MoodBordsScreen());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.collections,
                                             color: Colors.black,
                                           ),
                                           SizedBox(
@@ -281,7 +421,8 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-                        ),SizedBox(height: 2.h),
+                        ),
+                        SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
                             Get.to(ChangePassword());

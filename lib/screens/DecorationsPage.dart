@@ -173,7 +173,7 @@ class _DecorationPageState extends State<DecorationPage> {
                     SliverGrid.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 2.w,
-                          childAspectRatio: 0.7 / 1,
+                          childAspectRatio: 0.67 / 1,
                           crossAxisCount: 2),
                       itemBuilder: (context, index) {
                         return Container(
@@ -240,7 +240,7 @@ class _DecorationPageState extends State<DecorationPage> {
                                   onTap: () {},
                                   child: Container(
                                     height: 5.h,
-                                 width: 10.w,
+                                 width: 11.w,
                                     decoration: BoxDecoration(
                                       color: Colors.pink,
                                       borderRadius:

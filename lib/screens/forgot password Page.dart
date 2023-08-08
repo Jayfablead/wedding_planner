@@ -123,7 +123,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   ),
                 ),
                 SizedBox(
-                  height: 8.h,
+                  height: 3.h,
                 ),
                 InkWell(
                   onTap: () {
