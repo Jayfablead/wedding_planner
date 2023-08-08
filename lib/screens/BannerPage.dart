@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:wedding_planner/screens/SupplierPage.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 
 class MoodBordsScreen extends StatefulWidget {
   const MoodBordsScreen({super.key});
@@ -10,11 +11,12 @@ class MoodBordsScreen extends StatefulWidget {
   @override
   State<MoodBordsScreen> createState() => _MoodBordsScreenState();
 }
-
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class _MoodBordsScreenState extends State<MoodBordsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(drawer: drawer1(),
+      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -36,7 +38,9 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.menu_rounded))
+                  IconButton(onPressed: () {
+                    _scaffoldKey.currentState?.openDrawer();
+                  }, icon: Icon(Icons.menu_rounded))
                 ],
               ),
               SizedBox(

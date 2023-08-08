@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/SupplierPage.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 
 import 'BannerPage.dart';
 
@@ -12,11 +13,12 @@ class DecorationPage extends StatefulWidget {
   @override
   State<DecorationPage> createState() => _DecorationPageState();
 }
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 bool readmore = false;
 class _DecorationPageState extends State<DecorationPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(drawer: drawer1(),key: _scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -35,13 +37,13 @@ class _DecorationPageState extends State<DecorationPage> {
                       },
                       icon: Icon(Icons.arrow_back_ios_new_rounded)),
                   Text(
-                    "Supplier",
+                    "Decoration",
                     style: TextStyle(
                       fontSize: 15.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.menu_rounded))
+                  IconButton(onPressed: () {_scaffoldKey.currentState?.openDrawer();}, icon: Icon(Icons.menu_rounded))
                 ],
               ),
               SizedBox(
@@ -171,7 +173,7 @@ class _DecorationPageState extends State<DecorationPage> {
                     SliverGrid.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 2.w,
-                          childAspectRatio: 0.65 / 1,
+                          childAspectRatio: 0.7 / 1,
                           crossAxisCount: 2),
                       itemBuilder: (context, index) {
                         return Container(

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 
 class SupplierfourScreen extends StatefulWidget {
   const SupplierfourScreen({super.key});
@@ -10,10 +11,14 @@ class SupplierfourScreen extends StatefulWidget {
   State<SupplierfourScreen> createState() => _SupplierfourScreenState();
 }
 
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 class _SupplierfourScreenState extends State<SupplierfourScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: drawer1(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -21,7 +26,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 5.h),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                       onPressed: () {
@@ -35,7 +41,11 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(onPressed: (){}, icon: Icon(Icons.menu_rounded))
+                  IconButton(
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                      icon: Icon(Icons.menu_rounded))
                 ],
               ),
               SizedBox(
@@ -206,13 +216,16 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.star,
                         color: Colors.pink,
                         size: 25.sp,
-                      ),SizedBox(width: 2.w),
+                      ),
+                      SizedBox(width: 2.w),
                       Text(
                         "4.3 Ratings",
                         style: TextStyle(
@@ -222,13 +235,16 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       ),
                     ],
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.message_rounded,
                         color: Colors.pink,
                         size: 25.sp,
-                      ),SizedBox(width: 2.w),
+                      ),
+                      SizedBox(width: 2.w),
                       Text(
                         "960 Reviews",
                         style: TextStyle(
@@ -278,8 +294,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     child: Center(
                       child: Text(
                         "Book Now",
-                        style:
-                            TextStyle(color: Colors.white, fontSize: 15.sp),
+                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
                       ),
                     ),
                   ),
@@ -293,8 +308,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     child: Center(
                       child: Text(
                         "Get a quote Now",
-                        style:
-                            TextStyle(color: Colors.white, fontSize: 15.sp),
+                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
                       ),
                     ),
                   ),

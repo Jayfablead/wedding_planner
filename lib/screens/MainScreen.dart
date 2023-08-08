@@ -70,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
           left: 4.5.w,
           child: InkWell(
             onTap: () {
-              Get.offAll(LoginPage());
+              Get.to(LoginPage());
             },
             child: Container(
               height: 7.h,

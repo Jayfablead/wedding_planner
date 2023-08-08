@@ -11,6 +11,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/DecorationsPage.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
+import 'package:wedding_planner/screens/changePassword.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -262,6 +263,51 @@ class _drawer1State extends State<drawer1> {
                                             width: 2.w,
                                           ),
                                           Text("Decoration",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            Get.to(ChangePassword());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.lock,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Change Password",
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.bold,
