@@ -62,93 +62,96 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 5.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                Text(
-                  "Categories",
-                  style: TextStyle(
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.bold,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 3.w),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 5.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                  Text(
+                    "Categories",
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                IconButton(
-                    onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
-                    },
-                    icon: Icon(Icons.menu_rounded))
-              ],
-            ),
-            SizedBox(
-              height: 87.h,
-              child: GridView.builder(padding: EdgeInsets.zero,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 1.h,mainAxisSpacing: 2.h,childAspectRatio: 0.8/1,
-                    crossAxisCount: 2),
-                itemBuilder: (context, index) {
-                  return
-                    Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Container(
-                        height: 27.h,
-                        width: 45.w,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 17.h,
-                              width: 45.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.fill,
-                                  imageUrl: venue[index].image ?? '',
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                      child:
-                                      CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                        'assets/icons/deprf.png',
-                                      ),
+                  IconButton(
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                      icon: Icon(Icons.menu_rounded))
+                ],
+              ),
+              SizedBox(
+                height: 87.h,
+                child: GridView.builder(padding: EdgeInsets.zero,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 1.h,mainAxisSpacing: 2.h,childAspectRatio: 0.75/1,
+                      crossAxisCount: 2),
+                  itemBuilder: (context, index) {
+                    return
+                      Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Container(
+                          height: 27.h,
+                          width: 45.w,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 17.h,
+                                width: 45.w,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.fill,
+                                    imageUrl: venue[index].image ?? '',
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                        child:
+                                        CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                          'assets/icons/deprf.png',
+                                        ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 3.w, vertical: 1.5.h),
-                              child: Text(
-                                venue[index].name ?? '',
-                                style: TextStyle(
-                                    fontFamily: 'get',
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            )
-                          ],
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 3.w, vertical: 1.5.h),
+                                child: Text(
+                                  venue[index].name ?? '',
+                                  style: TextStyle(
+                                      fontFamily: 'get',
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                },
-                itemCount: venue.length,
-              ),
-            )
-          ]),
+                      );
+                  },
+                  itemCount: venue.length,
+                ),
+              )
+            ]),
+      ),
     );
   }
 }
