@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/other%20Pages/add%20Quote%20Page.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class SupplierfourScreen extends StatefulWidget {
@@ -196,7 +197,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 height: 2.h,
               ),
               Text(
-                "Flower DeCoration",
+                "Flower Decoration",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.sp,
@@ -298,17 +299,21 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    height: 5.h,
-                    width: 45.w,
-                    decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.circular(15.sp),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Get a quote Now",
-                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                  InkWell(onTap: () {
+                    Get.to(AddQuote());
+                  },
+                    child: Container(
+                      height: 5.h,
+                      width: 45.w,
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(15.sp),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Get a quote Now",
+                          style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                        ),
                       ),
                     ),
                   ),

@@ -41,6 +41,7 @@ dependencies:
   flutter_easyloading:
   lottie:
   cached_network_image: ^3.2.3
+  image_picker:
 
 dev_dependencies:
   flutter_test:

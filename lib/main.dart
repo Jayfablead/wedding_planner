@@ -7,9 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/MainScreen.dart';
-import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
-
-
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,14 +20,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-    return Sizer(builder: (context, orientation, deviceType) {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-
-        home: ChatlistPage(),
-        builder: EasyLoading.init(),
-      );
-    });
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: MainScreen(),
+          builder: EasyLoading.init(),
+        );
+      },
+    );
   }
 }
