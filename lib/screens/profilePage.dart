@@ -52,7 +52,7 @@ class _MyProfileState extends State<MyProfile> {
         body:  SingleChildScrollView(
           child: Center(
             child: Padding(
-              padding: EdgeInsets.only(left: 3.w, right: 3.w),
+              padding: EdgeInsets.symmetric(horizontal: 3.w),
               child: Column(
                 children: [
                   SizedBox(

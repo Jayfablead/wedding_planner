@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/MainScreen.dart';
+import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 
 
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
 
-        home: MainScreen(),
+        home: ChatlistPage(),
         builder: EasyLoading.init(),
       );
     });

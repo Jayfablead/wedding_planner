@@ -117,11 +117,10 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                 Column(
                                   children: [
                                     Container(
-                                      height: 6.h,
-                                      width: 12.w,
+                                      padding: EdgeInsets.all(0.5.w),
                                       decoration: BoxDecoration(
                                         borderRadius:
-                                            BorderRadius.circular(10),
+                                            BorderRadius.circular(90),
                                         color: Colors.pink,
                                       ),
                                       child: IconButton(
