@@ -11,6 +11,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/DecorationsPage.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
+import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/changePassword.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/screens/other%20Pages/quotationList.dart';
@@ -570,7 +571,7 @@ class _drawer1State extends State<drawer1> {
                         ),
                         InkWell(
                           onTap: () async {
-                            exit(0);
+                        Get.offAll(LoginPage());
                           },
                           child: Container(
                             child: Row(
@@ -579,7 +580,7 @@ class _drawer1State extends State<drawer1> {
                                   width: 6.w,
                                 ),
                                 Container(
-                                  width: 65.w,
+                                  width: 63.w,
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,

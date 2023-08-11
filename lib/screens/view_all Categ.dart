@@ -35,6 +35,17 @@ List<cate> Categories = [
   cate(
       'https://content.jdmagicbox.com/comp/surat/z9/0261px261.x261.210715153040.p8z9/catalogue/om-yash-collection-ballon-decoration-vesu-surat-birthday-party-decorators-6evf9oecpb.jpg',
       'Birthday Decor'),
+  cate(
+      'https://media.weddingz.in/images/bbda52972b1de50671f1b9de639610de/Anais-Events-6.jpg',
+      'Wedding Decor'),
+  cate(
+      'https://i.pinimg.com/originals/1f/84/20/1f8420a90aacebb1e64255bc4d57c5ad.jpg',
+      'Engagement Decor'),
+  cate('https://m.media-amazon.com/images/I/71xdPvVRJwL.jpg',
+      'Anniversary Decor'),
+  cate(
+      'https://content.jdmagicbox.com/comp/surat/z9/0261px261.x261.210715153040.p8z9/catalogue/om-yash-collection-ballon-decoration-vesu-surat-birthday-party-decorators-6evf9oecpb.jpg',
+      'Birthday Decor'),
 ];
 
 class _ViewAllCategoryState extends State<ViewAllCategory> {
@@ -44,7 +55,7 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
       drawer: drawer1(),
       key: _scaffoldKey,
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 3.w),
+        padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,11 +85,15 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                       icon: Icon(Icons.menu_rounded))
                 ],
               ),
-              SizedBox(height: 3.h),
+              SizedBox(height: 2.h),
               SizedBox(
-                height: 70.h,
-                child: GridView.builder(padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 0.5.h,mainAxisSpacing: 2.h,childAspectRatio: 0.92/1,
+                height: 86.h,
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 0.5.h,
+                      mainAxisSpacing: 2.h,
+                      childAspectRatio: 0.89 / 1,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Container(
@@ -101,9 +116,9 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
                                   imageUrl: Categories[index].image.toString(),
-                                  progressIndicatorBuilder: (context, url,
-                                          progress) =>
-                                      Center(child: CircularProgressIndicator()),
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) => Center(
+                                          child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
                                     'assets/icons/deprf.png',
@@ -112,7 +127,8 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                               ),
                             ),
                             SizedBox(height: 1.h),
-                            Container(margin: EdgeInsets.symmetric(horizontal: 1.w),
+                            Container(
+                                margin: EdgeInsets.symmetric(horizontal: 1.w),
                                 width: 40.w,
                                 child: Text(
                                   Categories[index].name.toString(),

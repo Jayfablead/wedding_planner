@@ -95,58 +95,53 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
               ),
               SizedBox(height: 2.h),
               SizedBox(
-                height: 87.h,
+                height: 86.h,
                 child: GridView.builder(padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 1.h,mainAxisSpacing: 2.h,childAspectRatio: 0.75/1,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 0.5.h,mainAxisSpacing: 2.h,childAspectRatio: 0.82/1,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
-                    return
-                      Card(
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                    return Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.pink.withOpacity(0.2),
                         ),
-                        child: Container(
-                          height: 27.h,
-                          width: 45.w,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 17.h,
-                                width: 45.w,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.fill,
-                                    imageUrl: venue[index].image ?? '',
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) => Center(
-                                        child:
-                                        CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                          'assets/icons/deprf.png',
-                                        ),
-                                  ),
+                        padding: EdgeInsets.all(2.w),
+                        margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 1.w),
+                              height: 15.h,
+                              width: 50.w,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl: venue[index].image.toString(),
+                                  progressIndicatorBuilder: (context, url,
+                                      progress) =>
+                                      Center(child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
+                                        'assets/icons/deprf.png',
+                                      ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 3.w, vertical: 1.5.h),
+                            ),
+                            SizedBox(height: 1.h),
+                            Container(margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                width: 40.w,
                                 child: Text(
-                                  venue[index].name ?? '',
+                                  venue[index].name.toString(),
                                   style: TextStyle(
-                                      fontFamily: 'get',
-                                      fontSize: 15.sp,
+                                      color: Colors.pink,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.w600),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
+                                )),
+                          ],
+                        ));
                   },
                   itemCount: venue.length,
                 ),

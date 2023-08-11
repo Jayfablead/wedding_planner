@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
         Image.asset('assets/bg.png',
             height: double.infinity, width: double.infinity, fit: BoxFit.cover),
         Positioned(
-            top: 55.h,
+            top: 60.h,
             left: 22.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  'Planners',
+                  'Suppliers',
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,
@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             )),
         Positioned(
-            top: 74.h,
+            top: 78.h,
             left: 4.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +66,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             )),
         Positioned(
-          top: 84.h,
+          top: 87.h,
           left: 4.5.w,
           child: InkWell(
             onTap: () {

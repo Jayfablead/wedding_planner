@@ -50,7 +50,7 @@ class _DecorationPageState extends State<DecorationPage> {
                 height: 2.h,
               ),
               SizedBox(
-                height: 87.h,
+                height: 86.h,
                 child: CustomScrollView(
                   slivers: [
                     SliverToBoxAdapter(
@@ -173,7 +173,7 @@ class _DecorationPageState extends State<DecorationPage> {
                     SliverGrid.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 2.w,
-                          childAspectRatio: 0.67 / 1,
+                          childAspectRatio: 0.7 / 1,
                           crossAxisCount: 2),
                       itemBuilder: (context, index) {
                         return Container(
@@ -235,18 +235,6 @@ class _DecorationPageState extends State<DecorationPage> {
                                           color: Colors.white,
                                           fontFamily: 'get'),
                                     )),
-                                  ),
-                                ),InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 5.h,
-                                 width: 11.w,
-                                    decoration: BoxDecoration(
-                                      color: Colors.pink,
-                                      borderRadius:
-                                          BorderRadius.circular(25.sp),
-                                    ),
-                                    child: Icon(Icons.add,color: Colors.white,)
                                   ),
                                 ),
                               ]),

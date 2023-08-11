@@ -30,7 +30,7 @@ class _AddQuoteState extends State<AddQuote> {
             top: 0,
             left: 0,
             right: 0,
-            bottom: 87.h,
+            bottom: 84.h,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 3.w),
               child: Row(
@@ -60,7 +60,7 @@ class _AddQuoteState extends State<AddQuote> {
           ),
           Positioned(
             left: 7.5.w,
-            top: 16.h,
+            top: 20.h,
             child: Container(
               height: 65.h,
               width: 85.w,
@@ -74,7 +74,7 @@ class _AddQuoteState extends State<AddQuote> {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
-                          'assets/bgcard.jpeg',
+                          'assets/dialogbg.jpg',
                           height: 65.h,
                           fit: BoxFit.cover,
                         )),

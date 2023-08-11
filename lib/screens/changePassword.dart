@@ -50,7 +50,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 Row(
                   children: [
                     Text(
-                      "Forgot Password",
+                      "Change Password",
                       style: TextStyle(
                           fontSize: 22.sp,
                           fontFamily: 'get',
@@ -309,6 +309,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                               fontFamily: 'get'),
                         )),
                   ),
+                ), SizedBox(
+                  height: 2.h,
                 ),
               ],
             ),

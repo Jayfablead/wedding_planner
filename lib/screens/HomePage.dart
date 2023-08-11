@@ -181,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 1.h),
                 Container(
-                  height: 18.h,
+                  height: 21.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
@@ -199,8 +199,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                height: 9.h,
-                                width: 30.w,
+                                height: 12.h,
+                                width: 37.5.w,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: CachedNetworkImage(
@@ -219,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               SizedBox(height: 1.h),
                               SizedBox(
-                                  width: 30.w,
+                                  width: 37.w,
                                   child: Text(
                                     Categories[index].name.toString(),
                                     style: TextStyle(
@@ -358,61 +358,115 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 SizedBox(height: 1.h),
-                SizedBox(
-                  height: 29.h,
+                // SizedBox(
+                //   height: 29.h,
+                //   child: ListView.builder(
+                //       scrollDirection: Axis.horizontal,
+                //       itemBuilder: (context, index) {
+                //         return
+                //           Card(
+                //             elevation: 5,
+                //             shape: RoundedRectangleBorder(
+                //               borderRadius: BorderRadius.circular(20.0),
+                //             ),
+                //             child: Container(
+                //               height: 27.h,
+                //               width: 45.w,
+                //               child: Column(
+                //                 mainAxisAlignment: MainAxisAlignment.start,
+                //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //                 children: [
+                //                   Container(
+                //                     height: 17.h,
+                //                     width: 45.w,
+                //                     child: ClipRRect(
+                //                       borderRadius: BorderRadius.circular(20),
+                //                       child: CachedNetworkImage(
+                //                         fit: BoxFit.fill,
+                //                         imageUrl: venue[index].image ?? '',
+                //                         progressIndicatorBuilder:
+                //                             (context, url, progress) => Center(
+                //                                 child:
+                //                                     CircularProgressIndicator()),
+                //                         errorWidget: (context, url, error) =>
+                //                             Image.asset(
+                //                           'assets/icons/deprf.png',
+                //                         ),
+                //                       ),
+                //                     ),
+                //                   ),
+                //                   Padding(
+                //                     padding: EdgeInsets.symmetric(
+                //                         horizontal: 3.w, vertical: 1.5.h),
+                //                     child: Text(
+                //                       venue[index].name ?? '',
+                //                       style: TextStyle(
+                //                           fontFamily: 'get',
+                //                           fontSize: 15.sp,
+                //                           fontWeight: FontWeight.w600),
+                //                     ),
+                //                   )
+                //                 ],
+                //               ),
+                //             ),
+                //           );
+                //       },
+                //       itemCount: venue.length),
+                // ),
+                Container(
+                  height: 27.h,
                   child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return
-                          Card(
-                            elevation: 5,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return
+                        Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.pink.withOpacity(0.2),
                             ),
-                            child: Container(
-                              height: 27.h,
-                              width: 45.w,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 17.h,
-                                    width: 45.w,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(20),
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.fill,
-                                        imageUrl: venue[index].image ?? '',
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) => Center(
-                                                child:
-                                                    CircularProgressIndicator()),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/icons/deprf.png',
-                                        ),
-                                      ),
+                            padding: EdgeInsets.all(1.5.w),
+                            margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 2.w),
+                                  padding:EdgeInsets.only(top: 1.5.w) ,
+                                  height: 16.h,
+                                  width: 37.5.w,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl:
+                                      venue[index].image.toString(),
+                                      progressIndicatorBuilder:
+                                          (context, url, progress) => Center(
+                                          child: CircularProgressIndicator()),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset(
+                                            'assets/icons/deprf.png',
+                                          ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 3.w, vertical: 1.5.h),
+                                ),
+                                SizedBox(height: 1.h),
+                                SizedBox(
+                                    width: 37.w,
                                     child: Text(
-                                      venue[index].name ?? '',
+                                      venue[index].name.toString(),
                                       style: TextStyle(
-                                          fontFamily: 'get',
-                                          fontSize: 15.sp,
+                                          color: Colors.pink,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.w600),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                      },
-                      itemCount: venue.length),
-                ),
+                                    )),
+                              ],
+                            ));
+                    },
+                    itemCount: venue.length,
+                  ),
+                )
               ],
             ),
             SizedBox(

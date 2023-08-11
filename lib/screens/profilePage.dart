@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/other%20Pages/updatePtofile.dart';
 
 import '../widgets/drawer.dart';
 
@@ -127,7 +128,14 @@ class _MyProfileState extends State<MyProfile> {
                 Center(
                   child: InkWell(
                     onTap: () {
-                      // Get.to(() => EditProfile());
+                      Get.to(() => UpdateProfile(
+                            name: 'Roronoa Zoro',
+                            about:
+                                "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
+                            phone: '7041648493',
+                            profile:
+                                'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+                          ));
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -272,7 +280,8 @@ class _MyProfileState extends State<MyProfile> {
                       ],
                     ),
                   ],
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 2.h,
                 ),
                 Row(
@@ -305,7 +314,7 @@ class _MyProfileState extends State<MyProfile> {
                           width: 65.w,
                           padding: EdgeInsets.symmetric(horizontal: 2.w),
                           child: Text(
-                            "dfjisdjofsdjsdlfmklosdnfdsnfsdnbsd jksd vhjsdbvdsbvsdv h skjdb sdufsdbvjkds sdfsdhf",
+                            "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
                             style: appname,
                           ),
                         ),
@@ -324,13 +333,13 @@ class _MyProfileState extends State<MyProfile> {
   TextStyle header = TextStyle(
     color: Colors.black,
     fontSize: 15.sp,
-    fontFamily: 'sofi',
+    fontFamily: 'sofi',fontWeight: FontWeight.w600,
     letterSpacing: 2,
   );
   TextStyle mail = TextStyle(
     color: Colors.pink,
     fontSize: 13.sp,
-    fontFamily: 'sofi',
+    fontFamily: 'sofi',fontWeight: FontWeight.w600,
     letterSpacing: 2,
   );
   TextStyle appname = TextStyle(

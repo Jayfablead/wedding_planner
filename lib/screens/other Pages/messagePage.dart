@@ -77,7 +77,7 @@ class _MessagePageState extends State<MessagePage> {
                         width: 2.w,
                       ),
                       SizedBox(
-                        width: 56.w,
+                        width: 53.w,
                         child: Text(
                           widget.name ?? '',
                           style: TextStyle(
@@ -91,8 +91,10 @@ class _MessagePageState extends State<MessagePage> {
                       IconButton(
                           onPressed: () {}, icon: Icon(Icons.more_vert_rounded))
                     ],
-                  ),SizedBox(height: 1.h),
-                  Container(height: 79.5.h,
+                  ),
+                  SizedBox(height: 1.h),
+                  Container(
+                    height: 79.h,
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
@@ -411,13 +413,13 @@ class _MessagePageState extends State<MessagePage> {
                       ),
                     ),
                   ),
-
                 ]),
               ),
               Positioned(
-                top: 92.5.h,
+                top: 91.5.h,
                 child: Row(children: [
-                  Container(color: Colors.white,
+                  Container(
+                    color: Colors.white,
                     width: 80.w,
                     child: TextField(
                       controller: _msg,

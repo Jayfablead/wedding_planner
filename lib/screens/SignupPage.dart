@@ -450,7 +450,7 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 4.h,
                 ),
                 InkWell(
                   onTap: () {
@@ -472,7 +472,7 @@ Get.off(HomeScreen());                    },
                     )),
                   ),
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 01.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -495,7 +495,7 @@ Get.off(HomeScreen());                    },
                         )),
                   ],
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 1.h),
                 Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
