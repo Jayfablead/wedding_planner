@@ -68,9 +68,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                 padding: EdgeInsets.symmetric(horizontal: 4.w),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 4.h,
-                    ),
+
                     SizedBox(
                       height: 7.h,
                     ),
@@ -241,7 +239,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                                   child: TextFormField(
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontFamily: 'sofi',height: 0.12.h,
+                                        fontFamily: 'sofi',height: 0.16.h,
                                         letterSpacing: 2,fontWeight: FontWeight.w600,
                                         fontSize: 13.sp),
                                     controller: _add,
@@ -284,7 +282,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                                   child: TextFormField(
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontFamily: 'sofi',height: 0.12.h,
+                                        fontFamily: 'sofi',height: 0.16.h,
                                         letterSpacing: 2,fontWeight: FontWeight.w600,
                                         fontSize: 13.sp),
                                     controller: _about,
@@ -326,7 +324,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           ),
                         ),
                         SizedBox(
-                          height: 4.h,
+                          height: 2.h,
                         ),
                         Center(
                           child: InkWell(

@@ -66,7 +66,7 @@ class _MyProfileState extends State<MyProfile> {
                     Text(
                       "Profile",
                       style: TextStyle(
-                        fontSize: 15.sp,
+                        fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -128,7 +128,7 @@ class _MyProfileState extends State<MyProfile> {
                 Center(
                   child: InkWell(
                     onTap: () {
-                      Get.to(() => UpdateProfile(
+                      Get.to(() => UpdateProfile(add: "Nowhere, Don't know where he lived.",
                             name: 'Roronoa Zoro',
                             about:
                                 "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
@@ -161,54 +161,14 @@ class _MyProfileState extends State<MyProfile> {
                   color: Color(0xff7a7a7a),
                 ),
                 SizedBox(height: 0.5.h),
-                Row(
+
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
                         Icon(
-                          Icons.call,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 2.w),
-                        Text(
-                          "Phone : ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              letterSpacing: 2,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          width: 40.w,
-                          padding: EdgeInsets.symmetric(horizontal: 2.w),
-                          child: Text(
-                            "7041648493",
-                            style: appname,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.sensors_rounded,
+                        CupertinoIcons.squares_below_rectangle,
                           color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
@@ -224,32 +184,31 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                       ],
+                    ),   SizedBox(
+                      height: 1.h,
                     ),
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          width: 40.w,
-                          padding: EdgeInsets.symmetric(horizontal: 2.w),
-                          child: Text(
-                            "1",
-                            style: appname,
-                          ),
-                        ),
-                      ],
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2090),color: Colors.black.withOpacity(0.07)),
+                      width: 90.w,
+                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
+                      child: Text(
+                        "1 Service added",
+                        style: appname,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 2.h,
                 ),
-                Row(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
                         Icon(
-                          Icons.monetization_on_outlined,
+                          CupertinoIcons.arrow_up_arrow_down_square,
                           color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
@@ -265,26 +224,101 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                       ],
+                    ),   SizedBox(
+                      height: 1.h,
                     ),
-                    Column(
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2090),color:Colors.black.withOpacity(0.07)),
+                      width: 90.w,
+                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
+                      child: Text(
+                        "2 Quotations taken",
+                        style: appname,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          width: 40.w,
-                          padding: EdgeInsets.symmetric(horizontal: 2.w),
-                          child: Text(
-                            "2",
-                            style: appname,
-                          ),
+                        Icon(
+                          CupertinoIcons.phone,
+                          color: Colors.black,
+                        ),
+                        SizedBox(width: 2.w),
+                        Text(
+                          "Phone : ",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: Colors.black,
+                              letterSpacing: 2,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13.sp),
                         ),
                       ],
+                    ),   SizedBox(height:1.h),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2090),color: Colors.black.withOpacity(0.07)),
+                      width: 90.w,
+                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
+                      child: Text(
+                        "7041648493",
+                        style: appname,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 2.h,
                 ),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          CupertinoIcons.home,
+                          color: Colors.black,
+                        ),
+                        SizedBox(width: 2.w),
+                        Text(
+                          "Address : ",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: Colors.black,
+                              letterSpacing: 2,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13.sp),
+                        ),
+                      ],
+                    ), SizedBox(
+                      height: 1.h,
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),color: Colors.black.withOpacity(0.07)),
+                      width: 90.w,
+                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
+                      child: Text(
+                        "Nowhere, Don't know where he lived.",
+                        style: appname,
+                      ),
+                    ),
+                  ],
+                ),SizedBox(
+                  height: 2.h,
+                ),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -306,21 +340,23 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                       ],
+                    ), SizedBox(
+                      height: 1.h,
                     ),
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          width: 65.w,
-                          padding: EdgeInsets.symmetric(horizontal: 2.w),
-                          child: Text(
-                            "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
-                            style: appname,
-                          ),
-                        ),
-                      ],
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color:Colors.black.withOpacity(0.07)),
+                      width: 90.w,
+                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
+                      child: Text(
+                        "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
+                        style: appname,
+                      ),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 2.h,
                 ),
               ],
             ),
@@ -345,7 +381,7 @@ class _MyProfileState extends State<MyProfile> {
   TextStyle appname = TextStyle(
     color: Colors.black,
     fontSize: 12.sp,
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins',fontWeight: FontWeight.w600,
     letterSpacing: 1.5,
   );
 }

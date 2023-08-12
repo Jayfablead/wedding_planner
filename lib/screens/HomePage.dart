@@ -414,7 +414,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 //       itemCount: venue.length),
                 // ),
                 Container(
-                  height: 27.h,
+                  height: 28.5.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {

@@ -44,8 +44,7 @@ class _AddQuoteState extends State<AddQuote> {
                   Text(
                     "Get Quotation",
                     style: TextStyle(
-                      fontSize: 15.sp,
-                      fontFamily: 'sofi',
+                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

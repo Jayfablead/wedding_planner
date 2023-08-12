@@ -39,6 +39,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     "Supplier",
                     style: TextStyle(
                       fontSize: 15.sp,
+                      fontFamily: 'sofi',
+                      letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -299,9 +301,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       ),
                     ),
                   ),
-                  InkWell(onTap: () {
-                    Get.to(AddQuote());
-                  },
+                  InkWell(
+                    onTap: () {
+                      Get.to(AddQuote());
+                    },
                     child: Container(
                       height: 5.h,
                       width: 45.w,
@@ -312,7 +315,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       child: Center(
                         child: Text(
                           "Get a quote Now",
-                          style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 15.sp),
                         ),
                       ),
                     ),

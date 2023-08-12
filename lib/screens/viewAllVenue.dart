@@ -82,7 +82,7 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                   Text(
                     "Venue",
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -97,7 +97,7 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
               SizedBox(
                 height: 86.h,
                 child: GridView.builder(padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 0.5.h,mainAxisSpacing: 2.h,childAspectRatio: 0.82/1,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 0.5.h,mainAxisSpacing: 2.h,childAspectRatio: 0.79/1,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Container(
@@ -114,7 +114,7 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 1.w),
                               height: 15.h,
-                              width: 50.w,
+                              width: 52.w,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: CachedNetworkImage(

@@ -39,7 +39,7 @@ class _DecorationPageState extends State<DecorationPage> {
                   Text(
                     "Decoration",
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
