@@ -79,7 +79,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 1.w),
                               height: 15.h,
-                              width: 30.w,
+                              width: 31.w,
                               padding: EdgeInsets.all(1.w),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(90),

@@ -84,7 +84,7 @@ class _drawer1State extends State<drawer1> {
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 1.w),
                               height: 8.5.h,
-                              width: 17.w,
+                              width: 18.w,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(90),
                                 child: CachedNetworkImage(
