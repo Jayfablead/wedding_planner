@@ -78,16 +78,14 @@ class _MyProfileState extends State<MyProfile> {
                   ],
                 ),
                 SizedBox(height: 1.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(
-                      width: 2.w,
-                    ),
+
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 1.w),
-                      height: 12.h,
-                      width: 25.w,
+                      height: 15.h,
+                      width: 30.w,
                       padding: EdgeInsets.all(1.w),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(90),
@@ -104,26 +102,20 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 12.h,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: 52.w,
-                            child: Text("Roronoa Zoro", style: header),
-                          ),
-                          Container(
-                            width: 52.w,
-                            child: Text("roronoa.zoro@gmail.com", style: mail),
-                          ),
-                        ],
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text("Roronoa Zoro", style: header),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text("roronoa.zoro@gmail.com", style: mail),
+                      ],
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 1.h,
                 ),
                 Center(
                   child: InkWell(
