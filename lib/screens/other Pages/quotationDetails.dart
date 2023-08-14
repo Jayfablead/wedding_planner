@@ -72,7 +72,8 @@ class _QuatationsDetailsState extends State<QuatationsDetails> {
                     Text(
                       'The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using .',
                       style: TextStyle(
-                          fontFamily: 'sofi',height: 0.13.h,
+                          fontFamily: 'sofi',
+                          height: 0.13.h,
                           fontWeight: FontWeight.w600,
                           fontSize: 16.sp,
                           letterSpacing: 2),
@@ -103,9 +104,12 @@ class _QuatationsDetailsState extends State<QuatationsDetails> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 1.w),
                 child: Container(
-                  decoration:
-                      BoxDecoration(color: Colors.pink.withOpacity(0.9),borderRadius: BorderRadius.circular(15),border: Border.all(color: Colors.deepPurple)),
-                  padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 3.h),
+                  decoration: BoxDecoration(
+                    color: Colors.pink.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Colors.deepPurple),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -171,7 +175,7 @@ class _QuatationsDetailsState extends State<QuatationsDetails> {
                           Text(
                             'Address :',
                             style: TextStyle(
-                                color:Colors.white.withOpacity(0.65),
+                                color: Colors.white.withOpacity(0.65),
                                 fontSize: 14.sp,
                                 fontFamily: 'sofi',
                                 fontWeight: FontWeight.w600,
