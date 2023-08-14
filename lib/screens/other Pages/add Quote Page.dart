@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -24,14 +25,12 @@ class _AddQuoteState extends State<AddQuote> {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
-      body: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 84.h,
-            child: Padding(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 3.w),
+        child: Column(
+          children: [
+            SizedBox(height: 4.h),
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 3.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,9 +41,11 @@ class _AddQuoteState extends State<AddQuote> {
                       },
                       icon: Icon(Icons.arrow_back_ios_new_rounded)),
                   Text(
-                    "Get Quotation",
+                    '',
                     style: TextStyle(
-                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
+                      fontSize: 15.sp,
+                      fontFamily: 'sofi',
+                      letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -56,239 +57,188 @@ class _AddQuoteState extends State<AddQuote> {
                 ],
               ),
             ),
-          ),
-          Positioned(
-            left: 7.5.w,
-            top: 20.h,
-            child: Container(
-              height: 65.h,
-              width: 85.w,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.pink, width: 2),
-                    borderRadius: BorderRadius.circular(20)),
-                elevation: 15,
-                child: Stack(
+            Container(
+              height: 30.h,
+              width: 100.w,
+              child: Lottie.asset('assets/hrt.json'),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
                   children: [
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          'assets/dialogbg.jpg',
-                          height: 65.h,
-                          fit: BoxFit.cover,
-                        )),
-                    Container(
-                      height: 65.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.black.withOpacity(0.7),
-                      ),
+                    Text(
+                      "Quotation Request",
+                      style: TextStyle(
+                          fontSize: 22.sp,
+                          fontFamily: 'get',
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          color: Colors.black),
                     ),
-                    Container(
-                      height: 65.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.black.withOpacity(0.2),
+                  ],
+                ),
+                SizedBox(height: 2.h),
+                Container(
+                  height: 40.h,
+                  padding: EdgeInsets.symmetric(horizontal: 4.w),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Name',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.sp,
+                            fontFamily: 'sofi',
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1),
                       ),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Get.back();
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(0.5.w),
-                                margin: EdgeInsets.only(top: 3.w, right: 3.w),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: Colors.white),
-                                child: Icon(
-                                  Icons.close,
-                                  size: 17.sp,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ],
+                      TextField(
+                        // controller: _msg,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 1,
+                            fontSize: 11.5.sp,
+                            fontFamily: 'get'),
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          border: InputBorder.none,
+                          hintText: 'Type your name',
+                          hintStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 1,
+                              fontFamily: 'get'),
                         ),
-                        Text(
-                          'Quotation Request',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.sp,
-                              fontFamily: 'sofi',
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 1),
-                        ),
-                        Container(
-                          height: 37.h,
-                          padding: EdgeInsets.symmetric(horizontal: 4.w),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      ),
+                      Text(
+                        'Image',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.sp,
+                            fontFamily: 'sofi',
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1),
+                      ),
+                      InkWell(
+                        onTap: () async {
+                          XFile? photo = await _picker.pickImage(
+                              source: ImageSource.gallery);
+                          selectedimage = File(photo!.path);
+                          setState(() {
+                            selectedimage = File(photo.path);
+                          });
+                          print(selectedimage);
+                        },
+                        child: Container(
+                          width: 42.w,
+                          decoration: BoxDecoration(
+                            color: Colors.pink,
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          padding: EdgeInsets.all(3.w),
+                          child: Row(
                             children: [
-                              Text(
-                                'Name',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15.sp,
-                                    fontFamily: 'sofi',
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 1),
+                              Icon(
+                                Icons.drive_folder_upload,
+                                size: 18.sp,
+                                color: Colors.white,
                               ),
-                              TextField(
-                                // controller: _msg,
+                              SizedBox(width: 2.w),
+                              Text(
+                                'Choose File',
                                 style: TextStyle(
                                     color: Colors.white,
+                                    fontFamily: 'sofi',
+                                    fontSize: 14.sp,
                                     fontWeight: FontWeight.w500,
-                                    letterSpacing: 1,
-                                    fontSize: 11.5.sp,
-                                    fontFamily: 'get'),
-                                decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(90),
-                                  ),
-                                  disabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(90),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(90),
-                                  ),
-                                  border: InputBorder.none,
-                                  hintText: 'Type your name',
-                                  hintStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      letterSpacing: 1,
-                                      fontFamily: 'get'),
-                                ),
-                              ),
-                              Text(
-                                'Image',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.sp,
-                                    fontFamily: 'sofi',
-                                    fontWeight: FontWeight.w600,
                                     letterSpacing: 1),
-                              ),
-                              InkWell(
-                                onTap: () async {
-                                  XFile? photo = await _picker.pickImage(
-                                      source: ImageSource.gallery);
-                                  selectedimage = File(photo!.path);
-                                  setState(() {
-                                    selectedimage = File(photo.path);
-                                  });
-                                  print(selectedimage);
-                                },
-                                child: Container(
-                                    width: 42.w,
-                                    decoration: BoxDecoration(
-                                      color: Colors.pink,
-                                      borderRadius: BorderRadius.circular(90),
-                                    ),
-                                    padding: EdgeInsets.all(3.w),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.drive_folder_upload,
-                                          size: 18.sp,
-                                          color: Colors.white,
-                                        ),
-                                        SizedBox(width: 2.w),
-                                        Text(
-                                          'Choose File',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: 'sofi',
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              letterSpacing: 1),
-                                        ),
-                                      ],
-                                    )),
-                              ),
-                              Text(
-                                'Details',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.sp,
-                                    fontFamily: 'sofi',
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 1),
-                              ),
-                              TextField(
-                                // controller: _msg,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 1,
-                                    fontSize: 11.5.sp,
-                                    fontFamily: 'get'),
-                                decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(90),
-                                  ),
-                                  disabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(90),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(90),
-                                  ),
-                                  border: InputBorder.none,
-                                  hintText: 'Add Details',
-                                  hintStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      letterSpacing: 1,
-                                      fontFamily: 'get'),
-                                ),
                               ),
                             ],
                           ),
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 73.w,
-                            height: 6.h,
-                            decoration: BoxDecoration(
-                              color: Colors.pink,
-                              borderRadius: BorderRadius.circular(25.sp),
-                            ),
-                            child: Center(
-                                child: Text(
-                              "Get Quote Now",
-                              style: TextStyle(
-                                  fontSize: 15.sp,
-                                  color: Colors.white,
-                                  fontFamily: 'get'),
-                            )),
+                      ),
+                      Text(
+                        'Details',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.sp,
+                            fontFamily: 'sofi',
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1),
+                      ),
+                      TextField(maxLines: 4,
+                        // controller: _msg,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 1,
+                            fontSize: 11.5.sp,
+                            fontFamily: 'get'),
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(20),
                           ),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          border: InputBorder.none,
+                          hintText: 'Add Details',
+                          hintStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 1,
+                              fontFamily: 'get'),
                         ),
-                        SizedBox(
-                          height: 0,
-                        ),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+                SizedBox(height: 2.h),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 87.w,
+                    height: 6.h,
+                    decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.circular(25.sp),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Get Quote Now",
+                        style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                            fontFamily: 'get'),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

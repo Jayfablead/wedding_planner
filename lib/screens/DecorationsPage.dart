@@ -115,23 +115,22 @@ class _DecorationPageState extends State<DecorationPage> {
                                           onTap: () {
                                             Get.to(MoodBordsScreen());
                                           },
-                                          child: Container(
+                                          child: Container(alignment: Alignment.center,
                                             width: 28.w,
-                                            height: 5.h,
+                                            height: 5.2.h,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius:
                                                   BorderRadius.circular(25.sp),
                                             ),
-                                            child: Center(
-                                                child: Text(
+                                            child: Text(
                                               "Book Now",
                                               style: TextStyle(
-                                                  fontSize: 14.sp,
-                                                  color: Colors.pink,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'sofi'),
-                                            )),
+                                              fontSize: 13.sp,
+                                              color: Colors.pink,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'sofi'),
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -178,8 +177,8 @@ class _DecorationPageState extends State<DecorationPage> {
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.symmetric(vertical: 1.h),
-                          child: Column(
-                            children: [
+                          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+crossAxisAlignment: CrossAxisAlignment.center,                            children: [
                               Container(
                                 child: CachedNetworkImage(
                                   imageUrl:
@@ -220,8 +219,7 @@ class _DecorationPageState extends State<DecorationPage> {
                                   onTap: () {Get.to(SupplierfourScreen());},
                                   child: Container(
                                     height: 5.h,
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 3.w),
+                                  width: 39.w,
                                     decoration: BoxDecoration(
                                       color: Colors.pink,
                                       borderRadius:
@@ -231,7 +229,7 @@ class _DecorationPageState extends State<DecorationPage> {
                                         child: Text(
                                       "View Details",
                                       style: TextStyle(
-                                          fontSize: 15.sp,
+                                          fontSize: 13.sp,
                                           color: Colors.white,
                                           fontFamily: 'get'),
                                     )),
@@ -251,8 +249,8 @@ class _DecorationPageState extends State<DecorationPage> {
                       });
                       },
                       child: Container(
-                        width: 70.w,
-                        height: 7.h,margin: EdgeInsets.symmetric(horizontal: 25.w,vertical: 1.h),
+                       margin: EdgeInsets.symmetric(horizontal: 25.w,vertical: 1.h),
+                       padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 1.7.h),
                         decoration: BoxDecoration(
                           color: Colors.pink,
                           borderRadius: BorderRadius.circular(25.sp),
@@ -261,7 +259,7 @@ class _DecorationPageState extends State<DecorationPage> {
                             child: Text(
                               readmore?"Read Less":"Read More",
                               style: TextStyle(
-                                  fontSize: 15.sp,
+                                  fontSize: 14.sp,
                                   color: Colors.white,
                                   fontFamily: 'get'),
                             )),

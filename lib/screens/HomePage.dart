@@ -24,33 +24,47 @@ class cate {
     this.name,
   );
 }
+class cate1 {
+  String? image;
+  String? name;
+  String? desc;
+
+  cate1(
+    this.image,
+    this.name,
+    this.desc,
+  );
+}
 
 List<cate> Categories = [
-  cate(
-      'https://media.weddingz.in/images/bbda52972b1de50671f1b9de639610de/Anais-Events-6.jpg',
-      'Wedding Decor'),
-  cate(
-      'https://i.pinimg.com/originals/1f/84/20/1f8420a90aacebb1e64255bc4d57c5ad.jpg',
-      'Engagement Decor'),
-  cate('https://m.media-amazon.com/images/I/71xdPvVRJwL.jpg',
-      'Anniversary Decor'),
-  cate(
-      'https://content.jdmagicbox.com/comp/surat/z9/0261px261.x261.210715153040.p8z9/catalogue/om-yash-collection-ballon-decoration-vesu-surat-birthday-party-decorators-6evf9oecpb.jpg',
-      'Birthday Decor'),
+  cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
+  cate('https://cdn-icons-png.flaticon.com/512/3436/3436370.png', 'Engagement '),
+  cate('https://cdn-icons-png.flaticon.com/512/6117/6117300.png',
+      'Anniversary '),
+  cate('https://cdn-icons-png.flaticon.com/512/2454/2454313.png', 'Birthday '),
+  cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
 ];
-List<cate> venue = [
-  cate(
+List<cate1> venue = [
+  cate1(
       'https://media.weddingz.in/images/98203e459408c4f2f9c9014d9a6f669f/luxury-wedding-venues-in-surat-that-you-must-check-out-prior-to-finalizing-your-wedding-destination.jpg',
-      'Dining Arrangement'),
-  cate(
+      'Dining',
+      'A Big Hall with sitting'),
+  cate1(
       'https://www.happywedding.app/blog/wp-content/uploads/2022/02/Wedding-Venues-in-Washington-State.jpg',
-      'Garden Sitting Arrangement'),
-  cate(
+      'Garden Sitting',
+      'Sitting Arrangement in Garden'),
+  cate1(
       'https://imgmedia.lbb.in/media/2019/04/5ca1cedf8722f4176f30d878_1554108127903.jpg',
-      'Simple Walk-away Arrangement'),
-  cate(
+      'Simple Walkaway',
+      'A Simple Red Carpet Walking Arena'),
+  cate1(
       'https://image.wedmegood.com/resized/540X/uploads/member/739856/1662626980_IMG_0378.jpg?crop=7,99,1139,641',
-      'Engagement Arrangement'),
+      'Engagement',
+      'An Arrangements for Engagement'),
+  cate1(
+      'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
+      'Royal Decor',
+      'A Royal Decoration venue'),
 
 ];
 TextEditingController _search = TextEditingController();
@@ -91,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           IconButton(
                               onPressed: () {
-                                _scaffoldKey?.currentState?.openDrawer();
+                                _scaffoldKey.currentState?.openDrawer();
                               },
                               icon: Icon(
                                 Icons.menu_rounded,
@@ -101,51 +115,40 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Text(
-                      'Choose a Venue For Your Wedding',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          fontFamily: 'sofi',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color: Colors.black),
-                    ),
+
                   ],
                 ),
               ],
             ),
+            // SizedBox(
+            //   height: 2.h,
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     searchBox(),
+            //     Container(
+            //       margin: EdgeInsets.symmetric(horizontal: 1.w),
+            //       height: 6.5.h,
+            //       width: 14.w,
+            //       child: ClipRRect(
+            //         borderRadius: BorderRadius.circular(90),
+            //         child: CachedNetworkImage(
+            //           fit: BoxFit.cover,
+            //           imageUrl:
+            //               'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+            //           progressIndicatorBuilder: (context, url, progress) =>
+            //               CircularProgressIndicator(),
+            //           errorWidget: (context, url, error) => Image.asset(
+            //             'assets/icons/deprf.png',
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             SizedBox(
-              height: 2.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                searchBox(),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 1.w),
-                  height: 6.5.h,
-                  width: 14.w,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(90),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      imageUrl:
-                          'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
-                      progressIndicatorBuilder: (context, url, progress) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Image.asset(
-                        'assets/icons/deprf.png',
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 3.h,
+              height: 1.h,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -181,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 1.h),
                 Container(
-                  height: 21.h,
+                  height: 15.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
@@ -192,15 +195,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(15),
                             color: Colors.pink.withOpacity(0.2),
                           ),
-                          padding: EdgeInsets.all(2.w),
+                          width: 45.w,
                           margin: EdgeInsets.symmetric(horizontal: 1.5.w),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                height: 12.h,
-                                width: 37.5.w,
+                                height: 8.h,
+                                width: 17.w,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: CachedNetworkImage(
@@ -218,15 +221,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               SizedBox(height: 1.h),
-                              SizedBox(
-                                  width: 37.w,
-                                  child: Text(
-                                    Categories[index].name.toString(),
-                                    style: TextStyle(
-                                        color: Colors.pink,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600),
-                                  )),
+                              Text(
+                                Categories[index].name.toString(),
+                                style: TextStyle(
+                                    color: Colors.pink,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600),
+                              ),
                             ],
                           ));
                     },
@@ -297,22 +298,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onTap: () {
                                   Get.to(MoodBordsScreen());
                                 },
-                                child: Container(
+                                child: Container(alignment: Alignment.center,
                                   width: 28.w,
-                                  height: 5.h,
+                                  height: 5.2.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(25.sp),
+                                    borderRadius:
+                                    BorderRadius.circular(25.sp),
                                   ),
-                                  child: Center(
-                                      child: Text(
+                                  child: Text(
                                     "Book Now",
                                     style: TextStyle(
-                                        fontSize: 14.sp,
+                                        fontSize: 13.sp,
                                         color: Colors.pink,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'sofi'),
-                                  )),
+                                  ),
                                 ),
                               ),
                             ],
@@ -358,83 +359,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 SizedBox(height: 1.h),
-                // SizedBox(
-                //   height: 29.h,
-                //   child: ListView.builder(
-                //       scrollDirection: Axis.horizontal,
-                //       itemBuilder: (context, index) {
-                //         return
-                //           Card(
-                //             elevation: 5,
-                //             shape: RoundedRectangleBorder(
-                //               borderRadius: BorderRadius.circular(20.0),
-                //             ),
-                //             child: Container(
-                //               height: 27.h,
-                //               width: 45.w,
-                //               child: Column(
-                //                 mainAxisAlignment: MainAxisAlignment.start,
-                //                 crossAxisAlignment: CrossAxisAlignment.start,
-                //                 children: [
-                //                   Container(
-                //                     height: 17.h,
-                //                     width: 45.w,
-                //                     child: ClipRRect(
-                //                       borderRadius: BorderRadius.circular(20),
-                //                       child: CachedNetworkImage(
-                //                         fit: BoxFit.fill,
-                //                         imageUrl: venue[index].image ?? '',
-                //                         progressIndicatorBuilder:
-                //                             (context, url, progress) => Center(
-                //                                 child:
-                //                                     CircularProgressIndicator()),
-                //                         errorWidget: (context, url, error) =>
-                //                             Image.asset(
-                //                           'assets/icons/deprf.png',
-                //                         ),
-                //                       ),
-                //                     ),
-                //                   ),
-                //                   Padding(
-                //                     padding: EdgeInsets.symmetric(
-                //                         horizontal: 3.w, vertical: 1.5.h),
-                //                     child: Text(
-                //                       venue[index].name ?? '',
-                //                       style: TextStyle(
-                //                           fontFamily: 'get',
-                //                           fontSize: 15.sp,
-                //                           fontWeight: FontWeight.w600),
-                //                     ),
-                //                   )
-                //                 ],
-                //               ),
-                //             ),
-                //           );
-                //       },
-                //       itemCount: venue.length),
-                // ),
+                Text(
+                  'Choose a Venue For Your Wedding',
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      fontFamily: 'sofi',
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                      color: Colors.black),
+                ), SizedBox(height: 2.h),
                 Container(
-                  height: 28.5.h,
+                  height: 26.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return
                         Container(
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.pink.withOpacity(0.2),
-                            ),
-                            padding: EdgeInsets.all(1.5.w),
-                            margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+width: 45.w,
+                            padding: EdgeInsets.all(1.w),
+margin: EdgeInsets.symmetric(horizontal: 1.w),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 2.w),
+                                  margin: EdgeInsets.symmetric(horizontal: 0.5.w),
                                   padding:EdgeInsets.only(top: 1.5.w) ,
-                                  height: 16.h,
-                                  width: 37.5.w,
+                                  height: 17.h,
+                                  width: 40.w,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: CachedNetworkImage(
@@ -452,15 +404,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 SizedBox(height: 1.h),
-                                SizedBox(
-                                    width: 37.w,
-                                    child: Text(
-                                      venue[index].name.toString(),
-                                      style: TextStyle(
-                                          color: Colors.pink,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w600),
-                                    )),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 1.w),
+                                  child: Text(
+                                    venue[index].name.toString(),
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13.5.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),SizedBox(height: 1.h),
+                                Container(width: 40.w,
+                                  padding: EdgeInsets.only(left: 1.w),
+                                  child: Text(
+                                    venue[index].desc.toString(),overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: Colors.black87,
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
                               ],
                             ));
                     },

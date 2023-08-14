@@ -297,7 +297,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     child: Center(
                       child: Text(
                         "Book Now",
-                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
+                        style: TextStyle(color: Colors.white, fontSize: 14.sp),
                       ),
                     ),
                   ),
@@ -316,7 +316,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         child: Text(
                           "Get a quote Now",
                           style:
-                              TextStyle(color: Colors.white, fontSize: 15.sp),
+                              TextStyle(color: Colors.white, fontSize: 14.sp),
                         ),
                       ),
                     ),

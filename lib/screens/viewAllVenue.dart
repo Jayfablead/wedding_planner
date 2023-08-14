@@ -16,44 +16,60 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class cate {
   String? image;
   String? name;
+  String? desc;
 
   cate(
-      this.image,
-      this.name,
-      );
+    this.image,
+    this.name,
+    this.desc,
+  );
 }
 
 List<cate> venue = [
   cate(
       'https://media.weddingz.in/images/98203e459408c4f2f9c9014d9a6f669f/luxury-wedding-venues-in-surat-that-you-must-check-out-prior-to-finalizing-your-wedding-destination.jpg',
-      'Dining Arrangement'),
+      'Dining',
+      'A Big Hall with sitting'),
   cate(
       'https://www.happywedding.app/blog/wp-content/uploads/2022/02/Wedding-Venues-in-Washington-State.jpg',
-      'Garden Sitting Arrangement'),
+      'Garden Sitting',
+      'Sitting Arrangement in Garden'),
   cate(
       'https://imgmedia.lbb.in/media/2019/04/5ca1cedf8722f4176f30d878_1554108127903.jpg',
-      'Simple Walk-away Arrangement'),
+      'Simple Walkaway',
+      'A Simple Red Carpet Walking Arena'),
   cate(
       'https://image.wedmegood.com/resized/540X/uploads/member/739856/1662626980_IMG_0378.jpg?crop=7,99,1139,641',
-      'Engagement Arrangement'),
+      'Engagement',
+      'An Arrangements for Engagement'),
   cate(
       'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
-      'Royal Decor Arrangement'),
+      'Royal Decor',
+      'A Royal Decoration venue'),
   cate(
       'https://images.squarespace-cdn.com/content/v1/5fc1488e2e34347c7046adff/1608299164655-MKBFB2JIWNX23JIUWZEG/large-conservatory-wedding-venue.jpg',
-      'OutSide Wall House Arrangement'),
+      'OutSide WallHouse',
+      'A Big Hall with sitting'),
   cate(
-      'https://res.cloudinary.com/simplotel/image/upload/w_5000,h_3333/x_288,y_0,w_4445,h_3333,r_0,c_crop,q_80,fl_progressive/w_500,f_auto,c_fit/narayani-heights/weddings_in_Ahmedabad',
-      'Lighting Arrangement'),
+      'https://www.happywedding.app/blog/wp-content/uploads/2022/02/Wedding-Venues-in-Washington-State.jpg',
+      'Garden Sitting',
+      'Sitting Arrangement in Garden'),
   cate(
-      'https://image.wedmegood.com/resized/450X/uploads/member/41807/1455816607_Pic_4.jpg',
-      'Marriage Arrangement'),
+      'https://imgmedia.lbb.in/media/2019/04/5ca1cedf8722f4176f30d878_1554108127903.jpg',
+      'Simple Walkaway',
+      'A Simple Red Carpet Walking Arena'),
   cate(
-      'https://cdn0.weddingwire.in/vendor/8131/3_2/960/jpg/4_15_268131-157259365855992.jpeg',
-      'Engage Arrangement'),
+      'https://image.wedmegood.com/resized/540X/uploads/member/739856/1662626980_IMG_0378.jpg?crop=7,99,1139,641',
+      'Engagement',
+      'An Arrangements for Engagement'),
   cate(
-      'https://image.wedmegood.com/resized/540X/uploads/member/2741886/1642838908_262555629_2094450290730459_3595191562949852360_n.jpg',
-      'Royal Engagement Arrangement'),
+      'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
+      'Royal Decor',
+      'A Royal Decoration venue'),
+  cate(
+      'https://images.squarespace-cdn.com/content/v1/5fc1488e2e34347c7046adff/1608299164655-MKBFB2JIWNX23JIUWZEG/large-conservatory-wedding-venue.jpg',
+      'OutSide WallHouse',
+      'A Big Hall with sitting'),
 ];
 
 class _ViewAllVenueState extends State<ViewAllVenue> {
@@ -82,7 +98,9 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                   Text(
                     "Venue",
                     style: TextStyle(
-                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
+                      fontSize: 15.sp,
+                      fontFamily: 'sofi',
+                      letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -93,53 +111,65 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                       icon: Icon(Icons.menu_rounded))
                 ],
               ),
-              SizedBox(height: 2.h),
+              SizedBox(height: 1.h),
               SizedBox(
                 height: 86.h,
-                child: GridView.builder(padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisSpacing: 0.5.h,mainAxisSpacing: 2.h,childAspectRatio: 0.79/1,
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 0.5.h,
+                      mainAxisSpacing: 1.h,
+                      childAspectRatio: 0.88 / 1,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Container(
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.pink.withOpacity(0.2),
-                        ),
-                        padding: EdgeInsets.all(2.w),
+                        padding: EdgeInsets.all(1.w),
                         margin: EdgeInsets.symmetric(horizontal: 1.5.w),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 15.h,
+                              height: 17.h,
                               width: 52.w,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
                                   imageUrl: venue[index].image.toString(),
-                                  progressIndicatorBuilder: (context, url,
-                                      progress) =>
-                                      Center(child: CircularProgressIndicator()),
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) => Center(
+                                          child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                        'assets/icons/deprf.png',
-                                      ),
+                                    'assets/icons/deprf.png',
+                                  ),
                                 ),
                               ),
                             ),
                             SizedBox(height: 1.h),
-                            Container(margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                width: 40.w,
-                                child: Text(
-                                  venue[index].name.toString(),
-                                  style: TextStyle(
-                                      color: Colors.pink,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600),
-                                )),
+                            Container(
+                              padding: EdgeInsets.only(left: 1.w),
+                              child: Text(
+                                venue[index].name.toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.5.sp,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                            SizedBox(height: 0.5.h),
+                            Container(
+                              padding: EdgeInsets.only(left: 1.w),
+                              child: Text(
+                                venue[index].desc.toString(),
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
                           ],
                         ));
                   },

@@ -154,8 +154,8 @@ class _MyProfileState extends State<MyProfile> {
                 ),
                 SizedBox(height: 0.5.h),
 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
@@ -174,30 +174,15 @@ class _MyProfileState extends State<MyProfile> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
+                        ),SizedBox(
+                          width: 1.h,
+                        ),
+                        Text(
+                          "1",
+                          style: appname,
                         ),
                       ],
-                    ),   SizedBox(
-                      height: 1.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2090),color: Colors.black.withOpacity(0.07)),
-                      width: 90.w,
-                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
-                      child: Text(
-                        "1 Service added",
-                        style: appname,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+                    ),Row(
                       children: [
                         Icon(
                           CupertinoIcons.arrow_up_arrow_down_square,
@@ -214,27 +199,22 @@ class _MyProfileState extends State<MyProfile> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
+                        ),SizedBox(
+                          width: 1.h,
+                        ),
+                        Text(
+                          "2",
+                          style: appname,
                         ),
                       ],
-                    ),   SizedBox(
-                      height: 1.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2090),color:Colors.black.withOpacity(0.07)),
-                      width: 90.w,
-                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
-                      child: Text(
-                        "2 Quotations taken",
-                        style: appname,
-                      ),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 2.h,
-                ),Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  height: 3.h,
+                ),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       children: [
@@ -256,20 +236,14 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ],
                     ),   SizedBox(height:1.h),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2090),color: Colors.black.withOpacity(0.07)),
-                      width: 90.w,
-                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
-                      child: Text(
-                        "7041648493",
-                        style: appname,
-                      ),
+                    Text(
+                      "7041648493",
+                      style: appname,
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 3.h,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,9 +272,9 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),color: Colors.black.withOpacity(0.07)),
+
                       width: 90.w,
-                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
+                      padding: EdgeInsets.symmetric(horizontal: 2.w),
                       child: Text(
                         "Nowhere, Don't know where he lived.",
                         style: appname,
@@ -308,7 +282,7 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                   ],
                 ),SizedBox(
-                  height: 2.h,
+                  height: 3.h,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -337,11 +311,10 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color:Colors.black.withOpacity(0.07)),
-                      width: 90.w,
-                      padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 4.w),
-                      child: Text(
-                        "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
+
+                      width: 95.w,
+                      padding: EdgeInsets.symmetric(horizontal: 2.w),
+                      child: Text("Roronoa Zoro (Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
                         style: appname,
                       ),
                     ),
@@ -372,7 +345,7 @@ class _MyProfileState extends State<MyProfile> {
   );
   TextStyle appname = TextStyle(
     color: Colors.black,
-    fontSize: 12.sp,
+    fontSize: 13.sp,
     fontFamily: 'Poppins',fontWeight: FontWeight.w600,
     letterSpacing: 1.5,
   );
