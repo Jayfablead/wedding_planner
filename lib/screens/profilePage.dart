@@ -66,7 +66,9 @@ class _MyProfileState extends State<MyProfile> {
                     Text(
                       "Profile",
                       style: TextStyle(
-                        fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
+                        fontSize: 15.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -81,7 +83,6 @@ class _MyProfileState extends State<MyProfile> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 1.w),
                       height: 15.h,
@@ -120,10 +121,11 @@ class _MyProfileState extends State<MyProfile> {
                 Center(
                   child: InkWell(
                     onTap: () {
-                      Get.to(() => UpdateProfile(add: "Nowhere, Don't know where he lived.",
+                      Get.to(() => UpdateProfile(
+                            add: "Nowhere, Don't know where he lived.",
                             name: 'Roronoa Zoro',
                             about:
-                                "Roronoa Zoro (ロロノア・ゾロ, Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (海賊狩りのゾロ, Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
+                                "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
                             phone: '7041648493',
                             profile:
                                 'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
@@ -153,14 +155,14 @@ class _MyProfileState extends State<MyProfile> {
                   color: Color(0xff7a7a7a),
                 ),
                 SizedBox(height: 0.5.h),
-
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
                         Icon(
-                        CupertinoIcons.squares_below_rectangle,
+                          CupertinoIcons.squares_below_rectangle,
                           color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
@@ -174,7 +176,8 @@ class _MyProfileState extends State<MyProfile> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
-                        ),SizedBox(
+                        ),
+                        SizedBox(
                           width: 1.h,
                         ),
                         Text(
@@ -182,7 +185,8 @@ class _MyProfileState extends State<MyProfile> {
                           style: appname,
                         ),
                       ],
-                    ),Row(
+                    ),
+                    Row(
                       children: [
                         Icon(
                           CupertinoIcons.arrow_up_arrow_down_square,
@@ -199,7 +203,8 @@ class _MyProfileState extends State<MyProfile> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
-                        ),SizedBox(
+                        ),
+                        SizedBox(
                           width: 1.h,
                         ),
                         Text(
@@ -213,7 +218,7 @@ class _MyProfileState extends State<MyProfile> {
                 SizedBox(
                   height: 3.h,
                 ),
-              Row(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
@@ -235,7 +240,8 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                       ],
-                    ),   SizedBox(height:1.h),
+                    ),
+                    SizedBox(height: 1.h),
                     Text(
                       "7041648493",
                       style: appname,
@@ -267,12 +273,12 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                       ],
-                    ), SizedBox(
+                    ),
+                    SizedBox(
                       height: 1.h,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
-
                       width: 90.w,
                       padding: EdgeInsets.symmetric(horizontal: 2.w),
                       child: Text(
@@ -281,7 +287,8 @@ class _MyProfileState extends State<MyProfile> {
                       ),
                     ),
                   ],
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 3.h,
                 ),
                 Column(
@@ -306,15 +313,16 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                       ],
-                    ), SizedBox(
+                    ),
+                    SizedBox(
                       height: 1.h,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
-
                       width: 95.w,
                       padding: EdgeInsets.symmetric(horizontal: 2.w),
-                      child: Text("Roronoa Zoro (Roronoa Zoro, spelled as \"Roronoa Zolo\" in some English adaptations), also known as \"Pirate Hunter\" Zoro (Kaizoku-Gari no Zoro), is a fictional character created by Japanese manga artist Eiichiro Oda who appears in the manga series and media franchise One Piece.",
+                      child: Text(
+                        "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
                         style: appname,
                       ),
                     ),
@@ -334,19 +342,22 @@ class _MyProfileState extends State<MyProfile> {
   TextStyle header = TextStyle(
     color: Colors.black,
     fontSize: 15.sp,
-    fontFamily: 'sofi',fontWeight: FontWeight.w600,
+    fontFamily: 'sofi',
+    fontWeight: FontWeight.w600,
     letterSpacing: 2,
   );
   TextStyle mail = TextStyle(
     color: Colors.pink,
     fontSize: 13.sp,
-    fontFamily: 'sofi',fontWeight: FontWeight.w600,
+    fontFamily: 'sofi',
+    fontWeight: FontWeight.w600,
     letterSpacing: 2,
   );
   TextStyle appname = TextStyle(
     color: Colors.black,
     fontSize: 13.sp,
-    fontFamily: 'Poppins',fontWeight: FontWeight.w600,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w600,
     letterSpacing: 1.5,
   );
 }

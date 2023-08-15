@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -112,7 +113,7 @@ class _QuotationListState extends State<QuotationList> {
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: 1.h, horizontal: 5.w),
+                            vertical: 2.h, horizontal: 5.w),
                         child: Column(
                           children: [
                             Text(
@@ -124,6 +125,8 @@ class _QuotationListState extends State<QuotationList> {
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 1),
                             ),
+                            SizedBox(height: 1.h),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -162,20 +165,30 @@ class _QuotationListState extends State<QuotationList> {
                               ],
                             ),
                             SizedBox(height: 1.5.h),
-                            Row(
+                            Row(mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      'Details : ',
-                                      style: TextStyle(
-                                          fontSize: 15.sp,
-                                          fontWeight: FontWeight.w600,
-                                          letterSpacing: 1,
-                                          fontFamily: 'sofi',
-                                          color: Colors.black87),
+
+
+                                    Row(mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                    Icon(CupertinoIcons.info_circle,size: 20.sp,),
+                                        SizedBox(width: 1.w,),
+                                        Text(
+                                          'Details : ',
+                                          style: TextStyle(
+                                              fontSize: 15.sp,
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 1,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black87),
+                                        ),
+                                      ],
                                     ),
                                     SizedBox(height: 1.h),
                                     SizedBox(
@@ -198,8 +211,10 @@ class _QuotationListState extends State<QuotationList> {
                             ),
                             SizedBox(height: 1.5.h),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              
                               children: [
+                                Icon(Icons.access_time,size: 20.sp,),
+                                SizedBox(width: 1.w,),
                                 Text(
                                   'Date : ',
                                   style: TextStyle(
@@ -208,7 +223,7 @@ class _QuotationListState extends State<QuotationList> {
                                       letterSpacing: 1,
                                       fontFamily: 'sofi',
                                       color: Colors.black87),
-                                ),
+                                ),SizedBox(width: 2.w,),
                                 Text(
                                   mesgs[index].date ?? '',
                                   style: TextStyle(

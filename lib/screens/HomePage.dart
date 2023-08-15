@@ -197,7 +197,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           width: 45.w,
                           margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                          child: Column(
+                          child:
+                          Column(
                             crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(

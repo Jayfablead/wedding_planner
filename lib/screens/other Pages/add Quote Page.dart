@@ -29,36 +29,33 @@ class _AddQuoteState extends State<AddQuote> {
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
           children: [
-            SizedBox(height: 4.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 3.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                  Text(
-                    '',
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                    ),
+            SizedBox(height: 5.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                Text(
+                  '',
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontFamily: 'sofi',
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
                   ),
-                  IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(Icons.menu_rounded))
-                ],
-              ),
+                ),
+                IconButton(
+                    onPressed: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },
+                    icon: Icon(Icons.menu_rounded))
+              ],
             ),
             Container(
-              height: 30.h,
+              height: 29.h,
               width: 100.w,
               child: Lottie.asset('assets/hrt.json'),
             ),
@@ -78,22 +75,32 @@ class _AddQuoteState extends State<AddQuote> {
                     ),
                   ],
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 1.h),
                 Container(
-                  height: 40.h,
-                  padding: EdgeInsets.symmetric(horizontal: 4.w),
+                  height: 45.h,
+                  padding: EdgeInsets.symmetric(horizontal: 0.w),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Name',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1),
+                      Padding(
+                        padding: EdgeInsets.only(left: 1.w),
+                        child: Row(
+                          children: [
+                            Icon(CupertinoIcons.person),
+                            SizedBox(width: 2.w,),
+
+                            Text(
+                              'Name',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15.sp,
+                                  fontFamily: 'sofi',
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1),
+                            ),
+                          ],
+                        ),
                       ),
                       TextField(
                         // controller: _msg,
@@ -125,14 +132,23 @@ class _AddQuoteState extends State<AddQuote> {
                               fontFamily: 'get'),
                         ),
                       ),
-                      Text(
-                        'Image',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1),
+                      Padding(
+                        padding: EdgeInsets.only(left: 1.w),
+                        child: Row(
+                          children: [ Icon(CupertinoIcons.photo),
+                            SizedBox(width: 2.w,),
+
+                            Text(
+                              'Image',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.sp,
+                                  fontFamily: 'sofi',
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1),
+                            ),
+                          ],
+                        ),
                       ),
                       InkWell(
                         onTap: () async {
@@ -145,7 +161,7 @@ class _AddQuoteState extends State<AddQuote> {
                           print(selectedimage);
                         },
                         child: Container(
-                          width: 42.w,
+                          width: 92.w,
                           decoration: BoxDecoration(
                             color: Colors.pink,
                             borderRadius: BorderRadius.circular(90),
@@ -172,14 +188,24 @@ class _AddQuoteState extends State<AddQuote> {
                           ),
                         ),
                       ),
-                      Text(
-                        'Details',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1),
+                      Padding(
+                        padding: EdgeInsets.only(left: 1.w),
+                        child: Row(
+                          children: [
+                            Icon(CupertinoIcons.info),
+                            SizedBox(width: 2.w,),
+
+                            Text(
+                              'Details',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.sp,
+                                  fontFamily: 'sofi',
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1),
+                            ),
+                          ],
+                        ),
                       ),
                       TextField(maxLines: 4,
                         // controller: _msg,
@@ -218,7 +244,7 @@ class _AddQuoteState extends State<AddQuote> {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    width: 87.w,
+                    width: 92.w,
                     height: 6.h,
                     decoration: BoxDecoration(
                       color: Colors.pink,
