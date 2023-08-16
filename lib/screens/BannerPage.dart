@@ -32,7 +32,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                       },
                       icon: Icon(Icons.arrow_back_ios_new_rounded)),
                   Text(
-                    "Place",
+                    "Posts",
                     style: TextStyle(
                       fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
                       fontWeight: FontWeight.bold,
@@ -84,9 +84,9 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                               height: 1.h,
                             ),
                             Text(
-                              "Place ${index + 1}",
+                              "Post ${index + 1}",
                               style: TextStyle(
-                                fontSize: 10.sp,
+                                fontSize: 13.sp,
                               ),
                             ),
                           ],
@@ -105,7 +105,8 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                       onTap: () {
                         Get.to(SupplierfourScreen());
                       },
-                      child: Container(
+                      child:
+                      Container(
                         margin: EdgeInsets.symmetric(vertical: 1.h),
                         child: Column(
                           children: [
@@ -140,7 +141,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                       CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Place " + '${index + 1}',
+                                      "Post " + '${index + 1}',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 17.sp),

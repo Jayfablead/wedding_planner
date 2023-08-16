@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/MainScreen.dart';
+import 'package:wedding_planner/screens/pages2/fbpage.dart';
 import 'package:wedding_planner/screens/pages2/home2.dart';
 import 'package:wedding_planner/screens/pages2/venue%202.dart';
 
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Home2(),
+          home: MoodBordsScreen(),
           builder: EasyLoading.init(),
         );
       },

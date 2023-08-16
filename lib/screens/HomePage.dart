@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //           progressIndicatorBuilder: (context, url, progress) =>
             //               CircularProgressIndicator(),
             //           errorWidget: (context, url, error) => Image.asset(
-            //             'assets/icons/deprf.png',
+            //             'assets/deprf.png',
             //           ),
             //         ),
             //       ),
@@ -216,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             child: CircularProgressIndicator()),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                      'assets/icons/deprf.png',
+                                      'assets/deprf.png',
                                     ),
                                   ),
                                 ),
@@ -399,7 +399,7 @@ margin: EdgeInsets.symmetric(horizontal: 1.w),
                                           child: CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/icons/deprf.png',
+                                            'assets/deprf.png',
                                           ),
                                     ),
                                   ),

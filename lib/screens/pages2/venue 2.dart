@@ -132,7 +132,7 @@ class _Venue2State extends State<Venue2> {
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     return Container(
-                      height: 17.h,
+                        height: 17.h,
                         padding: EdgeInsets.all(1.w),
                         margin: EdgeInsets.symmetric(horizontal: 1.5.w),
                         child: Row(
@@ -153,7 +153,7 @@ class _Venue2State extends State<Venue2> {
                                           child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                    'assets/icons/deprf.png',
+                                    'assets/deprf.png',
                                   ),
                                 ),
                               ),
@@ -161,8 +161,11 @@ class _Venue2State extends State<Venue2> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(width: 54.w,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                SizedBox(
+                                  width: 54.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
                                         padding: EdgeInsets.only(left: 1.w),
@@ -176,12 +179,19 @@ class _Venue2State extends State<Venue2> {
                                       ),
                                       Row(
                                         children: [
-                                       Icon(Icons.location_on_outlined, color: Colors.black.withOpacity(0.8),),
-                                       SizedBox(width: 1.w,),
+                                          Icon(
+                                            Icons.location_on_outlined,
+                                            color:
+                                                Colors.black.withOpacity(0.8),
+                                          ),
+                                          SizedBox(
+                                            width: 1.w,
+                                          ),
                                           Text(
                                             'USA',
                                             style: TextStyle(
-                                                color: Colors.black.withOpacity(0.8),
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
                                                 fontSize: 12.5.sp,
                                                 fontWeight: FontWeight.w600),
                                           ),
@@ -190,32 +200,38 @@ class _Venue2State extends State<Venue2> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 0.5.h),
-                                RatingBar.builder(
-                                  initialRating: venue[index].Rating!.toDouble(),
-                                  minRating: venue[index].Rating!.toDouble(),
-                                  direction: Axis.horizontal,itemSize: 18.sp,glow: false,
-                                  allowHalfRating: true,
-                                  itemPadding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,size: 8.sp,
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
-                                SizedBox(height: 0.5.h),
+                                SizedBox(height: 1.h),
                                 Container(
                                   padding: EdgeInsets.only(left: 1.w),
                                   width: 55.w,
                                   child: Text(
-                                    venue[index].desc.toString(),maxLines: 4,
+                                    venue[index].desc.toString(),
+                                    maxLines: 2,
                                     style: TextStyle(
-                                        color: Colors.black.withOpacity(0.7),overflow: TextOverflow.ellipsis,
+                                        color: Colors.black.withOpacity(0.7),
+                                        overflow: TextOverflow.ellipsis,
                                         fontSize: 11.sp,
                                         fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                SizedBox(height: 1.5.h),
+                                InkWell(
+                                  onTap: () {
+                                  },
+                                  child: Container(
+                                    width: 35.w,
+                                    padding: EdgeInsets.symmetric(vertical: 1.2.h),
+                                    decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius: BorderRadius.circular(90),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "View Details",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 13.sp),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],

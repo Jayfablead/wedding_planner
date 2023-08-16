@@ -142,7 +142,7 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                                           child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                    'assets/icons/deprf.png',
+                                    'assets/deprf.png',
                                   ),
                                 ),
                               ),

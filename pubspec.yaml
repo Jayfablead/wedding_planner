@@ -43,7 +43,7 @@ dependencies:
   cached_network_image: ^3.2.3
   image_picker:
   flutter_rating_bar: ^4.0.1
-
+  staggered_grid_view_flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
