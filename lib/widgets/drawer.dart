@@ -316,7 +316,7 @@ class _drawer1State extends State<drawer1> {
                                           SizedBox(
                                             width: 2.w,
                                           ),
-                                          Text("Place",
+                                          Text("Posts",
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.bold,

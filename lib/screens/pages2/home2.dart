@@ -592,7 +592,8 @@ class _Home2State extends State<Home2> {
                             ),
                           ),
                         ],
-                      )  :sel == 4?Column(
+                      )  :sel == 4?
+            Column(
               children: [
                 SizedBox(height: 2.h),
                 Row(children: [
@@ -823,7 +824,7 @@ class _Home2State extends State<Home2> {
                                             venue[index].name.toString(),
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontSize: 17.sp,
+                                                fontSize: 15.sp,
                                                 fontFamily: 'sofi',
                                                 fontWeight: FontWeight.w600),
                                           ),
@@ -834,7 +835,7 @@ class _Home2State extends State<Home2> {
                                             venue[index].desc.toString(),
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                                color: Colors.black87,
+                                                color: Colors.black.withOpacity(0.7),
                                                 fontSize: 13.sp,
                                                 fontFamily: 'sofi',
                                                 fontWeight: FontWeight.w600),
