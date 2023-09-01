@@ -172,7 +172,7 @@ class _DecorationPageState extends State<DecorationPage> {
                     SliverGrid.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 2.w,
-                          childAspectRatio: 0.69 / 1,
+                          childAspectRatio: 0.675 / 1,
                           crossAxisCount: 2),
                       itemBuilder: (context, index) {
                         return Container(

@@ -14,8 +14,11 @@ import 'package:wedding_planner/screens/HomePage.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/changePassword.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
+import 'package:wedding_planner/screens/other%20Pages/booking%20page.dart';
 import 'package:wedding_planner/screens/other%20Pages/quotationList.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
+import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
+import 'package:wedding_planner/screens/scrns/foodMenu.dart';
 import 'package:wedding_planner/screens/viewAllVenue.dart';
 import 'package:wedding_planner/screens/view_all%20Categ.dart';
 
@@ -247,7 +250,7 @@ class _drawer1State extends State<drawer1> {
                         SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
-                          Get.to(ChatlistPage());
+                            Get.to(ChatlistPage());
                           },
                           child: Container(
                             child: Row(
@@ -335,7 +338,8 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-                        ),SizedBox(height: 2.h),
+                        ),
+                        SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
                             Get.to(QuotationList());
@@ -380,11 +384,56 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
+                        ), SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            Get.to(BookingsPage());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.bookmark,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Bookings Page",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                         SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
-                          Get.to(ViewAllCategory());
+                            Get.to(ViewAllCategory());
                           },
                           child: Container(
                             child: Row(
@@ -427,10 +476,11 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-                        ),SizedBox(height: 2.h),
+                        ),
+                        SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
-                          Get.to(ViewAllVenue());
+                            Get.to(ViewAllVenue());
                           },
                           child: Container(
                             child: Row(
@@ -449,12 +499,103 @@ class _drawer1State extends State<drawer1> {
                                           Icon(
                                             CupertinoIcons.globe,
                                             color: Colors.black,
-
                                           ),
                                           SizedBox(
                                             width: 2.w,
                                           ),
                                           Text("Venue",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            Get.to(FoodMenusPage());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.fastfood_outlined,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Food Menu",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            Get.to(Accomendation_Page());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.pages_outlined,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Accommodation Page",
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.bold,
@@ -571,7 +712,7 @@ class _drawer1State extends State<drawer1> {
                         ),
                         InkWell(
                           onTap: () async {
-                        Get.offAll(LoginPage());
+                            Get.offAll(LoginPage());
                           },
                           child: Container(
                             child: Row(

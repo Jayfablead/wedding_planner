@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: BookingsPage(),
+          home: MainScreen(),
           builder: EasyLoading.init(),
         );
       },
