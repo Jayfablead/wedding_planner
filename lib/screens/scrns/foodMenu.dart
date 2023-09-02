@@ -143,32 +143,60 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
               SliverToBoxAdapter(
                   child: Column(
                 children: [
-                  SizedBox(height: 1.5.h),
-                  Text(
-                    'Venue\'s name',
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),
-                  ),
                   SizedBox(height: 1.h),
-                  Text(
-                    'Supplier\'s name',
-                    style: TextStyle(
-                        fontSize: 17.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 1.h),
-                  Text(
-                    'Date : 02-09',
-                    style: TextStyle(
-                        fontSize: 17.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
+                          height: 9.h,
+                          width: 20.w,
+                          imageBuilder: (context, imageProvider) => Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(90),
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          placeholder: (context, url) =>
+                              Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        ),
+                      ),
+                      SizedBox(width: 60.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(height: 0.5.h),
+                            Text(
+                              'Hotel Marriott King',
+                              style: TextStyle(
+                                  fontSize: 19.sp,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 1.h),
+                            Text(
+                              'TVC Company',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.bold),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 2.h),
                 ],
@@ -199,7 +227,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: sel == index
-                                            ? Colors.pink.withOpacity(0.25)
+                                            ? Colors.pink
                                             : Colors.white,
                                         borderRadius: BorderRadius.circular(9)),
                                     margin:
@@ -208,6 +236,9 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                         style: TextStyle(
                                             fontSize: 12.5.sp,
                                             fontFamily: 'sofi',
+                                            color: sel == index
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontWeight: FontWeight.bold,
                                             letterSpacing: 1)),
                                   ),
@@ -243,7 +274,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                 Text(
                                   'Recommended ',
                                   style: TextStyle(
-                                      fontSize: 16.sp,
+                                      fontSize: 13.sp,
                                       fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -302,7 +333,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                         Text(
                                           (fooditems[index].name).toString(),
                                           style: TextStyle(
-                                              fontSize: 18.sp,
+                                              fontSize: 16.sp,
                                               fontFamily: 'sofi',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -311,7 +342,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                               (fooditems[index].price)
                                                   .toString(),
                                           style: TextStyle(
-                                              fontSize: 18.sp,
+                                              fontSize: 15.sp,
                                               fontFamily: 'sofi',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -320,7 +351,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                           maxLines: 4,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              fontSize: 17.sp,
+                                              fontSize: 13.sp,
                                               fontFamily: 'sofi',
                                               color:
                                                   Colors.black.withOpacity(0.8),
@@ -383,7 +414,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                 Text(
                                   'Top Rated ',
                                   style: TextStyle(
-                                      fontSize: 16.sp,
+                                      fontSize: 13.sp,
                                       fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -442,7 +473,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                         Text(
                                           (TopRated[index].name).toString(),
                                           style: TextStyle(
-                                              fontSize: 18.sp,
+                                              fontSize: 16.sp,
                                               fontFamily: 'sofi',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -451,7 +482,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                               (TopRated[index].price)
                                                   .toString(),
                                           style: TextStyle(
-                                              fontSize: 18.sp,
+                                              fontSize: 15.sp,
                                               fontFamily: 'sofi',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -460,7 +491,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                           maxLines: 4,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              fontSize: 17.sp,
+                                              fontSize: 13.sp,
                                               fontFamily: 'sofi',
                                               color:
                                                   Colors.black.withOpacity(0.8),
@@ -523,7 +554,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                 Text(
                                   'All time Favourite ',
                                   style: TextStyle(
-                                      fontSize: 16.sp,
+                                      fontSize: 13.sp,
                                       fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -582,7 +613,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                         Text(
                                           (Allfav[index].name).toString(),
                                           style: TextStyle(
-                                              fontSize: 18.sp,
+                                              fontSize: 16.sp,
                                               fontFamily: 'sofi',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -590,7 +621,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                           '\$ ' +
                                               (Allfav[index].price).toString(),
                                           style: TextStyle(
-                                              fontSize: 18.sp,
+                                              fontSize: 15.sp,
                                               fontFamily: 'sofi',
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -599,7 +630,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                           maxLines: 4,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              fontSize: 17.sp,
+                                              fontSize: 13.sp,
                                               fontFamily: 'sofi',
                                               color:
                                                   Colors.black.withOpacity(0.8),
