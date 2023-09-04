@@ -60,65 +60,65 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
               ),
               SliverToBoxAdapter(
                   child: Column(
+                children: [
+                  SizedBox(height: 1.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: 1.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: CachedNetworkImage(
-                              imageUrl:
+                      Container(
+                        child: CachedNetworkImage(
+                          imageUrl:
                               'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
-                              height: 9.h,
-                              width: 20.w,
-                              imageBuilder: (context, imageProvider) => Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(90),
-                                  image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                          height: 9.h,
+                          width: 20.w,
+                          imageBuilder: (context, imageProvider) => Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(90),
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
                               ),
-                              placeholder: (context, url) =>
-                                  Center(child: CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  Icon(Icons.error),
                             ),
                           ),
-                          SizedBox(width: 60.w,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 0.5.h),
-                                Text(
-                                  'Marriott King',
-                                  style: TextStyle(
-                                      fontSize: 19.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(height: 1.h),
-                                Text(
-                                  'TVC Company',
-                                  style: TextStyle(
-                                      fontSize: 18.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold),
-                                ),
-
-                              ],
-                            ),
-                          ),
-                        ],
+                          placeholder: (context, url) =>
+                              Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        ),
                       ),
-                      SizedBox(height: 2.h),
+                      SizedBox(
+                        width: 60.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(height: 0.5.h),
+                            Text(
+                              'Marriott King',
+                              style: TextStyle(
+                                  fontSize: 19.sp,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 1.h),
+                            Text(
+                              'TVC Company',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
-                  )),
+                  ),
+                  SizedBox(height: 2.h),
+                ],
+              )),
               SliverToBoxAdapter(
                 child: Column(
                   children: [
@@ -167,103 +167,147 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                           return Center(
                             child: Container(
                               margin: EdgeInsets.symmetric(horizontal: 2.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              child: Stack(
                                 children: [
-                                  Container(
-                                    child: CachedNetworkImage(
-                                      imageUrl:
-                                          'https://media.cnn.com/api/v1/images/stellar/prod/140127103345-peninsula-shanghai-deluxe-mock-up.jpg?q=w_2226,h_1449,x_0,y_0,c_fill',
-                                      height: 20.h,
-                                      width: 80.w,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(12),
-                                              topLeft: Radius.circular(12)),
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        child: CachedNetworkImage(
+                                          imageUrl:
+                                              'https://media.cnn.com/api/v1/images/stellar/prod/140127103345-peninsula-shanghai-deluxe-mock-up.jpg?q=w_2226,h_1449,x_0,y_0,c_fill',
+                                          height: 20.h,
+                                          width: 80.w,
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topRight: Radius.circular(12),
+                                                  topLeft: Radius.circular(12)),
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
+                                          placeholder: (context, url) => Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
                                         ),
                                       ),
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 80.w,
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 2.w),
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.12),
-                                      borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(8),
-                                          bottomLeft: Radius.circular(8)),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          width: 55.w,
-                                          child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                SizedBox(height: 1.h),
-                                                Text(
-                                                  'Hotel Marriott Luxeriya',
-                                                  style: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      fontFamily: 'sofi',
-                                                      letterSpacing: 1,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                SizedBox(height: 1.h),
-                                                Row(
+                                      Container(
+                                        width: 80.w,
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.withOpacity(0.12),
+                                          borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(8),
+                                              bottomLeft: Radius.circular(8)),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            SizedBox(
+                                              width: 55.w,
+                                              child: Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   children: [
-                                                    Icon(
-                                                        CupertinoIcons
-                                                            .location_solid,
-                                                        color: Colors.pink,
-                                                        size: 12.sp),
+                                                    SizedBox(height: 1.h),
                                                     Text(
-                                                      'Surat, Gujarat',
+                                                      'Hotel Marriott Luxeriya',
                                                       style: TextStyle(
-                                                          fontSize: 12.sp,
+                                                          fontSize: 14.sp,
                                                           fontFamily: 'sofi',
                                                           letterSpacing: 1,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 1.h),
-                                              ]),
+                                                    SizedBox(height: 1.h),
+                                                    Row(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Icon(
+                                                            CupertinoIcons
+                                                                .location_solid,
+                                                            color: Colors.pink,
+                                                            size: 14.sp),
+                                                        SizedBox(width: 0.5.w),
+                                                        Padding(
+                                                          padding:  EdgeInsets.only(top: 0.8.w),
+                                                          child: Text(
+                                                            'Surat, Gujarat',
+                                                            style: TextStyle(
+                                                                fontSize: 12.sp,
+                                                                fontFamily:
+                                                                    'sofi',
+                                                                letterSpacing: 1,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(height: 1.h),
+                                                  ]),
+                                            ),
+                                            SizedBox(
+                                              child: Text(
+                                                '\$ 165',
+                                                style: TextStyle(
+                                                    fontSize: 15.sp,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(
-                                          child: Text(
-                                            '\$ 165',
-                                            style: TextStyle(
-                                                fontSize: 15.sp,
-                                                fontFamily: 'sofi',
-                                                letterSpacing: 1,
-                                                fontWeight: FontWeight.bold),
-                                          ),
+                                      )
+                                    ],
+                                  ),
+                                  Positioned(
+                                      left: 56.5.w,top: 1.6.h,
+                                      child: Container(
+                                        padding: EdgeInsets.all(2.w),
+                                        decoration: BoxDecoration(
+                                            color: Colors.pink,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              color: Colors.white,
+                                              size: 15.sp,
+                                            ),
+                                            Text(
+                                              'Budget',
+                                              style: TextStyle(
+                                                  fontSize: 12.sp,
+                                                  color: Colors.white,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  )
+                                      ))
                                 ],
                               ),
                             ),
@@ -421,6 +465,35 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                               )),
                                         ),
                                       )),
+                                  Positioned(
+                                      left: 26.5.w,
+                                      child: Container(
+                                        padding: EdgeInsets.all(2.w),
+                                        decoration: BoxDecoration(
+                                            color: Colors.pink,
+                                            borderRadius:
+                                            BorderRadius.circular(10)),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              color: Colors.white,
+                                              size: 15.sp,
+                                            ),
+                                            Text(
+                                              'Budget',
+                                              style: TextStyle(
+                                                  fontSize: 12.sp,
+                                                  color: Colors.white,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
+                                      ))
                                 ],
                               ),
                             ),

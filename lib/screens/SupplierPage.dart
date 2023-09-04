@@ -287,17 +287,19 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 5.h,
-                    width: 45.w,
-                    decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.circular(15.sp),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Book Now",
-                        style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                  InkWell(
+                    child: Container(
+                      height: 5.h,
+                      width: 45.w,
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(15.sp),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Add to Budget",
+                          style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                        ),
                       ),
                     ),
                   ),

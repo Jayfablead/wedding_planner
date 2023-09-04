@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -310,80 +311,113 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                           mainAxisSpacing: 1.h),
                       itemCount: fooditems.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 1.w),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 45.w,
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 0.5.h, horizontal: 1.w),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          (fooditems[index].name).toString(),
-                                          style: TextStyle(
-                                              fontSize: 16.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          '\$ ' +
-                                              (fooditems[index].price)
-                                                  .toString(),
-                                          style: TextStyle(
-                                              fontSize: 15.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          fooditems[index].desc ?? '',
-                                          maxLines: 4,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontSize: 13.sp,
-                                              fontFamily: 'sofi',
-                                              color:
-                                                  Colors.black.withOpacity(0.8),
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    child: CachedNetworkImage(
-                                      imageUrl: fooditems[index].image ?? '',
-                                      height: 20.h,
-                                      width: 45.w,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(25.0),
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                          ),
+                        return Stack(
+                          children: [
+                            Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 45.w,
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 0.5.h, horizontal: 1.w),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              (fooditems[index].name).toString(),
+                                              style: TextStyle(
+                                                  fontSize: 16.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              '\$ ' +
+                                                  (fooditems[index].price)
+                                                      .toString(),
+                                              style: TextStyle(
+                                                  fontSize: 15.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              fooditems[index].desc ?? '',
+                                              maxLines: 4,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  color:
+                                                      Colors.black.withOpacity(0.8),
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    ),
+                                      Container(
+                                        child: CachedNetworkImage(
+                                          imageUrl: fooditems[index].image ?? '',
+                                          height: 20.h,
+                                          width: 45.w,
+                                          imageBuilder: (context, imageProvider) =>
+                                              Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(25.0),
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          placeholder: (context, url) => Center(
+                                              child: CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                        ),
+                                      ),
+                                    ]),
+                              ),
+                            ),
+                            Positioned(
+                                left: 72.w,top: 0.5.h,
+                                child: Container(
+                                  padding: EdgeInsets.all(2.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius:
+                                      BorderRadius.circular(10)),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        color: Colors.white,
+                                        size: 15.sp,
+                                      ),
+                                      Text(
+                                        'Budget',
+                                        style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: Colors.white,
+                                            fontFamily: 'sofi',
+                                            letterSpacing: 1,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
                                   ),
-                                ]),
-                          ),
+                                ))
+                          ],
                         );
                       },
                     ),
@@ -450,80 +484,112 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                           mainAxisSpacing: 1.h),
                       itemCount: TopRated.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 1.w),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 45.w,
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 0.5.h, horizontal: 1.w),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          (TopRated[index].name).toString(),
-                                          style: TextStyle(
-                                              fontSize: 16.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          '\$ ' +
-                                              (TopRated[index].price)
-                                                  .toString(),
-                                          style: TextStyle(
-                                              fontSize: 15.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          TopRated[index].desc ?? '',
-                                          maxLines: 4,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontSize: 13.sp,
-                                              fontFamily: 'sofi',
-                                              color:
-                                                  Colors.black.withOpacity(0.8),
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    child: CachedNetworkImage(
-                                      imageUrl: TopRated[index].image ?? '',
-                                      height: 20.h,
-                                      width: 45.w,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(25.0),
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                          ),
+                        return Stack(
+                          children: [
+                            Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 45.w,
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 0.5.h, horizontal: 1.w),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              (TopRated[index].name).toString(),
+                                              style: TextStyle(
+                                                  fontSize: 16.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              '\$ ' +
+                                                  (TopRated[index].price)
+                                                      .toString(),
+                                              style: TextStyle(
+                                                  fontSize: 15.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              TopRated[index].desc ?? '',
+                                              maxLines: 4,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  color:
+                                                      Colors.black.withOpacity(0.8),
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    ),
+                                      Container(
+                                        child: CachedNetworkImage(
+                                          imageUrl: TopRated[index].image ?? '',
+                                          height: 20.h,
+                                          width: 45.w,
+                                          imageBuilder: (context, imageProvider) =>
+                                              Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(25.0),
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          placeholder: (context, url) => Center(
+                                              child: CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                        ),
+                                      ),
+                                    ]),
+                              ),
+                            ),  Positioned(
+                                left: 72.w,top: 0.5.h,
+                                child: Container(
+                                  padding: EdgeInsets.all(2.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius:
+                                      BorderRadius.circular(10)),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        color: Colors.white,
+                                        size: 15.sp,
+                                      ),
+                                      Text(
+                                        'Budget',
+                                        style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: Colors.white,
+                                            fontFamily: 'sofi',
+                                            letterSpacing: 1,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
                                   ),
-                                ]),
-                          ),
+                                ))
+                          ],
                         );
                       },
                     ),
@@ -590,79 +656,112 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                           mainAxisSpacing: 1.h),
                       itemCount: Allfav.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 1.w),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 45.w,
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 0.5.h, horizontal: 1.w),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          (Allfav[index].name).toString(),
-                                          style: TextStyle(
-                                              fontSize: 16.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          '\$ ' +
-                                              (Allfav[index].price).toString(),
-                                          style: TextStyle(
-                                              fontSize: 15.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          Allfav[index].desc ?? '',
-                                          maxLines: 4,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontSize: 13.sp,
-                                              fontFamily: 'sofi',
-                                              color:
-                                                  Colors.black.withOpacity(0.8),
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    child: CachedNetworkImage(
-                                      imageUrl: Allfav[index].image ?? '',
-                                      height: 20.h,
-                                      width: 45.w,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(25.0),
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                          ),
+                        return Stack(
+                          children: [
+                            Card(
+                              elevation: 5,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 45.w,
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 0.5.h, horizontal: 1.w),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              (Allfav[index].name).toString(),
+                                              style: TextStyle(
+                                                  fontSize: 16.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              '\$ ' +
+                                                  (Allfav[index].price).toString(),
+                                              style: TextStyle(
+                                                  fontSize: 15.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              Allfav[index].desc ?? '',
+                                              maxLines: 4,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  color:
+                                                      Colors.black.withOpacity(0.8),
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    ),
+                                      Container(
+                                        child: CachedNetworkImage(
+                                          imageUrl: Allfav[index].image ?? '',
+                                          height: 20.h,
+                                          width: 45.w,
+                                          imageBuilder: (context, imageProvider) =>
+                                              Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(25.0),
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          placeholder: (context, url) => Center(
+                                              child: CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                        ),
+                                      ),
+                                    ]),
+                              ),
+                            ),  Positioned(
+                                left: 72.w,top: 0.5.h,
+                                child:
+                                Container(
+                                  padding: EdgeInsets.all(2.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius:
+                                      BorderRadius.circular(10)),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        color: Colors.white,
+                                        size: 15.sp,
+                                      ),
+                                      Text(
+                                        'Budget',
+                                        style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: Colors.white,
+                                            fontFamily: 'sofi',
+                                            letterSpacing: 1,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
                                   ),
-                                ]),
-                          ),
+                                ))
+                          ],
                         );
                       },
                     ),

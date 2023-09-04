@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -132,7 +133,7 @@ class _Venue2State extends State<Venue2> {
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     return Container(
-                        height: 17.h,
+                        height: 19.h,
                         padding: EdgeInsets.all(1.w),
                         margin: EdgeInsets.symmetric(horizontal: 1.5.w),
                         child: Row(
@@ -141,7 +142,7 @@ class _Venue2State extends State<Venue2> {
                           children: [
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 15.h,
+                              height: 17.h,
                               width: 30.w,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
@@ -214,25 +215,69 @@ class _Venue2State extends State<Venue2> {
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
-                                SizedBox(height: 1.5.h),
-                                InkWell(
-                                  onTap: () {
-                                  },
-                                  child: Container(
-                                    width: 35.w,
-                                    padding: EdgeInsets.symmetric(vertical: 1.2.h),
-                                    decoration: BoxDecoration(
-                                      color: Colors.pink,
-                                      borderRadius: BorderRadius.circular(90),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "View Details",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 13.sp),
+                                SizedBox(height: 1.h),
+                                Text(
+                                  '\$ 25000',
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.8),
+                                      fontSize: 12.5.sp,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                SizedBox(height: 1.h),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {},
+                                      child:
+                                      Container(
+                                        padding: EdgeInsets.symmetric(horizontal:4.w,vertical: 1.h),
+                                        decoration: BoxDecoration(
+                                            color: Colors.pink,
+                                            borderRadius:
+                                            BorderRadius.circular(90)),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              color: Colors.white,
+                                              size: 15.sp,
+                                            ),
+                                            Text(
+                                              'Budget',
+                                              style: TextStyle(
+                                                  fontSize: 11.sp,
+                                                  color: Colors.white,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),SizedBox(width: 0.5.w),
+                                    InkWell(
+                                      onTap: () {},
+                                      child:
+                                      Container(
+                                        padding: EdgeInsets.symmetric(horizontal:3.w,vertical: 1.3.h),
+                                        decoration: BoxDecoration(
+                                            color: Colors.pink,
+                                            borderRadius:
+                                            BorderRadius.circular(90)),
+                                        child: Text(
+                                          'View Details',
+                                          style: TextStyle(
+                                              fontSize: 11.sp,
+                                              color: Colors.white,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
                               ],
                             ),

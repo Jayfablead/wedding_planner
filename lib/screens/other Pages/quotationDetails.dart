@@ -430,7 +430,26 @@ class _QuatationsDetailsState extends State<QuatationsDetails> {
                     );
                   },
                 ),
-              )
+              ),SizedBox(height: 1.5.h),Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    child: Container(
+                      height: 5.5.h,
+                      width: 85.w,
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(60.sp),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Add to Budget",
+                          style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),SizedBox(height: 2.h),
             ],
           ),
         ),
