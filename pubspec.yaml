@@ -45,6 +45,9 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   staggered_grid_view_flutter:
   glassmorphism: ^3.0.0
+  font_awesome_flutter: ^10.5.0
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -100,6 +103,10 @@ flutter:
     - family: popins
       fonts:
            - asset: assets/fonts/Poppins-ExtraLight.ttf
+             weight: 900
+    - family: wedd
+      fonts:
+           - asset: assets/fonts/Brightwall_Dafont.otf
              weight: 900
   #
   # For details regarding fonts from package dependencies,
