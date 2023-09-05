@@ -70,7 +70,18 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   children: [
 
                     SizedBox(
-                      height: 7.h,
+                      height: 6.h,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(onTap: (){
+                          Get.back();
+                        },
+                          child: Container(margin: EdgeInsets.only(left: 3.w),
+                            padding: EdgeInsets.all(0.7.h),
+                            decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 2),borderRadius: BorderRadius.circular(90)),child: Icon(Icons.arrow_back_ios_new_rounded), ),
+                        ),
+                      ],
                     ),
                     Column(
                       children: [
