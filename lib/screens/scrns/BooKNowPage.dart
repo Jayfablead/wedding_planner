@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/pages2/BookingSuccessfulPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:intl/intl.dart';
 
@@ -658,7 +659,9 @@ class _BooKNowPageState extends State<BooKNowPage> {
               ),
 
               Center(
-                child: InkWell(
+                child: InkWell(onTap: () {
+                  Get.offAll(BookingSuccessfulPage());
+                },
                   child: Container(
                     height: 6.h,
                     width: 86.w,
