@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/scrns/BooKNowPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class BookingDetailsPage extends StatefulWidget {
@@ -12,7 +13,6 @@ class BookingDetailsPage extends StatefulWidget {
 }
 
 class _BookingDetailsPageState extends State<BookingDetailsPage> {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -55,7 +55,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                 ],
               ),
               Image.network(
-                "https://cdn.pixabay.com/photo/2013/07/13/11/50/car-158795_640.png",
+                "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
                 height: 35.h,
               ),
               Text(
@@ -240,25 +240,49 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
               SizedBox(
                 height: 5.h,
               ),
-              Center(
-                child: InkWell(
-                  child: Container(
-                    height: 6.h,
-                    width: 86.w,
-                    decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.circular(25.sp),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    child: Container(
+                      height: 5.5.h,
+                      width: 45.w,
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(25.sp),
+                      ),
+                      child: Center(
+                          child: Text(
+                        "Add to Budget",
+                        style: TextStyle(
+                            fontSize: 13.sp,
+                            color: Colors.white,
+                            fontFamily: 'get'),
+                      )),
                     ),
-                    child: Center(
-                        child: Text(
-                      "Book Now",
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          color: Colors.white,
-                          fontFamily: 'get'),
-                    )),
                   ),
-                ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(BooKNowPage());
+                    },
+                    child: Container(
+                      height: 5.5.h,
+                      width: 45.w,
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(25.sp),
+                      ),
+                      child: Center(
+                          child: Text(
+                        "Book Now",
+                        style: TextStyle(
+                            fontSize: 13.sp,
+                            color: Colors.white,
+                            fontFamily: 'get'),
+                      )),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 5.h,

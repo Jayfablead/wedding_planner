@@ -33,8 +33,13 @@ class book {
 }
 
 List<book> booka = [
-  book('https://cdn.pixabay.com/photo/2013/07/13/11/50/car-158795_640.png',
-      '2People ', "525/", "Km", "Gasoline", "Manual"),
+  book(
+      'https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png',
+      '2People ',
+      "525/",
+      "Km",
+      "Gasoline",
+      "Manual"),
   book('https://freepngimg.com/thumb/car/4-2-car-png-hd.png', '4People', "52/",
       "Km", "Diesel", "Automatic"),
   book(
@@ -63,7 +68,7 @@ List<book> booka = [
 ];
 List cate = ['All', 'Featured Cars', 'Family Car', 'Luxury Car', 'Top Rated'];
 
-int sel = 1;
+int sel = 0;
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -121,15 +126,13 @@ class _BookingListPageState extends State<BookingListPage> {
                             width: 1.w,
                           ),
                           Container(
-                              padding: EdgeInsets.all(2.w),
+                              padding: EdgeInsets.all(2.8.w),
                               decoration: BoxDecoration(
                                   color: Colors.pink,
                                   borderRadius: BorderRadius.circular(11)),
-                              child: Center(
-                                child: Icon(
-                                  Icons.filter_list_sharp,
-                                  color: Colors.white,
-                                ),
+                              child: Icon(
+                                CupertinoIcons.sort_up_circle,
+                                color: Colors.white,
                               )),
                         ],
                       ),
@@ -190,7 +193,7 @@ class _BookingListPageState extends State<BookingListPage> {
                       height: 3.h,
                     ),
                     Text(
-                      'Select Tansportation ',
+                      'Select Transportation ',
                       style: TextStyle(
                           fontSize: 16.sp,
                           fontFamily: 'sofi',
@@ -357,9 +360,10 @@ class _BookingListPageState extends State<BookingListPage> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            InkWell(onTap: () {
-                              Get.to(BookingDetailsPage());
-                            },
+                            InkWell(
+                              onTap: () {
+                                Get.to(BookingDetailsPage());
+                              },
                               child: Container(
                                 height: 5.h,
                                 width: 39.w,
@@ -369,7 +373,7 @@ class _BookingListPageState extends State<BookingListPage> {
                                 ),
                                 child: Center(
                                     child: Text(
-                                  "Book Now",
+                                  "View Details",
                                   style: TextStyle(
                                       fontSize: 13.sp,
                                       color: Colors.white,
@@ -378,8 +382,6 @@ class _BookingListPageState extends State<BookingListPage> {
                               ),
                             ),
                           ]),
-
-
                     ],
                   ),
                 );

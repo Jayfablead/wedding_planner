@@ -46,6 +46,11 @@ dependencies:
   staggered_grid_view_flutter:
   glassmorphism: ^3.0.0
   font_awesome_flutter: ^10.5.0
+  intl:
+  smooth_page_indicator: ^1.1.0
+  carousel_slider: ^4.2.1
+  readmore: ^2.2.0
+
 
 
 dev_dependencies:

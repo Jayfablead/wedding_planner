@@ -801,7 +801,7 @@ class _drawer1State extends State<drawer1> {
                           ),
                         ),
                         SizedBox(
-                          height: 6.h,
+                          height: 4.h,
                         ),
                         InkWell(
                           onTap: () async {

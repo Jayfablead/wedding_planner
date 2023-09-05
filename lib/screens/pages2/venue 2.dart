@@ -95,199 +95,242 @@ class _Venue2State extends State<Venue2> {
       key: _scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 5.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: CustomScrollView(slivers: [
+          SliverToBoxAdapter(
+              child: Container(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                  Text(
-                    "Venue",
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  SizedBox(
+                    height: 5.h,
                   ),
-                  IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(Icons.menu_rounded))
-                ],
-              ),
-              SizedBox(height: 1.h),
-              SizedBox(
-                height: 86.h,
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemBuilder: (context, index) {
-                    return Container(
-                        height: 19.h,
-                        padding: EdgeInsets.all(1.w),
-                        margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 17.h,
-                              width: 30.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: venue[index].image.toString(),
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/deprf.png',
-                                  ),
-                                ),
-                              ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                      Text(
+                        "Venue",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            _scaffoldKey.currentState?.openDrawer();
+                          },
+                          icon: Icon(Icons.menu_rounded))
+                    ],
+                  ),
+                  SizedBox(height: 1.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      searchBox(),
+                      Container(
+                          padding: EdgeInsets.all(2.8.w),
+                          decoration: BoxDecoration(
+                              color: Colors.pink,
+                              borderRadius: BorderRadius.circular(11)),
+                          child: Icon(
+                            CupertinoIcons.sort_up_circle,
+                            color: Colors.white,
+                          )),
+                    ],
+                  ),
+                  SizedBox(height: 2.h),
+                ]),
+          )),
+          SliverList.builder(
+            itemBuilder: (context, index) {
+              return Container(
+                  height: 19.h,
+                  padding: EdgeInsets.all(1.w),
+                  margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 1.w),
+                        height: 17.h,
+                        width: 30.w,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CachedNetworkImage(
+                            fit: BoxFit.cover,
+                            imageUrl: venue[index].image.toString(),
+                            progressIndicatorBuilder:
+                                (context, url, progress) =>
+                                    Center(child: CircularProgressIndicator()),
+                            errorWidget: (context, url, error) => Image.asset(
+                              'assets/deprf.png',
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 54.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SizedBox(
-                                  width: 54.w,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.only(left: 1.w),
-                                        child: Text(
-                                          venue[index].name.toString(),
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 12.5.sp,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.location_on_outlined,
-                                            color:
-                                                Colors.black.withOpacity(0.8),
-                                          ),
-                                          SizedBox(
-                                            width: 1.w,
-                                          ),
-                                          Text(
-                                            'USA',
-                                            style: TextStyle(
-                                                color: Colors.black
-                                                    .withOpacity(0.8),
-                                                fontSize: 12.5.sp,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(height: 1.h),
                                 Container(
                                   padding: EdgeInsets.only(left: 1.w),
-                                  width: 55.w,
                                   child: Text(
-                                    venue[index].desc.toString(),
-                                    maxLines: 2,
+                                    venue[index].name.toString(),
                                     style: TextStyle(
-                                        color: Colors.black.withOpacity(0.7),
-                                        overflow: TextOverflow.ellipsis,
-                                        fontSize: 11.sp,
+                                        color: Colors.black,
+                                        fontSize: 12.5.sp,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
-                                SizedBox(height: 1.h),
-                                Text(
-                                  '\$ 25000',
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.8),
-                                      fontSize: 12.5.sp,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                SizedBox(height: 1.h),
                                 Row(
                                   children: [
-                                    InkWell(
-                                      onTap: () {},
-                                      child:
-                                      Container(
-                                        padding: EdgeInsets.symmetric(horizontal:4.w,vertical: 1.h),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink,
-                                            borderRadius:
-                                            BorderRadius.circular(90)),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              CupertinoIcons.add,
-                                              color: Colors.white,
-                                              size: 15.sp,
-                                            ),
-                                            Text(
-                                              'Budget',
-                                              style: TextStyle(
-                                                  fontSize: 11.sp,
-                                                  color: Colors.white,
-                                                  fontFamily: 'sofi',
-                                                  letterSpacing: 1,
-                                                  fontWeight: FontWeight.bold),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),SizedBox(width: 0.5.w),
-                                    InkWell(
-                                      onTap: () {},
-                                      child:
-                                      Container(
-                                        padding: EdgeInsets.symmetric(horizontal:3.w,vertical: 1.3.h),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink,
-                                            borderRadius:
-                                            BorderRadius.circular(90)),
-                                        child: Text(
-                                          'View Details',
-                                          style: TextStyle(
-                                              fontSize: 11.sp,
-                                              color: Colors.white,
-                                              fontFamily: 'sofi',
-                                              letterSpacing: 1,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
+                                    Icon(
+                                      Icons.location_on_outlined,
+                                      color: Colors.black.withOpacity(0.8),
+                                    ),
+                                    SizedBox(
+                                      width: 1.w,
+                                    ),
+                                    Text(
+                                      'USA',
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.8),
+                                          fontSize: 12.5.sp,
+                                          fontWeight: FontWeight.w600),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-                          ],
-                        ));
-                  },
-                  itemCount: venue.length,
-                ),
-              )
-            ]),
+                          ),
+                          SizedBox(height: 1.h),
+                          Container(
+                            padding: EdgeInsets.only(left: 1.w),
+                            width: 55.w,
+                            child: Text(
+                              venue[index].desc.toString(),
+                              maxLines: 2,
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  overflow: TextOverflow.ellipsis,
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                          SizedBox(height: 1.h),
+                          Text(
+                            '\$ 25000',
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.8),
+                                fontSize: 12.5.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(height: 1.h),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 4.w, vertical: 1.h),
+                                  decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius: BorderRadius.circular(90)),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        color: Colors.white,
+                                        size: 15.sp,
+                                      ),
+                                      Text(
+                                        'Budget',
+                                        style: TextStyle(
+                                            fontSize: 11.sp,
+                                            color: Colors.white,
+                                            fontFamily: 'sofi',
+                                            letterSpacing: 1,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 0.5.w),
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 3.w, vertical: 1.3.h),
+                                  decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius: BorderRadius.circular(90)),
+                                  child: Text(
+                                    'View Details',
+                                    style: TextStyle(
+                                        fontSize: 11.sp,
+                                        color: Colors.white,
+                                        fontFamily: 'sofi',
+                                        letterSpacing: 1,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ));
+            },
+            itemCount: venue.length,
+          ),
+        ]),
+      ),
+    );
+  }
+
+  Widget searchBox() {
+    return Container(
+      width: 80.w,
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: TextField(
+        // controller: _search,
+        onChanged: (value) {},
+        style: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black,
+            size: 20,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 20,
+            minWidth: 25,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        ),
       ),
     );
   }

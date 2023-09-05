@@ -143,7 +143,7 @@ class _MyProfileState extends State<MyProfile> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 13.sp,
-                          fontFamily: 'Poppins',
+                          fontFamily: 'sofi',
                           letterSpacing: 2,
                         ),
                       ),
@@ -173,8 +173,8 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
+                              fontFamily: "sofi",
+                              fontWeight: FontWeight.w600,
                               fontSize: 13.sp),
                         ),
                         SizedBox(
@@ -200,8 +200,8 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
+                              fontFamily: "sofi",
+                              fontWeight: FontWeight.w600,
                               fontSize: 13.sp),
                         ),
                         SizedBox(
@@ -235,8 +235,8 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
+                              fontFamily: "sofi",
+                              fontWeight: FontWeight.w600,
                               fontSize: 13.sp),
                         ),
                       ],
@@ -268,8 +268,8 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
+                              fontFamily: "sofi",
+                              fontWeight: FontWeight.w600,
                               fontSize: 13.sp),
                         ),
                       ],
@@ -308,8 +308,8 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
+                              fontFamily: "sofi",
+                              fontWeight: FontWeight.w600,
                               fontSize: 13.sp),
                         ),
                       ],
@@ -354,9 +354,9 @@ class _MyProfileState extends State<MyProfile> {
     letterSpacing: 2,
   );
   TextStyle appname = TextStyle(
-    color: Colors.black,
+    color: Colors.black.withOpacity(0.75),
     fontSize: 13.sp,
-    fontFamily: 'Poppins',
+    fontFamily: 'sofi',
     fontWeight: FontWeight.w600,
     letterSpacing: 1.5,
   );

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -80,103 +81,154 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
       key: _scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 5.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                  Text(
-                    "Venue",
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 5.h,
                     ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(Icons.menu_rounded))
-                ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                        Text(
+                          "Venue",
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              _scaffoldKey.currentState?.openDrawer();
+                            },
+                            icon: Icon(Icons.menu_rounded))
+                      ],
+                    ),
+                    SizedBox(height: 1.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        searchBox(),
+                        Container(
+                            padding: EdgeInsets.all(2.8.w),
+                            decoration: BoxDecoration(
+                                color: Colors.pink,
+                                borderRadius: BorderRadius.circular(11)),
+                            child: Icon(
+                              CupertinoIcons.sort_up_circle,
+                              color: Colors.white,
+                            )),
+                      ],
+                    ),
+                    SizedBox(height: 2.h),
+                  ],
+                ),
               ),
-              SizedBox(height: 1.h),
-              SizedBox(
-                height: 86.h,
-                child: GridView.builder(
-                  padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisSpacing: 0.5.h,
-                      mainAxisSpacing: 1.h,
-                      childAspectRatio: 0.88 / 1,
-                      crossAxisCount: 2),
-                  itemBuilder: (context, index) {
-                    return Container(
-                        padding: EdgeInsets.all(1.w),
-                        margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 17.h,
-                              width: 52.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: venue[index].image.toString(),
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
+            ),  SliverGrid.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 0.5.h,
+                  mainAxisSpacing: 1.h,
+                  childAspectRatio: 0.88 / 1,
+                  crossAxisCount: 2),
+              itemBuilder: (context, index) {
+                return Container(
+                    padding: EdgeInsets.all(1.w),
+                    margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          height: 17.h,
+                          width: 52.w,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: venue[index].image.toString(),
+                              progressIndicatorBuilder:
+                                  (context, url, progress) => Center(
+                                  child: CircularProgressIndicator()),
+                              errorWidget: (context, url, error) =>
+                                  Image.asset(
                                     'assets/deprf.png',
                                   ),
-                                ),
-                              ),
                             ),
-                            SizedBox(height: 1.h),
-                            Container(
-                              padding: EdgeInsets.only(left: 1.w),
-                              child: Text(
-                                venue[index].name.toString(),
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 12.5.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                            SizedBox(height: 0.5.h),
-                            Container(
-                              padding: EdgeInsets.only(left: 1.w),
-                              child: Text(
-                                venue[index].desc.toString(),
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    color: Colors.black87,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ],
-                        ));
-                  },
-                  itemCount: venue.length,
-                ),
-              )
-            ]),
+                          ),
+                        ),
+                        SizedBox(height: 1.h),
+                        Container(
+                          padding: EdgeInsets.only(left: 1.w),
+                          child: Text(
+                            venue[index].name.toString(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.5.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        SizedBox(height: 0.5.h),
+                        Container(
+                          padding: EdgeInsets.only(left: 1.w),
+                          child: Text(
+                            venue[index].desc.toString(),
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ],
+                    ));
+              },
+              itemCount: venue.length,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget searchBox() {
+    return Container(
+      width: 80.w,
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: TextField(
+        // controller: _search,
+        onChanged: (value) {},
+        style: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black,
+            size: 20,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 20,
+            minWidth: 25,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        ),
       ),
     );
   }

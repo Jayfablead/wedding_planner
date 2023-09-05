@@ -3,18 +3,21 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
-import 'package:wedding_planner/screens/Signup2.dart';
 
 import 'LoginPage.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class Signup2 extends StatefulWidget {
+  String? fname;
+  String? lname;
+  String? email;
+
+  Signup2({super.key, this.email, this.fname, this.lname});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<Signup2> createState() => _Signup2State();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _Signup2State extends State<Signup2> {
   TextEditingController _firstname = TextEditingController();
   TextEditingController _lastname = TextEditingController();
   TextEditingController _phone = TextEditingController();
@@ -36,16 +39,16 @@ class _SignupPageState extends State<SignupPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 5.h,
+                  height: 6.h,
                 ),
-
                 Stack(
                   children: [
                     Container(
                       height: 30.h,
                       width: 100.w,
                       child: Lottie.asset('assets/hrt.json'),
-                    ), InkWell(
+                    ),
+                    InkWell(
                       onTap: () {
                         Get.back();
                       },
@@ -91,7 +94,7 @@ class _SignupPageState extends State<SignupPage> {
                             color: Colors.black),
                       ),
                       Text(
-                        ' 1 of 2 ',
+                        ' 2 of 2 ',
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: 'sofi',
@@ -109,131 +112,25 @@ class _SignupPageState extends State<SignupPage> {
                         height: 1.h,
                         width: 40.w,
                         decoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Colors.grey,
                             borderRadius: BorderRadius.circular(50)),
                       ),
                       Container(
                         height: 1.h,
                         width: 40.w,
                         decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Colors.pink,
                             borderRadius: BorderRadius.circular(50)),
                       ),
                     ]),
                 SizedBox(height: 3.h),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "First Name",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    TextFormField(
-                      controller: _firstname,
-                      decoration: InputDecoration(
-                        hintText: 'Enter First Name',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        errorStyle: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 0.7,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter First Name';
-                        }
-                        return null;
-                      },
-                      keyboardType: TextInputType.name,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 2.h),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Last Name",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    TextFormField(
-                      controller: _lastname,
-                      decoration: InputDecoration(
-                        hintText: 'Enter Last Name',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(90),
-                        ),
-                        errorStyle: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 0.7,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter Last Name';
-                        }
-                        return null;
-                      },
-                      keyboardType: TextInputType.name,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
                 Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Email Address",
+                          "Phone Number",
                           style: TextStyle(
                               fontSize: 14.sp,
                               letterSpacing: 1,
@@ -247,9 +144,9 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(
                           width: 92.w,
                           child: TextFormField(
-                            controller: _email,
+                            controller: _phone,
                             decoration: InputDecoration(
-                              hintText: 'Enter Email Address',
+                              hintText: 'Enter Last Name',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black87),
                                 borderRadius: BorderRadius.circular(90),
@@ -274,24 +171,169 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please enter your Email Address';
+                                return 'Please enter your Last Name';
                               }
                               return null;
                             },
-                            keyboardType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ],
                     ),
                   ],
                 ),
-
+                SizedBox(
+                  height: 2.h,
+                ),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Password",
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              letterSpacing: 1,
+                              fontFamily: 'Sofi',
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        SizedBox(
+                          width: 92.w,
+                          child: TextFormField(
+                            obscureText: _obscurePassword,
+                            controller: _password,
+                            decoration: InputDecoration(
+                              hintText: 'Enter Password',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              disabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              errorStyle: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 0.7,
+                                  fontWeight: FontWeight.bold),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                    _obscurePassword
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                    color: Colors.grey),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscurePassword = !_obscurePassword;
+                                  });
+                                },
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your Password';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Confirm Password",
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              letterSpacing: 1,
+                              fontFamily: 'Sofi',
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        SizedBox(
+                          width: 92.w,
+                          child: TextFormField(
+                            obscureText: _obscurePassword1,
+                            controller: _password1,
+                            decoration: InputDecoration(
+                              hintText: 'Enter Confirm Password',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              disabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black87),
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              errorStyle: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 0.7,
+                                  fontWeight: FontWeight.bold),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                    _obscurePassword1
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                    color: Colors.grey),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscurePassword1 = !_obscurePassword1;
+                                  });
+                                },
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your Confrom Password';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: 4.h,
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(Signup2(email: _email.text,fname: _firstname.text,lname: _lastname.text,));
+                    Get.off(HomeScreen());
                   },
                   child: Container(
                     width: 90.w,
@@ -302,7 +344,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     child: Center(
                         child: Text(
-                      "Continue",
+                      "Sign up",
                       style: TextStyle(
                           fontSize: 17.sp,
                           color: Colors.white,
@@ -310,55 +352,6 @@ class _SignupPageState extends State<SignupPage> {
                     )),
                   ),
                 ),
-                SizedBox(height: 01.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                        width: 40.w,
-                        child: Divider(color: Colors.black, thickness: 1)),
-                    Text(
-                      "Or",
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'sofi'),
-                    ),
-                    SizedBox(
-                        width: 40.w,
-                        child: Divider(
-                          color: Colors.black,
-                          thickness: 1,
-                        )),
-                  ],
-                ),
-                SizedBox(height: 1.h),
-                Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Already a User ?',
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.bold),
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            Get.to(LoginPage());
-                          },
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                letterSpacing: 1,
-                                fontFamily: 'sofi',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.pink),
-                          ))
-                    ]),
                 SizedBox(
                   height: 2.h,
                 ),
