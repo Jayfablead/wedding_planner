@@ -19,6 +19,7 @@ import 'package:wedding_planner/screens/other%20Pages/quotationList.dart';
 import 'package:wedding_planner/screens/pages2/venue%202.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
 import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
+import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
 import 'package:wedding_planner/screens/scrns/foodMenu.dart';
 import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 import 'package:wedding_planner/screens/viewAllVenue.dart';
@@ -551,6 +552,51 @@ class _drawer1State extends State<drawer1> {
                                             width: 2.w,
                                           ),
                                           Text("Venue",
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.chevron_right_rounded,
+                                        color: Colors.black,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),SizedBox(height: 2.h),
+                        InkWell(
+                          onTap: () {
+                            Get.to(BookingListPage());
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 6.w,
+                                ),
+                                Container(
+                                  width: 64.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.car_detailed,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text("Transportation",
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 fontWeight: FontWeight.bold,
