@@ -12,7 +12,6 @@ class BookingSuccessfulPage extends StatefulWidget {
 }
 
 class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -34,10 +33,11 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(null)),
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(null),
+                  ),
                   Text(
                     "Booking Successful",
                     style: TextStyle(
@@ -70,7 +70,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               SizedBox(
                 height: 1.h,
               ),
-
 
               // Column(
               //   children: [
@@ -212,9 +211,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               //   ],
               // ),
 
-
-
-
               Container(
                 height: 10.h,
                 width: 110.w,
@@ -266,8 +262,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   ),
                 ),
               ),
-
-
 
               Container(
                 height: 10.h,
@@ -358,15 +352,13 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                 ),
               ),
 
-
-
               Container(
                 height: 10.h,
                 width: 110.w,
                 child: Card(
                   child: Padding(
                     padding:
-                    EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
+                        EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -454,8 +446,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                 ),
               ),
 
-
-
               Container(
                 height: 14.h,
                 width: 110.w,
@@ -513,8 +503,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                 ),
               ),
 
-
-
               Container(
                 height: 14.h,
                 width: 110.w,
@@ -571,7 +559,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
