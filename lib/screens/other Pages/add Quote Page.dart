@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,11 +55,61 @@ class _AddQuoteState extends State<AddQuote> {
                     icon: Icon(Icons.menu_rounded))
               ],
             ),
-            Container(
-              height: 29.h,
-              width: 100.w,
-              child: Lottie.asset('assets/hrt.json'),
-            ),
+            SizedBox(height: 1.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  child: CachedNetworkImage(
+                    imageUrl:
+                    'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
+                    height: 9.h,
+                    width: 20.w,
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(90),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    placeholder: (context, url) =>
+                        Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        Icon(Icons.error),
+                  ),
+                ),
+                SizedBox(width: 60.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 0.5.h),
+                      Text(
+                        'Hotel Marriott King',
+                        style: TextStyle(
+                            fontSize: 19.sp,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 1.h),
+                      Text(
+                        'TVC Company',
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.bold),
+                      ),
+
+                    ],
+                  ),
+                ),
+              ],
+            ),  SizedBox(height: 4.h),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

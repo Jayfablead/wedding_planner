@@ -13,6 +13,7 @@ import 'package:wedding_planner/screens/pages2/fbpage.dart';
 import 'package:wedding_planner/screens/pages2/home2.dart';
 import 'package:wedding_planner/screens/pages2/venue%202.dart';
 import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
+import 'package:wedding_planner/screens/scrns/MainScreen2.dart';
 import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
 import 'package:wedding_planner/screens/scrns/foodMenu.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: MainScreen(),
+          home: Main2(),
           builder: EasyLoading.init(),
         );
       },
