@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/screens/other%20Pages/updatePtofile.dart';
+import 'package:wedding_planner/screens/pages2/editprofilepage2.dart';
 
 import '../widgets/drawer.dart';
 
@@ -42,298 +40,441 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       drawer: drawer1(),
       key: _scaffoldKey,
       // Colors.black
 
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.w),
-            child: Column(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage(
+            'assets/profile.png',
+          ),
+        )),
+        padding: EdgeInsets.symmetric(horizontal: 3.w),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 5.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  height: 5.h,
+                IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      color: Colors.white,
+                    )),
+                Text(
+                  "Profile",
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontFamily: 'sofi',
+                    letterSpacing: 1,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                IconButton(
+                    onPressed: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },
+                    icon: Icon(
+                      Icons.menu_rounded,
+                      color: Colors.white,
+                    ))
+              ],
+            ),
+            SizedBox(height: 2.h),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                    Text(
-                      "Profile",
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(Icons.menu_rounded))
-                  ],
-                ),
-                SizedBox(height: 1.h),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
+                    SizedBox(width: 1.5.w),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 1.w),
                       height: 15.h,
-                      width: 31.w,
-                      padding: EdgeInsets.all(1.w),
-                      child: ClipRRect(
+                      width: 31.5.w,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 4),
                         borderRadius: BorderRadius.circular(90),
-                        child: CachedNetworkImage(
-                          fit: BoxFit.cover,
-                          imageUrl:
-                              'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
-                          progressIndicatorBuilder: (context, url, progress) =>
-                              CircularProgressIndicator(),
-                          errorWidget: (context, url, error) => Image.asset(
-                            'assets/user.png',
-                            color: Colors.black,
+                      ),
+                      child: Container(
+                        height: 14.5.h,
+                        width: 31.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(90),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(90),
+                          child: CachedNetworkImage(
+                            fit: BoxFit.cover,
+                            imageUrl:
+                                'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+                            progressIndicatorBuilder:
+                                (context, url, progress) =>
+                                    CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => Image.asset(
+                              'assets/deuser.png',
+                              fit: BoxFit.cover,
+                              height: 14.5.h,
+                              width: 31.w,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text("Roronoa Zoro", style: header),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Text("roronoa.zoro@gmail.com", style: mail),
-                      ],
-                    ),
                   ],
-                ),
-                SizedBox(
-                  height: 1.h,
-                ),
-                Center(
-                  child: InkWell(
-                    onTap: () {
-                      Get.to(() => UpdateProfile(
-                            add: "Nowhere, Don't know where he lived.",
-                            name: 'Roronoa Zoro',
-                            about:
-                                "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
-                            phone: '7041648493',
-                            profile:
-                                'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
-                          ));
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 5.5.h,
-                      width: 40.w,
-                      decoration: BoxDecoration(
-                          color: Colors.pink,
-                          borderRadius: BorderRadius.circular(90)),
-                      child: Text(
-                        'Edit Profile',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 13.sp,
-                          fontFamily: 'sofi',
-                          letterSpacing: 2,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 1.h),
-                Divider(
-                  color: Color(0xff7a7a7a),
-                ),
-                SizedBox(height: 0.5.h),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          CupertinoIcons.squares_below_rectangle,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 2.w),
-                        Text(
-                          "Services : ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              letterSpacing: 2,
-                              fontFamily: "sofi",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13.sp),
-                        ),
-                        SizedBox(
-                          width: 1.h,
-                        ),
-                        Text(
-                          "1",
-                          style: appname,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          CupertinoIcons.arrow_up_arrow_down_square,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 2.w),
-                        Text(
-                          "Inquiries : ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              letterSpacing: 2,
-                              fontFamily: "sofi",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13.sp),
-                        ),
-                        SizedBox(
-                          width: 1.h,
-                        ),
-                        Text(
-                          "2",
-                          style: appname,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 3.h,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          CupertinoIcons.phone,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 2.w),
-                        Text(
-                          "Phone : ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              letterSpacing: 2,
-                              fontFamily: "sofi",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13.sp),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 1.h),
-                    Text(
-                      "7041648493",
-                      style: appname,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 3.h,
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Row(
-                      children: [
-                        Icon(
-                          CupertinoIcons.home,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 2.w),
-                        Text(
-                          "Address : ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              letterSpacing: 2,
-                              fontFamily: "sofi",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13.sp),
-                        ),
-                      ],
-                    ),
+                    Text("Roronoa Zoro", style: header),
                     SizedBox(
                       height: 1.h,
                     ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      width: 90.w,
-                      padding: EdgeInsets.symmetric(horizontal: 2.w),
-                      child: Text(
-                        "Nowhere, Don't know where he lived.",
-                        style: appname,
-                      ),
-                    ),
+                    Text("roronoa.zoro@gmail.com", style: mail),
                   ],
-                ),
-                SizedBox(
-                  height: 3.h,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.info_outline_rounded,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 2.w),
-                        Text(
-                          "About : ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              letterSpacing: 2,
-                              fontFamily: "sofi",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13.sp),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      width: 95.w,
-                      padding: EdgeInsets.symmetric(horizontal: 2.w),
-                      child: Text(
-                        "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
-                        style: appname,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
                 ),
               ],
             ),
-          ),
+            SizedBox(
+              height: 1.h,
+            ),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  Get.to(EditProfile2(
+                    lname: 'zoro',
+                    fname: 'roronoa',
+                    phone: '7041648493',
+                    about:
+                        'Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.',
+                    address: 'Nowhere, Don\'t know where he lived.',
+                  ));
+                  // Get.to(() => UpdateProfile(
+                  //       add: "Nowhere, Don't know where he lived.",
+                  //       name: 'Roronoa Zoro',
+                  //       about:
+                  //           "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
+                  //       phone: '7041648493',
+                  //       profile:
+                  //           'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+                  //     ));
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 5.5.h,
+                  width: 40.w,
+                  decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.circular(90)),
+                  child: Text(
+                    'Edit Profile',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13.sp,
+                      fontFamily: 'sofi',
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 1.h),
+            Divider(
+              color: Color(0xff7a7a7a),
+            ),
+            SizedBox(
+              height: 0.5.h,
+            ),
+            Container(
+              width: 100.w,
+              height: 55.h,
+              child: ListView(padding: EdgeInsets.zero, children: [
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(3.w),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: Colors.pink),
+                              child: Icon(
+                                Icons.miscellaneous_services_rounded,
+                                color: Colors.white,
+                                size: 18.sp,
+                              ),
+                            ),
+                            SizedBox(width: 5.w),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Services : ",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 2,
+                                      fontFamily: "sofi",
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13.sp),
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "115",
+                                  style: appname,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(3.w),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: Colors.pink),
+                              child: Icon(
+                                CupertinoIcons.search_circle,
+                                color: Colors.white,
+                                size: 18.sp,
+                              ),
+                            ),
+                            SizedBox(width: 5.w),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Inquires : ",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 2,
+                                      fontFamily: "sofi",
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13.sp),
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "145",
+                                  style: appname,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 3.h),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(3.w),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: Colors.pink),
+                              child: Icon(
+                                CupertinoIcons.phone,
+                                color: Colors.white,
+                                size: 18.sp,
+                              ),
+                            ),
+                            SizedBox(width: 5.w),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Phone : ",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  letterSpacing: 2,
+                                  fontFamily: "sofi",
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                            ),
+                            SizedBox(height: 1.h),
+                            Text(
+                              "7041648493",
+                              style: appname,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(3.w),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: Colors.pink),
+                          child: Icon(
+                            CupertinoIcons.home,
+                            color: Colors.white,
+                            size: 18.sp,
+                          ),
+                        ),
+                        SizedBox(width: 5.w),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Address : ",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  letterSpacing: 2,
+                                  fontFamily: "sofi",
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            SizedBox(
+                              width: 75.w,
+                              child: SizedBox(
+                                width: 75.w,
+                                child: ReadMoreText(
+                                  trimLines: 2,
+                                  trimLength: 50,
+                                  colorClickableText: Colors.pink,
+                                  trimMode: TrimMode.Length,
+                                  trimCollapsedText: 'Read more',
+                                  trimExpandedText: '  Read less',
+                                  moreStyle: TextStyle(
+                                      fontSize: 13.sp,
+                                      color: Colors.pink,
+                                      fontWeight: FontWeight.bold),
+                                  lessStyle: TextStyle(
+                                      fontSize: 13.sp,
+                                      color: Colors.pink,
+                                      fontWeight: FontWeight.bold),
+                                  "Nowhere, Don't know where he lived.",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13.sp,
+                                      fontFamily: 'sofi',
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 1.5,
+                                      height: 1.3),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(3.w),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: Colors.pink),
+                          child: Icon(
+                            CupertinoIcons.info_circle,
+                            color: Colors.white,
+                            size: 18.sp,
+                          ),
+                        ),
+                        SizedBox(width: 5.w),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "About : ",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  letterSpacing: 2,
+                                  fontFamily: "sofi",
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            SizedBox(
+                              width: 75.w,
+                              child: ReadMoreText(
+                                trimLines: 2,
+                                trimLength: 50,
+                                colorClickableText: Colors.pink,
+                                trimMode: TrimMode.Length,
+                                trimCollapsedText: 'Read more',
+                                trimExpandedText: '  Read less',
+                                moreStyle: TextStyle(
+                                    fontSize: 13.sp,
+                                    color: Colors.pink,
+                                    fontWeight: FontWeight.bold),
+                                lessStyle: TextStyle(
+                                    fontSize: 13.sp,
+                                    color: Colors.pink,
+                                    fontWeight: FontWeight.bold),
+                                "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 13.sp,
+                                    fontFamily: 'sofi',
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 1.5,
+                                    height: 1.3),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ]),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+          ],
         ),
       ),
     );
@@ -348,13 +489,13 @@ class _MyProfileState extends State<MyProfile> {
   );
   TextStyle mail = TextStyle(
     color: Colors.pink,
-    fontSize: 13.sp,
+    fontSize: 14.sp,
     fontFamily: 'sofi',
     fontWeight: FontWeight.w600,
     letterSpacing: 2,
   );
   TextStyle appname = TextStyle(
-    color: Colors.black.withOpacity(0.75),
+    color: Colors.black,
     fontSize: 13.sp,
     fontFamily: 'sofi',
     fontWeight: FontWeight.w600,
