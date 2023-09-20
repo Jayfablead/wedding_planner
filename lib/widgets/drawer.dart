@@ -1,12 +1,7 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
-
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/DecorationsPage.dart';
@@ -22,7 +17,6 @@ import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
 import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
 import 'package:wedding_planner/screens/scrns/foodMenu.dart';
 import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
-import 'package:wedding_planner/screens/viewAllVenue.dart';
 import 'package:wedding_planner/screens/view_all%20Categ.dart';
 
 class drawer1 extends StatefulWidget {

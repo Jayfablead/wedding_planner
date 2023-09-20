@@ -384,7 +384,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 3.h),
+                    SizedBox(height: 2.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

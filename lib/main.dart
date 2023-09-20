@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-
-
 import 'package:sizer/sizer.dart';
-
-import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
+import 'package:wedding_planner/screens/other%20Pages/Venue%20Details%20Page.dart';
+import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
+import 'package:wedding_planner/screens/scrns/MainScreen2.dart';
 
 
 void main() {
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: QuoateList2(),
+          home: VenueView(),
           builder: EasyLoading.init(),
         );
       },

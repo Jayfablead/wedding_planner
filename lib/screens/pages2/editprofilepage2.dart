@@ -69,8 +69,7 @@ class _EditProfile2State extends State<EditProfile2> {
                 }
               },
               child: Container(
-                height: double.infinity,
-                width: double.infinity,
+               
                 decoration: BoxDecoration(
                     image: DecorationImage(
                   image: AssetImage(
@@ -645,7 +644,7 @@ class _EditProfile2State extends State<EditProfile2> {
         letterSpacing: 1,
         fontFamily: 'Sofi',
         fontWeight: FontWeight.w700,
-        color: Colors.grey.shade500,
+        color: Colors.black.withOpacity(0.8),
       ),
     );
   }

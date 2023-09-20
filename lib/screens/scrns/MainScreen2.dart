@@ -27,7 +27,7 @@ class _Main2State extends State<Main2> {
         Positioned(
             top: 19.h,
             right: 0.w,
-            left: 0.w,
+            left: 3.w,
             child: Image.asset(
               'assets/wed.png',
               height: 50.h,
@@ -40,7 +40,7 @@ class _Main2State extends State<Main2> {
             )),
         Positioned(
             top: 66.h,
-            left: 6.w,
+            left: 10.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

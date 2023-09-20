@@ -46,8 +46,7 @@ class _MyProfileState extends State<MyProfile> {
       // Colors.black
 
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+
         decoration: BoxDecoration(
             image: DecorationImage(
           image: AssetImage(

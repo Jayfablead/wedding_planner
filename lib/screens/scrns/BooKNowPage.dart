@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/BookingSuccessfulPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
-import 'package:intl/intl.dart';
 
 class BooKNowPage extends StatefulWidget {
   const BooKNowPage({super.key});

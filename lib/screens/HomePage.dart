@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/BannerPage.dart';
-import 'package:wedding_planner/screens/SupplierPage.dart';
+import 'package:wedding_planner/screens/pages2/venue%202.dart';
 import 'package:wedding_planner/screens/viewAllVenue.dart';
 import 'package:wedding_planner/screens/view_all%20Categ.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -346,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(ViewAllVenue());
+                          Get.to(Venue2());
                         },
                         child: Text(
                           'View All',

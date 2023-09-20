@@ -299,6 +299,9 @@ class _QuoateList2State extends State<QuoateList2> {
       width: 95.w,
       height: 6.5.h,
       alignment: Alignment.center,
+      padding: EdgeInsets.only(
+        right: 3.w,
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -319,9 +322,11 @@ class _QuoateList2State extends State<QuoateList2> {
         controller: _search,
         onChanged: (value) {},
         style: TextStyle(
-          color: Colors.black,
-          fontSize: 12.sp,
-          fontFamily: 'get',
+          fontSize: 15.sp,
+          letterSpacing: 1,
+          fontFamily: 'Sofi',
+          fontWeight: FontWeight.w700,
+          color: Colors.black87,
         ),
         decoration: InputDecoration(
           prefixIcon: Icon(
@@ -333,6 +338,7 @@ class _QuoateList2State extends State<QuoateList2> {
           enabledBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
           hintText: 'Search',
+          contentPadding: EdgeInsets.only(top: 1.7.h),
           hintStyle: TextStyle(
             fontSize: 15.sp,
             letterSpacing: 1,
