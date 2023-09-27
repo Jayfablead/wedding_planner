@@ -59,314 +59,337 @@ class _UpdateProfileState extends State<UpdateProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      body:SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.w),
-                child: Column(
-                  children: [
-
-                    SizedBox(
-                      height: 6.h,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 4.w),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 6.h,
+              ),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(left: 3.w),
+                      padding: EdgeInsets.all(0.7.h),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.circular(90),
+                      ),
+                      child: Icon(Icons.arrow_back_ios_new_rounded),
                     ),
-                    Row(
-                      children: [
-                        InkWell(onTap: (){
-                          Get.back();
-                        },
-                          child: Container(margin: EdgeInsets.only(left: 3.w),
-                            padding: EdgeInsets.all(0.7.h),
-                            decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 2),borderRadius: BorderRadius.circular(90)),child: Icon(Icons.arrow_back_ios_new_rounded), ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 15.h,
-                              width: 31.w,
-                              padding: EdgeInsets.all(1.w),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(90),
-                                child: (imagefile != null)
-                                    ? Image.file(
-                                        imagefile!,
-                                        width: 300.0,
-                                        fit: BoxFit.cover,
-                                      )
-                                    : CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl: widget.profile ?? '',
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) =>
-                                                CircularProgressIndicator(),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/user.png',
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                              ),
-                            ),
-                            Positioned(
-                                top: 9.5.h,
-                                left: 21.w,
-                                child: InkWell(
-                                    onTap: () async {
-                                      final image = await _picker.pickImage(
-                                          source: ImageSource.gallery);
-                                      setState(() {
-                                        imagefile = File(image!.path);
-                                      });
-                                    },
-                                    child: Container(
-                                        padding: EdgeInsets.all(2.w),
-                                        decoration: BoxDecoration(
-                                            color:
-                                                // bgcolor
-                                                Colors.black,
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: const Icon(
-                                          Icons.camera_alt_outlined,
-                                          color: Colors.pink,
-                                        )))),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 4.h,
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(3.w),
-                          margin: EdgeInsets.all(3.w),
-                          // height: .h,
-                          width: 99.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(color: Colors.pink)),
-                          child: Form(
-                            child: Column(
-                              children: [
-                                Container(
-
-
-
-
-                                  alignment: Alignment.center,
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 2,
-                                        fontWeight: FontWeight.w600,
-                                    fontSize: 13.sp),
-                                    controller: _user,
-                                    keyboardType: TextInputType.text,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "Please enter the user name";
-                                      }
-                                      return null;
-                                    },
-                                    decoration: InputDecoration(
-                                        errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(90),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(90),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(90),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        suffixIcon: Icon(
-                                          Icons.person,
-                                          color: Colors.black,
-                                        ),
-                                        hintText: "Full Name",
-                                        hintStyle: TextStyle(
-                                            color: Colors.black87,
-                                            fontFamily: 'sofi',
-                                            letterSpacing: 2,fontWeight: FontWeight.w600,
-                                            fontSize: 13.sp)),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 1.w),
+                        height: 15.h,
+                        width: 31.w,
+                        padding: EdgeInsets.all(1.w),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(90),
+                          child: (imagefile != null)
+                              ? Image.file(
+                                  imagefile!,
+                                  width: 300.0,
+                                  fit: BoxFit.cover,
+                                )
+                              : CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl: widget.profile ?? '',
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) =>
+                                          CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
+                                    'assets/user.png',
+                                    color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 2.h,
-                                ),
-                                Container(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 2,fontWeight: FontWeight.w600,
-                                        fontSize: 13.sp),
-                                    controller: _phone,
-                                    keyboardType: TextInputType.text,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "Please enter your phone";
-                                      }
-                                      return null;
-                                    },
-                                    decoration: InputDecoration(
-                                        errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(90),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(90),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(90),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        suffixIcon: Icon(
-                                          Icons.phone,
-                                          color: Colors.black,
-                                        ),
-                                        hintText: "Phone number",
-                                        hintStyle: TextStyle(
-                                            color: Colors.black87,
-                                            fontFamily: 'sofi',
-                                            letterSpacing: 2,
-                                            fontWeight: FontWeight.w600,
-                                        fontSize: 13.sp)),
-                                  ),
-                                ),SizedBox(
-                                  height: 2.h,
-                                ),
-                                Container(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'sofi',height: 0.16.h,
-                                        letterSpacing: 2,fontWeight: FontWeight.w600,
-                                        fontSize: 13.sp),
-                                    controller: _add,
-                                    keyboardType: TextInputType.text,
-                                    maxLines: 3,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "Enter your Address";
-                                      }
-                                      return null;
-                                    },
-                                    decoration: InputDecoration(
-                                        errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        suffixIcon: Icon(
-                                          CupertinoIcons.home,
-                                          color: Colors.black,
-                                        ),
-                                        hintText: "Address",
-                                        hintStyle: TextStyle(
-                                            color: Colors.black87,
-                                            fontFamily: 'sofi',
-                                            letterSpacing: 2,fontWeight: FontWeight.w600,
-                                            fontSize: 13.sp)),
-                                  ),
-                                ),SizedBox(
-                                  height: 2.h,
-                                ),
-                                Container(
-                                  child: TextFormField(
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'sofi',height: 0.16.h,
-                                        letterSpacing: 2,fontWeight: FontWeight.w600,
-                                        fontSize: 13.sp),
-                                    controller: _about,
-                                    keyboardType: TextInputType.text,
-                                    maxLines: 7,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "Enter About Detials";
-                                      }
-                                      return null;
-                                    },
-                                    decoration: InputDecoration(
-                                        errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
-                                          borderSide: BorderSide(
-                                              color: Colors.black87),
-                                        ),
-                                        suffixIcon: Icon(
-                                          Icons.info_outline_rounded,
-                                          color: Colors.black,
-                                        ),
-                                        hintText: "About",
-                                        hintStyle: TextStyle(
-                                            color: Colors.black87,
-                                            fontFamily: 'sofi',
-                                            letterSpacing: 2,fontWeight: FontWeight.w600,
-                                            fontSize: 13.sp)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Center(
+                      ),
+                      Positioned(
+                          top: 9.5.h,
+                          left: 21.w,
                           child: InkWell(
-                            onTap: () async {
-                              print('zoro');
-                              Get.back();
-                            },
-                            child: Container(
-                              height: 5.5.h,
-                              width: 45.w,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: Colors.pink,
-                                  borderRadius: BorderRadius.circular(30)),
-                              child: Text(
-                                'Update Profile',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13.sp,
+                              onTap: () async {
+                                final image = await _picker.pickImage(
+                                    source: ImageSource.gallery);
+                                setState(() {
+                                  imagefile = File(image!.path);
+                                });
+                              },
+                              child: Container(
+                                  padding: EdgeInsets.all(2.w),
+                                  decoration: BoxDecoration(
+                                      color:
+                                          // bgcolor
+                                          Colors.black,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: const Icon(
+                                    Icons.camera_alt_outlined,
+                                    color: Colors.pink,
+                                  )))),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(3.w),
+                    margin: EdgeInsets.all(3.w),
+                    // height: .h,
+                    width: 99.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(color: Colors.pink)),
+                    child: Form(
+                      child: Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            child: TextFormField(
+                              style: TextStyle(
+                                  color: Colors.black,
                                   fontFamily: 'sofi',
                                   letterSpacing: 2,
-                                ),
-                              ),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                              controller: _user,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please enter the user name";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(90),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(90),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(90),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  suffixIcon: Icon(
+                                    Icons.person,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "Full Name",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 2,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13.sp)),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 4.h,
-                        ),
-                      ],
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          Container(
+                            child: TextFormField(
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                              controller: _phone,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please enter your phone";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(90),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(90),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(90),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  suffixIcon: Icon(
+                                    Icons.phone,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "Phone number",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 2,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13.sp)),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          Container(
+                            child: TextFormField(
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'sofi',
+                                  height: 0.16.h,
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                              controller: _add,
+                              keyboardType: TextInputType.text,
+                              maxLines: 3,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Enter your Address";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  suffixIcon: Icon(
+                                    CupertinoIcons.home,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "Address",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 2,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13.sp)),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          Container(
+                            child: TextFormField(
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'sofi',
+                                  height: 0.16.h,
+                                  letterSpacing: 2,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13.sp),
+                              controller: _about,
+                              keyboardType: TextInputType.text,
+                              maxLines: 7,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Enter About Detials";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.black87),
+                                  ),
+                                  suffixIcon: Icon(
+                                    Icons.info_outline_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "About",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 2,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13.sp)),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Center(
+                    child: InkWell(
+                      onTap: () async {
+                        print('zoro');
+                        Get.back();
+                      },
+                      child: Container(
+                        height: 5.5.h,
+                        width: 45.w,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Colors.pink,
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Text(
+                          'Update Profile',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13.sp,
+                            fontFamily: 'sofi',
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                ],
               ),
-            ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
