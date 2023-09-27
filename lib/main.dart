@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Certificate(),
+          home: Main2(),
           builder: EasyLoading.init(),theme: ThemeData(
           primarySwatch: Colors.pink,
         ),
