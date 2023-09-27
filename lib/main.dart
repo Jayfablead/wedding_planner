@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: VenueView(),
+          home: Main2(),
           builder: EasyLoading.init(),
         );
       },
