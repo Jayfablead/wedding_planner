@@ -7,6 +7,8 @@ import 'package:wedding_planner/screens/other%20Pages/Venue%20Details%20Page.dar
 import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
 import 'package:wedding_planner/screens/scrns/MainScreen2.dart';
 
+import 'new pages/certificate.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Main2(),
+          home: Certificate(),
           builder: EasyLoading.init(),
         );
       },
