@@ -39,8 +39,8 @@ class _Main2State extends State<Main2> {
               height: 45.h,
             )),
         Positioned(
-            top: 66.h,
-            left: 10.w,
+            top: 74.h,
+            left: 6.5.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,28 +57,6 @@ class _Main2State extends State<Main2> {
               ],
             )),
         Positioned(
-          top: 73.h,
-          left: 4.5.w,
-          child: InkWell(
-            onTap: () {
-              Get.to(SignupPage());
-            },
-            child: Container(
-              height: 7.h,
-              width: 90.w,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(80), color: Colors.pink),
-              child: Text('Sign up',
-                  style: TextStyle(
-                      letterSpacing: 1,
-                      fontSize: 14.sp,
-                      color: Colors.white,
-                      fontFamily: 'get')),
-            ),
-          ),
-        ),
-        Positioned(
           top: 81.5.h,
           left: 4.5.w,
           child: InkWell(
@@ -93,13 +71,15 @@ class _Main2State extends State<Main2> {
                   border: Border.all(color: Colors.pink),
                   borderRadius: BorderRadius.circular(80),
                   color: Colors.white54),
-              child: Text('Login',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
-                      fontSize: 15.sp,
-                      color: Colors.pink,
-                      fontFamily: 'get')),
+              child: Text(
+                'Login',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                    fontSize: 15.sp,
+                    color: Colors.pink,
+                    fontFamily: 'get'),
+              ),
             ),
           ),
         ),

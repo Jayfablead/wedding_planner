@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             )),
         Positioned(
-            top: 78.h,
+            top: 78.5.h,
             left: 4.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

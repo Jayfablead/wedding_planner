@@ -20,10 +20,10 @@ class icon {
   String? price;
 
   icon(
-      this.image,
-      this.name,
-      this.price,
-      );
+    this.image,
+    this.name,
+    this.price,
+  );
 }
 
 List<icon> Icns = [
@@ -99,9 +99,7 @@ class _BookingListState extends State<BookingList> {
             ),
             SliverToBoxAdapter(
               child: Column(
-                children: [
-
-                ],
+                children: [],
               ),
             ),
             SliverToBoxAdapter(
@@ -136,7 +134,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -144,26 +142,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://images.summitmedia-digital.com/preview/images/2019/04/26/cebu-wedding-venue-nm.jpg',
+                                          'https://images.summitmedia-digital.com/preview/images/2019/04/26/cebu-wedding-venue-nm.jpg',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -187,7 +187,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -197,7 +197,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -207,22 +208,54 @@ class _BookingListState extends State<BookingList> {
                                           'Dumas',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
                                     ),
                                     SizedBox(height: 1.h),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 10000',
-                                        style: TextStyle(
-                                            color:
-                                            Colors.black.withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                    SizedBox(
+                                      width: 55.w,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.only(left: 1.w),
+                                            child: Text(
+                                              '\$ 10000',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.8),
+                                                  fontSize: 16.sp,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -278,7 +311,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -286,26 +319,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://i.pinimg.com/550x/15/9d/67/159d6702782cd458d58fe1307ecb84f1.jpg',
+                                          'https://i.pinimg.com/550x/15/9d/67/159d6702782cd458d58fe1307ecb84f1.jpg',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -329,7 +364,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -339,7 +374,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -349,7 +385,7 @@ class _BookingListState extends State<BookingList> {
                                           'Beach Shore View',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -357,14 +393,44 @@ class _BookingListState extends State<BookingList> {
                                     ),
                                     SizedBox(height: 1.h),
                                     Container(
+                                      width: 55.w,
                                       padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 100',
-                                        style: TextStyle(
-                                            color:
-                                            Colors.black.withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '\$ 100',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -401,7 +467,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -409,26 +475,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://cdn.shopify.com/s/files/1/0257/2999/0741/files/dd4429389e8bdcc55183cf0ee8b708e8.jpg?size=500x679&lossy=0&strip=1&webp=1',
+                                          'https://cdn.shopify.com/s/files/1/0257/2999/0741/files/dd4429389e8bdcc55183cf0ee8b708e8.jpg?size=500x679&lossy=0&strip=1&webp=1',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -452,7 +520,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -462,7 +530,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -472,7 +541,7 @@ class _BookingListState extends State<BookingList> {
                                           'Beach Shore View',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -480,14 +549,44 @@ class _BookingListState extends State<BookingList> {
                                     ),
                                     SizedBox(height: 1.h),
                                     Container(
+                                      width: 55.w,
                                       padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 10',
-                                        style: TextStyle(
-                                            color:
-                                            Colors.black.withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '\$ 10',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -543,7 +642,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -551,26 +650,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://media.istockphoto.com/id/1316215960/photo/elegant-wedding-cake-with-golden-and-rose-details.jpg?s=612x612&w=0&k=20&c=d4XBi-pWdJDxqgtWuhg2jIdCoJpJiS4pY16IlLtviG0=',
+                                          'https://media.istockphoto.com/id/1316215960/photo/elegant-wedding-cake-with-golden-and-rose-details.jpg?s=612x612&w=0&k=20&c=d4XBi-pWdJDxqgtWuhg2jIdCoJpJiS4pY16IlLtviG0=',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -594,7 +695,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -604,7 +705,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -614,7 +716,7 @@ class _BookingListState extends State<BookingList> {
                                           'Beach Shore View',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -622,14 +724,44 @@ class _BookingListState extends State<BookingList> {
                                     ),
                                     SizedBox(height: 1.h),
                                     Container(
+                                      width: 55.w,
                                       padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 100',
-                                        style: TextStyle(
-                                            color:
-                                            Colors.black.withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '\$ 100',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -637,14 +769,6 @@ class _BookingListState extends State<BookingList> {
                               ],
                             )),
                       ),
-                      // Positioned(
-                      //   left: 84.w,
-                      //   bottom: 15.h,
-                      //   child: IconButton(
-                      //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
-                      //   ),
-                      // )
                     ],
                   ),
                   SizedBox(
@@ -676,117 +800,138 @@ class _BookingListState extends State<BookingList> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                         child: Container(
-                            height: 18.h,
-                            padding: EdgeInsets.all(1.w),
-                            margin: EdgeInsets.symmetric(horizontal: 1.w),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
-                                  height: 16.h,
-                                  width: 30.w,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl:
-                                      'https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg',
-                                      progressIndicatorBuilder:
-                                          (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                          height: 18.h,
+                          padding: EdgeInsets.all(1.w),
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 0.5.w),
+                                height: 16.h,
+                                width: 30.w,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl:
+                                        'https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg',
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/deprf.png',
                                     ),
                                   ),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    SizedBox(
-                                      width: 54.w,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Container(
-                                            padding: EdgeInsets.only(left: 1.w),
-                                            child: Text(
-                                              'Luxury Rooms',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 13.sp,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 1.h),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 1.w),
-                                      width: 55.w,
-                                      child: Text(
-                                        'Your hotel experience is typically defined by time spent away. But increasingly, hotels and vacation rentals are eager to insert themselves into your regular routine back home.',
-                                        maxLines: 2,
-                                        style: TextStyle(
-                                            color:
-                                            Colors.black.withOpacity(0.7),
-                                            overflow: TextOverflow.ellipsis,
-                                            fontSize: 11.sp,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ),
-                                    SizedBox(height: 1.h),
-                                    Row(
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  SizedBox(
+                                    width: 54.w,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
-                                          color: Colors.black.withOpacity(0.8),
-                                        ),
-                                        SizedBox(
-                                          width: 1.w,
-                                        ),
-                                        Text(
-                                          'Hotel R Rooms',
-                                          style: TextStyle(
-                                              color:
-                                              Colors.black.withOpacity(0.8),
-                                              fontSize: 12.sp,
-                                              fontWeight: FontWeight.w600),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 1.w),
+                                          child: Text(
+                                            'Luxury Rooms',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 13.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 1.h),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 350',
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Container(
+                                    padding: EdgeInsets.only(left: 1.w),
+                                    width: 55.w,
+                                    child: Text(
+                                      'Your hotel experience is typically defined by time spent away. But increasingly, hotels and vacation rentals are eager to insert themselves into your regular routine back home.',
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.7),
+                                          overflow: TextOverflow.ellipsis,
+                                          fontSize: 11.sp,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_on_outlined,
+                                        size: 15.sp,
+                                        color: Colors.black.withOpacity(0.8),
+                                      ),
+                                      SizedBox(
+                                        width: 1.w,
+                                      ),
+                                      Text(
+                                        'Hotel R Rooms',
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.8),
-                                            fontSize: 16.sp,
+                                                Colors.black.withOpacity(0.8),
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Container(
+                                    width: 55.w,
+                                    padding: EdgeInsets.only(left: 1.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '\$ 350',
+                                          style: TextStyle(
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        InkWell(
+                                          onTap: () {},
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 3.w,
+                                                vertical: 1.3.h),
+                                            decoration: BoxDecoration(
+                                                color: Colors.pink,
+                                                borderRadius:
+                                                    BorderRadius.circular(90)),
+                                            child: Text(
+                                              'View Details',
+                                              style: TextStyle(
+                                                  fontSize: 11.sp,
+                                                  color: Colors.white,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ],
-                            )),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                      // Positioned(
-                      //   left: 84.w,
-                      //   bottom: 15.h,
-                      //   child: IconButton(
-                      //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
-                      //   ),
-                      // )
                     ],
                   ),
                   SizedBox(
@@ -827,7 +972,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -835,26 +980,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://stylesatlife.com/wp-content/uploads/2023/03/Extravagant-Floral-Wedding-Car-Decorations.jpg',
+                                          'https://stylesatlife.com/wp-content/uploads/2023/03/Extravagant-Floral-Wedding-Car-Decorations.jpg',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -878,7 +1025,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -888,7 +1035,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -898,7 +1046,7 @@ class _BookingListState extends State<BookingList> {
                                           'Surat',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -906,14 +1054,44 @@ class _BookingListState extends State<BookingList> {
                                     ),
                                     SizedBox(height: 1.h),
                                     Container(
+                                      width: 55.w,
                                       padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 40',
-                                        style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '\$ 40',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                    FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -969,7 +1147,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -977,26 +1155,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/golden-fiesta-h.jpg',
+                                          'https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/golden-fiesta-h.jpg',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -1020,7 +1200,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -1030,7 +1210,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -1040,7 +1221,7 @@ class _BookingListState extends State<BookingList> {
                                           'Beach Shore View',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -1048,14 +1229,44 @@ class _BookingListState extends State<BookingList> {
                                     ),
                                     SizedBox(height: 1.h),
                                     Container(
+                                      width: 55.w,
                                       padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 60',
-                                        style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '\$ 60',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                    FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -1092,7 +1303,7 @@ class _BookingListState extends State<BookingList> {
                               children: [
                                 Container(
                                   margin:
-                                  EdgeInsets.symmetric(horizontal: 0.5.w),
+                                      EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -1100,26 +1311,28 @@ class _BookingListState extends State<BookingList> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://4.imimg.com/data4/AP/VG/ANDROID-37526939/product-500x500.jpeg',
+                                          'https://4.imimg.com/data4/AP/VG/ANDROID-37526939/product-500x500.jpeg',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                          child:
-                                          CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                                        'assets/deprf.png',
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
@@ -1143,7 +1356,7 @@ class _BookingListState extends State<BookingList> {
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.7),
+                                                Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -1153,7 +1366,8 @@ class _BookingListState extends State<BookingList> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -1163,7 +1377,7 @@ class _BookingListState extends State<BookingList> {
                                           'Beach Shore View',
                                           style: TextStyle(
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -1171,14 +1385,44 @@ class _BookingListState extends State<BookingList> {
                                     ),
                                     SizedBox(height: 1.h),
                                     Container(
+                                      width: 55.w,
                                       padding: EdgeInsets.only(left: 1.w),
-                                      child: Text(
-                                        '\$ 50 ',
-                                        style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.8),
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w600),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '\$ 50',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.3.h),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.pink,
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+                                                    color: Colors.white,
+                                                    fontFamily: 'sofi',
+                                                    letterSpacing: 1,
+                                                    fontWeight:
+                                                    FontWeight.bold),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -1202,7 +1446,6 @@ class _BookingListState extends State<BookingList> {
                 ],
               ),
             ),
-
           ],
         ),
       ),

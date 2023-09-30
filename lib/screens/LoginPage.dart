@@ -248,53 +248,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 2.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                        width: 40.w,
-                        child: Divider(color: Colors.black, thickness: 1)),
-                    Text(
-                      "Or",
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'sofi'),
-                    ),
-                    SizedBox(
-                        width: 40.w,
-                        child: Divider(
-                          color: Colors.black,
-                          thickness: 1,
-                        )),
-                  ],
-                ),
-                SizedBox(height: 2.h),
-                Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Not a User ?',
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.bold),
-                      ),TextButton(
-                          onPressed: () {
-                            Get.to(SignupPage());
-                          },
-                          child: Text(
-                            "Create Account",
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                letterSpacing: 1,
-                                fontFamily: 'sofi',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.pink),
-                          ))
-                    ]),
               ],
             ),
           ),

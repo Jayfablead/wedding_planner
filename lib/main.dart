@@ -4,10 +4,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/new%20pages/view%20all%20bookings.dart';
+import 'package:wedding_planner/screens/MainScreen.dart';
 import 'package:wedding_planner/screens/other%20Pages/Venue%20Details%20Page.dart';
 import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
 import 'package:wedding_planner/screens/scrns/MainScreen2.dart';
 
+import 'new pages/NotificationScreen.dart';
 import 'new pages/certificate.dart';
 
 
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Main2(),
+          home: NotificationScreen(),
           builder: EasyLoading.init(),theme: ThemeData(
           primarySwatch: Colors.pink,
         ),
