@@ -76,7 +76,7 @@ class _BudgetingListState extends State<BudgetingList> {
                               Container(
                                 child: CachedNetworkImage(
                                   imageUrl:
-                                      "https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/358697822_618472077053883_3672029882010162992_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=nqpWtZKoNe0AX9n9qac&_nc_ht=scontent.fstv3-1.fna&oh=00_AfAPlPHSs18weZ6v5XGNpca-mkC0xYC_mic0xXLHkqm9wQ&oe=64FA32A5",
+                                      "https://t4.ftcdn.net/jpg/02/94/25/71/360_F_294257124_lTMpgGMKp03SjzXnMnWfpogrDw7H46Gf.jpg",
                                   fit: BoxFit.cover,
                                   height: 17.h,
                                   width: 35.w,
@@ -106,13 +106,15 @@ class _BudgetingListState extends State<BudgetingList> {
                                     letterSpacing: 1,
                                     color: Colors.black),
                               ),
-
-                              SizedBox(width: 35.w,
+                              SizedBox(
+                                width: 35.w,
                                 child: Text(
-                                  'Budget Starting from \$ 10,000',textAlign: TextAlign.center,
+                                  'Budget Starting from \$ 10,000',
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 13.sp,
-                                      fontFamily: 'sofi',height: 1.5,
+                                      fontFamily: 'sofi',
+                                      height: 1.5,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1,
                                       color: Colors.black),
@@ -125,7 +127,7 @@ class _BudgetingListState extends State<BudgetingList> {
                                   children: [
                                     InkWell(
                                       onTap: () {
-Get.to(ViewBudget());
+                                        Get.to(ViewBudget());
                                       },
                                       child: Container(
                                         height: 4.5.h,

@@ -166,7 +166,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Customer : ',
+                              'Supplier : ',
                               style: TextStyle(
                                   fontSize: 14.5.sp,
                                   fontFamily: 'sofi',
@@ -177,7 +177,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                             SizedBox(
                               width: 75.w,
                               child: Text(
-                                'Roronoa Zoro',
+                                'Vinsmoke Sanji',
                                 style: TextStyle(
                                     height: 1.5,
                                     fontSize: 14.sp,
@@ -299,7 +299,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'My Budget : ',
+                                  'Cost : ',
                                   style: TextStyle(
                                       fontSize: 14.5.sp,
                                       color: Colors.pink,
@@ -386,12 +386,37 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                     ),
                     SizedBox(height: 2.h),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
                           child: Container(
                             height: 5.5.h,
-                            width: 45.w,
+                            width: 42.w,
+                            decoration: BoxDecoration(
+                              color: Colors.pink,
+                              borderRadius: BorderRadius.circular(25.sp),
+                            ),
+                            child: Center(
+                                child: Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(CupertinoIcons.check_mark_circled,
+                                    color: Colors.white),
+                                SizedBox(width: 2.w),
+                                Text(
+                                  "Accept",
+                                  style: TextStyle(
+                                      fontSize: 13.sp,
+                                      color: Colors.white,
+                                      fontFamily: 'get'),
+                                ),
+                              ],
+                            )),
+                          ),
+                        ),
+                        InkWell(
+                          child: Container(
+                            height: 5.5.h,
+                            width: 42.w,
                             decoration: BoxDecoration(
                               color: Colors.pink,
                               borderRadius: BorderRadius.circular(25.sp),

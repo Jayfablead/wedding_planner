@@ -48,10 +48,11 @@ class _MyProfileState extends State<MyProfile> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(
-                  'assets/profile.png',
-                ),
-                fit: BoxFit.cover)),
+              image: AssetImage(
+                'assets/profile.png',
+              ),
+              fit: BoxFit.cover,
+            )),
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
           children: [
@@ -197,8 +198,8 @@ class _MyProfileState extends State<MyProfile> {
             ),
             Container(
               width: 100.w,
-              height: 54.5.h,
-              child: ListView(padding: EdgeInsets.zero, children: [
+
+              child: ListView(shrinkWrap: true,padding: EdgeInsets.zero, children: [
                 Column(
                   children: [
                     Row(

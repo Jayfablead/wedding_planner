@@ -88,7 +88,7 @@ class _QuoateList2State extends State<QuoateList2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff4f4f4),
+      backgroundColor: Color(0xffe8e8e8),
       drawer: drawer1(),
       key: _scaffoldKey,
       body: SingleChildScrollView(

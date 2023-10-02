@@ -10,8 +10,8 @@ import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/changePassword.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/screens/other%20Pages/booking%20page.dart';
-import 'package:wedding_planner/screens/other%20Pages/quotationList.dart';
 import 'package:wedding_planner/screens/pages2/fbpage.dart';
+import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
 import 'package:wedding_planner/screens/pages2/venue%202.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
 import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
@@ -385,7 +385,7 @@ class _drawer1State extends State<drawer1> {
                         SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
-                            Get.to(QuotationList());
+                            Get.to(QuoateList2());
                           },
                           child: Container(
                             child: Row(

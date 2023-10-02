@@ -91,18 +91,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                           icon: Icon(Icons.menu_rounded))
                     ],
                   ),
-                  // SizedBox(
-                  //   height: 1.h,
-                  // ),
-                  // Text(
-                  //   'Your Selected Budget',
-                  //   style: TextStyle(
-                  //     fontSize: 17.sp,
-                  //     fontFamily: 'sofi',
-                  //     letterSpacing: 1,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
+
                   SizedBox(
                     height: 3.h,
                   ),
@@ -112,7 +101,9 @@ class _ViewBudgetState extends State<ViewBudget> {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'Total Budget : ',
@@ -123,20 +114,38 @@ class _ViewBudgetState extends State<ViewBudget> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                       Text(
-                        '\$ 26,100 ',
+                        '\$ 26,100',
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontFamily: 'sofi',
-                          letterSpacing: 1,color: Colors.pink,
+                          letterSpacing: 1,
+                          color: Colors.pink,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                     ],
-                  ),SizedBox(
-                    height: 3.h,
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('Send a Request',
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            color: Colors.pink,
+                            fontWeight: FontWeight.bold,
+                          ),),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 2.h,
                   ),
                 ],
               ),
@@ -194,7 +203,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -234,7 +245,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -268,11 +280,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -336,7 +349,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -373,10 +388,11 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       ),
                                     ),
                                     SizedBox(height: 1.h),
-                               Row(
+                                    Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -410,11 +426,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -459,7 +476,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -496,10 +515,11 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       ),
                                     ),
                                     SizedBox(height: 1.h),
-                               Row(
+                                    Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -533,11 +553,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -601,7 +622,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -638,10 +661,11 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       ),
                                     ),
                                     SizedBox(height: 1.h),
-                               Row(
+                                    Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -675,11 +699,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -743,7 +768,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -783,7 +810,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -817,11 +845,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -885,7 +914,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -925,7 +956,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                     Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -947,8 +979,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       child: Text(
                                         '\$ 40',
                                         style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.8),
+                                            color:
+                                                Colors.black.withOpacity(0.8),
                                             fontSize: 16.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
@@ -959,11 +991,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -1027,7 +1060,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -1064,10 +1099,11 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       ),
                                     ),
                                     SizedBox(height: 1.h),
-                               Row(
+                                    Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -1089,8 +1125,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       child: Text(
                                         '\$ 60',
                                         style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.8),
+                                            color:
+                                                Colors.black.withOpacity(0.8),
                                             fontSize: 16.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
@@ -1101,11 +1137,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
@@ -1150,7 +1187,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
@@ -1187,10 +1226,11 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       ),
                                     ),
                                     SizedBox(height: 1.h),
-                               Row(
+                                    Row(
                                       children: [
                                         Icon(
-                                          Icons.location_on_outlined,size: 15.sp,
+                                          Icons.location_on_outlined,
+                                          size: 15.sp,
                                           color: Colors.black.withOpacity(0.8),
                                         ),
                                         SizedBox(
@@ -1212,8 +1252,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       child: Text(
                                         '\$ 50 ',
                                         style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.8),
+                                            color:
+                                                Colors.black.withOpacity(0.8),
                                             fontSize: 16.sp,
                                             fontWeight: FontWeight.w600),
                                       ),
@@ -1224,22 +1264,39 @@ class _ViewBudgetState extends State<ViewBudget> {
                             )),
                       ),
                       Positioned(
-                   left: 84.w,
-                        bottom: 15.h,
+                        left: 84.w,
+                   bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                          icon: Icon(Icons.remove_circle_rounded,
+                              color: Colors.pink),
                         ),
                       )
                     ],
                   ),
                   SizedBox(
+                    height: 1.h,
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('Send a Request',
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            color: Colors.pink,
+                            fontWeight: FontWeight.bold,
+                          ),),
+                      ),
+                    ],
+                  ), SizedBox(
                     height: 2.h,
                   ),
                 ],
               ),
             ),
-
           ],
         ),
       ),
