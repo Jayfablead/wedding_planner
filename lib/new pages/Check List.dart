@@ -110,7 +110,7 @@ class _Check_listState extends State<Check_list> {
                                   InkWell(
                                     onTap: () {
                                       setState(() {
-                                        lists[index].chek = ! lists[index].chek!;
+                                        lists[index].chek = !lists[index].chek!;
                                       });
                                     },
                                     child: Image.asset(

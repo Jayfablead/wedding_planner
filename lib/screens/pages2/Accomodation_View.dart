@@ -399,18 +399,16 @@ class _Acco_viewState extends State<Acco_view> {
                             ),
                             child: Center(
                                 child: Text(
-                                  "Add to Budget",
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.white,
-                                      fontFamily: 'get'),
-                                )),
+                              "Add to Budget",
+                              style: TextStyle(
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
+                                  fontFamily: 'get'),
+                            )),
                           ),
                         ),
                         InkWell(
-                          onTap: () {
-
-                          },
+                          onTap: () {},
                           child: Container(
                             height: 5.5.h,
                             width: 45.w,
@@ -420,16 +418,17 @@ class _Acco_viewState extends State<Acco_view> {
                             ),
                             child: Center(
                                 child: Text(
-                                  "Book Now",
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.white,
-                                      fontFamily: 'get'),
-                                )),
+                              "Book Now",
+                              style: TextStyle(
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
+                                  fontFamily: 'get'),
+                            )),
                           ),
                         ),
                       ],
-                    ), SizedBox(height: 3.5.h),
+                    ),
+                    SizedBox(height: 3.5.h),
                   ],
                 ),
               ],

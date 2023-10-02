@@ -37,14 +37,14 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(
                   height: 5.h,
                 ),
-
                 Stack(
                   children: [
                     Container(
                       height: 30.h,
                       width: 100.w,
                       child: Lottie.asset('assets/hrt.json'),
-                    ), InkWell(
+                    ),
+                    InkWell(
                       onTap: () {
                         Get.back();
                       },
@@ -284,13 +284,16 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ],
                 ),
-
                 SizedBox(
                   height: 4.h,
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(Signup2(email: _email.text,fname: _firstname.text,lname: _lastname.text,));
+                    Get.to(Signup2(
+                      email: _email.text,
+                      fname: _firstname.text,
+                      lname: _lastname.text,
+                    ));
                   },
                   child: Container(
                     width: 90.w,

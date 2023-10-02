@@ -64,12 +64,12 @@ class _VenueViewState extends State<VenueView> {
                                 imageUrl: HotelIm[index],
                                 fit: BoxFit.cover,
                                 progressIndicatorBuilder: (context, url,
-                                    progress) =>
+                                        progress) =>
                                     Center(child: CircularProgressIndicator()),
                                 errorWidget: (context, url, error) =>
                                     Image.asset(
-                                      'assets/deprf.png',
-                                    ),
+                                  'assets/deprf.png',
+                                ),
                               ),
                             ),
                           ),
@@ -239,19 +239,9 @@ class _VenueViewState extends State<VenueView> {
                               letterSpacing: 1,
                               fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          ' / floor',
-                          style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Colors.black.withOpacity(0.6),
-                              fontFamily: 'sofi',
-                              letterSpacing: 1,
-                              fontWeight: FontWeight.bold),
-                        ),
+
                       ],
                     ),
-
-
                     SizedBox(height: 4.5.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -266,18 +256,16 @@ class _VenueViewState extends State<VenueView> {
                             ),
                             child: Center(
                                 child: Text(
-                                  "Add to Budget",
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.white,
-                                      fontFamily: 'get'),
-                                )),
+                              "Add to Budget",
+                              style: TextStyle(
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
+                                  fontFamily: 'get'),
+                            )),
                           ),
                         ),
                         InkWell(
-                          onTap: () {
-
-                          },
+                          onTap: () {},
                           child: Container(
                             height: 5.5.h,
                             width: 45.w,
@@ -287,16 +275,17 @@ class _VenueViewState extends State<VenueView> {
                             ),
                             child: Center(
                                 child: Text(
-                                  "Book Now",
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.white,
-                                      fontFamily: 'get'),
-                                )),
+                              "Book Now",
+                              style: TextStyle(
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
+                                  fontFamily: 'get'),
+                            )),
                           ),
                         ),
                       ],
-                    ), SizedBox(height: 3.5.h),
+                    ),
+                    SizedBox(height: 3.5.h),
                   ],
                 ),
               ],

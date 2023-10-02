@@ -27,7 +27,10 @@ class icon {
 }
 
 List<icon> noti = [
-  icon('Caterers', 'Check this quotation you requested asfcnasasnckasc asjbdasjkdbas', '10:20 pm'),
+  icon(
+      'Caterers',
+      'Check this quotation you requested asfcnasasnckasc asjbdasjkdbas',
+      '10:20 pm'),
   icon('Photographer', 'Check this quotation you requested', '10:20 pm'),
   icon('mr.Ling', 'Hey ! How Are You?', '10:20 pm'),
   icon('Decorators', 'Check this quotation you requested', '10:20 pm'),
@@ -124,60 +127,70 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   for (int index = 0; index < noti.length; index++) ...[
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 1.5.h),
-                      child: Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
-                        Container(
-                          padding: EdgeInsets.all(2.w),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(90),
-                              border:
-                                  Border.all(color: Colors.black, width: 2)),
-                          child: Icon(Icons.notifications_none_rounded,
-                              color: Colors.black, size: 24.sp),
-                        ),SizedBox(width: 3.w),
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SizedBox(width: 60.w,
-                                  child: Text(
-                                    noti[index].name ?? '',
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(2.w),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(90),
+                                border:
+                                    Border.all(color: Colors.black, width: 2)),
+                            child: Icon(Icons.notifications_none_rounded,
+                                color: Colors.black, size: 24.sp),
+                          ),
+                          SizedBox(width: 3.w),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: 60.w,
+                                    child: Text(
+                                      noti[index].name ?? '',
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        letterSpacing: 1,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    noti[index].time ?? '',
                                     style: TextStyle(
-                                      fontSize: 14.sp,
+                                      fontSize: 11.sp,
                                       fontFamily: 'sofi',
-                                      color: Colors.black,
+                                      color: Colors.black.withOpacity(0.65),
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                ), Text(
-                                  noti[index].time ?? '',
+                                ],
+                              ),
+                              SizedBox(height: 0.8.h),
+                              SizedBox(
+                                width: 75.w,
+                                child: Text(
+                                  noti[index].desc ?? '',
                                   style: TextStyle(
-                                    fontSize: 11.sp,
+                                    fontSize: 12.sp,
                                     fontFamily: 'sofi',
+                                    height: 0.15.h,
                                     color: Colors.black.withOpacity(0.65),
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ],
-                            ),
-                            SizedBox(height: 0.8.h),
-                            SizedBox(width: 75.w,
-                              child: Text(
-                                noti[index].desc ?? '',
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontFamily: 'sofi',height: 0.15.h,
-                                  color: Colors.black.withOpacity(0.65),
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.bold,
-                                ),
                               ),
-                            ),
-                          ],
-                        ),
-
-                      ],),
+                            ],
+                          ),
+                        ],
+                      ),
                       // child: ListTile(
                       //   leading: Container(
                       //     padding: EdgeInsets.all(2.w),

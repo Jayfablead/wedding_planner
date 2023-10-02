@@ -170,7 +170,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                               Icon(Icons.error),
                         ),
                       ),
-                      SizedBox(width: 60.w,
+                      SizedBox(
+                        width: 60.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -193,7 +194,6 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
                             ),
-
                           ],
                         ),
                       ),
@@ -334,7 +334,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Text(
-                                              (fooditems[index].name).toString(),
+                                              (fooditems[index].name)
+                                                  .toString(),
                                               style: TextStyle(
                                                   fontSize: 16.sp,
                                                   fontFamily: 'sofi',
@@ -356,8 +357,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                               style: TextStyle(
                                                   fontSize: 13.sp,
                                                   fontFamily: 'sofi',
-                                                  color:
-                                                      Colors.black.withOpacity(0.8),
+                                                  color: Colors.black
+                                                      .withOpacity(0.8),
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -365,11 +366,13 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                       ),
                                       Container(
                                         child: CachedNetworkImage(
-                                          imageUrl: fooditems[index].image ?? '',
+                                          imageUrl:
+                                              fooditems[index].image ?? '',
                                           height: 20.h,
                                           width: 45.w,
-                                          imageBuilder: (context, imageProvider) =>
-                                              Container(
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(25.0),
@@ -380,7 +383,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                             ),
                                           ),
                                           placeholder: (context, url) => Center(
-                                              child: CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                           errorWidget: (context, url, error) =>
                                               Icon(Icons.error),
                                         ),
@@ -389,16 +393,16 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                               ),
                             ),
                             Positioned(
-                                left: 72.w,top: 0.5.h,
+                                left: 72.w,
+                                top: 0.5.h,
                                 child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color: Colors.pink,
-                                      borderRadius:
-                                      BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Icon(
                                         CupertinoIcons.add,
@@ -529,8 +533,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                               style: TextStyle(
                                                   fontSize: 13.sp,
                                                   fontFamily: 'sofi',
-                                                  color:
-                                                      Colors.black.withOpacity(0.8),
+                                                  color: Colors.black
+                                                      .withOpacity(0.8),
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -541,8 +545,9 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                           imageUrl: TopRated[index].image ?? '',
                                           height: 20.h,
                                           width: 45.w,
-                                          imageBuilder: (context, imageProvider) =>
-                                              Container(
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(25.0),
@@ -553,24 +558,26 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                             ),
                                           ),
                                           placeholder: (context, url) => Center(
-                                              child: CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                           errorWidget: (context, url, error) =>
                                               Icon(Icons.error),
                                         ),
                                       ),
                                     ]),
                               ),
-                            ),  Positioned(
-                                left: 72.w,top: 0.5.h,
+                            ),
+                            Positioned(
+                                left: 72.w,
+                                top: 0.5.h,
                                 child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color: Colors.pink,
-                                      borderRadius:
-                                      BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Icon(
                                         CupertinoIcons.add,
@@ -687,7 +694,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                             ),
                                             Text(
                                               '\$ ' +
-                                                  (Allfav[index].price).toString(),
+                                                  (Allfav[index].price)
+                                                      .toString(),
                                               style: TextStyle(
                                                   fontSize: 15.sp,
                                                   fontFamily: 'sofi',
@@ -700,8 +708,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                               style: TextStyle(
                                                   fontSize: 13.sp,
                                                   fontFamily: 'sofi',
-                                                  color:
-                                                      Colors.black.withOpacity(0.8),
+                                                  color: Colors.black
+                                                      .withOpacity(0.8),
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -712,8 +720,9 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                           imageUrl: Allfav[index].image ?? '',
                                           height: 20.h,
                                           width: 45.w,
-                                          imageBuilder: (context, imageProvider) =>
-                                              Container(
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(25.0),
@@ -724,25 +733,26 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                             ),
                                           ),
                                           placeholder: (context, url) => Center(
-                                              child: CircularProgressIndicator()),
+                                              child:
+                                                  CircularProgressIndicator()),
                                           errorWidget: (context, url, error) =>
                                               Icon(Icons.error),
                                         ),
                                       ),
                                     ]),
                               ),
-                            ),  Positioned(
-                                left: 72.w,top: 0.5.h,
-                                child:
-                                Container(
+                            ),
+                            Positioned(
+                                left: 72.w,
+                                top: 0.5.h,
+                                child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color: Colors.pink,
-                                      borderRadius:
-                                      BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Icon(
                                         CupertinoIcons.add,

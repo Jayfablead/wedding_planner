@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-
-
 buildErrorDialog(BuildContext context, String title, String contant,
     {VoidCallback? callback, String? buttonname}) {
   Widget okButton = GestureDetector(
@@ -25,7 +23,6 @@ buildErrorDialog(BuildContext context, String title, String contant,
               fontFamily: 'sofi',
               letterSpacing: 1,
               decorationColor: Colors.black,
-
             )),
       ),
     ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
-import 'package:wedding_planner/screens/SignupPage.dart';
 
 class Main2 extends StatefulWidget {
   const Main2({super.key});
@@ -72,7 +71,7 @@ class _Main2State extends State<Main2> {
                   borderRadius: BorderRadius.circular(80),
                   color: Colors.white54),
               child: Text(
-                'Login',
+                'CONTINUE',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,

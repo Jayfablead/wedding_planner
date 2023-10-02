@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/BannerPage.dart';
 import 'package:wedding_planner/screens/pages2/venue%202.dart';
-import 'package:wedding_planner/screens/viewAllVenue.dart';
 import 'package:wedding_planner/screens/view_all%20Categ.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -24,6 +23,7 @@ class cate {
     this.name,
   );
 }
+
 class cate1 {
   String? image;
   String? name;
@@ -38,7 +38,8 @@ class cate1 {
 
 List<cate> Categories = [
   cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
-  cate('https://cdn-icons-png.flaticon.com/512/3436/3436370.png', 'Engagement '),
+  cate(
+      'https://cdn-icons-png.flaticon.com/512/3436/3436370.png', 'Engagement '),
   cate('https://cdn-icons-png.flaticon.com/512/6117/6117300.png',
       'Anniversary '),
   cate('https://cdn-icons-png.flaticon.com/512/2454/2454313.png', 'Birthday '),
@@ -65,7 +66,6 @@ List<cate1> venue = [
       'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
       'Royal Decor',
       'A Royal Decoration venue'),
-
 ];
 TextEditingController _search = TextEditingController();
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -115,7 +115,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ],
@@ -188,8 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return
-                        Container(
+                      return Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
@@ -197,9 +195,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           width: 45.w,
                           margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                          child:
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 1.w),
@@ -299,13 +297,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onTap: () {
                                   Get.to(MoodBordsScreen());
                                 },
-                                child: Container(alignment: Alignment.center,
+                                child: Container(
+                                  alignment: Alignment.center,
                                   width: 28.w,
                                   height: 5.2.h,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius:
-                                    BorderRadius.circular(25.sp),
+                                    borderRadius: BorderRadius.circular(25.sp),
                                   ),
                                   child: Text(
                                     "Book Now",
@@ -368,65 +366,67 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       color: Colors.black),
-                ), SizedBox(height: 2.h),
+                ),
+                SizedBox(height: 2.h),
                 Container(
                   height: 26.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return
-                        Container(
-                            alignment: Alignment.center,
-width: 45.w,
-                            padding: EdgeInsets.all(1.w),
-margin: EdgeInsets.symmetric(horizontal: 1.w),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 0.5.w),
-                                  padding:EdgeInsets.only(top: 1.5.w) ,
-                                  height: 17.h,
-                                  width: 40.w,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl:
-                                      venue[index].image.toString(),
-                                      progressIndicatorBuilder:
-                                          (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Image.asset(
-                                            'assets/deprf.png',
-                                          ),
+                      return Container(
+                          alignment: Alignment.center,
+                          width: 45.w,
+                          padding: EdgeInsets.all(1.w),
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 0.5.w),
+                                padding: EdgeInsets.only(top: 1.5.w),
+                                height: 17.h,
+                                width: 40.w,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl: venue[index].image.toString(),
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/deprf.png',
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 1.h),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 1.w),
-                                  child: Text(
-                                    venue[index].name.toString(),
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 13.5.sp,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),SizedBox(height: 1.h),
-                                Container(width: 40.w,
-                                  padding: EdgeInsets.only(left: 1.w),
-                                  child: Text(
-                                    venue[index].desc.toString(),overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        color: Colors.black87,
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w600),
-                                  ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Padding(
+                                padding: EdgeInsets.only(left: 1.w),
+                                child: Text(
+                                  venue[index].name.toString(),
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13.5.sp,
+                                      fontWeight: FontWeight.w600),
                                 ),
-                              ],
-                            ));
+                              ),
+                              SizedBox(height: 1.h),
+                              Container(
+                                width: 40.w,
+                                padding: EdgeInsets.only(left: 1.w),
+                                child: Text(
+                                  venue[index].desc.toString(),
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: Colors.black87,
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ],
+                          ));
                     },
                     itemCount: venue.length,
                   ),

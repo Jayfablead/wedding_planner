@@ -1058,7 +1058,7 @@ class _BookingListState extends State<BookingList> {
                                       padding: EdgeInsets.only(left: 1.w),
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             '\$ 40',
@@ -1077,8 +1077,8 @@ class _BookingListState extends State<BookingList> {
                                               decoration: BoxDecoration(
                                                   color: Colors.pink,
                                                   borderRadius:
-                                                  BorderRadius.circular(
-                                                      90)),
+                                                      BorderRadius.circular(
+                                                          90)),
                                               child: Text(
                                                 'View Details',
                                                 style: TextStyle(
@@ -1087,7 +1087,7 @@ class _BookingListState extends State<BookingList> {
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1,
                                                     fontWeight:
-                                                    FontWeight.bold),
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           ),
@@ -1233,7 +1233,7 @@ class _BookingListState extends State<BookingList> {
                                       padding: EdgeInsets.only(left: 1.w),
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             '\$ 60',
@@ -1252,8 +1252,8 @@ class _BookingListState extends State<BookingList> {
                                               decoration: BoxDecoration(
                                                   color: Colors.pink,
                                                   borderRadius:
-                                                  BorderRadius.circular(
-                                                      90)),
+                                                      BorderRadius.circular(
+                                                          90)),
                                               child: Text(
                                                 'View Details',
                                                 style: TextStyle(
@@ -1262,7 +1262,7 @@ class _BookingListState extends State<BookingList> {
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1,
                                                     fontWeight:
-                                                    FontWeight.bold),
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           ),
@@ -1389,7 +1389,7 @@ class _BookingListState extends State<BookingList> {
                                       padding: EdgeInsets.only(left: 1.w),
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             '\$ 50',
@@ -1408,8 +1408,8 @@ class _BookingListState extends State<BookingList> {
                                               decoration: BoxDecoration(
                                                   color: Colors.pink,
                                                   borderRadius:
-                                                  BorderRadius.circular(
-                                                      90)),
+                                                      BorderRadius.circular(
+                                                          90)),
                                               child: Text(
                                                 'View Details',
                                                 style: TextStyle(
@@ -1418,7 +1418,7 @@ class _BookingListState extends State<BookingList> {
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1,
                                                     fontWeight:
-                                                    FontWeight.bold),
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           ),

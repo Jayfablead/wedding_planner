@@ -11,11 +11,14 @@ class MoodBordsScreen extends StatefulWidget {
   @override
   State<MoodBordsScreen> createState() => _MoodBordsScreenState();
 }
+
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 class _MoodBordsScreenState extends State<MoodBordsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: drawer1(),
+    return Scaffold(
+      drawer: drawer1(),
       key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
@@ -34,13 +37,17 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                   Text(
                     "Posts",
                     style: TextStyle(
-                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
+                      fontSize: 15.sp,
+                      fontFamily: 'sofi',
+                      letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(onPressed: () {
-                    _scaffoldKey.currentState?.openDrawer();
-                  }, icon: Icon(Icons.menu_rounded))
+                  IconButton(
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                      icon: Icon(Icons.menu_rounded))
                 ],
               ),
               SizedBox(
@@ -98,30 +105,28 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
               ),
               Container(
                 height: 76.h,
-                child: ListView.builder(padding: EdgeInsets.zero,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
                         Get.to(SupplierfourScreen());
                       },
-                      child:
-                      Container(
+                      child: Container(
                         margin: EdgeInsets.symmetric(vertical: 1.h),
                         child: Column(
                           children: [
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Column(
                                   children: [
                                     Container(
                                       padding: EdgeInsets.all(0.5.w),
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(90),
+                                        borderRadius: BorderRadius.circular(90),
                                         color: Colors.pink,
                                       ),
                                       child: IconButton(
@@ -137,8 +142,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                   ],
                                 ),
                                 Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Post " + '${index + 1}',
@@ -193,9 +197,8 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                     child: CachedNetworkImage(
                                       imageUrl:
                                           "https://cdn.pixabay.com/photo/2017/10/05/09/03/wedding-2818739_640.jpg",
-                                      imageBuilder:
-                                          (context, imageProvider) =>
-                                              Container(
+                                      imageBuilder: (context, imageProvider) =>
+                                          Container(
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(25.0),
@@ -243,9 +246,8 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                     child: CachedNetworkImage(
                                       imageUrl:
                                           "https://cdn.pixabay.com/photo/2015/07/27/22/59/life-863708_640.jpg",
-                                      imageBuilder:
-                                          (context, imageProvider) =>
-                                              Container(
+                                      imageBuilder: (context, imageProvider) =>
+                                          Container(
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(25.0),

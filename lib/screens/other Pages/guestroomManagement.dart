@@ -114,7 +114,8 @@ class _RoomManagementState extends State<RoomManagement> {
                               Icons.menu_rounded,
                             ))
                       ],
-                    ), SizedBox(height: 1.5.h),
+                    ),
+                    SizedBox(height: 1.5.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,

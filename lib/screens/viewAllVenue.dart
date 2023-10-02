@@ -136,7 +136,8 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                   ],
                 ),
               ),
-            ),  SliverGrid.builder(
+            ),
+            SliverGrid.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisSpacing: 0.5.h,
                   mainAxisSpacing: 1.h,
@@ -158,13 +159,12 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                             child: CachedNetworkImage(
                               fit: BoxFit.cover,
                               imageUrl: venue[index].image.toString(),
-                              progressIndicatorBuilder:
-                                  (context, url, progress) => Center(
-                                  child: CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  Image.asset(
-                                    'assets/deprf.png',
-                                  ),
+                              progressIndicatorBuilder: (context, url,
+                                      progress) =>
+                                  Center(child: CircularProgressIndicator()),
+                              errorWidget: (context, url, error) => Image.asset(
+                                'assets/deprf.png',
+                              ),
                             ),
                           ),
                         ),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
 
 import '../../widgets/drawer.dart';
 
@@ -91,7 +92,6 @@ class _ViewBudgetState extends State<ViewBudget> {
                           icon: Icon(Icons.menu_rounded))
                     ],
                   ),
-
                   SizedBox(
                     height: 3.h,
                   ),
@@ -129,19 +129,30 @@ class _ViewBudgetState extends State<ViewBudget> {
                   SizedBox(
                     height: 1.h,
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.end,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text('Send a Request',
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            color: Colors.pink,
-                            fontWeight: FontWeight.bold,
-                          ),),
+                      InkWell(onTap: (){Get.to(
+                        QuoateList2(),
+                      );},
+                        child: Container(
+                          padding: EdgeInsets.all(2.w),
+                          decoration: BoxDecoration(
+                              color: Colors.pink,
+                              borderRadius:
+                              BorderRadius.circular(10)),
+                          child: Text(
+                            'Send a Request',
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                color: Colors.white,
+                                fontFamily: 'sofi',
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
                       ),
+
                     ],
                   ),
                   SizedBox(
@@ -281,7 +292,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -427,7 +438,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -554,7 +565,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -700,7 +711,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -846,7 +857,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -992,7 +1003,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -1138,7 +1149,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -1265,7 +1276,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       Positioned(
                         left: 84.w,
-                   bottom: 14.5.h,
+                        bottom: 14.5.h,
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
@@ -1277,21 +1288,32 @@ class _ViewBudgetState extends State<ViewBudget> {
                   SizedBox(
                     height: 1.h,
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.end,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text('Send a Request',
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            color: Colors.pink,
-                            fontWeight: FontWeight.bold,
-                          ),),
+                      InkWell(onTap: (){Get.to(
+                        QuoateList2(),
+                      );},
+                        child: Container(
+                          padding: EdgeInsets.all(2.w),
+                          decoration: BoxDecoration(
+                              color: Colors.pink,
+                              borderRadius:
+                              BorderRadius.circular(10)),
+                          child: Text(
+                            'Send a Request',
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                color: Colors.white,
+                                fontFamily: 'sofi',
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
                       ),
                     ],
-                  ), SizedBox(
+                  ),
+                  SizedBox(
                     height: 2.h,
                   ),
                 ],

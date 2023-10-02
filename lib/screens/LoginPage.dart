@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/screens/SignupPage.dart';
 import 'package:wedding_planner/screens/forgot%20password%20Page.dart';
 
 import 'HomePage.dart';
@@ -30,15 +29,23 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Column(
               children: [
-                SizedBox(height: 6.h,),
+                SizedBox(
+                  height: 6.h,
+                ),
                 Row(
                   children: [
-                    InkWell(onTap: (){
-                      Get.back();
-                    },
-                      child: Container(margin: EdgeInsets.only(left: 3.w),
+                    InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(left: 3.w),
                         padding: EdgeInsets.all(0.7.h),
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 2),borderRadius: BorderRadius.circular(90)),child: Icon(Icons.arrow_back_ios_new_rounded), ),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 2),
+                            borderRadius: BorderRadius.circular(90)),
+                        child: Icon(Icons.arrow_back_ios_new_rounded),
+                      ),
                     ),
                   ],
                 ),
@@ -47,10 +54,8 @@ class _LoginPageState extends State<LoginPage> {
                   width: 100.w,
                   child: Lottie.asset('assets/hrt.json'),
                 ),
-
                 Row(
                   children: [
-
                     Text(
                       "Sign in to Continue",
                       style: TextStyle(
@@ -61,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.black),
                     ),
                   ],
-
                 ),
                 SizedBox(
                   height: 3.h,
@@ -94,7 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             hintText: 'Enter Email Address',
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87,),
+                              borderSide: BorderSide(
+                                color: Colors.black87,
+                              ),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(

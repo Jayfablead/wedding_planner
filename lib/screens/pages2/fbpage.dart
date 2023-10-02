@@ -96,7 +96,9 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class _PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: drawer1(),key: _scaffoldKey,
+    return Scaffold(
+      drawer: drawer1(),
+      key: _scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(

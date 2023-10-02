@@ -13,12 +13,16 @@ class DecorationPage extends StatefulWidget {
   @override
   State<DecorationPage> createState() => _DecorationPageState();
 }
+
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 bool readmore = false;
+
 class _DecorationPageState extends State<DecorationPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: drawer1(),key: _scaffoldKey,
+    return Scaffold(
+      drawer: drawer1(),
+      key: _scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -39,11 +43,17 @@ class _DecorationPageState extends State<DecorationPage> {
                   Text(
                     "Decoration",
                     style: TextStyle(
-                      fontSize: 15.sp,fontFamily: 'sofi',letterSpacing: 1,
+                      fontSize: 15.sp,
+                      fontFamily: 'sofi',
+                      letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(onPressed: () {_scaffoldKey.currentState?.openDrawer();}, icon: Icon(Icons.menu_rounded))
+                  IconButton(
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                      icon: Icon(Icons.menu_rounded))
                 ],
               ),
               SizedBox(
@@ -115,7 +125,8 @@ class _DecorationPageState extends State<DecorationPage> {
                                           onTap: () {
                                             Get.to(MoodBordsScreen());
                                           },
-                                          child: Container(alignment: Alignment.center,
+                                          child: Container(
+                                            alignment: Alignment.center,
                                             width: 28.w,
                                             height: 5.2.h,
                                             decoration: BoxDecoration(
@@ -126,10 +137,10 @@ class _DecorationPageState extends State<DecorationPage> {
                                             child: Text(
                                               "Book Now",
                                               style: TextStyle(
-                                              fontSize: 13.sp,
-                                              color: Colors.pink,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'sofi'),
+                                                  fontSize: 13.sp,
+                                                  color: Colors.pink,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'sofi'),
                                             ),
                                           ),
                                         ),
@@ -177,8 +188,10 @@ class _DecorationPageState extends State<DecorationPage> {
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.symmetric(vertical: 1.h),
-                          child: Column(mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,                            children: [
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
                               Container(
                                 child: CachedNetworkImage(
                                   imageUrl:
@@ -189,8 +202,7 @@ crossAxisAlignment: CrossAxisAlignment.center,                            childr
                                   imageBuilder: (context, imageProvider) =>
                                       Container(
                                     decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(25.0),
+                                      borderRadius: BorderRadius.circular(25.0),
                                       image: DecorationImage(
                                         image: imageProvider,
                                         fit: BoxFit.cover,
@@ -205,7 +217,7 @@ crossAxisAlignment: CrossAxisAlignment.center,                            childr
                               ),
                               SizedBox(height: 1.h),
                               Text(
-                                'Supplier ${index+1}',
+                                'Supplier ${index + 1}',
                                 style: TextStyle(
                                     fontSize: 14.sp,
                                     fontFamily: 'sofi',
@@ -214,57 +226,66 @@ crossAxisAlignment: CrossAxisAlignment.center,                            childr
                                     color: Colors.black),
                               ),
                               SizedBox(height: 1.h),
-                              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
-                                InkWell(
-                                  onTap: () {Get.to(SupplierfourScreen());},
-                                  child: Container(
-                                    height: 5.h,
-                                  width: 39.w,
-                                    decoration: BoxDecoration(
-                                      color: Colors.pink,
-                                      borderRadius:
-                                          BorderRadius.circular(25.sp),
+                              Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        Get.to(SupplierfourScreen());
+                                      },
+                                      child: Container(
+                                        height: 5.h,
+                                        width: 39.w,
+                                        decoration: BoxDecoration(
+                                          color: Colors.pink,
+                                          borderRadius:
+                                              BorderRadius.circular(25.sp),
+                                        ),
+                                        child: Center(
+                                            child: Text(
+                                          "View Details",
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: Colors.white,
+                                              fontFamily: 'get'),
+                                        )),
+                                      ),
                                     ),
-                                    child: Center(
-                                        child: Text(
-                                      "View Details",
-                                      style: TextStyle(
-                                          fontSize: 13.sp,
-                                          color: Colors.white,
-                                          fontFamily: 'get'),
-                                    )),
-                                  ),
-                                ),
-                              ]),
+                                  ]),
                             ],
                           ),
                         );
                       },
-                      itemCount: readmore?8:4,
+                      itemCount: readmore ? 8 : 4,
                     ),
-                    SliverToBoxAdapter(child:   InkWell(
-                      onTap: () {
-                      setState(() {
-                        readmore = !readmore;
-                      });
-                      },
-                      child: Container(
-                       margin: EdgeInsets.symmetric(horizontal: 25.w,vertical: 1.h),
-                       padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 1.7.h),
-                        decoration: BoxDecoration(
-                          color: Colors.pink,
-                          borderRadius: BorderRadius.circular(25.sp),
+                    SliverToBoxAdapter(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            readmore = !readmore;
+                          });
+                        },
+                        child: Container(
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 25.w, vertical: 1.h),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 4.w, vertical: 1.7.h),
+                          decoration: BoxDecoration(
+                            color: Colors.pink,
+                            borderRadius: BorderRadius.circular(25.sp),
+                          ),
+                          child: Center(
+                              child: Text(
+                            readmore ? "Read Less" : "Read More",
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontFamily: 'get'),
+                          )),
                         ),
-                        child: Center(
-                            child: Text(
-                              readmore?"Read Less":"Read More",
-                              style: TextStyle(
-                                  fontSize: 14.sp,
-                                  color: Colors.white,
-                                  fontFamily: 'get'),
-                            )),
                       ),
-                    ),),
+                    ),
                   ],
                 ),
               ),

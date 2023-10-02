@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -57,10 +56,12 @@ class _BookingsPageState extends State<BookingsPage> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [  SizedBox(height: 1.h,),
+                children: [
+                  SizedBox(
+                    height: 1.h,
+                  ),
                   Row(
                     children: [
-
                       Text(
                         "Bookings",
                         style: TextStyle(
@@ -73,7 +74,8 @@ class _BookingsPageState extends State<BookingsPage> {
                     ],
                   ),
                   SizedBox(height: 1.h),
-                  Container(height: 60.h,
+                  Container(
+                    height: 60.h,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,8 +87,9 @@ class _BookingsPageState extends State<BookingsPage> {
                               child: Row(
                                 children: [
                                   Icon(CupertinoIcons.person),
-                                  SizedBox(width: 2.w,),
-
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
                                   Text(
                                     'Name',
                                     style: TextStyle(
@@ -98,7 +101,10 @@ class _BookingsPageState extends State<BookingsPage> {
                                   ),
                                 ],
                               ),
-                            ),   SizedBox(height: 1.h,),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
                             TextField(
                               // controller: _msg,
                               style: TextStyle(
@@ -131,7 +137,6 @@ class _BookingsPageState extends State<BookingsPage> {
                             ),
                           ],
                         ),
-
                         Column(
                           children: [
                             Padding(
@@ -139,8 +144,9 @@ class _BookingsPageState extends State<BookingsPage> {
                               child: Row(
                                 children: [
                                   Icon(CupertinoIcons.phone),
-                                  SizedBox(width: 2.w,),
-
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
                                   Text(
                                     'Phone no',
                                     style: TextStyle(
@@ -152,7 +158,10 @@ class _BookingsPageState extends State<BookingsPage> {
                                   ),
                                 ],
                               ),
-                            ),SizedBox(height: 1.h,),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
                             TextField(
                               // controller: _msg,
                               style: TextStyle(
@@ -185,7 +194,6 @@ class _BookingsPageState extends State<BookingsPage> {
                             ),
                           ],
                         ),
-
                         Column(
                           children: [
                             Padding(
@@ -193,8 +201,9 @@ class _BookingsPageState extends State<BookingsPage> {
                               child: Row(
                                 children: [
                                   Icon(CupertinoIcons.house),
-                                  SizedBox(width: 2.w,),
-
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
                                   Text(
                                     'Address',
                                     style: TextStyle(
@@ -206,8 +215,12 @@ class _BookingsPageState extends State<BookingsPage> {
                                   ),
                                 ],
                               ),
-                            ),SizedBox(height: 1.h,),
-                            TextField(maxLines: 4,
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            TextField(
+                              maxLines: 4,
                               // controller: _msg,
                               style: TextStyle(
                                   color: Colors.black,
@@ -239,8 +252,6 @@ class _BookingsPageState extends State<BookingsPage> {
                             ),
                           ],
                         ),
-
-
                         Column(
                           children: [
                             Padding(
@@ -248,8 +259,9 @@ class _BookingsPageState extends State<BookingsPage> {
                               child: Row(
                                 children: [
                                   Icon(CupertinoIcons.info),
-                                  SizedBox(width: 2.w,),
-
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
                                   Text(
                                     'Details',
                                     style: TextStyle(
@@ -261,8 +273,12 @@ class _BookingsPageState extends State<BookingsPage> {
                                   ),
                                 ],
                               ),
-                            ),SizedBox(height: 1.h,),
-                            TextField(maxLines: 4,
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            TextField(
+                              maxLines: 4,
                               // controller: _msg,
                               style: TextStyle(
                                   color: Colors.black,

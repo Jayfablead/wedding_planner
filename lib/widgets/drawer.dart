@@ -336,7 +336,8 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-                        ), SizedBox(height: 2.h),
+                        ),
+                        SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
                             Get.to(ViewBudget());
@@ -427,7 +428,8 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-                        ), SizedBox(height: 2.h),
+                        ),
+                        SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
                             Get.to(BookingsPage());
@@ -565,7 +567,8 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-                        ),SizedBox(height: 2.h),
+                        ),
+                        SizedBox(height: 2.h),
                         InkWell(
                           onTap: () {
                             Get.to(BookingListPage());

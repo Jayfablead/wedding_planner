@@ -43,8 +43,7 @@ class _EditProfile2State extends State<EditProfile2> {
     _lname.text = widget.lname.toString();
     _phone.text = widget.phone.toString();
     _address.text = widget.address.toString();
-    _about.text
-    = widget.about.toString();
+    _about.text = widget.about.toString();
   }
 
   @override
@@ -69,7 +68,6 @@ class _EditProfile2State extends State<EditProfile2> {
                 }
               },
               child: Container(
-               
                 decoration: BoxDecoration(
                     image: DecorationImage(
                   image: AssetImage(
@@ -588,8 +586,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                         ),
                                         Center(
                                           child: InkWell(
-                                            onTap: () {
-                                            },
+                                            onTap: () {},
                                             child: Container(
                                               alignment: Alignment.center,
                                               height: 5.5.h,
@@ -634,8 +631,7 @@ class _EditProfile2State extends State<EditProfile2> {
   InputDecoration inputDecoration({
     required String hint,
   }) {
-    return
-      InputDecoration(
+    return InputDecoration(
       focusedBorder: InputBorder.none, // Remove border when focused
       enabledBorder: InputBorder.none,
       hintText: hint,

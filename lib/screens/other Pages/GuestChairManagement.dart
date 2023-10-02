@@ -486,10 +486,10 @@ class _ChairManagementState extends State<ChairManagement> {
                             width: 7.w,
                             margin: EdgeInsets.only(right: 3.w, bottom: 1.h),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-
-                              ),  child: Icon(Icons.event_seat,
-                              size: 24.sp, color: Colors.pink),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Icon(Icons.event_seat,
+                                size: 24.sp, color: Colors.pink),
                           ),
                           Text(
                             "Selected",

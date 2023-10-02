@@ -298,7 +298,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       child: Center(
                         child: Text(
                           "Add to Budget",
-                          style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 14.sp),
                         ),
                       ),
                     ),

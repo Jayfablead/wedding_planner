@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -22,7 +23,8 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
-          child: Column(
+          child:
+          Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -70,149 +72,8 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               SizedBox(
                 height: 1.h,
               ),
-
-              // Column(
-              //   children: [
-              //     Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       children: [
-              //         Container(
-              //           height: 15.h,
-              //           width: 30.w,
-              //           child: Card(
-              //             child: Padding(
-              //               padding: EdgeInsets.symmetric(
-              //                   vertical: 2.h, horizontal: 4.w),
-              //               child: Column(
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Icon(
-              //                     Icons.currency_rupee_sharp,
-              //                     size: 20.sp,
-              //                     color: Colors.pink,
-              //                   ),
-              //                   SizedBox(
-              //                     height: 1.h,
-              //                   ),
-              //                   Text(
-              //                     "\$200",
-              //                     style: TextStyle(
-              //                       fontWeight: FontWeight.bold,
-              //                       fontSize: 15.sp,
-              //                       fontFamily: "sofi",
-              //                     ),
-              //                   ),
-              //                   SizedBox(
-              //                     height: 1.h,
-              //                   ),
-              //                   Text(
-              //                     "Amount",
-              //                     style: TextStyle(
-              //                         fontWeight: FontWeight.normal,
-              //                         fontFamily: "sofi",
-              //                         fontSize: 12.sp),
-              //                   )
-              //                 ],
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //         SizedBox(
-              //           width: 10.w,
-              //         ),
-              //         Container(
-              //           height: 15.h,
-              //           width: 30.w,
-              //           child: Card(
-              //             child: Padding(
-              //               padding: EdgeInsets.symmetric(
-              //                   vertical: 2.h, horizontal: 4.w),
-              //               child: Column(
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Icon(
-              //                     Icons.people_outline_rounded,
-              //                     size: 22.sp,
-              //                     color: Colors.pink,
-              //                   ),
-              //                   SizedBox(
-              //                     height: 1.h,
-              //                   ),
-              //                   Text(
-              //                     "People",
-              //                     style: TextStyle(
-              //                       fontWeight: FontWeight.bold,
-              //                       fontSize: 15.sp,
-              //                       fontFamily: "sofi",
-              //                     ),
-              //                   ),
-              //                   SizedBox(
-              //                     height: 1.h,
-              //                   ),
-              //                   Text(
-              //                     "( 1-2 )",
-              //                     style: TextStyle(
-              //                       fontWeight: FontWeight.normal,
-              //                       fontSize: 12.sp,
-              //                       fontFamily: "sofi",
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //         // Container(
-              //         //   height: 15.h,
-              //         //   width: 30.w,
-              //         //   child: Card(
-              //         //     child: Padding(
-              //         //       padding: EdgeInsets.symmetric(
-              //         //           vertical: 2.h, horizontal: 4.w),
-              //         //       child: Column(
-              //         //         mainAxisAlignment: MainAxisAlignment.start,
-              //         //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         //         children: [
-              //         //           Icon(
-              //         //             Icons.shopping_bag_sharp,
-              //         //             size: 22.sp,
-              //         //             color: Colors.pink,
-              //         //           ),
-              //         //           SizedBox(
-              //         //             height: 1.h,
-              //         //           ),
-              //         //           Text(
-              //         //             "Bags",
-              //         //             style: TextStyle(
-              //         //                 fontWeight: FontWeight.bold,
-              //         //                 fontFamily: "sofi",
-              //         //                 fontSize: 15.sp),
-              //         //           ),
-              //         //           SizedBox(
-              //         //             height: 1.h,
-              //         //           ),
-              //         //           Text(
-              //         //             "( 1-2 )",
-              //         //             style: TextStyle(
-              //         //                 fontWeight: FontWeight.normal,
-              //         //                 fontFamily: "sofi",
-              //         //                 fontSize: 12.sp),
-              //         //           ),
-              //         //         ],
-              //         //       ),
-              //         //     ),
-              //         //   ),
-              //         // ),
-              //       ],
-              //     ),
-              //   ],
-              // ),
-
               Container(
-                height: 10.h,
+
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -264,7 +125,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               ),
 
               Container(
-                height: 10.h,
+
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -299,7 +160,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                                   height: 0.5.h,
                                 ),
                                 Text(
-                                  "09:55Am",
+                                  "09:55 Am",
                                   style: TextStyle(
                                     fontSize: 15.sp,
                                     fontFamily: "sofi",
@@ -335,7 +196,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                                   height: 0.5.h,
                                 ),
                                 Text(
-                                  "08:55Pm",
+                                  "08:55 Pm",
                                   style: TextStyle(
                                     fontSize: 15.sp,
                                     fontFamily: "sofi",
@@ -353,7 +214,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               ),
 
               Container(
-                height: 10.h,
+
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -447,7 +308,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               ),
 
               Container(
-                height: 14.h,
+
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -504,7 +365,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               ),
 
               Container(
-                height: 14.h,
+
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -558,7 +419,26 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     ),
                   ),
                 ),
-              ),
+              ),SizedBox(height: 2.h), Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                   height: 6.5.h,width: 90.w,alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius:
+                        BorderRadius.circular(10)),
+                    child: Text(
+                      'Continue',
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          color: Colors.white,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),SizedBox(height: 2.h),
             ],
           ),
         ),

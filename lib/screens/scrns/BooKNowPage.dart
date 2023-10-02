@@ -659,9 +659,10 @@ class _BooKNowPageState extends State<BooKNowPage> {
               ),
 
               Center(
-                child: InkWell(onTap: () {
-                  Get.offAll(BookingSuccessfulPage());
-                },
+                child: InkWell(
+                  onTap: () {
+                    Get.offAll(BookingSuccessfulPage());
+                  },
                   child: Container(
                     height: 6.h,
                     width: 86.w,

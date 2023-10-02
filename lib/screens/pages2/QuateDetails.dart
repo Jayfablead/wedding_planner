@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:wedding_planner/new%20pages/itineryPage.dart';
+import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class QuatationDetails2 extends StatefulWidget {
@@ -43,7 +45,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
           child: Column(
             children: [
               SizedBox(
-                height: 5.h,
+                height: 6.h,
               ),
               Stack(
                 children: [
@@ -389,6 +391,9 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
+                          onTap: () {
+                            Get.to(ItinerPage());
+                          },
                           child: Container(
                             height: 5.5.h,
                             width: 42.w,
@@ -397,7 +402,9 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
                             child: Center(
-                                child: Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                                child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(CupertinoIcons.check_mark_circled,
                                     color: Colors.white),
@@ -414,6 +421,9 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                           ),
                         ),
                         InkWell(
+                          onTap: () {
+                            ChatlistPage();
+                          },
                           child: Container(
                             height: 5.5.h,
                             width: 42.w,
@@ -422,7 +432,9 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
                             child: Center(
-                                child: Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                                child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(CupertinoIcons.chat_bubble_text,
                                     color: Colors.white),

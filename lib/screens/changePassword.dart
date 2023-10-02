@@ -29,15 +29,23 @@ class _ChangePasswordState extends State<ChangePassword> {
             padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Column(
               children: [
-                SizedBox(height: 6.h,),
+                SizedBox(
+                  height: 6.h,
+                ),
                 Row(
                   children: [
-                    InkWell(onTap: (){
-                      Get.back();
-                    },
-                      child: Container(margin: EdgeInsets.only(left: 3.w),
+                    InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(left: 3.w),
                         padding: EdgeInsets.all(0.7.h),
-                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 2),borderRadius: BorderRadius.circular(90)),child: Icon(Icons.arrow_back_ios_new_rounded), ),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 2),
+                            borderRadius: BorderRadius.circular(90)),
+                        child: Icon(Icons.arrow_back_ios_new_rounded),
+                      ),
                     ),
                   ],
                 ),
@@ -134,7 +142,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                       ),
                     ],
                   ),
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 3.h,
                 ),
                 Row(
@@ -209,7 +218,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                       ),
                     ],
                   ),
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 3.h,
                 ),
                 Row(
@@ -301,14 +311,15 @@ class _ChangePasswordState extends State<ChangePassword> {
                     ),
                     child: Center(
                         child: Text(
-                          "Continue",
-                          style: TextStyle(
-                              fontSize: 17.sp,
-                              color: Colors.white,
-                              fontFamily: 'get'),
-                        )),
+                      "Continue",
+                      style: TextStyle(
+                          fontSize: 17.sp,
+                          color: Colors.white,
+                          fontFamily: 'get'),
+                    )),
                   ),
-                ), SizedBox(
+                ),
+                SizedBox(
                   height: 2.h,
                 ),
               ],

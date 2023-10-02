@@ -4,8 +4,6 @@ import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
 
-import 'LoginPage.dart';
-
 class Signup2 extends StatefulWidget {
   String? fname;
   String? lname;

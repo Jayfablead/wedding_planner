@@ -141,7 +141,9 @@ List<cate0> birthday = [
   cate0(
       'https://media.karousell.com/media/photos/products/2022/1/24/birthday_decoration_hotel_set__1643064177_ad5923b6.jpg',
       1010),
-  cate0('https://frillx.com/cdn/shop/products/rosegold-birthday-decoration-party-supplies-kit-pack-of-38-for-husband-wife-boy-girl-117650.jpg?v=1646291318', 9999),
+  cate0(
+      'https://frillx.com/cdn/shop/products/rosegold-birthday-decoration-party-supplies-kit-pack-of-38-for-husband-wife-boy-girl-117650.jpg?v=1646291318',
+      9999),
   cate0(
       'https://rukminim2.flixcart.com/image/850/1000/khavrm80-0/birthday-combo/g/h/i/happy-birthday-combo-party-decoration-with-led-light-set-original-imafxch8vrdtp3dg.jpeg?q=90',
       1500),
@@ -162,7 +164,9 @@ List<cate0> engage = [
   cate0(
       'https://productimages.withfloats.com/tile/5fdc604fbfde3900012455de.jpg',
       1010),
-  cate0('https://images.prismic.io/eventsgyani/06d9f6a3-6447-4f16-8b5b-04094e5245b4_6.+ganesha+backdrop.jpeg?auto=compress,format&rect=0,0,960,640&w=740&h=493', 9999),
+  cate0(
+      'https://images.prismic.io/eventsgyani/06d9f6a3-6447-4f16-8b5b-04094e5245b4_6.+ganesha+backdrop.jpeg?auto=compress,format&rect=0,0,960,640&w=740&h=493',
+      9999),
   cate0(
       'https://www.takerentpe.com/media/images/products/2022/05/Untitled_design_7.png',
       1500),
@@ -171,9 +175,7 @@ List<cate0> engage = [
       100),
 ];
 List<cate0> anniversary = [
-  cate0(
-      'https://m.media-amazon.com/images/I/71xdPvVRJwL.jpg',
-      100),
+  cate0('https://m.media-amazon.com/images/I/71xdPvVRJwL.jpg', 100),
   cate0(
       'https://partydost.com/wp-content/uploads/2020/12/Untitled-design-49.jpg',
       300),
@@ -183,13 +185,13 @@ List<cate0> anniversary = [
   cate0(
       'https://loviesta.com/wp-content/uploads/2021/05/Happy-Anniversary-Theme-Decoration-007.jpg',
       1010),
-  cate0('https://i.pinimg.com/originals/3a/c8/46/3ac846fa708a68dfc71b64ade921086e.jpg', 9999),
+  cate0(
+      'https://i.pinimg.com/originals/3a/c8/46/3ac846fa708a68dfc71b64ade921086e.jpg',
+      9999),
   cate0(
       'https://experiencesaga.com/cdn/shop/products/WhatsAppImage2023-01-30at4.16.14PM_1.jpg?v=1675077718&width=533',
       1500),
-  cate0(
-      'https://m.media-amazon.com/images/I/819hFrW34pL.jpg',
-      100),
+  cate0('https://m.media-amazon.com/images/I/819hFrW34pL.jpg', 100),
 ];
 List<serv> services = [
   serv(
@@ -352,138 +354,139 @@ class _Home2State extends State<Home2> {
             SizedBox(
               height: 1.h,
             ),
-            SizedBox(height: 10.h,
-              child: ListView(scrollDirection: Axis.horizontal,padding: EdgeInsets.zero,
-                children: [
-                  InkWell(
-                  onTap: () {
-                    setState(() {
-                      sel = 1;
-                    });
-                  },
-                  child: Container(
-                    child: Card(
-                        color: sel == 1 ? Colors.pink : Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        elevation: 5,
-                        child: Container(
-                          margin: EdgeInsets.all(3.5.w),
-                          child: Image.asset('assets/1.png',
-                              color: sel == 1 ? Colors.white : Colors.pink,
-                              height: 6.h,
-                              width: 13.w),
-                        )),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      sel = 2;
-                    });
-                  },
-                  child: Container(
-                    child: Card(
-                        color: sel == 2 ? Colors.pink : Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        elevation: 5,
-                        child: Container(
-                          margin: EdgeInsets.all(3.5.w),
-                          child: Image.asset('assets/2.png',
-                              color: sel == 2 ? Colors.white : Colors.pink,
-                              height: 6.h,
-                              width: 13.w),
-                        )),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      sel = 3;
-                    });
-                  },
-                  child: Container(
-                    child: Card(
-                        color: sel == 3 ? Colors.pink : Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        elevation: 5,
-                        child: Container(
-                          margin: EdgeInsets.all(3.5.w),
-                          child: Image.asset('assets/9.png',
-                              color: sel == 3 ? Colors.white : Colors.pink,
-                              height: 6.h,
-                              width: 13.w),
-                        )),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      sel = 4;
-                    });
-                  },
-                  child: Container(
-                    child: Card(
-                        color: sel == 4 ? Colors.pink : Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        elevation: 5,
-                        child: Container(
-                          margin: EdgeInsets.all(3.5.w),
-                          child: Image.asset('assets/8.png',
-                              color: sel == 4 ? Colors.white : Colors.pink,
-                              height: 6.h,
-                              width: 13.w),
-                        )),
-                  ),
-                ),
-                  InkWell(
-                  onTap: () {
-                    setState(() {
-                      sel = 5;
-                    });
-                  },
-                  child: Container(
-                    child: Card(
-                        color: sel == 5 ? Colors.pink : Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        elevation: 5,
-                        child: Container(
-                          margin: EdgeInsets.all(3.5.w),
-                          child: Image.asset('assets/7.png',
-                              color: sel == 5 ? Colors.white : Colors.pink,
-                              height: 6.h,
-                              width: 13.w),
-                        )),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      sel = 6;
-                    });
-                  },
-                  child: Container(
-                    child: Card(
-                        color: sel == 6 ? Colors.pink : Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        elevation: 5,
-                        child: Container(
-                          margin: EdgeInsets.all(3.5.w),
-                          child: Image.asset('assets/5.png',
-                              color: sel == 6 ? Colors.white : Colors.pink,
-                              height: 6.h,
-                              width: 13.w),
-                        )),
-                  ),
-                ),
-                ]
-
-              ),
+            SizedBox(
+              height: 10.h,
+              child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.zero,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          sel = 1;
+                        });
+                      },
+                      child: Container(
+                        child: Card(
+                            color: sel == 1 ? Colors.pink : Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 5,
+                            child: Container(
+                              margin: EdgeInsets.all(3.5.w),
+                              child: Image.asset('assets/1.png',
+                                  color: sel == 1 ? Colors.white : Colors.pink,
+                                  height: 6.h,
+                                  width: 13.w),
+                            )),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          sel = 2;
+                        });
+                      },
+                      child: Container(
+                        child: Card(
+                            color: sel == 2 ? Colors.pink : Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 5,
+                            child: Container(
+                              margin: EdgeInsets.all(3.5.w),
+                              child: Image.asset('assets/2.png',
+                                  color: sel == 2 ? Colors.white : Colors.pink,
+                                  height: 6.h,
+                                  width: 13.w),
+                            )),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          sel = 3;
+                        });
+                      },
+                      child: Container(
+                        child: Card(
+                            color: sel == 3 ? Colors.pink : Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 5,
+                            child: Container(
+                              margin: EdgeInsets.all(3.5.w),
+                              child: Image.asset('assets/9.png',
+                                  color: sel == 3 ? Colors.white : Colors.pink,
+                                  height: 6.h,
+                                  width: 13.w),
+                            )),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          sel = 4;
+                        });
+                      },
+                      child: Container(
+                        child: Card(
+                            color: sel == 4 ? Colors.pink : Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 5,
+                            child: Container(
+                              margin: EdgeInsets.all(3.5.w),
+                              child: Image.asset('assets/8.png',
+                                  color: sel == 4 ? Colors.white : Colors.pink,
+                                  height: 6.h,
+                                  width: 13.w),
+                            )),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          sel = 5;
+                        });
+                      },
+                      child: Container(
+                        child: Card(
+                            color: sel == 5 ? Colors.pink : Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 5,
+                            child: Container(
+                              margin: EdgeInsets.all(3.5.w),
+                              child: Image.asset('assets/7.png',
+                                  color: sel == 5 ? Colors.white : Colors.pink,
+                                  height: 6.h,
+                                  width: 13.w),
+                            )),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          sel = 6;
+                        });
+                      },
+                      child: Container(
+                        child: Card(
+                            color: sel == 6 ? Colors.pink : Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 5,
+                            child: Container(
+                              margin: EdgeInsets.all(3.5.w),
+                              child: Image.asset('assets/5.png',
+                                  color: sel == 6 ? Colors.white : Colors.pink,
+                                  height: 6.h,
+                                  width: 13.w),
+                            )),
+                      ),
+                    ),
+                  ]),
             ),
             sel == 2
                 ? Column(
@@ -511,30 +514,29 @@ class _Home2State extends State<Home2> {
                           // Total number of items
                           itemBuilder: (BuildContext context, int index) =>
                               Container(
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                    BorderRadius.circular(10)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl:
-                                    birthday[index].image.toString(),
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) => Center(
-                                        child:
-                                        CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                          'assets/deprf.png',
-                                        ),
-                                  ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                imageUrl: birthday[index].image.toString(),
+                                progressIndicatorBuilder: (context, url,
+                                        progress) =>
+                                    Center(child: CircularProgressIndicator()),
+                                errorWidget: (context, url, error) =>
+                                    Image.asset(
+                                  'assets/deprf.png',
                                 ),
                               ),
+                            ),
+                          ),
                           staggeredTileBuilder: (int index) =>
-                              StaggeredTile.count(1, index.isEven ? 1.5 : 1),  // Adjust sizes based on index
-                          mainAxisSpacing: 8.0,  // Vertical spacing
-                          crossAxisSpacing: 8.0,  // Horizontal spacing
+                              StaggeredTile.count(1, index.isEven ? 1.5 : 1),
+                          // Adjust sizes based on index
+                          mainAxisSpacing: 8.0,
+                          // Vertical spacing
+                          crossAxisSpacing: 8.0, // Horizontal spacing
                         ),
                       ),
                     ],
@@ -565,148 +567,42 @@ class _Home2State extends State<Home2> {
                               // Total number of items
                               itemBuilder: (BuildContext context, int index) =>
                                   Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl:
-                                            photos[index].image.toString(),
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) => Center(
-                                                child:
-                                                    CircularProgressIndicator()),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/deprf.png',
-                                        ),
-                                      ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl: photos[index].image.toString(),
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/deprf.png',
                                     ),
                                   ),
+                                ),
+                              ),
                               staggeredTileBuilder: (int index) =>
-                                  StaggeredTile.count(1, index.isEven ? 1.5 : 1),  // Adjust sizes based on index
-                              mainAxisSpacing: 8.0,  // Vertical spacing
-                              crossAxisSpacing: 8.0,  // Horizontal spacing
+                                  StaggeredTile.count(
+                                      1, index.isEven ? 1.5 : 1),
+                              // Adjust sizes based on index
+                              mainAxisSpacing: 8.0,
+                              // Vertical spacing
+                              crossAxisSpacing: 8.0, // Horizontal spacing
                             ),
                           ),
                         ],
-                      )  :sel == 4?
-            Column(
-              children: [
-                SizedBox(height: 2.h),
-                Row(children: [
-                  SizedBox(width: 1.w),
-                  Text(
-                    'Anniversary Decor',
-                    style: TextStyle(
-                        fontFamily: 'sofi',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.sp,
-                        letterSpacing: 1),
-                  ),
-                ]),
-                SizedBox(height: 2.h),
-                SizedBox(
-                  height: 69.h,
-                  child: StaggeredGridView.countBuilder(
-                    padding: EdgeInsets.zero,
-                    crossAxisCount: 2,
-                    // Number of columns
-                    itemCount: anniversary.length,
-                    // Total number of items
-                    itemBuilder: (BuildContext context, int index) =>
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.circular(10)),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: CachedNetworkImage(
-                              fit: BoxFit.cover,
-                              imageUrl:
-                              anniversary[index].image.toString(),
-                              progressIndicatorBuilder:
-                                  (context, url, progress) => Center(
-                                  child:
-                                  CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  Image.asset(
-                                    'assets/deprf.png',
-                                  ),
-                            ),
-                          ),
-                        ),
-                    staggeredTileBuilder: (int index) =>
-                        StaggeredTile.count(1, index.isEven ? 1.5 : 1),  // Adjust sizes based on index
-                    mainAxisSpacing: 8.0,  // Vertical spacing
-                    crossAxisSpacing: 8.0,  // Horizontal spacing
-                  ),
-                ),
-              ],
-            ):sel == 3?
-            Column(
-              children: [
-                SizedBox(height: 2.h),
-                Row(children: [
-                  SizedBox(width: 1.w),
-                  Text(
-                    'Engagement Decor',
-                    style: TextStyle(
-                        fontFamily: 'sofi',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.sp,
-                        letterSpacing: 1),
-                  ),
-                ]),
-                SizedBox(height: 2.h),
-                SizedBox(
-                  height: 69.h,
-                  child: StaggeredGridView.countBuilder(
-                    padding: EdgeInsets.zero,
-                    crossAxisCount: 2,
-                    // Number of columns
-                    itemCount: engage.length,
-                    // Total number of items
-                    itemBuilder: (BuildContext context, int index) =>
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.circular(10)),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: CachedNetworkImage(
-                              fit: BoxFit.cover,
-                              imageUrl:
-                              engage[index].image.toString(),
-                              progressIndicatorBuilder:
-                                  (context, url, progress) => Center(
-                                  child:
-                                  CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  Image.asset(
-                                    'assets/deprf.png',
-                                  ),
-                            ),
-                          ),
-                        ),
-                    staggeredTileBuilder: (int index) =>
-                        StaggeredTile.count(1, index.isEven ? 1.5 : 1),  // Adjust sizes based on index
-                    mainAxisSpacing: 8.0,  // Vertical spacing
-                    crossAxisSpacing: 8.0,  // Horizontal spacing
-                  ),
-                ),
-              ],
-            )
-                    : sel == 6
+                      )
+                    : sel == 4
                         ? Column(
                             children: [
                               SizedBox(height: 2.h),
                               Row(children: [
                                 SizedBox(width: 1.w),
                                 Text(
-                                  'Makeup Ideas',
+                                  'Anniversary Decor',
                                   style: TextStyle(
                                       fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold,
@@ -721,11 +617,131 @@ class _Home2State extends State<Home2> {
                                   padding: EdgeInsets.zero,
                                   crossAxisCount: 2,
                                   // Number of columns
-                                  itemCount: makeup.length,
+                                  itemCount: anniversary.length,
                                   // Total number of items
                                   itemBuilder:
                                       (BuildContext context, int index) =>
                                           Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl:
+                                            anniversary[index].image.toString(),
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) => Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
+                                          'assets/deprf.png',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  staggeredTileBuilder: (int index) =>
+                                      StaggeredTile.count(
+                                          1, index.isEven ? 1.5 : 1),
+                                  // Adjust sizes based on index
+                                  mainAxisSpacing: 8.0,
+                                  // Vertical spacing
+                                  crossAxisSpacing: 8.0, // Horizontal spacing
+                                ),
+                              ),
+                            ],
+                          )
+                        : sel == 3
+                            ? Column(
+                                children: [
+                                  SizedBox(height: 2.h),
+                                  Row(children: [
+                                    SizedBox(width: 1.w),
+                                    Text(
+                                      'Engagement Decor',
+                                      style: TextStyle(
+                                          fontFamily: 'sofi',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18.sp,
+                                          letterSpacing: 1),
+                                    ),
+                                  ]),
+                                  SizedBox(height: 2.h),
+                                  SizedBox(
+                                    height: 69.h,
+                                    child: StaggeredGridView.countBuilder(
+                                      padding: EdgeInsets.zero,
+                                      crossAxisCount: 2,
+                                      // Number of columns
+                                      itemCount: engage.length,
+                                      // Total number of items
+                                      itemBuilder:
+                                          (BuildContext context, int index) =>
+                                              Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl:
+                                                engage[index].image.toString(),
+                                            progressIndicatorBuilder: (context,
+                                                    url, progress) =>
+                                                Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Image.asset(
+                                              'assets/deprf.png',
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      staggeredTileBuilder: (int index) =>
+                                          StaggeredTile.count(
+                                              1, index.isEven ? 1.5 : 1),
+                                      // Adjust sizes based on index
+                                      mainAxisSpacing: 8.0,
+                                      // Vertical spacing
+                                      crossAxisSpacing:
+                                          8.0, // Horizontal spacing
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : sel == 6
+                                ? Column(
+                                    children: [
+                                      SizedBox(height: 2.h),
+                                      Row(children: [
+                                        SizedBox(width: 1.w),
+                                        Text(
+                                          'Makeup Ideas',
+                                          style: TextStyle(
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.sp,
+                                              letterSpacing: 1),
+                                        ),
+                                      ]),
+                                      SizedBox(height: 2.h),
+                                      SizedBox(
+                                        height: 69.h,
+                                        child: StaggeredGridView.countBuilder(
+                                          padding: EdgeInsets.zero,
+                                          crossAxisCount: 2,
+                                          // Number of columns
+                                          itemCount: makeup.length,
+                                          // Total number of items
+                                          itemBuilder: (BuildContext context,
+                                                  int index) =>
+                                              Container(
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
@@ -734,8 +750,9 @@ class _Home2State extends State<Home2> {
                                                   BorderRadius.circular(10),
                                               child: CachedNetworkImage(
                                                 fit: BoxFit.cover,
-                                                imageUrl:
-                                                    makeup[index].image.toString(),
+                                                imageUrl: makeup[index]
+                                                    .image
+                                                    .toString(),
                                                 progressIndicatorBuilder: (context,
                                                         url, progress) =>
                                                     Center(
@@ -749,105 +766,125 @@ class _Home2State extends State<Home2> {
                                               ),
                                             ),
                                           ),
-                                  staggeredTileBuilder: (int index) =>
-                                      StaggeredTile.count(1, index.isEven ? 1.5 : 1),  // Adjust sizes based on index
-                                  mainAxisSpacing: 8.0,  // Vertical spacing
-                                  crossAxisSpacing: 8.0,  // Horizontal spacing
-                                ),
-                              ),
-                            ],
-                          )
-                        : Column(children: [
-                            SizedBox(height: 2.h),
-                            Row(children: [
-                              SizedBox(width: 2.w),
-                              Text(
-                                'Wedding Hall',
-                                style: TextStyle(
-                                    fontFamily: 'sofi',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.sp,
-                                    letterSpacing: 1),
-                              ),
-                            ]),
-                            SizedBox(height: 1.h),
-                            SizedBox(
-                              height: 69.h,
-                              child: GridView.builder(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        childAspectRatio: 0.77 / 1,
-                                        crossAxisSpacing: 1.w),
-                                itemCount: venue.length,
-                                padding: EdgeInsets.zero,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    margin: EdgeInsets.symmetric(vertical: 1.h),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 1.w),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          height: 20.h,
-                                          width: 90.w,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            child: CachedNetworkImage(
-                                              fit: BoxFit.cover,
-                                              imageUrl:
-                                                  venue[index].image.toString(),
-                                              progressIndicatorBuilder: (context,
-                                                      url, progress) =>
-                                                  Center(
-                                                      child:
-                                                          CircularProgressIndicator()),
-                                              errorWidget:
-                                                  (context, url, error) =>
-                                                      Image.asset(
-                                                'assets/deprf.png',
-                                              ),
+                                          staggeredTileBuilder: (int index) =>
+                                              StaggeredTile.count(
+                                                  1, index.isEven ? 1.5 : 1),
+                                          // Adjust sizes based on index
+                                          mainAxisSpacing: 8.0,
+                                          // Vertical spacing
+                                          crossAxisSpacing:
+                                              8.0, // Horizontal spacing
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Column(children: [
+                                    SizedBox(height: 2.h),
+                                    Row(children: [
+                                      SizedBox(width: 2.w),
+                                      Text(
+                                        'Wedding Hall',
+                                        style: TextStyle(
+                                            fontFamily: 'sofi',
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18.sp,
+                                            letterSpacing: 1),
+                                      ),
+                                    ]),
+                                    SizedBox(height: 1.h),
+                                    SizedBox(
+                                      height: 69.h,
+                                      child: GridView.builder(
+                                        gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 2,
+                                                childAspectRatio: 0.77 / 1,
+                                                crossAxisSpacing: 1.w),
+                                        itemCount: venue.length,
+                                        padding: EdgeInsets.zero,
+                                        itemBuilder: (context, index) {
+                                          return Container(
+                                            margin: EdgeInsets.symmetric(
+                                                vertical: 1.h),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Container(
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal: 1.w),
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10)),
+                                                  height: 20.h,
+                                                  width: 90.w,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    child: CachedNetworkImage(
+                                                      fit: BoxFit.cover,
+                                                      imageUrl: venue[index]
+                                                          .image
+                                                          .toString(),
+                                                      progressIndicatorBuilder:
+                                                          (context, url,
+                                                                  progress) =>
+                                                              Center(
+                                                                  child:
+                                                                      CircularProgressIndicator()),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Image.asset(
+                                                        'assets/deprf.png',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 2.w),
+                                                  child: Text(
+                                                    venue[index]
+                                                        .name
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15.sp,
+                                                        fontFamily: 'sofi',
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 2.w),
+                                                  child: Text(
+                                                    venue[index]
+                                                        .desc
+                                                        .toString(),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                        color: Colors.black
+                                                            .withOpacity(0.7),
+                                                        fontSize: 13.sp,
+                                                        fontFamily: 'sofi',
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 2.w),
-                                          child: Text(
-                                            venue[index].name.toString(),
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15.sp,
-                                                fontFamily: 'sofi',
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 2.w),
-                                          child: Text(
-                                            venue[index].desc.toString(),
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: Colors.black.withOpacity(0.7),
-                                                fontSize: 13.sp,
-                                                fontFamily: 'sofi',
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            )
-                          ]),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                  ]),
           ],
         ),
       ),

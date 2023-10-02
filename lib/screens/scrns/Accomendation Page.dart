@@ -170,13 +170,15 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                               margin: EdgeInsets.symmetric(horizontal: 2.w),
                               child: Stack(
                                 children: [
-                                  InkWell(onTap: () {
-                                    Get.to(Acco_view());
-                                  },
+                                  InkWell(
+                                    onTap: () {
+                                      Get.to(Acco_view());
+                                    },
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Container(
                                           child: CachedNetworkImage(
@@ -189,8 +191,10 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                     Container(
                                               decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.only(
-                                                    topRight: Radius.circular(12),
-                                                    topLeft: Radius.circular(12)),
+                                                    topRight:
+                                                        Radius.circular(12),
+                                                    topLeft:
+                                                        Radius.circular(12)),
                                                 image: DecorationImage(
                                                   image: imageProvider,
                                                   fit: BoxFit.cover,
@@ -200,8 +204,9 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                             placeholder: (context, url) => Center(
                                                 child:
                                                     CircularProgressIndicator()),
-                                            errorWidget: (context, url, error) =>
-                                                Icon(Icons.error),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Icon(Icons.error),
                                           ),
                                         ),
                                         Container(
@@ -209,7 +214,8 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 2.w),
                                           decoration: BoxDecoration(
-                                            color: Colors.grey.withOpacity(0.12),
+                                            color:
+                                                Colors.grey.withOpacity(0.12),
                                             borderRadius: BorderRadius.only(
                                                 bottomRight: Radius.circular(8),
                                                 bottomLeft: Radius.circular(8)),
@@ -224,7 +230,8 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                 width: 55.w,
                                                 child: Column(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment.start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       SizedBox(height: 1.h),
                                                       Text(
@@ -234,7 +241,8 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                             fontFamily: 'sofi',
                                                             letterSpacing: 1,
                                                             fontWeight:
-                                                                FontWeight.bold),
+                                                                FontWeight
+                                                                    .bold),
                                                       ),
                                                       SizedBox(height: 1.h),
                                                       Row(
@@ -245,18 +253,24 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                           Icon(
                                                               CupertinoIcons
                                                                   .location_solid,
-                                                              color: Colors.pink,
+                                                              color:
+                                                                  Colors.pink,
                                                               size: 14.sp),
-                                                          SizedBox(width: 0.5.w),
+                                                          SizedBox(
+                                                              width: 0.5.w),
                                                           Padding(
-                                                            padding:  EdgeInsets.only(top: 0.8.w),
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    top: 0.8.w),
                                                             child: Text(
                                                               'Surat, Gujarat',
                                                               style: TextStyle(
-                                                                  fontSize: 12.sp,
+                                                                  fontSize:
+                                                                      12.sp,
                                                                   fontFamily:
                                                                       'sofi',
-                                                                  letterSpacing: 1,
+                                                                  letterSpacing:
+                                                                      1,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold),
@@ -285,7 +299,8 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                     ),
                                   ),
                                   Positioned(
-                                      left: 56.5.w,top: 1.6.h,
+                                      left: 56.5.w,
+                                      top: 1.6.h,
                                       child: Container(
                                         padding: EdgeInsets.all(2.w),
                                         decoration: BoxDecoration(
@@ -472,15 +487,16 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                       )),
                                   Positioned(
                                       left: 26.5.w,
-                                      child: Container(
+                                      child:
+                                      Container(
                                         padding: EdgeInsets.all(2.w),
                                         decoration: BoxDecoration(
                                             color: Colors.pink,
                                             borderRadius:
-                                            BorderRadius.circular(10)),
+                                                BorderRadius.circular(10)),
                                         child: Row(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Icon(
                                               CupertinoIcons.add,
@@ -498,7 +514,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                             )
                                           ],
                                         ),
-                                      ))
+                                      ),),
                                 ],
                               ),
                             ),

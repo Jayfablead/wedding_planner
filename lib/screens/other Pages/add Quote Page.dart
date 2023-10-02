@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -63,7 +62,7 @@ class _AddQuoteState extends State<AddQuote> {
                 Container(
                   child: CachedNetworkImage(
                     imageUrl:
-                    'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
+                        'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
                     height: 9.h,
                     width: 20.w,
                     imageBuilder: (context, imageProvider) => Container(
@@ -77,11 +76,11 @@ class _AddQuoteState extends State<AddQuote> {
                     ),
                     placeholder: (context, url) =>
                         Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        Icon(Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
-                SizedBox(width: 60.w,
+                SizedBox(
+                  width: 60.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -104,12 +103,12 @@ class _AddQuoteState extends State<AddQuote> {
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
                       ),
-
                     ],
                   ),
                 ),
               ],
-            ),  SizedBox(height: 4.h),
+            ),
+            SizedBox(height: 4.h),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -139,8 +138,9 @@ class _AddQuoteState extends State<AddQuote> {
                         child: Row(
                           children: [
                             Icon(CupertinoIcons.person),
-                            SizedBox(width: 2.w,),
-
+                            SizedBox(
+                              width: 2.w,
+                            ),
                             Text(
                               'Name',
                               style: TextStyle(
@@ -186,9 +186,11 @@ class _AddQuoteState extends State<AddQuote> {
                       Padding(
                         padding: EdgeInsets.only(left: 1.w),
                         child: Row(
-                          children: [ Icon(CupertinoIcons.photo),
-                            SizedBox(width: 2.w,),
-
+                          children: [
+                            Icon(CupertinoIcons.photo),
+                            SizedBox(
+                              width: 2.w,
+                            ),
                             Text(
                               'Image',
                               style: TextStyle(
@@ -244,8 +246,9 @@ class _AddQuoteState extends State<AddQuote> {
                         child: Row(
                           children: [
                             Icon(CupertinoIcons.info),
-                            SizedBox(width: 2.w,),
-
+                            SizedBox(
+                              width: 2.w,
+                            ),
                             Text(
                               'Details',
                               style: TextStyle(
@@ -258,7 +261,8 @@ class _AddQuoteState extends State<AddQuote> {
                           ],
                         ),
                       ),
-                      TextField(maxLines: 4,
+                      TextField(
+                        maxLines: 4,
                         // controller: _msg,
                         style: TextStyle(
                             color: Colors.black,

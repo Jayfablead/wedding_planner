@@ -233,7 +233,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

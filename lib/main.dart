@@ -3,20 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/new%20pages/Check%20List.dart';
+import 'package:wedding_planner/new%20pages/Main3.dart';
 import 'package:wedding_planner/new%20pages/itineryPage.dart';
-import 'package:wedding_planner/new%20pages/view%20all%20bookings.dart';
 import 'package:wedding_planner/screens/MainScreen.dart';
-import 'package:wedding_planner/screens/other%20Pages/Venue%20Details%20Page.dart';
-import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
-import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
-import 'package:wedding_planner/screens/scrns/MainScreen2.dart';
-import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
-import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
+import 'package:wedding_planner/screens/scrns/BookingDetailsPage.dart';
 
-import 'new pages/NotificationScreen.dart';
-import 'new pages/certificate.dart';
-
+import 'screens/pages2/BookingSuccessfulPage.dart';
+import 'screens/scrns/MainScreen2.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,10 +29,11 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: ItinerPage(),
-          builder: EasyLoading.init(),theme: ThemeData(
-          primarySwatch: Colors.pink,
-        ),
+          home: Main3(),
+          builder: EasyLoading.init(),
+          theme: ThemeData(
+            primarySwatch: Colors.pink,
+          ),
         );
       },
     );
