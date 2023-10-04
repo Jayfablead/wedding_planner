@@ -113,6 +113,13 @@ flutter:
       fonts:
            - asset: assets/fonts/Brightwall_Dafont.otf
              weight: 900
+    - family: wreg
+      fonts:
+           - asset: assets/fonts/EBGaramond-Regular.ttf
+    - family: wbold
+      fonts:
+           - asset: assets/fonts/EBGaramond-Bold.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
