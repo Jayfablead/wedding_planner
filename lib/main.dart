@@ -3,15 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/chnages/SplashScreen.dart';
-import 'package:wedding_planner/new%20pages/Main3.dart';
-import 'package:wedding_planner/new%20pages/itineryPage.dart';
-import 'package:wedding_planner/screens/MainScreen.dart';
-import 'package:wedding_planner/screens/scrns/BookingDetailsPage.dart';
+import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
-
-import 'screens/pages2/BookingSuccessfulPage.dart';
-import 'screens/scrns/MainScreen2.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +24,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: ViewBudget(),
+          home: YellowHomeScreen(),
           builder: EasyLoading.init(),
           theme: ThemeData(
             primarySwatch: Colors.pink,

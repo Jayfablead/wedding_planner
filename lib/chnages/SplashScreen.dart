@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+
+import '../screens/LoginPage.dart';
 
 class SplashLogo extends StatefulWidget {
   const SplashLogo({super.key});
@@ -14,12 +19,12 @@ class _SplashLogoState extends State<SplashLogo> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // Timer(
-    //   const Duration(seconds: 3),
-    //   (){
-    //     Get.to(LoginPage());
-    //   },
-    // );
+    Timer(
+      const Duration(seconds: 3),
+      (){
+        Get.to(LoginPage());
+      },
+    );
   }
 
   @override
@@ -49,18 +54,6 @@ class _SplashLogoState extends State<SplashLogo> {
             ),
           ),
           SizedBox(height: 1.h),
-          //   Padding(
-          //     padding: EdgeInsets.only(left:17.w, ),
-          //     child: Text(
-          //     'Planners',
-          //     style: TextStyle(
-          //         fontFamily: 'wbold',
-          //         fontSize: 28.sp,
-          //         color: Colors.pink,
-          //         letterSpacing: 1,
-          //       ),
-          // ),
-          //   ),
           Row(
        mainAxisAlignment: MainAxisAlignment.center,
             children: [

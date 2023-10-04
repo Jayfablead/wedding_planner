@@ -51,8 +51,8 @@ dependencies:
   carousel_slider: ^4.2.1
   readmore: ^2.2.0
   http:
-  ff_navigation_bar_plus: ^0.1.5
-  motion_tab_bar:
+  ff_navigation_bar_plus:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

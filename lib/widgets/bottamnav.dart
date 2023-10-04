@@ -1,4 +1,5 @@
 import 'package:ff_navigation_bar_plus/ff_navigation_bar_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
@@ -21,15 +22,15 @@ class _bottomnavbarState extends State<bottomnavbar> {
   Widget build(BuildContext context) {
     return BottomAppBar(
         child: Container(
-          height: 80.0,
+          height: 60,
           child: FFNavigationBar(
             theme: FFNavigationBarTheme(
               barBackgroundColor: Colors.grey.shade100,
-              selectedItemBorderColor: Colors.pink,
-              selectedItemBackgroundColor: Colors.pink,
-              selectedItemIconColor: Colors.white,
-              selectedItemLabelColor: Colors.pink,
-              unselectedItemIconColor: Colors.black.withOpacity(0.7),
+              selectedItemBorderColor: Colors.amber,
+              selectedItemBackgroundColor: Colors.amber,
+              selectedItemIconColor: Colors.black,
+              selectedItemLabelColor: Colors.black,
+              unselectedItemIconColor: Colors.black.withOpacity(0.8),
               unselectedItemLabelColor: Colors.black.withOpacity(0.7),
 
             ),
@@ -38,32 +39,28 @@ class _bottomnavbarState extends State<bottomnavbar> {
               setState(() {
                 _selectedIndex = index;
               });
-              _selectedIndex == 0?Get.to(ViewBudget()) :_selectedIndex == 1? Get.to(QuoateList2()):
-              _selectedIndex == 2?   Get.to(HomeScreen()): _selectedIndex == 3?Get.to(ChatlistPage()) :
-              Get.to(MyProfile());
             },
             items: [
 
-              FFNavigationBarItem(
-                iconData: Icons.monetization_on_outlined,
-                label: 'Budget',
-              ),
-              FFNavigationBarItem(
-                iconData: Icons.info_outline,
-                label: 'All Quotations',
-              ),
-              FFNavigationBarItem(
-                iconData: Icons.home,
-                label: 'Home',
 
+              FFNavigationBarItem(
+                iconData:CupertinoIcons.person_2,
+                label: 'Meetings',
               ),
               FFNavigationBarItem(
-                iconData: Icons.chat,
+                iconData: CupertinoIcons.photo,
+                label: 'Boards',
+              ),FFNavigationBarItem(
+                iconData: CupertinoIcons.chat_bubble_text,
                 label: 'Chat',
               ),
               FFNavigationBarItem(
-                iconData: Icons.person,
-                label: 'Profile',
+                iconData: CupertinoIcons.person,
+                label: 'My Suppliers',
+              ),
+              FFNavigationBarItem(
+                iconData:  CupertinoIcons.location_north_line,
+                label: 'My Venue',
               ),
 
             ],
