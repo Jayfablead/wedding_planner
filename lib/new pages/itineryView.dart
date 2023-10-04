@@ -19,7 +19,7 @@ class ItineryView extends StatefulWidget {
 int sel = 0;
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 List cate = [
-  'Venue',
+  'Wedding Hall',
   'Decor',
   'Cake',
   'Accommodation',
@@ -299,7 +299,7 @@ class _ItineryViewState extends State<ItineryView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Selected Venue : ',
+                            'Selected Wedding Hall : ',
                             style: TextStyle(
                               fontSize: 17.sp,
                               fontFamily: 'sofi',

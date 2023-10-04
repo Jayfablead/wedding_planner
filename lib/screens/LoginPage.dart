@@ -50,16 +50,19 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 Container(
-                  height: 30.h,
+                  height: 28.h,
                   width: 100.w,
                   child: Lottie.asset('assets/hrt.json'),
+                ),
+                SizedBox(
+                  height: 2.h,
                 ),
                 Row(
                   children: [
                     Text(
                       "Sign in to Continue",
                       style: TextStyle(
-                          fontSize: 22.sp,
+                          fontSize: 20.sp,
                           fontFamily: 'get',
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
@@ -70,25 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Email Address",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.w),
+                  padding: EdgeInsets.symmetric(horizontal: 1.w),
                   child: Row(
                     children: [
                       SizedBox(
@@ -133,27 +119,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 3.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Password",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-                SizedBox(
                   height: 2.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.w),
+                  padding: EdgeInsets.symmetric(horizontal: 1.w),
                   child: Row(
                     children: [
                       SizedBox(
@@ -209,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 0.6.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -230,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 0.3.h,
                 ),
                 InkWell(
                   onTap: () {

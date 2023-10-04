@@ -803,7 +803,8 @@ class _Home2State extends State<Home2> {
                                         itemCount: venue.length,
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
-                                          return Container(
+                                          return
+                                            Container(
                                             margin: EdgeInsets.symmetric(
                                                 vertical: 1.h),
                                             child: Column(

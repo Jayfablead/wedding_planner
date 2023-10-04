@@ -93,7 +93,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                     ],
                   ),
                   SizedBox(
-                    height: 3.h,
+                    height: 2.h,
                   ),
                 ],
               ),
@@ -101,62 +101,114 @@ class _ViewBudgetState extends State<ViewBudget> {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Total Budget : ',
-                        style: TextStyle(
-                          fontSize: 17.sp,
-                          fontFamily: 'sofi',
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  Container(
+                    height: 15.h,
+                    child: Card(elevation: 3,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(11),
                       ),
-                      Text(
-                        '\$ 26,100',
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontFamily: 'sofi',
-                          letterSpacing: 1,
-                          color: Colors.pink,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Budget : ',
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ), SizedBox(
+                                    height: 1.5.h,
+                                  ),
+                                  Text(
+                                    '\$ 26,100',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 1,
+                                      color: Colors.pink,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(height: 8.h,width: 0.3.w,decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(20),),),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Spent : ',
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ), SizedBox(
+                                    height: 1.5.h,
+                                  ),
+                                  Text(
+                                    '\$ 15,400',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 1,
+                                      color: Colors.pink,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(
-                    height: 1.h,
+                    height: 2.h,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      InkWell(onTap: (){Get.to(
-                        QuoateList2(),
-                      );},
+                      InkWell(
                         child: Container(
                           padding: EdgeInsets.all(2.w),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius:
-                              BorderRadius.circular(10)),
-                          child: Text(
-                            'Send a Request',
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                color: Colors.white,
-                                fontFamily: 'sofi',
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.bold),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.add, size: 19.sp, color: Colors.white),
+                              SizedBox(width: 1.5.w),
+                              Text(
+                                'Add Items',
+                                style: TextStyle(
+                                    fontSize: 15.sp,
+                                    color: Colors.white,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-
                     ],
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 3.h,
                   ),
                 ],
               ),
@@ -166,7 +218,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Selected Venue : ',
+                    'Selected Wedding Hall : ',
                     style: TextStyle(
                       fontSize: 17.sp,
                       fontFamily: 'sofi',
@@ -1286,24 +1338,26 @@ class _ViewBudgetState extends State<ViewBudget> {
                     ],
                   ),
                   SizedBox(
-                    height: 1.h,
+                    height: 2.h,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      InkWell(onTap: (){Get.to(
-                        QuoateList2(),
-                      );},
+                      InkWell(
+                        onTap: () {
+                          Get.to(
+                            QuoateList2(),
+                          );
+                        },
                         child: Container(
-                          padding: EdgeInsets.all(2.w),
+                          padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               color: Colors.pink,
-                              borderRadius:
-                              BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Text(
                             'Send a Request',
                             style: TextStyle(
-                                fontSize: 15.sp,
+                                fontSize: 14.sp,
                                 color: Colors.white,
                                 fontFamily: 'sofi',
                                 letterSpacing: 1,
@@ -1314,7 +1368,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                     ],
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 3.h,
                   ),
                 ],
               ),
