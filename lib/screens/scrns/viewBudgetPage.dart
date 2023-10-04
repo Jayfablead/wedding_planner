@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../../widgets/drawer.dart';
 
@@ -58,6 +59,7 @@ class _ViewBudgetState extends State<ViewBudget> {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
+      bottomNavigationBar: bottomnavbar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: CustomScrollView(
