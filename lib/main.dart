@@ -8,6 +8,7 @@ import 'package:wedding_planner/new%20pages/Main3.dart';
 import 'package:wedding_planner/new%20pages/itineryPage.dart';
 import 'package:wedding_planner/screens/MainScreen.dart';
 import 'package:wedding_planner/screens/scrns/BookingDetailsPage.dart';
+import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 
 import 'screens/pages2/BookingSuccessfulPage.dart';
 import 'screens/scrns/MainScreen2.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SplashLogo(),
+          home: ViewBudget(),
           builder: EasyLoading.init(),
           theme: ThemeData(
             primarySwatch: Colors.pink,
