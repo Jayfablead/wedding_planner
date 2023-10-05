@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  'Hi, Zoro',
+                                  'Hi, Nami & Zoro',
                                   style: TextStyle(
                                       fontSize: 24.sp,
                                       fontFamily: 'get',
@@ -134,17 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 0.8.h),
-                            Text(
-                              'Have Your Dream Wedding ',
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'sofi',
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 1,
-                                color: Colors.black.withOpacity(0.65),
-                              ),
-                            ),
+
                           ],
                         ),
                       ),
