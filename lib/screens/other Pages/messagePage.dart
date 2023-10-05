@@ -110,7 +110,7 @@ class _MessagePageState extends State<MessagePage> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 5.w, vertical: 1.3.h),
                                   decoration: BoxDecoration(
-                                    color: Colors.pinkAccent,
+                                    color: Colors.amber,
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(20),
                                       topLeft: Radius.circular(20),
@@ -188,7 +188,7 @@ class _MessagePageState extends State<MessagePage> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 5.w, vertical: 1.3.h),
                                   decoration: BoxDecoration(
-                                    color: Colors.pinkAccent,
+                                    color: Colors.amber,
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(20),
                                       topLeft: Radius.circular(20),
@@ -266,7 +266,7 @@ class _MessagePageState extends State<MessagePage> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 5.w, vertical: 1.3.h),
                                   decoration: BoxDecoration(
-                                    color: Colors.pinkAccent,
+                                    color: Colors.amber,
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(20),
                                       topLeft: Radius.circular(20),
@@ -344,7 +344,7 @@ class _MessagePageState extends State<MessagePage> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 5.w, vertical: 1.3.h),
                                   decoration: BoxDecoration(
-                                    color: Colors.pinkAccent,
+                                    color: Colors.amber,
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(20),
                                       topLeft: Radius.circular(20),
@@ -458,7 +458,7 @@ class _MessagePageState extends State<MessagePage> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.all(2.5.w),
                           decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.amber,
                               borderRadius: BorderRadius.circular(90)),
                           child: Center(
                               child: Icon(

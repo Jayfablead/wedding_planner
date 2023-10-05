@@ -453,7 +453,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         letterSpacing: 1,
                         color: Colors.black),
                   ),
-
                 ],
               ),
               SizedBox(

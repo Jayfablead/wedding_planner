@@ -4,7 +4,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/Accomodation_View.dart';
 
@@ -486,35 +485,35 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                         ),
                                       )),
                                   Positioned(
-                                      left: 26.5.w,
-                                      child:
-                                      Container(
-                                        padding: EdgeInsets.all(2.w),
-                                        decoration: BoxDecoration(
-                                            color: Colors.pink,
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              CupertinoIcons.add,
-                                              color: Colors.white,
-                                              size: 15.sp,
-                                            ),
-                                            Text(
-                                              'Budget',
-                                              style: TextStyle(
-                                                  fontSize: 12.sp,
-                                                  color: Colors.white,
-                                                  fontFamily: 'sofi',
-                                                  letterSpacing: 1,
-                                                  fontWeight: FontWeight.bold),
-                                            )
-                                          ],
-                                        ),
-                                      ),),
+                                    left: 26.5.w,
+                                    child: Container(
+                                      padding: EdgeInsets.all(2.w),
+                                      decoration: BoxDecoration(
+                                          color: Colors.pink,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.add,
+                                            color: Colors.white,
+                                            size: 15.sp,
+                                          ),
+                                          Text(
+                                            'Budget',
+                                            style: TextStyle(
+                                                fontSize: 12.sp,
+                                                color: Colors.white,
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),

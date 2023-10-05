@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -23,8 +22,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
-          child:
-          Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -73,7 +71,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                 height: 1.h,
               ),
               Container(
-
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -123,9 +120,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   ),
                 ),
               ),
-
               Container(
-
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -212,9 +207,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   ),
                 ),
               ),
-
               Container(
-
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -306,9 +299,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   ),
                 ),
               ),
-
               Container(
-
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -363,9 +354,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   ),
                 ),
               ),
-
               Container(
-
                 width: 110.w,
                 child: Card(
                   child: Padding(
@@ -419,14 +408,19 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     ),
                   ),
                 ),
-              ),SizedBox(height: 2.h), Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+              SizedBox(height: 2.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                   height: 6.5.h,width: 90.w,alignment: Alignment.center,
+                    height: 6.5.h,
+                    width: 90.w,
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: Colors.pink,
-                        borderRadius:
-                        BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Text(
                       'Continue',
                       style: TextStyle(
@@ -438,7 +432,8 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     ),
                   ),
                 ],
-              ),SizedBox(height: 2.h),
+              ),
+              SizedBox(height: 2.h),
             ],
           ),
         ),

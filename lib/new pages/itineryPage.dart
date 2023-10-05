@@ -67,8 +67,7 @@ class _ItinerPageState extends State<ItinerPage> {
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
-                    return
-                      Card(
+                    return Card(
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),

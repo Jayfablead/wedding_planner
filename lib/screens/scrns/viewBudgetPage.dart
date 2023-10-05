@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../../widgets/drawer.dart';
 
@@ -59,7 +58,6 @@ class _ViewBudgetState extends State<ViewBudget> {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
-      bottomNavigationBar: bottomnavbar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: CustomScrollView(
@@ -105,7 +103,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                 children: [
                   Container(
                     height: 15.h,
-                    child: Card(elevation: 3,
+                    child: Card(
+                      elevation: 3,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(11),
                       ),
@@ -128,7 +127,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                  ), SizedBox(
+                                  ),
+                                  SizedBox(
                                     height: 1.5.h,
                                   ),
                                   Text(
@@ -143,7 +143,14 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
                                 ],
                               ),
-                              Container(height: 8.h,width: 0.3.w,decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(20),),),
+                              Container(
+                                height: 8.h,
+                                width: 0.3.w,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -155,7 +162,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                  ), SizedBox(
+                                  ),
+                                  SizedBox(
                                     height: 1.5.h,
                                   ),
                                   Text(

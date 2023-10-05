@@ -21,7 +21,7 @@ class _SplashLogoState extends State<SplashLogo> {
     super.initState();
     Timer(
       const Duration(seconds: 3),
-      (){
+      () {
         Get.to(LoginPage());
       },
     );
@@ -55,11 +55,12 @@ class _SplashLogoState extends State<SplashLogo> {
           ),
           SizedBox(height: 1.h),
           Row(
-       mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: 5.w,
-                height: 0.2.h,margin: EdgeInsets.only(top: 0.5.h),
+                height: 0.2.h,
+                margin: EdgeInsets.only(top: 0.5.h),
                 decoration: BoxDecoration(
                   color: Colors.pink,
                   borderRadius: BorderRadius.circular(20),
@@ -77,7 +78,8 @@ class _SplashLogoState extends State<SplashLogo> {
               ),
               Container(
                 width: 5.w,
-                height: 0.2.h,margin: EdgeInsets.only(top: 1.h),
+                height: 0.2.h,
+                margin: EdgeInsets.only(top: 1.h),
                 decoration: BoxDecoration(
                   color: Colors.pink,
                   borderRadius: BorderRadius.circular(20),

@@ -65,7 +65,7 @@ class _Check_listState extends State<Check_list> {
                 height: 100.h,
                 child: Column(children: [
                   SizedBox(
-                    height: 5.h,
+                    height: 4.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,16 +93,22 @@ class _Check_listState extends State<Check_list> {
                     ],
                   ),
                   SizedBox(height: 1.h),
+                  search(),
+                  SizedBox(height: 1.h),
                   Container(
-                    height: 81.h,
+                    height: 74.h,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.symmetric(vertical: 1.h),
-                          child: Column(
-                            children: [
-                              Row(
+                          child: Card(
+                            elevation: 2,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 2.h, horizontal: 1.w),
+                              child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,29 +119,32 @@ class _Check_listState extends State<Check_list> {
                                         lists[index].chek = !lists[index].chek!;
                                       });
                                     },
-                                    child: Image.asset(
-                                      lists[index].chek!
-                                          ? 'assets/check/check.png'
-                                          : 'assets/check/nocheck.png',
-                                      color: Colors.pink,
-                                      height: 3.h,
-                                      fit: BoxFit.cover,
-                                      width: 6.w,
-                                    ),
+                                    child: lists[index].chek!
+                                        ? Icon(
+                                            Icons.check_box_rounded,
+                                            color: Colors.amber,
+                                            size: 22.sp,
+                                          )
+                                        : Icon(
+                                            Icons
+                                                .check_box_outline_blank_rounded,
+                                            color: Colors.black54,
+                                            size: 22.sp,
+                                          ),
                                   ),
+                                  SizedBox(width: 3.w),
                                   Container(
-                                    width: 80.w,
-                                    margin: EdgeInsets.only(top: 0.5.h),
+                                    width: 78.w,
                                     child: Text(
                                       lists[index].title ?? '',
                                       style: TextStyle(
                                           color: lists[index].chek!
-                                              ? Colors.black54
+                                              ? Colors.amber
                                               : Colors.black87,
                                           decoration: lists[index].chek!
                                               ? TextDecoration.lineThrough
                                               : TextDecoration.none,
-                                          decorationColor: Colors.black87,
+                                          decorationColor: Colors.amber,
                                           decorationThickness: 2,
                                           fontSize: 13.sp,
                                           fontFamily: 'sofi',
@@ -144,11 +153,7 @@ class _Check_listState extends State<Check_list> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 0.5.h),
-                              Divider(
-                                color: Colors.black87,
-                              ),
-                            ],
+                            ),
                           ),
                         );
                       },
@@ -172,7 +177,7 @@ class _Check_listState extends State<Check_list> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.all(2.5.w),
                           decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.amber,
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                               child: Icon(
@@ -205,6 +210,30 @@ class _Check_listState extends State<Check_list> {
           border: InputBorder.none,
           hintText: 'Add Something',
           hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        ),
+      ),
+    );
+  }
+
+  Widget search() {
+    return Container(
+      width: 95.w,
+      padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 0.4.h),
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: TextField(
+        // controller: _search,
+        onChanged: (value) {},
+        style: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          prefixIcon: Icon(CupertinoIcons.search,
+              color: Colors.black.withOpacity(0.65)),
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'Meta1'),
         ),
       ),
     );

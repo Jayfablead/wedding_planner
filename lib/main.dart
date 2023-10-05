@@ -4,7 +4,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
-import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

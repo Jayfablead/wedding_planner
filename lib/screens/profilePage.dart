@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/editprofilepage2.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../widgets/drawer.dart';
 
@@ -29,17 +30,23 @@ class _MyProfileState extends State<MyProfile> {
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
+  int selit = 3;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     print("hiii");
+    setState(() {
+      selit == 3;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: bottomnavbar(selit: selit),
       resizeToAvoidBottomInset: false,
       drawer: drawer1(),
       key: _scaffoldKey,

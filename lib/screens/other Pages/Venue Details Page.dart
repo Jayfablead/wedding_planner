@@ -239,7 +239,6 @@ class _VenueViewState extends State<VenueView> {
                               letterSpacing: 1,
                               fontWeight: FontWeight.bold),
                         ),
-
                       ],
                     ),
                     SizedBox(height: 4.5.h),

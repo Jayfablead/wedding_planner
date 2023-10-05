@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/other%20Pages/messagePage.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class ChatlistPage extends StatefulWidget {
@@ -53,14 +54,25 @@ List<chat> mesgs = [
       'You are Injured Come to me I will Fix You ',
       '10:50 Am'),
 ];
-
+int selit = 2;
 TextEditingController _search = TextEditingController();
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _ChatlistPageState extends State<ChatlistPage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      selit == 2;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomnavbar(selit: selit),
+      extendBody: true,
       key: _scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
@@ -68,7 +80,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
           padding: EdgeInsets.symmetric(horizontal: 3.w),
           child: Column(children: [
             SizedBox(
-              height: 5.h,
+              height: 4.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

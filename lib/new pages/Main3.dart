@@ -34,13 +34,15 @@ class _Main3State extends State<Main3> {
         Positioned(
             top: 72.5.h,
             left: 2.5.w,
-            child: SizedBox(width: 95.w,
+            child: SizedBox(
+              width: 95.w,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Have Wedding of your Dreams Without Giving up on your Dreams',textAlign: TextAlign.center,
+                    'Have Wedding of your Dreams Without Giving up on your Dreams',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: 'wed',
                         fontSize: 22.sp,

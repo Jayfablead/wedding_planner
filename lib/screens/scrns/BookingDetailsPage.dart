@@ -86,7 +86,6 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                   Row(
                     children: [
                       Container(
-
                         width: 30.w,
                         child: Card(
                           child: Padding(
@@ -128,7 +127,6 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                         ),
                       ),
                       Container(
-
                         width: 30.w,
                         child: Card(
                           child: Padding(
@@ -171,7 +169,6 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                         ),
                       ),
                       Container(
-
                         width: 30.w,
                         child: Card(
                           child: Padding(

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class PostPage extends StatefulWidget {
@@ -33,6 +34,7 @@ class cate0 {
   );
 }
 
+int selit = 1;
 List<serv> services = [
   serv(
     'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
@@ -65,8 +67,6 @@ List<cate0> photos = [
   cate0(
       'https://images.herzindagi.info/image/2021/Jan/wedding-photography-m.jpg',
       200),
-  cate0('https://crystallinestudio.com/imgBanner/81-crystalline-banner.jpg',
-      1010),
   cate0(
       'https://i.pinimg.com/736x/27/c8/fd/27c8fd79950baa2f80c9d8ef96977520.jpg',
       9999),
@@ -95,8 +95,19 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _PostPageState extends State<PostPage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      selit == 1;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: bottomnavbar(selit: selit),
       drawer: drawer1(),
       key: _scaffoldKey,
       body: Padding(
@@ -104,7 +115,7 @@ class _PostPageState extends State<PostPage> {
         child: Column(
           children: [
             SizedBox(
-              height: 5.h,
+              height: 4.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -149,7 +160,7 @@ class _PostPageState extends State<PostPage> {
                     onTap: () {},
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.pink,
+                          color: Colors.amber,
                           borderRadius: BorderRadius.circular(90)),
                       padding:
                           EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
@@ -176,14 +187,14 @@ class _PostPageState extends State<PostPage> {
               ),
             ),
             Container(
-              height: 80.h,
+              height: 82.h,
               child: ListView.builder(
                 padding: EdgeInsets.zero,
                 itemCount: services.length,
                 itemBuilder: (context, index) {
                   return InkWell(
                     child: Container(
-                      margin: EdgeInsets.symmetric(vertical: 0.5.h),
+                      margin: EdgeInsets.symmetric(vertical: 1.h),
                       child: Column(
                         children: [
                           Row(
@@ -237,7 +248,7 @@ class _PostPageState extends State<PostPage> {
                             height: 2.h,
                           ),
                           SizedBox(
-                            height: 40.h,
+                            height: 30.h,
                             child: StaggeredGridView.countBuilder(
                               padding: EdgeInsets.zero,
                               physics: NeverScrollableScrollPhysics(),
@@ -278,6 +289,9 @@ class _PostPageState extends State<PostPage> {
                   );
                 },
               ),
+            ),
+            SizedBox(
+              height: 2.h,
             )
           ],
         ),

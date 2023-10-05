@@ -1,9 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
-
 
 class YellowHomeScreen extends StatefulWidget {
   const YellowHomeScreen({super.key});
@@ -17,9 +16,9 @@ class cate {
   String? name;
 
   cate(
-      this.image,
-      this.name,
-      );
+    this.image,
+    this.name,
+  );
 }
 
 class cate1 {
@@ -28,10 +27,10 @@ class cate1 {
   String? desc;
 
   cate1(
-      this.image,
-      this.name,
-      this.desc,
-      );
+    this.image,
+    this.name,
+    this.desc,
+  );
 }
 
 List<cate> Categories = [
@@ -86,6 +85,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: bottomnavbar(selit: -3),
       drawer: drawer1(),
       key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -95,7 +96,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 6.h,
+                height: 4.5.h,
               ),
               Row(
                 children: [
@@ -113,10 +114,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  'Hi, Zoro',
+                                  'Hi, Nami & Zoro',
                                   style: TextStyle(
-                                      fontSize: 24.sp,
-                                      fontFamily: 'get',
+                                      fontSize: 23.sp,
+                                      fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1,
                                       color: Colors.amber),
@@ -133,17 +134,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 0.8.h),
-                            Text(
-                              'Have Your Dream Wedding ',
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'sofi',
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 1,
-                                color: Colors.black.withOpacity(0.65),
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -159,8 +149,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                 children: [
                   searchBox(),
                   InkWell(
-                    onTap: () {
-                    },
+                    onTap: () {},
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 1.w),
                       height: 6.5.h,
@@ -170,7 +159,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
                           imageUrl:
-                          'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+                              'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
@@ -204,7 +193,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                 height: 1.h,
               ),
               SizedBox(
-                height: 15.5.h,
+                height: 14.5.h,
                 child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.zero,
@@ -451,7 +440,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                         letterSpacing: 1,
                         color: Colors.black),
                   ),
-
                 ],
               ),
               SizedBox(
@@ -582,11 +570,11 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                     imageUrl: venue[index].image.toString(),
                                     progressIndicatorBuilder:
                                         (context, url, progress) => Center(
-                                        child: CircularProgressIndicator()),
+                                            child: CircularProgressIndicator()),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                          'assets/deprf.png',
-                                        ),
+                                      'assets/deprf.png',
+                                    ),
                                   ),
                                 ),
                               ),
@@ -607,7 +595,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 9.7.h),
                 ],
               ),
             ],
@@ -632,7 +620,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

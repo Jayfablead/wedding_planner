@@ -51,7 +51,9 @@ dependencies:
   carousel_slider: ^4.2.1
   readmore: ^2.2.0
   http:
-  ff_navigation_bar_plus:
+
+  animated_notch_bottom_bar: ^1.0.0
+  weekly_date_picker:
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +84,7 @@ flutter:
   assets:
     - assets/
     - assets/check/
+    - assets/bottom/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
