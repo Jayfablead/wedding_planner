@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/SupplierPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class MySuppliers extends StatefulWidget {
@@ -156,68 +157,72 @@ class _MySuppliersState extends State<MySuppliers> {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, crossAxisSpacing: 5.w,mainAxisSpacing: 1.5.h,childAspectRatio: 1/0.85),
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black26,
-                                // Color of the shadow
-                                offset: Offset(0, 1.5),
-                                // Offset of the shadow (x, y)
-                                blurRadius: 8, // Spread of the shadow
-                                // How much the shadow extends
-                              ),
-                            ],
-                            borderRadius: BorderRadius.circular(10)),
+                      return InkWell(onTap: () {
+                        Get.to(SupplierfourScreen());
+                      },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  // Color of the shadow
+                                  offset: Offset(0, 1.5),
+                                  // Offset of the shadow (x, y)
+                                  blurRadius: 8, // Spread of the shadow
+                                  // How much the shadow extends
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(10)),
 
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 8.h,
-                              width: 16.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(90),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: mesgs[index].image ?? '',
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                          CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/icons/user.png',
-                                    color: Colors.white,
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                height: 8.h,
+                                width: 16.w,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(90),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl: mesgs[index].image ?? '',
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) =>
+                                            CircularProgressIndicator(),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/icons/user.png',
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
 
-                            Text(
-                              mesgs[index].type ?? '',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1,
-                                  fontFamily: 'sofi',
-                                  color: Colors.black),
-                            ),
-
-                            Text(
-                              mesgs[index].name ?? '',
-                              maxLines: 2,
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'sofi',
-                                color: Colors.black.withOpacity(0.75),
+                              Text(
+                                mesgs[index].type ?? '',
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                    fontFamily: 'sofi',
+                                    color: Colors.black),
                               ),
-                            ),
-                          ],
+
+                              Text(
+                                mesgs[index].name ?? '',
+                                maxLines: 2,
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'sofi',
+                                  color: Colors.black.withOpacity(0.75),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
