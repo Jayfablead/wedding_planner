@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-
-import '../screens/LoginPage.dart';
+import 'package:wedding_planner/chnages/yellowHomePage.dart';
 
 class SplashLogo extends StatefulWidget {
   const SplashLogo({super.key});
@@ -22,7 +21,9 @@ class _SplashLogoState extends State<SplashLogo> {
     Timer(
       const Duration(seconds: 3),
       () {
-        Get.to(LoginPage());
+        Get.to(
+          YellowHomeScreen(sele: 2),
+        );
       },
     );
   }
