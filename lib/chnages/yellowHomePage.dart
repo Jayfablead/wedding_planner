@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class YellowHomeScreen extends StatefulWidget {
-  const YellowHomeScreen({super.key});
+   int? sele;
+   YellowHomeScreen({super.key,required this.sele });
 
   @override
   State<YellowHomeScreen> createState() => _YellowHomeScreenState();
@@ -69,7 +71,6 @@ List<cate1> venue = [
       'A Royal Decoration venue'),
 ];
 TextEditingController _search = TextEditingController();
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 int sel = 1;
 
 class _YellowHomeScreenState extends State<YellowHomeScreen> {
@@ -85,10 +86,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       extendBody: true,
-      bottomNavigationBar: bottomnavbar(selit: -3),
+      bottomNavigationBar: bottomnavbar(selit: widget.sele),
       drawer: drawer1(),
-      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -124,12 +125,33 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    _scaffoldKey.currentState?.openDrawer();
+                                    openDrawer();
                                   },
                                   icon: Icon(
                                     Icons.menu_rounded,
                                     color: Colors.amber,
                                     size: 23.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 1.h),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(Icons.date_range_outlined,
+                                    color: Colors.black.withOpacity(0.75)),
+                                SizedBox(width: 2.w),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 0.4.h),
+                                  child: Text(
+                                    '20-03-2024',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'sofi',
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        color: Colors.black.withOpacity(0.75)),
                                   ),
                                 ),
                               ],

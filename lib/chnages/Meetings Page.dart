@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class MeetingsPage extends StatefulWidget {
-  const MeetingsPage({super.key});
+                           int? sele;
+   MeetingsPage({super.key,required this.sele });
 
   @override
   State<MeetingsPage> createState() => _MeetingsPageState();
@@ -52,9 +54,9 @@ List<cate> days = [
   ),
 ];
 int sel = 3;
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 DateTime _selectedDay = DateTime.now();
-int selit = 0;
+
 
 class _MeetingsPageState extends State<MeetingsPage> {
   @override
@@ -62,17 +64,18 @@ class _MeetingsPageState extends State<MeetingsPage> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      selit == 0;
+      setit = 0;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomnavbar(selit: selit),
+      bottomNavigationBar: bottomnavbar(selit:widget.sele),
       extendBody: true,
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -88,9 +91,9 @@ class _MeetingsPageState extends State<MeetingsPage> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          Get.back();
+
                         },
-                        icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                        icon: Icon(null)),
                     Text(
                       "",
                       style: TextStyle(
@@ -102,7 +105,8 @@ class _MeetingsPageState extends State<MeetingsPage> {
                     ),
                     IconButton(
                         onPressed: () {
-                          _scaffoldKey.currentState?.openDrawer();
+                          // _drawerKey.currentState!.open();
+                       openDrawer();
                         },
                         icon: Icon(Icons.menu_rounded))
                   ],
@@ -246,7 +250,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Icon(Icons.date_range_outlined),
+                                  Icon(Icons.calendar_month),
                                   SizedBox(
                                     width: 2.w,
                                   ),
@@ -257,7 +261,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       style: TextStyle(
                                         fontSize: 13.sp,
                                         fontFamily: 'sofi',
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w900,
                                         letterSpacing: 1,
                                         color: Colors.black,
                                       ),

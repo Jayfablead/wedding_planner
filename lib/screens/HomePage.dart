@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   searchBox(),
                   InkWell(
                     onTap: () {
-                      Get.to(MyProfile());
+                      Get.to(MyProfile(sele: 4,));
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 1.w),

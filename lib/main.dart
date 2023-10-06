@@ -10,6 +10,14 @@ void main() {
   runApp(const MyApp());
 }
 
+int setit = 0;
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+void openDrawer() {
+  print("drawer");
+  scaffoldKey.currentState?.openDrawer();
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -23,7 +31,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: YellowHomeScreen(),
+          home: YellowHomeScreen(sele: 2),
           builder: EasyLoading.init(),
           theme: ThemeData(
             primarySwatch: Colors.pink,

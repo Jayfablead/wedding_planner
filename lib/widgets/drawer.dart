@@ -4,10 +4,21 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
+import 'package:wedding_planner/new%20pages/certificate.dart';
+import 'package:wedding_planner/new%20pages/view%20all%20bookings.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
+import 'package:wedding_planner/screens/other%20Pages/GuestChairManagement.dart';
+import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
 import 'package:wedding_planner/screens/pages2/fbpage.dart';
+import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
+import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
+import 'package:wedding_planner/screens/scrns/BookingDetailsPage.dart';
+import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
+import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
+import 'package:wedding_planner/screens/scrns/foodMenu.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -33,12 +44,24 @@ class _drawer1State extends State<drawer1> {
   Widget build(BuildContext context) {
     double widthDrawer = 100;
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height,
       child: Drawer(
         child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height,
             // color: Colors.white,
             color: Colors.amber,
             // color: Colors.black,
@@ -54,7 +77,22 @@ class _drawer1State extends State<drawer1> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            Get.back();
+                            print("vari");
+                            print(vari);
+                            setState(() {
+                              show = !show;
+                              vari == 1 || vari == 2 || vari == 3
+                                  ? vari = 0
+                                  : vari;
+                              print("after");
+                              print(vari);
+                              vari == 1 || vari == 2 || vari == 3
+                                  ? ""
+                                  : show
+                                  ? Get.back()
+                                  : '';
+                            });
+                            print(show);
                           },
                           icon: Icon(Icons.arrow_back_ios))
                     ],
@@ -65,384 +103,408 @@ class _drawer1State extends State<drawer1> {
                 ),
                 !show
                     ? Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 3.w),
-                        child: Center(
-                          child: Text(
-                            "Explore",
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: 'sofi',
-                              letterSpacing: 1,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      )
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Center(
+                    child: Text(
+                      "Explore",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
                     : vari == 1
-                        ? Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 3.w),
-                            child: Center(
-                              child: Text(
-                                "Venue",
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontFamily: 'sofi',
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          )
-                        : Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 3.w),
-                            child: Center(
-                              child: Text(
-                                "Supplier",
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontFamily: 'sofi',
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
+                    ? Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Center(
+                    child: Text(
+                      "Venue",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+                    : vari == 2
+                    ? Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Center(
+                    child: Text(
+                      "Supplier",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+                    : Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Center(
+                    child: Text(
+                      "Others",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 5.h,
                 ),
                 !show
                     ? Container(
-                        height: 94.w,
-                        width: 94.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
+                  height: 94.w,
+                  width: 94.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 34.w,
+                        left: 3.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              show = !show;
+                              vari = 1;
+                            });
+                            venue();
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 26.w,
+                            width: 26.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.place_rounded,
+                                  size: 30.sp,
+                                  color: Colors.green,
+                                ),
+                                // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Venue",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 34.w,
-                              left: 3.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    show = true;
-                                    vari = 1;
-                                  });
-                                  venue();
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.place_rounded,
-                                        size: 30.sp,
-                                        color: Colors.green,
-                                      ),
-                                      // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Venue",
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                      ),
+                      Positioned(
+                        top: 34.w,
+                        right: 3.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              show = !show;
+                              vari = 2;
+                            });
+                            supplier();
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 26.w,
+                            width: 26.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.support_agent,
+                                  size: 30.sp,
+                                  color: Colors.red,
+                                ),
+                                // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Supplier",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Positioned(
-                              top: 34.w,
-                              right: 3.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    show = true;
-                                    vari = 2;
-                                  });
-                                  supplier();
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.support_agent,
-                                        size: 30.sp,
-                                        color: Colors.red,
-                                      ),
-                                      // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Supplier",
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 32.w,
+                        left: 35.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                            Get.offAll(YellowHomeScreen(sele: 2,));
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 30.w,
+                            width: 30.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.home,
+                                  size: 30.sp,
+                                  color: Colors.orange,
+                                ),
+                                // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Home",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Positioned(
-                              top: 32.w,
-                              left: 35.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(YellowHomeScreen());
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 30.w,
-                                  width: 30.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.home,
-                                        size: 30.sp,
-                                        color: Colors.orange,
-                                      ),
-                                      // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Home",
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 5.w,
+                        left: 20.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                            Get.to(
+                              MeetingsPage(sele: 0,),
+                            );
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 26.w,
+                            width: 26.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.meeting_room_sharp,
+                                  size: 30.sp,
+                                  color: Colors.blueAccent,
+                                ),
+                                // Image.asset("assets/meeting.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blueAccent),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Meeting",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Positioned(
-                              top: 5.w,
-                              left: 20.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(
-                                    MeetingsPage(),
-                                  );
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.meeting_room_sharp,
-                                        size: 30.sp,
-                                        color: Colors.blueAccent,
-                                      ),
-                                      // Image.asset("assets/meeting.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blueAccent),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Meeting",
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 5.w,
+                        right: 20.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                            Get.to(
+                              PostPage(sele: 1),
+                            );
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 26.w,
+                            width: 26.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.developer_board,
+                                  size: 30.sp,
+                                  color: Colors.deepOrange,
+                                ),
+                                // Image.asset("assets/board.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.deepOrange),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Board",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Positioned(
-                              top: 5.w,
-                              right: 20.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(
-                                    PostPage(),
-                                  );
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.developer_board,
-                                        size: 30.sp,
-                                        color: Colors.deepOrange,
-                                      ),
-                                      // Image.asset("assets/board.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.deepOrange),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Board",
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 5.w,
+                        left: 20.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              show = !show;
+                              vari = 3;
+                            });
+                            other();
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 26.w,
+                            width: 26.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.more,
+                                  size: 30.sp,
+                                  color: Colors.pink,
+                                ),
+                                // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.pink),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Others",
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Positioned(
-                              bottom: 5.w,
-                              left: 20.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(
-                                    ChatlistPage(),
-                                  );
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.chat,
-                                        size: 30.sp,
-                                        color: Colors.pink,
-                                      ),
-                                      // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.pink),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Chat",
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 5.w,
+                        right: 20.w,
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                            Get.to(
+                              Check_list(),
+                            );
+                          },
+                          child: Container(
+                            height: 26.w,
+                            width: 26.w,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white),
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.checklist_outlined,
+                                  size: 30.sp,
+                                  color: Colors.blue,
+                                ),
+                                // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "Check List",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Positioned(
-                              bottom: 5.w,
-                              right: 20.w,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(
-                                    Check_list(),
-                                  );
-                                },
-                                child: Container(
-                                  height: 26.w,
-                                  width: 26.w,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.checklist_outlined,
-                                        size: 30.sp,
-                                        color: Colors.blue,
-                                      ),
-                                      // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Text(
-                                        "Check List",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
+                          ),
                         ),
                       )
+                    ],
+                  ),
+                )
                     : vari == 1
-                        ? venue()
-                        : supplier(),
+                    ? venue()
+                    : vari == 2
+                    ? supplier()
+                    : other(),
                 SizedBox(
-                  height: 9.h,
+                  height: 7.h,
                 ),
 
                 // SizedBox(height: 0.5.h,),
                 InkWell(
                     onTap: () async {
-                      Get.offAll(MyProfile());
+                      Get.back();
+                      Get.to(MyProfile(sele: 4,));
                     },
                     child: Container(
                       child: Row(
@@ -482,6 +544,48 @@ class _drawer1State extends State<drawer1> {
                 SizedBox(height: 3.h),
                 InkWell(
                     onTap: () async {
+                      Get.back();
+                      Get.to(NotificationScreen());
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 63.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.notifications_none_rounded,
+                                      color: Colors.white,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Notifications",
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'sofi',
+                                          color: Colors.white,
+                                        )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                SizedBox(height: 3.h),
+                InkWell(
+                    onTap: () async {
+                      Get.back();
                       Get.offAll(LoginPage());
                     },
                     child: Container(
@@ -543,13 +647,16 @@ class _drawer1State extends State<drawer1> {
             top: 11.w,
             left: 19.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+                Get.to(Certificate());
+              },
               child: Container(
                 alignment: Alignment.center,
                 height: 24.w,
                 width: 24.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -581,13 +688,16 @@ class _drawer1State extends State<drawer1> {
             top: 11.w,
             right: 19.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+                Get.to(ChairManagement());
+              },
               child: Container(
                 alignment: Alignment.center,
                 height: 24.w,
                 width: 24.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -620,13 +730,16 @@ class _drawer1State extends State<drawer1> {
             top: 29.w,
             left: 36.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+                Get.to(Accomendation_Page());
+              },
               child: Container(
                 alignment: Alignment.center,
                 height: 28.w,
                 width: 28.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -659,13 +772,16 @@ class _drawer1State extends State<drawer1> {
             bottom: 11.w,
             left: 19.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+                Get.to(ChatlistPage(sele: 3,));
+              },
               child: Container(
                 alignment: Alignment.center,
                 height: 24.w,
                 width: 24.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -697,12 +813,13 @@ class _drawer1State extends State<drawer1> {
             bottom: 11.w,
             right: 19.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {Get.back();
+              Get.to(QuoateList2());},
               child: Container(
                 height: 24.w,
                 width: 24.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -717,7 +834,227 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "Request",
+                      "Quote Request",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  other() {
+    return Container(
+      height: 86.w,
+      width: 86.w,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: Colors.white.withOpacity(0.4)),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 11.w,
+            left: 19.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(FoodMenusPage());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.food_bank,
+                      size: 25.sp,
+                      color: Colors.green,
+                    ),
+                    // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Food Menu",
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 11.w,
+            right: 19.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(BookingListPage());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.emoji_transportation_outlined,
+                      size: 25.sp,
+                      color: Colors.red,
+                    ),
+                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Transportation",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 29.w,
+            left: 36.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(BookingList());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 28.w,
+                width: 28.w,
+                decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.bookmark_outline,
+                      size: 25.sp,
+                      color: Colors.orange,
+                    ),
+                    // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Booking Detail",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 11.w,
+            left: 19.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(RoomManagement());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.room_preferences,
+                      size: 25.sp,
+                      color: Colors.pink,
+                    ),
+                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.pink),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Room Detail",
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 11.w,
+            right: 19.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(BudgetingList());
+              },
+              child: Container(
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.attach_money_outlined,
+                      size: 25.sp,
+                      color: Colors.blue,
+                    ),
+                    // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Budget",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 8.sp,
@@ -748,13 +1085,14 @@ class _drawer1State extends State<drawer1> {
             top: 10.w,
             left: 36.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {Get.back();
+              Get.to(NotificationScreen());},
               child: Container(
                 alignment: Alignment.center,
                 height: 28.w,
                 width: 28.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -786,13 +1124,14 @@ class _drawer1State extends State<drawer1> {
             bottom: 17.w,
             right: 17.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {Get.back();
+              Get.to(QuoateList2());},
               child: Container(
                 alignment: Alignment.center,
                 height: 28.w,
                 width: 28.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -825,13 +1164,14 @@ class _drawer1State extends State<drawer1> {
             bottom: 17.w,
             left: 17.w,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {Get.back();
+              Get.to(QuoateList2());},
               child: Container(
                 alignment: Alignment.center,
                 height: 28.w,
                 width: 28.w,
                 decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,

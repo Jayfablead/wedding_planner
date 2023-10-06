@@ -1,14 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class PostPage extends StatefulWidget {
-  const PostPage({super.key});
+  int? sele;
+   PostPage({super.key,required this.sele});
 
   @override
   State<PostPage> createState() => _PostPageState();
@@ -34,7 +35,6 @@ class cate0 {
   );
 }
 
-int selit = 1;
 List<serv> services = [
   serv(
     'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
@@ -91,7 +91,7 @@ List<cate0> photos = [
       'https://media.vogue.in/wp-content/uploads/2019/09/Deepika-Padukone-wedding-featured-1920x1080.jpg',
       1500),
 ];
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+// final GlobalKey<ScaffoldState> _scaffoldKey2 = GlobalKey<ScaffoldState>();
 
 class _PostPageState extends State<PostPage> {
   @override
@@ -99,7 +99,7 @@ class _PostPageState extends State<PostPage> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      selit == 1;
+      setit = 1;
     });
   }
 
@@ -107,9 +107,9 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: bottomnavbar(selit: selit),
+      bottomNavigationBar: bottomnavbar(selit: widget.sele),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -121,10 +121,9 @@ class _PostPageState extends State<PostPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                  onPressed: () {},
+                  icon: Icon(null),
+                ),
                 Text(
                   "Posts",
                   style: TextStyle(
@@ -136,7 +135,7 @@ class _PostPageState extends State<PostPage> {
                 ),
                 IconButton(
                     onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
+                      openDrawer();
                     },
                     icon: Icon(Icons.menu_rounded))
               ],

@@ -4,20 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/screens/pages2/editprofilepage2.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../widgets/drawer.dart';
 
 class MyProfile extends StatefulWidget {
-  MyProfile({Key? key}) : super(key: key);
+   int? sele;
+  MyProfile({Key? key,required this.sele }) : super(key: key);
 
   @override
   State<MyProfile> createState() => _MyProfileState();
 }
 
 class _MyProfileState extends State<MyProfile> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey5 = GlobalKey<ScaffoldState>();
 
   List img = [
     "assets/ney.jpg",
@@ -30,7 +32,7 @@ class _MyProfileState extends State<MyProfile> {
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
-  int selit = 3;
+  // int selit = 4;
 
   @override
   void initState() {
@@ -38,7 +40,7 @@ class _MyProfileState extends State<MyProfile> {
     super.initState();
     print("hiii");
     setState(() {
-      selit == 3;
+      setit = 4;
     });
   }
 
@@ -46,12 +48,11 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: bottomnavbar(selit: selit),
+      bottomNavigationBar: bottomnavbar(selit: 4),
       resizeToAvoidBottomInset: false,
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       // Colors.black
-
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -71,11 +72,10 @@ class _MyProfileState extends State<MyProfile> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Get.back();
+
                     },
                     icon: Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      color: Colors.white,
+                    null
                     )),
                 Text(
                   "Profile",
@@ -89,7 +89,7 @@ class _MyProfileState extends State<MyProfile> {
                 ),
                 IconButton(
                     onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
+                      openDrawer();
                     },
                     icon: Icon(
                       Icons.menu_rounded,

@@ -2,12 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/screens/other%20Pages/messagePage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class ChatlistPage extends StatefulWidget {
-  const ChatlistPage({super.key});
+   int? sele;
+   ChatlistPage({super.key,required this.sele });
 
   @override
   State<ChatlistPage> createState() => _ChatlistPageState();
@@ -54,9 +56,9 @@ List<chat> mesgs = [
       'You are Injured Come to me I will Fix You ',
       '10:50 Am'),
 ];
-int selit = 2;
+// int selit = 2;
 TextEditingController _search = TextEditingController();
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> _scaffoldKey3 = GlobalKey<ScaffoldState>();
 
 class _ChatlistPageState extends State<ChatlistPage> {
   @override
@@ -64,17 +66,18 @@ class _ChatlistPageState extends State<ChatlistPage> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      selit == 2;
+      setit = 2;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomnavbar(selit: selit),
+      bottomNavigationBar: bottomnavbar(selit: widget.sele),
       extendBody: true,
-      key: _scaffoldKey,
+
       drawer: drawer1(),
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -87,9 +90,9 @@ class _ChatlistPageState extends State<ChatlistPage> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Get.back();
+
                     },
-                    icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                    icon: Icon(null)),
                 Text(
                   "",
                   style: TextStyle(
@@ -99,7 +102,8 @@ class _ChatlistPageState extends State<ChatlistPage> {
                 ),
                 IconButton(
                     onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
+                      // Scaffold.of(context).openDrawer();
+                     openDrawer();
                     },
                     icon: Icon(Icons.menu_rounded))
               ],

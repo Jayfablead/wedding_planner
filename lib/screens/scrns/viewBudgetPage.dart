@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../../widgets/drawer.dart';
 
@@ -13,7 +15,7 @@ class ViewBudget extends StatefulWidget {
   State<ViewBudget> createState() => _ViewBudgetState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> _scaffoldKey4 = GlobalKey<ScaffoldState>();
 
 class icon {
   String? image;
@@ -53,11 +55,20 @@ List<icon> Icns = [
 ];
 
 class _ViewBudgetState extends State<ViewBudget> {
+  // int? setit =3;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      setit =3;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(bottomNavigationBar: bottomnavbar(selit: 3),extendBody: true,
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: CustomScrollView(
@@ -73,9 +84,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            Get.back();
+
                           },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                          icon: Icon(null)),
                       Text(
                         "Budget",
                         style: TextStyle(
@@ -87,7 +98,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                       ),
                       IconButton(
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                            openDrawer();
                           },
                           icon: Icon(Icons.menu_rounded))
                     ],
