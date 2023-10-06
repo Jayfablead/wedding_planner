@@ -24,11 +24,11 @@ class _bottomnavbarState extends State<bottomnavbar> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller = NotchBottomBarController(index: widget.selit!);
   }
 
   @override
   Widget build(BuildContext context) {
+    _controller = NotchBottomBarController(index: widget.selit!);
     return BottomAppBar(
         color: Colors.white.withOpacity(0.00),
         height: 90,

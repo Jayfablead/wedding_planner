@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
+import 'package:wedding_planner/chnages/my%20suppliers.dart';
+import 'package:wedding_planner/chnages/myQuoteReqs.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
 import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
@@ -1086,7 +1088,7 @@ class _drawer1State extends State<drawer1> {
             left: 36.w,
             child: GestureDetector(
               onTap: () {Get.back();
-              Get.to(NotificationScreen());},
+              Get.to(MySuppliers());},
               child: Container(
                 alignment: Alignment.center,
                 height: 28.w,
@@ -1165,7 +1167,7 @@ class _drawer1State extends State<drawer1> {
             left: 17.w,
             child: GestureDetector(
               onTap: () {Get.back();
-              Get.to(QuoateList2());},
+              Get.to(MyQuoateReq());},
               child: Container(
                 alignment: Alignment.center,
                 height: 28.w,

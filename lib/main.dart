@@ -4,6 +4,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/SplashScreen.dart';
+import 'package:wedding_planner/chnages/my%20suppliers.dart';
+import 'package:wedding_planner/chnages/myQuoteReqs.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 
 void main() {

@@ -19,7 +19,7 @@ class _SplashLogoState extends State<SplashLogo> {
     // TODO: implement initState
     super.initState();
     Timer(
-      const Duration(seconds: 3),
+       Duration(seconds: 3),
       () {
         Get.to(
           YellowHomeScreen(sele: 2),
