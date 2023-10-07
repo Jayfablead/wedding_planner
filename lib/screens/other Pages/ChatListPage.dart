@@ -8,8 +8,9 @@ import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class ChatlistPage extends StatefulWidget {
-   int? sele;
-   ChatlistPage({super.key,required this.sele });
+  int? sele;
+
+  ChatlistPage({super.key, required this.sele});
 
   @override
   State<ChatlistPage> createState() => _ChatlistPageState();
@@ -75,7 +76,6 @@ class _ChatlistPageState extends State<ChatlistPage> {
     return Scaffold(
       bottomNavigationBar: bottomnavbar(selit: widget.sele),
       extendBody: true,
-
       drawer: drawer1(),
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -88,11 +88,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                    onPressed: () {
-
-                    },
-                    icon: Icon(null)),
+                IconButton(onPressed: () {}, icon: Icon(null)),
                 Text(
                   "",
                   style: TextStyle(
@@ -103,7 +99,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                 IconButton(
                     onPressed: () {
                       // Scaffold.of(context).openDrawer();
-                     openDrawer();
+                      openDrawer();
                     },
                     icon: Icon(Icons.menu_rounded))
               ],

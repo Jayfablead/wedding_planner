@@ -422,7 +422,9 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                         ),
                         InkWell(
                           onTap: () {
-                            ChatlistPage(sele: 3,);
+                            ChatlistPage(
+                              sele: 3,
+                            );
                           },
                           child: Container(
                             height: 5.5.h,

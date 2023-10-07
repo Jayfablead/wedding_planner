@@ -61,12 +61,15 @@ class _ViewBudgetState extends State<ViewBudget> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      setit =3;
+      setit = 3;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(bottomNavigationBar: bottomnavbar(selit: 3),extendBody: true,
+    return Scaffold(
+      bottomNavigationBar: bottomnavbar(selit: 3),
+      extendBody: true,
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
@@ -82,11 +85,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                          onPressed: () {
-
-                          },
-                          icon: Icon(null)),
+                      IconButton(onPressed: () {}, icon: Icon(null)),
                       Text(
                         "Budget",
                         style: TextStyle(

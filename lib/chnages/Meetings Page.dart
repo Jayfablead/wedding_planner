@@ -6,8 +6,9 @@ import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class MeetingsPage extends StatefulWidget {
-                           int? sele;
-   MeetingsPage({super.key,required this.sele });
+  int? sele;
+
+  MeetingsPage({super.key, required this.sele});
 
   @override
   State<MeetingsPage> createState() => _MeetingsPageState();
@@ -57,7 +58,6 @@ int sel = 3;
 
 DateTime _selectedDay = DateTime.now();
 
-
 class _MeetingsPageState extends State<MeetingsPage> {
   @override
   void initState() {
@@ -68,11 +68,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomnavbar(selit:widget.sele),
+      bottomNavigationBar: bottomnavbar(selit: widget.sele),
       extendBody: true,
       drawer: drawer1(),
       key: scaffoldKey,
@@ -89,11 +88,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    IconButton(
-                        onPressed: () {
-
-                        },
-                        icon: Icon(null)),
+                    IconButton(onPressed: () {}, icon: Icon(null)),
                     Text(
                       "",
                       style: TextStyle(
@@ -106,7 +101,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                     IconButton(
                         onPressed: () {
                           // _drawerKey.currentState!.open();
-                       openDrawer();
+                          openDrawer();
                         },
                         icon: Icon(Icons.menu_rounded))
                   ],

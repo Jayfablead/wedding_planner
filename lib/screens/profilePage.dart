@@ -11,8 +11,7 @@ import 'package:wedding_planner/widgets/bottamnav.dart';
 import '../widgets/drawer.dart';
 
 class MyProfile extends StatefulWidget {
-   int? sele;
-  MyProfile({Key? key,required this.sele }) : super(key: key);
+  MyProfile({Key? key}) : super(key: key);
 
   @override
   State<MyProfile> createState() => _MyProfileState();
@@ -32,6 +31,7 @@ class _MyProfileState extends State<MyProfile> {
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
+
   // int selit = 4;
 
   @override
@@ -48,7 +48,6 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: bottomnavbar(selit: 4),
       resizeToAvoidBottomInset: false,
       drawer: drawer1(),
       key: scaffoldKey,
@@ -70,13 +69,7 @@ class _MyProfileState extends State<MyProfile> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                    onPressed: () {
-
-                    },
-                    icon: Icon(
-                    null
-                    )),
+                IconButton(onPressed: () {}, icon: Icon(null)),
                 Text(
                   "Profile",
                   style: TextStyle(

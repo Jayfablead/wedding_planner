@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/screens/pages2/QuateDetails.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class MyQuoateReq extends StatefulWidget {
@@ -23,12 +22,12 @@ class chat {
   String? details;
 
   chat(
-      this.image,
-      this.name,
-      this.type,
-      this.date,
-      this.details,
-      );
+    this.image,
+    this.name,
+    this.type,
+    this.date,
+    this.details,
+  );
 }
 
 List<chat> mesgs = [
@@ -168,12 +167,12 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                   imageUrl: mesgs[index].image ?? '',
                                   progressIndicatorBuilder:
                                       (context, url, progress) =>
-                                      CircularProgressIndicator(),
+                                          CircularProgressIndicator(),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                        'assets/icons/user.png',
-                                        color: Colors.white,
-                                      ),
+                                    'assets/icons/user.png',
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -188,9 +187,9 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                   width: 68.w,
                                   child: Row(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         mesgs[index].name ?? '',
@@ -208,7 +207,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'sofi',
                                             color:
-                                            Colors.black.withOpacity(0.5)),
+                                                Colors.black.withOpacity(0.5)),
                                       ),
                                     ],
                                   ),
@@ -218,7 +217,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                   width: 68.w,
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         mesgs[index].type ?? '',
@@ -227,8 +226,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                           fontSize: 14.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
-                                          color: Colors.black
-                                              .withOpacity(0.75),
+                                          color: Colors.black.withOpacity(0.75),
                                         ),
                                       ),
                                       SizedBox(height: 0.8.h),
@@ -240,8 +238,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                           fontSize: 13.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
-                                          color: Colors.black
-                                              .withOpacity(0.5),
+                                          color: Colors.black.withOpacity(0.5),
                                         ),
                                       ),
                                     ],

@@ -9,7 +9,8 @@ import 'package:wedding_planner/widgets/drawer.dart';
 
 class PostPage extends StatefulWidget {
   int? sele;
-   PostPage({super.key,required this.sele});
+
+  PostPage({super.key, required this.sele});
 
   @override
   State<PostPage> createState() => _PostPageState();

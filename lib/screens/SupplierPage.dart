@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/screens/other%20Pages/add%20Quote%20Page.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class SupplierfourScreen extends StatefulWidget {
@@ -55,6 +54,56 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 height: 2.h,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "VinSmoke Sanji",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.sp,
+                            color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Text(
+                        "Flower Decoration",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.sp,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 1.w),
+                    height: 8.5.h,
+                    width: 18.w,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(90),
+                      child: CachedNetworkImage(
+                        fit: BoxFit.cover,
+                        imageUrl:
+                            'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
+                        progressIndicatorBuilder: (context, url, progress) =>
+                            CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Image.asset(
+                          'assets/icons/user.png',
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -65,7 +114,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         width: 25.w,
                         child: CachedNetworkImage(
                           imageUrl:
-                              "https://oxenberry.com/wp-content/uploads/2023/07/041d3f8b-a002-4cd6-9fa0-01f550c360fb-e1690268678119.jpg",
+                              "https://junebugweddings.com/wedding-blog/wp-content/uploads/2018/10/the-mediterranean-vibes-in-this-valencia-wedding-at-la-mozaira-are-what-dreams-are-made-of-sophie-brendle-photography-36.jpg",
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.sp),
@@ -90,7 +139,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         width: 30.w,
                         child: CachedNetworkImage(
                           imageUrl:
-                              "https://oxenberry.com/wp-content/uploads/2023/07/041d3f8b-a002-4cd6-9fa0-01f550c360fb-e1690268678119.jpg",
+                              "https://junebugweddings.com/wedding-blog/wp-content/uploads/2018/10/the-mediterranean-vibes-in-this-valencia-wedding-at-la-mozaira-are-what-dreams-are-made-of-sophie-brendle-photography-36.jpg",
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -117,7 +166,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         width: 30.w,
                         child: CachedNetworkImage(
                           imageUrl:
-                              "https://oxenberry.com/wp-content/uploads/2023/07/041d3f8b-a002-4cd6-9fa0-01f550c360fb-e1690268678119.jpg",
+                              "https://junebugweddings.com/wedding-blog/wp-content/uploads/2018/10/the-mediterranean-vibes-in-this-valencia-wedding-at-la-mozaira-are-what-dreams-are-made-of-sophie-brendle-photography-36.jpg",
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -145,7 +194,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         width: 30.w,
                         child: CachedNetworkImage(
                           imageUrl:
-                              "https://oxenberry.com/wp-content/uploads/2023/07/041d3f8b-a002-4cd6-9fa0-01f550c360fb-e1690268678119.jpg",
+                              "https://junebugweddings.com/wedding-blog/wp-content/uploads/2018/10/the-mediterranean-vibes-in-this-valencia-wedding-at-la-mozaira-are-what-dreams-are-made-of-sophie-brendle-photography-36.jpg",
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -172,7 +221,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         width: 30.w,
                         child: CachedNetworkImage(
                           imageUrl:
-                              "https://oxenberry.com/wp-content/uploads/2023/07/041d3f8b-a002-4cd6-9fa0-01f550c360fb-e1690268678119.jpg",
+                              "https://junebugweddings.com/wedding-blog/wp-content/uploads/2018/10/the-mediterranean-vibes-in-this-valencia-wedding-at-la-mozaira-are-what-dreams-are-made-of-sophie-brendle-photography-36.jpg",
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -189,70 +238,6 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               Center(child: CircularProgressIndicator()),
                           errorWidget: (context, url, error) =>
                               Icon(Icons.error),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Text(
-                "Flower Decoration",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.sp,
-                    color: Colors.black),
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
-              Text(
-                "There are many variations",
-                style: TextStyle(fontSize: 12.sp, color: Colors.grey),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.pink,
-                        size: 25.sp,
-                      ),
-                      SizedBox(width: 2.w),
-                      Text(
-                        "4.3 Ratings",
-                        style: TextStyle(
-                          color: Colors.black45,
-                          fontSize: 15.sp,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.message_rounded,
-                        color: Colors.pink,
-                        size: 25.sp,
-                      ),
-                      SizedBox(width: 2.w),
-                      Text(
-                        "960 Reviews",
-                        style: TextStyle(
-                          color: Colors.black45,
-                          fontSize: 15.sp,
                         ),
                       ),
                     ],
@@ -285,41 +270,23 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 height: 2.h,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
+                    onTap: () {},
                     child: Container(
                       height: 5.h,
                       width: 45.w,
                       decoration: BoxDecoration(
-                        color: Colors.pink,
+                        border: Border.all(color: Colors.pink.shade200),
+                        color: Colors.pink.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(15.sp),
                       ),
                       child: Center(
                         child: Text(
-                          "Add to Budget",
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 14.sp),
-                        ),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(AddQuote());
-                    },
-                    child: Container(
-                      height: 5.h,
-                      width: 45.w,
-                      decoration: BoxDecoration(
-                        color: Colors.pink,
-                        borderRadius: BorderRadius.circular(15.sp),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Get a quote Now",
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 14.sp),
+                          "Quote Requested",
+                          style: TextStyle(
+                              color: Colors.pink.shade300, fontSize: 14.sp),
                         ),
                       ),
                     ),

@@ -6,8 +6,9 @@ import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
 class YellowHomeScreen extends StatefulWidget {
-   int? sele;
-   YellowHomeScreen({super.key,required this.sele });
+  int? sele;
+
+  YellowHomeScreen({super.key, required this.sele});
 
   @override
   State<YellowHomeScreen> createState() => _YellowHomeScreenState();
@@ -88,7 +89,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
     return Scaffold(
       key: scaffoldKey,
       extendBody: true,
-      bottomNavigationBar: bottomnavbar(selit: widget.sele),
+
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Padding(
@@ -623,7 +624,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             ],
           ),
         ),
-      ),
+      ), bottomNavigationBar: bottomnavbar(selit: widget.sele),
     );
   }
 
