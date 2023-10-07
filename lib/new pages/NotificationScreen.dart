@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../widgets/drawer.dart';
 
@@ -42,7 +43,7 @@ List<icon> noti = [
 class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(extendBody: true,bottomNavigationBar: bottomnavbar(selit: -3),
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(

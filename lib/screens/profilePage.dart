@@ -47,7 +47,7 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
+      extendBody: true,bottomNavigationBar: bottomnavbar(selit: -3),
       resizeToAvoidBottomInset: false,
       drawer: drawer1(),
       key: scaffoldKey,

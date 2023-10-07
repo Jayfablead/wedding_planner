@@ -96,7 +96,7 @@ class _Check_listState extends State<Check_list> {
                   search(),
                   SizedBox(height: 1.h),
                   Container(
-                    height: 74.h,
+                    height: 73.h,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
@@ -163,7 +163,7 @@ class _Check_listState extends State<Check_list> {
                 ]),
               ),
               Positioned(
-                top: 93.h,
+                top: 91.5.h,
                 child: Row(children: [
                   checkdetails(),
                   SizedBox(

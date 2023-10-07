@@ -132,10 +132,10 @@ class _MySuppliersState extends State<MySuppliers> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        Get.back();
+
                       },
                       icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
+                     null
                       )),
                   Text(
                     "My Suppliers",
