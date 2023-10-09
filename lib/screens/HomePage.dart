@@ -133,6 +133,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ],
+                            ),SizedBox(height: 1.h),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(Icons.date_range_outlined,
+                                    color: Colors.black.withOpacity(0.75)),
+                                SizedBox(width: 2.w),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 0.4.h),
+                                  child: Text(
+                                    '20-03-2024',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'sofi',
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        color: Colors.black.withOpacity(0.75)),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),

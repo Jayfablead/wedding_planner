@@ -515,14 +515,14 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.person_2_outlined,
-                                      color: Colors.white,
+                                      color: Colors.white,size: 22.sp,
                                     ),
                                     SizedBox(
                                       width: 2.w,
                                     ),
                                     Text("My Profile",
                                         style: TextStyle(
-                                          fontSize: 14.sp,
+                                          fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
                                           color: Colors.white,
@@ -535,7 +535,7 @@ class _drawer1State extends State<drawer1> {
                         ],
                       ),
                     )),
-                SizedBox(height: 3.h),
+                SizedBox(height: 2.h),
                 InkWell(
                     onTap: () async {
                       Get.back();
@@ -556,14 +556,14 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.notifications_none_rounded,
-                                      color: Colors.white,
+                                      color: Colors.white,size: 22.sp,
                                     ),
                                     SizedBox(
                                       width: 2.w,
                                     ),
                                     Text("Notifications",
                                         style: TextStyle(
-                                          fontSize: 14.sp,
+                                          fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
                                           color: Colors.white,
@@ -576,7 +576,7 @@ class _drawer1State extends State<drawer1> {
                         ],
                       ),
                     )),
-                SizedBox(height: 3.h),
+                SizedBox(height: 2.h),
                 InkWell(
                     onTap: () async {
                       Get.back();
@@ -586,7 +586,7 @@ class _drawer1State extends State<drawer1> {
                       child: Row(
                         children: [
                           SizedBox(
-                            width: 6.w,
+                            width: 7.w,
                           ),
                           Container(
                             width: 63.w,
@@ -597,14 +597,14 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.logout,
-                                      color: Colors.red,
+                                      color: Colors.red,size: 22.sp,
                                     ),
                                     SizedBox(
                                       width: 2.w,
                                     ),
                                     Text("Logout",
                                         style: TextStyle(
-                                          fontSize: 14.sp,
+                                          fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
                                           color: Colors.red,

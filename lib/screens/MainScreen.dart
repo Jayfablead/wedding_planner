@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  'Suppliers',
+                  'Planners',
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,
@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             )),
         Positioned(
-            top: 78.5.h,
+            top: 76.5.h,
             left: 4.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -57,16 +57,16 @@ class _MainScreenState extends State<MainScreen> {
                     'Choose Your Venue & Get Quotations for your Venue.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontFamily: 'sof',
+                        fontFamily: 'sofi',
                         fontSize: 15.sp,
                         letterSpacing: 1,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             )),
         Positioned(
-          top: 87.h,
+          top: 84.5.h,
           left: 4.5.w,
           child: InkWell(
             onTap: () {

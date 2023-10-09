@@ -61,14 +61,14 @@ class _ViewBudgetState extends State<ViewBudget> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      setit = 3;
+      setit = -3;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomnavbar(selit: 3),
+      bottomNavigationBar: bottomnavbar(selit: -3),
       extendBody: true,
       drawer: drawer1(),
       key: scaffoldKey,
