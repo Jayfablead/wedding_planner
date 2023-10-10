@@ -25,9 +25,9 @@ class _GuestListState extends State<GuestList> {
       sel1 = 1;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Color(0xffefefef),
       key: scaffoldKey,
@@ -117,177 +117,217 @@ class _GuestListState extends State<GuestList> {
                 ],
               ),
               SizedBox(height: 2.h),
-              sel1 == 2?  Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Groom\'s Guests ( 20 )',
-                        style: TextStyle(
-                            fontSize: 17.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                      Text(
-                        'Invites',
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black87.withOpacity(0.7),
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: 71.h,
-                    child: Column(children: [
-                      SizedBox(height: 0.5.h),
-                      Container(
-                        height: 69.5.h,
-                        child: ListView.builder(
-                          padding: EdgeInsets.zero,
-                          itemBuilder: (context, index) {
-                            return   ListTile(
-                              title: Text('Haresh Mer ${index +1}',
-                                style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),),
-                              trailing: Icon(
-                                Icons.check,
-                                color: Colors.green,
-                              ),
-                            );
-
-                          },
-                          itemCount: 20,
+              sel1 == 2
+                  ? Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Groom\'s Guests ( 20 )',
+                              style: TextStyle(
+                                  fontSize: 17.sp,
+                                  fontFamily: 'sofi',
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1),
+                            ),
+                            Text(
+                              'Remove',
+                              style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontFamily: 'sofi',
+                                  color: Colors.black87.withOpacity(0.7),
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1),
+                            ),
+                          ],
                         ),
-                      ),
-                    ]),
-                  ),
-                  Positioned(
-                    top: 74.5.h,
-                    child: Row(children: [
-                      checkdetails(),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      InkWell(
-                          onTap: () {
-                            print('Moklyo hoo');
-                          },
-                          child: Container(
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.all(2.5.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                  child: Icon(
-                                    CupertinoIcons.add,
-                                    size: 18.sp,
-                                    color: Colors.white,
-                                  ))))
-                    ]),
-                  ),
-                ],
-              ):
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Bride\'s Guests ( 15 )',
-                        style: TextStyle(
-                            fontSize: 17.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                      Text(
-                        'Invites',
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black87.withOpacity(0.7),
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: 71.h,
-                    child: Column(children: [
-                      SizedBox(height: 0.5.h),
-                      Container(
-                        height: 69.5.h,
-                        child: ListView.builder(
-                          padding: EdgeInsets.zero,
-                          itemBuilder: (context, index) {
-                            return   ListTile(
-                              title: Text('Karam Patel ${index +1}',
-                                style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),),
-                              trailing: Icon(
-                                Icons.check,
-                                color: Colors.green,
+                        SizedBox(
+                          height: 70.h,
+                          child: Column(children: [
+                            SizedBox(height: 0.5.h),
+                            Container(
+                              height: 69.h,
+                              child: ListView.builder(
+                                padding: EdgeInsets.zero,
+                                itemBuilder: (context, index) {
+                                  return ListTile(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 2.w, vertical: 0),
+                                    title: Text(
+                                      'Haresh Mer ${index + 1}',
+                                      style: TextStyle(
+                                          fontSize: 15.sp,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1),
+                                    ),
+                                    subtitle: Padding(
+                                      padding: EdgeInsets.only(top: 0.7.h),
+                                      child: Text(
+                                        'Mo: 7041648493',
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'sofi',
+                                            color:
+                                                Colors.black.withOpacity(0.67),
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1),
+                                      ),
+                                    ),
+                                    trailing: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        CupertinoIcons.delete_solid,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                itemCount: 20,
                               ),
-                            );
-
-                          },
-                          itemCount: 15,
+                            ),
+                          ]),
                         ),
-                      ),
-                    ]),
-                  ),
-                  Positioned(
-                    top: 74.5.h,
-                    child: Row(children: [
-                      checkdetails(),
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      InkWell(
-                          onTap: () {
-                            print('Moklyo hoo');
-                          },
-                          child: Container(
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.all(2.5.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                  child: Icon(
-                                    CupertinoIcons.add,
-                                    size: 18.sp,
-                                    color: Colors.white,
-                                  ))))
-                    ]),
-                  ),
-                ],
-              ),
-
+                        Positioned(
+                          top: 72.5.h,
+                          child: Row(children: [
+                            checkdetails(),
+                            SizedBox(
+                              width: 3.w,
+                            ),
+                            InkWell(
+                                onTap: () {
+                                  print('Moklyo hoo');
+                                },
+                                child: Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(2.5.w),
+                                    decoration: BoxDecoration(
+                                        color: Colors.amber,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Center(
+                                        child: Icon(
+                                      CupertinoIcons.add,
+                                      size: 18.sp,
+                                      color: Colors.white,
+                                    ))))
+                          ]),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Bride\'s Guests ( 15 )',
+                              style: TextStyle(
+                                  fontSize: 17.sp,
+                                  fontFamily: 'sofi',
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1),
+                            ),
+                            Text(
+                              'Remove',
+                              style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontFamily: 'sofi',
+                                  color: Colors.black87.withOpacity(0.7),
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 70.h,
+                          child: Column(children: [
+                            SizedBox(height: 0.5.h),
+                            Container(
+                              height: 69.h,
+                              child: ListView.builder(
+                                padding: EdgeInsets.zero,
+                                itemBuilder: (context, index) {
+                                  return ListTile(
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 2.w),
+                                    title: Text(
+                                      'Karam Patel ${index + 1}',
+                                      style: TextStyle(
+                                          fontSize: 15.sp,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1),
+                                    ),
+                                    subtitle: Padding(
+                                      padding: EdgeInsets.only(top: 0.7.h),
+                                      child: Text(
+                                        'Mo: 7041648493',
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'sofi',
+                                            color:
+                                                Colors.black.withOpacity(0.67),
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1),
+                                      ),
+                                    ),
+                                    trailing: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        CupertinoIcons.delete_solid,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                itemCount: 15,
+                              ),
+                            ),
+                          ]),
+                        ),
+                        Positioned(
+                          top: 72.5.h,
+                          child: Row(children: [
+                            checkdetails(),
+                            SizedBox(
+                              width: 3.w,
+                            ),
+                            InkWell(
+                                onTap: () {
+                                  print('Moklyo hoo');
+                                },
+                                child: Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.all(2.5.w),
+                                    decoration: BoxDecoration(
+                                        color: Colors.amber,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Center(
+                                        child: Icon(
+                                      CupertinoIcons.add,
+                                      size: 18.sp,
+                                      color: Colors.white,
+                                    ))))
+                          ]),
+                        ),
+                      ],
+                    ),
             ],
           ),
         ),
       ),
     );
-  }  Widget checkdetails() {
+  }
+
+  Widget checkdetails() {
     return Container(
       width: 80.w,
       padding: const EdgeInsets.symmetric(horizontal: 15),

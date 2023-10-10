@@ -11,7 +11,7 @@ class Check_list extends StatefulWidget {
   State<Check_list> createState() => _Check_listState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState>  scaffoldKey = GlobalKey<ScaffoldState>();
 
 bool ischeck = false;
 
@@ -53,7 +53,7 @@ class _Check_listState extends State<Check_list> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key:  scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
           child: Center(
@@ -65,7 +65,7 @@ class _Check_listState extends State<Check_list> {
                 height: 100.h,
                 child: Column(children: [
                   SizedBox(
-                    height: 4.h,
+                    height: 5.5.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +87,7 @@ class _Check_listState extends State<Check_list> {
                       ),
                       IconButton(
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                             scaffoldKey.currentState?.openDrawer();
                           },
                           icon: Icon(Icons.menu_rounded))
                     ],
@@ -96,7 +96,7 @@ class _Check_listState extends State<Check_list> {
                   search(),
                   SizedBox(height: 1.h),
                   Container(
-                    height: 73.h,
+                    height: 71.h,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {

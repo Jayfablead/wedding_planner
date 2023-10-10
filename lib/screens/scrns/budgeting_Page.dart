@@ -12,7 +12,7 @@ class BudgetingList extends StatefulWidget {
   State<BudgetingList> createState() => _BudgetingListState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 bool readmore = false;
 
 class _BudgetingListState extends State<BudgetingList> {
@@ -20,7 +20,7 @@ class _BudgetingListState extends State<BudgetingList> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -49,7 +49,7 @@ class _BudgetingListState extends State<BudgetingList> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded))
                 ],

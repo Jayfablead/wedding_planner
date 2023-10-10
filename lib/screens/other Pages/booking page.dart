@@ -14,7 +14,7 @@ class BookingsPage extends StatefulWidget {
   State<BookingsPage> createState() => _BookingsPageState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 ImagePicker _picker = ImagePicker();
 File? selectedimage;
 
@@ -23,7 +23,7 @@ class _BookingsPageState extends State<BookingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -49,7 +49,7 @@ class _BookingsPageState extends State<BookingsPage> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded))
                 ],

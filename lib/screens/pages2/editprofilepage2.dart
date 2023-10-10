@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../main.dart';
+
 // import '../../widgets/drawer.dart';
 
 class EditProfile2 extends StatefulWidget {
@@ -23,8 +25,6 @@ class EditProfile2 extends StatefulWidget {
   @override
   State<EditProfile2> createState() => _EditProfile2State();
 }
-
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _EditProfile2State extends State<EditProfile2> {
   TextEditingController _fname = TextEditingController();
@@ -51,7 +51,7 @@ class _EditProfile2State extends State<EditProfile2> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         // drawer: drawer1(),
-        key: _scaffoldKey,
+        key: scaffoldKey,
         body: Builder(
           builder: (context) {
             return Listener(
@@ -107,7 +107,7 @@ class _EditProfile2State extends State<EditProfile2> {
                               ),
                               IconButton(
                                   onPressed: () {
-                                    _scaffoldKey.currentState?.openDrawer();
+                                    scaffoldKey.currentState?.openDrawer();
                                   },
                                   icon: Icon(null))
                             ],
@@ -662,14 +662,14 @@ class _EditProfile2State extends State<EditProfile2> {
 //   State<Profile2> createState() => _Profile2State();
 // }
 //
-// final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+// final GlobalKey<ScaffoldState>  scaffoldKey = GlobalKey<ScaffoldState>();
 //
 // class _Profile2State extends State<Profile2> {
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       drawer: drawer1(),
-//       key: _scaffoldKey,
+//       key:  scaffoldKey,
 //       body: Container(
 //         height: double.infinity,
 //         width: double.infinity,
@@ -711,7 +711,7 @@ class _EditProfile2State extends State<EditProfile2> {
 //                       ),
 //                       IconButton(
 //                           onPressed: () {
-//                             _scaffoldKey.currentState?.openDrawer();
+//                              scaffoldKey.currentState?.openDrawer();
 //                           },
 //                           icon: Icon(
 //                             Icons.menu_rounded,

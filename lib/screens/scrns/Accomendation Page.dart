@@ -16,13 +16,13 @@ class Accomendation_Page extends StatefulWidget {
   State<Accomendation_Page> createState() => _Accomendation_PageState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _Accomendation_PageState extends State<Accomendation_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       drawer: drawer1(),
       body: Center(
         child: Padding(
@@ -49,7 +49,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                         ),
                         IconButton(
                             onPressed: () {
-                              _scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(Icons.menu_rounded)),
                       ],

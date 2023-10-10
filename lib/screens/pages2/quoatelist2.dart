@@ -82,15 +82,13 @@ List<chat> mesgs = [
       'A decorations of your garden'),
 ];
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
 class _QuoateList2State extends State<QuoateList2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffe8e8e8),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -120,7 +118,7 @@ class _QuoateList2State extends State<QuoateList2> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
                         Icons.menu_rounded,

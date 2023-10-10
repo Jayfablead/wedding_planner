@@ -108,7 +108,7 @@ List<chat> mesgs = [
       'A decorations of your garden'),
 ];
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MySuppliersState extends State<MySuppliers> {
   @override
@@ -118,7 +118,7 @@ class _MySuppliersState extends State<MySuppliers> {
       bottomNavigationBar: bottomnavbar(selit: widget.sele),
       backgroundColor: Color(0xffe8e8e8),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -130,13 +130,7 @@ class _MySuppliersState extends State<MySuppliers> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                      onPressed: () {
-
-                      },
-                      icon: Icon(
-                     null
-                      )),
+                  IconButton(onPressed: () {}, icon: Icon(null)),
                   Text(
                     "My Suppliers",
                     style: TextStyle(
@@ -148,7 +142,7 @@ class _MySuppliersState extends State<MySuppliers> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
                         Icons.menu_rounded,

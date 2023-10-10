@@ -70,20 +70,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Old Password",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -146,23 +132,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "New Password",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
                   child: Row(
@@ -221,23 +190,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
                 SizedBox(
                   height: 3.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Confirm Password",
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          letterSpacing: 1,
-                          fontFamily: 'Sofi',
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 2.w),

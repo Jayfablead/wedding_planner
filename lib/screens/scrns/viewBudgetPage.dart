@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
-import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 
 import '../../widgets/drawer.dart';
+import '../pages2/quoatelist2.dart';
 
 class ViewBudget extends StatefulWidget {
   const ViewBudget({super.key});
@@ -15,7 +15,7 @@ class ViewBudget extends StatefulWidget {
   State<ViewBudget> createState() => _ViewBudgetState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey4 = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey4 = GlobalKey<ScaffoldState>();
 
 class icon {
   String? image;

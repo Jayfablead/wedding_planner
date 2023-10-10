@@ -92,7 +92,7 @@ List<cate0> photos = [
       'https://media.vogue.in/wp-content/uploads/2019/09/Deepika-Padukone-wedding-featured-1920x1080.jpg',
       1500),
 ];
-// final GlobalKey<ScaffoldState> _scaffoldKey2 = GlobalKey<ScaffoldState>();
+// final GlobalKey<ScaffoldState>  scaffoldKey2 = GlobalKey<ScaffoldState>();
 
 class _PostPageState extends State<PostPage> {
   @override

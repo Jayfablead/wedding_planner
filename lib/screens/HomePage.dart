@@ -71,7 +71,7 @@ List<cate1> venue = [
       'A Royal Decoration venue'),
 ];
 TextEditingController _search = TextEditingController();
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 int sel = 1;
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    _scaffoldKey.currentState?.openDrawer();
+                                    scaffoldKey.currentState?.openDrawer();
                                   },
                                   icon: Icon(
                                     Icons.menu_rounded,
@@ -133,7 +133,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ],
-                            ),SizedBox(height: 1.h),
+                            ),
+                            SizedBox(height: 1.h),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [

@@ -18,7 +18,7 @@ class QuatationDetails2 extends StatefulWidget {
 }
 
 int ind = 0;
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 List HotelIm = [
   'https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg',
   'https://balloonpro.in/wp-content/uploads/2023/06/20210306_090946.jpg',
@@ -39,7 +39,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Center(
           child: Column(

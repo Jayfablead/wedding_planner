@@ -18,7 +18,7 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
-  final GlobalKey<ScaffoldState> _scaffoldKey5 = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey5 = GlobalKey<ScaffoldState>();
 
   List img = [
     "assets/ney.jpg",
@@ -47,7 +47,8 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,bottomNavigationBar: bottomnavbar(selit: -3),
+      extendBody: true,
+      bottomNavigationBar: bottomnavbar(selit: -3),
       resizeToAvoidBottomInset: false,
       drawer: drawer1(),
       key: scaffoldKey,

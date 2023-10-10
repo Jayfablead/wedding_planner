@@ -12,14 +12,14 @@ class MoodBordsScreen extends StatefulWidget {
   State<MoodBordsScreen> createState() => _MoodBordsScreenState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MoodBordsScreenState extends State<MoodBordsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -45,7 +45,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded))
                 ],

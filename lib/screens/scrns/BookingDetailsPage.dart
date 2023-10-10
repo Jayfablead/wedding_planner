@@ -13,12 +13,12 @@ class BookingDetailsPage extends StatefulWidget {
 }
 
 class _BookingDetailsPageState extends State<BookingDetailsPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Padding(
@@ -49,7 +49,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded)),
                 ],

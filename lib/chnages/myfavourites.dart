@@ -6,6 +6,7 @@ import 'package:wedding_planner/widgets/bottamnav.dart';
 
 class myfavourite extends StatefulWidget {
   myfavourite({super.key});
+
   @override
   State<myfavourite> createState() => _myfavouriteState();
 }
@@ -100,6 +101,7 @@ class _myfavouriteState extends State<myfavourite> {
         'A Big Hall with sitting',
         5)
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,11 +121,7 @@ class _myfavouriteState extends State<myfavourite> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  IconButton(
-                      onPressed: () {
-
-                      },
-                      icon: Icon(null)),
+                  IconButton(onPressed: () {}, icon: Icon(null)),
                   Text(
                     "My Favourites",
                     style: TextStyle(
@@ -163,8 +161,7 @@ class _myfavouriteState extends State<myfavourite> {
               Row(children: <Widget>[
                 Expanded(
                   child: Container(
-                      margin:
-                          const EdgeInsets.only(left: 10.0, right: 20.0),
+                      margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                       child: Divider(
                         color: Colors.amber,
                         thickness: 1,
@@ -183,8 +180,7 @@ class _myfavouriteState extends State<myfavourite> {
                 ),
                 Expanded(
                   child: new Container(
-                      margin:
-                          const EdgeInsets.only(left: 20.0, right: 10.0),
+                      margin: const EdgeInsets.only(left: 20.0, right: 10.0),
                       child: Divider(
                         color: Colors.amber,
                         thickness: 1,
@@ -222,8 +218,7 @@ class _myfavouriteState extends State<myfavourite> {
                                   imageUrl: venue[index].image.toString(),
                                   progressIndicatorBuilder:
                                       (context, url, progress) => Center(
-                                          child:
-                                              CircularProgressIndicator()),
+                                          child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
                                     'assets/deprf.png',
@@ -235,9 +230,10 @@ class _myfavouriteState extends State<myfavourite> {
                               height: 1.h,
                             ),
                             Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 1.w),
+                              padding: EdgeInsets.symmetric(horizontal: 1.w),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     venue[index].name.toString(),
@@ -249,8 +245,11 @@ class _myfavouriteState extends State<myfavourite> {
                                         color: Colors.black),
                                   ),
                                   GestureDetector(
-                                    onTap: (){},
-                                    child: Icon(Icons.message,color: Colors.amber,),
+                                    onTap: () {},
+                                    child: Icon(
+                                      Icons.message,
+                                      color: Colors.amber,
+                                    ),
                                   )
                                 ],
                               ),
@@ -259,7 +258,7 @@ class _myfavouriteState extends State<myfavourite> {
                               height: 1.h,
                             ),
                             Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 1.w),
+                              padding: EdgeInsets.symmetric(horizontal: 1.w),
                               child: Text(
                                 venue[index].desc.toString(),
                                 style: TextStyle(
@@ -277,12 +276,10 @@ class _myfavouriteState extends State<myfavourite> {
                   ],
                 ),
               )),
-
               Row(children: <Widget>[
                 Expanded(
                   child: Container(
-                      margin:
-                          const EdgeInsets.only(left: 10.0, right: 20.0),
+                      margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                       child: Divider(
                         color: Colors.amber,
                         thickness: 1,
@@ -301,8 +298,7 @@ class _myfavouriteState extends State<myfavourite> {
                 ),
                 Expanded(
                   child: new Container(
-                      margin:
-                          const EdgeInsets.only(left: 20.0, right: 10.0),
+                      margin: const EdgeInsets.only(left: 20.0, right: 10.0),
                       child: Divider(
                         color: Colors.amber,
                         thickness: 1,
@@ -321,9 +317,7 @@ class _myfavouriteState extends State<myfavourite> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    for (int index = 0;
-                        index < HotelIm.length;
-                        index++) ...[
+                    for (int index = 0; index < HotelIm.length; index++) ...[
                       Container(
                         width: 85.w,
                         margin: EdgeInsets.symmetric(horizontal: 2.h),
@@ -341,8 +335,7 @@ class _myfavouriteState extends State<myfavourite> {
                                   imageUrl: HotelIm[index].image.toString(),
                                   progressIndicatorBuilder:
                                       (context, url, progress) => Center(
-                                          child:
-                                              CircularProgressIndicator()),
+                                          child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
                                     'assets/deprf.png',
@@ -354,9 +347,10 @@ class _myfavouriteState extends State<myfavourite> {
                               height: 1.h,
                             ),
                             Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 1.w),
+                              padding: EdgeInsets.symmetric(horizontal: 1.w),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     HotelIm[index].name.toString(),
@@ -368,7 +362,7 @@ class _myfavouriteState extends State<myfavourite> {
                                         color: Colors.black),
                                   ),
                                   GestureDetector(
-                                    onTap: (){},
+                                    onTap: () {},
                                     child: Icon(Icons.message),
                                   )
                                 ],
@@ -378,7 +372,7 @@ class _myfavouriteState extends State<myfavourite> {
                               height: 1.h,
                             ),
                             Padding(
-                                padding:  EdgeInsets.symmetric(horizontal: 1.w),
+                              padding: EdgeInsets.symmetric(horizontal: 1.w),
                               child: Text(
                                 HotelIm[index].desc.toString(),
                                 style: TextStyle(

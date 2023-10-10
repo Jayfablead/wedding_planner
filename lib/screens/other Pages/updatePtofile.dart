@@ -36,7 +36,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
   ImagePicker _picker1 = ImagePicker();
   var imagesTemporary;
   File? imagefile;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLoading = true;
   XFile? image;
   XFile? video;
@@ -58,7 +58,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 4.w),

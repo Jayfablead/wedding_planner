@@ -14,7 +14,7 @@ class DecorationPage extends StatefulWidget {
   State<DecorationPage> createState() => _DecorationPageState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 bool readmore = false;
 
 class _DecorationPageState extends State<DecorationPage> {
@@ -22,7 +22,7 @@ class _DecorationPageState extends State<DecorationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -51,7 +51,7 @@ class _DecorationPageState extends State<DecorationPage> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded))
                 ],

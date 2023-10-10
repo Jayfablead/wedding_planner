@@ -215,7 +215,7 @@ List<serv> services = [
     'Chopper',
   ),
 ];
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 List<cate1> venue = [
   cate1(
       'https://media.weddingz.in/images/98203e459408c4f2f9c9014d9a6f669f/luxury-wedding-venues-in-surat-that-you-must-check-out-prior-to-finalizing-your-wedding-destination.jpg',
@@ -307,7 +307,7 @@ class _Home2State extends State<Home2> {
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.1),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -337,7 +337,7 @@ class _Home2State extends State<Home2> {
                           ),
                           IconButton(
                               onPressed: () {
-                                _scaffoldKey.currentState?.openDrawer();
+                                scaffoldKey.currentState?.openDrawer();
                               },
                               icon: Icon(
                                 Icons.menu_rounded,

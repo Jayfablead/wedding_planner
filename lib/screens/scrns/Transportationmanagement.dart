@@ -70,14 +70,14 @@ List cate = ['All', 'Featured Cars', 'Family Car', 'Luxury Car', 'Top Rated'];
 
 int sel = 0;
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _BookingListPageState extends State<BookingListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: CustomScrollView(
@@ -110,7 +110,7 @@ class _BookingListPageState extends State<BookingListPage> {
                         ),
                         IconButton(
                             onPressed: () {
-                              _scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(Icons.menu_rounded))
                       ],

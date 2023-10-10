@@ -4,13 +4,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/GuestList.dart';
-import 'package:wedding_planner/chnages/SplashScreen.dart';
-
-import 'package:wedding_planner/new%20pages/Main3.dart';
-import 'package:wedding_planner/screens/HomePage.dart';
-
-import 'screens/MainScreen.dart';
-import 'screens/pages2/quotedetailpage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

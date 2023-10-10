@@ -89,7 +89,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
     return Scaffold(
       key: scaffoldKey,
       extendBody: true,
-
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Padding(
@@ -624,7 +623,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             ],
           ),
         ),
-      ), bottomNavigationBar: bottomnavbar(selit: widget.sele),
+      ),
+      bottomNavigationBar: bottomnavbar(selit: widget.sele),
     );
   }
 

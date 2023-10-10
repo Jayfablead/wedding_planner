@@ -17,7 +17,7 @@ class ItineryView extends StatefulWidget {
 }
 
 int sel = 0;
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 List cate = [
   'Wedding Hall',
   'Decor',
@@ -62,7 +62,7 @@ class _ItineryViewState extends State<ItineryView> {
     return Scaffold(
       backgroundColor: Color(0xffe8e8e8),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Center(
@@ -95,7 +95,7 @@ class _ItineryViewState extends State<ItineryView> {
                         ),
                         IconButton(
                             onPressed: () {
-                              _scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(
                               Icons.menu_rounded,

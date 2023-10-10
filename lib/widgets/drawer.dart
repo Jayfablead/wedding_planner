@@ -10,6 +10,7 @@ import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/new%20pages/certificate.dart';
 import 'package:wedding_planner/new%20pages/view%20all%20bookings.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
+import 'package:wedding_planner/screens/changePassword.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/screens/other%20Pages/GuestChairManagement.dart';
 import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
@@ -17,7 +18,6 @@ import 'package:wedding_planner/screens/pages2/fbpage.dart';
 import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
 import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
-import 'package:wedding_planner/screens/scrns/BookingDetailsPage.dart';
 import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
 import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
 import 'package:wedding_planner/screens/scrns/foodMenu.dart';
@@ -491,7 +491,7 @@ class _drawer1State extends State<drawer1> {
                             ? supplier()
                             : other(),
                 SizedBox(
-                  height: 7.h,
+                  height: 5.h,
                 ),
 
                 // SizedBox(height: 0.5.h,),
@@ -515,7 +515,8 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.person_2_outlined,
-                                      color: Colors.white,size: 22.sp,
+                                      color: Colors.white,
+                                      size: 22.sp,
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -556,12 +557,55 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.notifications_none_rounded,
-                                      color: Colors.white,size: 22.sp,
+                                      color: Colors.white,
+                                      size: 22.sp,
                                     ),
                                     SizedBox(
                                       width: 2.w,
                                     ),
                                     Text("Notifications",
+                                        style: TextStyle(
+                                          fontSize: 17.sp,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'sofi',
+                                          color: Colors.white,
+                                        )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                SizedBox(height: 2.h),
+                InkWell(
+                    onTap: () async {
+                      Get.back();
+                      Get.to(ChangePassword());
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 63.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.lock_open_outlined,
+                                      color: Colors.white,
+                                      size: 22.sp,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Change Password",
                                         style: TextStyle(
                                           fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
@@ -597,7 +641,8 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.logout,
-                                      color: Colors.red,size: 22.sp,
+                                      color: Colors.red,
+                                      size: 22.sp,
                                     ),
                                     SizedBox(
                                       width: 2.w,

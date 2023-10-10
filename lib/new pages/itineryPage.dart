@@ -14,7 +14,7 @@ class ItinerPage extends StatefulWidget {
   State<ItinerPage> createState() => _ItinerPageState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _ItinerPageState extends State<ItinerPage> {
   @override
@@ -22,7 +22,7 @@ class _ItinerPageState extends State<ItinerPage> {
     return Scaffold(
       backgroundColor: Color(0xffe8e8e8),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -52,7 +52,7 @@ class _ItinerPageState extends State<ItinerPage> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
                         Icons.menu_rounded,

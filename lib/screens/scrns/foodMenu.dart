@@ -99,14 +99,14 @@ int sel = 0;
 bool rec = false;
 bool top = true;
 bool fav = true;
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _FoodMenusPageState extends State<FoodMenusPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffefefef),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       drawer: drawer1(),
       body: Center(
         child: Padding(
@@ -133,7 +133,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                         ),
                         IconButton(
                             onPressed: () {
-                              _scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(Icons.menu_rounded)),
                       ],

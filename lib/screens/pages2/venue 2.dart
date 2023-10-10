@@ -12,7 +12,7 @@ class Venue2 extends StatefulWidget {
   State<Venue2> createState() => _Venue2State();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class cate {
   String? image;
@@ -91,7 +91,7 @@ class _Venue2State extends State<Venue2> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: CustomScrollView(slivers: [
@@ -123,7 +123,7 @@ class _Venue2State extends State<Venue2> {
                       ),
                       IconButton(
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey.currentState?.openDrawer();
                           },
                           icon: Icon(Icons.menu_rounded))
                     ],

@@ -65,7 +65,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
     }
   }
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -78,7 +78,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Padding(
@@ -109,7 +109,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded)),
                 ],

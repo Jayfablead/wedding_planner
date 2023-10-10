@@ -11,7 +11,7 @@ class ViewAllCategory extends StatefulWidget {
   State<ViewAllCategory> createState() => _ViewAllCategoryState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class cate {
   String? image;
@@ -49,7 +49,7 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -78,7 +78,7 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded))
                 ],

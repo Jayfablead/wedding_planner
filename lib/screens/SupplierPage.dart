@@ -11,13 +11,13 @@ class SupplierfourScreen extends StatefulWidget {
   State<SupplierfourScreen> createState() => _SupplierfourScreenState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _SupplierfourScreenState extends State<SupplierfourScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Padding(
@@ -45,7 +45,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(Icons.menu_rounded))
                 ],
@@ -255,7 +255,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                height: 2.h,
+                height: 1.h,
               ),
               Container(
                 height: 20.h,
@@ -270,8 +270,36 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 height: 2.h,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 5.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(15.sp),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.message_outlined,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 3.w),
+                            Text(
+                              "Chat",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 14.sp),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   InkWell(
                     onTap: () {},
                     child: Container(

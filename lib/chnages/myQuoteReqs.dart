@@ -81,7 +81,7 @@ List<chat> mesgs = [
       'A decorations of your garden'),
 ];
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MyQuoateReqState extends State<MyQuoateReq> {
   @override
@@ -89,7 +89,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
     return Scaffold(
       backgroundColor: Color(0xffe8e8e8),
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -119,7 +119,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                   ),
                   IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
                         Icons.menu_rounded,

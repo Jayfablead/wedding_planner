@@ -99,7 +99,7 @@ List<cate> room = [
       '001',
       '6'),
 ];
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 TextEditingController _search = TextEditingController();
 
 class _ChairManagementState extends State<ChairManagement> {
@@ -107,7 +107,7 @@ class _ChairManagementState extends State<ChairManagement> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
           // padding: const EdgeInsets.all(8.0),
@@ -139,7 +139,7 @@ class _ChairManagementState extends State<ChairManagement> {
                     ),
                     IconButton(
                         onPressed: () {
-                          _scaffoldKey.currentState?.openDrawer();
+                          scaffoldKey.currentState?.openDrawer();
                         },
                         icon: Icon(
                           Icons.menu_rounded,

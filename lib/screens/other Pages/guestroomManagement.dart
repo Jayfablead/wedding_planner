@@ -66,7 +66,7 @@ List<cate> room = [
       '001',
       '6'),
 ];
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 TextEditingController _search = TextEditingController();
 
 class _RoomManagementState extends State<RoomManagement> {
@@ -74,7 +74,7 @@ class _RoomManagementState extends State<RoomManagement> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         // padding: const EdgeInsets.all(8.0),
         padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -108,7 +108,7 @@ class _RoomManagementState extends State<RoomManagement> {
                         ),
                         IconButton(
                             onPressed: () {
-                              _scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(
                               Icons.menu_rounded,

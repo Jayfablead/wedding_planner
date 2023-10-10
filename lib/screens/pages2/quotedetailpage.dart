@@ -19,14 +19,14 @@ class quotedetailpage extends StatefulWidget {
 }
 
 class _quotedetailpageState extends State<quotedetailpage> {
-
   int ind = 0;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   List HotelIm = [
     'https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg',
     'https://balloonpro.in/wp-content/uploads/2023/06/20210306_090946.jpg',
     'https://content.jdmagicbox.com/comp/ahmedabad/a8/079pxx79.xx79.190719110521.s4a8/catalogue/lilly-s-flower-decoration-and-gift-shop-ghatlodiya-ahmedabad-decorators-ypttjhzlti.jpg?clr=',
   ];
+
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -34,11 +34,12 @@ class _quotedetailpageState extends State<quotedetailpage> {
       ind = 0;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: SingleChildScrollView(
@@ -57,17 +58,18 @@ class _quotedetailpageState extends State<quotedetailpage> {
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
-                              // borderRadius: BorderRadius.circular(0),
-                            ),
+                                // borderRadius: BorderRadius.circular(0),
+                                ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: CachedNetworkImage(
                                 imageUrl: HotelIm[index],
                                 fit: BoxFit.cover,
                                 progressIndicatorBuilder: (context, url,
-                                    progress) =>
+                                        progress) =>
                                     Center(child: CircularProgressIndicator()),
-                                errorWidget: (context, url, error) => Image.asset(
+                                errorWidget: (context, url, error) =>
+                                    Image.asset(
                                   'assets/deprf.png',
                                 ),
                               ),
@@ -104,18 +106,23 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.transparent),
-                              child: Icon(CupertinoIcons.back,color: Colors.white,size: 20.sp,))),
+                              child: Icon(
+                                CupertinoIcons.back,
+                                color: Colors.white,
+                                size: 20.sp,
+                              ))),
                     ),
-
                   ],
                 ),
-                SizedBox(height: 1.h,),
+                SizedBox(
+                  height: 1.h,
+                ),
                 Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(80)),
-                  padding: EdgeInsets.symmetric(
-                      vertical: 0.5.h, horizontal: 3.w),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 0.5.h, horizontal: 3.w),
                   child: AnimatedSmoothIndicator(
                     activeIndex: ind,
                     count: HotelIm.length,
@@ -132,7 +139,9 @@ class _quotedetailpageState extends State<quotedetailpage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 1.h,),
+                SizedBox(
+                  height: 1.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Column(
@@ -148,15 +157,16 @@ class _quotedetailpageState extends State<quotedetailpage> {
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
                       ),
-                  Text(
-                    'Vinsmoke Sanji',
-                    style: TextStyle(
-                        height: 1.5,
-                        fontSize: 14.sp,
-                        color: Colors.grey,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),),
+                      Text(
+                        'Vinsmoke Sanji',
+                        style: TextStyle(
+                            height: 1.5,
+                            fontSize: 14.sp,
+                            color: Colors.grey,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.bold),
+                      ),
                       SizedBox(height: 1.h),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -194,28 +204,30 @@ class _quotedetailpageState extends State<quotedetailpage> {
                             ],
                           ),
                           Container(
-                           child:   RatingBar(
-                             itemSize: 18,
-                                glowColor: Colors.amber,
-                                unratedColor: Colors.amber,
-                                initialRating: 3,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                itemCount: 5,
-                                ratingWidget: RatingWidget(
-                                  full: Icon(Icons.star,color: Colors.amber,),
-                                  half:Icon(Icons.star_half_sharp,color: Colors.amber),
-                                  empty: Icon(Icons.star,color: Colors.grey),
-                                ),
-                                itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                onRatingUpdate: (rating) {
-                                  print(rating);
-                                },
-                              )
-                          ),
+                              child: RatingBar(
+                            itemSize: 18,
+                            glowColor: Colors.amber,
+                            unratedColor: Colors.amber,
+                            initialRating: 3,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            ratingWidget: RatingWidget(
+                              full: Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              half: Icon(Icons.star_half_sharp,
+                                  color: Colors.amber),
+                              empty: Icon(Icons.star, color: Colors.grey),
+                            ),
+                            itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
+                          )),
                         ],
                       ),
-
                       SizedBox(height: 2.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -234,55 +246,54 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               ),
                               child: Center(
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.check_circle,
-                                          color: Colors.amber),
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                        "Accept",
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            color: Colors.amber,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'get'),
-                                      ),
-                                    ],
-                                  )),
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.check_circle, color: Colors.amber),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    "Accept",
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        color: Colors.amber,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'get'),
+                                  ),
+                                ],
+                              )),
                             ),
                           ),
                           InkWell(
                             onTap: () {
-                              ChatlistPage(sele: 3,);
+                              ChatlistPage(
+                                sele: 3,
+                              );
                             },
                             child: Container(
                               height: 5.5.h,
                               width: 42.w,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                 border: Border.all(color: Colors.amber),
+                                border: Border.all(color: Colors.amber),
                                 borderRadius: BorderRadius.circular(25.sp),
                               ),
                               child: Center(
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.message,
-
-                                          color: Colors.amber),
-                                      SizedBox(width: 2.w),
-                                      Text(
-                                        "Chat now",
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            color: Colors.amber,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'get'),
-                                      ),
-                                    ],
-                                  )),
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.message, color: Colors.amber),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    "Chat now",
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        color: Colors.amber,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'get'),
+                                  ),
+                                ],
+                              )),
                             ),
                           ),
                         ],
@@ -483,7 +494,6 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   'A flower,sometimes known as a bloom or blossom, is the reproductive structure found in flowering plants (plants of the division Angiospermae). Flowers produce gametophytes, which in flowering plants consist of a few haploid cells which produce gametes.',
                                   trimLines: 4,
                                   trimLength: 130,
-
                                   style: TextStyle(
                                       height: 1.5,
                                       fontSize: 13.sp,
@@ -509,7 +519,9 @@ class _quotedetailpageState extends State<quotedetailpage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 2.5.h,),
+                      SizedBox(
+                        height: 2.5.h,
+                      ),
                       Text(
                         'Photos',
                         style: TextStyle(
@@ -519,38 +531,41 @@ class _quotedetailpageState extends State<quotedetailpage> {
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 2.5.h,),
+                      SizedBox(
+                        height: 2.5.h,
+                      ),
                       Container(
                         height: 25.h,
-
                         child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder:(context,index){
-                          return Container(
-                            width: 40.w,
-                            margin: EdgeInsets.only(right: 3.w),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: CachedNetworkImage(
-                                imageUrl: HotelIm[index],
-                                fit: BoxFit.cover,
-                                progressIndicatorBuilder: (context, url,
-                                    progress) =>
-                                    Center(child: CircularProgressIndicator()),
-                                errorWidget: (context, url, error) => Image.asset(
-                                  'assets/deprf.png',
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 3,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                width: 40.w,
+                                margin: EdgeInsets.only(right: 3.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                              ),
-                            ),
-                          );
-                }),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    imageUrl: HotelIm[index],
+                                    fit: BoxFit.cover,
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/deprf.png',
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
                       ),
-                      SizedBox(height: 2.5.h,),
-
+                      SizedBox(
+                        height: 2.5.h,
+                      ),
                     ],
                   ),
                 ),

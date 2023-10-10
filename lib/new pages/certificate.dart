@@ -12,7 +12,7 @@ class Certificate extends StatefulWidget {
   State<Certificate> createState() => _CertificateState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class cate {
   String? image;
@@ -86,7 +86,7 @@ class _CertificateState extends State<Certificate> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
-      key: _scaffoldKey,
+      key: scaffoldKey,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: CustomScrollView(slivers: [
@@ -118,7 +118,7 @@ class _CertificateState extends State<Certificate> {
                       ),
                       IconButton(
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey.currentState?.openDrawer();
                           },
                           icon: Icon(Icons.menu_rounded))
                     ],
