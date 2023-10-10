@@ -202,105 +202,251 @@ class _GuestListState extends State<GuestList> {
                               InkWell(
                                 onTap: () {
                                   showModalBottomSheet(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(15),
+                                        topLeft: Radius.circular(15),
+                                      ),
+                                    ),
                                     context: context,
                                     builder: (context) {
-                                      return Container(
-                                        child: Padding(
-                                          padding:  EdgeInsets.symmetric(vertical: 4.h,horizontal: 2.w),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Text(
-                                                'Add Groom\'s Guest',
-                                                style: TextStyle(
-                                                    fontSize: 16.sp,
-                                                    fontFamily: 'sofi',
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1),
-                                              ),
-                                              Text(
-                                                'Name :',
-                                                style: TextStyle(
-                                                    fontSize: 14.sp,
-                                                    fontFamily: 'sofi',
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1),
-                                              ),
-                                              SizedBox(height: 1.h),
-                                              Container(
-                                                width: 90.w,
-                                                padding: const EdgeInsets.symmetric(
-                                                    horizontal: 15),
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      Colors.grey.withOpacity(0.12),
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                ),
-                                                child: TextField(
-                                                  // controller: _search,
-                                                  onChanged: (value) {},
-                                                  style: TextStyle(
-                                                      color: Colors.black
-                                                          .withOpacity(0.67),
-                                                      fontFamily: 'Meta1'),
-                                                  decoration: InputDecoration(
-                                                    border: InputBorder.none,
-                                                    hintText: 'Guest Name',
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.black
-                                                            .withOpacity(0.67),
-                                                        fontFamily: 'Meta1'),
+                                      return Stack(
+                                        children: [
+                                          Container(
+                                            child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 3.h,
+                                                  horizontal: 3.w),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    'Add Groom\'s Guest',
+                                                    style: TextStyle(
+                                                        fontSize: 16.sp,
+                                                        fontFamily: 'sofi',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        letterSpacing: 1),
                                                   ),
-                                                ),
-                                              ),
-                                              SizedBox(height: 2.h),
-                                              Text(
-                                                'Phone :',
-                                                style: TextStyle(
-                                                    fontSize: 14.sp,
-                                                    fontFamily: 'sofi',
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1),
-                                              ),
-                                              SizedBox(height: 1.h),
-                                              Container(
-                                                width: 90.w,
-                                                padding: const EdgeInsets.symmetric(
-                                                    horizontal: 15),
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      Colors.grey.withOpacity(0.12),
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                ),
-                                                child: TextField(
-                                                  // controller: _search,
-                                                  onChanged: (value) {},
-                                                  style: TextStyle(
-                                                      color: Colors.black
-                                                          .withOpacity(0.67),
-                                                      fontFamily: 'Meta1'),
-                                                  decoration: InputDecoration(
-                                                    border: InputBorder.none,
-                                                    hintText: 'Guest Phone',
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.black
-                                                            .withOpacity(0.67),
-                                                        fontFamily: 'Meta1'),
+                                                  SizedBox(height: 2.h),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 2.5.w),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Text(
+                                                          'Name :',
+                                                          style: TextStyle(
+                                                              fontSize: 14.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 1),
+                                                        ),
+                                                        SizedBox(height: 1.h),
+                                                        Container(
+                                                          width: 90.w,
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  horizontal:
+                                                                      15),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.12),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                          ),
+                                                          child: TextField(
+                                                            // controller: _search,
+                                                            onChanged:
+                                                                (value) {},
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.67),
+                                                                fontFamily:
+                                                                    'Meta1'),
+                                                            decoration:
+                                                                InputDecoration(
+                                                              border:
+                                                                  InputBorder
+                                                                      .none,
+                                                              hintText:
+                                                                  'Guest Name',
+                                                              hintStyle: TextStyle(
+                                                                  color: Colors
+                                                                      .black
+                                                                      .withOpacity(
+                                                                          0.67),
+                                                                  fontFamily:
+                                                                      'Meta1'),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                        Text(
+                                                          'Phone :',
+                                                          style: TextStyle(
+                                                              fontSize: 14.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 1),
+                                                        ),
+                                                        SizedBox(height: 1.h),
+                                                        Container(
+                                                          width: 90.w,
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  horizontal:
+                                                                      15),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.12),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                          ),
+                                                          child: TextField(
+                                                            // controller: _search,
+                                                            onChanged:
+                                                                (value) {},
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.67),
+                                                                fontFamily:
+                                                                    'Meta1'),
+                                                            decoration:
+                                                                InputDecoration(
+                                                              border:
+                                                                  InputBorder
+                                                                      .none,
+                                                              hintText:
+                                                                  'Guest Phone',
+                                                              hintStyle: TextStyle(
+                                                                  color: Colors
+                                                                      .black
+                                                                      .withOpacity(
+                                                                          0.67),
+                                                                  fontFamily:
+                                                                      'Meta1'),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            InkWell(
+                                                              onTap: () {},
+                                                              child: Container(
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(2.5
+                                                                            .w),
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors
+                                                                        .amber,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            10)),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Icon(
+                                                                      CupertinoIcons
+                                                                          .add,
+                                                                      size:
+                                                                          17.sp,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width:
+                                                                          2.w,
+                                                                    ),
+                                                                    Text(
+                                                                      'Add Guest',
+                                                                      style: TextStyle(
+                                                                          fontSize: 13
+                                                                              .sp,
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          color: Colors
+                                                                              .white,
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          letterSpacing:
+                                                                              1),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
-                                              )
-                                            ],
+                                                ],
+                                              ),
+                                            ),
                                           ),
-                                        ),
+                                          Positioned(
+                                              right: 0,
+                                              child: IconButton(
+                                                  onPressed: () {
+                                                    Get.back();
+                                                  },
+                                                  icon: Icon(CupertinoIcons
+                                                      .clear_circled_solid)))
+                                        ],
                                       );
                                     },
                                   );
@@ -416,29 +562,294 @@ class _GuestListState extends State<GuestList> {
                         ),
                         Positioned(
                           top: 72.5.h,
-                          child: Row(children: [
-                            checkdetails(),
-                            SizedBox(
-                              width: 3.w,
-                            ),
-                            InkWell(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              InkWell(
                                 onTap: () {
-                                  print('Moklyo hoo');
+                                  showModalBottomSheet( shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(15),
+                                      topLeft: Radius.circular(15),
+                                    ),
+                                  ),
+                                    context: context,
+                                    builder: (context) {
+                                      return Stack(
+                                        children: [
+                                          Container(
+                                            child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 3.h,
+                                                  horizontal: 3.w),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    'Add Bride\'s Guest',
+                                                    style: TextStyle(
+                                                        fontSize: 16.sp,
+                                                        fontFamily: 'sofi',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        letterSpacing: 1),
+                                                  ),
+                                                  SizedBox(height: 2.h),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 2.5.w),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Text(
+                                                          'Name :',
+                                                          style: TextStyle(
+                                                              fontSize: 14.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 1),
+                                                        ),
+                                                        SizedBox(height: 1.h),
+                                                        Container(
+                                                          width: 90.w,
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  horizontal:
+                                                                      15),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.12),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                          ),
+                                                          child: TextField(
+                                                            // controller: _search,
+                                                            onChanged:
+                                                                (value) {},
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.67),
+                                                                fontFamily:
+                                                                    'Meta1'),
+                                                            decoration:
+                                                                InputDecoration(
+                                                              border:
+                                                                  InputBorder
+                                                                      .none,
+                                                              hintText:
+                                                                  'Guest Name',
+                                                              hintStyle: TextStyle(
+                                                                  color: Colors
+                                                                      .black
+                                                                      .withOpacity(
+                                                                          0.67),
+                                                                  fontFamily:
+                                                                      'Meta1'),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                        Text(
+                                                          'Phone :',
+                                                          style: TextStyle(
+                                                              fontSize: 14.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 1),
+                                                        ),
+                                                        SizedBox(height: 1.h),
+                                                        Container(
+                                                          width: 90.w,
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  horizontal:
+                                                                      15),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.12),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20),
+                                                          ),
+                                                          child: TextField(
+                                                            // controller: _search,
+                                                            onChanged:
+                                                                (value) {},
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.67),
+                                                                fontFamily:
+                                                                    'Meta1'),
+                                                            decoration:
+                                                                InputDecoration(
+                                                              border:
+                                                                  InputBorder
+                                                                      .none,
+                                                              hintText:
+                                                                  'Guest Phone',
+                                                              hintStyle: TextStyle(
+                                                                  color: Colors
+                                                                      .black
+                                                                      .withOpacity(
+                                                                          0.67),
+                                                                  fontFamily:
+                                                                      'Meta1'),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            InkWell(
+                                                              onTap: () {},
+                                                              child: Container(
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(2.5
+                                                                            .w),
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors
+                                                                        .amber,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            10)),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Icon(
+                                                                      CupertinoIcons
+                                                                          .add,
+                                                                      size:
+                                                                          17.sp,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width:
+                                                                          2.w,
+                                                                    ),
+                                                                    Text(
+                                                                      'Add Guest',
+                                                                      style: TextStyle(
+                                                                          fontSize: 13
+                                                                              .sp,
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          color: Colors
+                                                                              .white,
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          letterSpacing:
+                                                                              1),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                              right: 0,
+                                              child: IconButton(
+                                                  onPressed: () {
+                                                    Get.back();
+                                                  },
+                                                  icon: Icon(CupertinoIcons
+                                                      .clear_circled_solid)))
+                                        ],
+                                      );
+                                    },
+                                  );
                                 },
                                 child: Container(
-                                    alignment: Alignment.center,
-                                    padding: EdgeInsets.all(2.5.w),
-                                    decoration: BoxDecoration(
-                                        color: Colors.amber,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Center(
-                                        child: Icon(
-                                      CupertinoIcons.add,
-                                      size: 18.sp,
-                                      color: Colors.white,
-                                    ))))
-                          ]),
+                                  alignment: Alignment.center,
+                                  width: 60.w,
+                                  padding: EdgeInsets.all(2.5.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.amber,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        size: 17.sp,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      Text(
+                                        'Add Guests',
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'sofi',
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
