@@ -145,77 +145,199 @@ class _GuestListState extends State<GuestList> {
                         ),
                         SizedBox(
                           height: 70.h,
-                          child: Column(children: [
-                            SizedBox(height: 0.5.h),
-                            Container(
-                              height: 69.h,
-                              child: ListView.builder(
-                                padding: EdgeInsets.zero,
-                                itemBuilder: (context, index) {
-                                  return ListTile(
-                                    contentPadding: EdgeInsets.symmetric(
-                                        horizontal: 2.w, vertical: 0),
-                                    title: Text(
-                                      'Haresh Mer ${index + 1}',
-                                      style: TextStyle(
-                                          fontSize: 15.sp,
-                                          fontFamily: 'sofi',
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1),
-                                    ),
-                                    subtitle: Padding(
-                                      padding: EdgeInsets.only(top: 0.7.h),
-                                      child: Text(
-                                        'Mo: 7041648493',
+                          child: Column(
+                            children: [
+                              SizedBox(height: 0.5.h),
+                              Container(
+                                height: 69.h,
+                                child: ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 2.w, vertical: 0),
+                                      title: Text(
+                                        'Haresh Mer ${index + 1}',
                                         style: TextStyle(
-                                            fontSize: 13.sp,
+                                            fontSize: 15.sp,
                                             fontFamily: 'sofi',
-                                            color:
-                                                Colors.black.withOpacity(0.67),
+                                            color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             letterSpacing: 1),
                                       ),
-                                    ),
-                                    trailing: IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        CupertinoIcons.delete_solid,
-                                        color: Colors.red,
+                                      subtitle: Padding(
+                                        padding: EdgeInsets.only(top: 0.7.h),
+                                        child: Text(
+                                          'Mo: 7041648493',
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black
+                                                  .withOpacity(0.67),
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1),
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                },
-                                itemCount: 20,
+                                      trailing: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          CupertinoIcons.delete_solid,
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  itemCount: 20,
+                                ),
                               ),
-                            ),
-                          ]),
+                            ],
+                          ),
                         ),
                         Positioned(
                           top: 72.5.h,
-                          child: Row(children: [
-                            checkdetails(),
-                            SizedBox(
-                              width: 3.w,
-                            ),
-                            InkWell(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
                                 onTap: () {
-                                  print('Moklyo hoo');
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (context) {
+                                      return Container(
+                                        child: Padding(
+                                          padding:  EdgeInsets.symmetric(vertical: 4.h,horizontal: 2.w),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(
+                                                'Add Groom\'s Guest',
+                                                style: TextStyle(
+                                                    fontSize: 16.sp,
+                                                    fontFamily: 'sofi',
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1),
+                                              ),
+                                              Text(
+                                                'Name :',
+                                                style: TextStyle(
+                                                    fontSize: 14.sp,
+                                                    fontFamily: 'sofi',
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1),
+                                              ),
+                                              SizedBox(height: 1.h),
+                                              Container(
+                                                width: 90.w,
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 15),
+                                                decoration: BoxDecoration(
+                                                  color:
+                                                      Colors.grey.withOpacity(0.12),
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                ),
+                                                child: TextField(
+                                                  // controller: _search,
+                                                  onChanged: (value) {},
+                                                  style: TextStyle(
+                                                      color: Colors.black
+                                                          .withOpacity(0.67),
+                                                      fontFamily: 'Meta1'),
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
+                                                    hintText: 'Guest Name',
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black
+                                                            .withOpacity(0.67),
+                                                        fontFamily: 'Meta1'),
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(height: 2.h),
+                                              Text(
+                                                'Phone :',
+                                                style: TextStyle(
+                                                    fontSize: 14.sp,
+                                                    fontFamily: 'sofi',
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1),
+                                              ),
+                                              SizedBox(height: 1.h),
+                                              Container(
+                                                width: 90.w,
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 15),
+                                                decoration: BoxDecoration(
+                                                  color:
+                                                      Colors.grey.withOpacity(0.12),
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                ),
+                                                child: TextField(
+                                                  // controller: _search,
+                                                  onChanged: (value) {},
+                                                  style: TextStyle(
+                                                      color: Colors.black
+                                                          .withOpacity(0.67),
+                                                      fontFamily: 'Meta1'),
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
+                                                    hintText: 'Guest Phone',
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black
+                                                            .withOpacity(0.67),
+                                                        fontFamily: 'Meta1'),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
                                 },
                                 child: Container(
-                                    alignment: Alignment.center,
-                                    padding: EdgeInsets.all(2.5.w),
-                                    decoration: BoxDecoration(
-                                        color: Colors.amber,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Center(
-                                        child: Icon(
-                                      CupertinoIcons.add,
-                                      size: 18.sp,
-                                      color: Colors.white,
-                                    ))))
-                          ]),
+                                  alignment: Alignment.center,
+                                  width: 60.w,
+                                  padding: EdgeInsets.all(2.5.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.amber,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.add,
+                                        size: 17.sp,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      Text(
+                                        'Add Guests',
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'sofi',
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     )
