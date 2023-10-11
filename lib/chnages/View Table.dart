@@ -18,7 +18,6 @@ int sel = 1;
 class _ViewTablesState extends State<ViewTables> {
   int? open = 0;
   bool test = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,8 @@ class _ViewTablesState extends State<ViewTables> {
       bottomNavigationBar: bottomnavbar(selit: -3),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: Column(
+        child:
+        Column(
           children: [
             SizedBox(height: 5.h),
             Row(
@@ -44,10 +44,7 @@ class _ViewTablesState extends State<ViewTables> {
                 Text(
                   'Guests',
                   style: TextStyle(
-                      fontSize: 15.sp,
-                      fontFamily: 'sofi',
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1),
+                      fontSize: 15.sp, fontFamily: 'sofi',fontWeight: FontWeight.bold,letterSpacing: 1),
                 ),
                 IconButton(
                     onPressed: () {
@@ -69,7 +66,7 @@ class _ViewTablesState extends State<ViewTables> {
                   },
                   child: Container(
                     padding:
-                        EdgeInsets.symmetric(vertical: 1.h, horizontal: 8.w),
+                    EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: sel1 == 1 ? Colors.amber : Colors.white,
@@ -77,9 +74,9 @@ class _ViewTablesState extends State<ViewTables> {
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
                     child: Text('Bride',
                         style: TextStyle(
-                            fontSize: 12.5.sp,
+                            fontSize: 14.5.sp,
                             fontFamily: 'sofi',
-                            color: sel1 == 1 ? Colors.white : Colors.black,
+                            color: sel1 == 1 ? Colors.white : Colors.amber,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1)),
                   ),
@@ -93,7 +90,7 @@ class _ViewTablesState extends State<ViewTables> {
                   },
                   child: Container(
                     padding:
-                        EdgeInsets.symmetric(vertical: 1.h, horizontal: 8.w),
+                    EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: sel1 == 2 ? Colors.amber : Colors.white,
@@ -101,9 +98,9 @@ class _ViewTablesState extends State<ViewTables> {
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
                     child: Text('Groom',
                         style: TextStyle(
-                            fontSize: 12.5.sp,
+                            fontSize: 14.5.sp,
                             fontFamily: 'sofi',
-                            color: sel1 == 2 ? Colors.white : Colors.black,
+                            color: sel1 == 2 ? Colors.white : Colors.amber,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1)),
                   ),
@@ -113,100 +110,87 @@ class _ViewTablesState extends State<ViewTables> {
             SizedBox(height: 1.5.h),
             Column(
               children: [
-                for (int index = 0; index < 4; index++) ...[
+                for(int index = 0;index<4;index++)...[
                   Container(
                     // height: 7.h,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.grey.shade300,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 1.h, horizontal: 3.w),
+
+                    decoration: BoxDecoration(
+                        color:open == index? Colors.amber:Colors.white,
+                        borderRadius: open == index ? BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+                            :BorderRadius.circular(20),
+                        border: open != index?
+
+                        Border.all(color: Colors.amber,width: 2):Border.all(color: Colors.transparent,width: 2)
+                    ),
+
+                    padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 3.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Table " + (index + 1).toString(),
+                          "Table " + (index+1).toString(),
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
+                            color: open == index?Colors.white:Colors.amber,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
+                          onTap: (){
                             setState(() {
-                              open = index;
+                              open  =index;
                             });
                           },
-                          child: open != index
-                              ? Icon(Icons.keyboard_arrow_down_outlined)
-                              : Icon(Icons.keyboard_arrow_up),
+                          child: Icon(Icons.arrow_drop_down_circle_outlined,color:open == index?Colors.white:Colors.amber),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  open == index
-                      ? Column(
+                  SizedBox(height: 1.h,),
+                  open == index? Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(3.w),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+
+                        ),
+
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
-                              height: 1.h,
-                            ),
+                            SizedBox(height: 1.h,),
                             Row(
                               children: [
-                                Icon(Icons.circle),
-                                SizedBox(
-                                  width: 3.w,
-                                ),
+                                Icon(Icons.circle_outlined,color: Colors.grey.shade600,),
+                                SizedBox(width: 3.w,),
                                 Text(
                                   "Bride",
                                   style: TextStyle(
-                                    fontSize: 14.sp,
+                                    fontSize: 16.sp,
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
+                                    color: Colors.amber,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
+                            SizedBox(height: 1.h,),
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 3.w),
+                              padding:  EdgeInsets.symmetric(horizontal: 12.w),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.circle,
-                                        color: Colors.grey,
-                                      ),
-                                      SizedBox(
-                                        width: 3.w,
-                                      ),
-                                      Text(
-                                        "Available Seats",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 12.sp,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+
                                   Text(
-                                    "5 / 5",
+                                    "Available Seats 5 out of 60",
                                     style: TextStyle(
-                                      color: Colors.black.withOpacity(0.7),
-                                      fontSize: 12.sp,
+                                      color: Colors.black,
+                                      fontSize: 14.sp,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold,
@@ -215,77 +199,38 @@ class _ViewTablesState extends State<ViewTables> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
+                            SizedBox(height: 1.h,),
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 12.w),
+                              padding:  EdgeInsets.symmetric(horizontal: 12.w),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Guest 1",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.normal,
+                                  for(int index =0;index<5;index++)...[
+                                    Text(
+                                      (index+1).toString()+"-Guest",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 12.sp,
+                                        fontFamily: 'sofi',
+                                        letterSpacing: 1,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  Text(
-                                    "Guest 2",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  Text(
-                                    "Guest 3",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  Text(
-                                    "Guest 4",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  Text(
-                                    "Guest 5",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
+                                    SizedBox(height: 1.h),
+                                  ]
+
+
                                 ],
                               ),
                             ),
                           ],
-                        )
-                      : Container(),
-                  SizedBox(
-                    height: 1.h,
-                  ),
+                        ),
+                      ),
+                      SizedBox(height: 1.h,),
+                    ],
+                  ) :Container(),
+                  SizedBox(height: 1.h,),
+
                 ]
               ],
             ),

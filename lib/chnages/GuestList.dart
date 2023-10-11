@@ -51,7 +51,7 @@ class _GuestListState extends State<GuestList> {
                     'Guest List',
                     style: TextStyle(
                         fontSize: 15.sp,
-                        fontFamily: 'get',
+                        fontFamily: 'sofi',
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1),
                   ),
@@ -75,7 +75,7 @@ class _GuestListState extends State<GuestList> {
                     },
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 8.w),
+                          EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: sel1 == 1 ? Colors.amber : Colors.white,
@@ -83,7 +83,7 @@ class _GuestListState extends State<GuestList> {
                       margin: EdgeInsets.symmetric(horizontal: 2.w),
                       child: Text('Bride',
                           style: TextStyle(
-                              fontSize: 12.5.sp,
+                              fontSize: 14.5.sp,
                               fontFamily: 'sofi',
                               color: sel1 == 1 ? Colors.white : Colors.amber,
                               fontWeight: FontWeight.bold,
@@ -99,7 +99,7 @@ class _GuestListState extends State<GuestList> {
                     },
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 8.w),
+                          EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: sel1 == 2 ? Colors.amber : Colors.white,
@@ -107,7 +107,7 @@ class _GuestListState extends State<GuestList> {
                       margin: EdgeInsets.symmetric(horizontal: 2.w),
                       child: Text('Groom',
                           style: TextStyle(
-                              fontSize: 12.5.sp,
+                              fontSize: 14.5.sp,
                               fontFamily: 'sofi',
                               color: sel1 == 2 ? Colors.white : Colors.amber,
                               fontWeight: FontWeight.bold,

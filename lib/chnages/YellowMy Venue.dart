@@ -10,11 +10,11 @@ import 'package:wedding_planner/widgets/drawer.dart';
 
 import '../../main.dart';
 
-class VenueView extends StatefulWidget {
-  const VenueView({super.key});
+class YellowVenueView extends StatefulWidget {
+  const YellowVenueView({super.key});
 
   @override
-  State<VenueView> createState() => _VenueViewState();
+  State<YellowVenueView> createState() => _YellowVenueViewState();
 }
 
 final controller = PageController(viewportFraction: 0.8, keepPage: true);
@@ -28,7 +28,7 @@ List HotelIm = [
 ];
 int ind = 0;
 
-class _VenueViewState extends State<VenueView> {
+class _YellowVenueViewState extends State<YellowVenueView> {
   @override
   void initState() {
     // TODO: implement initState
@@ -90,7 +90,7 @@ class _VenueViewState extends State<VenueView> {
                           'Vinsmoke Sanji',
                           style: TextStyle(
                               fontSize: 17.sp,
-                              color: Colors.pink,
+                              color: Colors.amber,
                               fontFamily: 'sofi',
                               letterSpacing: 1,
                               fontWeight: FontWeight.bold),
@@ -116,7 +116,7 @@ class _VenueViewState extends State<VenueView> {
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
                           imageUrl:
-                              'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
+                          'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
@@ -145,12 +145,12 @@ class _VenueViewState extends State<VenueView> {
                                 imageUrl: HotelIm[index],
                                 fit: BoxFit.cover,
                                 progressIndicatorBuilder: (context, url,
-                                        progress) =>
+                                    progress) =>
                                     Center(child: CircularProgressIndicator()),
                                 errorWidget: (context, url, error) =>
                                     Image.asset(
-                                  'assets/deprf.png',
-                                ),
+                                      'assets/deprf.png',
+                                    ),
                               ),
                             ),
                           ),
@@ -184,7 +184,7 @@ class _VenueViewState extends State<VenueView> {
                           activeIndex: ind,
                           count: HotelIm.length,
                           effect: ScrollingDotsEffect(
-                            activeDotColor: Colors.pink,
+                            activeDotColor: Colors.amber,
                             activeStrokeWidth: 2.6,
                             activeDotScale: 1.2,
                             strokeWidth: 9,
@@ -215,7 +215,7 @@ class _VenueViewState extends State<VenueView> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.pink),
+                                  color: Colors.amber),
                               child: Icon(
                                 CupertinoIcons.globe,
                                 color: Colors.white,
@@ -231,7 +231,7 @@ class _VenueViewState extends State<VenueView> {
                                   'Venue Name : ',
                                   style: TextStyle(
                                       fontSize: 17.sp,
-                                      color: Colors.pink,
+                                      color: Colors.amber,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -272,7 +272,7 @@ class _VenueViewState extends State<VenueView> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.pink),
+                                  color: Colors.amber),
                               child: Icon(
                                 CupertinoIcons.phone,
                                 color: Colors.white,
@@ -288,7 +288,7 @@ class _VenueViewState extends State<VenueView> {
                                   'Contact : ',
                                   style: TextStyle(
                                       fontSize: 17.sp,
-                                      color: Colors.pink,
+                                      color: Colors.amber,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -314,7 +314,7 @@ class _VenueViewState extends State<VenueView> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.pink),
+                                  color: Colors.amber),
                               child: Icon(
                                 CupertinoIcons.money_dollar,
                                 color: Colors.white,
@@ -330,7 +330,7 @@ class _VenueViewState extends State<VenueView> {
                                   'Cost : ',
                                   style: TextStyle(
                                       fontSize: 17.sp,
-                                      color: Colors.pink,
+                                      color: Colors.amber,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -360,7 +360,7 @@ class _VenueViewState extends State<VenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.amber),
                           child: Icon(
                             Icons.chair_outlined,
                             color: Colors.white,
@@ -376,7 +376,7 @@ class _VenueViewState extends State<VenueView> {
                               'Seating Capacity : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.pink,
+                                  color: Colors.amber,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -404,7 +404,7 @@ class _VenueViewState extends State<VenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.amber),
                           child: Icon(
                             Icons.table_restaurant_outlined,
                             color: Colors.white,
@@ -420,7 +420,7 @@ class _VenueViewState extends State<VenueView> {
                               'Available Tables : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.pink,
+                                  color: Colors.amber,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -448,7 +448,7 @@ class _VenueViewState extends State<VenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.amber),
                           child: Icon(
                             Icons.location_on_outlined,
                             color: Colors.white,
@@ -464,7 +464,7 @@ class _VenueViewState extends State<VenueView> {
                               'Address : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.pink,
+                                  color: Colors.amber,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -495,7 +495,7 @@ class _VenueViewState extends State<VenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.amber),
                           child: Icon(
                             CupertinoIcons.info_circle,
                             color: Colors.white,
@@ -511,7 +511,7 @@ class _VenueViewState extends State<VenueView> {
                               'About : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.pink,
+                                  color: Colors.amber,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -529,17 +529,17 @@ class _VenueViewState extends State<VenueView> {
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.bold),
-                                colorClickableText: Colors.pink,
+                                colorClickableText: Colors.amber,
                                 trimMode: TrimMode.Line,
                                 trimCollapsedText: ' Read More',
                                 trimExpandedText: ' Read Less',
                                 moreStyle: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Colors.pink,
+                                    color: Colors.amber,
                                     fontWeight: FontWeight.bold),
                                 lessStyle: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Colors.pink,
+                                    color: Colors.amber,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -558,7 +558,7 @@ class _VenueViewState extends State<VenueView> {
                     //         height: 5.5.h,
                     //         width: 45.w,
                     //         decoration: BoxDecoration(
-                    //           color: Colors.pink,
+                    //           color: Colors.amber,
                     //           borderRadius: BorderRadius.circular(25.sp),
                     //         ),
                     //         child: Center(
@@ -577,7 +577,7 @@ class _VenueViewState extends State<VenueView> {
                     //         height: 5.5.h,
                     //         width: 45.w,
                     //         decoration: BoxDecoration(
-                    //           color: Colors.pink,
+                    //           color: Colors.amber,
                     //           borderRadius: BorderRadius.circular(25.sp),
                     //         ),
                     //         child: Center(

@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/SplashScreen.dart';
+import 'package:wedding_planner/chnages/VenueDetails2.dart';
+import 'package:wedding_planner/chnages/View%20Table.dart';
+import 'package:wedding_planner/chnages/YellowMy%20Venue.dart';
 import 'package:wedding_planner/screens/other%20Pages/Venue%20Details%20Page.dart';
 
 void main() {
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: VenueView(),
+          home: VenueDetails2(),
           builder: EasyLoading.init(),
           theme: ThemeData(
             primarySwatch: Colors.amber,
