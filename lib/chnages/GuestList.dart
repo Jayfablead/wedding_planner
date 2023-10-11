@@ -179,7 +179,158 @@ class _GuestListState extends State<GuestList> {
                                         ),
                                       ),
                                       trailing: IconButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showModalBottomSheet(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                topRight: Radius.circular(15),
+                                                topLeft: Radius.circular(15),
+                                              ),
+                                            ),
+                                            context: context,
+                                            builder: (context) {
+                                              return Stack(
+                                                children: [
+                                                  Container(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 3.h,
+                                                              horizontal: 3.w),
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                          SizedBox(height: 3.h),
+                                                          Text(
+                                                            'Are You Sure You Want to Delete This Groom\'s Guest ?',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                                fontSize: 16.sp,
+                                                                fontFamily:
+                                                                    'sofi',
+                                                                color: Colors
+                                                                    .black,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                height: 0.17.h,
+                                                                letterSpacing:
+                                                                    1),
+                                                          ),
+                                                          SizedBox(height: 3.h),
+                                                          Padding(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        2.5.w),
+                                                            child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              children: [
+                                                                Row(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  children: [
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () {},
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            30.w,
+                                                                        alignment:
+                                                                            Alignment.center,
+                                                                        padding:
+                                                                            EdgeInsets.all(2.5.w),
+                                                                        decoration: BoxDecoration(
+                                                                            color:
+                                                                                Colors.amber,
+                                                                            borderRadius: BorderRadius.circular(10)),
+                                                                        child:
+                                                                            Text(
+                                                                          'Yes',
+                                                                          style: TextStyle(
+                                                                              fontSize: 13.sp,
+                                                                              fontFamily: 'sofi',
+                                                                              color: Colors.white,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              letterSpacing: 1),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () {},
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            30.w,
+                                                                        alignment:
+                                                                            Alignment.center,
+                                                                        padding:
+                                                                            EdgeInsets.all(2.5.w),
+                                                                        decoration: BoxDecoration(
+                                                                            border: Border.all(
+                                                                              color: Colors.amber,
+                                                                            ),
+                                                                            color: Color(0xfff4f4f4),
+                                                                            borderRadius: BorderRadius.circular(10)),
+                                                                        child:
+                                                                            Text(
+                                                                          'No',
+                                                                          style: TextStyle(
+                                                                              fontSize: 13.sp,
+                                                                              fontFamily: 'sofi',
+                                                                              color: Colors.amber,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              letterSpacing: 1),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                SizedBox(
+                                                                    height:
+                                                                        2.h),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Positioned(
+                                                      right: 0,
+                                                      child: IconButton(
+                                                          onPressed: () {
+                                                            Get.back();
+                                                          },
+                                                          icon: Icon(CupertinoIcons
+                                                              .clear_circled_solid)))
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
                                         icon: Icon(
                                           CupertinoIcons.delete_solid,
                                           color: Colors.red,
@@ -547,7 +698,168 @@ class _GuestListState extends State<GuestList> {
                                       ),
                                     ),
                                     trailing: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(15),
+                                              topLeft: Radius.circular(15),
+                                            ),
+                                          ),
+                                          context: context,
+                                          builder: (context) {
+                                            return Stack(
+                                              children: [
+                                                Container(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 3.h,
+                                                            horizontal: 3.w),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        SizedBox(height: 3.h),
+                                                        Text(
+                                                          'Are You Sure You Want to Delete This Bride\'s Guest ?',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                              fontSize: 16.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              height: 0.17.h,
+                                                              letterSpacing: 1),
+                                                        ),
+                                                        SizedBox(height: 3.h),
+                                                        Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      2.5.w),
+                                                          child: Column(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: [
+                                                              Row(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  InkWell(
+                                                                    onTap:
+                                                                        () {},
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          30.w,
+                                                                      alignment:
+                                                                          Alignment
+                                                                              .center,
+                                                                      padding: EdgeInsets
+                                                                          .all(2.5
+                                                                              .w),
+                                                                      decoration: BoxDecoration(
+                                                                          color: Colors
+                                                                              .amber,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(10)),
+                                                                      child:
+                                                                          Text(
+                                                                        'Yes',
+                                                                        style: TextStyle(
+                                                                            fontSize: 13
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.white,
+                                                                            fontWeight: FontWeight.bold,
+                                                                            letterSpacing: 1),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  InkWell(
+                                                                    onTap:
+                                                                        () {},
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          30.w,
+                                                                      alignment:
+                                                                          Alignment
+                                                                              .center,
+                                                                      padding: EdgeInsets
+                                                                          .all(2.5
+                                                                              .w),
+                                                                      decoration: BoxDecoration(
+                                                                          border: Border.all(
+                                                                            color:
+                                                                                Colors.amber,
+                                                                          ),
+                                                                          color: Color(0xfff4f4f4),
+                                                                          borderRadius: BorderRadius.circular(10)),
+                                                                      child:
+                                                                          Text(
+                                                                        'No',
+                                                                        style: TextStyle(
+                                                                            fontSize: 13
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.amber,
+                                                                            fontWeight: FontWeight.bold,
+                                                                            letterSpacing: 1),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              SizedBox(
+                                                                  height: 2.h),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                    right: 0,
+                                                    child: IconButton(
+                                                        onPressed: () {
+                                                          Get.back();
+                                                        },
+                                                        icon: Icon(CupertinoIcons
+                                                            .clear_circled_solid)))
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
                                       icon: Icon(
                                         CupertinoIcons.delete_solid,
                                         color: Colors.red,
@@ -568,12 +880,13 @@ class _GuestListState extends State<GuestList> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  showModalBottomSheet( shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(15),
-                                      topLeft: Radius.circular(15),
+                                  showModalBottomSheet(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(15),
+                                        topLeft: Radius.circular(15),
+                                      ),
                                     ),
-                                  ),
                                     context: context,
                                     builder: (context) {
                                       return Stack(
