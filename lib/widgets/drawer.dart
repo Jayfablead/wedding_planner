@@ -90,7 +90,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 3.h,
                 ),
                 !show
                     ? Padding(
@@ -152,7 +152,7 @@ class _drawer1State extends State<drawer1> {
                                 ),
                               ),
                 SizedBox(
-                  height: 5.h,
+                  height: 3.h,
                 ),
                 !show
                     ? Container(
@@ -492,7 +492,7 @@ class _drawer1State extends State<drawer1> {
                             ? supplier()
                             : other(),
                 SizedBox(
-                  height: 5.h,
+                  height: 4.h,
                 ),
 
                 // SizedBox(height: 0.5.h,),
