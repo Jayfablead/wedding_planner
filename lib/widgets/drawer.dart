@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/my%20suppliers.dart';
 import 'package:wedding_planner/chnages/myQuoteReqs.dart';
@@ -536,8 +537,49 @@ class _drawer1State extends State<drawer1> {
                         ],
                       ),
                     )),
+                SizedBox(height: 2.h), InkWell(
+                    onTap: () async {
+                      Get.back();
+                      Get.to(GuestList());
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 63.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.people_alt_outlined,
+                                      color: Colors.white,
+                                      size: 22.sp,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Guests List",
+                                        style: TextStyle(
+                                          fontSize: 17.sp,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'sofi',
+                                          color: Colors.white,
+                                        )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
                 SizedBox(height: 2.h),
-                InkWell(
+                 InkWell(
                     onTap: () async {
                       Get.back();
                       Get.to(NotificationScreen());
