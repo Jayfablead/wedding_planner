@@ -1,7 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/ForgotpassModal.dart';
+import 'package:wedding_planner/Provider/authprovider.dart';
+import 'package:wedding_planner/screens/HomePage.dart';
+import 'package:wedding_planner/screens/LoginPage.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -134,6 +142,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
                 InkWell(
                   onTap: () {
+                    forgotpassap();
                     if (_formKey.currentState!.validate()) {}
                   },
                   child: Container(
@@ -159,5 +168,30 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         ),
       ),
     );
+  }
+  forgotpassap(){
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['email'] = _email.text.trim().toString();
+      checkInternet().then((internet) async {
+        if (internet) {
+          authprovider().forgotpassapi(data).then((response) async {
+            forgotpass = ForgotpassModal.fromJson(json.decode(response.body));
+
+            if (response.statusCode == 200 && forgotpass?.status == "1") {
+              buildErrorDialog1(
+                  context, "Email", forgotpass?.message ?? "",() {
+                    Get.to(LoginPage());
+                  },);
+            } else {
+              buildErrorDialog(
+                  context, "Login Error", forgotpass?.message ?? "");
+            }
+          });
+        } else {
+          buildErrorDialog(context, 'Error', "Internet Required");
+        }
+      });
+    }
   }
 }

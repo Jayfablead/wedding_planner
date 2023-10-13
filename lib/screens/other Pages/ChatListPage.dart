@@ -1,12 +1,21 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/ChatListModal.dart';
+import 'package:wedding_planner/Modal/CheckListModal.dart';
+import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/screens/other%20Pages/msg2.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/load.dart';
 
 class ChatlistPage extends StatefulWidget {
   int? sele;
@@ -70,298 +79,312 @@ class _ChatlistPageState extends State<ChatlistPage> {
     setState(() {
       setit = 2;
     });
+    chatlistap();
   }
-
+bool isLoading =true;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: bottomnavbar(selit: widget.sele),
-      extendBody: true,
-      drawer: drawer1(),
-      key: scaffoldKey,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: CustomScrollView(slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 4.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(onPressed: () {}, icon: Icon(null)),
-                    Text(
-                      "",
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          // Scaffold.of(context).openDrawer();
-                          openDrawer();
-                        },
-                        icon: Icon(Icons.menu_rounded))
-                  ],
-                ),
-                SizedBox(height: 1.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 1.w),
-                      child: Text(
-                        'Messages',
+    return commanScreen(
+      isLoading: isLoading,
+      scaffold: Scaffold(
+        bottomNavigationBar: bottomnavbar(selit: widget.sele),
+        extendBody: true,
+        drawer: drawer1(),
+        key: scaffoldKey,
+        body:isLoading?Container(): Padding(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: CustomScrollView(slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(onPressed: () {}, icon: Icon(null)),
+                      Text(
+                        "",
                         style: TextStyle(
-                            fontSize: 25.sp,
-                            fontFamily: 'sofi',
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            // Scaffold.of(context).openDrawer();
+                            openDrawer();
+                          },
+                          icon: Icon(Icons.menu_rounded))
+                    ],
+                  ),
+                  SizedBox(height: 1.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 1.w),
+                        child: Text(
+                          'Messages',
+                          style: TextStyle(
+                              fontSize: 25.sp,
+                              fontFamily: 'sofi',
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                              color: Colors.black),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 1.h),
+                  search(),
+                  SizedBox(height: 2.h),
+                  Row(
+                    children: [
+                      SizedBox(width: 2.w),
+                      Text(
+                        'My Venue ',
+                        style: TextStyle(
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1,
+                            fontFamily: 'sofi',
                             color: Colors.black),
                       ),
+                    ],
+                  ),
+                  SizedBox(height: 2.h),
+                  InkWell(
+                    onTap: () {
+                      Get.to(Msg2(
+                       id:chatlistmodal?.venue?.id ,
+                        name: chatlistmodal?.venue?.name,
+                        img: chatlistmodal?.venue?.profile,
+                      ));
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 1.w),
+                            height: 7.h,
+                            width: 15.w,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(90),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                imageUrl:
+                                    chatlistmodal?.venue?.profile ?? "",
+                                progressIndicatorBuilder:
+                                    (context, url, progress) =>
+                                        CircularProgressIndicator(),
+                                errorWidget: (context, url, error) => Image.asset(
+                                  'assets/icons/user.png',
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 68.w,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                    chatlistmodal?.venue?.name ?? "",
+                                      style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                        chatlistmodal?.venue?.lastChatMessageInfo == null ? "":  DateFormat('HH:mm').format(DateTime.parse(chatlistmodal?.venue?.lastChatMessageInfo?.createdAt ?? "")) ,
+                                      style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                          fontFamily: 'soi',
+                                          color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 52.w,
+                                child: Text(
+                                 chatlistmodal?.venue?.lastChatMessageInfo == null?"" :chatlistmodal?.venue?.lastChatMessageInfo?.message ?? "",
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'soi',
+                                      color: Colors.black54),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 3.w,
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
-                ),
-                SizedBox(height: 1.h),
-                search(),
-                SizedBox(height: 2.h),
-                Row(
-                  children: [
-                    SizedBox(width: 2.w),
-                    Text(
-                      'My Venue ',
-                      style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          fontFamily: 'sofi',
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 2.h),
-                InkWell(
+                  ),
+                  SizedBox(height: 1.h),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 2.w),
+                    child: Divider(color: Colors.black87),
+                  ),
+                ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  SizedBox(height: 1.h),
+                  Row(
+                    children: [
+                      SizedBox(width: 2.w),
+                      Text(
+                        'Suppliers ',
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            fontFamily: 'sofi',
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 2.h),
+                ],
+              ),
+            ),
+            chatlistmodal?.suppliers?.length == 0 ? Text("No Supplier available") :SliverList.builder(
+              itemCount: chatlistmodal?.suppliers?.length,
+              itemBuilder: (context, index) {
+                String? formattedTime;
+                if(chatlistmodal?.suppliers?[index].lastChatMessageInfo1 != null ){
+                  DateTime dateTime = DateTime.parse(chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.createdAt ?? "");
+                  DateFormat timeFormat = DateFormat('HH:mm'); // Customize the format as needed
+                   formattedTime = timeFormat.format(dateTime);
+                }
+                else{
+                  formattedTime = "";
+                }
+                return InkWell(
                   onTap: () {
                     Get.to(Msg2(
-                      img:
-                          'https://scontent.fstv2-1.fna.fbcdn.net/v/t39.30808-6/302609737_457901669687700_1130857970330959168_n.png?_nc_cat=100&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=XI10lCO6IuYAX8Lj0gN&_nc_ht=scontent.fstv2-1.fna&oh=00_AfB8JGw4fNrPrlgTQkeUx50-WN_gfy5eYLK4R3F4gX8flQ&oe=652A8B76',
-                      name: 'TVC Arena',
+                      id:chatlistmodal?.suppliers?[index].id,
+                       name: chatlistmodal?.suppliers?[index].name,
+                      img: chatlistmodal?.suppliers?[index].profile,
                     ));
                   },
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 1.w),
-                          height: 7.h,
-                          width: 15.w,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(90),
-                            child: CachedNetworkImage(
-                              fit: BoxFit.cover,
-                              imageUrl:
-                                  'https://scontent.fstv2-1.fna.fbcdn.net/v/t39.30808-6/302609737_457901669687700_1130857970330959168_n.png?_nc_cat=100&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=XI10lCO6IuYAX8Lj0gN&_nc_ht=scontent.fstv2-1.fna&oh=00_AfB8JGw4fNrPrlgTQkeUx50-WN_gfy5eYLK4R3F4gX8flQ&oe=652A8B76',
-                              progressIndicatorBuilder:
-                                  (context, url, progress) =>
-                                      CircularProgressIndicator(),
-                              errorWidget: (context, url, error) => Image.asset(
-                                'assets/icons/user.png',
-                                color: Colors.white,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 4.h),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 1.w),
+                            height: 7.h,
+                            width: 15.w,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(90),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                imageUrl: chatlistmodal?.suppliers?[index].profile ?? "",
+                                progressIndicatorBuilder:
+                                    (context, url, progress) =>
+                                        CircularProgressIndicator(),
+                                errorWidget: (context, url, error) => Image.asset(
+                                  'assets/icons/user.png',
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 68.w,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'TVC Arena',
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    '7:45 AM',
-                                    style: TextStyle(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: 'soi',
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 52.w,
-                              child: Text(
-                                'Check This Sir, We Made this Full Quotation for Your Wedding',
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: 'soi',
-                                    color: Colors.black54),
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 1.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.w),
-                  child: Divider(color: Colors.black87),
-                ),
-              ],
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                SizedBox(height: 1.h),
-                Row(
-                  children: [
-                    SizedBox(width: 2.w),
-                    Text(
-                      'Suppliers ',
-                      style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          fontFamily: 'sofi',
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 2.h),
-              ],
-            ),
-          ),
-          SliverList.builder(
-            itemCount: mesgs.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  Get.to(Msg2(
-                    img: mesgs[index].image,
-                    name: mesgs[index].name,
-                  ));
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 4.h),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 1.w),
-                          height: 7.h,
-                          width: 15.w,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(90),
-                            child: CachedNetworkImage(
-                              fit: BoxFit.cover,
-                              imageUrl: mesgs[index].image ?? '',
-                              progressIndicatorBuilder:
-                                  (context, url, progress) =>
-                                      CircularProgressIndicator(),
-                              errorWidget: (context, url, error) => Image.asset(
-                                'assets/icons/user.png',
-                                color: Colors.white,
-                              ),
-                            ),
+                          SizedBox(
+                            width: 5.w,
                           ),
-                        ),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 68.w,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    mesgs[index].name ?? '',
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    mesgs[index].time ?? '',
-                                    style: TextStyle(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: 'soi',
-                                        color: Colors.black),
-                                  ),
-                                ],
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 68.w,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                     chatlistmodal?.suppliers?[index].name ?? "",
+                                      style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                     formattedTime,
+                                      style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                          fontFamily: 'soi',
+                                          color: Colors.black),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 52.w,
-                              child: Text(
-                                mesgs[index].msg ?? '',
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: 'soi',
-                                    color: Colors.black54),
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                      ],
+                              SizedBox(
+                                width: 52.w,
+                                child: Text(
+                                 chatlistmodal?.suppliers?[index].lastChatMessageInfo1 == null ? "" :chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ?? "",
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'soi',
+                                      color: Colors.black54),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 3.w,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-          SliverToBoxAdapter(
-              child: SizedBox(
-            height: 10.h,
-          )),
-        ]),
+                );
+              },
+            ),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 10.h,
+            )),
+          ]),
+        ),
       ),
     );
   }
@@ -420,5 +443,28 @@ class _ChatlistPageState extends State<ChatlistPage> {
         ),
       ),
     );
+  }
+  chatlistap(){
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().chatlistapi().then((response) async {
+          chatlistmodal = ChatListModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && chatlistmodal?.status == "1") {
+
+            setState(() {
+              isLoading =false;
+            });
+          }
+          else {
+            setState(() {
+              isLoading =false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+
   }
 }

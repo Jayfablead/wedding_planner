@@ -22,6 +22,7 @@ import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
 import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
 import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
 import 'package:wedding_planner/screens/scrns/foodMenu.dart';
+import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -666,6 +667,7 @@ class _drawer1State extends State<drawer1> {
                 InkWell(
                     onTap: () async {
                       Get.back();
+                     await  SaveDataLocal.clearUserData();
                       Get.offAll(LoginPage());
                     },
                     child: Container(

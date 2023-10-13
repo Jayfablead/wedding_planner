@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
+import 'package:wedding_planner/screens/MainScreen.dart';
 
 class SplashLogo extends StatefulWidget {
   const SplashLogo({super.key});
@@ -22,7 +23,7 @@ class _SplashLogoState extends State<SplashLogo> {
       Duration(seconds: 3),
       () {
         Get.to(
-          YellowHomeScreen(sele: 2),
+          MainScreen(),
         );
       },
     );

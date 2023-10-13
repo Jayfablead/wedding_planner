@@ -51,10 +51,16 @@ dependencies:
   carousel_slider: ^4.2.1
   readmore: ^2.2.0
   http:
+  modal_progress_hud_nsn:
+  keyboard_dismisser:
+  http_parser:
+  file_picker:
 
   animated_notch_bottom_bar: ^1.0.0
   weekly_date_picker:
   fluid_bottom_nav_bar:
+  shared_preferences:
+  connectivity_plus:
 
 dev_dependencies:
   flutter_test:

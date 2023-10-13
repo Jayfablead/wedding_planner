@@ -1,7 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/ChangepassModal.dart';
+import 'package:wedding_planner/Provider/authprovider.dart';
+import 'package:wedding_planner/screens/LoginPage.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
@@ -120,7 +127,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your Password';
+                              return 'Please enter old your Password';
                             }
                             return null;
                           },
@@ -179,7 +186,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your Password';
+                              return 'Please enter new your Password';
                             }
                             return null;
                           },
@@ -238,7 +245,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your Password';
+                              return 'Please enter your Confirm-Password';
                             }
                             return null;
                           },
@@ -252,7 +259,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
                 InkWell(
                   onTap: () {
-                    if (_formKey.currentState!.validate()) {}
+                  changepassap();
                   },
                   child: Container(
                     width: 90.w,
@@ -280,5 +287,36 @@ class _ChangePasswordState extends State<ChangePassword> {
         ),
       ),
     );
+  }
+  changepassap(){
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['oldPassword'] = _oldpass.text.trim().toString();
+      data['newPassword'] = _newpass.text.trim().toString();
+      if(_confpass.text == _newpass.text){
+        checkInternet().then((internet) async {
+          if (internet) {
+            authprovider().changepassapi(data).then((response) async {
+              changepass = ChangepassModal.fromJson(json.decode(response.body));
+              if (response.statusCode == 200 && changepass?.status == "1") {
+
+                buildErrorDialog1(context, "Success", changepass?.message ?? "",() {
+                  Get.to(LoginPage());
+                },);
+              } else {
+                buildErrorDialog(
+                    context, " Error", (changepass?.message).toString());
+              }
+            });
+          } else {
+            buildErrorDialog(context, 'Error', "Internet Required");
+          }
+        });
+      }
+      else{
+        buildErrorDialog(context, "Error", "Password and Confirm-password should be same");
+      }
+
+    }
   }
 }

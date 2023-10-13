@@ -1,7 +1,16 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/UpdateprofileModal.dart';
+import 'package:wedding_planner/Provider/authprovider.dart';
+import 'package:wedding_planner/screens/profilePage.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 
 import '../../main.dart';
 
@@ -13,9 +22,11 @@ class EditProfile2 extends StatefulWidget {
   String? address;
   String? phone;
   String? about;
+  String? image;
 
   EditProfile2(
       {super.key,
+        this.image,
       this.about,
       this.address,
       this.phone,
@@ -27,20 +38,21 @@ class EditProfile2 extends StatefulWidget {
 }
 
 class _EditProfile2State extends State<EditProfile2> {
-  TextEditingController _fname = TextEditingController();
-  TextEditingController _lname = TextEditingController();
+  TextEditingController _gname = TextEditingController();
+  TextEditingController _bname = TextEditingController();
   TextEditingController _phone = TextEditingController();
   TextEditingController _address = TextEditingController();
   TextEditingController _about = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isKeyboardOpen = false;
-
+  ImagePicker _picker = ImagePicker();
+  File? _pickedFile;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _fname.text = widget.fname.toString();
-    _lname.text = widget.lname.toString();
+    _gname.text = widget.fname.toString();
+    _bname.text = widget.lname.toString();
     _phone.text = widget.phone.toString();
     _address.text = widget.address.toString();
     _about.text = widget.about.toString();
@@ -132,10 +144,10 @@ class _EditProfile2State extends State<EditProfile2> {
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(90),
-                              child: CachedNetworkImage(
+                              child: _pickedFile != null ?Image.file(_pickedFile!,fit: BoxFit.cover,):CachedNetworkImage(
                                 fit: BoxFit.cover,
                                 imageUrl:
-                                    'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+                                   widget.image.toString(),
                                 progressIndicatorBuilder:
                                     (context, url, progress) =>
                                         CircularProgressIndicator(),
@@ -163,7 +175,13 @@ class _EditProfile2State extends State<EditProfile2> {
                                 shape: BoxShape.circle,
                                 color: Colors.black),
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () async{
+                                XFile? photo = await _picker.pickImage(source: ImageSource.gallery);
+                                setState(() {
+                                  _pickedFile = File(photo!.path);
+                                });
+
+                              },
                               child: Icon(
                                 Icons.camera_alt,
                                 color: Colors.white,
@@ -194,7 +212,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  "First Name : ",
+                                                  "Groom Name : ",
                                                   style: TextStyle(
                                                     fontSize: 15.sp,
                                                     letterSpacing: 1,
@@ -232,7 +250,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     ],
                                                   ),
                                                   child: TextFormField(
-                                                    controller: _fname,
+                                                    controller: _gname,
                                                     style: TextStyle(
                                                       fontSize: 15.sp,
                                                       letterSpacing: 1,
@@ -273,7 +291,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  "Last Name : ",
+                                                  "Bride Name : ",
                                                   style: TextStyle(
                                                     fontSize: 15.sp,
                                                     letterSpacing: 1,
@@ -311,7 +329,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     ],
                                                   ),
                                                   child: TextFormField(
-                                                    controller: _lname,
+                                                    controller: _bname,
                                                     style: TextStyle(
                                                       fontSize: 15.sp,
                                                       letterSpacing: 1,
@@ -586,7 +604,9 @@ class _EditProfile2State extends State<EditProfile2> {
                                         ),
                                         Center(
                                           child: InkWell(
-                                            onTap: () {},
+                                            onTap: () {
+                                              updateprofileap();
+                                            },
                                             child: Container(
                                               alignment: Alignment.center,
                                               height: 5.5.h,
@@ -643,6 +663,36 @@ class _EditProfile2State extends State<EditProfile2> {
         color: Colors.black.withOpacity(0.8),
       ),
     );
+  }
+  updateprofileap(){
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['BrideName'] = _bname.text.trim().toString();
+      data['GroomName'] = _gname.text.trim().toString();
+      data['profile_img'] =_pickedFile != null ?_pickedFile!.path : "";
+      data['Email'] = userData?.user?.email ?? "";
+      print(data);
+      checkInternet().then((internet) async {
+        if (internet) {
+          authprovider().updateprofileapi(data).then((response) async {
+            updateprofile = UpdateprofileModal.fromJson(json.decode(response.body));
+            if (response.statusCode == 200 && updateprofile?.status == "1") {
+
+              buildErrorDialog1(context, "Success", updateprofile?.message ?? "",() {
+                print("ghfjhbfds");
+                Get.to(MyProfile());
+              },);
+            } else {
+              buildErrorDialog(
+                  context, " Error", (updateprofile?.message).toString());
+            }
+          });
+        } else {
+          buildErrorDialog(context, 'Error', "Internet Required");
+        }
+      });
+
+    }
   }
 }
 

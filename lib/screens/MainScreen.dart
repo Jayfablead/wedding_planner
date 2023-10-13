@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/screens/HomePage.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
+import 'package:wedding_planner/widgets/const.dart';
+import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -69,8 +72,11 @@ class _MainScreenState extends State<MainScreen> {
           top: 84.5.h,
           left: 4.5.w,
           child: InkWell(
-            onTap: () {
-              Get.to(LoginPage());
+            onTap: () async{
+              userData =await SaveDataLocal.getDataFromLocal();
+              print(userData?.user?.groomName);
+              userData?.user?.id == null || userData?.user?.id == ""?
+              Get.to(LoginPage()):Get.to(HomeScreen());
             },
             child: Container(
               height: 7.h,
