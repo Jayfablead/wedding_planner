@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/CheckListModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/widgets/addcheck.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -148,7 +149,14 @@ class _Check_listState extends State<Check_list> {
                       }),
                     ),
                     SizedBox(height: 1.h),
-                    checklistmodal?.todayAlerts?.length == 0 || checklistmodal?.todayAlerts?.length == 0|| checklistmodal?.todayAlerts?.length == 0?Text("No CheckList.") :Container(
+                 sel1 == 0 ?checklistmodal?.todayAlerts?.length == 0 ? Container(
+                     height: 60.h,
+                     child: Text("No CheckList" , style: TextStyle(
+                       fontSize: 15.sp,
+                       fontFamily: 'sofi',
+                       letterSpacing: 1,
+                       fontWeight: FontWeight.bold,
+                     ),)):Container(
                       height: 60.h,
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
@@ -244,33 +252,249 @@ class _Check_listState extends State<Check_list> {
                         },
 
                       ),
-                    ),
+                    ):sel1 ==1 ? checklistmodal?.completed?.length == 0? Container(
+                     alignment: Alignment.center,
+                     height: 60.h,
+                     child: Text("No CheckList"  ,style: TextStyle(
+                       fontSize: 15.sp,
+                       fontFamily: 'sofi',
+                       letterSpacing: 1,
+                       fontWeight: FontWeight.bold,
+                     ),)):Container(
+                   alignment: Alignment.center,
+                   height: 60.h,
+                   child: ListView.builder(
+                     padding: EdgeInsets.zero,
+                     itemCount:sel1==0? (checklistmodal?.todayAlerts?.length) :sel1 == 1? checklistmodal?.completed?.length :checklistmodal?.pending?.length,
+                     itemBuilder: (context, index) {
+                       return Container(
+                         child: Card(
+                           elevation: 2,
+                           shape: RoundedRectangleBorder(
+                               borderRadius: BorderRadius.circular(8)),
+                           child: Padding(
+                             padding: EdgeInsets.symmetric(
+                                 vertical: 2.h, horizontal: 1.w),
+                             child: Row(
+                               mainAxisAlignment:
+                               MainAxisAlignment.spaceAround,
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                               children: [
+                                 InkWell(
+                                   onTap: () {
+                                     // setState(() {
+                                     //   lists[index].chek = !lists[index].chek!;
+                                     // });
+                                   },
+                                   child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
+                                       ? Icon(
+                                     Icons.check_box_rounded,
+                                     color: Colors.amber,
+                                     size: 22.sp,
+                                   )
+                                       : Icon(
+                                     Icons
+                                         .check_box_outline_blank_rounded,
+                                     color: Colors.black54,
+                                     size: 22.sp,
+                                   ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
+                                       ? Icon(
+                                     Icons.check_box_rounded,
+                                     color: Colors.amber,
+                                     size: 22.sp,
+                                   )
+                                       : Icon(
+                                     Icons
+                                         .check_box_outline_blank_rounded,
+                                     color: Colors.black54,
+                                     size: 22.sp,
+                                   ):checklistmodal?.pending?[index].isCompleted == "1"
+                                       ? Icon(
+                                     Icons.check_box_rounded,
+                                     color: Colors.amber,
+                                     size: 22.sp,
+                                   )
+                                       : Icon(
+                                     Icons
+                                         .check_box_outline_blank_rounded,
+                                     color: Colors.black54,
+                                     size: 22.sp,
+                                   ),
+                                 ),
+                                 SizedBox(width: 3.w),
+                                 Container(
+                                   width: 78.w,
+                                   child: Text(
+                                     sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
+                                     style: TextStyle(
+                                         color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                             ? Colors.amber
+                                             : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
+                                             ? Colors.amber
+                                             : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
+                                             ? Colors.amber
+                                             : Colors.black87),
+
+                                         decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                             ? TextDecoration.lineThrough
+                                             : TextDecoration.none): sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
+                                             ? TextDecoration.lineThrough
+                                             : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
+                                             ? TextDecoration.lineThrough
+                                             : TextDecoration.none),
+                                         decorationColor: Colors.amber,
+                                         decorationThickness: 2,
+                                         fontSize: 13.sp,
+                                         fontFamily: 'sofi',
+                                         fontWeight: FontWeight.w600),
+                                   ),
+                                 ),
+                               ],
+                             ),
+                           ),
+                         ),
+                       );
+                     },
+
+                   ),
+                 ): checklistmodal?.pending?.length ==0 ? Container(
+                   alignment: Alignment.center,
+                     height: 60.h,
+                     child: Text("No CheckList",  style: TextStyle(
+                       fontSize: 15.sp,
+                       fontFamily: 'sofi',
+                       letterSpacing: 1,
+                       fontWeight: FontWeight.bold,
+                     ),)) :Container(
+                   height: 60.h,
+                   child: ListView.builder(
+                     padding: EdgeInsets.zero,
+                     itemCount:sel1==0? (checklistmodal?.todayAlerts?.length) :sel1 == 1? checklistmodal?.completed?.length :checklistmodal?.pending?.length,
+                     itemBuilder: (context, index) {
+                       return Container(
+                         child: Card(
+                           elevation: 2,
+                           shape: RoundedRectangleBorder(
+                               borderRadius: BorderRadius.circular(8)),
+                           child: Padding(
+                             padding: EdgeInsets.symmetric(
+                                 vertical: 2.h, horizontal: 1.w),
+                             child: Row(
+                               mainAxisAlignment:
+                               MainAxisAlignment.spaceAround,
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                               children: [
+                                 InkWell(
+                                   onTap: () {
+                                     // setState(() {
+                                     //   lists[index].chek = !lists[index].chek!;
+                                     // });
+                                   },
+                                   child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
+                                       ? Icon(
+                                     Icons.check_box_rounded,
+                                     color: Colors.amber,
+                                     size: 22.sp,
+                                   )
+                                       : Icon(
+                                     Icons
+                                         .check_box_outline_blank_rounded,
+                                     color: Colors.black54,
+                                     size: 22.sp,
+                                   ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
+                                       ? Icon(
+                                     Icons.check_box_rounded,
+                                     color: Colors.amber,
+                                     size: 22.sp,
+                                   )
+                                       : Icon(
+                                     Icons
+                                         .check_box_outline_blank_rounded,
+                                     color: Colors.black54,
+                                     size: 22.sp,
+                                   ):checklistmodal?.pending?[index].isCompleted == "1"
+                                       ? Icon(
+                                     Icons.check_box_rounded,
+                                     color: Colors.amber,
+                                     size: 22.sp,
+                                   )
+                                       : Icon(
+                                     Icons
+                                         .check_box_outline_blank_rounded,
+                                     color: Colors.black54,
+                                     size: 22.sp,
+                                   ),
+                                 ),
+                                 SizedBox(width: 3.w),
+                                 Container(
+                                   width: 78.w,
+                                   child: Text(
+                                     sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
+                                     style: TextStyle(
+                                         color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                             ? Colors.amber
+                                             : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
+                                             ? Colors.amber
+                                             : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
+                                             ? Colors.amber
+                                             : Colors.black87),
+
+                                         decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                             ? TextDecoration.lineThrough
+                                             : TextDecoration.none): sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
+                                             ? TextDecoration.lineThrough
+                                             : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
+                                             ? TextDecoration.lineThrough
+                                             : TextDecoration.none),
+                                         decorationColor: Colors.amber,
+                                         decorationThickness: 2,
+                                         fontSize: 13.sp,
+                                         fontFamily: 'sofi',
+                                         fontWeight: FontWeight.w600),
+                                   ),
+                                 ),
+                               ],
+                             ),
+                           ),
+                         ),
+                       );
+                     },
+
+                   ),
+                 ),
                   ]),
                 ),
                 Positioned(
                   top: 91.5.h,
-                  child: Row(children: [
-                    checkdetails(),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    InkWell(
-                        onTap: () {
-                          print('Moklyo hoo');
-                        },
-                        child: Container(
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(2.5.w),
-                            decoration: BoxDecoration(
-                                color: Colors.amber,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                                child: Icon(
-                              CupertinoIcons.add,
-                              size: 18.sp,
-                              color: Colors.white,
-                            ))))
-                  ]),
+                  left: 20.w,
+                  child: InkWell(
+                      onTap: () {
+                     Get.to(addchecklist());
+                      },
+                      child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(2.5.w),
+                          decoration: BoxDecoration(
+                              color: Colors.amber,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Row(
+                            children: [
+                              Center(
+                                  child: Icon(
+                                    CupertinoIcons.add,
+                                    size: 18.sp,
+                                    color: Colors.white,
+                                  )),
+                              Text("Add Check List",  style: TextStyle(
+                                fontSize: 14.sp,
+                                fontFamily: 'sofi',
+                                letterSpacing: 1,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),),
+
+                            ],
+                          ))),
                 ),
               ],
             ),
@@ -347,4 +571,5 @@ class _Check_listState extends State<Check_list> {
     });
 
   }
+
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/screens/HomePage.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -76,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
               userData =await SaveDataLocal.getDataFromLocal();
               print(userData?.user?.groomName);
               userData?.user?.id == null || userData?.user?.id == ""?
-              Get.to(LoginPage()):Get.to(HomeScreen());
+              Get.to(LoginPage()):Get.to(YellowHomeScreen(sele: -3,));
             },
             child: Container(
               height: 7.h,

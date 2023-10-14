@@ -69,22 +69,21 @@ class _drawer1State extends State<drawer1> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            print("vari");
+
                             print(vari);
                             setState(() {
                               show = !show;
                               vari == 1 || vari == 2 || vari == 3
                                   ? vari = 0
                                   : vari;
-                              print("after");
-                              print(vari);
+
                               vari == 1 || vari == 2 || vari == 3
                                   ? ""
                                   : show
                                       ? Get.back()
                                       : '';
                             });
-                            print(show);
+
                           },
                           icon: Icon(Icons.arrow_back_ios))
                     ],
