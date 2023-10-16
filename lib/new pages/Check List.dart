@@ -67,11 +67,13 @@ class _Check_listState extends State<Check_list> {
     checklistap();
   }
   List<String> type = ["Today Alert","Completed","Pending"];
+  TextEditingController _search=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return commanScreen(
       isLoading: isLoading,
       scaffold: Scaffold(
+        backgroundColor: Colors.grey.shade100,
         key:  scaffoldKey,
         drawer: drawer1(),
         body: isLoading? Container():SingleChildScrollView(
@@ -94,13 +96,14 @@ class _Check_listState extends State<Check_list> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
                         Text(
                           "Check List",
                           style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 17.sp,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -108,11 +111,12 @@ class _Check_listState extends State<Check_list> {
                             onPressed: () {
                                scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded))
+                            icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp
+                              ,))
                       ],
                     ),
                     SizedBox(height: 1.h),
-                    search(),
+                    searchBox1(),
                     SizedBox(height: 1.h),
                     Container(
                       width: MediaQuery.of(context).size.width,
@@ -570,6 +574,40 @@ class _Check_listState extends State<Check_list> {
       }
     });
 
+  }
+  Widget searchBox1() {
+    return Container(
+      alignment: Alignment.center,
+      width: 94.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
+        ),
+      ),
+    );
   }
 
 }

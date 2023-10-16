@@ -10,8 +10,8 @@ Widget spinKit = Container(
       begin: Alignment(-1.0, 1.0),
       end: Alignment(1.0, -1.0),
       colors: <Color>[
-        Colors.grey,
-        Colors.grey,
+        Colors.blue,
+        Colors.blue,
       ],
     ),
     // color: buttonColor,

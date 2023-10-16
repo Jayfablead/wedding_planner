@@ -86,7 +86,7 @@ class _QuoateList2State extends State<QuoateList2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe8e8e8),
+        backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -105,15 +105,16 @@ class _QuoateList2State extends State<QuoateList2> {
                         Get.back();
                       },
                       icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
+                        Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,
                       )),
                   Text(
                     "Quotation List",
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 17.sp,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
+                      color: Colors.blue,
                     ),
                   ),
                   IconButton(
@@ -121,12 +122,12 @@ class _QuoateList2State extends State<QuoateList2> {
                         scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
-                        Icons.menu_rounded,
+                        Icons.menu_rounded,size: 23.sp,color: Colors.blue,
                       ))
                 ],
               ),
               SizedBox(height: 1.h),
-              searchBox(),
+              searchBox1(),
               SizedBox(height: 1.h),
               SizedBox(
                 height: 79.h,
@@ -344,6 +345,40 @@ class _QuoateList2State extends State<QuoateList2> {
             fontWeight: FontWeight.w700,
             color: Colors.grey.shade500,
           ),
+        ),
+      ),
+    );
+  }
+  Widget searchBox1() {
+    return Container(
+      alignment: Alignment.center,
+      width: 95.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
         ),
       ),
     );

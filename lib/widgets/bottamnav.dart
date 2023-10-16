@@ -61,10 +61,10 @@ class _bottomnavbarState extends State<bottomnavbar> {
           itemLabel: 'Meeting',
         ),
         BottomBarItem(
-          inActiveItem: Image.asset("assets/bottom/2.png",
+          inActiveItem: Image.asset("assets/bottom/7.png",
               height: 15.h, width: 20.w, color: Colors.blue),
           activeItem: Image.asset(
-            "assets/bottom/2.png",
+            "assets/bottom/7.png",
             height: 15.h,
             width: 20.w,
           ),

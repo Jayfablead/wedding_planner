@@ -87,6 +87,7 @@ bool isLoading =true;
     return commanScreen(
       isLoading: isLoading,
       scaffold: Scaffold(
+        backgroundColor: Colors.grey.shade100,
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         extendBody: true,
         drawer: drawer1(),
@@ -103,7 +104,7 @@ bool isLoading =true;
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(onPressed: () {}, icon: Icon(null)),
+                      IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                       Text(
                         "",
                         style: TextStyle(
@@ -116,7 +117,7 @@ bool isLoading =true;
                             // Scaffold.of(context).openDrawer();
                             openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded))
+                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp))
                     ],
                   ),
                   SizedBox(height: 1.h),
@@ -138,7 +139,7 @@ bool isLoading =true;
                     ],
                   ),
                   SizedBox(height: 1.h),
-                  search(),
+                  searchBox(),
                   SizedBox(height: 2.h),
                   Row(
                     children: [
@@ -466,5 +467,39 @@ bool isLoading =true;
       }
     });
 
+  }
+  Widget searchBox() {
+    return Container(
+      alignment: Alignment.center,
+      width: 94.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
+        ),
+      ),
+    );
   }
 }

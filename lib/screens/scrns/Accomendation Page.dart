@@ -17,11 +17,13 @@ class Accomendation_Page extends StatefulWidget {
 }
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+TextEditingController _search=TextEditingController();
 
 class _Accomendation_PageState extends State<Accomendation_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       key: scaffoldKey,
       drawer: drawer1(),
       body: Center(
@@ -41,7 +43,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
                         Text(
                           '',
                           style: TextStyle(
@@ -51,7 +53,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                             onPressed: () {
                               scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded)),
+                            icon: Icon(Icons.menu_rounded,size: 23.sp,color: Colors.blue,)),
                       ],
                     ),
                     SizedBox(height: 1.h),
@@ -126,7 +128,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        searchBox(),
+                        searchBox1(),
                         Container(
                             padding: EdgeInsets.all(2.8.w),
                             decoration: BoxDecoration(
@@ -561,6 +563,40 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
           border: InputBorder.none,
           hintText: 'Search',
           hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        ),
+      ),
+    );
+  }
+  Widget searchBox1() {
+    return Container(
+      alignment: Alignment.center,
+      width: 80.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
         ),
       ),
     );

@@ -125,17 +125,18 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
                         Text(
                           'Food Menu',
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
+                              fontSize: 18.sp,color: Colors.blue),
                         ),
                         IconButton(
                             onPressed: () {
                               scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded)),
+                            icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp
+                              ,)),
                       ],
                     ),
                   ],

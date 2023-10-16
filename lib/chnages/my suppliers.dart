@@ -116,7 +116,7 @@ class _MySuppliersState extends State<MySuppliers> {
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: bottomnavbar(selit: widget.sele),
-      backgroundColor: Color(0xffe8e8e8),
+        backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -130,13 +130,14 @@ class _MySuppliersState extends State<MySuppliers> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(null)),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp)),
                   Text(
                     "My Suppliers",
                     style: TextStyle(
                       fontSize: 15.sp,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
+                      color: Colors.blue,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -145,7 +146,7 @@ class _MySuppliersState extends State<MySuppliers> {
                         scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
-                        Icons.menu_rounded,
+                        Icons.menu_rounded,color: Colors.blue,size: 23.sp,
                       ))
                 ],
               ),

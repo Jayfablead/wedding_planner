@@ -107,6 +107,7 @@ class _PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       extendBody: true,
       bottomNavigationBar: bottomnavbar(selit: widget.sele),
       drawer: drawer1(),
@@ -120,25 +121,26 @@ class _PostPageState extends State<PostPage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(null),
+                  icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
                 ),
-                Text(
-                  "Posts",
-                  style: TextStyle(
-                    fontSize: 15.sp,
-                    fontFamily: 'sofi',
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                // Text(
+                //   "Posts",
+                //   style: TextStyle(
+                //     fontSize: 15.sp,
+                //     fontFamily: 'sofi',
+                //     letterSpacing: 1,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
                 IconButton(
                     onPressed: () {
                       openDrawer();
                     },
-                    icon: Icon(Icons.menu_rounded))
+                    icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp))
               ],
             ),
             SizedBox(height: 1.h),

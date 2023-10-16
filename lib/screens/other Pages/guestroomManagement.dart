@@ -73,6 +73,7 @@ class _RoomManagementState extends State<RoomManagement> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
@@ -95,14 +96,15 @@ class _RoomManagementState extends State<RoomManagement> {
                               Get.back();
                             },
                             icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
+                              Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,
                             )),
                         Text(
                           "Room Management",
                           style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 18.sp,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -112,6 +114,8 @@ class _RoomManagementState extends State<RoomManagement> {
                             },
                             icon: Icon(
                               Icons.menu_rounded,
+                              color: Colors.blue,
+                              size: 23.sp,
                             ))
                       ],
                     ),

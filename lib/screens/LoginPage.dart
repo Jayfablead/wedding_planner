@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
+import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/screens/forgot%20password%20Page.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -250,7 +251,7 @@ class _LoginPageState extends State<LoginPage> {
             userData = UserModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && userData?.status == "1") {
               await SaveDataLocal.saveLogInData(userData!);
-              Get.off(HomeScreen());
+              Get.off(YellowHomeScreen(sele:2));
             } else {
               buildErrorDialog(
                   context, "Login Error", (userData?.message).toString());

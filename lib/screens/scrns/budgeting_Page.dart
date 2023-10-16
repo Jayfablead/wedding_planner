@@ -37,21 +37,22 @@ class _BudgetingListState extends State<BudgetingList> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                   Text(
                     "Budget",
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 17.sp,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
+                      color: Colors.blue,
                     ),
                   ),
                   IconButton(
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded))
+                      icon: Icon(Icons.menu_rounded,size: 23.sp,color: Colors.blue,))
                 ],
               ),
               SizedBox(

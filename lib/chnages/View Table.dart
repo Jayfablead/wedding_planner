@@ -22,7 +22,7 @@ class _ViewTablesState extends State<ViewTables> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color(0xffefefef),
+        backgroundColor: Colors.grey.shade100,
       key: scaffoldKey,
       drawer: drawer1(),
       bottomNavigationBar: bottomnavbar(selit: -3),
@@ -40,17 +40,17 @@ class _ViewTablesState extends State<ViewTables> {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                    icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                 Text(
                   'Guests',
                   style: TextStyle(
-                      fontSize: 15.sp, fontFamily: 'sofi',fontWeight: FontWeight.bold,letterSpacing: 1),
+                      fontSize: 17.sp, fontFamily: 'sofi',fontWeight: FontWeight.bold,letterSpacing: 1,color: Colors.blue),
                 ),
                 IconButton(
                     onPressed: () {
                       scaffoldKey.currentState?.openDrawer();
                     },
-                    icon: Icon(Icons.menu_rounded)),
+                    icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,)),
               ],
             ),
             SizedBox(height: 1.5.h),

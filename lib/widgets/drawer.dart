@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
+import 'package:wedding_planner/chnages/View%20Table.dart';
 import 'package:wedding_planner/chnages/my%20suppliers.dart';
 import 'package:wedding_planner/chnages/myQuoteReqs.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
@@ -772,7 +773,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(ChairManagement());
+                Get.to(ViewTables());
               },
               child: Container(
                 alignment: Alignment.center,

@@ -55,6 +55,7 @@ class _BookingListState extends State<BookingList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
@@ -74,13 +75,14 @@ class _BookingListState extends State<BookingList> {
                           onPressed: () {
                             Get.back();
                           },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                          icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                       Text(
                         "All Bookings",
                         style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 17.sp,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
+                          color: Colors.blue,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -88,7 +90,7 @@ class _BookingListState extends State<BookingList> {
                           onPressed: () {
                             scaffoldKey.currentState?.openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded))
+                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                     ],
                   ),
                   SizedBox(

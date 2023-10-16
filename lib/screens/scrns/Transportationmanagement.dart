@@ -67,6 +67,7 @@ List<book> booka = [
       '12People', "325", "Km", "Gasoline", "Manual"),
 ];
 List cate = ['All', 'Featured Cars', 'Family Car', 'Luxury Car', 'Top Rated'];
+TextEditingController _search=TextEditingController();
 
 int sel = 0;
 
@@ -76,6 +77,7 @@ class _BookingListPageState extends State<BookingListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
@@ -98,13 +100,14 @@ class _BookingListPageState extends State<BookingListPage> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                            icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                         Text(
                           "Transportation",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 17.sp,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -112,7 +115,7 @@ class _BookingListPageState extends State<BookingListPage> {
                             onPressed: () {
                               scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded))
+                            icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                       ],
                     ),
                     SizedBox(
@@ -121,7 +124,7 @@ class _BookingListPageState extends State<BookingListPage> {
                     SizedBox(
                       child: Row(
                         children: [
-                          searchBox(),
+                          searchBox1(),
                           SizedBox(
                             width: 1.w,
                           ),
@@ -419,6 +422,40 @@ class _BookingListPageState extends State<BookingListPage> {
           border: InputBorder.none,
           hintText: 'Search',
           hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        ),
+      ),
+    );
+  }
+  Widget searchBox1() {
+    return Container(
+      alignment: Alignment.center,
+      width: 80.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
         ),
       ),
     );

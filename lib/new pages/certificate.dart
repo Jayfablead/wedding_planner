@@ -80,11 +80,13 @@ List<cate> venue = [
       'A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue ',
       3),
 ];
+TextEditingController _search=TextEditingController();
 
 class _CertificateState extends State<Certificate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
@@ -101,18 +103,20 @@ class _CertificateState extends State<Certificate> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
                           onPressed: () {
                             Get.back();
                           },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                          icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
                       Text(
                         "Certificates",
                         style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 18.sp,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
+                          color: Colors.blue,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -120,14 +124,14 @@ class _CertificateState extends State<Certificate> {
                           onPressed: () {
                             scaffoldKey.currentState?.openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded))
+                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                     ],
                   ),
                   SizedBox(height: 1.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      searchBox(),
+                      searchBox1(),
                       Container(
                           padding: EdgeInsets.all(2.8.w),
                           decoration: BoxDecoration(
@@ -263,6 +267,40 @@ class _CertificateState extends State<Certificate> {
           border: InputBorder.none,
           hintText: 'Search',
           hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
+        ),
+      ),
+    );
+  }
+  Widget searchBox1() {
+    return Container(
+      alignment: Alignment.center,
+      width: 80.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
         ),
       ),
     );

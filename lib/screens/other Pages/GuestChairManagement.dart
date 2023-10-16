@@ -419,7 +419,7 @@ class _ChairManagementState extends State<ChairManagement> {
                                                                           index1 ==
                                                                               5
                                                                       ? Colors
-                                                                          .pink
+                                                                          .blue
                                                                       : Colors
                                                                           .grey
                                                                   : Colors
