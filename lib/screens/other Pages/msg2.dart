@@ -339,7 +339,7 @@ class _Msg2State extends State<Msg2> {
                                                                         1.3.h),
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: Colors.amber,
+                                                              color: Colors.blue,
                                                               borderRadius:
                                                                   BorderRadius.only(
                                                                 bottomLeft:
@@ -832,7 +832,7 @@ class _Msg2State extends State<Msg2> {
                                   alignment: Alignment.center,
                                   padding: EdgeInsets.all(2.5.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(90)),
                                   child: Center(
                                       child: Icon(
@@ -942,7 +942,7 @@ class _Msg2State extends State<Msg2> {
                                       width: 50.0,
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors.amber),
+                                          color: Colors.blue),
                                       child: Icon(
                                         Icons.video_camera_back,
                                         color: Colors.white,
@@ -987,7 +987,7 @@ class _Msg2State extends State<Msg2> {
                                       width: 50.0,
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors.amber),
+                                          color: Colors.blue),
                                       child: Icon(
                                         Icons.photo,
                                         color: Colors.white,
@@ -1030,7 +1030,7 @@ class _Msg2State extends State<Msg2> {
                                       width: 50.0,
                                       decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors.amber),
+                                          color: Colors.blue),
                                       child: Icon(
                                         Icons.contact_page,
                                         color: Colors.white,

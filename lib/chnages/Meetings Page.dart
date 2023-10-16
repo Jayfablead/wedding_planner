@@ -138,7 +138,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                       child: Container(
                         width: 21.w,
                         child: Card(
-                            color: sel == index ? Colors.amber : Colors.white,
+                            color: sel == index ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
@@ -156,7 +156,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       letterSpacing: 1,
                                       color: sel == index
                                           ? Colors.white
-                                          : Colors.amber),
+                                          : Colors.blue),
                                 ),
                                 SizedBox(height: 0.5.h),
                                 Text(
@@ -169,7 +169,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       letterSpacing: 1,
                                       color: sel == index
                                           ? Colors.white
-                                          : Colors.amber),
+                                          : Colors.blue),
                                 ),
                               ],
                             )),
@@ -203,10 +203,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
                                       colors: [
-                                        Colors.amber,
-                                        Colors.amber.shade500,
-                                        Colors.amber.shade300,
-                                        Colors.amber.shade200,
+                                        Colors.blue,
+                                        Colors.blue.shade500,
+                                        Colors.blue.shade300,
+                                        Colors.blue.shade200,
                                         Colors.white12
                                       ],
                                     ),
@@ -224,8 +224,8 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                     begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter,
                                     colors: [
-                                      Colors.amber,
-                                      Colors.yellow,
+                                      Colors.blue,
+                                      Colors.lightBlueAccent,
                                       Colors.white
                                     ],
                                   ),

@@ -333,7 +333,7 @@ class _Home2State extends State<Home2> {
                                 fontFamily: 'get',
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 1,
-                                color: Colors.pink),
+                                color: Colors.blue),
                           ),
                           IconButton(
                               onPressed: () {
@@ -341,7 +341,7 @@ class _Home2State extends State<Home2> {
                               },
                               icon: Icon(
                                 Icons.menu_rounded,
-                                color: Colors.pink,
+                                color: Colors.blue,
                                 size: 23.sp,
                               ))
                         ],
@@ -368,14 +368,14 @@ class _Home2State extends State<Home2> {
                       },
                       child: Container(
                         child: Card(
-                            color: sel == 1 ? Colors.pink : Colors.white,
+                            color: sel == 1 ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
                             child: Container(
                               margin: EdgeInsets.all(3.5.w),
                               child: Image.asset('assets/1.png',
-                                  color: sel == 1 ? Colors.white : Colors.pink,
+                                  color: sel == 1 ? Colors.white : Colors.blue,
                                   height: 6.h,
                                   width: 13.w),
                             )),
@@ -389,14 +389,14 @@ class _Home2State extends State<Home2> {
                       },
                       child: Container(
                         child: Card(
-                            color: sel == 2 ? Colors.pink : Colors.white,
+                            color: sel == 2 ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
                             child: Container(
                               margin: EdgeInsets.all(3.5.w),
                               child: Image.asset('assets/2.png',
-                                  color: sel == 2 ? Colors.white : Colors.pink,
+                                  color: sel == 2 ? Colors.white : Colors.blue,
                                   height: 6.h,
                                   width: 13.w),
                             )),
@@ -410,14 +410,14 @@ class _Home2State extends State<Home2> {
                       },
                       child: Container(
                         child: Card(
-                            color: sel == 3 ? Colors.pink : Colors.white,
+                            color: sel == 3 ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
                             child: Container(
                               margin: EdgeInsets.all(3.5.w),
                               child: Image.asset('assets/9.png',
-                                  color: sel == 3 ? Colors.white : Colors.pink,
+                                  color: sel == 3 ? Colors.white : Colors.blue,
                                   height: 6.h,
                                   width: 13.w),
                             )),
@@ -431,14 +431,14 @@ class _Home2State extends State<Home2> {
                       },
                       child: Container(
                         child: Card(
-                            color: sel == 4 ? Colors.pink : Colors.white,
+                            color: sel == 4 ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
                             child: Container(
                               margin: EdgeInsets.all(3.5.w),
                               child: Image.asset('assets/8.png',
-                                  color: sel == 4 ? Colors.white : Colors.pink,
+                                  color: sel == 4 ? Colors.white : Colors.blue,
                                   height: 6.h,
                                   width: 13.w),
                             )),
@@ -452,14 +452,14 @@ class _Home2State extends State<Home2> {
                       },
                       child: Container(
                         child: Card(
-                            color: sel == 5 ? Colors.pink : Colors.white,
+                            color: sel == 5 ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
                             child: Container(
                               margin: EdgeInsets.all(3.5.w),
                               child: Image.asset('assets/7.png',
-                                  color: sel == 5 ? Colors.white : Colors.pink,
+                                  color: sel == 5 ? Colors.white : Colors.blue,
                                   height: 6.h,
                                   width: 13.w),
                             )),
@@ -473,14 +473,14 @@ class _Home2State extends State<Home2> {
                       },
                       child: Container(
                         child: Card(
-                            color: sel == 6 ? Colors.pink : Colors.white,
+                            color: sel == 6 ? Colors.blue : Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             elevation: 5,
                             child: Container(
                               margin: EdgeInsets.all(3.5.w),
                               child: Image.asset('assets/5.png',
-                                  color: sel == 6 ? Colors.white : Colors.pink,
+                                  color: sel == 6 ? Colors.white : Colors.blue,
                                   height: 6.h,
                                   width: 13.w),
                             )),

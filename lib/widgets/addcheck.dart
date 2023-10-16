@@ -300,7 +300,7 @@ class _addchecklistState extends State<addchecklist> {
                               alignment: Alignment.center,
                               padding: EdgeInsets.all(2.5.w),
                               decoration: BoxDecoration(
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                   borderRadius: BorderRadius.circular(10)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

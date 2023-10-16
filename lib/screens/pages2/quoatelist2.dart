@@ -261,7 +261,7 @@ class _QuoateList2State extends State<QuoateList2> {
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(7),
-                                              color: Colors.pink),
+                                              color: Colors.blue),
                                           child: Icon(
                                             CupertinoIcons.arrow_right,
                                             color: Colors.white,

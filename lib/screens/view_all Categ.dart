@@ -98,7 +98,7 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.pink.withOpacity(0.2),
+                          color: Colors.blue.withOpacity(0.2),
                         ),
                         padding: EdgeInsets.all(2.w),
                         margin: EdgeInsets.symmetric(horizontal: 1.5.w),
@@ -128,7 +128,7 @@ class _ViewAllCategoryState extends State<ViewAllCategory> {
                             Text(
                               Categories[index].name.toString(),
                               style: TextStyle(
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w600),
                             ),

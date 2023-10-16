@@ -40,9 +40,9 @@ class _bottomnavbarState extends State<bottomnavbar> {
 
       notchBottomBarController: _controller!,
       showLabel: true,
-      notchColor: Colors.amber,
+      notchColor: Colors.blue,
 
-      itemLabelStyle: TextStyle(color: Colors.amber),
+      itemLabelStyle: TextStyle(color: Colors.blue),
 
 
       removeMargins: true,
@@ -52,7 +52,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
       bottomBarItems: [
         BottomBarItem(
           inActiveItem: Image.asset("assets/bottom/1.png",
-              height: 15.h, width: 20.w, color: Colors.amber),
+              height: 15.h, width: 20.w, color: Colors.blue),
           activeItem: Image.asset(
             "assets/bottom/1.png",
             height: 15.h,
@@ -62,7 +62,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
         ),
         BottomBarItem(
           inActiveItem: Image.asset("assets/bottom/2.png",
-              height: 15.h, width: 20.w, color: Colors.amber),
+              height: 15.h, width: 20.w, color: Colors.blue),
           activeItem: Image.asset(
             "assets/bottom/2.png",
             height: 15.h,
@@ -72,7 +72,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
         ),
         BottomBarItem(
           inActiveItem: Image.asset("assets/bottom/3.png",
-              height: 15.h, width: 20.w, color: Colors.amber),
+              height: 15.h, width: 20.w, color: Colors.blue),
           activeItem: Image.asset(
             "assets/bottom/3.png",
             height: 15.h,
@@ -95,6 +95,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
                   "assets/bottom/5.png",
                   height: 15.h,
                   width: 20.w,
+                  color: Colors.blue,
                 ),
               ),
               unreadmsgmodal?.remainToread == 0? Container(): Positioned(
@@ -123,7 +124,6 @@ class _bottomnavbarState extends State<bottomnavbar> {
 
               ),
               Container(
-
                 child: Image.asset(
                   "assets/bottom/5.png",
                   height: 15.h,
@@ -152,7 +152,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
         ),
         BottomBarItem(
           inActiveItem: Image.asset("assets/bottom/4.png",
-              height: 15.h, width: 20.w, color: Colors.amber),
+              height: 15.h, width: 20.w, color: Colors.blue),
           activeItem: Image.asset(
             "assets/bottom/4.png",
             height: 15.h,

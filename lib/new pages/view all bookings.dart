@@ -239,7 +239,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -268,7 +268,7 @@ class _BookingListState extends State<BookingList> {
                       //   bottom: 15.h,
                       //   child: IconButton(
                       //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.blue),
                       //   ),
                       // )
                     ],
@@ -414,7 +414,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -443,7 +443,7 @@ class _BookingListState extends State<BookingList> {
                       //   bottom: 15.h,
                       //   child: IconButton(
                       //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.blue),
                       //   ),
                       // )
                     ],
@@ -570,7 +570,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -599,7 +599,7 @@ class _BookingListState extends State<BookingList> {
                       //   bottom: 15.h,
                       //   child: IconButton(
                       //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.blue),
                       //   ),
                       // )
                     ],
@@ -745,7 +745,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -909,7 +909,7 @@ class _BookingListState extends State<BookingList> {
                                                 horizontal: 3.w,
                                                 vertical: 1.3.h),
                                             decoration: BoxDecoration(
-                                                color: Colors.pink,
+                                                color: Colors.blue,
                                                 borderRadius:
                                                     BorderRadius.circular(90)),
                                             child: Text(
@@ -1075,7 +1075,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -1104,7 +1104,7 @@ class _BookingListState extends State<BookingList> {
                       //   bottom: 15.h,
                       //   child: IconButton(
                       //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.blue),
                       //   ),
                       // )
                     ],
@@ -1250,7 +1250,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -1279,7 +1279,7 @@ class _BookingListState extends State<BookingList> {
                       //   bottom: 15.h,
                       //   child: IconButton(
                       //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.blue),
                       //   ),
                       // )
                     ],
@@ -1406,7 +1406,7 @@ class _BookingListState extends State<BookingList> {
                                                   horizontal: 3.w,
                                                   vertical: 1.3.h),
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),
@@ -1435,7 +1435,7 @@ class _BookingListState extends State<BookingList> {
                       //   bottom: 15.h,
                       //   child: IconButton(
                       //     onPressed: () {},
-                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.pink),
+                      //     icon: Icon(Icons.remove_circle_rounded,color: Colors.blue),
                       //   ),
                       // )
                     ],

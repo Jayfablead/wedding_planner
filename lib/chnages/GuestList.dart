@@ -78,14 +78,14 @@ class _GuestListState extends State<GuestList> {
                           EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: sel1 == 1 ? Colors.amber : Colors.white,
+                          color: sel1 == 1 ? Colors.blue : Colors.white,
                           borderRadius: BorderRadius.circular(9)),
                       margin: EdgeInsets.symmetric(horizontal: 2.w),
                       child: Text('Bride',
                           style: TextStyle(
                               fontSize: 14.5.sp,
                               fontFamily: 'sofi',
-                              color: sel1 == 1 ? Colors.white : Colors.amber,
+                              color: sel1 == 1 ? Colors.white : Colors.blue,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1)),
                     ),
@@ -102,14 +102,14 @@ class _GuestListState extends State<GuestList> {
                           EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: sel1 == 2 ? Colors.amber : Colors.white,
+                          color: sel1 == 2 ? Colors.blue : Colors.white,
                           borderRadius: BorderRadius.circular(9)),
                       margin: EdgeInsets.symmetric(horizontal: 2.w),
                       child: Text('Groom',
                           style: TextStyle(
                               fontSize: 14.5.sp,
                               fontFamily: 'sofi',
-                              color: sel1 == 2 ? Colors.white : Colors.amber,
+                              color: sel1 == 2 ? Colors.white : Colors.blue,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1)),
                     ),
@@ -263,7 +263,7 @@ class _GuestListState extends State<GuestList> {
                                                                             EdgeInsets.all(2.5.w),
                                                                         decoration: BoxDecoration(
                                                                             color:
-                                                                                Colors.amber,
+                                                                                Colors.blue,
                                                                             borderRadius: BorderRadius.circular(10)),
                                                                         child:
                                                                             Text(
@@ -290,7 +290,7 @@ class _GuestListState extends State<GuestList> {
                                                                             EdgeInsets.all(2.5.w),
                                                                         decoration: BoxDecoration(
                                                                             border: Border.all(
-                                                                              color: Colors.amber,
+                                                                              color: Colors.blue,
                                                                             ),
                                                                             color: Color(0xfff4f4f4),
                                                                             borderRadius: BorderRadius.circular(10)),
@@ -300,7 +300,7 @@ class _GuestListState extends State<GuestList> {
                                                                           style: TextStyle(
                                                                               fontSize: 13.sp,
                                                                               fontFamily: 'sofi',
-                                                                              color: Colors.amber,
+                                                                              color: Colors.blue,
                                                                               fontWeight: FontWeight.bold,
                                                                               letterSpacing: 1),
                                                                         ),
@@ -607,7 +607,7 @@ class _GuestListState extends State<GuestList> {
                                   width: 60.w,
                                   padding: EdgeInsets.all(2.5.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -817,7 +817,7 @@ class _GuestListState extends State<GuestList> {
                                                                       decoration: BoxDecoration(
                                                                           border: Border.all(
                                                                             color:
-                                                                                Colors.amber,
+                                                                                Colors.blue,
                                                                           ),
                                                                           color: Color(0xfff4f4f4),
                                                                           borderRadius: BorderRadius.circular(10)),
@@ -830,7 +830,7 @@ class _GuestListState extends State<GuestList> {
                                                                             fontFamily:
                                                                                 'sofi',
                                                                             color:
-                                                                                Colors.amber,
+                                                                                Colors.blue,
                                                                             fontWeight: FontWeight.bold,
                                                                             letterSpacing: 1),
                                                                       ),
@@ -1135,7 +1135,7 @@ class _GuestListState extends State<GuestList> {
                                   width: 60.w,
                                   padding: EdgeInsets.all(2.5.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,

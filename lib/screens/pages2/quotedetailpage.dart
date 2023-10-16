@@ -127,7 +127,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                     activeIndex: ind,
                     count: HotelIm.length,
                     effect: ScrollingDotsEffect(
-                      activeDotColor: Colors.amber,
+                      activeDotColor: Colors.blue,
                       activeStrokeWidth: 2.6,
                       activeDotScale: 1.2,
                       strokeWidth: 9,
@@ -152,7 +152,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         'Flower Decoration',
                         style: TextStyle(
                             fontSize: 18.sp,
-                            color: Colors.amber,
+                            color: Colors.blue,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
@@ -178,7 +178,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               Container(
                                 child: Icon(
                                   Icons.call,
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                   size: 22.sp,
                                 ),
                               ),
@@ -206,8 +206,8 @@ class _quotedetailpageState extends State<quotedetailpage> {
                           Container(
                               child: RatingBar(
                             itemSize: 18,
-                            glowColor: Colors.amber,
-                            unratedColor: Colors.amber,
+                            glowColor: Colors.blue,
+                            unratedColor: Colors.blue,
                             initialRating: 3,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
@@ -215,10 +215,10 @@ class _quotedetailpageState extends State<quotedetailpage> {
                             ratingWidget: RatingWidget(
                               full: Icon(
                                 Icons.star,
-                                color: Colors.amber,
+                                color: Colors.blue,
                               ),
                               half: Icon(Icons.star_half_sharp,
-                                  color: Colors.amber),
+                                  color: Colors.blue),
                               empty: Icon(Icons.star, color: Colors.grey),
                             ),
                             itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
@@ -241,7 +241,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               width: 40.w,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                border: Border.all(color: Colors.amber),
+                                border: Border.all(color: Colors.blue),
                                 borderRadius: BorderRadius.circular(25.sp),
                               ),
                               child: Center(
@@ -249,13 +249,13 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.check_circle, color: Colors.amber),
+                                  Icon(Icons.check_circle, color: Colors.blue),
                                   SizedBox(width: 2.w),
                                   Text(
                                     "Accept",
                                     style: TextStyle(
                                         fontSize: 13.sp,
-                                        color: Colors.amber,
+                                        color: Colors.blue,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'get'),
                                   ),
@@ -274,7 +274,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               width: 42.w,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                border: Border.all(color: Colors.amber),
+                                border: Border.all(color: Colors.blue),
                                 borderRadius: BorderRadius.circular(25.sp),
                               ),
                               child: Center(
@@ -282,13 +282,13 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.message, color: Colors.amber),
+                                  Icon(Icons.message, color: Colors.blue),
                                   SizedBox(width: 2.w),
                                   Text(
                                     "Chat now",
                                     style: TextStyle(
                                         fontSize: 13.sp,
-                                        color: Colors.amber,
+                                        color: Colors.blue,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'get'),
                                   ),
@@ -303,8 +303,8 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         'Quotation',
                         style: TextStyle(
                             fontSize: 16.sp,
-                            color: Colors.amber,
-                            // color: Colors.pink,
+                            color: Colors.blue,
+                            // color: Colors.blue,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
@@ -334,13 +334,13 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   // padding: EdgeInsets.all(3.w),
                                   // decoration: BoxDecoration(
                                   //     borderRadius: BorderRadius.circular(7),
-                                  //     color: Colors.pink),
+                                  //     color: Colors.blue),
                                   child: Text(
                                     'Amount to be paid',
                                     style: TextStyle(
                                         fontSize: 14.5.sp,
                                         color: Colors.black,
-                                        // color: Colors.pink,
+                                        // color: Colors.blue,
                                         fontFamily: 'sofi',
                                         letterSpacing: 1,
                                         fontWeight: FontWeight.bold),
@@ -354,8 +354,8 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                     //   'Cost : ',
                                     //   style: TextStyle(
                                     //       fontSize: 14.5.sp,
-                                    //       color: Colors.pink,
-                                    //       // color: Colors.pink,
+                                    //       color: Colors.blue,
+                                    //       // color: Colors.blue,
                                     //       fontFamily: 'sofi',
                                     //       letterSpacing: 1,
                                     //       fontWeight: FontWeight.bold),
@@ -381,13 +381,13 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   // padding: EdgeInsets.all(3.w),
                                   // decoration: BoxDecoration(
                                   //     borderRadius: BorderRadius.circular(7),
-                                  //     color: Colors.pink),
+                                  //     color: Colors.blue),
                                   child: Text(
                                     'Advance deposit',
                                     style: TextStyle(
                                         fontSize: 14.5.sp,
                                         color: Colors.grey,
-                                        // color: Colors.pink,
+                                        // color: Colors.blue,
                                         fontFamily: 'sofi',
                                         letterSpacing: 1,
                                         fontWeight: FontWeight.normal),
@@ -401,8 +401,8 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                     //   'Cost : ',
                                     //   style: TextStyle(
                                     //       fontSize: 14.5.sp,
-                                    //       color: Colors.pink,
-                                    //       // color: Colors.pink,
+                                    //       color: Colors.blue,
+                                    //       // color: Colors.blue,
                                     //       fontFamily: 'sofi',
                                     //       letterSpacing: 1,
                                     //       fontWeight: FontWeight.bold),
@@ -428,13 +428,13 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   // padding: EdgeInsets.all(3.w),
                                   // decoration: BoxDecoration(
                                   //     borderRadius: BorderRadius.circular(7),
-                                  //     color: Colors.pink),
+                                  //     color: Colors.blue),
                                   child: Text(
                                     'Booking Amount',
                                     style: TextStyle(
                                         fontSize: 14.5.sp,
                                         color: Colors.grey,
-                                        // color: Colors.pink,
+                                        // color: Colors.blue,
                                         fontFamily: 'sofi',
                                         letterSpacing: 1,
                                         fontWeight: FontWeight.normal),
@@ -448,8 +448,8 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                     //   'Cost : ',
                                     //   style: TextStyle(
                                     //       fontSize: 14.5.sp,
-                                    //       color: Colors.pink,
-                                    //       // color: Colors.pink,
+                                    //       color: Colors.blue,
+                                    //       // color: Colors.blue,
                                     //       fontFamily: 'sofi',
                                     //       letterSpacing: 1,
                                     //       fontWeight: FontWeight.bold),
@@ -482,7 +482,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                 'About',
                                 style: TextStyle(
                                     fontSize: 16.sp,
-                                    color: Colors.amber,
+                                    color: Colors.blue,
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.bold),
@@ -501,17 +501,17 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
-                                  colorClickableText: Colors.pink,
+                                  colorClickableText: Colors.blue,
                                   trimMode: TrimMode.Length,
                                   trimCollapsedText: 'Read More',
                                   trimExpandedText: ' Read Less',
                                   moreStyle: TextStyle(
                                       fontSize: 13.sp,
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold),
                                   lessStyle: TextStyle(
                                       fontSize: 13.sp,
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -526,7 +526,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         'Photos',
                         style: TextStyle(
                             fontSize: 16.sp,
-                            color: Colors.amber,
+                            color: Colors.blue,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),

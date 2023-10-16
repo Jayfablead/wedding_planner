@@ -131,7 +131,7 @@ class _CertificateState extends State<Certificate> {
                       Container(
                           padding: EdgeInsets.all(2.8.w),
                           decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(11)),
                           child: Icon(
                             CupertinoIcons.sort_up_circle,
@@ -212,7 +212,7 @@ class _CertificateState extends State<Certificate> {
                               padding: EdgeInsets.symmetric(vertical: 1.5.h),
                               margin: EdgeInsets.symmetric(horizontal: 3.w),
                               decoration: BoxDecoration(
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   borderRadius: BorderRadius.circular(90)),
                               child: Text(
                                 'Download',

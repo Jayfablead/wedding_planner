@@ -235,7 +235,7 @@ class _ChairManagementState extends State<ChairManagement> {
                                                 fontFamily: 'sofi',
                                                 letterSpacing: 1.5,
                                                 fontWeight: FontWeight.bold,
-                                                color: Colors.pink))
+                                                color: Colors.blue))
                                         : Container(),
                                     SizedBox(
                                       height: 1.h,
@@ -266,14 +266,14 @@ class _ChairManagementState extends State<ChairManagement> {
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                // border: Border.all(color: Colors.pink)
+                                                // border: Border.all(color: Colors.blue)
                                               ),
                                               child: Icon(
                                                 Icons.event_seat,
                                                 color: index1 == 2 ||
                                                         index1 == 5 ||
                                                         index1 == 3
-                                                    ? Colors.pink
+                                                    ? Colors.blue
                                                     : Colors.grey,
                                                 size: 24.sp,
                                               ),
@@ -296,7 +296,7 @@ class _ChairManagementState extends State<ChairManagement> {
                                                     fontSize: 12.sp,
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1.5,
-                                                    color: Colors.pink,
+                                                    color: Colors.blue,
                                                     fontWeight:
                                                         FontWeight.bold)),
                                           )
@@ -310,7 +310,7 @@ class _ChairManagementState extends State<ChairManagement> {
                                                       fontSize: 12.sp,
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1.5,
-                                                      color: Colors.pink,
+                                                      color: Colors.blue,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -385,7 +385,7 @@ class _ChairManagementState extends State<ChairManagement> {
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                // border: Border.all(color: Colors.pink)
+                                                // border: Border.all(color: Colors.blue)
                                               ),
                                               child: Icon(Icons.event_seat,
                                                   size: 24.sp,
@@ -396,13 +396,13 @@ class _ChairManagementState extends State<ChairManagement> {
                                                               index1 == 5 ||
                                                               index1 == 7 ||
                                                               index1 == 8
-                                                          ? Colors.pink
+                                                          ? Colors.blue
                                                           : Colors.grey
                                                       : index == 5
                                                           ? index1 == 3 ||
                                                                   index1 == 4 ||
                                                                   index1 == 5
-                                                              ? Colors.pink
+                                                              ? Colors.blue
                                                               : Colors.grey
                                                           : index == 7
                                                               ? index1 == 1 ||
@@ -410,7 +410,7 @@ class _ChairManagementState extends State<ChairManagement> {
                                                                           2 ||
                                                                       index1 ==
                                                                           3
-                                                                  ? Colors.pink
+                                                                  ? Colors.blue
                                                                   : Colors.grey
                                                               : index == 8
                                                                   ? index1 == 3 ||
@@ -443,7 +443,7 @@ class _ChairManagementState extends State<ChairManagement> {
                       fontSize: 15.sp,
                       fontFamily: 'sofi',
                       letterSpacing: 1.5,
-                      color: Colors.pink,
+                      color: Colors.blue,
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 1.5.h),
@@ -461,7 +461,7 @@ class _ChairManagementState extends State<ChairManagement> {
                             margin: EdgeInsets.only(right: 3.w, bottom: 1.h),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              // border: Border.all(color: Colors.pink)
+                              // border: Border.all(color: Colors.blue)
                             ),
                             child: Icon(Icons.event_seat,
                                 size: 24.sp, color: Colors.grey),
@@ -489,7 +489,7 @@ class _ChairManagementState extends State<ChairManagement> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Icon(Icons.event_seat,
-                                size: 24.sp, color: Colors.pink),
+                                size: 24.sp, color: Colors.blue),
                           ),
                           Text(
                             "Selected",
@@ -639,7 +639,7 @@ class _ChairManagementState extends State<ChairManagement> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 16.sp,
-                                color: Colors.pink,
+                                color: Colors.blue,
                                 letterSpacing: 1,
                                 fontWeight: FontWeight.bold,
                                 decorationColor: Colors.black,

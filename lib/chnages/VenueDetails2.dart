@@ -86,7 +86,7 @@ class _VenueDetails2State extends State<VenueDetails2> {
                             fontWeight: FontWeight.normal),
                       ),
                       // SizedBox(width: 1.w,),
-                      // Icon(Icons.star,color:Colors.amber.shade600,size: 14.sp,),
+                      // Icon(Icons.star,color:Colors.blue.shade600,size: 14.sp,),
                       // SizedBox(width: 1.w,),
                       // Text(
                       //   '4.5',
@@ -149,7 +149,7 @@ class _VenueDetails2State extends State<VenueDetails2> {
                               '\$ 15000',
                               style: TextStyle(
                                   fontSize: 15.sp,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -173,7 +173,7 @@ class _VenueDetails2State extends State<VenueDetails2> {
                               '500 Person',
                               style: TextStyle(
                                   fontSize: 15.sp,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -212,17 +212,17 @@ class _VenueDetails2State extends State<VenueDetails2> {
                           fontFamily: 'sofi',
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
-                      colorClickableText: Colors.pink,
+                      colorClickableText: Colors.blue,
                       trimMode: TrimMode.Line,
                       trimCollapsedText: ' Read More',
                       trimExpandedText: ' Read Less',
                       moreStyle: TextStyle(
                           fontSize: 13.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontWeight: FontWeight.bold),
                       lessStyle: TextStyle(
                           fontSize: 13.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

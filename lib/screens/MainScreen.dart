@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
         Image.asset('assets/bg.png',
             height: double.infinity, width: double.infinity, fit: BoxFit.cover),
         Positioned(
-            top: 60.h,
+            top: 58.h,
             left: 22.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w600),
                 ),
@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w600),
                 ),
@@ -84,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
               width: 90.w,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(80), color: Colors.pink),
+                  borderRadius: BorderRadius.circular(80), color: Colors.blue),
               child: Text('Get Started',
                   style: TextStyle(
                       fontSize: 14.sp, color: Colors.white, fontFamily: 'get')),

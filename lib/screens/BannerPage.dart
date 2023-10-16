@@ -127,7 +127,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                       padding: EdgeInsets.all(0.5.w),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(90),
-                                        color: Colors.pink,
+                                        color: Colors.blue,
                                       ),
                                       child: IconButton(
                                         onPressed: () {},
@@ -156,7 +156,7 @@ class _MoodBordsScreenState extends State<MoodBordsScreen> {
                                   onTap: () {},
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        color: Colors.pink,
+                                        color: Colors.blue,
                                         borderRadius:
                                             BorderRadius.circular(90)),
                                     padding: EdgeInsets.all(3.w),

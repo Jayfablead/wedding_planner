@@ -216,7 +216,7 @@ class _AddQuoteState extends State<AddQuote> {
                         child: Container(
                           width: 92.w,
                           decoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(90),
                           ),
                           padding: EdgeInsets.all(3.w),
@@ -302,7 +302,7 @@ class _AddQuoteState extends State<AddQuote> {
                     width: 92.w,
                     height: 6.h,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(25.sp),
                     ),
                     child: Center(

@@ -46,7 +46,7 @@ class _Main3State extends State<Main3> {
                     style: TextStyle(
                         fontFamily: 'wed',
                         fontSize: 22.sp,
-                        color: Colors.pink,
+                        color: Colors.blue,
                         letterSpacing: 1.5,
                         fontWeight: FontWeight.w600),
                   ),
@@ -65,7 +65,7 @@ class _Main3State extends State<Main3> {
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                       letterSpacing: 1.5,
                       fontWeight: FontWeight.bold),
                 ),
@@ -83,7 +83,7 @@ class _Main3State extends State<Main3> {
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                       letterSpacing: 1.5,
                       fontWeight: FontWeight.bold),
                 ),
@@ -101,7 +101,7 @@ class _Main3State extends State<Main3> {
               width: 90.w,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.pink),
+                  border: Border.all(color: Colors.blue),
                   borderRadius: BorderRadius.circular(80),
                   color: Colors.white54),
               child: Text(
@@ -110,7 +110,7 @@ class _Main3State extends State<Main3> {
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2,
                     fontSize: 25.sp,
-                    color: Colors.pink,
+                    color: Colors.blue,
                     fontFamily: 'wed'),
               ),
             ),

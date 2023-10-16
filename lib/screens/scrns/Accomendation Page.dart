@@ -130,7 +130,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                         Container(
                             padding: EdgeInsets.all(2.8.w),
                             decoration: BoxDecoration(
-                                color: Colors.pink,
+                                color: Colors.blue,
                                 borderRadius: BorderRadius.circular(11)),
                             child: Icon(
                               CupertinoIcons.sort_up_circle,
@@ -253,7 +253,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                               CupertinoIcons
                                                                   .location_solid,
                                                               color:
-                                                                  Colors.pink,
+                                                                  Colors.blue,
                                                               size: 14.sp),
                                                           SizedBox(
                                                               width: 0.5.w),
@@ -303,7 +303,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                       child: Container(
                                         padding: EdgeInsets.all(2.w),
                                         decoration: BoxDecoration(
-                                            color: Colors.pink,
+                                            color: Colors.blue,
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         child: Row(
@@ -448,7 +448,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                               CupertinoIcons
                                                                   .location_solid,
                                                               color:
-                                                                  Colors.pink,
+                                                                  Colors.blue,
                                                               size: 10.sp),
                                                           SizedBox(
                                                               width: 0.5.w),
@@ -489,7 +489,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                     child: Container(
                                       padding: EdgeInsets.all(2.w),
                                       decoration: BoxDecoration(
-                                          color: Colors.pink,
+                                          color: Colors.blue,
                                           borderRadius:
                                               BorderRadius.circular(10)),
                                       child: Row(

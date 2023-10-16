@@ -320,7 +320,7 @@ class _BookingsPageState extends State<BookingsPage> {
                       width: 92.w,
                       height: 6.h,
                       decoration: BoxDecoration(
-                        color: Colors.pink,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(25.sp),
                       ),
                       child: Center(

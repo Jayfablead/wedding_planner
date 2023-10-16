@@ -83,7 +83,7 @@ class _DecorationPageState extends State<DecorationPage> {
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                color: Colors.pink,
+                                color: Colors.blue,
                               ),
                               padding: EdgeInsets.all(2.w),
                               margin: EdgeInsets.symmetric(horizontal: 1.5.w),
@@ -138,7 +138,7 @@ class _DecorationPageState extends State<DecorationPage> {
                                               "Book Now",
                                               style: TextStyle(
                                                   fontSize: 13.sp,
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   fontWeight: FontWeight.bold,
                                                   fontFamily: 'sofi'),
                                             ),
@@ -238,7 +238,7 @@ class _DecorationPageState extends State<DecorationPage> {
                                         height: 5.h,
                                         width: 39.w,
                                         decoration: BoxDecoration(
-                                          color: Colors.pink,
+                                          color: Colors.blue,
                                           borderRadius:
                                               BorderRadius.circular(25.sp),
                                         ),
@@ -272,7 +272,7 @@ class _DecorationPageState extends State<DecorationPage> {
                           padding: EdgeInsets.symmetric(
                               horizontal: 4.w, vertical: 1.7.h),
                           decoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(25.sp),
                           ),
                           child: Center(

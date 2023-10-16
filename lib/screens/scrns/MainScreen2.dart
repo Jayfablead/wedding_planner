@@ -49,7 +49,7 @@ class _Main2State extends State<Main2> {
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 18.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                       letterSpacing: 1.5,
                       fontWeight: FontWeight.w600),
                 ),
@@ -67,7 +67,7 @@ class _Main2State extends State<Main2> {
               width: 90.w,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.pink),
+                  border: Border.all(color: Colors.blue),
                   borderRadius: BorderRadius.circular(80),
                   color: Colors.white54),
               child: Text(
@@ -76,7 +76,7 @@ class _Main2State extends State<Main2> {
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,
                     fontSize: 15.sp,
-                    color: Colors.pink,
+                    color: Colors.blue,
                     fontFamily: 'get'),
               ),
             ),

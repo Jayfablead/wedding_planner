@@ -92,7 +92,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       style: TextStyle(
                         fontSize: 27.sp,
                         fontFamily: 'sofi',
-                        color: Colors.pink,
+                        color: Colors.blue,
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
                       ),
@@ -104,7 +104,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       width: 17.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(90),
-                          border: Border.all(color: Colors.pink, width: 3)),
+                          border: Border.all(color: Colors.blue, width: 3)),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(90),
                         child: CachedNetworkImage(

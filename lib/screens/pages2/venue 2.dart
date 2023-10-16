@@ -136,7 +136,7 @@ class _Venue2State extends State<Venue2> {
                       Container(
                           padding: EdgeInsets.all(2.8.w),
                           decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(11)),
                           child: Icon(
                             CupertinoIcons.sort_up_circle,
@@ -245,7 +245,7 @@ class _Venue2State extends State<Venue2> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 4.w, vertical: 1.h),
                                   decoration: BoxDecoration(
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(90)),
                                   child: Row(
                                     crossAxisAlignment:
@@ -276,7 +276,7 @@ class _Venue2State extends State<Venue2> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 3.w, vertical: 1.3.h),
                                   decoration: BoxDecoration(
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(90)),
                                   child: Text(
                                     'View Details',

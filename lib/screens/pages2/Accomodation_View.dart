@@ -130,7 +130,7 @@ class _Acco_viewState extends State<Acco_view> {
                           activeIndex: ind,
                           count: HotelIm.length,
                           effect: ScrollingDotsEffect(
-                            activeDotColor: Colors.pink,
+                            activeDotColor: Colors.blue,
                             activeStrokeWidth: 2.6,
                             activeDotScale: 1.2,
                             strokeWidth: 9,
@@ -153,7 +153,7 @@ class _Acco_viewState extends State<Acco_view> {
                       'Hotel Marriott Luxeriya',
                       style: TextStyle(
                           fontSize: 18.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
@@ -184,7 +184,7 @@ class _Acco_viewState extends State<Acco_view> {
                       'Details',
                       style: TextStyle(
                           fontSize: 17.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
@@ -202,17 +202,17 @@ class _Acco_viewState extends State<Acco_view> {
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
-                        colorClickableText: Colors.pink,
+                        colorClickableText: Colors.blue,
                         trimMode: TrimMode.Line,
                         trimCollapsedText: ' Read More',
                         trimExpandedText: ' Read Less',
                         moreStyle: TextStyle(
                             fontSize: 13.sp,
-                            color: Colors.pink,
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold),
                         lessStyle: TextStyle(
                             fontSize: 13.sp,
-                            color: Colors.pink,
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -221,7 +221,7 @@ class _Acco_viewState extends State<Acco_view> {
                       'Rates',
                       style: TextStyle(
                           fontSize: 17.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
@@ -255,7 +255,7 @@ class _Acco_viewState extends State<Acco_view> {
                       'Amenities',
                       style: TextStyle(
                           fontSize: 17.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
@@ -394,7 +394,7 @@ class _Acco_viewState extends State<Acco_view> {
                             height: 5.5.h,
                             width: 45.w,
                             decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
                             child: Center(
@@ -413,7 +413,7 @@ class _Acco_viewState extends State<Acco_view> {
                             height: 5.5.h,
                             width: 45.w,
                             decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
                             child: Center(

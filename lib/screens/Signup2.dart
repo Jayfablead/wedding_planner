@@ -117,7 +117,7 @@ class _Signup2State extends State<Signup2> {
                         height: 1.h,
                         width: 40.w,
                         decoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(50)),
                       ),
                     ]),
@@ -337,7 +337,7 @@ class _Signup2State extends State<Signup2> {
                     width: 90.w,
                     height: 7.h,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(25.sp),
                     ),
                     child: Center(

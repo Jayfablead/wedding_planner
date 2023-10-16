@@ -108,7 +108,7 @@ class _SignupPageState extends State<SignupPage> {
                         height: 1.h,
                         width: 40.w,
                         decoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(50)),
                       ),
                       Container(
@@ -299,7 +299,7 @@ class _SignupPageState extends State<SignupPage> {
                     width: 90.w,
                     height: 7.h,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(25.sp),
                     ),
                     child: Center(
@@ -358,7 +358,7 @@ class _SignupPageState extends State<SignupPage> {
                                 letterSpacing: 1,
                                 fontFamily: 'sofi',
                                 fontWeight: FontWeight.bold,
-                                color: Colors.pink),
+                                color: Colors.blue),
                           ))
                     ]),
                 SizedBox(

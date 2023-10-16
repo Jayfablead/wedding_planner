@@ -149,7 +149,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     width: 90.w,
                     height: 7.h,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(25.sp),
                     ),
                     child: Center(

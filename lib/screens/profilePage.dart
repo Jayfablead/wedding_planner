@@ -189,7 +189,7 @@ class _MyProfileState extends State<MyProfile> {
                     height: 5.5.h,
                     width: 40.w,
                     decoration: BoxDecoration(
-                        color: Colors.pink,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(90)),
                     child: Text(
                       'Edit Profile',
@@ -228,7 +228,7 @@ class _MyProfileState extends State<MyProfile> {
                                     padding: EdgeInsets.all(3.w),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(7),
-                                        color: Colors.pink),
+                                        color: Colors.blue),
                                     child: Icon(
                                       Icons.miscellaneous_services_rounded,
                                       color: Colors.white,
@@ -270,7 +270,7 @@ class _MyProfileState extends State<MyProfile> {
                                     padding: EdgeInsets.all(3.w),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(7),
-                                        color: Colors.pink),
+                                        color: Colors.blue),
                                     child: Icon(
                                       CupertinoIcons.search_circle,
                                       color: Colors.white,
@@ -315,7 +315,7 @@ class _MyProfileState extends State<MyProfile> {
                                     padding: EdgeInsets.all(3.w),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(7),
-                                        color: Colors.pink),
+                                        color: Colors.blue),
                                     child: Icon(
                                       CupertinoIcons.phone,
                                       color: Colors.white,
@@ -358,7 +358,7 @@ class _MyProfileState extends State<MyProfile> {
                                 padding: EdgeInsets.all(3.w),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(7),
-                                    color: Colors.pink),
+                                    color: Colors.blue),
                                 child: Icon(
                                   CupertinoIcons.home,
                                   color: Colors.white,
@@ -390,17 +390,17 @@ class _MyProfileState extends State<MyProfile> {
                                       child: ReadMoreText(
                                         trimLines: 2,
                                         trimLength: 50,
-                                        colorClickableText: Colors.pink,
+                                        colorClickableText: Colors.blue,
                                         trimMode: TrimMode.Length,
                                         trimCollapsedText: 'Read more',
                                         trimExpandedText: '  Read less',
                                         moreStyle: TextStyle(
                                             fontSize: 13.sp,
-                                            color: Colors.pink,
+                                            color: Colors.blue,
                                             fontWeight: FontWeight.bold),
                                         lessStyle: TextStyle(
                                             fontSize: 13.sp,
-                                            color: Colors.pink,
+                                            color: Colors.blue,
                                             fontWeight: FontWeight.bold),
                                         "Nowhere, Don't know where he lived.",
                                         style: TextStyle(
@@ -427,7 +427,7 @@ class _MyProfileState extends State<MyProfile> {
                                 padding: EdgeInsets.all(3.w),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(7),
-                                    color: Colors.pink),
+                                    color: Colors.blue),
                                 child: Icon(
                                   CupertinoIcons.info_circle,
                                   color: Colors.white,
@@ -457,17 +457,17 @@ class _MyProfileState extends State<MyProfile> {
                                     child: ReadMoreText(
                                       trimLines: 2,
                                       trimLength: 50,
-                                      colorClickableText: Colors.pink,
+                                      colorClickableText: Colors.blue,
                                       trimMode: TrimMode.Length,
                                       trimCollapsedText: 'Read more',
                                       trimExpandedText: '  Read less',
                                       moreStyle: TextStyle(
                                           fontSize: 13.sp,
-                                          color: Colors.pink,
+                                          color: Colors.blue,
                                           fontWeight: FontWeight.bold),
                                       lessStyle: TextStyle(
                                           fontSize: 13.sp,
-                                          color: Colors.pink,
+                                          color: Colors.blue,
                                           fontWeight: FontWeight.bold),
                                       "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
                                       style: TextStyle(
@@ -505,7 +505,7 @@ class _MyProfileState extends State<MyProfile> {
     letterSpacing: 2,
   );
   TextStyle mail = TextStyle(
-    color: Colors.pink,
+    color: Colors.blue,
     fontSize: 14.sp,
     fontFamily: 'sofi',
     fontWeight: FontWeight.w600,

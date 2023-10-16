@@ -147,7 +147,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       fontSize: 18.sp,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -182,7 +182,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       fontSize: 18.sp,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -205,7 +205,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: Container(
                           padding: EdgeInsets.all(2.w),
                           decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -368,7 +368,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -514,7 +514,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -641,7 +641,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -787,7 +787,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -933,7 +933,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -1079,7 +1079,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -1225,7 +1225,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -1352,7 +1352,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.remove_circle_rounded,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       )
                     ],
@@ -1372,7 +1372,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                         child: Container(
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(10)),
                           child: Text(
                             'Send a Request',

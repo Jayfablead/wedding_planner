@@ -230,7 +230,7 @@ class _MySuppliersState extends State<MySuppliers> {
                                   height: 4.5.h,
                                   width: 38.w,
                                   decoration: BoxDecoration(
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(90)),
                                   child: Text(
                                     'View Details',

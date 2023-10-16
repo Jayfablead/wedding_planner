@@ -81,7 +81,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                         Icon(
                           Icons.date_range,
                           size: 20.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                         ),
                         SizedBox(
                           width: 1.5.w,
@@ -135,7 +135,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             Icon(
                               Icons.timer_outlined,
                               size: 20.sp,
-                              color: Colors.pink,
+                              color: Colors.blue,
                             ),
                             SizedBox(
                               width: 1.5.w,
@@ -171,7 +171,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             Icon(
                               Icons.timer_outlined,
                               size: 20.sp,
-                              color: Colors.pink,
+                              color: Colors.blue,
                             ),
                             SizedBox(
                               width: 1.5.w,
@@ -222,7 +222,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             Icon(
                               Icons.currency_rupee_sharp,
                               size: 20.sp,
-                              color: Colors.pink,
+                              color: Colors.blue,
                             ),
                             SizedBox(
                               width: 1.5.w,
@@ -263,7 +263,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             Icon(
                               Icons.people_outline_rounded,
                               size: 20.sp,
-                              color: Colors.pink,
+                              color: Colors.blue,
                             ),
                             SizedBox(
                               width: 1.5.w,
@@ -310,7 +310,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                         Icon(
                           Icons.location_on_outlined,
                           size: 20.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                         ),
                         SizedBox(
                           width: 1.5.w,
@@ -365,7 +365,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                         Icon(
                           Icons.location_on_outlined,
                           size: 20.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                         ),
                         SizedBox(
                           width: 1.5.w,
@@ -419,7 +419,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     width: 90.w,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: Colors.pink,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(10)),
                     child: Text(
                       'Continue',

@@ -160,7 +160,7 @@ class _PostPageState extends State<PostPage> {
                     onTap: () {},
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.amber,
+                          color: Colors.blue,
                           borderRadius: BorderRadius.circular(90)),
                       padding:
                           EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),

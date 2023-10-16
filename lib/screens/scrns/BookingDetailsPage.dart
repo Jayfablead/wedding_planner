@@ -98,7 +98,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                                 Icon(
                                   Icons.currency_rupee_sharp,
                                   size: 20.sp,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                 ),
                                 SizedBox(
                                   height: 1.h,
@@ -139,7 +139,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                                 Icon(
                                   Icons.people_outline_rounded,
                                   size: 22.sp,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                 ),
                                 SizedBox(
                                   height: 1.h,
@@ -181,7 +181,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                                 Icon(
                                   Icons.shopping_bag_sharp,
                                   size: 22.sp,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                 ),
                                 SizedBox(
                                   height: 1.h,
@@ -245,7 +245,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       height: 5.5.h,
                       width: 45.w,
                       decoration: BoxDecoration(
-                        color: Colors.pink,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(25.sp),
                       ),
                       child: Center(
@@ -266,7 +266,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       height: 5.5.h,
                       width: 45.w,
                       decoration: BoxDecoration(
-                        color: Colors.pink,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(25.sp),
                       ),
                       child: Center(

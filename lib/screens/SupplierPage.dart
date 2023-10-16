@@ -278,7 +278,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       height: 5.h,
                       width: 40.w,
                       decoration: BoxDecoration(
-                        color: Colors.pink,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(15.sp),
                       ),
                       child: Center(
@@ -306,15 +306,15 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       height: 5.h,
                       width: 45.w,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.pink.shade200),
-                        color: Colors.pink.withOpacity(0.1),
+                        border: Border.all(color: Colors.blue.shade200),
+                        color: Colors.blue.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(15.sp),
                       ),
                       child: Center(
                         child: Text(
                           "Quote Requested",
                           style: TextStyle(
-                              color: Colors.pink.shade300, fontSize: 14.sp),
+                              color: Colors.blue.shade300, fontSize: 14.sp),
                         ),
                       ),
                     ),

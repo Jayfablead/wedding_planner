@@ -90,7 +90,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                           'Vinsmoke Sanji',
                           style: TextStyle(
                               fontSize: 17.sp,
-                              color: Colors.amber,
+                              color: Colors.blue,
                               fontFamily: 'sofi',
                               letterSpacing: 1,
                               fontWeight: FontWeight.bold),
@@ -184,7 +184,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                           activeIndex: ind,
                           count: HotelIm.length,
                           effect: ScrollingDotsEffect(
-                            activeDotColor: Colors.amber,
+                            activeDotColor: Colors.blue,
                             activeStrokeWidth: 2.6,
                             activeDotScale: 1.2,
                             strokeWidth: 9,
@@ -215,7 +215,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.amber),
+                                  color: Colors.blue),
                               child: Icon(
                                 CupertinoIcons.globe,
                                 color: Colors.white,
@@ -231,7 +231,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                                   'Venue Name : ',
                                   style: TextStyle(
                                       fontSize: 17.sp,
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -272,7 +272,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.amber),
+                                  color: Colors.blue),
                               child: Icon(
                                 CupertinoIcons.phone,
                                 color: Colors.white,
@@ -288,7 +288,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                                   'Contact : ',
                                   style: TextStyle(
                                       fontSize: 17.sp,
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -314,7 +314,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.amber),
+                                  color: Colors.blue),
                               child: Icon(
                                 CupertinoIcons.money_dollar,
                                 color: Colors.white,
@@ -330,7 +330,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                                   'Cost : ',
                                   style: TextStyle(
                                       fontSize: 17.sp,
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -360,7 +360,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.amber),
+                              color: Colors.blue),
                           child: Icon(
                             Icons.chair_outlined,
                             color: Colors.white,
@@ -376,7 +376,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               'Seating Capacity : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -404,7 +404,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.amber),
+                              color: Colors.blue),
                           child: Icon(
                             Icons.table_restaurant_outlined,
                             color: Colors.white,
@@ -420,7 +420,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               'Available Tables : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -448,7 +448,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.amber),
+                              color: Colors.blue),
                           child: Icon(
                             Icons.location_on_outlined,
                             color: Colors.white,
@@ -464,7 +464,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               'Address : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -495,7 +495,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.amber),
+                              color: Colors.blue),
                           child: Icon(
                             CupertinoIcons.info_circle,
                             color: Colors.white,
@@ -511,7 +511,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                               'About : ',
                               style: TextStyle(
                                   fontSize: 17.sp,
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -529,17 +529,17 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.bold),
-                                colorClickableText: Colors.amber,
+                                colorClickableText: Colors.blue,
                                 trimMode: TrimMode.Line,
                                 trimCollapsedText: ' Read More',
                                 trimExpandedText: ' Read Less',
                                 moreStyle: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Colors.amber,
+                                    color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                                 lessStyle: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Colors.amber,
+                                    color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -558,7 +558,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                     //         height: 5.5.h,
                     //         width: 45.w,
                     //         decoration: BoxDecoration(
-                    //           color: Colors.amber,
+                    //           color: Colors.blue,
                     //           borderRadius: BorderRadius.circular(25.sp),
                     //         ),
                     //         child: Center(
@@ -577,7 +577,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                     //         height: 5.5.h,
                     //         width: 45.w,
                     //         decoration: BoxDecoration(
-                    //           color: Colors.amber,
+                    //           color: Colors.blue,
                     //           borderRadius: BorderRadius.circular(25.sp),
                     //         ),
                     //         child: Center(

@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
             home: SplashLogo(),
             builder: EasyLoading.init(),
             theme: ThemeData(
-              primarySwatch: Colors.amber,
+              primarySwatch: Colors.blue,
             ),
           );
         },

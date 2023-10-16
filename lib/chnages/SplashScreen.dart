@@ -42,7 +42,7 @@ class _SplashLogoState extends State<SplashLogo> {
               Container(
                 height: 32.h,
                 width: 100.w,
-                child: Lottie.asset('assets/hrt.json'),
+                child: Lottie.asset('assets/pl.json'),
               ),
             ],
           ),
@@ -51,7 +51,7 @@ class _SplashLogoState extends State<SplashLogo> {
             style: TextStyle(
               fontFamily: 'wbold',
               fontSize: 28.sp,
-              color: Colors.pink,
+              color: Colors.blue,
               letterSpacing: 1,
             ),
           ),
@@ -64,7 +64,7 @@ class _SplashLogoState extends State<SplashLogo> {
                 height: 0.2.h,
                 margin: EdgeInsets.only(top: 0.5.h),
                 decoration: BoxDecoration(
-                  color: Colors.pink,
+                  color: Colors.blue,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
@@ -73,7 +73,7 @@ class _SplashLogoState extends State<SplashLogo> {
                 style: TextStyle(
                   fontFamily: 'wreg',
                   fontSize: 16.sp,
-                  color: Colors.pink,
+                  color: Colors.blue,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 1.5,
                 ),
@@ -83,7 +83,7 @@ class _SplashLogoState extends State<SplashLogo> {
                 height: 0.2.h,
                 margin: EdgeInsets.only(top: 1.h),
                 decoration: BoxDecoration(
-                  color: Colors.pink,
+                  color: Colors.blue,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),

@@ -228,7 +228,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: sel == index
-                                            ? Colors.pink
+                                            ? Colors.blue
                                             : Colors.white,
                                         borderRadius: BorderRadius.circular(9)),
                                     margin:
@@ -398,7 +398,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                 child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     crossAxisAlignment:
@@ -573,7 +573,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                 child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     crossAxisAlignment:
@@ -748,7 +748,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                 child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.pink,
+                                      color: Colors.blue,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     crossAxisAlignment:

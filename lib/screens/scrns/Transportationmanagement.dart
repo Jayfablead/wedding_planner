@@ -128,7 +128,7 @@ class _BookingListPageState extends State<BookingListPage> {
                           Container(
                               padding: EdgeInsets.all(2.8.w),
                               decoration: BoxDecoration(
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   borderRadius: BorderRadius.circular(11)),
                               child: Icon(
                                 CupertinoIcons.sort_up_circle,
@@ -165,7 +165,7 @@ class _BookingListPageState extends State<BookingListPage> {
                                     decoration: BoxDecoration(
                                         border: Border.all(width: 0.5),
                                         color: sel == index
-                                            ? Colors.pink
+                                            ? Colors.blue
                                             : Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(20)),
@@ -368,7 +368,7 @@ class _BookingListPageState extends State<BookingListPage> {
                                 height: 5.h,
                                 width: 39.w,
                                 decoration: BoxDecoration(
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   borderRadius: BorderRadius.circular(25.sp),
                                 ),
                                 child: Center(

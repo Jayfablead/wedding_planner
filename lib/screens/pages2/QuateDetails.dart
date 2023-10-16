@@ -118,7 +118,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                         activeIndex: ind,
                         count: HotelIm.length,
                         effect: ScrollingDotsEffect(
-                          activeDotColor: Colors.pink,
+                          activeDotColor: Colors.blue,
                           activeStrokeWidth: 2.6,
                           activeDotScale: 1.2,
                           strokeWidth: 9,
@@ -143,7 +143,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                       'Flower Decoration',
                       style: TextStyle(
                           fontSize: 18.sp,
-                          color: Colors.pink,
+                          color: Colors.blue,
                           fontFamily: 'sofi',
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
@@ -156,7 +156,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.blue),
                           child: Icon(
                             Icons.person_outline_rounded,
                             color: Colors.white,
@@ -172,7 +172,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               style: TextStyle(
                                   fontSize: 14.5.sp,
                                   fontFamily: 'sofi',
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -201,7 +201,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.blue),
                           child: Icon(
                             CupertinoIcons.phone,
                             color: Colors.white,
@@ -217,7 +217,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               style: TextStyle(
                                   fontSize: 14.5.sp,
                                   fontFamily: 'sofi',
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -247,7 +247,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.pink),
+                                  color: Colors.blue),
                               child: Icon(
                                 Icons.access_time_rounded,
                                 color: Colors.white,
@@ -262,8 +262,8 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                                   'Date : ',
                                   style: TextStyle(
                                       fontSize: 14.5.sp,
-                                      color: Colors.pink,
-                                      // color: Colors.pink,
+                                      color: Colors.blue,
+                                      // color: Colors.blue,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -289,7 +289,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               padding: EdgeInsets.all(3.w),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(7),
-                                  color: Colors.pink),
+                                  color: Colors.blue),
                               child: Icon(
                                 Icons.attach_money_outlined,
                                 color: Colors.white,
@@ -304,8 +304,8 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                                   'Cost : ',
                                   style: TextStyle(
                                       fontSize: 14.5.sp,
-                                      color: Colors.pink,
-                                      // color: Colors.pink,
+                                      color: Colors.blue,
+                                      // color: Colors.blue,
                                       fontFamily: 'sofi',
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
@@ -334,7 +334,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.pink),
+                              color: Colors.blue),
                           child: Icon(
                             Icons.person_outline_rounded,
                             color: Colors.white,
@@ -349,7 +349,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                               'Details :',
                               style: TextStyle(
                                   fontSize: 14.5.sp,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   fontFamily: 'sofi',
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold),
@@ -368,17 +368,17 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.bold),
-                                colorClickableText: Colors.pink,
+                                colorClickableText: Colors.blue,
                                 trimMode: TrimMode.Length,
                                 trimCollapsedText: 'Read More',
                                 trimExpandedText: ' Read Less',
                                 moreStyle: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Colors.pink,
+                                    color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                                 lessStyle: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Colors.pink,
+                                    color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -398,7 +398,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                             height: 5.5.h,
                             width: 42.w,
                             decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
                             child: Center(
@@ -430,7 +430,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                             height: 5.5.h,
                             width: 42.w,
                             decoration: BoxDecoration(
-                              color: Colors.pink,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
                             child: Center(

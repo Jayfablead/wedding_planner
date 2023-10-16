@@ -136,7 +136,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                                       borderRadius: BorderRadius.circular(20)),
                                   child: const Icon(
                                     Icons.camera_alt_outlined,
-                                    color: Colors.pink,
+                                    color: Colors.blue,
                                   )))),
                     ],
                   ),
@@ -151,7 +151,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(color: Colors.pink)),
+                        border: Border.all(color: Colors.blue)),
                     child: Form(
                       child: Column(
                         children: [
@@ -367,7 +367,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         width: 45.w,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            color: Colors.pink,
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(30)),
                         child: Text(
                           'Update Profile',

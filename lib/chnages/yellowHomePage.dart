@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/new%20pages/Check%20List.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -35,6 +38,7 @@ class cate1 {
     this.desc,
   );
 }
+
 
 List<cate> Categories = [
   cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
@@ -74,6 +78,9 @@ List<cate1> venue = [
 TextEditingController _search = TextEditingController();
 int sel = 1;
 
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+
 class _YellowHomeScreenState extends State<YellowHomeScreen> {
   @override
   void initState() {
@@ -83,7 +90,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       sel = 1;
     });
   }
-
+  int? sel1=0;
+  List<String> type = ["All","Todo","Meeting"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,15 +129,15 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                       fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1,
-                                      color: Colors.amber),
+                                      color: Colors.blue),
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    openDrawer();
+                                    scaffoldKey.currentState?.openDrawer();
                                   },
                                   icon: Icon(
                                     Icons.menu_rounded,
-                                    color: Colors.amber,
+                                    color: Colors.blue,
                                     size: 23.sp,
                                   ),
                                 ),
@@ -170,28 +178,28 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   searchBox(),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 1.w),
-                      height: 6.5.h,
-                      width: 13.w,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(90),
-                        child: CachedNetworkImage(
-                          fit: BoxFit.cover,
-                          imageUrl:
-                              'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
-                          progressIndicatorBuilder: (context, url, progress) =>
-                              CircularProgressIndicator(),
-                          errorWidget: (context, url, error) => Image.asset(
-                            'assets/deprf.png',
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // InkWell(
+                  //   onTap: () {},
+                  //   child: Container(
+                  //     margin: EdgeInsets.symmetric(horizontal: 1.w),
+                  //     height: 6.5.h,
+                  //     width: 13.w,
+                  //     child: ClipRRect(
+                  //       borderRadius: BorderRadius.circular(90),
+                  //       child: CachedNetworkImage(
+                  //         fit: BoxFit.cover,
+                  //         imageUrl:
+                  //             'https://i.pinimg.com/280x280_RS/fc/71/56/fc7156e9ddbd524ab1541d3942725efd.jpg',
+                  //         progressIndicatorBuilder: (context, url, progress) =>
+                  //             CircularProgressIndicator(),
+                  //         errorWidget: (context, url, error) => Image.asset(
+                  //           'assets/deprf.png',
+                  //           color: Colors.black,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(
@@ -214,238 +222,276 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
               SizedBox(
                 height: 1.h,
               ),
-              SizedBox(
-                height: 14.5.h,
-                child: ListView(
+              // SizedBox(
+              //   height: 14.5.h,
+              //   child: ListView(
+              //       scrollDirection: Axis.horizontal,
+              //       padding: EdgeInsets.zero,
+              //       children: [
+              //         InkWell(
+              //           onTap: () {
+              //             setState(() {
+              //               sel = 1;
+              //             });
+              //           },
+              //           child:
+              //           Container(
+              //             child: Card(
+              //                 color: sel == 1 ? Colors.blue : Colors.white,
+              //                 shape: RoundedRectangleBorder(
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 elevation: 4,
+              //                 child: Padding(
+              //                   padding: EdgeInsets.symmetric(horizontal: 3.w),
+              //                   child: Column(
+              //                     children: [
+              //                       Container(
+              //                         margin: EdgeInsets.all(2.5.w),
+              //                         child:
+              //                         Image.asset('assets/1.png',
+              //                             color: sel == 1
+              //                                 ? Colors.white
+              //                                 : Colors.blue,
+              //                             height: 6.h,
+              //                             width: 13.w
+              //                         ),
+              //                       ),
+              //                       SizedBox(
+              //                         width: 21.w,
+              //                         child: Text(
+              //                           'Wedding Hall',
+              //                           textAlign: TextAlign.center,
+              //                           style: TextStyle(
+              //                               fontSize: 13.sp,
+              //                               fontFamily: 'sofi',
+              //                               fontWeight: FontWeight.bold,
+              //                               letterSpacing: 1,
+              //                               color: sel == 1
+              //                                   ? Colors.white
+              //                                   : Colors.blue),
+              //                         ),
+              //                       ),
+              //                     ],
+              //                   ),
+              //                 )),
+              //           ),
+              //         ),
+              //         InkWell(
+              //           onTap: () {
+              //             setState(() {
+              //               sel = 2;
+              //             });
+              //           },
+              //           child: Container(
+              //             child: Card(
+              //                 color: sel == 2 ? Colors.blue : Colors.white,
+              //                 shape: RoundedRectangleBorder(
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 elevation: 5,
+              //                 child: Padding(
+              //                   padding: EdgeInsets.symmetric(horizontal: 2.w),
+              //                   child: Column(
+              //                     children: [
+              //                       Container(
+              //                         margin: EdgeInsets.all(2.5.w),
+              //                         child: Image.asset('assets/9.png',
+              //                             color: sel == 2
+              //                                 ? Colors.white
+              //                                 : Colors.blue,
+              //                             height: 6.h,
+              //                             width: 13.w),
+              //                       ),
+              //                       SizedBox(
+              //                         width: 21.w,
+              //                         child: Text(
+              //                           'Rings',
+              //                           textAlign: TextAlign.center,
+              //                           style: TextStyle(
+              //                               fontSize: 13.sp,
+              //                               fontFamily: 'sofi',
+              //                               fontWeight: FontWeight.bold,
+              //                               letterSpacing: 1,
+              //                               color: sel == 2
+              //                                   ? Colors.white
+              //                                   : Colors.blue),
+              //                         ),
+              //                       ),
+              //                     ],
+              //                   ),
+              //                 )),
+              //           ),
+              //         ),
+              //         InkWell(
+              //           onTap: () {
+              //             setState(() {
+              //               sel = 3;
+              //             });
+              //           },
+              //           child: Container(
+              //             child: Card(
+              //                 color: sel == 3 ? Colors.blue : Colors.white,
+              //                 shape: RoundedRectangleBorder(
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 elevation: 5,
+              //                 child: Padding(
+              //                   padding: EdgeInsets.symmetric(horizontal: 2.w),
+              //                   child: Column(
+              //                     children: [
+              //                       Container(
+              //                         margin: EdgeInsets.all(2.5.w),
+              //                         child: Image.asset('assets/8.png',
+              //                             color: sel == 3
+              //                                 ? Colors.white
+              //                                 : Colors.blue,
+              //                             height: 6.h,
+              //                             width: 13.w),
+              //                       ),
+              //                       SizedBox(
+              //                         width: 21.w,
+              //                         child: Text(
+              //                           'Decorations',
+              //                           textAlign: TextAlign.center,
+              //                           style: TextStyle(
+              //                               fontSize: 13.sp,
+              //                               fontFamily: 'sofi',
+              //                               fontWeight: FontWeight.bold,
+              //                               letterSpacing: 1,
+              //                               color: sel == 3
+              //                                   ? Colors.white
+              //                                   : Colors.blue),
+              //                         ),
+              //                       ),
+              //                     ],
+              //                   ),
+              //                 )),
+              //           ),
+              //         ),
+              //         InkWell(
+              //           onTap: () {
+              //             setState(() {
+              //               sel = 4;
+              //             });
+              //           },
+              //           child: Container(
+              //             child: Card(
+              //                 color: sel == 4 ? Colors.blue : Colors.white,
+              //                 shape: RoundedRectangleBorder(
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 elevation: 5,
+              //                 child: Padding(
+              //                   padding: EdgeInsets.symmetric(horizontal: 2.w),
+              //                   child: Column(
+              //                     children: [
+              //                       Container(
+              //                         margin: EdgeInsets.all(2.5.w),
+              //                         child: Image.asset('assets/7.png',
+              //                             color: sel == 4
+              //                                 ? Colors.white
+              //                                 : Colors.blue,
+              //                             height: 6.h,
+              //                             width: 13.w),
+              //                       ),
+              //                       SizedBox(
+              //                         width: 21.w,
+              //                         child: Text(
+              //                           'Photography',
+              //                           textAlign: TextAlign.center,
+              //                           style: TextStyle(
+              //                               fontSize: 13.sp,
+              //                               fontFamily: 'sofi',
+              //                               fontWeight: FontWeight.bold,
+              //                               letterSpacing: 1,
+              //                               color: sel == 4
+              //                                   ? Colors.white
+              //                                   : Colors.blue),
+              //                         ),
+              //                       ),
+              //                     ],
+              //                   ),
+              //                 )),
+              //           ),
+              //         ),
+              //         InkWell(
+              //           onTap: () {
+              //             setState(() {
+              //               sel = 5;
+              //             });
+              //           },
+              //           child: Container(
+              //             child: Card(
+              //                 color: sel == 5 ? Colors.blue : Colors.white,
+              //                 shape: RoundedRectangleBorder(
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 elevation: 5,
+              //                 child: Padding(
+              //                   padding: EdgeInsets.all(8.0),
+              //                   child: Column(
+              //                     children: [
+              //                       Container(
+              //                         margin: EdgeInsets.all(2.5.w),
+              //                         child: Image.asset('assets/5.png',
+              //                             color: sel == 5
+              //                                 ? Colors.white
+              //                                 : Colors.blue,
+              //                             height: 6.h,
+              //                             width: 13.w),
+              //                       ),
+              //                       SizedBox(
+              //                         width: 21.w,
+              //                         child: Text(
+              //                           'Makeup',
+              //                           textAlign: TextAlign.center,
+              //                           style: TextStyle(
+              //                               fontSize: 13.sp,
+              //                               fontFamily: 'sofi',
+              //                               fontWeight: FontWeight.bold,
+              //                               letterSpacing: 1,
+              //                               color: sel == 5
+              //                                   ? Colors.white
+              //                                   : Colors.blue),
+              //                         ),
+              //                       ),
+              //                     ],
+              //                   ),
+              //                 )),
+              //           ),
+              //         ),
+              //       ]),
+              // ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 4.5.h,
+                child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.zero,
-                    children: [
-                      InkWell(
+                    itemCount: 3,
+                    itemBuilder: (context,index){
+                      return InkWell(
                         onTap: () {
                           setState(() {
-                            sel = 1;
+                            sel1 = index;
+
                           });
+                          sel1==1?Get.to(Check_list()):sel1==2?Get.to(MeetingsPage(sele:0,)):Container();
+                          print(index);
                         },
                         child: Container(
-                          child: Card(
-                              color: sel == 1 ? Colors.amber : Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              elevation: 5,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.all(2.5.w),
-                                      child: Image.asset('assets/1.png',
-                                          color: sel == 1
-                                              ? Colors.white
-                                              : Colors.amber,
-                                          height: 6.h,
-                                          width: 13.w),
-                                    ),
-                                    SizedBox(
-                                      width: 21.w,
-                                      child: Text(
-                                        'Wedding Hall',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel == 1
-                                                ? Colors.white
-                                                : Colors.amber),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
+                          padding:
+                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 5.w),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: sel1 == index ? Colors.blue : Colors.white,
+                              borderRadius: BorderRadius.circular(9)),
+                          margin: EdgeInsets.symmetric(horizontal: 2.w),
+                          child: Text(type[index],
+                              style: TextStyle(
+                                  fontSize: 14.5.sp,
+                                  fontFamily: 'sofi',
+                                  color: sel1 == index ? Colors.white : Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1)),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            sel = 2;
-                          });
-                        },
-                        child: Container(
-                          child: Card(
-                              color: sel == 2 ? Colors.amber : Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              elevation: 5,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 2.w),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.all(2.5.w),
-                                      child: Image.asset('assets/9.png',
-                                          color: sel == 2
-                                              ? Colors.white
-                                              : Colors.amber,
-                                          height: 6.h,
-                                          width: 13.w),
-                                    ),
-                                    SizedBox(
-                                      width: 21.w,
-                                      child: Text(
-                                        'Rings',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel == 2
-                                                ? Colors.white
-                                                : Colors.amber),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            sel = 3;
-                          });
-                        },
-                        child: Container(
-                          child: Card(
-                              color: sel == 3 ? Colors.amber : Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              elevation: 5,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 2.w),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.all(2.5.w),
-                                      child: Image.asset('assets/8.png',
-                                          color: sel == 3
-                                              ? Colors.white
-                                              : Colors.amber,
-                                          height: 6.h,
-                                          width: 13.w),
-                                    ),
-                                    SizedBox(
-                                      width: 21.w,
-                                      child: Text(
-                                        'Decorations',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel == 3
-                                                ? Colors.white
-                                                : Colors.amber),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            sel = 4;
-                          });
-                        },
-                        child: Container(
-                          child: Card(
-                              color: sel == 4 ? Colors.amber : Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              elevation: 5,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 2.w),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.all(2.5.w),
-                                      child: Image.asset('assets/7.png',
-                                          color: sel == 4
-                                              ? Colors.white
-                                              : Colors.amber,
-                                          height: 6.h,
-                                          width: 13.w),
-                                    ),
-                                    SizedBox(
-                                      width: 21.w,
-                                      child: Text(
-                                        'Photography',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel == 4
-                                                ? Colors.white
-                                                : Colors.amber),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            sel = 5;
-                          });
-                        },
-                        child: Container(
-                          child: Card(
-                              color: sel == 5 ? Colors.amber : Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              elevation: 5,
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.all(2.5.w),
-                                      child: Image.asset('assets/5.png',
-                                          color: sel == 5
-                                              ? Colors.white
-                                              : Colors.amber,
-                                          height: 6.h,
-                                          width: 13.w),
-                                    ),
-                                    SizedBox(
-                                      width: 21.w,
-                                      child: Text(
-                                        'Makeup',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel == 5
-                                                ? Colors.white
-                                                : Colors.amber),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                        ),
-                      ),
-                    ]),
+                      );
+                    }),
               ),
               SizedBox(
                 height: 2.h,
@@ -472,7 +518,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.amber.withOpacity(0.05),
+                    color: Colors.blue.withOpacity(0.05),
                   ),
                   padding: EdgeInsets.all(2.w),
                   margin: EdgeInsets.symmetric(horizontal: 1.5.w),
@@ -515,7 +561,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                 width: 28.w,
                                 height: 5.2.h,
                                 decoration: BoxDecoration(
-                                  color: Colors.amber.withOpacity(0.8),
+                                  color: Colors.blue.withOpacity(0.8),
                                   borderRadius: BorderRadius.circular(25.sp),
                                 ),
                                 child: Text(
@@ -560,7 +606,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                               fontFamily: 'sofi',
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1,
-                              color: Colors.amber),
+                              color: Colors.blue),
                         ),
                       ),
                     ],
@@ -631,11 +677,11 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
   Widget searchBox() {
     return Container(
       alignment: Alignment.center,
-      width: 77.w,
+      width: 94.w,
       height: 6.5.h,
-      padding: const EdgeInsets.symmetric(horizontal: 7),
+      padding:EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
-        color: Colors.amber.withOpacity(0.02),
+        color: Colors.blue.withOpacity(0.02),
         border: Border.all(color: Colors.black45),
         borderRadius: BorderRadius.circular(90),
       ),

@@ -176,7 +176,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
               //                 children:[
               //                   Row(
               //                     children: [
-              //                       Icon(Icons.people_outline_rounded,color: Colors.pink,size: 17.sp,),
+              //                       Icon(Icons.people_outline_rounded,color: Colors.blue,size: 17.sp,),
               //                       SizedBox(
               //                         width: 1.w,
               //                       ),
@@ -275,7 +275,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                               children: [
                                 Icon(
                                   Icons.people_outline_rounded,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                 ),
                                 SizedBox(
                                   width: 1.w,
@@ -366,7 +366,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                               suffixIcon: Icon(
                                 Icons.location_on_sharp,
                                 size: 18.sp,
-                                color: Colors.pink,
+                                color: Colors.blue,
                               ),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
@@ -426,7 +426,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                               suffixIcon: Icon(
                                 Icons.location_on_sharp,
                                 size: 18.sp,
-                                color: Colors.pink,
+                                color: Colors.blue,
                               ),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
@@ -483,7 +483,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                             decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.date_range,
-                                color: Colors.pink,
+                                color: Colors.blue,
                                 size: 20.sp,
                               ),
                               enabledBorder: OutlineInputBorder(
@@ -566,7 +566,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.timer_outlined,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   size: 19.sp,
                                 ),
                                 enabledBorder: OutlineInputBorder(
@@ -621,7 +621,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.timer_outlined,
-                                  color: Colors.pink,
+                                  color: Colors.blue,
                                   size: 19.sp,
                                 ),
                                 enabledBorder: OutlineInputBorder(
@@ -667,7 +667,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                     height: 6.h,
                     width: 86.w,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(25.sp),
                     ),
                     child: Center(

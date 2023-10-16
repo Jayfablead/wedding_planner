@@ -133,7 +133,7 @@ class _BudgetingListState extends State<BudgetingList> {
                                         height: 4.5.h,
                                         width: 34.w,
                                         decoration: BoxDecoration(
-                                          color: Colors.pink,
+                                          color: Colors.blue,
                                           borderRadius:
                                               BorderRadius.circular(25.sp),
                                         ),

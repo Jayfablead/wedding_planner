@@ -210,7 +210,7 @@ class _ItinerPageState extends State<ItinerPage> {
                                       height: 5.h,
                                       width: 42.w,
                                       decoration: BoxDecoration(
-                                        color: Colors.pink,
+                                        color: Colors.blue,
                                         borderRadius:
                                             BorderRadius.circular(25.sp),
                                       ),

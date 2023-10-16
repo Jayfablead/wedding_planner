@@ -163,7 +163,7 @@ class _myfavouriteState extends State<myfavourite> {
                   child: Container(
                       margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                       child: Divider(
-                        color: Colors.amber,
+                        color: Colors.blue,
                         thickness: 1,
                         height: 36,
                       )),
@@ -176,13 +176,13 @@ class _myfavouriteState extends State<myfavourite> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       fontFamily: 'sofi',
-                      color: Colors.amber),
+                      color: Colors.blue),
                 ),
                 Expanded(
                   child: new Container(
                       margin: const EdgeInsets.only(left: 20.0, right: 10.0),
                       child: Divider(
-                        color: Colors.amber,
+                        color: Colors.blue,
                         thickness: 1,
                         height: 36,
                       )),
@@ -248,7 +248,7 @@ class _myfavouriteState extends State<myfavourite> {
                                     onTap: () {},
                                     child: Icon(
                                       Icons.message,
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                     ),
                                   )
                                 ],
@@ -281,7 +281,7 @@ class _myfavouriteState extends State<myfavourite> {
                   child: Container(
                       margin: const EdgeInsets.only(left: 10.0, right: 20.0),
                       child: Divider(
-                        color: Colors.amber,
+                        color: Colors.blue,
                         thickness: 1,
                         height: 36,
                       )),
@@ -294,13 +294,13 @@ class _myfavouriteState extends State<myfavourite> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                       fontFamily: 'sofi',
-                      color: Colors.amber),
+                      color: Colors.blue),
                 ),
                 Expanded(
                   child: new Container(
                       margin: const EdgeInsets.only(left: 20.0, right: 10.0),
                       child: Divider(
-                        color: Colors.amber,
+                        color: Colors.blue,
                         thickness: 1,
                         height: 36,
                       )),

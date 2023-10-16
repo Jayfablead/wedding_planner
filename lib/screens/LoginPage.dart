@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   height: 28.h,
                   width: 100.w,
-                  child: Lottie.asset('assets/hrt.json'),
+                  child: Lottie.asset('assets/pl.json'),
                 ),
                 SizedBox(
                   height: 2.h,
@@ -201,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                               letterSpacing: 1,
                               fontFamily: 'sofi',
                               fontWeight: FontWeight.bold,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ))
                   ],
                 ),
@@ -217,7 +217,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 90.w,
                     height: 7.h,
                     decoration: BoxDecoration(
-                      color: Colors.pink,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(25.sp),
                     ),
                     child: Center(

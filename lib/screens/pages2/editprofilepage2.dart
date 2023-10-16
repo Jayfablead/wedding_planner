@@ -612,7 +612,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                               height: 5.5.h,
                                               width: 45.w,
                                               decoration: BoxDecoration(
-                                                  color: Colors.pink,
+                                                  color: Colors.blue,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           90)),

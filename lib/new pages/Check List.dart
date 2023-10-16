@@ -134,14 +134,14 @@ class _Check_listState extends State<Check_list> {
                                 EdgeInsets.symmetric(vertical: 1.h, horizontal: 5.w),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                    color: sel1 == index ? Colors.amber : Colors.white,
+                                    color: sel1 == index ? Colors.blue : Colors.white,
                                     borderRadius: BorderRadius.circular(9)),
                                 margin: EdgeInsets.symmetric(horizontal: 2.w),
                                 child: Text(type[index],
                                     style: TextStyle(
                                         fontSize: 14.5.sp,
                                         fontFamily: 'sofi',
-                                        color: sel1 == index ? Colors.white : Colors.amber,
+                                        color: sel1 == index ? Colors.white : Colors.blue,
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 1)),
                               ),
@@ -184,7 +184,7 @@ class _Check_listState extends State<Check_list> {
                                       child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
                                           ? Icon(
                                               Icons.check_box_rounded,
-                                              color: Colors.amber,
+                                              color: Colors.blue,
                                               size: 22.sp,
                                             )
                                           : Icon(
@@ -195,7 +195,7 @@ class _Check_listState extends State<Check_list> {
                                             ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
                                           ? Icon(
                                         Icons.check_box_rounded,
-                                        color: Colors.amber,
+                                        color: Colors.blue,
                                         size: 22.sp,
                                       )
                                           : Icon(
@@ -206,7 +206,7 @@ class _Check_listState extends State<Check_list> {
                                       ):checklistmodal?.pending?[index].isCompleted == "1"
                                           ? Icon(
                                         Icons.check_box_rounded,
-                                        color: Colors.amber,
+                                        color: Colors.blue,
                                         size: 22.sp,
                                       )
                                           : Icon(
@@ -223,11 +223,11 @@ class _Check_listState extends State<Check_list> {
                                        sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
                                         style: TextStyle(
                                             color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                                ? Colors.amber
+                                                ? Colors.blue
                                                 : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                                ? Colors.amber
+                                                ? Colors.blue
                                                     : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
-                                                ? Colors.amber
+                                                ? Colors.blue
                                                 : Colors.black87),
 
                                             decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
@@ -237,7 +237,7 @@ class _Check_listState extends State<Check_list> {
                                                 : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
                                                 ? TextDecoration.lineThrough
                                                 : TextDecoration.none),
-                                            decorationColor: Colors.amber,
+                                            decorationColor: Colors.blue,
                                             decorationThickness: 2,
                                             fontSize: 13.sp,
                                             fontFamily: 'sofi',
@@ -289,7 +289,7 @@ class _Check_listState extends State<Check_list> {
                                    child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
                                        ? Icon(
                                      Icons.check_box_rounded,
-                                     color: Colors.amber,
+                                     color: Colors.blue,
                                      size: 22.sp,
                                    )
                                        : Icon(
@@ -300,7 +300,7 @@ class _Check_listState extends State<Check_list> {
                                    ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
                                        ? Icon(
                                      Icons.check_box_rounded,
-                                     color: Colors.amber,
+                                     color: Colors.blue,
                                      size: 22.sp,
                                    )
                                        : Icon(
@@ -311,7 +311,7 @@ class _Check_listState extends State<Check_list> {
                                    ):checklistmodal?.pending?[index].isCompleted == "1"
                                        ? Icon(
                                      Icons.check_box_rounded,
-                                     color: Colors.amber,
+                                     color: Colors.blue,
                                      size: 22.sp,
                                    )
                                        : Icon(
@@ -328,11 +328,11 @@ class _Check_listState extends State<Check_list> {
                                      sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
                                      style: TextStyle(
                                          color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                             ? Colors.amber
+                                             ? Colors.blue
                                              : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                             ? Colors.amber
+                                             ? Colors.blue
                                              : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
-                                             ? Colors.amber
+                                             ? Colors.blue
                                              : Colors.black87),
 
                                          decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
@@ -342,7 +342,7 @@ class _Check_listState extends State<Check_list> {
                                              : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
                                              ? TextDecoration.lineThrough
                                              : TextDecoration.none),
-                                         decorationColor: Colors.amber,
+                                         decorationColor: Colors.blue,
                                          decorationThickness: 2,
                                          fontSize: 13.sp,
                                          fontFamily: 'sofi',
@@ -393,7 +393,7 @@ class _Check_listState extends State<Check_list> {
                                    child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
                                        ? Icon(
                                      Icons.check_box_rounded,
-                                     color: Colors.amber,
+                                     color: Colors.blue,
                                      size: 22.sp,
                                    )
                                        : Icon(
@@ -404,7 +404,7 @@ class _Check_listState extends State<Check_list> {
                                    ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
                                        ? Icon(
                                      Icons.check_box_rounded,
-                                     color: Colors.amber,
+                                     color: Colors.blue,
                                      size: 22.sp,
                                    )
                                        : Icon(
@@ -415,7 +415,7 @@ class _Check_listState extends State<Check_list> {
                                    ):checklistmodal?.pending?[index].isCompleted == "1"
                                        ? Icon(
                                      Icons.check_box_rounded,
-                                     color: Colors.amber,
+                                     color: Colors.blue,
                                      size: 22.sp,
                                    )
                                        : Icon(
@@ -432,11 +432,11 @@ class _Check_listState extends State<Check_list> {
                                      sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
                                      style: TextStyle(
                                          color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                             ? Colors.amber
+                                             ? Colors.blue
                                              : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                             ? Colors.amber
+                                             ? Colors.blue
                                              : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
-                                             ? Colors.amber
+                                             ? Colors.blue
                                              : Colors.black87),
 
                                          decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
@@ -446,7 +446,7 @@ class _Check_listState extends State<Check_list> {
                                              : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
                                              ? TextDecoration.lineThrough
                                              : TextDecoration.none),
-                                         decorationColor: Colors.amber,
+                                         decorationColor: Colors.blue,
                                          decorationThickness: 2,
                                          fontSize: 13.sp,
                                          fontFamily: 'sofi',
@@ -475,7 +475,7 @@ class _Check_listState extends State<Check_list> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.all(2.5.w),
                           decoration: BoxDecoration(
-                              color: Colors.amber,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             children: [

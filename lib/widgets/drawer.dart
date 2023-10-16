@@ -55,7 +55,7 @@ class _drawer1State extends State<drawer1> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             // color: Colors.white,
-            color: Colors.amber,
+            color: Colors.blue,
             // color: Colors.black,
             child: ListView(
               padding: EdgeInsets.zero,
@@ -418,9 +418,9 @@ class _drawer1State extends State<drawer1> {
                                       Icon(
                                         Icons.more,
                                         size: 30.sp,
-                                        color: Colors.pink,
+                                        color: Colors.blue,
                                       ),
-                                      // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.pink),
+                                      // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
                                       SizedBox(
                                         height: 1.h,
                                       ),
@@ -873,9 +873,9 @@ class _drawer1State extends State<drawer1> {
                     Icon(
                       Icons.chat,
                       size: 25.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                     ),
-                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.pink),
+                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
                     SizedBox(
                       height: 0.5.h,
                     ),
@@ -1093,9 +1093,9 @@ class _drawer1State extends State<drawer1> {
                     Icon(
                       Icons.room_preferences,
                       size: 25.sp,
-                      color: Colors.pink,
+                      color: Colors.blue,
                     ),
-                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.pink),
+                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
                     SizedBox(
                       height: 0.5.h,
                     ),
@@ -1357,7 +1357,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   SizedBox(height: 3.h),
 //                   CircularProgressIndicator(
-//                     color: Colors.pink,
+//                     color: Colors.blue,
 //                   )
 //                 ],
 //               )),
@@ -1438,7 +1438,7 @@ class _drawer1State extends State<drawer1> {
 //                                   child: Text("roronoa.zoro@gmail.com",
 //                                       maxLines: 2,
 //                                       style: TextStyle(
-//                                           color: Colors.pink,
+//                                           color: Colors.blue,
 //                                           fontFamily: 'sofi',
 //                                           fontSize: 11.sp,
 //                                           letterSpacing: 1,

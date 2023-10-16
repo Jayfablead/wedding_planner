@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontFamily: 'get',
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1,
-                                      color: Colors.pink),
+                                      color: Colors.blue),
                                 ),
                                 IconButton(
                                   onPressed: () {
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   },
                                   icon: Icon(
                                     Icons.menu_rounded,
-                                    color: Colors.pink,
+                                    color: Colors.blue,
                                     size: 23.sp,
                                   ),
                                 ),
@@ -229,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           child: Card(
-                              color: sel == 1 ? Colors.pink : Colors.white,
+                              color: sel == 1 ? Colors.blue : Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               elevation: 5,
@@ -242,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Image.asset('assets/1.png',
                                           color: sel == 1
                                               ? Colors.white
-                                              : Colors.pink,
+                                              : Colors.blue,
                                           height: 6.h,
                                           width: 13.w),
                                     ),
@@ -258,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             letterSpacing: 1,
                                             color: sel == 1
                                                 ? Colors.white
-                                                : Colors.pink),
+                                                : Colors.blue),
                                       ),
                                     ),
                                   ],
@@ -274,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           child: Card(
-                              color: sel == 2 ? Colors.pink : Colors.white,
+                              color: sel == 2 ? Colors.blue : Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               elevation: 5,
@@ -287,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Image.asset('assets/9.png',
                                           color: sel == 2
                                               ? Colors.white
-                                              : Colors.pink,
+                                              : Colors.blue,
                                           height: 6.h,
                                           width: 13.w),
                                     ),
@@ -303,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             letterSpacing: 1,
                                             color: sel == 2
                                                 ? Colors.white
-                                                : Colors.pink),
+                                                : Colors.blue),
                                       ),
                                     ),
                                   ],
@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           child: Card(
-                              color: sel == 3 ? Colors.pink : Colors.white,
+                              color: sel == 3 ? Colors.blue : Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               elevation: 5,
@@ -332,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Image.asset('assets/8.png',
                                           color: sel == 3
                                               ? Colors.white
-                                              : Colors.pink,
+                                              : Colors.blue,
                                           height: 6.h,
                                           width: 13.w),
                                     ),
@@ -348,7 +348,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             letterSpacing: 1,
                                             color: sel == 3
                                                 ? Colors.white
-                                                : Colors.pink),
+                                                : Colors.blue),
                                       ),
                                     ),
                                   ],
@@ -364,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           child: Card(
-                              color: sel == 4 ? Colors.pink : Colors.white,
+                              color: sel == 4 ? Colors.blue : Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               elevation: 5,
@@ -377,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Image.asset('assets/7.png',
                                           color: sel == 4
                                               ? Colors.white
-                                              : Colors.pink,
+                                              : Colors.blue,
                                           height: 6.h,
                                           width: 13.w),
                                     ),
@@ -393,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             letterSpacing: 1,
                                             color: sel == 4
                                                 ? Colors.white
-                                                : Colors.pink),
+                                                : Colors.blue),
                                       ),
                                     ),
                                   ],
@@ -409,7 +409,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           child: Card(
-                              color: sel == 5 ? Colors.pink : Colors.white,
+                              color: sel == 5 ? Colors.blue : Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               elevation: 5,
@@ -422,7 +422,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Image.asset('assets/5.png',
                                           color: sel == 5
                                               ? Colors.white
-                                              : Colors.pink,
+                                              : Colors.blue,
                                           height: 6.h,
                                           width: 13.w),
                                     ),
@@ -438,7 +438,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             letterSpacing: 1,
                                             color: sel == 5
                                                 ? Colors.white
-                                                : Colors.pink),
+                                                : Colors.blue),
                                       ),
                                     ),
                                   ],
@@ -473,7 +473,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.pink.withOpacity(0.05),
+                    color: Colors.blue.withOpacity(0.05),
                   ),
                   padding: EdgeInsets.all(2.w),
                   margin: EdgeInsets.symmetric(horizontal: 1.5.w),
@@ -516,7 +516,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 28.w,
                                 height: 5.2.h,
                                 decoration: BoxDecoration(
-                                  color: Colors.pink.withOpacity(0.8),
+                                  color: Colors.blue.withOpacity(0.8),
                                   borderRadius: BorderRadius.circular(25.sp),
                                 ),
                                 child: Text(
@@ -561,7 +561,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontFamily: 'sofi',
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1,
-                              color: Colors.pink),
+                              color: Colors.blue),
                         ),
                       ),
                     ],
@@ -635,7 +635,7 @@ class _HomeScreenState extends State<HomeScreen> {
       height: 6.5.h,
       padding: const EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
-        color: Colors.pink.withOpacity(0.02),
+        color: Colors.blue.withOpacity(0.02),
         border: Border.all(color: Colors.black45),
         borderRadius: BorderRadius.circular(90),
       ),

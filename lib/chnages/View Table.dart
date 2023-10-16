@@ -69,14 +69,14 @@ class _ViewTablesState extends State<ViewTables> {
                     EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: sel1 == 1 ? Colors.amber : Colors.white,
+                        color: sel1 == 1 ? Colors.blue : Colors.white,
                         borderRadius: BorderRadius.circular(9)),
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
                     child: Text('Bride',
                         style: TextStyle(
                             fontSize: 14.5.sp,
                             fontFamily: 'sofi',
-                            color: sel1 == 1 ? Colors.white : Colors.amber,
+                            color: sel1 == 1 ? Colors.white : Colors.blue,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1)),
                   ),
@@ -93,14 +93,14 @@ class _ViewTablesState extends State<ViewTables> {
                     EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: sel1 == 2 ? Colors.amber : Colors.white,
+                        color: sel1 == 2 ? Colors.blue : Colors.white,
                         borderRadius: BorderRadius.circular(9)),
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
                     child: Text('Groom',
                         style: TextStyle(
                             fontSize: 14.5.sp,
                             fontFamily: 'sofi',
-                            color: sel1 == 2 ? Colors.white : Colors.amber,
+                            color: sel1 == 2 ? Colors.white : Colors.blue,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1)),
                   ),
@@ -116,12 +116,12 @@ class _ViewTablesState extends State<ViewTables> {
                     width: MediaQuery.of(context).size.width,
 
                     decoration: BoxDecoration(
-                        color:open == index? Colors.amber:Colors.white,
+                        color:open == index? Colors.blue:Colors.white,
                         borderRadius: open == index ? BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
                             :BorderRadius.circular(20),
                         border: open != index?
 
-                        Border.all(color: Colors.amber,width: 2):Border.all(color: Colors.transparent,width: 2)
+                        Border.all(color: Colors.blue,width: 2):Border.all(color: Colors.transparent,width: 2)
                     ),
 
                     padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 3.w),
@@ -134,7 +134,7 @@ class _ViewTablesState extends State<ViewTables> {
                             fontSize: 14.sp,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
-                            color: open == index?Colors.white:Colors.amber,
+                            color: open == index?Colors.white:Colors.blue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -144,7 +144,7 @@ class _ViewTablesState extends State<ViewTables> {
                               open  =index;
                             });
                           },
-                          child: Icon(Icons.arrow_drop_down_circle_outlined,color:open == index?Colors.white:Colors.amber),
+                          child: Icon(Icons.arrow_drop_down_circle_outlined,color:open == index?Colors.white:Colors.blue),
                         )
                       ],
                     ),
@@ -174,7 +174,7 @@ class _ViewTablesState extends State<ViewTables> {
                                     fontSize: 16.sp,
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
-                                    color: Colors.amber,
+                                    color: Colors.blue,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
