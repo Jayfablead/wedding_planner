@@ -175,7 +175,7 @@ class _RoomManagementState extends State<RoomManagement> {
                       ],
                     ),
                     SizedBox(height: 2.h),
-                    searchBox(),
+                    searchBox1(),
                     SizedBox(height: 1.h),
                   ],
                 ),
@@ -372,6 +372,40 @@ class _RoomManagementState extends State<RoomManagement> {
             fontWeight: FontWeight.w700,
             color: Colors.grey.shade500,
           ),
+        ),
+      ),
+    );
+  }
+  Widget searchBox1() {
+    return Container(
+      alignment: Alignment.center,
+      width: 94.w,
+      height: 6.5.h,
+      padding:EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color:Colors.white),
+        borderRadius: BorderRadius.circular(65),
+      ),
+      child: TextField(
+        controller: _search,
+        onChanged: (value) {},
+        style:
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black.withOpacity(0.65),
+            size: 25,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 35,
+            minWidth: 40,
+          ),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
         ),
       ),
     );

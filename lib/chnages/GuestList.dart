@@ -45,7 +45,7 @@ int? select =0;
   Widget build(BuildContext context) {
     return commanScreen(
       scaffold: Scaffold(
-        backgroundColor: Color(0xffefefef),
+          backgroundColor: Colors.grey.shade100,
         key: scaffoldKey,
         drawer: drawer1(),
         body: isLoading
@@ -64,20 +64,21 @@ int? select =0;
                               onPressed: () {
                                 Get.back();
                               },
-                              icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                              icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                           Text(
                             'Guest List',
                             style: TextStyle(
-                                fontSize: 15.sp,
+                                fontSize: 18.sp,
                                 fontFamily: 'sofi',
                                 fontWeight: FontWeight.bold,
+                                color: Colors.blue,
                                 letterSpacing: 1),
                           ),
                           IconButton(
                               onPressed: () {
                                 scaffoldKey.currentState?.openDrawer();
                               },
-                              icon: Icon(Icons.menu_rounded)),
+                              icon: Icon(Icons.menu_rounded,size: 23.sp,color: Colors.blue,)),
                         ],
                       ),
                       SizedBox(height: 1.5.h),

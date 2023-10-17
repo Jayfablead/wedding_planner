@@ -62,7 +62,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                   Text(
                     "",
                     style: TextStyle(
@@ -76,7 +76,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded))
+                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                 ],
               ),
               SizedBox(
