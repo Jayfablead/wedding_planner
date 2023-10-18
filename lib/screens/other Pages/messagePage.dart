@@ -6,8 +6,9 @@ import 'package:sizer/sizer.dart';
 class MessagePage extends StatefulWidget {
   String? img;
   String? name;
+  String? id;
 
-  MessagePage({super.key, this.name, this.img});
+  MessagePage({super.key, this.name, this.img,this.id});
 
   @override
   State<MessagePage> createState() => _MessagePageState();
@@ -50,7 +51,7 @@ class _MessagePageState extends State<MessagePage> {
                               onPressed: () {
                                 Get.back();
                               },
-                              icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                              icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: 1.w),
                             height: 6.h,
@@ -89,7 +90,7 @@ class _MessagePageState extends State<MessagePage> {
                         ),
                       ),
                       IconButton(
-                          onPressed: () {}, icon: Icon(Icons.more_vert_rounded))
+                          onPressed: () {}, icon: Icon(Icons.more_vert_rounded,))
                     ],
                   ),
                   SizedBox(height: 1.h),

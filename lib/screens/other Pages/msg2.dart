@@ -42,11 +42,12 @@ class _Msg2State extends State<Msg2> {
   String? date2 = "";
   String? data1;
   int? diff;
+  int? type;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
+      print(widget.img);
     fullchatap();
     readnewmsgap();
   }
@@ -96,11 +97,11 @@ class _Msg2State extends State<Msg2> {
                                         Get.back();
                                       },
                                       icon: Icon(
-                                          Icons.arrow_back_ios_new_rounded,color: Colors.blue,)),
+                                          Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
                                   Container(
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 1.w),
-                                    height: 5.h,
+                                    height: 11.w,
                                     width: 11.w,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(90),
@@ -109,7 +110,7 @@ class _Msg2State extends State<Msg2> {
                                         imageUrl: widget.img.toString(),
                                         progressIndicatorBuilder:
                                             (context, url, progress) =>
-                                                CircularProgressIndicator(),
+                                                Center(child: CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
                                           'assets/icons/user.png',
@@ -137,8 +138,7 @@ class _Msg2State extends State<Msg2> {
                               ),
                               IconButton(
                                   onPressed: () {},
-                                  icon: Icon(null),
-                              )
+                                  icon: Icon(null))
                             ],
                           ),
                           SizedBox(height: 1.h),
@@ -305,11 +305,8 @@ class _Msg2State extends State<Msg2> {
                                                                       CachedNetworkImage(
                                                                     fit: BoxFit
                                                                         .cover,
-                                                                    imageUrl: fullchatmodal
-                                                                            ?.data
-                                                                            ?.chatUser
-                                                                            ?.profile ??
-                                                                        "",
+                                                                    imageUrl: (userData?.user?.profilePath).toString(),
+
                                                                     progressIndicatorBuilder:
                                                                         (context,
                                                                                 url,
@@ -319,7 +316,7 @@ class _Msg2State extends State<Msg2> {
                                                                             url,
                                                                             error) =>
                                                                         Image.asset(
-                                                                      'assets/icons/user.png',
+                                                                      'assets/user.png',
                                                                       color: Colors
                                                                           .white,
                                                                     ),
@@ -413,7 +410,7 @@ class _Msg2State extends State<Msg2> {
                                                                                     url,
                                                                                     error) =>
                                                                                 Image.asset(
-                                                                              'assets/icons/user.png',
+                                                                              'assets/user.png',
                                                                               color:
                                                                                   Colors.white,
                                                                             ),
@@ -534,12 +531,7 @@ class _Msg2State extends State<Msg2> {
                                                                       CachedNetworkImage(
                                                                     fit: BoxFit
                                                                         .cover,
-                                                                    imageUrl: fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[
-                                                                                index]
-                                                                            .message ??
-                                                                        "",
+                                                                    imageUrl: widget.img.toString(),
                                                                     progressIndicatorBuilder:
                                                                         (context,
                                                                                 url,
@@ -549,7 +541,7 @@ class _Msg2State extends State<Msg2> {
                                                                             url,
                                                                             error) =>
                                                                         Image.asset(
-                                                                      'assets/icons/user.png',
+                                                                      'assets/user.png',
                                                                       color: Colors
                                                                           .white,
                                                                     ),
@@ -612,10 +604,10 @@ class _Msg2State extends State<Msg2> {
                                                                         fontSize:
                                                                             12.sp,
                                                                         color: Colors
-                                                                            .white,
+                                                                            .black,
                                                                         fontWeight:
                                                                             FontWeight
-                                                                                .bold,
+                                                                                .normal,
                                                                         letterSpacing:
                                                                             1.5,
                                                                         fontFamily:
@@ -796,8 +788,8 @@ class _Msg2State extends State<Msg2> {
                               )),
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: Colors.white,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(35)
                             ),
 
                             width: 68.w,
@@ -810,22 +802,19 @@ class _Msg2State extends State<Msg2> {
                               decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(90),
+                                  borderRadius: BorderRadius.circular(100),
                                 ),
-                                disabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(90),
-                                ),
+
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(90),
+                                  borderRadius: BorderRadius.circular(100),
                                 ),
                                 filled: true,
                                 fillColor: Colors.white,
                                 border: InputBorder.none,
                                 hintText: 'Send a message',
                                 hintStyle: TextStyle(
-                                    color: Colors.black, fontFamily: 'get'),
+                                    color: Colors.grey, fontFamily: 'get'),
                               ),
                             ),
                           ),
@@ -834,6 +823,9 @@ class _Msg2State extends State<Msg2> {
                           ),
                           InkWell(
                               onTap: () {
+                                setState((){
+                                  type=1;
+                                });
                                 sendmessageap();
                               },
                               child: Container(
@@ -862,6 +854,7 @@ class _Msg2State extends State<Msg2> {
     final Map<String, String> data = {};
     data['textMsg'] = _msg.text.trim().toString();
     data['file'] = _msg.text == "" ? _pickedFile!.path : "";
+    data['mType'] = type.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -935,6 +928,9 @@ class _Msg2State extends State<Msg2> {
                                   final XFile? photo = await _picker.pickVideo(
                                       source: ImageSource.gallery);
                                   setState(() {
+
+                                      type=3;
+
                                     _pickedFile = File(photo!.path);
                                     print("video daat");
                                     print(_pickedFile);
@@ -976,7 +972,7 @@ class _Msg2State extends State<Msg2> {
                                       source: ImageSource.gallery);
                                   setState(() {
                                     _pickedFile = File(photo!.path);
-
+                                    type=2;
                                     print(_pickedFile);
                                   });
                                   sendmessageap();
@@ -1022,6 +1018,7 @@ class _Msg2State extends State<Msg2> {
 
                                   if (result != null) {
                                     setState(() {
+                                      type=4;
                                       _pickedFile = File(
                                           result.files.single.path.toString());
                                       sendmessageap();
@@ -1088,6 +1085,7 @@ class _Msg2State extends State<Msg2> {
         authprovider().fullchatapi(widget.id).then((response) async {
           fullchatmodal = FullchatModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && fullchatmodal?.status == "1") {
+
             setState(() {
               isLoading = false;
             });
@@ -1103,7 +1101,6 @@ class _Msg2State extends State<Msg2> {
     });
   }
   readnewmsgap(){
-
       checkInternet().then((internet) async {
         if (internet) {
           taskprovider().readmsgapi(widget.id).then((response) async {
@@ -1118,6 +1115,5 @@ class _Msg2State extends State<Msg2> {
           buildErrorDialog(context, 'Error', "Internet Required");
         }
       });
-
   }
 }

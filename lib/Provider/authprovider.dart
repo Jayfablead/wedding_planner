@@ -110,7 +110,7 @@ Future<http.Response> sendmessageapi(Map<String, String> bodyData,String? data1)
   String? url = '$baseUrl/sendMessage/${userData?.user?.id.toString()}/${data1}';
   print(url);
   var responseJson;
-  if(bodyData['file'] == ""){
+  if(bodyData['mType'] == "1" || bodyData['mType'] == "4" ){
     final response = await http
         .post(Uri.parse(url), headers: headers,body: bodyData)
         .timeout(
@@ -129,7 +129,7 @@ Future<http.Response> sendmessageapi(Map<String, String> bodyData,String? data1)
       if (bodyData['file']?.isNotEmpty ?? false) {
         final file = await http.MultipartFile.fromPath(
             'file', bodyData['file']?? '',
-            contentType: MediaType('image','jpg,png,mp4')
+            contentType: bodyData['mType'] == "2"?MediaType('image','jpg,png') :MediaType('video','mp4')
         );
         imageUploadRequest.files.add(file);
       }

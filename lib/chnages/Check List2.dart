@@ -26,7 +26,7 @@ class checklist {
 }
 
 List<checklist> lists = [
-  checklist('Make All Bookings Page', true),
+  checklist('Make All Bookings Page', false),
   checklist('Change Signup Page', false),
   checklist('Make All Certificates Page', true),
   checklist('Make All itinerary Page', false),
@@ -178,12 +178,12 @@ class _Check_listState extends State<Check_list2> {
                                     child: Text(
                                       lists[index].title ?? '',
                                       style: TextStyle(
-                                          color: lists[index].chek!
-                                              ? Colors.blue
-                                              : Colors.black87,
-                                          decoration: lists[index].chek!
-                                              ? TextDecoration.lineThrough
-                                              : TextDecoration.none,
+                                          // color: lists[index].chek!
+                                          //     ? Colors.blue
+                                          //     : Colors.black87,
+                                          // decoration: lists[index].chek!
+                                          //     ? TextDecoration.lineThrough
+                                          //     : TextDecoration.none,
                                           decorationColor: Colors.blue,
                                           decorationThickness: 2,
                                           fontSize: 13.sp,
@@ -203,29 +203,36 @@ class _Check_listState extends State<Check_list2> {
                 ]),
               ),
               Positioned(
-                top: 93.h,
-                child: Row(children: [
-                  checkdetails(),
-                  SizedBox(
-                    width: 3.w,
-                  ),
-                  InkWell(
-                      onTap: () {
-                        print('Moklyo hoo');
-                      },
-                      child: Container(
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(2.5.w),
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(
-                              child: Icon(
-                            CupertinoIcons.add,
-                            size: 18.sp,
-                            color: Colors.white,
-                          ))))
-                ]),
+                top: 91.5.h,
+                left: 25.w,
+                child: InkWell(
+                    onTap: () {
+                      // Get.to(addchecklist());
+                    },
+                    child: Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(2.5.w),
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(25)),
+                        child: Row(
+                          children: [
+                            Center(
+                                child: Icon(
+                                  CupertinoIcons.add,
+                                  size: 18.sp,
+                                  color: Colors.white,
+                                )),
+                            Text("Add Check List",  style: TextStyle(
+                              fontSize: 14.sp,
+                              fontFamily: 'sofi',
+                              letterSpacing: 1,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),),
+
+                          ],
+                        ))),
               ),
             ],
           ),

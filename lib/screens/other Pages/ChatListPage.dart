@@ -10,6 +10,7 @@ import 'package:wedding_planner/Modal/ChatListModal.dart';
 import 'package:wedding_planner/Modal/CheckListModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/screens/other%20Pages/messagePage.dart';
 import 'package:wedding_planner/screens/other%20Pages/msg2.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
@@ -224,6 +225,7 @@ bool isLoading =true;
                                           fontFamily: 'sofi',
                                           color: Colors.black),
                                     ),
+
                                     Text(
                                         chatlistmodal?.venue?.lastChatMessageInfo == null ? "":  DateFormat('HH:mm').format(DateTime.parse(chatlistmodal?.venue?.lastChatMessageInfo?.createdAt ?? "")) ,
                                       style: TextStyle(
@@ -235,6 +237,7 @@ bool isLoading =true;
                                   ],
                                 ),
                               ),
+                              SizedBox(height: .50.h,),
                               SizedBox(
                                 width: 52.w,
                                 child: Text(
@@ -365,7 +368,7 @@ bool isLoading =true;
                                   Text(
                                    formattedTime,
                                     style: TextStyle(
-                                        fontSize: 10.sp,
+                                        fontSize: 12.sp,
                                         fontWeight: FontWeight.w400,
                                         fontFamily: 'soi',
                                         color: Colors.black),
@@ -373,13 +376,14 @@ bool isLoading =true;
                                 ],
                               ),
                             ),
+                            SizedBox(height: .50.h,),
                             SizedBox(
                               width: 52.w,
                               child: Text(
                                chatlistmodal?.suppliers?[index].lastChatMessageInfo1 == null ? "" :chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ?? "",
                                 maxLines: 2,
                                 style: TextStyle(
-                                    fontSize: 10.sp,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: 'soi',
                                     color: Colors.black54),

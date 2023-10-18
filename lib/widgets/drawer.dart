@@ -455,7 +455,7 @@ class _drawer1State extends State<drawer1> {
                           onTap: () {
                             Get.back();
                             Get.to(
-                              Check_list2(),
+                              Check_list(),
                             );
                           },
                           child: Container(
