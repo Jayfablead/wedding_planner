@@ -60,7 +60,7 @@ class _ItineryViewState extends State<ItineryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe8e8e8),
+        backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
@@ -82,12 +82,13 @@ class _ItineryViewState extends State<ItineryView> {
                               Get.back();
                             },
                             icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
+                              Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,
                             )),
                         Text(
                           "Itinerary View",
                           style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 18.sp,
+                      color: Colors.blue,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold,
@@ -98,7 +99,7 @@ class _ItineryViewState extends State<ItineryView> {
                               scaffoldKey.currentState?.openDrawer();
                             },
                             icon: Icon(
-                              Icons.menu_rounded,
+                              Icons.menu_rounded,color: Colors.blue,size: 23.sp,
                             ))
                       ],
                     ),
@@ -265,7 +266,7 @@ class _ItineryViewState extends State<ItineryView> {
                                         color: sel == index
                                             ? Colors.blue
                                             : Colors.white,
-                                        borderRadius: BorderRadius.circular(9)),
+                                        borderRadius: BorderRadius.circular(25)),
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 2.w),
                                     child: Text(cate[index],

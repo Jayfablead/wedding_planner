@@ -153,8 +153,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                       Container(
                         child: CachedNetworkImage(
                           imageUrl:
-                              'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
-                          height: 9.h,
+                              'https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1470',
+                          height: 20.w,
                           width: 20.w,
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
@@ -575,7 +575,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(25)),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -750,7 +750,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(25)),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,

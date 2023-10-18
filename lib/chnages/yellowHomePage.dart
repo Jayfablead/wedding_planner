@@ -127,7 +127,6 @@ List<kop>Supaliers =[
       "\$250",
       "View Detail"
   ),
-
 ];
 
 

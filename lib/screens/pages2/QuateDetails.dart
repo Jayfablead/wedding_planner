@@ -38,6 +38,7 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: SingleChildScrollView(

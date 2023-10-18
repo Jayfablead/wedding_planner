@@ -90,6 +90,9 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       Container(
                         width: 30.w,
                         child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                          ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 2.h, horizontal: 4.w),
@@ -131,6 +134,9 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       Container(
                         width: 30.w,
                         child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                          ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 2.h, horizontal: 4.w),
@@ -173,6 +179,9 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       Container(
                         width: 30.w,
                         child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                          ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 2.h, horizontal: 4.w),

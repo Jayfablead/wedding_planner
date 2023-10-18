@@ -27,6 +27,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -44,12 +45,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         Get.back();
                       },
                       child: Container(
-                        margin: EdgeInsets.only(left: 3.w),
-                        padding: EdgeInsets.all(0.7.h),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2),
-                            borderRadius: BorderRadius.circular(90)),
-                        child: Icon(Icons.arrow_back_ios_new_rounded),
+
+
+                        child: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
                       ),
                     ),
                   ],
@@ -57,7 +55,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 Container(
                   height: 30.h,
                   width: 100.w,
-                  child: Lottie.asset('assets/hrt.json'),
+                  child: Lottie.asset('assets/pl.json'),
                 ),
                 Row(
                   children: [
@@ -104,22 +102,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             hintText: 'Enter Email Address',
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.black87,
+                                color: Colors.white,
                               ),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
+                            fillColor: Colors.white,
+                            filled: true,
                             errorStyle: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'sofi',
