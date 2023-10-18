@@ -69,9 +69,11 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
+                        height: 20.w,
+                        width: 20.w,
                         child: CachedNetworkImage(
                           imageUrl:
-                              'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/305220149_495231479273840_8870209323185881114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=JitQYcURCT8AX8hWsHr&_nc_ht=scontent.fstv3-1.fna&oh=00_AfBGo4wcKtVfF1N56WRWhyUCKheYrbykEKdgcwkcCMf8jQ&oe=64F88C45',
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnRAGePnku2AeKwN4U_nO8-A95AwbqXnOHxQ&usqp=CAU',
                           height: 9.h,
                           width: 20.w,
                           imageBuilder: (context, imageProvider) => Container(
@@ -216,7 +218,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                               horizontal: 2.w),
                                           decoration: BoxDecoration(
                                             color:
-                                                Colors.grey.withOpacity(0.12),
+                                                Colors.white,
                                             borderRadius: BorderRadius.only(
                                                 bottomRight: Radius.circular(8),
                                                 bottomLeft: Radius.circular(8)),
@@ -233,6 +235,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .start,
+                                                    mainAxisAlignment: MainAxisAlignment.start,
                                                     children: [
                                                       SizedBox(height: 1.h),
                                                       Text(
@@ -307,7 +310,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                         decoration: BoxDecoration(
                                             color: Colors.blue,
                                             borderRadius:
-                                                BorderRadius.circular(10)),
+                                                BorderRadius.circular(25)),
                                         child: Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
@@ -367,6 +370,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                         itemBuilder: (context, index) {
                           return Center(
                             child: Container(
+                              color: Colors.white,
                               margin: EdgeInsets.symmetric(horizontal: 2.w),
                               child: Stack(
                                 children: [
@@ -493,7 +497,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                       decoration: BoxDecoration(
                                           color: Colors.blue,
                                           borderRadius:
-                                              BorderRadius.circular(10)),
+                                              BorderRadius.circular(25)),
                                       child: Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,

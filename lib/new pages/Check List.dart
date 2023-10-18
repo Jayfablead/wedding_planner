@@ -12,6 +12,8 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
+import '../Modal/markcompletedmodal.dart';
+
 class Check_list extends StatefulWidget {
   const Check_list({super.key});
 
@@ -33,33 +35,35 @@ class checklist {
   );
 }
 
-List<checklist> lists = [
-  checklist('Make All Bookings Page', true),
-  checklist('Change Signup Page', false),
-  checklist('Make All Certificates Page', true),
-  checklist('Make All itinerary Page', false),
-  checklist('Make All Budget Page', true),
-  checklist('Make All Parcels received', false),
-  checklist('Make All Notifications Page', false),
-  checklist('Make All Bookings Page', true),
-  checklist('Change Signup Page', false),
-  checklist('Make All Certificates Page', true),
-  checklist('Make All itinerary Page', false),
-  checklist('Make All Budget Page', true),
-  checklist('Make All Parcels received', false),
-  checklist('Make All Notifications Page', false),
-  checklist('Make All Bookings Page', true),
-  checklist('Change Signup Page', false),
-  checklist('Make All Certificates Page', true),
-  checklist('Make All itinerary Page', false),
-  checklist('Make All Budget Page', true),
-  checklist('Make All Parcels received', false),
-  checklist('Make All Notifications Page', false),
-];
+// List<checklist> lists = [
+//   checklist('Make All Bookings Page', true),
+//   checklist('Change Signup Page', false),
+//   checklist('Make All Certificates Page', true),
+//   checklist('Make All itinerary Page', false),
+//   checklist('Make All Budget Page', true),
+//   checklist('Make All Parcels received', false),
+//   checklist('Make All Notifications Page', false),
+//   checklist('Make All Bookings Page', true),
+//   checklist('Change Signup Page', false),
+//   checklist('Make All Certificates Page', true),
+//   checklist('Make All itinerary Page', false),
+//   checklist('Make All Budget Page', true),
+//   checklist('Make All Parcels received', false),
+//   checklist('Make All Notifications Page', false),
+//   checklist('Make All Bookings Page', true),
+//   checklist('Change Signup Page', false),
+//   checklist('Make All Certificates Page', true),
+//   checklist('Make All itinerary Page', false),
+//   checklist('Make All Budget Page', true),
+//   checklist('Make All Parcels received', false),
+//   checklist('Make All Notifications Page', false),
+// ];
 
 class _Check_listState extends State<Check_list> {
+  TextEditingController _search =TextEditingController();
   bool isLoading =true;
   int? sel1=0;
+  int? val;
   @override
   void initState() {
     // TODO: implement initState
@@ -67,13 +71,11 @@ class _Check_listState extends State<Check_list> {
     checklistap();
   }
   List<String> type = ["Today Alert","Completed","Pending"];
-  TextEditingController _search=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return commanScreen(
       isLoading: isLoading,
       scaffold: Scaffold(
-        backgroundColor: Colors.grey.shade100,
         key:  scaffoldKey,
         drawer: drawer1(),
         body: isLoading? Container():SingleChildScrollView(
@@ -96,11 +98,11 @@ class _Check_listState extends State<Check_list> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
+                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color:Colors.blue ,)),
                         Text(
                           "Check List",
                           style: TextStyle(
-                            fontSize: 17.sp,
+                            fontSize: 18.sp,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             color: Colors.blue,
@@ -111,13 +113,12 @@ class _Check_listState extends State<Check_list> {
                             onPressed: () {
                                scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp
-                              ,))
+                            icon: Icon(Icons.menu_rounded,   color: Colors.blue,size: 23.sp,))
                       ],
                     ),
                     SizedBox(height: 1.h),
                     searchBox1(),
-                    SizedBox(height: 1.h),
+                    SizedBox(height: 2.h),
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: 4.5.h,
@@ -131,7 +132,7 @@ class _Check_listState extends State<Check_list> {
                                   sel1 = index;
                                 });
                                 checklistap();
-                                print(index);
+
                               },
                               child: Container(
                                 padding:
@@ -139,7 +140,7 @@ class _Check_listState extends State<Check_list> {
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     color: sel1 == index ? Colors.blue : Colors.white,
-                                    borderRadius: BorderRadius.circular(9)),
+                                    borderRadius: BorderRadius.circular(25)),
                                 margin: EdgeInsets.symmetric(horizontal: 2.w),
                                 child: Text(type[index],
                                     style: TextStyle(
@@ -152,7 +153,7 @@ class _Check_listState extends State<Check_list> {
                             );
                       }),
                     ),
-                    SizedBox(height: 1.h),
+                    SizedBox(height: 2.h),
                  sel1 == 0 ?checklistmodal?.todayAlerts?.length == 0 ? Container(
                      height: 60.h,
                      child: Text("No CheckList" , style: TextStyle(
@@ -161,7 +162,7 @@ class _Check_listState extends State<Check_list> {
                        letterSpacing: 1,
                        fontWeight: FontWeight.bold,
                      ),)):Container(
-                      height: 60.h,
+                   height: 63.h,
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
                         itemCount:sel1==0? (checklistmodal?.todayAlerts?.length) :sel1 == 1? checklistmodal?.completed?.length :checklistmodal?.pending?.length,
@@ -181,11 +182,12 @@ class _Check_listState extends State<Check_list> {
                                   children: [
                                     InkWell(
                                       onTap: () {
-                                        // setState(() {
-                                        //   lists[index].chek = !lists[index].chek!;
-                                        // });
+                                        setState(() {
+                                         val=  checklistmodal?.todayAlerts?[index].isCompleted == "1" ? 0 :1;
+                                        });
+                                        markreadap(val, checklistmodal?.todayAlerts?[index].id);
                                       },
-                                      child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
+                                      child: (checklistmodal?.todayAlerts?[index].isCompleted == "1")
                                           ? Icon(
                                               Icons.check_box_rounded,
                                               color: Colors.blue,
@@ -196,49 +198,19 @@ class _Check_listState extends State<Check_list> {
                                                   .check_box_outline_blank_rounded,
                                               color: Colors.black54,
                                               size: 22.sp,
-                                            ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
-                                          ? Icon(
-                                        Icons.check_box_rounded,
-                                        color: Colors.blue,
-                                        size: 22.sp,
-                                      )
-                                          : Icon(
-                                        Icons
-                                            .check_box_outline_blank_rounded,
-                                        color: Colors.black54,
-                                        size: 22.sp,
-                                      ):checklistmodal?.pending?[index].isCompleted == "1"
-                                          ? Icon(
-                                        Icons.check_box_rounded,
-                                        color: Colors.blue,
-                                        size: 22.sp,
-                                      )
-                                          : Icon(
-                                        Icons
-                                            .check_box_outline_blank_rounded,
-                                        color: Colors.black54,
-                                        size: 22.sp,
-                                      ),
+                                            )
                                     ),
                                     SizedBox(width: 3.w),
                                     Container(
                                       width: 78.w,
                                       child: Text(
-                                       sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
+                                      (checklistmodal?.todayAlerts?[index].taskTitle).toString() ,
                                         style: TextStyle(
-                                            color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                            color:  (checklistmodal?.todayAlerts?[index].isCompleted == "1"
                                                 ? Colors.blue
-                                                : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                                ? Colors.blue
-                                                    : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
-                                                ? Colors.blue
-                                                : Colors.black87),
+                                                : Colors.black87) ,
 
-                                            decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                                ? TextDecoration.lineThrough
-                                                : TextDecoration.none): sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                                ? TextDecoration.lineThrough
-                                                : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
+                                            decoration: (checklistmodal?.todayAlerts?[index].isCompleted == "1"
                                                 ? TextDecoration.lineThrough
                                                 : TextDecoration.none),
                                             decorationColor: Colors.blue,
@@ -266,10 +238,10 @@ class _Check_listState extends State<Check_list> {
                        fontWeight: FontWeight.bold,
                      ),)):Container(
                    alignment: Alignment.center,
-                   height: 60.h,
+                   height: 63.h,
                    child: ListView.builder(
                      padding: EdgeInsets.zero,
-                     itemCount:sel1==0? (checklistmodal?.todayAlerts?.length) :sel1 == 1? checklistmodal?.completed?.length :checklistmodal?.pending?.length,
+                     itemCount: checklistmodal?.completed?.length ,
                      itemBuilder: (context, index) {
                        return Container(
                          child: Card(
@@ -286,11 +258,12 @@ class _Check_listState extends State<Check_list> {
                                children: [
                                  InkWell(
                                    onTap: () {
-                                     // setState(() {
-                                     //   lists[index].chek = !lists[index].chek!;
-                                     // });
+                                     setState(() {
+                                      val = checklistmodal?.completed?[index].isCompleted == "1" ? 0 :1;
+                                     });
+                                     markreadap(val, checklistmodal?.completed?[index].id);
                                    },
-                                   child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
+                                   child: (checklistmodal?.completed?[index].isCompleted == "1")
                                        ? Icon(
                                      Icons.check_box_rounded,
                                      color: Colors.blue,
@@ -301,49 +274,19 @@ class _Check_listState extends State<Check_list> {
                                          .check_box_outline_blank_rounded,
                                      color: Colors.black54,
                                      size: 22.sp,
-                                   ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
-                                       ? Icon(
-                                     Icons.check_box_rounded,
-                                     color: Colors.blue,
-                                     size: 22.sp,
                                    )
-                                       : Icon(
-                                     Icons
-                                         .check_box_outline_blank_rounded,
-                                     color: Colors.black54,
-                                     size: 22.sp,
-                                   ):checklistmodal?.pending?[index].isCompleted == "1"
-                                       ? Icon(
-                                     Icons.check_box_rounded,
-                                     color: Colors.blue,
-                                     size: 22.sp,
-                                   )
-                                       : Icon(
-                                     Icons
-                                         .check_box_outline_blank_rounded,
-                                     color: Colors.black54,
-                                     size: 22.sp,
-                                   ),
                                  ),
                                  SizedBox(width: 3.w),
                                  Container(
                                    width: 78.w,
                                    child: Text(
-                                     sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
+                                    (checklistmodal?.completed?[index].taskTitle).toString() ,
                                      style: TextStyle(
-                                         color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                         color: (checklistmodal?.completed?[index].isCompleted == "1"
                                              ? Colors.blue
-                                             : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                             ? Colors.blue
-                                             : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
-                                             ? Colors.blue
-                                             : Colors.black87),
+                                             : Colors.black87) ,
 
-                                         decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                             ? TextDecoration.lineThrough
-                                             : TextDecoration.none): sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                             ? TextDecoration.lineThrough
-                                             : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
+                                         decoration: (checklistmodal?.completed?[index].isCompleted == "1"
                                              ? TextDecoration.lineThrough
                                              : TextDecoration.none),
                                          decorationColor: Colors.blue,
@@ -370,10 +313,10 @@ class _Check_listState extends State<Check_list> {
                        letterSpacing: 1,
                        fontWeight: FontWeight.bold,
                      ),)) :Container(
-                   height: 60.h,
+                   height: 63.h,
                    child: ListView.builder(
                      padding: EdgeInsets.zero,
-                     itemCount:sel1==0? (checklistmodal?.todayAlerts?.length) :sel1 == 1? checklistmodal?.completed?.length :checklistmodal?.pending?.length,
+                     itemCount:checklistmodal?.pending?.length,
                      itemBuilder: (context, index) {
                        return Container(
                          child: Card(
@@ -390,33 +333,12 @@ class _Check_listState extends State<Check_list> {
                                children: [
                                  InkWell(
                                    onTap: () {
-                                     // setState(() {
-                                     //   lists[index].chek = !lists[index].chek!;
-                                     // });
+                                     setState(() {
+                                       val = checklistmodal?.pending?[index].isCompleted == "1" ? 0 :1;
+                                     });
+                                     markreadap(val, checklistmodal?.pending?[index].id);
                                    },
-                                   child:sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1")
-                                       ? Icon(
-                                     Icons.check_box_rounded,
-                                     color: Colors.blue,
-                                     size: 22.sp,
-                                   )
-                                       : Icon(
-                                     Icons
-                                         .check_box_outline_blank_rounded,
-                                     color: Colors.black54,
-                                     size: 22.sp,
-                                   ):sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1")
-                                       ? Icon(
-                                     Icons.check_box_rounded,
-                                     color: Colors.blue,
-                                     size: 22.sp,
-                                   )
-                                       : Icon(
-                                     Icons
-                                         .check_box_outline_blank_rounded,
-                                     color: Colors.black54,
-                                     size: 22.sp,
-                                   ):checklistmodal?.pending?[index].isCompleted == "1"
+                                   child:checklistmodal?.pending?[index].isCompleted == "1"
                                        ? Icon(
                                      Icons.check_box_rounded,
                                      color: Colors.blue,
@@ -433,21 +355,13 @@ class _Check_listState extends State<Check_list> {
                                  Container(
                                    width: 78.w,
                                    child: Text(
-                                     sel1== 0 ? (checklistmodal?.todayAlerts?[index].taskTitle).toString() :sel1== 1? (checklistmodal?.completed?[index].taskTitle).toString() :(checklistmodal?.pending?[index].taskTitle).toString()  ,
+                                  (checklistmodal?.pending?[index].taskTitle).toString()  ,
                                      style: TextStyle(
-                                         color: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                             ? Colors.blue
-                                             : Colors.black87) :sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                             ? Colors.blue
-                                             : Colors.black87) :(checklistmodal?.pending?[index].isCompleted == "1"
+                                         color:(checklistmodal?.pending?[index].isCompleted == "1"
                                              ? Colors.blue
                                              : Colors.black87),
 
-                                         decoration: sel1 == 0? (checklistmodal?.todayAlerts?[index].isCompleted == "1"
-                                             ? TextDecoration.lineThrough
-                                             : TextDecoration.none): sel1 == 1? (checklistmodal?.completed?[index].isCompleted == "1"
-                                             ? TextDecoration.lineThrough
-                                             : TextDecoration.none) : (checklistmodal?.pending?[index].isCompleted == "1"
+                                         decoration:  (checklistmodal?.pending?[index].isCompleted == "1"
                                              ? TextDecoration.lineThrough
                                              : TextDecoration.none),
                                          decorationColor: Colors.blue,
@@ -470,7 +384,7 @@ class _Check_listState extends State<Check_list> {
                 ),
                 Positioned(
                   top: 91.5.h,
-                  left: 20.w,
+                  left: 25.w,
                   child: InkWell(
                       onTap: () {
                      Get.to(addchecklist());
@@ -480,7 +394,7 @@ class _Check_listState extends State<Check_list> {
                           padding: EdgeInsets.all(2.5.w),
                           decoration: BoxDecoration(
                               color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(25)),
                           child: Row(
                             children: [
                               Center(
@@ -529,52 +443,6 @@ class _Check_listState extends State<Check_list> {
     );
   }
 
-  Widget search() {
-    return Container(
-      width: 95.w,
-      padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 0.4.h),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.12),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: TextField(
-        // controller: _search,
-        onChanged: (value) {},
-        style: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          prefixIcon: Icon(CupertinoIcons.search,
-              color: Colors.black.withOpacity(0.65)),
-          hintText: 'Search',
-          hintStyle: TextStyle(
-              color: Colors.black.withOpacity(0.65), fontFamily: 'Meta1'),
-        ),
-      ),
-    );
-  }
-  checklistap(){
-    checkInternet().then((internet) async {
-      if (internet) {
-        taskprovider().checklistapi().then((response) async {
-          checklistmodal = CheckListModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && checklistmodal?.status == "1") {
-              print(checklistmodal?.todayAlerts?[0].taskTitle);
-            setState(() {
-              isLoading =false;
-            });
-          }
-          else {
-            setState(() {
-              isLoading =false;
-            });
-          }
-        });
-      } else {
-        buildErrorDialog(context, 'Error', "Internet Required");
-      }
-    });
-
-  }
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
@@ -608,6 +476,55 @@ class _Check_listState extends State<Check_list> {
         ),
       ),
     );
+  }
+  checklistap(){
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().checklistapi().then((response) async {
+          checklistmodal = CheckListModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && checklistmodal?.status == "1") {
+              print(checklistmodal?.todayAlerts?[0].taskTitle);
+            setState(() {
+              isLoading =false;
+            });
+          }
+          else {
+            setState(() {
+              isLoading =false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+
+  }
+
+  markreadap(value,id){
+    print("api");
+    print(value);
+    final Map<String, String> data = {};
+    data['isCompleted'] = value.toString();
+    print(data);
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().markcompletedapi(data,id).then((response) async {
+          markcompletemodal = MarkcompletedModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && markcompletemodal?.status == "1") {
+
+            checklistap();
+          } else {
+            buildErrorDialog(
+                context, "Login Error", (userData?.message).toString());
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+
   }
 
 }

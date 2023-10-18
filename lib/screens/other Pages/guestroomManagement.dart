@@ -125,9 +125,11 @@ class _RoomManagementState extends State<RoomManagement> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
+                          height: 20.w,
+                          width: 20.w,
                           child: CachedNetworkImage(
                             imageUrl:
-                                'https://scontent.fstv3-1.fna.fbcdn.net/v/t39.30808-6/307330264_517681613696235_3391244661298791755_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=jH1pMk01qb4AX8yVz-h&_nc_ht=scontent.fstv3-1.fna&oh=00_AfA_qRqMpSkruuCw3_KKjPqBKdNHll_GFh8mANlXRxoGFw&oe=650EB0D4',
+                                'https://q-xx.bstatic.com/xdata/images/hotel/max500/362802217.jpg?k=bfa466d492f3f7a75754eeae62d98ed49cdf23b82eee9ecba76749b7e10b1724&o=',
                             height: 9.5.h,
                             width: 20.w,
                             imageBuilder: (context, imageProvider) => Container(

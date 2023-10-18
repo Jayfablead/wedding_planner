@@ -98,6 +98,7 @@ class _EditProfile2State extends State<EditProfile2> {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               IconButton(
                                   onPressed: () {
@@ -106,11 +107,12 @@ class _EditProfile2State extends State<EditProfile2> {
                                   icon: Icon(
                                     Icons.arrow_back_ios_new_rounded,
                                     color: Colors.white,
+                                      size: 23.sp,
                                   )),
                               Text(
                                 "Edit Profile",
                                 style: TextStyle(
-                                  fontSize: 15.sp,
+                                  fontSize: 18.sp,
                                   fontFamily: 'sofi',
                                   color: Colors.white,
                                   letterSpacing: 1,

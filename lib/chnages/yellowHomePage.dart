@@ -23,9 +23,9 @@ class cate {
   String? name;
 
   cate(
-    this.image,
-    this.name,
-  );
+      this.image,
+      this.name,
+      );
 }
 
 class cate1 {
@@ -34,10 +34,10 @@ class cate1 {
   String? desc;
 
   cate1(
-    this.image,
-    this.name,
-    this.desc,
-  );
+      this.image,
+      this.name,
+      this.desc,
+      );
 }
 class kop {
   String? image;
@@ -98,9 +98,9 @@ int sel = 1;
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 List<kop>Supaliers =[
   kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
-    "Flower Suppliers",
+      "Flower Suppliers",
       "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
-    "\$250",
+      "\$250",
       "View Detail"
   ),
   kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
@@ -275,40 +275,31 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
               SizedBox(
                 height: 3.h,
               ),
-              CarouselSlider(
-                options: CarouselOptions(
-                  height:50.7.h,
-                  viewportFraction: 0.85,
-                  // Make it full screen
-                  enableInfiniteScroll:
-                  true, // Loop back to the beginning
-                  enlargeCenterPage:
-                  false, // Enlarge the center image
-                  autoPlay:
-                  false, // Automatically play the carousel
-                ),
-                items:Supaliers.map((imagePath) {
-                  return Builder(
-                    builder: (BuildContext context) {
+              Container(
+                height: 50.h,
+                width: MediaQuery.of(context).size.width ,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.zero,
+                    itemCount: Supaliers.length,
+                    itemBuilder:(context,index){
                       return Container(
+                        width: 80.w,
                         margin: EdgeInsets.symmetric(horizontal: 2.w),
                         padding: EdgeInsets.all(3.w),
-                      decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.circular(25),
-                        color: Colors.white
-                      ),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(25),
+                            color: Colors.white
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               padding: EdgeInsets.all(5.sp),
-                              width: MediaQuery.of(context)
-                                  .size
-                                  .width,
-
+                              width: 85.w,
                               margin: EdgeInsets.symmetric(
-                                  horizontal: 5.0),
+                                  horizontal: 1.0),
                               // decoration: BoxDecoration(
                               //   borderRadius:
                               //   BorderRadius.circular(25),
@@ -336,8 +327,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(25),
                                 child: Image.network(
-
-                                  imagePath.image.toString(),fit: BoxFit.cover, height:20.h,width: 100.w,
+                                  Supaliers[index].image.toString(),fit: BoxFit.cover, height:20.h,width: 100.w,
                                   // Cover the entire screen
                                 ),
                               ),
@@ -345,7 +335,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                             SizedBox(height: 1.5.h,),
                             Padding(
                               padding:EdgeInsets.only(left: 3.w),
-                              child: Text(imagePath.name.toString(),style: TextStyle(
+                              child: Text(Supaliers[index].name.toString(),style: TextStyle(
                                   fontSize: 14.5.sp,
                                   fontFamily: 'sofi',
                                   fontWeight: FontWeight.bold,
@@ -355,7 +345,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                             SizedBox(height: 1.5.h,),
                             Padding(
                               padding:EdgeInsets.only(left: 3.w) ,
-                              child: Text(imagePath.dec.toString(),maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
+                              child: Text(Supaliers[index].dec.toString(),maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
                                   fontSize: 14.5.sp,
                                   fontFamily: 'sofi',
 
@@ -375,16 +365,16 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                       fontWeight: FontWeight.normal,
                                       color: Colors.black54,
                                       letterSpacing: 1)),
-                            Text( imagePath.price.toString(),style: TextStyle(
-                                fontSize: 14.5.sp,
-                                fontFamily: 'sofi',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                                letterSpacing: 1))
+                                  Text( Supaliers[index].price.toString(),style: TextStyle(
+                                      fontSize: 14.5.sp,
+                                      fontFamily: 'sofi',
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      letterSpacing: 1))
                                 ],
                               ),
                             ),
-                            SizedBox(height: 4.h,),
+                            SizedBox(height: 3.h,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -397,10 +387,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                     EdgeInsets.symmetric(vertical: 1.h, horizontal: 5.w),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                       color: Colors.blue,
+                                        color: Colors.blue,
                                         borderRadius: BorderRadius.circular(25)),
                                     child: Center(
-                                      child: Text(imagePath.btn.toString(),style: TextStyle(
+                                      child: Text(Supaliers[index].btn.toString(),style: TextStyle(
                                           fontSize: 17.sp,
                                           fontFamily: 'sofi',
                                           color: Colors.white,
@@ -413,10 +403,12 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                           ],
                         ),
                       );
-                    },
-                  );
-                }).toList(),
-              ),
+                    } ),
+              )
+
+
+
+
               // Column(
               //   crossAxisAlignment: CrossAxisAlignment.start,
               //   children: [
@@ -524,7 +516,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
         controller: _search,
         onChanged: (value) {},
         style:
-            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

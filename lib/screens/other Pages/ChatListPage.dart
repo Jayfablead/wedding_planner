@@ -25,48 +25,48 @@ class ChatlistPage extends StatefulWidget {
   @override
   State<ChatlistPage> createState() => _ChatlistPageState();
 }
-
-class chat {
-  String? image;
-  String? name;
-  String? msg;
-  String? time;
-
-  chat(
-    this.image,
-    this.name,
-    this.msg,
-    this.time,
-  );
-}
-
-List<chat> mesgs = [
-  chat(
-      'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
-      'Luffy',
-      'Moshi Mosh Oreva Monkey d Luffy Kaizoku wo Naru to nido',
-      '8:94 AM'),
-  chat(
-      'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
-      'Sanji',
-      'Hoy Mass Head Punk',
-      '9:10 AM'),
-  chat(
-      'https://w0.peakpx.com/wallpaper/311/533/HD-wallpaper-one-piece-nico-robin-one-piece-two-years-later.jpg',
-      'Robin',
-      'Oy Zoro kun Ohayoo',
-      '9:15 AM'),
-  chat(
-      'https://i.pinimg.com/736x/59/e3/d2/59e3d2fb93af21511690470abc014831.jpg',
-      'Nami',
-      'Hey! Dumb Zoro Don\'t Fight ',
-      '9:40 AM'),
-  chat(
-      'https://i.pinimg.com/236x/23/62/50/236250f1055a352c4a0cd5e0a21aaf33.jpg',
-      'Chopper',
-      'You are Injured Come to me I will Fix You ',
-      '10:50 Am'),
-];
+//
+// class chat {
+//   String? image;
+//   String? name;
+//   String? msg;
+//   String? time;
+//
+//   chat(
+//     this.image,
+//     this.name,
+//     this.msg,
+//     this.time,
+//   );
+// }
+//
+// List<chat> mesgs = [
+//   chat(
+//       'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
+//       'Luffy',
+//       'Moshi Mosh Oreva Monkey d Luffy Kaizoku wo Naru to nido',
+//       '8:94 AM'),
+//   chat(
+//       'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
+//       'Sanji',
+//       'Hoy Mass Head Punk',
+//       '9:10 AM'),
+//   chat(
+//       'https://w0.peakpx.com/wallpaper/311/533/HD-wallpaper-one-piece-nico-robin-one-piece-two-years-later.jpg',
+//       'Robin',
+//       'Oy Zoro kun Ohayoo',
+//       '9:15 AM'),
+//   chat(
+//       'https://i.pinimg.com/736x/59/e3/d2/59e3d2fb93af21511690470abc014831.jpg',
+//       'Nami',
+//       'Hey! Dumb Zoro Don\'t Fight ',
+//       '9:40 AM'),
+//   chat(
+//       'https://i.pinimg.com/236x/23/62/50/236250f1055a352c4a0cd5e0a21aaf33.jpg',
+//       'Chopper',
+//       'You are Injured Come to me I will Fix You ',
+//       '10:50 Am'),
+// ];
 // int selit = 2;
 TextEditingController _search = TextEditingController();
 final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
@@ -166,8 +166,18 @@ bool isLoading =true;
                     },
                     child: Container(
                       alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 3.w,
+                          vertical: 1.h),
+                      margin: EdgeInsets.symmetric(
+                          vertical: 1.h),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
@@ -182,16 +192,17 @@ bool isLoading =true;
                                     chatlistmodal?.venue?.profile ?? "",
                                 progressIndicatorBuilder:
                                     (context, url, progress) =>
-                                        CircularProgressIndicator(),
+                                        Center(child: CircularProgressIndicator()),
                                 errorWidget: (context, url, error) => Image.asset(
-                                  'assets/icons/user.png',
-                                  color: Colors.white,
+                                  'assets/user.png',
+                                  color: Colors.black,
+
                                 ),
                               ),
                             ),
                           ),
                           SizedBox(
-                            width: 5.w,
+                            width: 3.w,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,9 +249,9 @@ bool isLoading =true;
                               )
                             ],
                           ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
+                          // SizedBox(
+                          //   width: 3.w,
+                          // ),
                         ],
                       ),
                     ),
@@ -295,86 +306,91 @@ bool isLoading =true;
                       img: chatlistmodal?.suppliers?[index].profile,
                     ));
                   },
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 4.h),
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 1.w),
-                            height: 7.h,
-                            width: 15.w,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(90),
-                              child: CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl: chatlistmodal?.suppliers?[index].profile ?? "",
-                                progressIndicatorBuilder:
-                                    (context, url, progress) =>
-                                        CircularProgressIndicator(),
-                                errorWidget: (context, url, error) => Image.asset(
-                                  'assets/icons/user.png',
-                                  color: Colors.white,
-                                ),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 3.w,
+                        vertical: 1.h),
+                    margin: EdgeInsets.symmetric(
+                        vertical: 1.h),
+                    decoration: BoxDecoration(
+                      borderRadius:
+                      BorderRadius.circular(20),
+                      color: Colors.white,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          height: 7.h,
+                          width: 15.w,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(90),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: chatlistmodal?.suppliers?[index].profile ?? "",
+                              progressIndicatorBuilder:
+                                  (context, url, progress) =>
+                                      CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => Image.asset(
+                                'assets/icons/user.png',
+                                color: Colors.white,
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 68.w,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                     chatlistmodal?.suppliers?[index].name ?? "",
-                                      style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1,
-                                          fontFamily: 'sofi',
-                                          color: Colors.black),
-                                    ),
-                                    Text(
-                                     formattedTime,
-                                      style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: 'soi',
-                                          color: Colors.black),
-                                    ),
-                                  ],
-                                ),
+                        ),
+                        // SizedBox(
+                        //   width: 3.w,
+                        // ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 68.w,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                   chatlistmodal?.suppliers?[index].name ?? "",
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
+                                  ),
+                                  Text(
+                                   formattedTime,
+                                    style: TextStyle(
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: 'soi',
+                                        color: Colors.black),
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                width: 52.w,
-                                child: Text(
-                                 chatlistmodal?.suppliers?[index].lastChatMessageInfo1 == null ? "" :chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ?? "",
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                      fontSize: 10.sp,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: 'soi',
-                                      color: Colors.black54),
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                        ],
-                      ),
+                            ),
+                            SizedBox(
+                              width: 52.w,
+                              child: Text(
+                               chatlistmodal?.suppliers?[index].lastChatMessageInfo1 == null ? "" :chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ?? "",
+                                maxLines: 2,
+                                style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'soi',
+                                    color: Colors.black54),
+                              ),
+                            )
+                          ],
+                        ),
+                        // SizedBox(
+                        //   width: 3.w,
+                        // ),
+                      ],
                     ),
                   ),
                 );

@@ -231,7 +231,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                         color: sel == index
                                             ? Colors.blue
                                             : Colors.white,
-                                        borderRadius: BorderRadius.circular(9)),
+                                        borderRadius: BorderRadius.circular(25)),
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 2.w),
                                     child: Text(cate[index],
@@ -400,7 +400,7 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(25)),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,

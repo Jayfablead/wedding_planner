@@ -68,6 +68,7 @@ class _ViewBudgetState extends State<ViewBudget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       bottomNavigationBar: bottomnavbar(selit: -3),
       extendBody: true,
       drawer: drawer1(),
@@ -85,12 +86,13 @@ class _ViewBudgetState extends State<ViewBudget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(onPressed: () {}, icon: Icon(null)),
+                      IconButton(onPressed: () {Get.back();}, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                       Text(
                         "Budget",
                         style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 18.sp,
                           fontFamily: 'sofi',
+                          color: Colors.blue,
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold,
                         ),
@@ -99,7 +101,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                           onPressed: () {
                             openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded))
+                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                     ],
                   ),
                   SizedBox(
@@ -206,14 +208,14 @@ class _ViewBudgetState extends State<ViewBudget> {
                           padding: EdgeInsets.all(2.w),
                           decoration: BoxDecoration(
                               color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(25)),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Icon(Icons.add, size: 19.sp, color: Colors.white),
                               SizedBox(width: 1.5.w),
                               Text(
-                                'Add Items',
+                                'Add Items ',
                                 style: TextStyle(
                                     fontSize: 15.sp,
                                     color: Colors.white,

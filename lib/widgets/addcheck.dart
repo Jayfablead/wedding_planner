@@ -29,6 +29,7 @@ class _addchecklistState extends State<addchecklist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       body: Container(
           // height: 70.h,
           child: Padding(
@@ -47,9 +48,9 @@ class _addchecklistState extends State<addchecklist> {
                           'Add Your CheckList',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 16.sp,
+                              fontSize: 17.sp,
                               fontFamily: 'sofi',
-                              color: Colors.black,
+                              color: Colors.blue,
                               fontWeight: FontWeight.bold,
                               height: 0.17.h,
                               letterSpacing: 1),
@@ -301,7 +302,7 @@ class _addchecklistState extends State<addchecklist> {
                               padding: EdgeInsets.all(2.5.w),
                               decoration: BoxDecoration(
                                   color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(25)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

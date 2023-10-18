@@ -36,12 +36,13 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(null),
+                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
                   ),
                   Text(
                     "Booking Successful",
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 18.sp,
+                      color: Colors.blue,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
@@ -51,7 +52,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded)),
+                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp)),
                 ],
               ),
               Image.network(
@@ -73,6 +74,9 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               Container(
                 width: 110.w,
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                  ),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
@@ -123,6 +127,9 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               Container(
                 width: 110.w,
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                  ),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
@@ -210,6 +217,9 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               Container(
                 width: 110.w,
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                  ),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
@@ -302,6 +312,9 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               Container(
                 width: 110.w,
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                  ),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
@@ -357,6 +370,9 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               Container(
                 width: 110.w,
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                  ),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 2.h, horizontal: 4.w),
@@ -420,7 +436,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: Colors.blue,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(35)),
                     child: Text(
                       'Continue',
                       style: TextStyle(

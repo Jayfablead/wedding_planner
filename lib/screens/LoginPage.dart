@@ -47,18 +47,15 @@ class _LoginPageState extends State<LoginPage> {
                         Get.back();
                       },
                       child: Container(
-                        margin: EdgeInsets.only(left: 3.w),
-                        padding: EdgeInsets.all(0.7.h),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2),
-                            borderRadius: BorderRadius.circular(90)),
-                        child: Icon(Icons.arrow_back_ios_new_rounded),
+
+
+                        child: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
                       ),
                     ),
                   ],
                 ),
                 Container(
-                  height: 28.h,
+                  height: 30.h,
                   width: 100.w,
                   child: Lottie.asset('assets/pl.json'),
                 ),
@@ -93,22 +90,24 @@ class _LoginPageState extends State<LoginPage> {
                             hintText: 'Enter Email Address',
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.black87,
+                                color: Colors.white,
                               ),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
+                            fillColor: Colors.white,
+                            filled: true,
                             errorStyle: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'sofi',
@@ -141,21 +140,23 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             hintText: 'Enter Password',
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
+                            fillColor: Colors.white,
+                            filled: true,
                             errorStyle: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'sofi',

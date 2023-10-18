@@ -37,18 +37,13 @@ class _bottomnavbarState extends State<bottomnavbar> {
   Widget build(BuildContext context) {
     _controller = NotchBottomBarController(index: widget.selit!);
     return AnimatedNotchBottomBar(
-
       notchBottomBarController: _controller!,
       showLabel: true,
       notchColor: Colors.blue,
-
       itemLabelStyle: TextStyle(color: Colors.blue),
-
-
       removeMargins: true,
       bottomBarWidth: MediaQuery.of(context).size.width,
       durationInMilliSeconds: 100,
-
       bottomBarItems: [
         BottomBarItem(
           inActiveItem: Image.asset("assets/bottom/1.png",
@@ -56,7 +51,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
           activeItem: Image.asset(
             "assets/bottom/1.png",
             height: 15.h,
-            width: 20.w,
+            width: 20.w, color: Colors.white
           ),
           itemLabel: 'Meeting',
         ),
@@ -66,7 +61,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
           activeItem: Image.asset(
             "assets/bottom/7.png",
             height: 15.h,
-            width: 20.w,
+            width: 20.w, color: Colors.white
           ),
           itemLabel: 'Board',
         ),
@@ -76,7 +71,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
           activeItem: Image.asset(
             "assets/bottom/3.png",
             height: 15.h,
-            width: 20.w,
+            width: 20.w, color: Colors.white
           ),
           itemLabel: 'Home',
         ),
@@ -127,7 +122,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
                 child: Image.asset(
                   "assets/bottom/5.png",
                   height: 15.h,
-                  width: 20.w,
+                  width: 20.w, color: Colors.white
                 ),
               ),
               unreadmsgmodal?.remainToread == 0? Container(): Positioned(
@@ -156,7 +151,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
           activeItem: Image.asset(
             "assets/bottom/4.png",
             height: 15.h,
-            width: 20.w,
+            width: 20.w, color: Colors.white
           ),
           itemLabel: 'Supplier',
         ),

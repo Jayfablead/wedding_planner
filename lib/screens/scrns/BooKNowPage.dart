@@ -78,6 +78,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
@@ -92,16 +93,18 @@ class _BooKNowPageState extends State<BooKNowPage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                   Text(
                     "Book Now",
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 18.sp,
+                      color: Colors.blue,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
@@ -111,7 +114,7 @@ class _BooKNowPageState extends State<BooKNowPage> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded)),
+                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp)),
                 ],
               ),
               SizedBox(
@@ -368,18 +371,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                 size: 18.sp,
                                 color: Colors.blue,
                               ),
+                              filled: true,
+                              fillColor: Colors.white,
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                             ),
                           ),
                         ],
@@ -428,18 +433,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                 size: 18.sp,
                                 color: Colors.blue,
                               ),
+                              filled: true,
+                              fillColor: Colors.white,
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                             ),
                           ),
                         ],
@@ -486,18 +493,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                 color: Colors.blue,
                                 size: 20.sp,
                               ),
+                              filled: true,
+                              fillColor: Colors.white,
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(color: Colors.grey)),
+                                  borderSide: BorderSide(color: Colors.white)),
                               hintText: 'Date',
                               hintStyle: TextStyle(
                                   color: Colors.black.withOpacity(0.6),
@@ -569,18 +578,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                   color: Colors.blue,
                                   size: 19.sp,
                                 ),
+                                filled: true,
+                                fillColor: Colors.white,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 disabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 hintText: 'Time',
                                 hintStyle: TextStyle(
                                     color: Colors.black.withOpacity(0.6),
@@ -624,18 +635,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                   color: Colors.blue,
                                   size: 19.sp,
                                 ),
+                                filled: true,
+                                fillColor: Colors.white,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 disabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.grey)),
+                                    borderSide: BorderSide(color: Colors.white)),
                                 hintText: 'Time',
                                 hintStyle: TextStyle(
                                     color: Colors.black.withOpacity(0.6),

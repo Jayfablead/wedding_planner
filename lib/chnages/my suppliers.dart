@@ -132,7 +132,7 @@ class _MySuppliersState extends State<MySuppliers> {
                 children: [
                   IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp)),
                   Text(
-                    "My Suppliers",
+                    "All Suppliers",
                     style: TextStyle(
                       fontSize: 15.sp,
                       fontFamily: 'sofi',

@@ -70,7 +70,7 @@ class _ViewTablesState extends State<ViewTables> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: sel1 == 1 ? Colors.blue : Colors.white,
-                        borderRadius: BorderRadius.circular(9)),
+                        borderRadius: BorderRadius.circular(25)),
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
                     child: Text('Bride',
                         style: TextStyle(
@@ -94,7 +94,7 @@ class _ViewTablesState extends State<ViewTables> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: sel1 == 2 ? Colors.blue : Colors.white,
-                        borderRadius: BorderRadius.circular(9)),
+                        borderRadius: BorderRadius.circular(25)),
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
                     child: Text('Groom',
                         style: TextStyle(
@@ -116,14 +116,13 @@ class _ViewTablesState extends State<ViewTables> {
                     width: MediaQuery.of(context).size.width,
 
                     decoration: BoxDecoration(
+
                         color:open == index? Colors.blue:Colors.white,
                         borderRadius: open == index ? BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
                             :BorderRadius.circular(20),
                         border: open != index?
-
                         Border.all(color: Colors.blue,width: 2):Border.all(color: Colors.transparent,width: 2)
                     ),
-
                     padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 3.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -155,11 +154,11 @@ class _ViewTablesState extends State<ViewTables> {
                       Container(
                         padding: EdgeInsets.all(3.w),
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
+                          color: Colors.white,
+                            border: Border.all(color: Colors.white),
                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
 
                         ),
-
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

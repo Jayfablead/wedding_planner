@@ -166,7 +166,7 @@ class _BookingListPageState extends State<BookingListPage> {
                                         vertical: 1.h, horizontal: 8.w),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                        border: Border.all(width: 0.5),
+
                                         color: sel == index
                                             ? Colors.blue
                                             : Colors.white,
@@ -213,6 +213,7 @@ class _BookingListPageState extends State<BookingListPage> {
                 crossAxisCount: 2, //
                 mainAxisSpacing: 1.h,
                 crossAxisSpacing: 0.5.w,
+
                 // childAspectRatio: 0.65 / 1,
                 childAspectRatio: 0.60 / 1,
               ),
@@ -220,6 +221,9 @@ class _BookingListPageState extends State<BookingListPage> {
               itemBuilder: (BuildContext context, int index) {
                 // Build each item in the grid
                 return Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

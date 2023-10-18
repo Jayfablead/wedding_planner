@@ -18,6 +18,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
@@ -37,11 +38,12 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                   Text(
                     "Booking Details",
                     style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 18.sp,
+                      color: Colors.blue,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
@@ -51,7 +53,7 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded)),
+                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp)),
                 ],
               ),
               Image.network(

@@ -78,12 +78,13 @@ class _MyProfileState extends State<MyProfile> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(onPressed: () {}, icon: Icon(null)),
                   Text(
                     "Profile",
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 18.sp,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       color: Colors.white,
@@ -97,6 +98,7 @@ class _MyProfileState extends State<MyProfile> {
                       icon: Icon(
                         Icons.menu_rounded,
                         color: Colors.white,
+                        size: 23.sp,
                       ))
                 ],
               ),

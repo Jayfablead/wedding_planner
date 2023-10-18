@@ -137,4 +137,78 @@ class taskprovider with ChangeNotifier{
 
     return responseJson;
   }
+  Future<http.Response> markcompletedapi(Map<String, String> bodyData,String data1) async {
+    String? url = '$baseUrl/markAsCompleted/${userData?.user?.id.toString()}/${data1}';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> notificationapi() async {
+    String? url = '$baseUrl/notification/${userData?.user?.id.toString()}';
+    // String? url = '$baseUrl/notification/21';
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> homeapi() async {
+    String? url = '$baseUrl/myHome/${userData?.user?.id.toString()}';
+
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> unreadnotiapi() async {
+    String? url = '$baseUrl/unreadNoti/${userData?.user?.id.toString()}';
+
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> readnotiapi() async {
+    String? url = '$baseUrl/readNoti/${userData?.user?.id.toString()}';
+
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 }

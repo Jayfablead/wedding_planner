@@ -17,6 +17,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
@@ -33,11 +34,12 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
                   Text(
                     "Supplier",
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 18.sp,
+                      color: Colors.blue,
                       fontFamily: 'sofi',
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
@@ -47,7 +49,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded))
+                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                 ],
               ),
               SizedBox(
@@ -306,8 +308,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       height: 5.h,
                       width: 45.w,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blue.shade200),
-                        color: Colors.blue.withOpacity(0.1),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(15.sp),
                       ),
                       child: Center(

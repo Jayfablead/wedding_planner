@@ -39,24 +39,24 @@ class cate0 {
 List<serv> services = [
   serv(
     'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
-    'Luffy',
+    'Jalsa',
   ),
-  serv(
-    'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
-    'Sanji',
-  ),
-  serv(
-    'https://w0.peakpx.com/wallpaper/311/533/HD-wallpaper-one-piece-nico-robin-one-piece-two-years-later.jpg',
-    'Robin',
-  ),
-  serv(
-    'https://i.pinimg.com/736x/59/e3/d2/59e3d2fb93af21511690470abc014831.jpg',
-    'Nami',
-  ),
-  serv(
-    'https://i.pinimg.com/236x/23/62/50/236250f1055a352c4a0cd5e0a21aaf33.jpg',
-    'Chopper',
-  ),
+  // serv(
+  //   'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
+  //   'Sanji',
+  // ),
+  // serv(
+  //   'https://w0.peakpx.com/wallpaper/311/533/HD-wallpaper-one-piece-nico-robin-one-piece-two-years-later.jpg',
+  //   'Robin',
+  // ),
+  // serv(
+  //   'https://i.pinimg.com/736x/59/e3/d2/59e3d2fb93af21511690470abc014831.jpg',
+  //   'Nami',
+  // ),
+  // serv(
+  //   'https://i.pinimg.com/236x/23/62/50/236250f1055a352c4a0cd5e0a21aaf33.jpg',
+  //   'Chopper',
+  // ),
 ];
 List<cate0> photos = [
   cate0(
@@ -91,6 +91,11 @@ List<cate0> photos = [
   cate0(
       'https://media.vogue.in/wp-content/uploads/2019/09/Deepika-Padukone-wedding-featured-1920x1080.jpg',
       1500),
+  cate0('https://crystallinestudio.com/imgBanner/81-crystalline-banner.jpg',
+      1010),
+  cate0(
+      'https://i.pinimg.com/736x/27/c8/fd/27c8fd79950baa2f80c9d8ef96977520.jpg',
+      9999),
 ];
 // final GlobalKey<ScaffoldState>  scaffoldKey2 = GlobalKey<ScaffoldState>();
 
@@ -238,25 +243,25 @@ class _PostPageState extends State<PostPage> {
                                   ),
                                 ],
                               ),
-                              PopupMenuButton(
-                                itemBuilder: (context) {
-                                  return [];
-                                },
-                                icon: Icon(Icons.more_vert_rounded),
-                              )
+                              // PopupMenuButton(
+                              //   itemBuilder: (context) {
+                              //     return [];
+                              //   },
+                              //   icon: Icon(Icons.more_vert_rounded),
+                              // )
                             ],
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
                           SizedBox(
-                            height: 30.h,
+                            height:MediaQuery.of(context).size.height,
                             child: StaggeredGridView.countBuilder(
                               padding: EdgeInsets.zero,
                               physics: NeverScrollableScrollPhysics(),
                               crossAxisCount: 2,
                               // Number of columns
-                              itemCount: 4,
+                              itemCount:  photos.length,
                               // Total number of items
                               itemBuilder: (BuildContext context, int index) =>
                                   Container(

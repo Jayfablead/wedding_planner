@@ -28,8 +28,15 @@ class User {
   String? brideName;
   String? groomName;
   String? email;
+  String? profilePath;
 
-  User({this.id, this.vid, this.brideName, this.groomName, this.email});
+  User(
+      {this.id,
+        this.vid,
+        this.brideName,
+        this.groomName,
+        this.email,
+        this.profilePath});
 
   User.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];
@@ -37,6 +44,7 @@ class User {
     brideName = json['BrideName'];
     groomName = json['GroomName'];
     email = json['Email'];
+    profilePath = json['profile_path'];
   }
 
   Map<dynamic, dynamic> toJson() {
@@ -46,6 +54,7 @@ class User {
     data['BrideName'] = this.brideName;
     data['GroomName'] = this.groomName;
     data['Email'] = this.email;
+    data['profile_path'] = this.profilePath;
     return data;
   }
 }

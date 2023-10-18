@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/Modal/ChangepassModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
@@ -29,6 +31,9 @@ class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      extendBody: true,
+      drawer: drawer1(),
       backgroundColor: Colors.grey.shade100,
       body: SingleChildScrollView(
         child: Form(
@@ -41,6 +46,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                   height: 6.h,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
                       onTap: () {
@@ -48,6 +55,21 @@ class _ChangePasswordState extends State<ChangePassword> {
                       },
                       child: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
                     ),
+                    Text(
+                      "",
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontFamily: 'sofi',
+                        color: Colors.blue,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          openDrawer();
+                        },
+                        icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
                   ],
                 ),
                 Container(
@@ -86,21 +108,23 @@ class _ChangePasswordState extends State<ChangePassword> {
                           decoration: InputDecoration(
                             hintText: 'Enter Old Password',
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
+                            fillColor: Colors.white,
+                            filled: true,
                             errorStyle: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'sofi',
@@ -145,19 +169,21 @@ class _ChangePasswordState extends State<ChangePassword> {
                           decoration: InputDecoration(
                             hintText: 'Enter New Password',
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
+                            fillColor: Colors.white,
+                            filled: true,
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             errorStyle: TextStyle(
@@ -204,21 +230,23 @@ class _ChangePasswordState extends State<ChangePassword> {
                           decoration: InputDecoration(
                             hintText: 'Enter Confirm Password',
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             disabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black87),
+                              borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(90),
                             ),
+                            fillColor: Colors.white,
+                            filled: true,
                             errorStyle: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'sofi',
