@@ -34,7 +34,11 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.blue,
+                        size: 23.sp,
+                      )),
                   Text(
                     "Supplier",
                     style: TextStyle(
@@ -49,7 +53,11 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
+                      icon: Icon(
+                        Icons.menu_rounded,
+                        color: Colors.blue,
+                        size: 23.sp,
+                      ))
                 ],
               ),
               SizedBox(
@@ -67,6 +75,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18.sp,
+                            fontFamily: 'sofi',
                             color: Colors.black),
                       ),
                       SizedBox(
@@ -77,6 +86,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18.sp,
+                            fontFamily: 'sofi',
                             color: Colors.black),
                       ),
                     ],
@@ -254,6 +264,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 style: TextStyle(
                     fontSize: 18.sp,
                     color: Colors.black,
+                    fontFamily: 'sofi',
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -264,12 +275,37 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                 width: 90.w,
                 child: Text(
                   "When it comes to decoration ideas for weddings, flowers are one of the top things that pop into our minds.And with the latest wedding trends,there are numerous ways of using flower decoration to amp up your wedding décor.",
-                  style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 15.sp,
+                    fontFamily: 'sofi',
+                  ),
                 ),
               ),
               SizedBox(
-                height: 2.h,
+                height: 3.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text("Starting Price : ",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: 'sofi',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 1)),
+                  Text("\$250",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: 'sofi',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          letterSpacing: 1))
+                ],
+              ),
+              SizedBox(
+                height: 3.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

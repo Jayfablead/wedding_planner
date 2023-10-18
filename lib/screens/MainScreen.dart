@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
-import 'package:wedding_planner/screens/HomePage.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
@@ -73,11 +72,14 @@ class _MainScreenState extends State<MainScreen> {
           top: 84.5.h,
           left: 4.5.w,
           child: InkWell(
-            onTap: () async{
-              userData =await SaveDataLocal.getDataFromLocal();
+            onTap: () async {
+              userData = await SaveDataLocal.getDataFromLocal();
               print(userData?.user?.groomName);
-              userData?.user?.id == null || userData?.user?.id == ""?
-              Get.to(LoginPage()):Get.to(YellowHomeScreen(sele: -3,));
+              userData?.user?.id == null || userData?.user?.id == ""
+                  ? Get.to(LoginPage())
+                  : Get.to(YellowHomeScreen(
+                      sele: -3,
+                    ));
             },
             child: Container(
               height: 7.h,

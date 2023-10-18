@@ -125,18 +125,24 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
+                            icon: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              size: 23.sp,
+                              color: Colors.blue,
+                            )),
                         Text(
                           'Food Menu',
-                          style: TextStyle(
-                              fontSize: 18.sp,color: Colors.blue),
+                          style: TextStyle(fontSize: 18.sp, color: Colors.blue),
                         ),
                         IconButton(
                             onPressed: () {
                               scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp
-                              ,)),
+                            icon: Icon(
+                              Icons.menu_rounded,
+                              color: Colors.blue,
+                              size: 23.sp,
+                            )),
                       ],
                     ),
                   ],
@@ -231,7 +237,8 @@ class _FoodMenusPageState extends State<FoodMenusPage> {
                                         color: sel == index
                                             ? Colors.blue
                                             : Colors.white,
-                                        borderRadius: BorderRadius.circular(25)),
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 2.w),
                                     child: Text(cate[index],

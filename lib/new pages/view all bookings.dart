@@ -75,7 +75,11 @@ class _BookingListState extends State<BookingList> {
                           onPressed: () {
                             Get.back();
                           },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                          icon: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: Colors.blue,
+                            size: 23.sp,
+                          )),
                       Text(
                         "All Bookings",
                         style: TextStyle(
@@ -90,7 +94,11 @@ class _BookingListState extends State<BookingList> {
                           onPressed: () {
                             scaffoldKey.currentState?.openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
+                          icon: Icon(
+                            Icons.menu_rounded,
+                            color: Colors.blue,
+                            size: 23.sp,
+                          ))
                     ],
                   ),
                   SizedBox(

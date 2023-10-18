@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wedding_planner/Modal/UserModal.dart';
 
-
-
 class SaveDataLocal {
   static SharedPreferences? prefs;
   static String userData = 'UserData';
@@ -30,6 +28,5 @@ class SaveDataLocal {
   static clearUserData() async {
     prefs = await SharedPreferences.getInstance();
     prefs?.clear();
-
   }
 }

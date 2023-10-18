@@ -23,7 +23,8 @@ Widget spinKit = Container(
     size: 40.0,
   ),
 );
-Widget commanScreen({required Scaffold scaffold,required bool isLoading}) {
+
+Widget commanScreen({required Scaffold scaffold, required bool isLoading}) {
   return KeyboardDismisser(
       gestures: const [GestureType.onTap, GestureType.onPanUpdateDownDirection],
       child: ModalProgressHUD(

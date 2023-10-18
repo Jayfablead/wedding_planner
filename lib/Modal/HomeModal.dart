@@ -7,10 +7,10 @@ class HomeModal {
 
   HomeModal(
       {this.status,
-        this.message,
-        this.userData,
-        this.services,
-        this.suppliers});
+      this.message,
+      this.userData,
+      this.services,
+      this.suppliers});
 
   HomeModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
@@ -87,10 +87,10 @@ class Services {
 
   Services(
       {this.categoryId,
-        this.categoryIcon,
-        this.categoryName,
-        this.categoryDesc,
-        this.createdAt});
+      this.categoryIcon,
+      this.categoryName,
+      this.categoryDesc,
+      this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     categoryId = json['category_id'];

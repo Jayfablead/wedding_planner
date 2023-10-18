@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/screens/LoginPage.dart';
 
 buildErrorDialog(BuildContext context, String title, String contant,
     {VoidCallback? callback, String? buttonname}) {
@@ -219,36 +218,38 @@ buildErrorDialog(BuildContext context, String title, String contant,
   }
   // show the dialog
 }
-buildErrorDialog1(BuildContext context, String title, String contant,VoidCallback? callback,
-    { String? buttonname}) {
+
+buildErrorDialog1(
+    BuildContext context, String title, String contant, VoidCallback? callback,
+    {String? buttonname}) {
   Widget okButton = GestureDetector(
-    child: Container(
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(20.0),
-        // color: primary
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(20.0),
+          // color: primary
+        ),
+        child: Center(
+          child: Text(buttonname ?? 'OK',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 11.sp,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'sofi',
+                letterSpacing: 1,
+                decorationColor: Colors.black,
+              )),
+        ),
       ),
-      child: Center(
-        child: Text(buttonname ?? 'OK',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 11.sp,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'sofi',
-              letterSpacing: 1,
-              decorationColor: Colors.black,
-            )),
-      ),
-    ),
-    onTap:
-      // if (callback == null) {
-    callback
+      onTap:
+          // if (callback == null) {
+          callback
       // } else {
 
       // }
 
-  );
+      );
 
   if (Platform.isAndroid) {
     showDialog(
@@ -275,24 +276,24 @@ buildErrorDialog1(BuildContext context, String title, String contant,VoidCallbac
                 ),
                 (title != "")
                     ? Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          decorationColor: Colors.black,
-                          fontFamily: 'Poppins',
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 1.h),
-                  ],
-                )
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            child: Text(
+                              title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 1.h),
+                        ],
+                      )
                     : Container(),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -355,24 +356,24 @@ buildErrorDialog1(BuildContext context, String title, String contant,VoidCallbac
                 ),
                 (title != "")
                     ? Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          decorationColor: Colors.black,
-                          fontFamily: 'Poppins',
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 1.h),
-                  ],
-                )
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            child: Text(
+                              title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                decorationColor: Colors.black,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 1.h),
+                        ],
+                      )
                     : Container(),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),

@@ -106,7 +106,9 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                         Get.back();
                       },
                       icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,
+                        Icons.arrow_back_ios_new_rounded,
+                        size: 23.sp,
+                        color: Colors.blue,
                       )),
                   Text(
                     "My Quotation Requests",
@@ -123,7 +125,9 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                         scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
-                        Icons.menu_rounded,color: Colors.blue,size: 23.sp,
+                        Icons.menu_rounded,
+                        color: Colors.blue,
+                        size: 23.sp,
                       ))
                 ],
               ),
@@ -321,22 +325,23 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 94.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

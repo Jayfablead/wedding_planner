@@ -80,7 +80,7 @@ List<cate> venue = [
       'A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue ',
       3),
 ];
-TextEditingController _search=TextEditingController();
+TextEditingController _search = TextEditingController();
 
 class _CertificateState extends State<Certificate> {
   @override
@@ -109,7 +109,11 @@ class _CertificateState extends State<Certificate> {
                           onPressed: () {
                             Get.back();
                           },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
+                          icon: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            size: 23.sp,
+                            color: Colors.blue,
+                          )),
                       Text(
                         "Certificates",
                         style: TextStyle(
@@ -124,7 +128,11 @@ class _CertificateState extends State<Certificate> {
                           onPressed: () {
                             scaffoldKey.currentState?.openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
+                          icon: Icon(
+                            Icons.menu_rounded,
+                            color: Colors.blue,
+                            size: 23.sp,
+                          ))
                     ],
                   ),
                   SizedBox(height: 1.h),
@@ -271,22 +279,23 @@ class _CertificateState extends State<Certificate> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 80.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

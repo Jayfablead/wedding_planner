@@ -6,7 +6,6 @@ import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/ForgotpassModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
-import 'package:wedding_planner/screens/HomePage.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -45,9 +44,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         Get.back();
                       },
                       child: Container(
-
-
-                        child: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.blue,
+                          size: 23.sp,
+                        ),
                       ),
                     ),
                   ],
@@ -169,7 +170,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       ),
     );
   }
-  forgotpassap(){
+
+  forgotpassap() {
     if (_formKey.currentState!.validate()) {
       final Map<String, String> data = {};
       data['email'] = _email.text.trim().toString();
@@ -180,9 +182,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
             if (response.statusCode == 200 && forgotpass?.status == "1") {
               buildErrorDialog1(
-                  context, "Email", forgotpass?.message ?? "",() {
-                    Get.to(LoginPage());
-                  },);
+                context,
+                "Email",
+                forgotpass?.message ?? "",
+                () {
+                  Get.to(LoginPage());
+                },
+              );
             } else {
               buildErrorDialog(
                   context, "Login Error", forgotpass?.message ?? "");

@@ -88,9 +88,13 @@ class _MeetingsPageState extends State<MeetingsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    IconButton(onPressed: () {
-
-                    }, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.blue,
+                          size: 23.sp,
+                        )),
                     Text(
                       "",
                       style: TextStyle(
@@ -105,7 +109,11 @@ class _MeetingsPageState extends State<MeetingsPage> {
                           // _drawerKey.currentState!.open();
                           openDrawer();
                         },
-                        icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
+                        icon: Icon(
+                          Icons.menu_rounded,
+                          color: Colors.blue,
+                          size: 23.sp,
+                        ))
                   ],
                 ),
                 SizedBox(height: 1.5.h),

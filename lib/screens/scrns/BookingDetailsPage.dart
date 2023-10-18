@@ -38,7 +38,11 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.blue,
+                        size: 23.sp,
+                      )),
                   Text(
                     "Booking Details",
                     style: TextStyle(
@@ -53,7 +57,8 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp)),
+                      icon: Icon(Icons.menu_rounded,
+                          color: Colors.blue, size: 23.sp)),
                 ],
               ),
               Image.network(
@@ -91,7 +96,8 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                         width: 30.w,
                         child: Card(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                            borderRadius: BorderRadius.circular(
+                                12.0), // Control the border radius here
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
@@ -135,7 +141,8 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                         width: 30.w,
                         child: Card(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                            borderRadius: BorderRadius.circular(
+                                12.0), // Control the border radius here
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
@@ -180,7 +187,8 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
                         width: 30.w,
                         child: Card(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                            borderRadius: BorderRadius.circular(
+                                12.0), // Control the border radius here
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(

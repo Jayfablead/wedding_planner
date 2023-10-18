@@ -96,7 +96,9 @@ class _RoomManagementState extends State<RoomManagement> {
                               Get.back();
                             },
                             icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,
+                              Icons.arrow_back_ios_new_rounded,
+                              color: Colors.blue,
+                              size: 23.sp,
                             )),
                         Text(
                           "Room Management",
@@ -378,22 +380,23 @@ class _RoomManagementState extends State<RoomManagement> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 94.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

@@ -1,11 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -23,9 +21,9 @@ class cate {
   String? name;
 
   cate(
-      this.image,
-      this.name,
-      );
+    this.image,
+    this.name,
+  );
 }
 
 class cate1 {
@@ -34,11 +32,12 @@ class cate1 {
   String? desc;
 
   cate1(
-      this.image,
-      this.name,
-      this.desc,
-      );
+    this.image,
+    this.name,
+    this.desc,
+  );
 }
+
 class kop {
   String? image;
   String? name;
@@ -46,16 +45,14 @@ class kop {
   String? price;
   String? btn;
 
-
   kop(
-      this.image,
-      this.name,
-      this.dec,
-      this.price,
-      this.btn,
-      );
+    this.image,
+    this.name,
+    this.dec,
+    this.price,
+    this.btn,
+  );
 }
-
 
 List<cate> Categories = [
   cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
@@ -96,39 +93,38 @@ TextEditingController _search = TextEditingController();
 int sel = 1;
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-List<kop>Supaliers =[
-  kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
+List<kop> Supaliers = [
+  kop(
+      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
       "Flower Suppliers",
       "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
       "\$250",
-      "View Detail"
-  ),
-  kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
+      "View Detail"),
+  kop(
+      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
       "Flower Suppliers",
       "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
       "\$250",
-      "View Detail"
-  ),
-  kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
+      "View Detail"),
+  kop(
+      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
       "Flower Suppliers",
       "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
       "\$250",
-      "View Detail"
-  ),
-  kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
+      "View Detail"),
+  kop(
+      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
       "Flower Suppliers",
       "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
       "\$250",
-      "View Detail"
-  ),
-  kop("https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
+      "View Detail"),
+  kop(
+      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
       "Flower Suppliers",
       "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
       "\$250",
-      "View Detail"
-  ),
+      "View Detail"),
 ];
-
 
 class _YellowHomeScreenState extends State<YellowHomeScreen> {
   @override
@@ -139,8 +135,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       sel = 1;
     });
   }
-  int? sel1=0;
-  List<String> type = ["All Suppliers","To Do","Meeting"];
+
+  int? sel1 = 0;
+  List<String> type = ["All Suppliers", "To Do", "Meeting"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,16 +179,31 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                       letterSpacing: 1,
                                       color: Colors.blue),
                                 ),
-                                IconButton(
-                                  onPressed: () {
-                                    scaffoldKey.currentState?.openDrawer();
-                                  },
-                                  icon: Icon(
-                                    Icons.menu_rounded,
-                                    color: Colors.blue,
-                                    size: 23.sp,
-                                  ),
-                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {
+                                          Get.to(NotificationScreen());
+                                        },
+                                        icon: Icon(
+                                          Icons.notifications_none_rounded,
+                                          color: Colors.blue,
+                                          size: 21.sp,
+                                        )),
+                                    IconButton(
+                                        onPressed: () {
+                                          scaffoldKey.currentState
+                                              ?.openDrawer();
+                                        },
+                                        icon: Icon(
+                                          Icons.menu_rounded,
+                                          color: Colors.blue,
+                                          size: 23.sp,
+                                        )),
+                                  ],
+                                )
                               ],
                             ),
                             SizedBox(height: .50.h),
@@ -234,27 +247,31 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                 height: 3.h,
               ),
 
-
               Container(
-                height:4.5.h ,
+                height: 4.5.h,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 3,
-                    itemBuilder: (context,index){
+                    itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           setState(() {
                             sel1 = index;
-
                           });
-                          sel1==1?Get.to(Check_list()):sel1==2?Get.to(MeetingsPage(sele:0,)):Container();
+                          sel1 == 1
+                              ? Get.to(Check_list())
+                              : sel1 == 2
+                                  ? Get.to(MeetingsPage(
+                                      sele: 0,
+                                    ))
+                                  : Container();
                           print(index);
                         },
                         child: Container(
-                          padding:
-                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 3.w),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 1.h, horizontal: 3.w),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: sel1 == index ? Colors.blue : Colors.white,
@@ -264,7 +281,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                               style: TextStyle(
                                   fontSize: 14.sp,
                                   fontFamily: 'sofi',
-                                  color: sel1 == index ? Colors.white : Colors.blue,
+                                  color: sel1 == index
+                                      ? Colors.white
+                                      : Colors.blue,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 1)),
                         ),
@@ -276,29 +295,26 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
               ),
               Container(
                 height: 50.h,
-                width: MediaQuery.of(context).size.width ,
+                width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.zero,
+                    padding: EdgeInsets.zero,
                     itemCount: Supaliers.length,
-                    itemBuilder:(context,index){
+                    itemBuilder: (context, index) {
                       return Container(
                         width: 80.w,
                         margin: EdgeInsets.symmetric(horizontal: 2.w),
                         padding: EdgeInsets.all(3.w),
                         decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(25),
-                            color: Colors.white
-                        ),
+                            borderRadius: BorderRadius.circular(25),
+                            color: Colors.white),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               padding: EdgeInsets.all(5.sp),
                               width: 85.w,
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 1.0),
+                              margin: EdgeInsets.symmetric(horizontal: 1.0),
                               // decoration: BoxDecoration(
                               //   borderRadius:
                               //   BorderRadius.circular(25),
@@ -326,74 +342,91 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(25),
                                 child: Image.network(
-                                  Supaliers[index].image.toString(),fit: BoxFit.cover, height:20.h,width: 100.w,
+                                  Supaliers[index].image.toString(),
+                                  fit: BoxFit.cover, height: 20.h, width: 100.w,
                                   // Cover the entire screen
                                 ),
                               ),
                             ),
-                            SizedBox(height: 1.5.h,),
-                            Padding(
-                              padding:EdgeInsets.only(left: 3.w),
-                              child: Text(Supaliers[index].name.toString(),style: TextStyle(
-                                  fontSize: 14.5.sp,
-                                  fontFamily: 'sofi',
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  letterSpacing: 1)),
+                            SizedBox(
+                              height: 1.5.h,
                             ),
-                            SizedBox(height: 1.5.h,),
                             Padding(
-                              padding:EdgeInsets.only(left: 3.w) ,
-                              child: Text(Supaliers[index].dec.toString(),maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(
-                                  fontSize: 14.5.sp,
-                                  fontFamily: 'sofi',
-
-                                  color: Colors.black54,
-                                  letterSpacing: 1)),
-                            ),
-                            SizedBox(height: 3.h,),
-                            Padding(
-                              padding:EdgeInsets.only(left: 4.w),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text("Starting Price : ",style: TextStyle(
-                                      fontSize: 14.5.sp,
-                                      fontFamily: 'sofi',
-                                      fontWeight: FontWeight.normal,
-                                      color: Colors.black54,
-                                      letterSpacing: 1)),
-                                  Text( Supaliers[index].price.toString(),style: TextStyle(
+                              padding: EdgeInsets.only(left: 3.w),
+                              child: Text(Supaliers[index].name.toString(),
+                                  style: TextStyle(
                                       fontSize: 14.5.sp,
                                       fontFamily: 'sofi',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
-                                      letterSpacing: 1))
+                                      letterSpacing: 1)),
+                            ),
+                            SizedBox(
+                              height: 1.5.h,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 3.w),
+                              child: Text(Supaliers[index].dec.toString(),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontSize: 14.5.sp,
+                                      fontFamily: 'sofi',
+                                      color: Colors.black54,
+                                      letterSpacing: 1)),
+                            ),
+                            SizedBox(
+                              height: 3.h,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 4.w),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("Starting Price : ",
+                                      style: TextStyle(
+                                          fontSize: 14.5.sp,
+                                          fontFamily: 'sofi',
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.black54,
+                                          letterSpacing: 1)),
+                                  Text(Supaliers[index].price.toString(),
+                                      style: TextStyle(
+                                          fontSize: 14.5.sp,
+                                          fontFamily: 'sofi',
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          letterSpacing: 1))
                                 ],
                               ),
                             ),
-                            SizedBox(height: 3.h,),
+                            SizedBox(
+                              height: 3.h,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GestureDetector(
-                                  onTap: (){},
+                                  onTap: () {},
                                   child: Container(
                                     width: 50.w,
-
-                                    padding:
-                                    EdgeInsets.symmetric(vertical: 1.h, horizontal: 5.w),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 1.h, horizontal: 5.w),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: Colors.blue,
-                                        borderRadius: BorderRadius.circular(25)),
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
                                     child: Center(
-                                      child: Text(Supaliers[index].btn.toString(),style: TextStyle(
-                                          fontSize: 17.sp,
-                                          fontFamily: 'sofi',
-                                          color: Colors.white,
-                                          letterSpacing: 1)),
+                                      child: Text(
+                                          Supaliers[index].btn.toString(),
+                                          style: TextStyle(
+                                              fontSize: 17.sp,
+                                              fontFamily: 'sofi',
+                                              color: Colors.white,
+                                              letterSpacing: 1)),
                                     ),
                                   ),
                                 ),
@@ -402,11 +435,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                           ],
                         ),
                       );
-                    } ),
+                    }),
               )
-
-
-
 
               // Column(
               //   crossAxisAlignment: CrossAxisAlignment.start,
@@ -505,17 +535,17 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       alignment: Alignment.center,
       width: 94.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

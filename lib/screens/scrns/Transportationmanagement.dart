@@ -67,7 +67,7 @@ List<book> booka = [
       '12People', "325", "Km", "Gasoline", "Manual"),
 ];
 List cate = ['All', 'Featured Cars', 'Family Car', 'Luxury Car', 'Top Rated'];
-TextEditingController _search=TextEditingController();
+TextEditingController _search = TextEditingController();
 
 int sel = 0;
 
@@ -100,7 +100,11 @@ class _BookingListPageState extends State<BookingListPage> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                            icon: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: Colors.blue,
+                              size: 23.sp,
+                            )),
                         Text(
                           "Transportation",
                           style: TextStyle(
@@ -115,7 +119,11 @@ class _BookingListPageState extends State<BookingListPage> {
                             onPressed: () {
                               scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
+                            icon: Icon(
+                              Icons.menu_rounded,
+                              color: Colors.blue,
+                              size: 23.sp,
+                            ))
                       ],
                     ),
                     SizedBox(
@@ -166,7 +174,6 @@ class _BookingListPageState extends State<BookingListPage> {
                                         vertical: 1.h, horizontal: 8.w),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-
                                         color: sel == index
                                             ? Colors.blue
                                             : Colors.white,
@@ -222,7 +229,8 @@ class _BookingListPageState extends State<BookingListPage> {
                 // Build each item in the grid
                 return Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0), // Control the border radius here
+                    borderRadius: BorderRadius.circular(
+                        12.0), // Control the border radius here
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -430,22 +438,23 @@ class _BookingListPageState extends State<BookingListPage> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 80.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

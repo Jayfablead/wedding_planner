@@ -32,11 +32,11 @@ class User {
 
   User(
       {this.id,
-        this.vid,
-        this.brideName,
-        this.groomName,
-        this.email,
-        this.profilePath});
+      this.vid,
+      this.brideName,
+      this.groomName,
+      this.email,
+      this.profilePath});
 
   User.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];

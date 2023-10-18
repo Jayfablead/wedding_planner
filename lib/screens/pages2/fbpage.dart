@@ -130,7 +130,11 @@ class _PostPageState extends State<PostPage> {
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
+                  icon: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Colors.blue,
+                    size: 23.sp,
+                  ),
                 ),
                 // Text(
                 //   "Posts",
@@ -145,7 +149,8 @@ class _PostPageState extends State<PostPage> {
                     onPressed: () {
                       openDrawer();
                     },
-                    icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp))
+                    icon: Icon(Icons.menu_rounded,
+                        color: Colors.blue, size: 23.sp))
               ],
             ),
             SizedBox(height: 1.h),
@@ -255,13 +260,13 @@ class _PostPageState extends State<PostPage> {
                             height: 2.h,
                           ),
                           SizedBox(
-                            height:MediaQuery.of(context).size.height,
+                            height: MediaQuery.of(context).size.height,
                             child: StaggeredGridView.countBuilder(
                               padding: EdgeInsets.zero,
                               physics: NeverScrollableScrollPhysics(),
                               crossAxisCount: 2,
                               // Number of columns
-                              itemCount:  photos.length,
+                              itemCount: photos.length,
                               // Total number of items
                               itemBuilder: (BuildContext context, int index) =>
                                   Container(

@@ -17,7 +17,7 @@ class Accomendation_Page extends StatefulWidget {
 }
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-TextEditingController _search=TextEditingController();
+TextEditingController _search = TextEditingController();
 
 class _Accomendation_PageState extends State<Accomendation_Page> {
   @override
@@ -43,7 +43,11 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                             onPressed: () {
                               Get.back();
                             },
-                            icon: Icon(Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,)),
+                            icon: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              size: 23.sp,
+                              color: Colors.blue,
+                            )),
                         Text(
                           '',
                           style: TextStyle(
@@ -53,7 +57,11 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                             onPressed: () {
                               scaffoldKey.currentState?.openDrawer();
                             },
-                            icon: Icon(Icons.menu_rounded,size: 23.sp,color: Colors.blue,)),
+                            icon: Icon(
+                              Icons.menu_rounded,
+                              size: 23.sp,
+                              color: Colors.blue,
+                            )),
                       ],
                     ),
                     SizedBox(height: 1.h),
@@ -217,8 +225,7 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 2.w),
                                           decoration: BoxDecoration(
-                                            color:
-                                                Colors.white,
+                                            color: Colors.white,
                                             borderRadius: BorderRadius.only(
                                                 bottomRight: Radius.circular(8),
                                                 bottomLeft: Radius.circular(8)),
@@ -235,7 +242,8 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .start,
-                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       SizedBox(height: 1.h),
                                                       Text(
@@ -571,22 +579,23 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 80.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

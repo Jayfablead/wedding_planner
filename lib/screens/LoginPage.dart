@@ -12,7 +12,6 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 import '../Modal/UserModal.dart';
-import 'HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -47,9 +46,11 @@ class _LoginPageState extends State<LoginPage> {
                         Get.back();
                       },
                       child: Container(
-
-
-                        child: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,),
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.blue,
+                          size: 23.sp,
+                        ),
                       ),
                     ),
                   ],
@@ -213,7 +214,6 @@ class _LoginPageState extends State<LoginPage> {
                 InkWell(
                   onTap: () {
                     login();
-
                   },
                   child: Container(
                     width: 90.w,
@@ -252,7 +252,7 @@ class _LoginPageState extends State<LoginPage> {
             userData = UserModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && userData?.status == "1") {
               await SaveDataLocal.saveLogInData(userData!);
-              Get.off(YellowHomeScreen(sele:2));
+              Get.off(YellowHomeScreen(sele: 2));
             } else {
               buildErrorDialog(
                   context, "Login Error", (userData?.message).toString());

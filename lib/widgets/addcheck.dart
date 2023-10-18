@@ -88,88 +88,104 @@ class _addchecklistState extends State<addchecklist> {
                               borderRadius: BorderRadius.circular(20),
                               borderSide:
                                   BorderSide(color: Colors.transparent)),
+                          disabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
                           hintText: 'Title',
                           hintStyle: TextStyle(
                               color: Colors.black.withOpacity(0.67),
                               fontFamily: 'Meta1'),
                         ),
                       ),
-                      SizedBox(height: 2.h),
-                      Text(
-                        'Description :',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                      SizedBox(height: 1.h),
-                      TextFormField(
-                        controller: _desc,
-                        onChanged: (value) {},
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter check description';
-                          }
-                          return null;
-                        },
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.67),
-                            fontFamily: 'Meta1'),
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.description),
-                          border: InputBorder.none,
-                          fillColor: Colors.grey.withOpacity(0.12),
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent)),
-                          hintText: 'Description',
-                          hintStyle: TextStyle(
-                              color: Colors.black.withOpacity(0.67),
-                              fontFamily: 'Meta1'),
-                        ),
-                      ),
-                      SizedBox(height: 2.h),
-                      Text(
-                        'Category :',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                      SizedBox(height: 1.h),
-                      TextFormField(
-                        controller: _cate,
-                        onChanged: (value) {},
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter check category';
-                          }
-                          return null;
-                        },
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.67),
-                            fontFamily: 'Meta1'),
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.category),
-                          border: InputBorder.none,
-                          fillColor: Colors.grey.withOpacity(0.12),
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent)),
-                          hintText: 'category',
-                          hintStyle: TextStyle(
-                              color: Colors.black.withOpacity(0.67),
-                              fontFamily: 'Meta1'),
-                        ),
-                      ),
+                      // Column(
+                      //   children: [
+                      //     SizedBox(height: 2.h),
+                      //     Text(
+                      //       'Description :',
+                      //       style: TextStyle(
+                      //           fontSize: 14.sp,
+                      //           fontFamily: 'sofi',
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.bold,
+                      //           letterSpacing: 1),
+                      //     ),
+                      //     SizedBox(height: 1.h),
+                      //     TextFormField(
+                      //       controller: _desc,
+                      //       onChanged: (value) {},
+                      //       validator: (value) {
+                      //         if (value == null || value.isEmpty) {
+                      //           return 'Please enter check description';
+                      //         }
+                      //         return null;
+                      //       },
+                      //       style: TextStyle(
+                      //           color: Colors.black.withOpacity(0.67),
+                      //           fontFamily: 'Meta1'),
+                      //       decoration: InputDecoration(
+                      //         prefixIcon: Icon(Icons.description),
+                      //         border: InputBorder.none,
+                      //         fillColor: Colors.grey.withOpacity(0.12),
+                      //         filled: true,
+                      //         enabledBorder: OutlineInputBorder(
+                      //             borderRadius: BorderRadius.circular(20),
+                      //             borderSide:
+                      //                 BorderSide(color: Colors.transparent)),
+                      //         hintText: 'Description',
+                      //         hintStyle: TextStyle(
+                      //             color: Colors.black.withOpacity(0.67),
+                      //             fontFamily: 'Meta1'),
+                      //       ),
+                      //     ),
+                      //     SizedBox(height: 2.h),
+                      //     Text(
+                      //       'Category :',
+                      //       style: TextStyle(
+                      //           fontSize: 14.sp,
+                      //           fontFamily: 'sofi',
+                      //           color: Colors.black,
+                      //           fontWeight: FontWeight.bold,
+                      //           letterSpacing: 1),
+                      //     ),
+                      //     SizedBox(height: 1.h),
+                      //     TextFormField(
+                      //       controller: _cate,
+                      //       onChanged: (value) {},
+                      //       validator: (value) {
+                      //         if (value == null || value.isEmpty) {
+                      //           return 'Please enter check category';
+                      //         }
+                      //         return null;
+                      //       },
+                      //       style: TextStyle(
+                      //           color: Colors.black.withOpacity(0.67),
+                      //           fontFamily: 'Meta1'),
+                      //       decoration: InputDecoration(
+                      //         prefixIcon: Icon(Icons.category),
+                      //         border: InputBorder.none,
+                      //         fillColor: Colors.grey.withOpacity(0.12),
+                      //         filled: true,
+                      //         enabledBorder: OutlineInputBorder(
+                      //             borderRadius: BorderRadius.circular(20),
+                      //             borderSide:
+                      //                 BorderSide(color: Colors.transparent)),
+                      //         hintText: 'category',
+                      //         hintStyle: TextStyle(
+                      //             color: Colors.black.withOpacity(0.67),
+                      //             fontFamily: 'Meta1'),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                       SizedBox(height: 2.h),
                       Text(
                         'Start Date :',
@@ -182,6 +198,7 @@ class _addchecklistState extends State<addchecklist> {
                       ),
                       SizedBox(height: 1.h),
                       TextFormField(
+                        readOnly: true,
                         controller: _start,
                         onChanged: (value) {},
                         validator: (value) {
@@ -193,10 +210,10 @@ class _addchecklistState extends State<addchecklist> {
                         onTap: () async {
                           DateTime? picked = await showDatePicker(
                             context: context,
-                            initialDate: DateTime
-                                .now(), // Initial date, can be the current date or a specific date
-                            firstDate: DateTime(
-                                2000), // The first date that can be selected
+                            initialDate: DateTime.now(),
+                            // Initial date, can be the current date or a specific date
+                            firstDate: DateTime(2000),
+                            // The first date that can be selected
                             lastDate: DateTime(
                                 2101), // The last date that can be selected
                           );
@@ -223,6 +240,18 @@ class _addchecklistState extends State<addchecklist> {
                               borderRadius: BorderRadius.circular(20),
                               borderSide:
                                   BorderSide(color: Colors.transparent)),
+                          disabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
                           hintText: 'Start date',
                           hintStyle: TextStyle(
                               color: Colors.black.withOpacity(0.67),
@@ -241,6 +270,7 @@ class _addchecklistState extends State<addchecklist> {
                       ),
                       SizedBox(height: 1.h),
                       TextFormField(
+                        readOnly: true,
                         controller: _date,
                         onChanged: (value) {},
                         validator: (value) {
@@ -252,10 +282,10 @@ class _addchecklistState extends State<addchecklist> {
                         onTap: () async {
                           DateTime? picked = await showDatePicker(
                             context: context,
-                            initialDate: DateTime
-                                .now(), // Initial date, can be the current date or a specific date
-                            firstDate: DateTime(
-                                2000), // The first date that can be selected
+                            initialDate: DateTime.now(),
+                            // Initial date, can be the current date or a specific date
+                            firstDate: DateTime(2000),
+                            // The first date that can be selected
                             lastDate: DateTime(
                                 2101), // The last date that can be selected
                           );
@@ -279,6 +309,18 @@ class _addchecklistState extends State<addchecklist> {
                           fillColor: Colors.grey.withOpacity(0.12),
                           filled: true,
                           enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          disabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  BorderSide(color: Colors.transparent)),
+                          errorBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide:
                                   BorderSide(color: Colors.transparent)),
@@ -338,32 +380,32 @@ class _addchecklistState extends State<addchecklist> {
   }
 
   addcheckap() {
-
-      if (_formKey.currentState!.validate()) {
-        final Map<String, String> data = {};
-        data['title'] = _title.text.trim().toString();
-        data['description'] = _desc.text.trim().toString();
-        data['category'] = _cate.text.trim().toString();
-        data['start_time'] = _start.text.trim().toString();
-        data['end_time'] = _date.text.trim().toString();
-        print(data);
-        checkInternet().then((internet) async {
-          if (internet) {
-            taskprovider().addchecklistapi(data).then((response) async {
-              addchecklistmodal = AddchecklistModal.fromJson(json.decode(response.body));
-              if (response.statusCode == 200 && addchecklistmodal?.status == "1") {
-                print("fffd");
-                Get.to(Check_list());
-              } else {
-                buildErrorDialog(
-                    context, " Error", (addchecklistmodal?.message).toString());
-              }
-            });
-          } else {
-            buildErrorDialog(context, 'Error', "Internet Required");
-          }
-        });
-      }
-
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['title'] = _title.text.trim().toString();
+      data['description'] = 'Done';
+      data['category'] = 'Success';
+      data['start_time'] = _start.text.trim().toString();
+      data['end_time'] = _date.text.trim().toString();
+      print(data);
+      checkInternet().then((internet) async {
+        if (internet) {
+          taskprovider().addchecklistapi(data).then((response) async {
+            addchecklistmodal =
+                AddchecklistModal.fromJson(json.decode(response.body));
+            if (response.statusCode == 200 &&
+                addchecklistmodal?.status == "1") {
+              print("fffd");
+              Get.off(Check_list());
+            } else {
+              buildErrorDialog(
+                  context, " Error", (addchecklistmodal?.message).toString());
+            }
+          });
+        } else {
+          buildErrorDialog(context, 'Error', "Internet Required");
+        }
+      });
+    }
   }
 }

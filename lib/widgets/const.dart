@@ -1,4 +1,3 @@
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
 import 'package:wedding_planner/Modal/ChangepassModal.dart';
@@ -21,6 +20,7 @@ import 'package:wedding_planner/Modal/VenuedetailModal.dart';
 import 'package:wedding_planner/Modal/ViewguestModal.dart';
 import 'package:wedding_planner/Modal/addchecklistmodal.dart';
 import 'package:wedding_planner/Modal/markcompletedmodal.dart';
+import 'package:wedding_planner/Modal/removetodoModal.dart';
 
 Future<bool> checkInternet() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -31,6 +31,7 @@ Future<bool> checkInternet() async {
   }
   return false;
 }
+
 UserModal? userData;
 ForgotpassModal? forgotpass;
 ChangepassModal? changepass;
@@ -42,14 +43,16 @@ SendmessageModal? sendmessageModal;
 FullchatModal? fullchatmodal;
 AddchecklistModal? addchecklistmodal;
 UnreadmsgModal? unreadmsgmodal;
-ReadnewmsgModal?  readnewmsgmodal;
+ReadnewmsgModal? readnewmsgmodal;
 VenuedetailModal? venuedetail;
 AddguestModal? addguestmodal;
 ViewguestModal? viewguestmodal;
 RemoveguestModal? removeguestmodal;
-MarkcompletedModal?  markcompletemodal;
+MarkcompletedModal? markcompletemodal;
 NotificationModal? notificationmodal;
 HomeModal? homemodal;
 ReadnotiModal? readnotimodal;
 UnreadnotiModal? unreadnotimodal;
-const String baseUrl = 'https://wedding.fableadtechnolabs.com/wedding/portal/api';
+removeTodoModal? removetodo;
+const String baseUrl =
+    'https://wedding.fableadtechnolabs.com/wedding/portal/api';

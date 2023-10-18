@@ -26,7 +26,7 @@ class EditProfile2 extends StatefulWidget {
 
   EditProfile2(
       {super.key,
-        this.image,
+      this.image,
       this.about,
       this.address,
       this.phone,
@@ -47,6 +47,7 @@ class _EditProfile2State extends State<EditProfile2> {
   bool isKeyboardOpen = false;
   ImagePicker _picker = ImagePicker();
   File? _pickedFile;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -107,7 +108,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                   icon: Icon(
                                     Icons.arrow_back_ios_new_rounded,
                                     color: Colors.white,
-                                      size: 23.sp,
+                                    size: 23.sp,
                                   )),
                               Text(
                                 "Edit Profile",
@@ -146,21 +147,25 @@ class _EditProfile2State extends State<EditProfile2> {
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(90),
-                              child: _pickedFile != null ?Image.file(_pickedFile!,fit: BoxFit.cover,):CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl:
-                                   widget.image.toString(),
-                                progressIndicatorBuilder:
-                                    (context, url, progress) =>
-                                        CircularProgressIndicator(),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                  'assets/deuser.png',
-                                  fit: BoxFit.cover,
-                                  height: 14.5.h,
-                                  width: 31.w,
-                                ),
-                              ),
+                              child: _pickedFile != null
+                                  ? Image.file(
+                                      _pickedFile!,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl: widget.image.toString(),
+                                      progressIndicatorBuilder:
+                                          (context, url, progress) =>
+                                              CircularProgressIndicator(),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset(
+                                        'assets/deuser.png',
+                                        fit: BoxFit.cover,
+                                        height: 14.5.h,
+                                        width: 31.w,
+                                      ),
+                                    ),
                             ),
                           ),
                         ),
@@ -177,12 +182,12 @@ class _EditProfile2State extends State<EditProfile2> {
                                 shape: BoxShape.circle,
                                 color: Colors.black),
                             child: GestureDetector(
-                              onTap: () async{
-                                XFile? photo = await _picker.pickImage(source: ImageSource.gallery);
+                              onTap: () async {
+                                XFile? photo = await _picker.pickImage(
+                                    source: ImageSource.gallery);
                                 setState(() {
                                   _pickedFile = File(photo!.path);
                                 });
-
                               },
                               child: Icon(
                                 Icons.camera_alt,
@@ -666,24 +671,30 @@ class _EditProfile2State extends State<EditProfile2> {
       ),
     );
   }
-  updateprofileap(){
+
+  updateprofileap() {
     if (_formKey.currentState!.validate()) {
       final Map<String, String> data = {};
       data['BrideName'] = _bname.text.trim().toString();
       data['GroomName'] = _gname.text.trim().toString();
-      data['profile_img'] =_pickedFile != null ?_pickedFile!.path : "";
+      data['profile_img'] = _pickedFile != null ? _pickedFile!.path : "";
       data['Email'] = userData?.user?.email ?? "";
       print(data);
       checkInternet().then((internet) async {
         if (internet) {
           authprovider().updateprofileapi(data).then((response) async {
-            updateprofile = UpdateprofileModal.fromJson(json.decode(response.body));
+            updateprofile =
+                UpdateprofileModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && updateprofile?.status == "1") {
-
-              buildErrorDialog1(context, "Success", updateprofile?.message ?? "",() {
-                print("ghfjhbfds");
-                Get.to(MyProfile());
-              },);
+              buildErrorDialog1(
+                context,
+                "Success",
+                updateprofile?.message ?? "",
+                () {
+                  print("ghfjhbfds");
+                  Get.to(MyProfile());
+                },
+              );
             } else {
               buildErrorDialog(
                   context, " Error", (updateprofile?.message).toString());
@@ -693,7 +704,6 @@ class _EditProfile2State extends State<EditProfile2> {
           buildErrorDialog(context, 'Error', "Internet Required");
         }
       });
-
     }
   }
 }

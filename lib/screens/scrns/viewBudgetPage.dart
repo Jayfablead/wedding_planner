@@ -86,7 +86,15 @@ class _ViewBudgetState extends State<ViewBudget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(onPressed: () {Get.back();}, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                      IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: Colors.blue,
+                            size: 23.sp,
+                          )),
                       Text(
                         "Budget",
                         style: TextStyle(
@@ -101,7 +109,11 @@ class _ViewBudgetState extends State<ViewBudget> {
                           onPressed: () {
                             openDrawer();
                           },
-                          icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,))
+                          icon: Icon(
+                            Icons.menu_rounded,
+                            color: Colors.blue,
+                            size: 23.sp,
+                          ))
                     ],
                   ),
                   SizedBox(

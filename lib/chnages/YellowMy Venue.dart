@@ -116,7 +116,7 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
                           imageUrl:
-                          'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
+                              'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
@@ -145,12 +145,12 @@ class _YellowVenueViewState extends State<YellowVenueView> {
                                 imageUrl: HotelIm[index],
                                 fit: BoxFit.cover,
                                 progressIndicatorBuilder: (context, url,
-                                    progress) =>
+                                        progress) =>
                                     Center(child: CircularProgressIndicator()),
                                 errorWidget: (context, url, error) =>
                                     Image.asset(
-                                      'assets/deprf.png',
-                                    ),
+                                  'assets/deprf.png',
+                                ),
                               ),
                             ),
                           ),

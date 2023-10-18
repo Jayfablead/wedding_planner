@@ -20,12 +20,12 @@ class cate {
   String? person;
 
   cate(
-      this.image,
-      this.hname,
-      this.name,
-      this.roomno,
-      this.person,
-      );
+    this.image,
+    this.hname,
+    this.name,
+    this.roomno,
+    this.person,
+  );
 }
 
 List<cate> room = [
@@ -123,7 +123,7 @@ class _RoomManagement2State extends State<RoomManagement2> {
                         Container(
                           child: CachedNetworkImage(
                             imageUrl:
-                            'https://scontent.fstv2-1.fna.fbcdn.net/v/t39.30808-6/302609737_457901669687700_1130857970330959168_n.png?_nc_cat=100&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=XI10lCO6IuYAX-QvjRQ&_nc_ht=scontent.fstv2-1.fna&oh=00_AfD1tdORlxpsFNAekNqWK8Jt6qEAcnK6pUm1DZjEBLwxXA&oe=652C85B6',
+                                'https://scontent.fstv2-1.fna.fbcdn.net/v/t39.30808-6/302609737_457901669687700_1130857970330959168_n.png?_nc_cat=100&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=XI10lCO6IuYAX-QvjRQ&_nc_ht=scontent.fstv2-1.fna&oh=00_AfD1tdORlxpsFNAekNqWK8Jt6qEAcnK6pUm1DZjEBLwxXA&oe=652C85B6',
                             height: 9.5.h,
                             width: 20.w,
                             imageBuilder: (context, imageProvider) => Container(
@@ -204,23 +204,29 @@ class _RoomManagement2State extends State<RoomManagement2> {
                                   imageUrl: room[index].image.toString(),
                                   progressIndicatorBuilder:
                                       (context, url, progress) => Center(
-                                      child: CircularProgressIndicator()),
+                                          child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                        'assets/deprf.png',
-                                      ),
+                                    'assets/deprf.png',
+                                  ),
                                 ),
                               ),
-                            ),SizedBox(height: 0.8.h),
+                            ),
+                            SizedBox(height: 0.8.h),
                             Column(
                               children: [
-                                Container(  padding: EdgeInsets.only(left: 2.w),
+                                Container(
+                                  padding: EdgeInsets.only(left: 2.w),
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Row(   crossAxisAlignment: CrossAxisAlignment.center,
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          Icon(Icons.person_outline_rounded,size: 19.sp),
+                                          Icon(Icons.person_outline_rounded,
+                                              size: 19.sp),
                                           SizedBox(width: 2.w),
                                           Text(
                                             'Name : ',
@@ -237,7 +243,7 @@ class _RoomManagement2State extends State<RoomManagement2> {
                                         room[index].name.toString(),
                                         style: TextStyle(
                                             color:
-                                            Colors.black.withOpacity(0.75),
+                                                Colors.black.withOpacity(0.75),
                                             fontSize: 15.sp,
                                             letterSpacing: 1,
                                             fontFamily: 'sofi',
@@ -245,7 +251,8 @@ class _RoomManagement2State extends State<RoomManagement2> {
                                       ),
                                     ],
                                   ),
-                                ),SizedBox(height: 0.8.h),
+                                ),
+                                SizedBox(height: 0.8.h),
                                 Container(
                                   padding: EdgeInsets.only(left: 3.w),
                                   child: Row(
@@ -273,7 +280,8 @@ class _RoomManagement2State extends State<RoomManagement2> {
                                       ),
                                     ],
                                   ),
-                                ),SizedBox(height: 0.8.h),
+                                ),
+                                SizedBox(height: 0.8.h),
                                 Container(
                                   padding: EdgeInsets.only(left: 3.w),
                                   child: Row(

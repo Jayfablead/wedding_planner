@@ -99,7 +99,11 @@ class _BooKNowPageState extends State<BooKNowPage> {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.blue,
+                        size: 23.sp,
+                      )),
                   Text(
                     "Book Now",
                     style: TextStyle(
@@ -114,7 +118,8 @@ class _BooKNowPageState extends State<BooKNowPage> {
                       onPressed: () {
                         scaffoldKey.currentState?.openDrawer();
                       },
-                      icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp)),
+                      icon: Icon(Icons.menu_rounded,
+                          color: Colors.blue, size: 23.sp)),
                 ],
               ),
               SizedBox(
@@ -582,16 +587,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                 fillColor: Colors.white,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 disabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 hintText: 'Time',
                                 hintStyle: TextStyle(
                                     color: Colors.black.withOpacity(0.6),
@@ -639,16 +648,20 @@ class _BooKNowPageState extends State<BooKNowPage> {
                                 fillColor: Colors.white,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 disabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: Colors.white)),
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 hintText: 'Time',
                                 hintStyle: TextStyle(
                                     color: Colors.black.withOpacity(0.6),

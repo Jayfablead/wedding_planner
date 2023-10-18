@@ -86,7 +86,7 @@ class _QuoateList2State extends State<QuoateList2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -105,7 +105,9 @@ class _QuoateList2State extends State<QuoateList2> {
                         Get.back();
                       },
                       icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,
+                        Icons.arrow_back_ios_new_rounded,
+                        size: 23.sp,
+                        color: Colors.blue,
                       )),
                   Text(
                     "Quotation List",
@@ -122,7 +124,9 @@ class _QuoateList2State extends State<QuoateList2> {
                         scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
-                        Icons.menu_rounded,size: 23.sp,color: Colors.blue,
+                        Icons.menu_rounded,
+                        size: 23.sp,
+                        color: Colors.blue,
                       ))
                 ],
               ),
@@ -349,22 +353,23 @@ class _QuoateList2State extends State<QuoateList2> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 95.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

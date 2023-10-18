@@ -72,14 +72,14 @@ class BrideGuestList {
 
   BrideGuestList(
       {this.id,
-        this.uid,
-        this.guestName,
-        this.guestEmail,
-        this.guestContact,
-        this.brideOrGroom,
-        this.guestRelationGroup,
-        this.attendingStatus,
-        this.createdAt});
+      this.uid,
+      this.guestName,
+      this.guestEmail,
+      this.guestContact,
+      this.brideOrGroom,
+      this.guestRelationGroup,
+      this.attendingStatus,
+      this.createdAt});
 
   BrideGuestList.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -107,6 +107,7 @@ class BrideGuestList {
     return data;
   }
 }
+
 class GroomGuestList {
   String? id;
   String? uid;
@@ -120,14 +121,14 @@ class GroomGuestList {
 
   GroomGuestList(
       {this.id,
-        this.uid,
-        this.guestName,
-        this.guestEmail,
-        this.guestContact,
-        this.brideOrGroom,
-        this.guestRelationGroup,
-        this.attendingStatus,
-        this.createdAt});
+      this.uid,
+      this.guestName,
+      this.guestEmail,
+      this.guestContact,
+      this.brideOrGroom,
+      this.guestRelationGroup,
+      this.attendingStatus,
+      this.createdAt});
 
   GroomGuestList.fromJson(Map<String, dynamic> json) {
     id = json['id'];

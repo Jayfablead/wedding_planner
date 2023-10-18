@@ -17,11 +17,12 @@ class ItinerPage extends StatefulWidget {
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _ItinerPageState extends State<ItinerPage> {
-  TextEditingController _search =TextEditingController();
+  TextEditingController _search = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -41,7 +42,9 @@ class _ItinerPageState extends State<ItinerPage> {
                         Get.back();
                       },
                       icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,size: 23.sp,color: Colors.blue,
+                        Icons.arrow_back_ios_new_rounded,
+                        size: 23.sp,
+                        color: Colors.blue,
                       )),
                   Text(
                     "Itinerary List",
@@ -58,7 +61,9 @@ class _ItinerPageState extends State<ItinerPage> {
                         scaffoldKey.currentState?.openDrawer();
                       },
                       icon: Icon(
-                        Icons.menu_rounded,color: Colors.blue,size: 23.sp,
+                        Icons.menu_rounded,
+                        color: Colors.blue,
+                        size: 23.sp,
                       ))
                 ],
               ),
@@ -300,22 +305,23 @@ class _ItinerPageState extends State<ItinerPage> {
       ),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
       width: 94.w,
       height: 6.5.h,
-      padding:EdgeInsets.symmetric(horizontal: 7),
+      padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:Colors.white),
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(65),
       ),
       child: TextField(
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,
