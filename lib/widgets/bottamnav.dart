@@ -79,11 +79,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
         BottomBarItem(
           inActiveItem: Stack(
             children: [
-              Container(
-                height:15.w,
-                width: 15.w,
 
-              ),
               Container(
 
                 child: Image.asset(
@@ -113,11 +109,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
           ),
           activeItem: Stack(
             children: [
-              Container(
-                height:10.w,
-                width: 10.w,
 
-              ),
               Container(
                 child: Image.asset(
                   "assets/bottom/5.png",
@@ -127,11 +119,10 @@ class _bottomnavbarState extends State<bottomnavbar> {
               ),
               unreadmsgmodal?.remainToread == 0? Container(): Positioned(
                   left: 3.w,
-                  bottom: 3.w,
                   child: Container(
                     alignment: Alignment.center,
-                    height: 3.w,
-                    width: 3.w,
+                    height: 2.w,
+                    width: 2.w,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.red,
