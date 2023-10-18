@@ -1128,7 +1128,7 @@ class _GuestListState extends State<GuestList> {
                                   padding: EdgeInsets.all(2.5.w),
                                   decoration: BoxDecoration(
                                       color: Colors.blue,
-                                      borderRadius: BorderRadius.circular(10)),
+                                      borderRadius: BorderRadius.circular(25)),
                                   child: Text(
                                     'Yes',
                                     style: TextStyle(
@@ -1150,10 +1150,10 @@ class _GuestListState extends State<GuestList> {
                                   padding: EdgeInsets.all(2.5.w),
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: Colors.blue,
+                                        color: Colors.white,
                                       ),
-                                      color: Color(0xfff4f4f4),
-                                      borderRadius: BorderRadius.circular(10)),
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(25)),
                                   child: Text(
                                     'No',
                                     style: TextStyle(

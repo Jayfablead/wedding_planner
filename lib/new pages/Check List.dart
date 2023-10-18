@@ -70,7 +70,7 @@ class _Check_listState extends State<Check_list> {
     super.initState();
     checklistap();
   }
-  List<String> type = ["Today Alert","Completed","Pending"];
+  List<String> type = ["All","Today Alert","Completed","Pending"];
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -124,7 +124,7 @@ class _Check_listState extends State<Check_list> {
                       height: 4.5.h,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                          itemCount: 3,
+                          itemCount: 4,
                           itemBuilder: (context,index){
                             return InkWell(
                               onTap: () {
