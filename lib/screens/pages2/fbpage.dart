@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -98,6 +101,7 @@ List<cate0> photos = [
       9999),
 ];
 // final GlobalKey<ScaffoldState>  scaffoldKey2 = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _PostPageState extends State<PostPage> {
   @override
@@ -136,21 +140,40 @@ class _PostPageState extends State<PostPage> {
                     size: 23.sp,
                   ),
                 ),
-                // Text(
-                //   "Posts",
-                //   style: TextStyle(
-                //     fontSize: 15.sp,
-                //     fontFamily: 'sofi',
-                //     letterSpacing: 1,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
-                IconButton(
-                    onPressed: () {
-                      openDrawer();
-                    },
-                    icon: Icon(Icons.menu_rounded,
-                        color: Colors.blue, size: 23.sp))
+                Text(
+                  "",
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    fontFamily: 'sofi',
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.to(NotificationScreen());
+                        },
+                        icon: Icon(
+                          Icons.notifications_none_rounded,
+                          color: Colors.blue,
+                          size: 21.sp,
+                        )),
+                    IconButton(
+                        onPressed: () {
+                          scaffoldKey.currentState
+                              ?.openDrawer();
+                        },
+                        icon: Icon(
+                          Icons.menu_rounded,
+                          color: Colors.blue,
+                          size: 23.sp,
+                        )),
+                  ],
+                ),
               ],
             ),
             SizedBox(height: 1.h),

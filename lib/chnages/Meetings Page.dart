@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 
@@ -56,6 +59,7 @@ List<cate> days = [
 int sel = 3;
 
 DateTime _selectedDay = DateTime.now();
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _MeetingsPageState extends State<MeetingsPage> {
   @override
@@ -104,16 +108,31 @@ class _MeetingsPageState extends State<MeetingsPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    IconButton(
-                        onPressed: () {
-                          // _drawerKey.currentState!.open();
-                          openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.menu_rounded,
-                          color: Colors.blue,
-                          size: 23.sp,
-                        ))
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Get.to(NotificationScreen());
+                            },
+                            icon: Icon(
+                              Icons.notifications_none_rounded,
+                              color: Colors.blue,
+                              size: 21.sp,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              scaffoldKey.currentState
+                                  ?.openDrawer();
+                            },
+                            icon: Icon(
+                              Icons.menu_rounded,
+                              color: Colors.blue,
+                              size: 23.sp,
+                            )),
+                      ],
+                    )
                   ],
                 ),
                 SizedBox(height: 1.5.h),
