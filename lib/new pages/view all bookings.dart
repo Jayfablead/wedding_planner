@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../../widgets/drawer.dart';
 
@@ -68,39 +69,44 @@ class _BookingListState extends State<BookingList> {
                   SizedBox(
                     height: 5.h,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: Colors.blue,
-                            size: 23.sp,
-                          )),
-                      Text(
-                        "All Bookings",
-                        style: TextStyle(
-                          fontSize: 17.sp,
-                          fontFamily: 'sofi',
-                          letterSpacing: 1,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.menu_rounded,
-                            color: Colors.blue,
-                            size: 23.sp,
-                          ))
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     IconButton(
+                  //         onPressed: () {
+                  //           Get.back();
+                  //         },
+                  //         icon: Icon(
+                  //           Icons.arrow_back_ios_new_rounded,
+                  //           color: Colors.blue,
+                  //           size: 23.sp,
+                  //         )),
+                  //     Text(
+                  //       "All Bookings",
+                  //       style: TextStyle(
+                  //         fontSize: 17.sp,
+                  //         fontFamily: 'sofi',
+                  //         letterSpacing: 1,
+                  //         color: Colors.blue,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //     IconButton(
+                  //         onPressed: () {
+                  //           scaffoldKey.currentState?.openDrawer();
+                  //         },
+                  //         icon: Icon(
+                  //           Icons.menu_rounded,
+                  //           color: Colors.blue,
+                  //           size: 23.sp,
+                  //         ))
+                  //   ],
+                  // ),
+                  header(text: "All Bookings",callback: (){
+                    Get.back();
+                  },callback1: (){
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
                   SizedBox(
                     height: 2.h,
                   ),

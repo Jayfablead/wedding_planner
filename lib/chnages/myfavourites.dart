@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 
 class myfavourite extends StatefulWidget {
@@ -156,235 +158,117 @@ class _myfavouriteState extends State<myfavourite> {
                 ),
               ),
               SizedBox(
-                height: 3.h,
+                height: 2.h,
               ),
-              Row(children: <Widget>[
-                Expanded(
-                  child: Container(
-                      margin: const EdgeInsets.only(left: 10.0, right: 20.0),
-                      child: Divider(
-                        color: Colors.blue,
-                        thickness: 1,
-                        height: 36,
-                      )),
-                ),
-                Text(
-                  "Venues",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
-                      fontFamily: 'sofi',
-                      color: Colors.blue),
-                ),
-                Expanded(
-                  child: new Container(
-                      margin: const EdgeInsets.only(left: 20.0, right: 10.0),
-                      child: Divider(
-                        color: Colors.blue,
-                        thickness: 1,
-                        height: 36,
-                      )),
-                ),
-              ]),
-              SizedBox(
-                height: 1.h,
-              ),
+
               Container(
                   // height: 40.h,
                   // width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (int index = 0; index < venue.length; index++) ...[
-                      Container(
-                        width: 85.w,
-                        margin: EdgeInsets.symmetric(horizontal: 2.w),
-                        // padding: EdgeInsets.symmetric(horizontal: 0.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              // margin: EdgeInsets.symmetric(horizontal: 2.w),
-                              height: 25.h,
-                              width: 85.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: venue[index].image.toString(),
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/deprf.png',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 1.w),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    venue[index].name.toString(),
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Icon(
-                                      Icons.message,
-                                      color: Colors.blue,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 1.w),
-                              child: Text(
-                                venue[index].desc.toString(),
-                                style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 1,
-                                    fontFamily: 'sofi',
-                                    color: Colors.grey),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ]
-                  ],
-                ),
-              )),
-              Row(children: <Widget>[
-                Expanded(
-                  child: Container(
-                      margin: const EdgeInsets.only(left: 10.0, right: 20.0),
-                      child: Divider(
-                        color: Colors.blue,
-                        thickness: 1,
-                        height: 36,
-                      )),
-                ),
-                Text(
-                  "Decor",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
-                      fontFamily: 'sofi',
-                      color: Colors.blue),
-                ),
-                Expanded(
-                  child: new Container(
-                      margin: const EdgeInsets.only(left: 20.0, right: 10.0),
-                      child: Divider(
-                        color: Colors.blue,
-                        thickness: 1,
-                        height: 36,
-                      )),
-                ),
-              ]),
-              SizedBox(
-                height: 1.h,
-              ),
-              Container(
-                  // height: 40.h,
-                  // width: MediaQuery.of(context).size.width,
-                  child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
+                scrollDirection: Axis.vertical,
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     for (int index = 0; index < HotelIm.length; index++) ...[
-                      Container(
-                        width: 85.w,
-                        margin: EdgeInsets.symmetric(horizontal: 2.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              // margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 25.h,
-                              width: 85.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: HotelIm[index].image.toString(),
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/deprf.png',
+                      Stack(
+                        children: [
+                          Container(
+                            width: 85.w,
+                            margin: EdgeInsets.symmetric(horizontal: 2.w,vertical: 0.8.h),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  // margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                  height: 25.h,
+                                  width: 85.w,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl: HotelIm[index].image.toString(),
+                                      progressIndicatorBuilder:
+                                          (context, url, progress) => Center(
+                                              child: CircularProgressIndicator()),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset(
+                                        'assets/deprf.png',
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 1.w),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    HotelIm[index].name.toString(),
+                                SizedBox(
+                                  height: 0.5.h,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        HotelIm[index].name.toString(),
+                                        style: TextStyle(
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1,
+                                            fontFamily: 'sofi',
+                                            color: Colors.black),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+Get.to(ChatlistPage(sele: 3));
+                                        },
+                                        icon: Icon(Icons.message,color: Colors.blue),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 0.5.h,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 1.w),
+                                  child: Text(
+                                    HotelIm[index].desc.toString(),
                                     style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.normal,
                                         letterSpacing: 1,
                                         fontFamily: 'sofi',
-                                        color: Colors.black),
+                                        color: Colors.grey),
                                   ),
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Icon(Icons.message),
-                                  )
-                                ],
-                              ),
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 19.w),
+                                  child: Divider(color: Colors.black87,),
+                                )
+                              ],
                             ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 1.w),
-                              child: Text(
-                                HotelIm[index].desc.toString(),
-                                style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 1,
-                                    fontFamily: 'sofi',
-                                    color: Colors.grey),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ), Positioned(
+                              left:75.5.w,
+                              top: 1.4.h,
+                              child: Container(
+                                height: 10.w,
+                                width: 10.w,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: IconButton(
+                                    onPressed:(){
+                                      setState((){
+
+                                      });
+
+
+                                    } ,icon: Icon(Icons.favorite,color: Colors.red,size: 20.sp,)),
+                              ))
+                        ],
                       )
                     ]
                   ],

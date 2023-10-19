@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/QuateDetails.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class QuoateList2 extends StatefulWidget {
   const QuoateList2({super.key});
@@ -97,39 +98,44 @@ class _QuoateList2State extends State<QuoateList2> {
               SizedBox(
                 height: 5.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        size: 23.sp,
-                        color: Colors.blue,
-                      )),
-                  Text(
-                    "Quotation List",
-                    style: TextStyle(
-                      fontSize: 17.sp,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        size: 23.sp,
-                        color: Colors.blue,
-                      ))
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new_rounded,
+              //           size: 23.sp,
+              //           color: Colors.blue,
+              //         )),
+              //     Text(
+              //       "Quotation List",
+              //       style: TextStyle(
+              //         fontSize: 17.sp,
+              //         fontFamily: 'sofi',
+              //         letterSpacing: 1,
+              //         fontWeight: FontWeight.bold,
+              //         color: Colors.blue,
+              //       ),
+              //     ),
+              //     IconButton(
+              //         onPressed: () {
+              //           scaffoldKey.currentState?.openDrawer();
+              //         },
+              //         icon: Icon(
+              //           Icons.menu_rounded,
+              //           size: 23.sp,
+              //           color: Colors.blue,
+              //         ))
+              //   ],
+              // ),
+              header(text: "Quotation List",callback: (){
+                Get.back();
+              },callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               SizedBox(height: 1.h),
               searchBox1(),
               SizedBox(height: 1.h),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/pages2/Accomodation_View.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../../widgets/drawer.dart';
 
@@ -35,35 +36,11 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                 child: Column(
                   children: [
                     SizedBox(height: 5.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              size: 23.sp,
-                              color: Colors.blue,
-                            )),
-                        Text(
-                          '',
-                          style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.menu_rounded,
-                              size: 23.sp,
-                              color: Colors.blue,
-                            )),
-                      ],
-                    ),
+                    header(text: "",callback: (){
+                      Get.back();
+                    },callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                     SizedBox(height: 1.h),
                   ],
                 ),

@@ -9,7 +9,6 @@ import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
-import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class PostPage extends StatefulWidget {
   int? sele;
@@ -100,7 +99,8 @@ List<cate0> photos = [
   cate0(
       'https://i.pinimg.com/736x/27/c8/fd/27c8fd79950baa2f80c9d8ef96977520.jpg',
       9999),
-];
+];int sel1 = 0;
+List<String> type = ["All Suppliers", "To Do", "Meeting"];
 // final GlobalKey<ScaffoldState>  scaffoldKey2 = GlobalKey<ScaffoldState>();
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -122,169 +122,196 @@ class _PostPageState extends State<PostPage> {
       bottomNavigationBar: bottomnavbar(selit: widget.sele),
       drawer: drawer1(),
       key: scaffoldKey,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 4.h,
-            ),
-            header(text: "",callback: (){},callback1: (){
-              scaffoldKey.currentState?.openDrawer();
-            }),
-            SizedBox(height: 1.h),
-            Padding(
-              padding: EdgeInsets.only(left: 1.w),
-              child: Row(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 4.h,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Add Your Posts',
-                    style: TextStyle(
-                        fontFamily: 'sofi',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15.sp,
-                        letterSpacing: 1),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(90)),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.add,
-                            size: 2.4.h,
-                            color: Colors.white,
-                          ),
-                          SizedBox(width: 1.w),
-                          Text(
-                            "Add",
-                            style:
-                                TextStyle(fontSize: 15.sp, color: Colors.white),
-                          )
-                        ],
-                      ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.arrow_back_ios_new_rounded,
+                      color: Colors.blue,
+                      size: 23.sp,
                     ),
+                  ),
+                  Text(
+                    "",
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      fontFamily: 'sofi',
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Get.to(NotificationScreen());
+                          },
+                          icon: Icon(
+                            Icons.notifications_none_rounded,
+                            color: Colors.blue,
+                            size: 21.sp,
+                          )),
+                      IconButton(
+                          onPressed: () {
+                            scaffoldKey.currentState
+                                ?.openDrawer();
+                          },
+                          icon: Icon(
+                            Icons.menu_rounded,
+                            color: Colors.blue,
+                            size: 23.sp,
+                          )),
+                    ],
                   ),
                 ],
               ),
-            ),
-            Container(
-              height: 82.h,
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: services.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(vertical: 1.h),
-                      child: Column(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    child: Container(
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 1.w),
-                                      height: 7.h,
-                                      width: 15.w,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(90),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: services[index].prof ?? '',
-                                          progressIndicatorBuilder:
-                                              (context, url, progress) =>
-                                                  CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              Image.asset(
-                                            'assets/deprf.png',
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: 2.w),
-                                  Text(
-                                    services[index].name ?? '',
-                                    style: TextStyle(
-                                        fontFamily: 'sofi',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17.sp),
-                                  ),
-                                ],
-                              ),
-                              // PopupMenuButton(
-                              //   itemBuilder: (context) {
-                              //     return [];
-                              //   },
-                              //   icon: Icon(Icons.more_vert_rounded),
-                              // )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height,
-                            child: StaggeredGridView.countBuilder(
-                              padding: EdgeInsets.zero,
-                              physics: NeverScrollableScrollPhysics(),
-                              crossAxisCount: 2,
-                              // Number of columns
-                              itemCount: photos.length,
-                              // Total number of items
-                              itemBuilder: (BuildContext context, int index) =>
-                                  Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: photos[index].image.toString(),
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) => Center(
-                                            child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                      'assets/deprf.png',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              staggeredTileBuilder: (int index) =>
-                                  new StaggeredTile.fit(
-                                1,
-                              ),
-                              mainAxisSpacing: 8.0,
-                              crossAxisSpacing: 8.0,
+              SizedBox(height: 1.h),
+              Padding(
+                padding: EdgeInsets.only(left: 1.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Add More Posts',
+                      style: TextStyle(
+                          fontFamily: 'sofi',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.sp,
+                          letterSpacing: 1),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(90)),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add,
+                              size: 2.4.h,
+                              color: Colors.white,
                             ),
-                          ),
-                        ],
+                            SizedBox(width: 1.w),
+                            Text(
+                              "Add",
+                              style:
+                                  TextStyle(fontSize: 15.sp, color: Colors.white),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  );
-                },
+                  ],
+                ),
+              ), SizedBox(
+                height: 0.5.h,
               ),
-            ),
-            SizedBox(
-              height: 2.h,
-            )
-          ],
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 1.h),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 4.5.h,
+                      width: MediaQuery.of(context).size.width,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
+                                setState(() {
+                                  sel1 = index;
+                                });
+
+                                print(index);
+                              },
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 1.h, horizontal: 5.w),
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    color: sel1 == index ? Colors.blue : Colors.white,
+                                    borderRadius: BorderRadius.circular(25)),
+                                margin: EdgeInsets.symmetric(horizontal: 2.w),
+                                child: Text('Supplier ${index+1}',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: sel1 == index
+                                            ? Colors.white
+                                            : Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1)),
+                              ),
+                            );
+                          }),
+                    ),
+                    SizedBox(
+                      height: 1.5.h,
+                    ),
+                    SizedBox(height: 72.h,
+                      child: StaggeredGridView.countBuilder(
+                        padding: EdgeInsets.zero,
+
+                        crossAxisCount: 2,
+                        // Number of columns
+                        itemCount: photos.length,
+                        // Total number of items
+                        itemBuilder: (BuildContext context, int index) =>
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl: photos[index].image.toString(),
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) => Center(
+                                      child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
+                                        'assets/deprf.png',
+                                      ),
+                                ),
+                              ),
+                            ),
+                        staggeredTileBuilder: (int index) =>
+                        new StaggeredTile.fit(
+                          1,
+                        ),
+                        mainAxisSpacing: 8.0,
+                        crossAxisSpacing: 8.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 2.h,
+              )
+            ],
+          ),
         ),
       ),
     );

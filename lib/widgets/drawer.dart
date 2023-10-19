@@ -1234,7 +1234,7 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "My Suppliers",
+                      "All Suppliers",
                       style: TextStyle(
                         fontSize: 10.sp,
                         fontFamily: 'sofi',

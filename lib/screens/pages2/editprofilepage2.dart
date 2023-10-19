@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/UpdateprofileModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -58,6 +59,7 @@ class _EditProfile2State extends State<EditProfile2> {
     _address.text = widget.address.toString();
     _about.text = widget.about.toString();
   }
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -120,11 +122,31 @@ class _EditProfile2State extends State<EditProfile2> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              IconButton(
-                                  onPressed: () {
-                                    scaffoldKey.currentState?.openDrawer();
-                                  },
-                                  icon: Icon(null))
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {
+                                        Get.to(NotificationScreen());
+                                      },
+                                      icon: Icon(
+                                        Icons.notifications_none_rounded,
+                                        color: Colors.white,
+                                        size: 21.sp,
+                                      )),
+                                  IconButton(
+                                      onPressed: () {
+                                        scaffoldKey.currentState
+                                            ?.openDrawer();
+                                      },
+                                      icon: Icon(
+                                        Icons.menu_rounded,
+                                        color: Colors.white,
+                                        size: 23.sp,
+                                      )),
+                                ],
+                              )
                             ],
                           ),
                         ],

@@ -11,6 +11,7 @@ import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
@@ -45,41 +46,46 @@ class _ChangePasswordState extends State<ChangePassword> {
                 SizedBox(
                   height: 6.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      ),
-                    ),
-                    Text(
-                      "",
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontFamily: 'sofi',
-                        color: Colors.blue,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.menu_rounded,
-                          color: Colors.blue,
-                          size: 23.sp,
-                        ))
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     InkWell(
+                //       onTap: () {
+                //         Get.back();
+                //       },
+                //       child: Icon(
+                //         Icons.arrow_back_ios_new_rounded,
+                //         color: Colors.blue,
+                //         size: 23.sp,
+                //       ),
+                //     ),
+                //     Text(
+                //       "",
+                //       style: TextStyle(
+                //         fontSize: 18.sp,
+                //         fontFamily: 'sofi',
+                //         color: Colors.blue,
+                //         letterSpacing: 1,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //     IconButton(
+                //         onPressed: () {
+                //           openDrawer();
+                //         },
+                //         icon: Icon(
+                //           Icons.menu_rounded,
+                //           color: Colors.blue,
+                //           size: 23.sp,
+                //         ))
+                //   ],
+                // ),
+                header(text: "",callback: (){
+                  Get.back();
+                },callback1: (){
+                  scaffoldKey.currentState?.openDrawer();
+                }),
                 Container(
                   height: 30.h,
                   width: 100.w,

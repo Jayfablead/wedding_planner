@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class BudgetingList extends StatefulWidget {
   const BudgetingList({super.key});
@@ -30,39 +31,44 @@ class _BudgetingListState extends State<BudgetingList> {
               SizedBox(
                 height: 5.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      )),
-                  Text(
-                    "Budget",
-                    style: TextStyle(
-                      fontSize: 17.sp,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        size: 23.sp,
-                        color: Colors.blue,
-                      ))
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new_rounded,
+              //           color: Colors.blue,
+              //           size: 23.sp,
+              //         )),
+              //     Text(
+              //       "Budget",
+              //       style: TextStyle(
+              //         fontSize: 17.sp,
+              //         fontFamily: 'sofi',
+              //         letterSpacing: 1,
+              //         fontWeight: FontWeight.bold,
+              //         color: Colors.blue,
+              //       ),
+              //     ),
+              //     IconButton(
+              //         onPressed: () {
+              //           scaffoldKey.currentState?.openDrawer();
+              //         },
+              //         icon: Icon(
+              //           Icons.menu_rounded,
+              //           size: 23.sp,
+              //           color: Colors.blue,
+              //         ))
+              //   ],
+              // ),
+              header(text: "Budget",callback: (){
+                Get.back();
+              },callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               SizedBox(
                 height: 0.h,
               ),

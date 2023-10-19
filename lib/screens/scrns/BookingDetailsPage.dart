@@ -4,6 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/scrns/BooKNowPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class BookingDetailsPage extends StatefulWidget {
   const BookingDetailsPage({super.key});
@@ -31,36 +32,41 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
               SizedBox(
                 height: 5.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      )),
-                  Text(
-                    "Booking Details",
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(Icons.menu_rounded,
-                          color: Colors.blue, size: 23.sp)),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new_rounded,
+              //           color: Colors.blue,
+              //           size: 23.sp,
+              //         )),
+              //     Text(
+              //       "Booking Details",
+              //       style: TextStyle(
+              //         fontSize: 18.sp,
+              //         color: Colors.blue,
+              //         fontFamily: 'sofi',
+              //         letterSpacing: 1,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     IconButton(
+              //         onPressed: () {
+              //           scaffoldKey.currentState?.openDrawer();
+              //         },
+              //         icon: Icon(Icons.menu_rounded,
+              //             color: Colors.blue, size: 23.sp)),
+              //   ],
+              // ),
+              header(text: "Booking Details",callback: (){
+                Get.back();
+              },callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               Image.network(
                 "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
                 height: 35.h,

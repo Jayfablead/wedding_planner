@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class MyQuoateReq extends StatefulWidget {
   const MyQuoateReq({super.key});
@@ -98,39 +99,44 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
               SizedBox(
                 height: 5.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        size: 23.sp,
-                        color: Colors.blue,
-                      )),
-                  Text(
-                    "My Quotation Requests",
-                    style: TextStyle(
-                      fontSize: 17.sp,
-                      color: Colors.blue,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      ))
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new_rounded,
+              //           size: 23.sp,
+              //           color: Colors.blue,
+              //         )),
+              //     Text(
+              //       "My Quotation Requests",
+              //       style: TextStyle(
+              //         fontSize: 17.sp,
+              //         color: Colors.blue,
+              //         fontFamily: 'sofi',
+              //         letterSpacing: 1,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     IconButton(
+              //         onPressed: () {
+              //           scaffoldKey.currentState?.openDrawer();
+              //         },
+              //         icon: Icon(
+              //           Icons.menu_rounded,
+              //           color: Colors.blue,
+              //           size: 23.sp,
+              //         ))
+              //   ],
+              // ),
+              header(text: "Quotation Requests",callback: (){
+                Get.back();
+              },callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               SizedBox(height: 1.h),
               searchBox1(),
               SizedBox(height: 1.h),

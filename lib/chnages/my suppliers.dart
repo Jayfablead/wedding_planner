@@ -173,7 +173,10 @@ class _MySuppliersState extends State<MySuppliers> {
               //     ),
               //   ],
               // ),
-              header(text: "All Suppliers",callback: (){},callback1: (){
+
+              header(text: "All Suppliers",callback: (){
+                Get.back();
+              },callback1: (){
                 scaffoldKey.currentState?.openDrawer();
               }),
               SizedBox(height: 1.h),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class RoomManagement extends StatefulWidget {
   const RoomManagement({super.key});
@@ -88,39 +89,44 @@ class _RoomManagementState extends State<RoomManagement> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            )),
-                        Text(
-                          "Room Management",
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.menu_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            ))
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     IconButton(
+                    //         onPressed: () {
+                    //           Get.back();
+                    //         },
+                    //         icon: Icon(
+                    //           Icons.arrow_back_ios_new_rounded,
+                    //           color: Colors.blue,
+                    //           size: 23.sp,
+                    //         )),
+                    //     Text(
+                    //       "Room Management",
+                    //       style: TextStyle(
+                    //         fontSize: 18.sp,
+                    //         fontFamily: 'sofi',
+                    //         letterSpacing: 1,
+                    //         color: Colors.blue,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //     IconButton(
+                    //         onPressed: () {
+                    //           scaffoldKey.currentState?.openDrawer();
+                    //         },
+                    //         icon: Icon(
+                    //           Icons.menu_rounded,
+                    //           color: Colors.blue,
+                    //           size: 23.sp,
+                    //         ))
+                    //   ],
+                    // ),
+                    header(text: "Room Management",callback: (){
+                      Get.back();
+                    },callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                     SizedBox(height: 1.5.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

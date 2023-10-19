@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../widgets/drawer.dart';
 
@@ -74,39 +75,44 @@ class _ItineryViewState extends State<ItineryView> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            )),
-                        Text(
-                          "Itinerary View",
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Colors.blue,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.menu_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            ))
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     IconButton(
+                    //         onPressed: () {
+                    //           Get.back();
+                    //         },
+                    //         icon: Icon(
+                    //           Icons.arrow_back_ios_new_rounded,
+                    //           color: Colors.blue,
+                    //           size: 23.sp,
+                    //         )),
+                    //     Text(
+                    //       "Itinerary View",
+                    //       style: TextStyle(
+                    //         fontSize: 18.sp,
+                    //         color: Colors.blue,
+                    //         fontFamily: 'sofi',
+                    //         letterSpacing: 1,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //     IconButton(
+                    //         onPressed: () {
+                    //           scaffoldKey.currentState?.openDrawer();
+                    //         },
+                    //         icon: Icon(
+                    //           Icons.menu_rounded,
+                    //           color: Colors.blue,
+                    //           size: 23.sp,
+                    //         ))
+                    //   ],
+                    // ),
+                    header(text: "Itinerary View",callback: (){
+                      Get.back();
+                    },callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                     SizedBox(height: 1.h),
                   ],
                 ),

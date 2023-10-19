@@ -9,6 +9,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/UserProfileModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/screens/pages2/editprofilepage2.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
@@ -50,6 +51,7 @@ class _MyProfileState extends State<MyProfile> {
       setit = 4;
     });
   }
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +84,9 @@ class _MyProfileState extends State<MyProfile> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        IconButton(onPressed: () {}, icon: Icon(null)),
+                        IconButton(onPressed: () {}, icon: Icon( Icons.arrow_back_ios_new_rounded,
+                          color: Colors.white,
+                          size: 23.sp,)),
                         Text(
                           "Profile",
                           style: TextStyle(
@@ -93,17 +97,38 @@ class _MyProfileState extends State<MyProfile> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        IconButton(
-                            onPressed: () {
-                              openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.menu_rounded,
-                              color: Colors.white,
-                              size: 23.sp,
-                            ))
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  Get.to(NotificationScreen());
+                                },
+                                icon: Icon(
+                                  Icons.notifications_none_rounded,
+                                  color: Colors.white,
+                                  size: 21.sp,
+                                )),
+                            IconButton(
+                                onPressed: () {
+                                  scaffoldKey.currentState
+                                      ?.openDrawer();
+                                },
+                                icon: Icon(
+                                  Icons.menu_rounded,
+                                  color: Colors.white,
+                                  size: 23.sp,
+                                )),
+                          ],
+                        )
                       ],
                     ),
+                    // header(text: "",callback: (){},
+                    //
+                    //     callback1: (){
+                    //   scaffoldKey.currentState?.openDrawer();
+                    // }),
                     SizedBox(height: 2.h),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -12,6 +12,7 @@ import 'package:wedding_planner/widgets/addcheck.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 import '../Modal/markcompletedmodal.dart';
@@ -97,55 +98,60 @@ class _Check_listState extends State<Check_list> {
                           SizedBox(
                             height: 5.5.h,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  icon: Icon(
-                                    Icons.arrow_back_ios_new_rounded,
-                                    size: 23.sp,
-                                    color: Colors.blue,
-                                  )),
-                              Text(
-                                "Check List",
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'sofi',
-                                  letterSpacing: 1,
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                      onPressed: () {
-                                        Get.to(NotificationScreen());
-                                      },
-                                      icon: Icon(
-                                        Icons.notifications_none_rounded,
-                                        color: Colors.blue,
-                                        size: 21.sp,
-                                      )),
-                                  IconButton(
-                                      onPressed: () {
-                                        scaffoldKey.currentState?.openDrawer();
-                                      },
-                                      icon: Icon(
-                                        Icons.menu_rounded,
-                                        color: Colors.blue,
-                                        size: 23.sp,
-                                      )),
-                                ],
-                              )
-                            ],
-                          ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //   crossAxisAlignment: CrossAxisAlignment.center,
+                          //   children: [
+                          //     IconButton(
+                          //         onPressed: () {
+                          //           Get.back();
+                          //         },
+                          //         icon: Icon(
+                          //           Icons.arrow_back_ios_new_rounded,
+                          //           size: 23.sp,
+                          //           color: Colors.blue,
+                          //         )),
+                          //     Text(
+                          //       "Check List",
+                          //       style: TextStyle(
+                          //         fontSize: 18.sp,
+                          //         fontFamily: 'sofi',
+                          //         letterSpacing: 1,
+                          //         color: Colors.blue,
+                          //         fontWeight: FontWeight.bold,
+                          //       ),
+                          //     ),
+                          //     Row(
+                          //       crossAxisAlignment: CrossAxisAlignment.center,
+                          //       mainAxisAlignment: MainAxisAlignment.center,
+                          //       children: [
+                          //         IconButton(
+                          //             onPressed: () {
+                          //               Get.to(NotificationScreen());
+                          //             },
+                          //             icon: Icon(
+                          //               Icons.notifications_none_rounded,
+                          //               color: Colors.blue,
+                          //               size: 21.sp,
+                          //             )),
+                          //         IconButton(
+                          //             onPressed: () {
+                          //               scaffoldKey.currentState?.openDrawer();
+                          //             },
+                          //             icon: Icon(
+                          //               Icons.menu_rounded,
+                          //               color: Colors.blue,
+                          //               size: 23.sp,
+                          //             )),
+                          //       ],
+                          //     )
+                          //   ],
+                          // ),
+                          header(text: "Check List",callback: (){
+                            Get.back();
+                          },callback1: (){
+                            scaffoldKey.currentState?.openDrawer();
+                          }),
                           SizedBox(height: 1.h),
                           searchBox1(),
                           SizedBox(height: 2.h),

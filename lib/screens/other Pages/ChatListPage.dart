@@ -108,7 +108,9 @@ class _ChatlistPageState extends State<ChatlistPage> {
                         SizedBox(
                           height: 4.h,
                         ),
-                        header(text: "",callback: (){},callback1: (){
+                        header(text: "",callback: (){
+                          Get.back();
+                        },callback1: (){
                           scaffoldKey.currentState?.openDrawer();
                         }),
                         SizedBox(height: 1.h),

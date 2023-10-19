@@ -342,7 +342,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                   //   ),
                                   // ),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(25),
+                                    borderRadius: BorderRadius.circular(17),
                                     child: Image.network(
                                       Supaliers[index].image.toString(),
                                       fit: BoxFit.cover, height: 20.h, width: 100.w,
@@ -442,19 +442,21 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                 child: Container(
                                   height: 10.w,
                                   width: 10.w,
+
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(10)
                                   ),
-                                  child: IconButton(
-                                      onPressed:(){
-                                        setState((){
+                                  child: Center(
+                                    child: IconButton(
+                                        onPressed:(){
+                                          setState((){
+                                          });
 
-                                        });
 
-
-                                      } ,icon: Icon(Icons.favorite,color: Colors.red,size: 20.sp,)),
+                                        } ,icon: Icon(Icons.favorite,color: Colors.red,size: 20.sp,)),
+                                  ),
                                 ))
                           ],
                         ),

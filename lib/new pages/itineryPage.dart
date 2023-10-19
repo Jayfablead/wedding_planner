@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/new%20pages/itineryView.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../widgets/drawer.dart';
 
@@ -33,40 +34,45 @@ class _ItinerPageState extends State<ItinerPage> {
               SizedBox(
                 height: 5.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        size: 23.sp,
-                        color: Colors.blue,
-                      )),
-                  Text(
-                    "Itinerary List",
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontFamily: 'sofi',
-                      color: Colors.blue,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      ))
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new_rounded,
+              //           size: 23.sp,
+              //           color: Colors.blue,
+              //         )),
+              //     Text(
+              //       "Itinerary List",
+              //       style: TextStyle(
+              //         fontSize: 18.sp,
+              //         fontFamily: 'sofi',
+              //         color: Colors.blue,
+              //         letterSpacing: 1,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     IconButton(
+              //         onPressed: () {
+              //           scaffoldKey.currentState?.openDrawer();
+              //         },
+              //         icon: Icon(
+              //           Icons.menu_rounded,
+              //           color: Colors.blue,
+              //           size: 23.sp,
+              //         ))
+              //   ],
+              // ),
+              header(text: "Itinerary List",callback: (){
+                Get.back();
+              },callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               SizedBox(height: 1.h),
               searchBox1(),
               SizedBox(height: 1.h),

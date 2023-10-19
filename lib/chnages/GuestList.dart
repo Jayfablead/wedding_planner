@@ -12,6 +12,7 @@ import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 class GuestList extends StatefulWidget {
@@ -59,39 +60,45 @@ class _GuestListState extends State<GuestList> {
                   child: Column(
                     children: [
                       SizedBox(height: 5.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                Get.back();
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios_new_rounded,
-                                color: Colors.blue,
-                                size: 23.sp,
-                              )),
-                          Text(
-                            'Guest List',
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                fontFamily: 'sofi',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue,
-                                letterSpacing: 1),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                scaffoldKey.currentState?.openDrawer();
-                              },
-                              icon: Icon(
-                                Icons.menu_rounded,
-                                size: 23.sp,
-                                color: Colors.blue,
-                              )),
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   crossAxisAlignment: CrossAxisAlignment.center,
+                      //   children: [
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           Get.back();
+                      //         },
+                      //         icon: Icon(
+                      //           Icons.arrow_back_ios_new_rounded,
+                      //           color: Colors.blue,
+                      //           size: 23.sp,
+                      //         )),
+                      //     Text(
+                      //       'Guest List',
+                      //       style: TextStyle(
+                      //           fontSize: 18.sp,
+                      //           fontFamily: 'sofi',
+                      //           fontWeight: FontWeight.bold,
+                      //           color: Colors.blue,
+                      //           letterSpacing: 1),
+                      //     ),
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           scaffoldKey.currentState?.openDrawer();
+                      //         },
+                      //         icon: Icon(
+                      //           Icons.menu_rounded,
+                      //           size: 23.sp,
+                      //           color: Colors.blue,
+                      //         )),
+                      //   ],
+                      // ),
+                      header(text: "Guest List",callback: (){
+                        Get.back();
+                      },callback1: (){
+                        scaffoldKey.currentState?.openDrawer();
+                      }),
+
                       SizedBox(height: 1.5.h),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

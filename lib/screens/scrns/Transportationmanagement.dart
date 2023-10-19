@@ -6,6 +6,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/screens/scrns/BookingDetailsPage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class BookingListPage extends StatefulWidget {
   const BookingListPage({super.key});
@@ -93,39 +94,44 @@ class _BookingListPageState extends State<BookingListPage> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            )),
-                        Text(
-                          "Transportation",
-                          style: TextStyle(
-                            fontSize: 17.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              scaffoldKey.currentState?.openDrawer();
-                            },
-                            icon: Icon(
-                              Icons.menu_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            ))
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     IconButton(
+                    //         onPressed: () {
+                    //           Get.back();
+                    //         },
+                    //         icon: Icon(
+                    //           Icons.arrow_back_ios_new_rounded,
+                    //           color: Colors.blue,
+                    //           size: 23.sp,
+                    //         )),
+                    //     Text(
+                    //       "Transportation",
+                    //       style: TextStyle(
+                    //         fontSize: 17.sp,
+                    //         fontFamily: 'sofi',
+                    //         letterSpacing: 1,
+                    //         color: Colors.blue,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //     IconButton(
+                    //         onPressed: () {
+                    //           scaffoldKey.currentState?.openDrawer();
+                    //         },
+                    //         icon: Icon(
+                    //           Icons.menu_rounded,
+                    //           color: Colors.blue,
+                    //           size: 23.sp,
+                    //         ))
+                    //   ],
+                    // ),
+                    header(text: "Transportation",callback: (){
+                      Get.back();
+                    },callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                     SizedBox(
                       height: 2.h,
                     ),

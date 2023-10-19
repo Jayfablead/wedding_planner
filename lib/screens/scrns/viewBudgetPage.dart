@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../../widgets/drawer.dart';
 import '../pages2/quoatelist2.dart';
@@ -83,39 +84,44 @@ class _ViewBudgetState extends State<ViewBudget> {
                   SizedBox(
                     height: 5.h,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: Colors.blue,
-                            size: 23.sp,
-                          )),
-                      Text(
-                        "Budget",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontFamily: 'sofi',
-                          color: Colors.blue,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            openDrawer();
-                          },
-                          icon: Icon(
-                            Icons.menu_rounded,
-                            color: Colors.blue,
-                            size: 23.sp,
-                          ))
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     IconButton(
+                  //         onPressed: () {
+                  //           Get.back();
+                  //         },
+                  //         icon: Icon(
+                  //           Icons.arrow_back_ios_new_rounded,
+                  //           color: Colors.blue,
+                  //           size: 23.sp,
+                  //         )),
+                  //     Text(
+                  //       "Budget",
+                  //       style: TextStyle(
+                  //         fontSize: 18.sp,
+                  //         fontFamily: 'sofi',
+                  //         color: Colors.blue,
+                  //         letterSpacing: 1,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //     IconButton(
+                  //         onPressed: () {
+                  //           openDrawer();
+                  //         },
+                  //         icon: Icon(
+                  //           Icons.menu_rounded,
+                  //           color: Colors.blue,
+                  //           size: 23.sp,
+                  //         ))
+                  //   ],
+                  // ),
+                  header(text: "Budget",callback: (){
+                    Get.back();
+                  },callback1: (){
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
                   SizedBox(
                     height: 2.h,
                   ),
