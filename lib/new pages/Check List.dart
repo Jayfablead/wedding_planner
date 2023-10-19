@@ -147,11 +147,12 @@ class _Check_listState extends State<Check_list> {
                           //     )
                           //   ],
                           // ),
-                          header(text: "Check List",callback: (){
-                            Get.back();
-                          },callback1: (){
-                            scaffoldKey.currentState?.openDrawer();
-                          }),
+                          // header(text: "Check List",callback: (){
+                          //   Get.back();
+                          // },callback1: (){
+                          //   scaffoldKey.currentState?.openDrawer();
+                          // }),
+                          headerwid(text: "Check List"),
                           SizedBox(height: 1.h),
                           searchBox1(),
                           SizedBox(height: 2.h),

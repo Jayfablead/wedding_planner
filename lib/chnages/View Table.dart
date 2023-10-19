@@ -66,9 +66,10 @@ class _ViewTablesState extends State<ViewTables> {
             //         )),
             //   ],
             // ),
-            header(text: "Guests",callback: (){Get.back();},callback1: (){
-              scaffoldKey.currentState?.openDrawer();
-            }),
+            // header(text: "Guests",callback: (){Get.back();},callback1: (){
+            //   scaffoldKey.currentState?.openDrawer();
+            // }),
+            headerwid(text: "Guests"),
             SizedBox(height: 1.5.h),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,

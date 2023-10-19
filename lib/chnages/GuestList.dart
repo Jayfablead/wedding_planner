@@ -60,44 +60,12 @@ class _GuestListState extends State<GuestList> {
                   child: Column(
                     children: [
                       SizedBox(height: 5.h),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   crossAxisAlignment: CrossAxisAlignment.center,
-                      //   children: [
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           Get.back();
-                      //         },
-                      //         icon: Icon(
-                      //           Icons.arrow_back_ios_new_rounded,
-                      //           color: Colors.blue,
-                      //           size: 23.sp,
-                      //         )),
-                      //     Text(
-                      //       'Guest List',
-                      //       style: TextStyle(
-                      //           fontSize: 18.sp,
-                      //           fontFamily: 'sofi',
-                      //           fontWeight: FontWeight.bold,
-                      //           color: Colors.blue,
-                      //           letterSpacing: 1),
-                      //     ),
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           scaffoldKey.currentState?.openDrawer();
-                      //         },
-                      //         icon: Icon(
-                      //           Icons.menu_rounded,
-                      //           size: 23.sp,
-                      //           color: Colors.blue,
-                      //         )),
-                      //   ],
-                      // ),
-                      header(text: "Guest List",callback: (){
-                        Get.back();
-                      },callback1: (){
-                        scaffoldKey.currentState?.openDrawer();
-                      }),
+                      // header(text: "Guest List",callback: (){
+                      //   Get.back();
+                      // },callback1: (){
+                      //   scaffoldKey.currentState?.openDrawer();
+                      // }),
+                      headerwid(text: "Guest List"),
 
                       SizedBox(height: 1.5.h),
                       Row(
@@ -1045,6 +1013,7 @@ class _GuestListState extends State<GuestList> {
               _phone.text = "";
               _email.text = "";
               _relation.text = "";
+              viewguestap();
               Get.back();
             } else {}
           });

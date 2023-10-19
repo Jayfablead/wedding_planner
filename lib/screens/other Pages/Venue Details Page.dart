@@ -7,6 +7,7 @@ import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../../main.dart';
 
@@ -41,6 +42,7 @@ class _VenueViewState extends State<VenueView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       key: scaffoldKey,
       drawer: drawer1(),
       body: SingleChildScrollView(
@@ -53,30 +55,34 @@ class _VenueViewState extends State<VenueView> {
                 SizedBox(
                   height: 6.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                    Text(
-                      'My Venue',
-                      style: TextStyle(
-                          fontSize: 15.sp,
-                          fontFamily: 'sofi',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(Icons.menu_rounded)),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     IconButton(
+                //         onPressed: () {
+                //           Get.back();
+                //         },
+                //         icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                //     Text(
+                //       'My Venue',
+                //       style: TextStyle(
+                //           fontSize: 15.sp,
+                //           fontFamily: 'sofi',
+                //           fontWeight: FontWeight.bold,
+                //           letterSpacing: 1),
+                //     ),
+                //     IconButton(
+                //         onPressed: () {
+                //           scaffoldKey.currentState?.openDrawer();
+                //         },
+                //         icon: Icon(Icons.menu_rounded)),
+                //   ],
+                // ),
+                headerwid(text: "My Venue"),
+                // header(text: "My Venue",callback: (){},callback1: (){
+                //   scaffoldKey.currentState?.openDrawer();
+                // }),
                 SizedBox(height: 1.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

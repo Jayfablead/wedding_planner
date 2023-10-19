@@ -116,8 +116,9 @@ class Suppliers {
   String? name;
   String? role;
   String? profilePath;
+  String? categoryId;
   String? description;
-  String? type;
+  String? cost;
   String? fav;
   String? serviceId;
   String? service;
@@ -127,8 +128,9 @@ class Suppliers {
         this.name,
         this.role,
         this.profilePath,
+        this.categoryId,
         this.description,
-        this.type,
+        this.cost,
         this.fav,
         this.serviceId,
         this.service});
@@ -138,8 +140,9 @@ class Suppliers {
     name = json['name'];
     role = json['role'];
     profilePath = json['profile_path'];
+    categoryId = json['category_id'];
     description = json['description'];
-    type = json['type'];
+    cost = json['cost'];
     fav = json['fav'];
     serviceId = json['service_id'];
     service = json['service'];
@@ -151,8 +154,9 @@ class Suppliers {
     data['name'] = this.name;
     data['role'] = this.role;
     data['profile_path'] = this.profilePath;
+    data['category_id'] = this.categoryId;
     data['description'] = this.description;
-    data['type'] = this.type;
+    data['cost'] = this.cost;
     data['fav'] = this.fav;
     data['service_id'] = this.serviceId;
     data['service'] = this.service;

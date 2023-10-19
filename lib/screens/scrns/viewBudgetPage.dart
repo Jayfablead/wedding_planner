@@ -117,11 +117,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                   //         ))
                   //   ],
                   // ),
-                  header(text: "Budget",callback: (){
-                    Get.back();
-                  },callback1: (){
-                    scaffoldKey.currentState?.openDrawer();
-                  }),
+                  headerwid(text: "Budget"),
+                  // header(text: "Budget",callback: (){
+                  //   Get.back();
+                  // },callback1: (){
+                  //   scaffoldKey.currentState?.openDrawer();
+                  // }),
                   SizedBox(
                     height: 2.h,
                   ),

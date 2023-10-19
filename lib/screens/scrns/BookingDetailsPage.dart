@@ -62,11 +62,12 @@ class _BookingDetailsPageState extends State<BookingDetailsPage> {
               //             color: Colors.blue, size: 23.sp)),
               //   ],
               // ),
-              header(text: "Booking Details",callback: (){
-                Get.back();
-              },callback1: (){
-                scaffoldKey.currentState?.openDrawer();
-              }),
+              // header(text: "Booking Details",callback: (){
+              //   Get.back();
+              // },callback1: (){
+              //   scaffoldKey.currentState?.openDrawer();
+              // }),
+              headerwid(text: "Booking Details"),
               Image.network(
                 "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
                 height: 35.h,

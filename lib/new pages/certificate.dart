@@ -136,9 +136,10 @@ class _CertificateState extends State<Certificate> {
                   //         ))
                   //   ],
                   // ),
-                  header(text: "Certificates",callback: (){Get.back();},callback1: (){
-                    scaffoldKey.currentState?.openDrawer();
-                  }),
+                  // header(text: "Certificates",callback: (){Get.back();},callback1: (){
+                  //   scaffoldKey.currentState?.openDrawer();
+                  // }),
+                  headerwid(text: "Certificates"),
                   SizedBox(height: 1.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

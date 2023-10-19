@@ -36,11 +36,12 @@ class _Accomendation_PageState extends State<Accomendation_Page> {
                 child: Column(
                   children: [
                     SizedBox(height: 5.h),
-                    header(text: "",callback: (){
-                      Get.back();
-                    },callback1: (){
-                      scaffoldKey.currentState?.openDrawer();
-                    }),
+                    // header(text: "",callback: (){
+                    //   Get.back();
+                    // },callback1: (){
+                    //   scaffoldKey.currentState?.openDrawer();
+                    // }),
+                    headerwid(text: ""),
                     SizedBox(height: 1.h),
                   ],
                 ),

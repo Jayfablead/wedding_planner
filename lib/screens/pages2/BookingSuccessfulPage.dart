@@ -61,11 +61,12 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               //             color: Colors.blue, size: 23.sp)),
               //   ],
               // ),
-              header(text: "Booking Successful",callback: (){
-                Get.back();
-              },callback1: (){
-                scaffoldKey.currentState?.openDrawer();
-              }),
+              headerwid(text: "Booking Successful"),
+              // header(text: "Booking Successful",callback: (){
+              //   Get.back();
+              // },callback1: (){
+              //   scaffoldKey.currentState?.openDrawer();
+              // }),
               Image.network(
                 "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
                 height: 28.h,

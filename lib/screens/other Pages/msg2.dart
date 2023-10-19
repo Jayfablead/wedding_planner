@@ -6,11 +6,9 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:open_file/open_file.dart';
-import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/FullchatModal.dart';
@@ -21,6 +19,8 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/load.dart';
+import 'package:path/path.dart' as path;
+import 'package:http/http.dart' as http;
 import 'package:wedding_planner/widgets/video.dart';
 import 'package:wedding_planner/widgets/webview.dart';
 
@@ -42,19 +42,15 @@ class _Msg2State extends State<Msg2> {
   String? date2 = "";
   String? data1;
   int? diff;
-  int? type;
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    print(widget.img);
+
     fullchatap();
     readnewmsgap();
   }
-
   int? days;
-
   Future<void> Counter() async {
     await Future.delayed(Duration(seconds: 1));
     setState(() {
@@ -67,7 +63,6 @@ class _Msg2State extends State<Msg2> {
   bool isLoading = true;
   ImagePicker _picker = ImagePicker();
   File? _pickedFile = null;
-
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -100,14 +95,11 @@ class _Msg2State extends State<Msg2> {
                                         Get.back();
                                       },
                                       icon: Icon(
-                                        Icons.arrow_back_ios_new_rounded,
-                                        size: 23.sp,
-                                        color: Colors.blue,
-                                      )),
+                                          Icons.arrow_back_ios_new_rounded)),
                                   Container(
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 1.w),
-                                    height: 11.w,
+                                    height: 5.h,
                                     width: 11.w,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(90),
@@ -115,9 +107,8 @@ class _Msg2State extends State<Msg2> {
                                         fit: BoxFit.cover,
                                         imageUrl: widget.img.toString(),
                                         progressIndicatorBuilder:
-                                            (context, url, progress) => Center(
-                                                child:
-                                                    CircularProgressIndicator()),
+                                            (context, url, progress) =>
+                                                Center(child: CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
                                           'assets/icons/user.png',
@@ -143,7 +134,9 @@ class _Msg2State extends State<Msg2> {
                                       color: Colors.black),
                                 ),
                               ),
-                              IconButton(onPressed: () {}, icon: Icon(null))
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.more_vert_rounded))
                             ],
                           ),
                           SizedBox(height: 1.h),
@@ -151,7 +144,20 @@ class _Msg2State extends State<Msg2> {
                             children: [
                               Container(
                                 height: 79.h,
-                                child: ListView.builder(
+                                child:fullchatmodal?.data?.livechat?.length == 0 ?Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "No Message.",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
+                                  ),
+                                ):
+                                ListView.builder(
                                     controller: _scrollController,
                                     reverse: true,
                                     shrinkWrap: true,
@@ -179,40 +185,38 @@ class _Msg2State extends State<Msg2> {
                                       bool showSeparator = false;
 
                                       var outputFormat2 =
-                                          DateFormat('yyyy-MM-dd');
-                                      var outputFormat1 = DateFormat("dd");
-                                      DateTime parseDate =
-                                          DateFormat("yyyy-MM-dd hh:mm:ss")
-                                              .parse(fullchatmodal
-                                                      ?.data
-                                                      ?.livechat?[index]
-                                                      .createdAt ??
-                                                  "");
+                                      DateFormat('yyyy-MM-dd');
+                                      var outputFormat1 =
+                                      DateFormat("dd");
+                                      DateTime parseDate = DateFormat(
+                                          "yyyy-MM-dd hh:mm:ss")
+                                          .parse(fullchatmodal
+                                          ?.data?.livechat?[index].createdAt ??
+                                          "");
 
                                       if (index <
-                                          ((fullchatmodal?.data?.livechat
-                                                      ?.length ??
-                                                  0) -
+                                          ((fullchatmodal
+                                              ?.data?.livechat?.length ?? 0 ) -
                                               1)) {
-                                        DateTime parseDate1 =
-                                            DateFormat("yyyy-MM-dd hh:mm:ss")
-                                                .parse(fullchatmodal
-                                                        ?.data
-                                                        ?.livechat?[index + 1]
-                                                        .createdAt ??
-                                                    "");
+
+                                        DateTime parseDate1 = DateFormat(
+                                            "yyyy-MM-dd hh:mm:ss")
+                                            .parse(fullchatmodal
+                                            ?.data?.livechat?[index+1].createdAt ??
+                                            "");
                                         var inputDate1 = DateTime.parse(
                                             parseDate1.toString());
-                                        outputDate2 =
-                                            outputFormat2.format(inputDate1);
+                                        outputDate2 = outputFormat2
+                                            .format(inputDate1);
                                       }
-                                      var inputDate =
-                                          DateTime.parse(parseDate.toString());
+                                      var inputDate = DateTime.parse(
+                                          parseDate.toString());
 
-                                      outputDate1 =
-                                          outputFormat2.format(inputDate);
+                                      outputDate1 = outputFormat2
+                                          .format(inputDate);
 
-                                      date2 = outputFormat1.format(inputDate);
+                                      date2 = outputFormat1
+                                          .format(inputDate);
 
                                       diff = (DateTime.now().day) -
                                           int.parse(date2.toString());
@@ -221,7 +225,9 @@ class _Msg2State extends State<Msg2> {
                                       // outputDate2 = outputFormat2.format(inputDate);
                                       if (outputDate1 != outputDate2) {
                                         showSeparator = true;
-                                      } else {
+                                      }
+                                      else {
+
                                         // showSeparator = true;
                                       }
                                       return Column(
@@ -233,22 +239,17 @@ class _Msg2State extends State<Msg2> {
                                                       height: 2.h,
                                                     ),
                                                     Container(
-                                                        margin:
-                                                            EdgeInsets.all(1.w),
+                                                        margin: EdgeInsets.all(1.w),
                                                         padding:
                                                             EdgeInsets.all(1.w),
                                                         // height: 4.h,
                                                         width: 25.w,
-                                                        alignment:
-                                                            Alignment.center,
-                                                        decoration:
-                                                            BoxDecoration(
+                                                        alignment: Alignment.center,
+                                                        decoration: BoxDecoration(
                                                           borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      15.0),
-                                                          color: Colors
-                                                              .transparent
+                                                              BorderRadius.circular(
+                                                                  15.0),
+                                                          color: Colors.transparent
                                                               .withOpacity(0.3),
                                                         ),
                                                         child: Text(
@@ -256,17 +257,17 @@ class _Msg2State extends State<Msg2> {
                                                               ? "Today"
                                                               : (diff == 1)
                                                                   ? "Yesterday"
-                                                                  : outputDate1,
+                                                                  :
+                                                          outputDate1,
                                                           style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
+                                                              color: Colors.white,
                                                               fontSize: 12.sp,
                                                               fontFamily:
                                                                   "Poppins"),
                                                         )),
                                                   ],
-                                                )
-                                              : fullchatmodal
+                                                ) :
+                                          fullchatmodal
                                                           ?.data
                                                           ?.livechat?[index]
                                                           .fromId ==
@@ -276,11 +277,9 @@ class _Msg2State extends State<Msg2> {
                                                           Alignment.centerRight,
                                                       child: Column(
                                                         mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .end,
+                                                            MainAxisAlignment.end,
                                                         crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
+                                                            CrossAxisAlignment.end,
                                                         children: [
                                                           Row(
                                                             mainAxisAlignment:
@@ -291,24 +290,16 @@ class _Msg2State extends State<Msg2> {
                                                                     .end,
                                                             children: [
                                                               Text(
-                                                                DateFormat(
-                                                                        'HH:mm')
-                                                                    .format(DateTime.parse(fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[index]
-                                                                            .createdAt ??
-                                                                        "")),
+                                                                DateFormat('HH:mm').format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ?? "")),
                                                                 style: TextStyle(
-                                                                    fontSize:
-                                                                        11.sp,
+                                                                    fontSize: 11.sp,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
                                                                     fontFamily:
                                                                         'sofi'),
                                                               ),
-                                                              SizedBox(
-                                                                  width: 1.w),
+                                                              SizedBox(width: 1.w),
                                                               Container(
                                                                 margin: EdgeInsets
                                                                     .symmetric(
@@ -316,8 +307,7 @@ class _Msg2State extends State<Msg2> {
                                                                             1.w),
                                                                 height: 3.5.h,
                                                                 width: 7.5.w,
-                                                                child:
-                                                                    ClipRRect(
+                                                                child: ClipRRect(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
@@ -326,19 +316,20 @@ class _Msg2State extends State<Msg2> {
                                                                       CachedNetworkImage(
                                                                     fit: BoxFit
                                                                         .cover,
-                                                                    imageUrl: (userData
-                                                                            ?.user
-                                                                            ?.profilePath)
-                                                                        .toString(),
-                                                                    progressIndicatorBuilder: (context,
-                                                                            url,
-                                                                            progress) =>
-                                                                        CircularProgressIndicator(),
+                                                                    imageUrl: fullchatmodal
+                                                                            ?.data
+                                                                            ?.chatUser
+                                                                            ?.profile ??
+                                                                        "",
+                                                                    progressIndicatorBuilder:
+                                                                        (context,
+                                                                                url,
+                                                                                progress) =>
+                                                                            CircularProgressIndicator(),
                                                                     errorWidget: (context,
                                                                             url,
                                                                             error) =>
-                                                                        Image
-                                                                            .asset(
+                                                                        Image.asset(
                                                                       'assets/user.png',
                                                                       color: Colors
                                                                           .white,
@@ -355,27 +346,23 @@ class _Msg2State extends State<Msg2> {
                                                                 .centerRight,
                                                             padding: EdgeInsets
                                                                 .symmetric(
-                                                                    horizontal:
-                                                                        5.w,
+                                                                    horizontal: 5.w,
                                                                     vertical:
                                                                         1.3.h),
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color:
-                                                                  Colors.blue,
+                                                              color: Colors.blue,
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
+                                                                  BorderRadius.only(
+                                                                bottomLeft:
+                                                                    Radius.circular(
                                                                         20),
-                                                                topLeft: Radius
-                                                                    .circular(
+                                                                topLeft:
+                                                                    Radius.circular(
                                                                         20),
                                                                 bottomRight:
-                                                                    Radius
-                                                                        .circular(
-                                                                            20),
+                                                                    Radius.circular(
+                                                                        20),
                                                               ),
                                                             ),
                                                             child: fullchatmodal
@@ -387,12 +374,13 @@ class _Msg2State extends State<Msg2> {
                                                                 ? Text(
                                                                     fullchatmodal
                                                                             ?.data
-                                                                            ?.livechat?[index]
+                                                                            ?.livechat?[
+                                                                                index]
                                                                             .message ??
                                                                         "",
                                                                     style: TextStyle(
-                                                                        fontSize: 12
-                                                                            .sp,
+                                                                        fontSize:
+                                                                            12.sp,
                                                                         color: Colors
                                                                             .white,
                                                                         fontWeight:
@@ -415,45 +403,61 @@ class _Msg2State extends State<Msg2> {
                                                                                 1.w),
                                                                         height:
                                                                             20.h,
-                                                                        width:
-                                                                            60.w,
+                                                                        width: 60.w,
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(20),
+                                                                              BorderRadius.circular(
+                                                                                  20),
                                                                           child:
                                                                               CachedNetworkImage(
-                                                                            fit:
-                                                                                BoxFit.cover,
+                                                                            fit: BoxFit
+                                                                                .cover,
                                                                             imageUrl:
-                                                                                fullchatmodal?.data?.livechat?[index].message ?? '',
-                                                                            progressIndicatorBuilder: (context, url, progress) =>
+                                                                                fullchatmodal?.data?.livechat?[index].message ??
+                                                                                    '',
+                                                                            progressIndicatorBuilder: (context,
+                                                                                    url,
+                                                                                    progress) =>
                                                                                 CircularProgressIndicator(),
-                                                                            errorWidget: (context, url, error) =>
+                                                                            errorWidget: (context,
+                                                                                    url,
+                                                                                    error) =>
                                                                                 Image.asset(
                                                                               'assets/user.png',
-                                                                              color: Colors.white,
+                                                                              color:
+                                                                                  Colors.white,
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       )
-                                                                    : fullchatmodal?.data?.livechat?[index].messageType ==
+                                                                    : fullchatmodal
+                                                                                ?.data
+                                                                                ?.livechat?[index]
+                                                                                .messageType ==
                                                                             "3"
                                                                         ? Container(
                                                                             height:
                                                                                 20.h,
                                                                             width:
                                                                                 60.w,
-                                                                            child:
-                                                                                addVideo(videoid: fullchatmodal?.data?.livechat?[index].message ?? ""),
+                                                                            child: addVideo(
+                                                                                videoid:
+                                                                                    fullchatmodal?.data?.livechat?[index].message ?? ""),
                                                                           )
                                                                         : GestureDetector(
                                                                             onTap:
                                                                                 () async {
-                                                                              final String? url = (fullchatmodal?.data?.livechat?[index].message);
-                                                                              String fileExtension = path.extension(url!);
+                                                                              final String? url = (fullchatmodal
+                                                                                  ?.data
+                                                                                  ?.livechat?[index]
+                                                                                  .message);
+                                                                              String
+                                                                                  fileExtension =
+                                                                                  path.extension(url!);
 
-                                                                              if (fileExtension == ".txt") {
+                                                                              if (fileExtension ==
+                                                                                  ".txt") {
                                                                                 Get.to(webview(
                                                                                   data: fullchatmodal?.data?.livechat?[index].message,
                                                                                 ));
@@ -462,15 +466,26 @@ class _Msg2State extends State<Msg2> {
                                                                                 //       data: messagemodel?.data?[index].message,
                                                                                 //     )));
                                                                               } else {
-                                                                                var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                                                var response =
+                                                                                    await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
 
-                                                                                String fileName = url.toString().split('/').last;
-                                                                                Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
-                                                                                String directoryPath = storageDirectory!.path;
-                                                                                File file = File('$directoryPath/$fileName');
+                                                                                String
+                                                                                    fileName =
+                                                                                    url.toString().split('/').last;
+                                                                                Directory? storageDirectory = Platform.isAndroid
+                                                                                    ? await getExternalStorageDirectory()
+                                                                                    : await getDownloadsDirectory();
+                                                                                String
+                                                                                    directoryPath =
+                                                                                    storageDirectory!.path;
+                                                                                File
+                                                                                    file =
+                                                                                    File('$directoryPath/$fileName');
                                                                                 // Directory directory = await getApplicationDocumentsDirectory();
                                                                                 await file.writeAsBytes(response.bodyBytes);
-                                                                                String filePath = '${storageDirectory.path}/$fileName';
+                                                                                String
+                                                                                    filePath =
+                                                                                    '${storageDirectory.path}/$fileName';
 
                                                                                 try {
                                                                                   final result = await OpenFile.open(filePath);
@@ -481,8 +496,14 @@ class _Msg2State extends State<Msg2> {
                                                                             },
                                                                             child:
                                                                                 Text(
-                                                                              fullchatmodal?.data?.livechat?[index].message ?? "",
-                                                                              style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontFamily: 'sofi'),
+                                                                              fullchatmodal?.data?.livechat?[index].message ??
+                                                                                  "",
+                                                                              style: TextStyle(
+                                                                                  fontSize: 12.sp,
+                                                                                  color: Colors.white,
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  letterSpacing: 1.5,
+                                                                                  fontFamily: 'sofi'),
                                                                             ),
                                                                           ),
                                                           ),
@@ -495,8 +516,7 @@ class _Msg2State extends State<Msg2> {
                                                           Alignment.centerLeft,
                                                       child: Column(
                                                         mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
+                                                            MainAxisAlignment.start,
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
                                                                 .start,
@@ -516,8 +536,7 @@ class _Msg2State extends State<Msg2> {
                                                                             1.w),
                                                                 height: 3.5.h,
                                                                 width: 7.5.w,
-                                                                child:
-                                                                    ClipRRect(
+                                                                child: ClipRRect(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
@@ -526,18 +545,16 @@ class _Msg2State extends State<Msg2> {
                                                                       CachedNetworkImage(
                                                                     fit: BoxFit
                                                                         .cover,
-                                                                    imageUrl: widget
-                                                                        .img
-                                                                        .toString(),
-                                                                    progressIndicatorBuilder: (context,
-                                                                            url,
-                                                                            progress) =>
-                                                                        CircularProgressIndicator(),
+                                                                    imageUrl: widget.img.toString(),
+                                                                    progressIndicatorBuilder:
+                                                                        (context,
+                                                                                url,
+                                                                                progress) =>
+                                                                            CircularProgressIndicator(),
                                                                     errorWidget: (context,
                                                                             url,
                                                                             error) =>
-                                                                        Image
-                                                                            .asset(
+                                                                        Image.asset(
                                                                       'assets/user.png',
                                                                       color: Colors
                                                                           .white,
@@ -545,19 +562,11 @@ class _Msg2State extends State<Msg2> {
                                                                   ),
                                                                 ),
                                                               ),
-                                                              SizedBox(
-                                                                  width: 1.w),
+                                                              SizedBox(width: 1.w),
                                                               Text(
-                                                                DateFormat(
-                                                                        'HH:mm')
-                                                                    .format(DateTime.parse(fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[index]
-                                                                            .createdAt ??
-                                                                        "")),
+                                                                DateFormat('HH:mm').format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ?? "")),
                                                                 style: TextStyle(
-                                                                    fontSize:
-                                                                        11.sp,
+                                                                    fontSize: 11.sp,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -573,27 +582,23 @@ class _Msg2State extends State<Msg2> {
                                                                 .centerLeft,
                                                             padding: EdgeInsets
                                                                 .symmetric(
-                                                                    horizontal:
-                                                                        5.w,
+                                                                    horizontal: 5.w,
                                                                     vertical:
                                                                         1.3.h),
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: Colors
-                                                                  .black12,
+                                                              color: Colors.black12,
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
+                                                                  BorderRadius.only(
+                                                                bottomLeft:
+                                                                    Radius.circular(
                                                                         20),
-                                                                topLeft: Radius
-                                                                    .circular(
+                                                                topLeft:
+                                                                    Radius.circular(
                                                                         20),
                                                                 bottomRight:
-                                                                    Radius
-                                                                        .circular(
-                                                                            20),
+                                                                    Radius.circular(
+                                                                        20),
                                                               ),
                                                             ),
                                                             child: fullchatmodal
@@ -605,12 +610,13 @@ class _Msg2State extends State<Msg2> {
                                                                 ? Text(
                                                                     fullchatmodal
                                                                             ?.data
-                                                                            ?.livechat?[index]
+                                                                            ?.livechat?[
+                                                                                index]
                                                                             .message ??
                                                                         "",
                                                                     style: TextStyle(
-                                                                        fontSize: 12
-                                                                            .sp,
+                                                                        fontSize:
+                                                                            12.sp,
                                                                         color: Colors
                                                                             .black,
                                                                         fontWeight:
@@ -633,45 +639,62 @@ class _Msg2State extends State<Msg2> {
                                                                                 1.w),
                                                                         height:
                                                                             20.h,
-                                                                        width:
-                                                                            60.w,
+                                                                        width: 60.w,
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(20),
+                                                                              BorderRadius.circular(
+                                                                                  20),
                                                                           child:
                                                                               CachedNetworkImage(
-                                                                            fit:
-                                                                                BoxFit.cover,
+                                                                            fit: BoxFit
+                                                                                .cover,
                                                                             imageUrl:
-                                                                                fullchatmodal?.data?.livechat?[index].message ?? '',
-                                                                            progressIndicatorBuilder: (context, url, progress) =>
+                                                                                fullchatmodal?.data?.livechat?[index].message ??
+                                                                                    '',
+                                                                            progressIndicatorBuilder: (context,
+                                                                                    url,
+                                                                                    progress) =>
                                                                                 CircularProgressIndicator(),
-                                                                            errorWidget: (context, url, error) =>
+                                                                            errorWidget: (context,
+                                                                                    url,
+                                                                                    error) =>
                                                                                 Image.asset(
                                                                               'assets/icons/user.png',
-                                                                              color: Colors.white,
+                                                                              color:
+                                                                                  Colors.white,
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       )
-                                                                    : fullchatmodal?.data?.livechat?[index].messageType ==
+                                                                    : fullchatmodal
+                                                                                ?.data
+                                                                                ?.livechat?[index]
+                                                                                .messageType ==
                                                                             "3"
                                                                         ? Container(
                                                                             height:
                                                                                 20.h,
                                                                             width:
                                                                                 60.w,
-                                                                            child:
-                                                                                addVideo(videoid: fullchatmodal?.data?.livechat?[index].message ?? ""),
+                                                                            child: addVideo(
+                                                                                videoid:
+                                                                                    fullchatmodal?.data?.livechat?[index].message ?? ""),
                                                                           )
                                                                         : GestureDetector(
                                                                             onTap:
                                                                                 () async {
-                                                                              final String? url = (fullchatmodal?.data?.livechat?[index].message);
-                                                                              String fileExtension = path.extension(url!);
 
-                                                                              if (fileExtension == ".txt") {
+                                                                              final String? url = (fullchatmodal
+                                                                                  ?.data
+                                                                                  ?.livechat?[index]
+                                                                                  .message);
+                                                                              String
+                                                                                  fileExtension =
+                                                                                  path.extension(url!);
+
+                                                                              if (fileExtension ==
+                                                                                  ".txt") {
                                                                                 Get.to(webview(
                                                                                   data: fullchatmodal?.data?.livechat?[index].message,
                                                                                 ));
@@ -680,10 +703,14 @@ class _Msg2State extends State<Msg2> {
                                                                                 //       data: messagemodel?.data?[index].message,
                                                                                 //     )));
                                                                               } else {
-                                                                                var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
-                                                                                print(url);
 
-                                                                                String fileName = url.toString().split('/').last;
+                                                                                var response =
+                                                                                    await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                                                    print(url);
+
+                                                                                String
+                                                                                    fileName =
+                                                                                    url.toString().split('/').last;
                                                                                 const downloadsFolderPath = '/storage/emulated/0/Download';
                                                                                 // Directory? storageDirectory = Platform.isAndroid
                                                                                 //     ? await getExternalStorageDirectory()
@@ -691,7 +718,7 @@ class _Msg2State extends State<Msg2> {
                                                                                 // String
                                                                                 //     directoryPath =
                                                                                 //     storageDirectory!.path;
-                                                                                Directory dir = Platform.isAndroid ? Directory(downloadsFolderPath) : await getApplicationDocumentsDirectory();
+                                                                                Directory dir = Platform.isAndroid?Directory(downloadsFolderPath): await getApplicationDocumentsDirectory();
                                                                                 // Directory dir =  await getApplicationDocumentsDirectory();
                                                                                 final String filePath = '${dir.path}/my.pdf';
                                                                                 print(filePath);
@@ -711,8 +738,14 @@ class _Msg2State extends State<Msg2> {
                                                                             },
                                                                             child:
                                                                                 Text(
-                                                                              fullchatmodal?.data?.livechat?[index].message ?? "",
-                                                                              style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontFamily: 'sofi'),
+                                                                              fullchatmodal?.data?.livechat?[index].message ??
+                                                                                  "",
+                                                                              style: TextStyle(
+                                                                                  fontSize: 12.sp,
+                                                                                  color: Colors.white,
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  letterSpacing: 1.5,
+                                                                                  fontFamily: 'sofi'),
                                                                             ),
                                                                           ),
                                                           ),
@@ -724,7 +757,7 @@ class _Msg2State extends State<Msg2> {
                                       );
                                     }),
                               ),
-                              Positioned(
+                              fullchatmodal?.data?.livechat?.length == 0?Container() : Positioned(
                                   top: 0.0,
                                   left: 30.w,
                                   right: 30.w,
@@ -734,15 +767,18 @@ class _Msg2State extends State<Msg2> {
                                       width: 20.w,
                                       decoration: BoxDecoration(
                                         borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        color: Colors.black.withOpacity(0.3),
+                                        BorderRadius.circular(
+                                            10.0),
+                                        color: Colors.black
+                                            .withOpacity(0.3),
                                       ),
                                       child: Text(
                                         (diff == 0)
                                             ? "Today"
                                             : (diff == 1)
-                                                ? "Yesterday"
-                                                : outputDate1.toString(),
+                                            ? "Yesterday"
+                                            : outputDate1
+                                            .toString(),
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 12.sp,
@@ -762,12 +798,9 @@ class _Msg2State extends State<Msg2> {
                               icon: Icon(
                                 Icons.attach_file,
                                 size: 20.sp,
-                                color: Colors.blue,
                               )),
                           Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(35)),
+                            color: Colors.white,
                             width: 68.w,
                             child: TextField(
                               controller: _msg,
@@ -777,19 +810,22 @@ class _Msg2State extends State<Msg2> {
                                   fontFamily: 'get'),
                               decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(100),
+                                  // borderSide: BorderSide(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(90),
+                                ),
+                                disabledBorder: OutlineInputBorder(
+                                  // borderSide: BorderSide(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(90),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(100),
+                                  // borderSide: BorderSide(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(90),
                                 ),
-                                filled: true,
-                                fillColor: Colors.white,
                                 border: InputBorder.none,
+
                                 hintText: 'Send a message',
                                 hintStyle: TextStyle(
-                                    color: Colors.grey, fontFamily: 'get'),
+                                    color: Colors.black, fontFamily: 'get'),
                               ),
                             ),
                           ),
@@ -798,9 +834,6 @@ class _Msg2State extends State<Msg2> {
                           ),
                           InkWell(
                               onTap: () {
-                                setState(() {
-                                  type = 1;
-                                });
                                 sendmessageap();
                               },
                               child: Container(
@@ -829,7 +862,6 @@ class _Msg2State extends State<Msg2> {
     final Map<String, String> data = {};
     data['textMsg'] = _msg.text.trim().toString();
     data['file'] = _msg.text == "" ? _pickedFile!.path : "";
-    data['mType'] = type.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -903,8 +935,6 @@ class _Msg2State extends State<Msg2> {
                                   final XFile? photo = await _picker.pickVideo(
                                       source: ImageSource.gallery);
                                   setState(() {
-                                    type = 3;
-
                                     _pickedFile = File(photo!.path);
                                     print("video daat");
                                     print(_pickedFile);
@@ -946,7 +976,7 @@ class _Msg2State extends State<Msg2> {
                                       source: ImageSource.gallery);
                                   setState(() {
                                     _pickedFile = File(photo!.path);
-                                    type = 2;
+
                                     print(_pickedFile);
                                   });
                                   sendmessageap();
@@ -992,7 +1022,6 @@ class _Msg2State extends State<Msg2> {
 
                                   if (result != null) {
                                     setState(() {
-                                      type = 4;
                                       _pickedFile = File(
                                           result.files.single.path.toString());
                                       sendmessageap();
@@ -1050,6 +1079,7 @@ class _Msg2State extends State<Msg2> {
         );
       },
     );
+
   }
 
   fullchatap() {
@@ -1058,6 +1088,7 @@ class _Msg2State extends State<Msg2> {
         authprovider().fullchatapi(widget.id).then((response) async {
           fullchatmodal = FullchatModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && fullchatmodal?.status == "1") {
+
             setState(() {
               isLoading = false;
             });
@@ -1072,19 +1103,20 @@ class _Msg2State extends State<Msg2> {
       }
     });
   }
+  readnewmsgap(){
+      checkInternet().then((internet) async {
+        if (internet) {
+          taskprovider().readmsgapi(widget.id).then((response) async {
+            readnewmsgmodal = ReadnewmsgModal.fromJson(json.decode(response.body));
+            if (response.statusCode == 200 && readnewmsgmodal?.status == "1") {
 
-  readnewmsgap() {
-    checkInternet().then((internet) async {
-      if (internet) {
-        taskprovider().readmsgapi(widget.id).then((response) async {
-          readnewmsgmodal =
-              ReadnewmsgModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && readnewmsgmodal?.status == "1") {
-          } else {}
-        });
-      } else {
-        buildErrorDialog(context, 'Error', "Internet Required");
-      }
-    });
+            } else {
+
+            }
+          });
+        } else {
+          buildErrorDialog(context, 'Error', "Internet Required");
+        }
+      });
   }
 }

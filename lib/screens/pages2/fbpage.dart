@@ -234,7 +234,6 @@ class _PostPageState extends State<PostPage> {
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-
                           itemCount: 5,
                           itemBuilder: (context, index) {
                             return InkWell(
@@ -242,7 +241,6 @@ class _PostPageState extends State<PostPage> {
                                 setState(() {
                                   sel1 = index;
                                 });
-
                                 print(index);
                               },
                               child: Container(

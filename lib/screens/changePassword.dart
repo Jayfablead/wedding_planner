@@ -81,11 +81,12 @@ class _ChangePasswordState extends State<ChangePassword> {
                 //         ))
                 //   ],
                 // ),
-                header(text: "",callback: (){
-                  Get.back();
-                },callback1: (){
-                  scaffoldKey.currentState?.openDrawer();
-                }),
+                // header(text: "",callback: (){
+                //   Get.back();
+                // },callback1: (){
+                //   scaffoldKey.currentState?.openDrawer();
+                // }),
+                headerwid(text: ""),
                 Container(
                   height: 30.h,
                   width: 100.w,

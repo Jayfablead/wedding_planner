@@ -62,9 +62,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
               //         ))
               //   ],
               // ),
-              header(text: "Supplier",callback: (){},callback1: (){
-                scaffoldKey.currentState?.openDrawer();
-              }),
+              // header(text: "Supplier",callback: (){},callback1: (){
+              //   scaffoldKey.currentState?.openDrawer();
+              // }),
+              headerwid(text: "Supplier"),
               SizedBox(
                 height: 2.h,
               ),
