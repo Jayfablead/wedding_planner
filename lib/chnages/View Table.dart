@@ -4,6 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class ViewTables extends StatefulWidget {
   const ViewTables({super.key});
@@ -32,39 +33,42 @@ class _ViewTablesState extends State<ViewTables> {
         child: Column(
           children: [
             SizedBox(height: 5.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      color: Colors.blue,
-                      size: 23.sp,
-                    )),
-                Text(
-                  'Guests',
-                  style: TextStyle(
-                      fontSize: 17.sp,
-                      fontFamily: 'sofi',
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
-                      color: Colors.blue),
-                ),
-                IconButton(
-                    onPressed: () {
-                      scaffoldKey.currentState?.openDrawer();
-                    },
-                    icon: Icon(
-                      Icons.menu_rounded,
-                      color: Colors.blue,
-                      size: 23.sp,
-                    )),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   crossAxisAlignment: CrossAxisAlignment.center,
+            //   children: [
+            //     IconButton(
+            //         onPressed: () {
+            //           Get.back();
+            //         },
+            //         icon: Icon(
+            //           Icons.arrow_back_ios_new_rounded,
+            //           color: Colors.blue,
+            //           size: 23.sp,
+            //         )),
+            //     Text(
+            //       'Guests',
+            //       style: TextStyle(
+            //           fontSize: 17.sp,
+            //           fontFamily: 'sofi',
+            //           fontWeight: FontWeight.bold,
+            //           letterSpacing: 1,
+            //           color: Colors.blue),
+            //     ),
+            //     IconButton(
+            //         onPressed: () {
+            //           scaffoldKey.currentState?.openDrawer();
+            //         },
+            //         icon: Icon(
+            //           Icons.menu_rounded,
+            //           color: Colors.blue,
+            //           size: 23.sp,
+            //         )),
+            //   ],
+            // ),
+            header(text: "Guests",callback: (){Get.back();},callback1: (){
+              scaffoldKey.currentState?.openDrawer();
+            }),
             SizedBox(height: 1.5.h),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class SupplierfourScreen extends StatefulWidget {
-  const SupplierfourScreen({super.key});
+  String? suppid;
+  SupplierfourScreen({super.key,this.suppid});
 
   @override
   State<SupplierfourScreen> createState() => _SupplierfourScreenState();
@@ -27,39 +29,42 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 5.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      )),
-                  Text(
-                    "Supplier",
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      ))
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           Get.back();
+              //         },
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new_rounded,
+              //           color: Colors.blue,
+              //           size: 23.sp,
+              //         )),
+              //     Text(
+              //       "Supplier",
+              //       style: TextStyle(
+              //         fontSize: 18.sp,
+              //         color: Colors.blue,
+              //         fontFamily: 'sofi',
+              //         letterSpacing: 1,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     IconButton(
+              //         onPressed: () {
+              //           scaffoldKey.currentState?.openDrawer();
+              //         },
+              //         icon: Icon(
+              //           Icons.menu_rounded,
+              //           color: Colors.blue,
+              //           size: 23.sp,
+              //         ))
+              //   ],
+              // ),
+              header(text: "Supplier",callback: (){},callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               SizedBox(
                 height: 2.h,
               ),

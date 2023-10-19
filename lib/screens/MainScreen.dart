@@ -78,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
               userData?.user?.id == null || userData?.user?.id == ""
                   ? Get.to(LoginPage())
                   : Get.to(YellowHomeScreen(
-                      sele: -3,
+                      sele:2,
                     ));
             },
             child: Container(

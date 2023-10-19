@@ -308,130 +308,154 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
                             color: Colors.white),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Stack(
                           children: [
-                            Container(
-                              padding: EdgeInsets.all(5.sp),
-                              width: 85.w,
-                              margin: EdgeInsets.symmetric(horizontal: 1.0),
-                              // decoration: BoxDecoration(
-                              //   borderRadius:
-                              //   BorderRadius.circular(25),
-                              //
-                              //   // border:  Border.all(width: 0.5,color: Colors.),
-                              //   gradient: LinearGradient(
-                              //     // begin: Alignment.topCenter,
-                              //     // end: Alignment.bottomCenter,
-                              //     // begin: Alignment.center,
-                              //     begin: Alignment.topRight,
-                              //     end: Alignment.bottomLeft,
-                              //     // stops: [0.0, 0.5, 1.0], // Gradient stops at 0.0, 0.5, and 1.0
-                              //
-                              //     colors: [
-                              //       Colors.blue,
-                              //       Colors.lightBlueAccent.shade200,
-                              //       Colors.blue,
-                              //       Colors.lightBlueAccent.shade200,
-                              //       Colors.lightBlueAccent,
-                              //       Colors.lightBlueAccent.shade200,
-                              //       Colors.white,
-                              //     ],
-                              //   ),
-                              // ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(25),
-                                child: Image.network(
-                                  Supaliers[index].image.toString(),
-                                  fit: BoxFit.cover, height: 20.h, width: 100.w,
-                                  // Cover the entire screen
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5.sp),
+                                  width: 85.w,
+                                  margin: EdgeInsets.symmetric(horizontal: 1.0),
+                                  // decoration: BoxDecoration(
+                                  //   borderRadius:
+                                  //   BorderRadius.circular(25),
+                                  //
+                                  //   // border:  Border.all(width: 0.5,color: Colors.),
+                                  //   gradient: LinearGradient(
+                                  //     // begin: Alignment.topCenter,
+                                  //     // end: Alignment.bottomCenter,
+                                  //     // begin: Alignment.center,
+                                  //     begin: Alignment.topRight,
+                                  //     end: Alignment.bottomLeft,
+                                  //     // stops: [0.0, 0.5, 1.0], // Gradient stops at 0.0, 0.5, and 1.0
+                                  //
+                                  //     colors: [
+                                  //       Colors.blue,
+                                  //       Colors.lightBlueAccent.shade200,
+                                  //       Colors.blue,
+                                  //       Colors.lightBlueAccent.shade200,
+                                  //       Colors.lightBlueAccent,
+                                  //       Colors.lightBlueAccent.shade200,
+                                  //       Colors.white,
+                                  //     ],
+                                  //   ),
+                                  // ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Image.network(
+                                      Supaliers[index].image.toString(),
+                                      fit: BoxFit.cover, height: 20.h, width: 100.w,
+                                      // Cover the entire screen
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 1.5.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 3.w),
-                              child: Text(Supaliers[index].name.toString(),
-                                  style: TextStyle(
-                                      fontSize: 14.5.sp,
-                                      fontFamily: 'sofi',
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      letterSpacing: 1)),
-                            ),
-                            SizedBox(
-                              height: 1.5.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 3.w),
-                              child: Text(Supaliers[index].dec.toString(),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontSize: 14.5.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black54,
-                                      letterSpacing: 1)),
-                            ),
-                            SizedBox(
-                              height: 3.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 4.w),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text("Starting Price : ",
-                                      style: TextStyle(
-                                          fontSize: 14.5.sp,
-                                          fontFamily: 'sofi',
-                                          fontWeight: FontWeight.normal,
-                                          color: Colors.black54,
-                                          letterSpacing: 1)),
-                                  Text(Supaliers[index].price.toString(),
+                                SizedBox(
+                                  height: 1.5.h,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 3.w),
+                                  child: Text(Supaliers[index].name.toString(),
                                       style: TextStyle(
                                           fontSize: 14.5.sp,
                                           fontFamily: 'sofi',
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black,
-                                          letterSpacing: 1))
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3.h,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 50.w,
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 1.h, horizontal: 5.w),
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        borderRadius:
-                                            BorderRadius.circular(25)),
-                                    child: Center(
-                                      child: Text(
-                                          Supaliers[index].btn.toString(),
+                                          letterSpacing: 1)),
+                                ),
+                                SizedBox(
+                                  height: 1.5.h,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 3.w),
+                                  child: Text(Supaliers[index].dec.toString(),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14.5.sp,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black54,
+                                          letterSpacing: 1)),
+                                ),
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 4.w),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text("Starting Price : ",
                                           style: TextStyle(
-                                              fontSize: 17.sp,
+                                              fontSize: 14.5.sp,
                                               fontFamily: 'sofi',
-                                              color: Colors.white,
+                                              fontWeight: FontWeight.normal,
+                                              color: Colors.black54,
                                               letterSpacing: 1)),
-                                    ),
+                                      Text(Supaliers[index].price.toString(),
+                                          style: TextStyle(
+                                              fontSize: 14.5.sp,
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              letterSpacing: 1))
+                                    ],
                                   ),
+                                ),
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {},
+                                      child: Container(
+                                        width: 50.w,
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 1.h, horizontal: 5.w),
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                            borderRadius:
+                                                BorderRadius.circular(25)),
+                                        child: Center(
+                                          child: Text(
+                                              Supaliers[index].btn.toString(),
+                                              style: TextStyle(
+                                                  fontSize: 17.sp,
+                                                  fontFamily: 'sofi',
+                                                  color: Colors.white,
+                                                  letterSpacing: 1)),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+                            Positioned(
+                                left:60.w,
+                                top: 1.5.h,
+                                child: Container(
+                                  height: 10.w,
+                                  width: 10.w,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  child: IconButton(
+                                      onPressed:(){
+                                        setState((){
+
+                                        });
+
+
+                                      } ,icon: Icon(Icons.favorite,color: Colors.red,size: 20.sp,)),
+                                ))
                           ],
                         ),
                       );

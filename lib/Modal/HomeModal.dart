@@ -7,10 +7,10 @@ class HomeModal {
 
   HomeModal(
       {this.status,
-      this.message,
-      this.userData,
-      this.services,
-      this.suppliers});
+        this.message,
+        this.userData,
+        this.services,
+        this.suppliers});
 
   HomeModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
@@ -87,10 +87,10 @@ class Services {
 
   Services(
       {this.categoryId,
-      this.categoryIcon,
-      this.categoryName,
-      this.categoryDesc,
-      this.createdAt});
+        this.categoryIcon,
+        this.categoryName,
+        this.categoryDesc,
+        this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     categoryId = json['category_id'];
@@ -117,9 +117,21 @@ class Suppliers {
   String? role;
   String? profilePath;
   String? description;
+  String? type;
+  String? fav;
+  String? serviceId;
+  String? service;
 
   Suppliers(
-      {this.id, this.name, this.role, this.profilePath, this.description});
+      {this.id,
+        this.name,
+        this.role,
+        this.profilePath,
+        this.description,
+        this.type,
+        this.fav,
+        this.serviceId,
+        this.service});
 
   Suppliers.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -127,6 +139,10 @@ class Suppliers {
     role = json['role'];
     profilePath = json['profile_path'];
     description = json['description'];
+    type = json['type'];
+    fav = json['fav'];
+    serviceId = json['service_id'];
+    service = json['service'];
   }
 
   Map<String, dynamic> toJson() {
@@ -136,6 +152,10 @@ class Suppliers {
     data['role'] = this.role;
     data['profile_path'] = this.profilePath;
     data['description'] = this.description;
+    data['type'] = this.type;
+    data['fav'] = this.fav;
+    data['service_id'] = this.serviceId;
+    data['service'] = this.service;
     return data;
   }
 }

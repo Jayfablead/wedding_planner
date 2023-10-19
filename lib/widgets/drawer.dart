@@ -719,8 +719,9 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.logout,
-                                      color: Colors.red,
+                                      color: Colors.white,
                                       size: 22.sp,
+
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -730,7 +731,8 @@ class _drawer1State extends State<drawer1> {
                                           fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
-                                          color: Colors.red,
+
+                                          color: Colors.white,
                                         )),
                                   ],
                                 ),

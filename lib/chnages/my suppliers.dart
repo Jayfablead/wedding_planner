@@ -2,9 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/screens/SupplierPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class MySuppliers extends StatefulWidget {
   int? sele;
@@ -127,34 +129,53 @@ class _MySuppliersState extends State<MySuppliers> {
               SizedBox(
                 height: 5.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_back_ios_new_rounded,
-                          color: Colors.blue, size: 23.sp)),
-                  Text(
-                    "All Suppliers",
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontFamily: 'sofi',
-                      letterSpacing: 1,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        color: Colors.blue,
-                        size: 23.sp,
-                      ))
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {},
+              //         icon: Icon(Icons.arrow_back_ios_new_rounded,
+              //             color: Colors.blue, size: 23.sp)),
+              //     Text(
+              //       "All Suppliers",
+              //       style: TextStyle(
+              //         fontSize: 15.sp,
+              //         fontFamily: 'sofi',
+              //         letterSpacing: 1,
+              //         color: Colors.blue,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //     Row(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         IconButton(
+              //             onPressed: () {
+              //               Get.to(NotificationScreen());
+              //             },
+              //             icon: Icon(
+              //               Icons.notifications_none_rounded,
+              //               color: Colors.blue,
+              //               size: 21.sp,
+              //             )),
+              //         IconButton(
+              //             onPressed: () {
+              //               scaffoldKey.currentState
+              //                   ?.openDrawer();
+              //             },
+              //             icon: Icon(
+              //               Icons.menu_rounded,
+              //               color: Colors.blue,
+              //               size: 23.sp,
+              //             )),
+              //       ],
+              //     ),
+              //   ],
+              // ),
+              header(text: "All Suppliers",callback: (){},callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
               SizedBox(height: 1.h),
               Container(
                   height: 80.h,

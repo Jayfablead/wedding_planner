@@ -9,11 +9,13 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/ChatListModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/screens/other%20Pages/msg2.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 class ChatlistPage extends StatefulWidget {
@@ -83,6 +85,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
   }
 
   bool isLoading = true;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -105,32 +108,9 @@ class _ChatlistPageState extends State<ChatlistPage> {
                         SizedBox(
                           height: 4.h,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.arrow_back_ios_new_rounded,
-                                  color: Colors.blue,
-                                  size: 23.sp,
-                                )),
-                            Text(
-                              "",
-                              style: TextStyle(
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            IconButton(
-                                onPressed: () {
-                                  // Scaffold.of(context).openDrawer();
-                                  openDrawer();
-                                },
-                                icon: Icon(Icons.menu_rounded,
-                                    color: Colors.blue, size: 23.sp))
-                          ],
-                        ),
+                        header(text: "",callback: (){},callback1: (){
+                          scaffoldKey.currentState?.openDrawer();
+                        }),
                         SizedBox(height: 1.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

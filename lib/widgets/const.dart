@@ -1,8 +1,10 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
+import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/ChangepassModal.dart';
 import 'package:wedding_planner/Modal/ChatListModal.dart';
 import 'package:wedding_planner/Modal/CheckListModal.dart';
+import 'package:wedding_planner/Modal/FavouritelistModal.dart';
 import 'package:wedding_planner/Modal/ForgotpassModal.dart';
 import 'package:wedding_planner/Modal/FullchatModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
@@ -54,5 +56,7 @@ HomeModal? homemodal;
 ReadnotiModal? readnotimodal;
 UnreadnotiModal? unreadnotimodal;
 removeTodoModal? removetodo;
+AddtofavouriteModal? addtofavouritemodal;
+FavouritelistModal? favouritelistmodal;
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';
