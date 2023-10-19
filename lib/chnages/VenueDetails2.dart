@@ -36,7 +36,7 @@ class _VenueDetails2State extends State<VenueDetails2> {
                 width: MediaQuery.of(context).size.width,
                 child: CachedNetworkImage(
                   imageUrl:
-                      "https://i0.wp.com/decorsutrablog.com/wp-content/uploads/2020/06/DecorSutra_Wedding-Decor-9_Royal-Decor.jpg?fit=780%2C425&ssl=1",
+                      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
                   fit: BoxFit.cover,
                   progressIndicatorBuilder: (context, url, progress) =>
                       Center(child: CircularProgressIndicator()),
