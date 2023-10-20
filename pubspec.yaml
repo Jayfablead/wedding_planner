@@ -60,7 +60,7 @@ dependencies:
   weekly_date_picker:
   fluid_bottom_nav_bar:
   shared_preferences:
-  connectivity_plus:
+  connectivity:
   path_provider:
   open_file:
   flutter_inappwebview:

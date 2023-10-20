@@ -1,4 +1,5 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
+
+import 'package:connectivity/connectivity.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
@@ -27,6 +28,8 @@ import 'package:wedding_planner/Modal/ViewguestModal.dart';
 import 'package:wedding_planner/Modal/addchecklistmodal.dart';
 import 'package:wedding_planner/Modal/markcompletedmodal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
+
+import '../Modal/SupplierdetailModal.dart';
 
 Future<bool> checkInternet() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -66,5 +69,6 @@ SetbudgetModal? setbudgetmodal;
 RemovefrombudgetModal? removefrombudget;
 addtobudgetModal? addtobudgetmodal;
 MybudgetModal? mybudgetmodal;
+SupplierdetailModal? supplierdetailmodal;
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

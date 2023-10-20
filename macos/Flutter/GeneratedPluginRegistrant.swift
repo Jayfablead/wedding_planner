@@ -5,7 +5,7 @@
 import FlutterMacOS
 import Foundation
 
-import connectivity_plus
+import connectivity_macos
 import file_selector_macos
 import modal_progress_hud_nsn
 import path_provider_foundation

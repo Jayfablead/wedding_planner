@@ -533,6 +533,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                         suppid: homemodal
                                                             ?.suppliers?[index]
                                                             .id,
+                                                        catid: homemodal
+                                                            ?.suppliers?[index]
+                                                            .categoryId ,
+
                                                       ));
                                                     },
                                                     child: Container(

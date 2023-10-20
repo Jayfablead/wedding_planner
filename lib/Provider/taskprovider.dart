@@ -23,6 +23,21 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
+  Future<http.Response> supplierdetailapi(String? suppid, String? catid) async {
+    String? url = '$baseUrl/supplierDetails/${suppid}/${catid}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
+
   Future<http.Response> addchecklistapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/addCheckList/${userData?.user?.id.toString()}';
     var responseJson;
@@ -214,12 +229,13 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> addtofavouriteapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/addToFav';
     print(url);
     var responseJson;
     final response = await http
-        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .post(Uri.parse(url), headers: headers, body: bodyData)
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
@@ -230,13 +246,12 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+
   Future<http.Response> favouritelist() async {
     String? url = '$baseUrl/myFavList/${userData?.user?.id.toString()}';
     print(url);
     var responseJson;
-    final response = await http
-        .get(Uri.parse(url), headers: headers)
-        .timeout(
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),
       onTimeout: () {
         throw const SocketException('Something went wrong');
@@ -245,14 +260,13 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-
 
   Future<http.Response> addtobudgetapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/addTobudget';
 
     var responseJson;
     final response = await http
-        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .post(Uri.parse(url), headers: headers, body: bodyData)
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
@@ -268,7 +282,7 @@ class taskprovider with ChangeNotifier {
 
     var responseJson;
     final response = await http
-        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .post(Uri.parse(url), headers: headers, body: bodyData)
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
@@ -278,6 +292,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   // Future<http.Response> addtobudgetapi(Map<String, String> bodyData) async {
   //   String? url = '$baseUrl/addTobudget';
   //
@@ -297,9 +312,7 @@ class taskprovider with ChangeNotifier {
     String? url = '$baseUrl/rmvFrombudget/${data1}';
     print(url);
     var responseJson;
-    final response = await http
-        .get(Uri.parse(url), headers: headers)
-        .timeout(
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),
       onTimeout: () {
         throw const SocketException('Something went wrong');
@@ -308,13 +321,12 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> mybudgetapi() async {
     String? url = '$baseUrl/mybudget/${userData?.user?.id.toString()}';
     print(url);
     var responseJson;
-    final response = await http
-        .get(Uri.parse(url), headers: headers)
-        .timeout(
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),
       onTimeout: () {
         throw const SocketException('Something went wrong');
@@ -324,6 +336,4 @@ class taskprovider with ChangeNotifier {
     print(response.body);
     return responseJson;
   }
-
-
 }
