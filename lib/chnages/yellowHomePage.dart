@@ -329,13 +329,21 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                       SizedBox(
                         height: 3.h,
                       ),
-                      homemodal?.suppliers?.length == 0
-                          ? Text("No supplier.",
-                              style: TextStyle(
-                                  fontSize: 17.sp,
-                                  fontFamily: 'sofi',
-                                  color: Colors.white,
-                                  letterSpacing: 1))
+                      homemodal?.suppliers?.length == 0 ||
+                              homemodal?.suppliers?.length == null
+                          ? Container(
+                              height: 55.h,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "No Suppliers Available",
+                                style: TextStyle(
+                                    fontSize: 17.sp,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                    fontFamily: 'sofi',
+                                    color: Colors.black),
+                              ),
+                            )
                           : SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -424,7 +432,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                               url, error) =>
                                                           Image.asset(
                                                         'assets/user.png',
-
                                                         width: 80.w,
                                                         height: 20.h,
                                                       ),
@@ -535,8 +542,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                             .id,
                                                         catid: homemodal
                                                             ?.suppliers?[index]
-                                                            .categoryId ,
-
+                                                            .categoryId,
+                                                        service: homemodal
+                                                            ?.suppliers?[index]
+                                                            .service,
                                                       ));
                                                     },
                                                     child: Container(

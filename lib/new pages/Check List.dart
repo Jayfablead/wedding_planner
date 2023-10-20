@@ -7,7 +7,6 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/CheckListModal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/addcheck.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -147,9 +146,11 @@ class _Check_listState extends State<Check_list> {
                           //     )
                           //   ],
                           // ),
-                          header(text: "Check List",callback1: (){
-                            scaffoldKey.currentState?.openDrawer();
-                          }),
+                          header(
+                              text: "Check List",
+                              callback1: () {
+                                scaffoldKey.currentState?.openDrawer();
+                              }),
                           // headerwid(text: "Check List"),
                           SizedBox(height: 1.h),
                           searchBox1(),
@@ -198,9 +199,10 @@ class _Check_listState extends State<Check_list> {
                               ? checklistmodal?.all?.length == 0 ||
                                       checklistmodal?.all?.length == null
                                   ? Container(
+                                      alignment: Alignment.center,
                                       height: 60.h,
                                       child: Text(
-                                        "No CheckList",
+                                        "No Tasks Added",
                                         style: TextStyle(
                                           fontSize: 15.sp,
                                           fontFamily: 'sofi',
@@ -347,9 +349,10 @@ class _Check_listState extends State<Check_list> {
                                           checklistmodal?.todayAlerts?.length ==
                                               null
                                       ? Container(
+                                          alignment: Alignment.center,
                                           height: 60.h,
                                           child: Text(
-                                            "No CheckList",
+                                            "No Tasks Added",
                                             style: TextStyle(
                                               fontSize: 15.sp,
                                               fontFamily: 'sofi',
@@ -490,7 +493,7 @@ class _Check_listState extends State<Check_list> {
                                               alignment: Alignment.center,
                                               height: 60.h,
                                               child: Text(
-                                                "No CheckList",
+                                                "No Tasks Added",
                                                 style: TextStyle(
                                                   fontSize: 15.sp,
                                                   fontFamily: 'sofi',
@@ -608,7 +611,7 @@ class _Check_listState extends State<Check_list> {
                                               alignment: Alignment.center,
                                               height: 60.h,
                                               child: Text(
-                                                "No CheckList",
+                                                "No Tasks Added",
                                                 style: TextStyle(
                                                   fontSize: 15.sp,
                                                   fontFamily: 'sofi',

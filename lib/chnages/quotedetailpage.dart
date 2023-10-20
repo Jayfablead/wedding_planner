@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
@@ -95,15 +94,15 @@ class _quotedetailpageState extends State<quotedetailpage> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 3.w,
-                        vertical: 1.h,
+                        horizontal: 1.5.w,
+                        vertical: 0.6.h,
                       ),
                       child: InkWell(
                           onTap: () {
                             Get.back();
                           },
                           child: Container(
-                            height: 5.h,
+                              height: 5.h,
                               width: 10.w,
                               // padding: EdgeInsets.all(2.w),
                               decoration: BoxDecoration(
@@ -142,9 +141,6 @@ class _quotedetailpageState extends State<quotedetailpage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 1.h,
-                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Column(
@@ -164,7 +160,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         'Vinsmoke Sanji',
                         style: TextStyle(
                             height: 1.5,
-                            fontSize: 14.sp,
+                            fontSize: 16.sp,
                             color: Colors.grey,
                             fontFamily: 'sofi',
                             letterSpacing: 1,
@@ -176,13 +172,13 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
                                 child: Icon(
-                                  Icons.call,
+                                  CupertinoIcons.phone,
                                   color: Colors.blue,
-                                  size: 22.sp,
+                                  size: 18.sp,
                                 ),
                               ),
                               SizedBox(width: 2.w),
@@ -206,29 +202,6 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               ),
                             ],
                           ),
-                          Container(
-                              child: RatingBar(
-                            itemSize: 18,
-                            glowColor: Colors.blue,
-                            unratedColor: Colors.blue,
-                            initialRating: 3,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemCount: 5,
-                            ratingWidget: RatingWidget(
-                              full: Icon(
-                                Icons.star,
-                                color: Colors.blue,
-                              ),
-                              half: Icon(Icons.star_half_sharp,
-                                  color: Colors.blue),
-                              empty: Icon(Icons.star, color: Colors.grey),
-                            ),
-                            itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
-                          )),
                         ],
                       ),
                       SizedBox(height: 2.h),
@@ -339,53 +312,6 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   //     borderRadius: BorderRadius.circular(7),
                                   //     color: Colors.blue),
                                   child: Text(
-                                    'Amount to be paid',
-                                    style: TextStyle(
-                                        fontSize: 14.5.sp,
-                                        color: Colors.black,
-                                        // color: Colors.blue,
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                SizedBox(width: 4.w),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    // Text(
-                                    //   'Cost : ',
-                                    //   style: TextStyle(
-                                    //       fontSize: 14.5.sp,
-                                    //       color: Colors.blue,
-                                    //       // color: Colors.blue,
-                                    //       fontFamily: 'sofi',
-                                    //       letterSpacing: 1,
-                                    //       fontWeight: FontWeight.bold),
-                                    // ),
-                                    Text(
-                                      '\$ 1500',
-                                      style: TextStyle(
-                                          height: 1.5,
-                                          fontSize: 15.sp,
-                                          color: Colors.black,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  // padding: EdgeInsets.all(3.w),
-                                  // decoration: BoxDecoration(
-                                  //     borderRadius: BorderRadius.circular(7),
-                                  //     color: Colors.blue),
-                                  child: Text(
                                     'Advance deposit',
                                     style: TextStyle(
                                         fontSize: 14.5.sp,
@@ -471,6 +397,53 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                 ),
                               ],
                             ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  // padding: EdgeInsets.all(3.w),
+                                  // decoration: BoxDecoration(
+                                  //     borderRadius: BorderRadius.circular(7),
+                                  //     color: Colors.blue),
+                                  child: Text(
+                                    'Amount to be paid',
+                                    style: TextStyle(
+                                        fontSize: 14.5.sp,
+                                        color: Colors.black,
+                                        // color: Colors.blue,
+                                        fontFamily: 'sofi',
+                                        letterSpacing: 1,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                SizedBox(width: 4.w),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Text(
+                                    //   'Cost : ',
+                                    //   style: TextStyle(
+                                    //       fontSize: 14.5.sp,
+                                    //       color: Colors.blue,
+                                    //       // color: Colors.blue,
+                                    //       fontFamily: 'sofi',
+                                    //       letterSpacing: 1,
+                                    //       fontWeight: FontWeight.bold),
+                                    // ),
+                                    Text(
+                                      '\$ 1500',
+                                      style: TextStyle(
+                                          height: 1.5,
+                                          fontSize: 15.sp,
+                                          color: Colors.black,
+                                          fontFamily: 'sofi',
+                                          letterSpacing: 1,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -538,7 +511,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         height: 2.5.h,
                       ),
                       Container(
-                        height: 25.h,
+                        height: 22.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: 3,

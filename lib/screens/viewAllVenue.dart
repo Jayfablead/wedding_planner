@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -118,9 +117,11 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                     //   ],
                     // ),
                     // headerwid(text: "Venue"),
-                    header(text: "Venue",callback1: (){
-                      scaffoldKey.currentState?.openDrawer();
-                    }),
+                    header(
+                        text: "Venue",
+                        callback1: () {
+                          scaffoldKey.currentState?.openDrawer();
+                        }),
                     SizedBox(height: 1.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

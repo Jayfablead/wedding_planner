@@ -6,9 +6,11 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:open_file/open_file.dart';
+import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/FullchatModal.dart';
@@ -19,8 +21,6 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/load.dart';
-import 'package:path/path.dart' as path;
-import 'package:http/http.dart' as http;
 import 'package:wedding_planner/widgets/video.dart';
 import 'package:wedding_planner/widgets/webview.dart';
 
@@ -42,6 +42,7 @@ class _Msg2State extends State<Msg2> {
   String? date2 = "";
   String? data1;
   int? diff;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -50,7 +51,9 @@ class _Msg2State extends State<Msg2> {
     fullchatap();
     readnewmsgap();
   }
+
   int? days;
+
   Future<void> Counter() async {
     await Future.delayed(Duration(seconds: 1));
     setState(() {
@@ -63,6 +66,7 @@ class _Msg2State extends State<Msg2> {
   bool isLoading = true;
   ImagePicker _picker = ImagePicker();
   File? _pickedFile = null;
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -95,7 +99,9 @@ class _Msg2State extends State<Msg2> {
                                         Get.back();
                                       },
                                       icon: Icon(
-                                          Icons.arrow_back_ios_new_rounded,color: Colors.blue,)),
+                                        Icons.arrow_back_ios_new_rounded,
+                                        color: Colors.blue,
+                                      )),
                                   Container(
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 1.w),
@@ -107,8 +113,9 @@ class _Msg2State extends State<Msg2> {
                                         fit: BoxFit.cover,
                                         imageUrl: widget.img.toString(),
                                         progressIndicatorBuilder:
-                                            (context, url, progress) =>
-                                                Center(child: CircularProgressIndicator()),
+                                            (context, url, progress) => Center(
+                                                child:
+                                                    CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
                                           'assets/icons/user.png',
@@ -134,9 +141,7 @@ class _Msg2State extends State<Msg2> {
                                       color: Colors.black),
                                 ),
                               ),
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(null))
+                              IconButton(onPressed: () {}, icon: Icon(null))
                             ],
                           ),
                           SizedBox(height: 1.h),
@@ -144,646 +149,536 @@ class _Msg2State extends State<Msg2> {
                             children: [
                               Container(
                                 height: 79.h,
-                                child:fullchatmodal?.data?.livechat?.length == 0 ?Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "No Message.",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black),
-                                  ),
-                                ):
-                                ListView.builder(
-                                    controller: _scrollController,
-                                    reverse: true,
-                                    shrinkWrap: true,
-                                    itemCount:
-                                        fullchatmodal?.data?.livechat?.length,
-                                    itemBuilder: (context, index) {
-                                      // bool showSeparator = false;
-                                      // DateTime? date2;
-                                      // var outputFormat2 = DateFormat('yyyy-MM-dd');
-                                      // outputDate1 = outputFormat2
-                                      //     .format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ??""));
-                                      // if(index<(fullchatmodal?.data?.livechat?.length ?? 0)-1){
-                                      //    String date2 = DateFormat("dd").format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ?? ""));
-                                      //  diff = (DateTime.now().day)-(int.parse(date2.toString()));
-                                      //    days = diff;
-                                      //
-                                      //    outputDate2 = outputFormat2
-                                      //        .format(DateTime.parse(fullchatmodal?.data?.livechat?[index+1].createdAt ??""));
-                                      //   Counter();
-                                      //   if(outputDate1!=outputDate2){
-                                      //     showSeparator =true;
-                                      //   }
-                                      // }
+                                child:
+                                    fullchatmodal?.data?.livechat?.length == 0
+                                        ? Container(
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "No Message.",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.bold,
+                                                  letterSpacing: 1,
+                                                  fontFamily: 'sofi',
+                                                  color: Colors.black),
+                                            ),
+                                          )
+                                        : ListView.builder(
+                                            controller: _scrollController,
+                                            reverse: true,
+                                            shrinkWrap: true,
+                                            itemCount: fullchatmodal
+                                                ?.data?.livechat?.length,
+                                            itemBuilder: (context, index) {
+                                              // bool showSeparator = false;
+                                              // DateTime? date2;
+                                              // var outputFormat2 = DateFormat('yyyy-MM-dd');
+                                              // outputDate1 = outputFormat2
+                                              //     .format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ??""));
+                                              // if(index<(fullchatmodal?.data?.livechat?.length ?? 0)-1){
+                                              //    String date2 = DateFormat("dd").format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ?? ""));
+                                              //  diff = (DateTime.now().day)-(int.parse(date2.toString()));
+                                              //    days = diff;
+                                              //
+                                              //    outputDate2 = outputFormat2
+                                              //        .format(DateTime.parse(fullchatmodal?.data?.livechat?[index+1].createdAt ??""));
+                                              //   Counter();
+                                              //   if(outputDate1!=outputDate2){
+                                              //     showSeparator =true;
+                                              //   }
+                                              // }
 
-                                      bool showSeparator = false;
+                                              bool showSeparator = false;
 
-                                      var outputFormat2 =
-                                      DateFormat('yyyy-MM-dd');
-                                      var outputFormat1 =
-                                      DateFormat("dd");
-                                      DateTime parseDate = DateFormat(
-                                          "yyyy-MM-dd hh:mm:ss")
-                                          .parse(fullchatmodal
-                                          ?.data?.livechat?[index].createdAt ??
-                                          "");
-
-                                      if (index <
-                                          ((fullchatmodal
-                                              ?.data?.livechat?.length ?? 0 ) -
-                                              1)) {
-
-                                        DateTime parseDate1 = DateFormat(
-                                            "yyyy-MM-dd hh:mm:ss")
-                                            .parse(fullchatmodal
-                                            ?.data?.livechat?[index+1].createdAt ??
-                                            "");
-                                        var inputDate1 = DateTime.parse(
-                                            parseDate1.toString());
-                                        outputDate2 = outputFormat2
-                                            .format(inputDate1);
-                                      }
-                                      var inputDate = DateTime.parse(
-                                          parseDate.toString());
-
-                                      outputDate1 = outputFormat2
-                                          .format(inputDate);
-
-                                      date2 = outputFormat1
-                                          .format(inputDate);
-
-                                      diff = (DateTime.now().day) -
-                                          int.parse(date2.toString());
-                                      Counter();
-
-                                      // outputDate2 = outputFormat2.format(inputDate);
-                                      if (outputDate1 != outputDate2) {
-                                        showSeparator = true;
-                                      }
-                                      else {
-
-                                        // showSeparator = true;
-                                      }
-                                      return Column(
-                                        children: [
-                                          (showSeparator)
-                                              ? Column(
-                                                  children: [
-                                                    SizedBox(
-                                                      height: 2.h,
-                                                    ),
-                                                    Container(
-                                                        margin: EdgeInsets.all(1.w),
-                                                        padding:
-                                                            EdgeInsets.all(1.w),
-                                                        // height: 4.h,
-                                                        width: 25.w,
-                                                        alignment: Alignment.center,
-                                                        decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.circular(
-                                                                  15.0),
-                                                          color: Colors.transparent
-                                                              .withOpacity(0.3),
-                                                        ),
-                                                        child: Text(
-                                                          (diff == 0)
-                                                              ? "Today"
-                                                              : (diff == 1)
-                                                                  ? "Yesterday"
-                                                                  :
-                                                          outputDate1,
-                                                          style: TextStyle(
-                                                              color: Colors.white,
-                                                              fontSize: 12.sp,
-                                                              fontFamily:
-                                                                  "Poppins"),
-                                                        )),
-                                                  ],
-                                                ) :
-                                          fullchatmodal
+                                              var outputFormat2 =
+                                                  DateFormat('yyyy-MM-dd');
+                                              var outputFormat1 =
+                                                  DateFormat("dd");
+                                              DateTime parseDate = DateFormat(
+                                                      "yyyy-MM-dd hh:mm:ss")
+                                                  .parse(fullchatmodal
                                                           ?.data
                                                           ?.livechat?[index]
-                                                          .fromId ==
-                                                      userData?.user?.id
-                                                  ? Align(
-                                                      alignment:
-                                                          Alignment.centerRight,
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment.end,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment.end,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .end,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .end,
-                                                            children: [
-                                                              Text(
-                                                                DateFormat('HH:mm').format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ?? "")),
-                                                                style: TextStyle(
-                                                                    fontSize: 11.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontFamily:
-                                                                        'sofi'),
-                                                              ),
-                                                              SizedBox(width: 1.w),
-                                                              Container(
-                                                                margin: EdgeInsets
-                                                                    .symmetric(
-                                                                        horizontal:
-                                                                            1.w),
-                                                                height: 3.5.h,
-                                                                width: 7.5.w,
-                                                                child: ClipRRect(
+                                                          .createdAt ??
+                                                      "");
+
+                                              if (index <
+                                                  ((fullchatmodal
+                                                              ?.data
+                                                              ?.livechat
+                                                              ?.length ??
+                                                          0) -
+                                                      1)) {
+                                                DateTime parseDate1 = DateFormat(
+                                                        "yyyy-MM-dd hh:mm:ss")
+                                                    .parse(fullchatmodal
+                                                            ?.data
+                                                            ?.livechat?[
+                                                                index + 1]
+                                                            .createdAt ??
+                                                        "");
+                                                var inputDate1 = DateTime.parse(
+                                                    parseDate1.toString());
+                                                outputDate2 = outputFormat2
+                                                    .format(inputDate1);
+                                              }
+                                              var inputDate = DateTime.parse(
+                                                  parseDate.toString());
+
+                                              outputDate1 = outputFormat2
+                                                  .format(inputDate);
+
+                                              date2 = outputFormat1
+                                                  .format(inputDate);
+
+                                              diff = (DateTime.now().day) -
+                                                  int.parse(date2.toString());
+                                              Counter();
+
+                                              // outputDate2 = outputFormat2.format(inputDate);
+                                              if (outputDate1 != outputDate2) {
+                                                showSeparator = true;
+                                              } else {
+                                                // showSeparator = true;
+                                              }
+                                              return Column(
+                                                children: [
+                                                  (showSeparator)
+                                                      ? Column(
+                                                          children: [
+                                                            SizedBox(
+                                                              height: 2.h,
+                                                            ),
+                                                            Container(
+                                                                margin:
+                                                                    EdgeInsets
+                                                                        .all(1
+                                                                            .w),
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(1
+                                                                            .w),
+                                                                // height: 4.h,
+                                                                width: 25.w,
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                decoration:
+                                                                    BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              90),
-                                                                  child:
-                                                                      CachedNetworkImage(
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                    imageUrl: fullchatmodal
-                                                                            ?.data
-                                                                            ?.chatUser
-                                                                            ?.profile ??
-                                                                        "",
-                                                                    progressIndicatorBuilder:
-                                                                        (context,
-                                                                                url,
-                                                                                progress) =>
-                                                                            CircularProgressIndicator(),
-                                                                    errorWidget: (context,
-                                                                            url,
-                                                                            error) =>
-                                                                        Image.asset(
-                                                                      'assets/user.png',
+                                                                              15.0),
+                                                                  color: Colors
+                                                                      .transparent
+                                                                      .withOpacity(
+                                                                          0.3),
+                                                                ),
+                                                                child: Text(
+                                                                  (diff == 0)
+                                                                      ? "Today"
+                                                                      : (diff ==
+                                                                              1)
+                                                                          ? "Yesterday"
+                                                                          : outputDate1,
+                                                                  style: TextStyle(
                                                                       color: Colors
                                                                           .white,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          SizedBox(height: 1.h),
-                                                          Container(
-                                                            width: 60.w,
-                                                            alignment: Alignment
-                                                                .centerRight,
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal: 5.w,
-                                                                    vertical:
-                                                                        1.3.h),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Colors.blue,
-                                                              borderRadius:
-                                                                  BorderRadius.only(
-                                                                bottomLeft:
-                                                                    Radius.circular(
-                                                                        20),
-                                                                topLeft:
-                                                                    Radius.circular(
-                                                                        20),
-                                                                bottomRight:
-                                                                    Radius.circular(
-                                                                        20),
-                                                              ),
-                                                            ),
-                                                            child: fullchatmodal
-                                                                        ?.data
-                                                                        ?.livechat?[
-                                                                            index]
-                                                                        .messageType ==
-                                                                    "1"
-                                                                ? Text(
-                                                                    fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[
-                                                                                index]
-                                                                            .message ??
-                                                                        "",
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            12.sp,
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        letterSpacing:
-                                                                            1.5,
-                                                                        fontFamily:
-                                                                            'sofi'),
-                                                                  )
-                                                                : fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[
-                                                                                index]
-                                                                            .messageType ==
-                                                                        "2"
-                                                                    ? Container(
+                                                                      fontSize:
+                                                                          12.sp,
+                                                                      fontFamily:
+                                                                          "Poppins"),
+                                                                )),
+                                                          ],
+                                                        )
+                                                      : fullchatmodal
+                                                                  ?.data
+                                                                  ?.livechat?[
+                                                                      index]
+                                                                  .fromId ==
+                                                              userData?.user?.id
+                                                          ? Align(
+                                                              alignment: Alignment
+                                                                  .centerRight,
+                                                              child: Column(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .end,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      Text(
+                                                                        DateFormat('HH:mm').format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ??
+                                                                            "")),
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                11.sp,
+                                                                            fontWeight: FontWeight.w600,
+                                                                            fontFamily: 'sofi'),
+                                                                      ),
+                                                                      SizedBox(
+                                                                          width:
+                                                                              1.w),
+                                                                      Container(
                                                                         margin: EdgeInsets.symmetric(
                                                                             horizontal:
                                                                                 1.w),
                                                                         height:
-                                                                            20.h,
-                                                                        width: 60.w,
+                                                                            3.5.h,
+                                                                        width:
+                                                                            7.5.w,
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(
-                                                                                  20),
+                                                                              BorderRadius.circular(90),
                                                                           child:
                                                                               CachedNetworkImage(
-                                                                            fit: BoxFit
-                                                                                .cover,
+                                                                            fit:
+                                                                                BoxFit.cover,
                                                                             imageUrl:
-                                                                                fullchatmodal?.data?.livechat?[index].message ??
-                                                                                    '',
-                                                                            progressIndicatorBuilder: (context,
-                                                                                    url,
-                                                                                    progress) =>
+                                                                                fullchatmodal?.data?.chatUser?.profile ?? "",
+                                                                            progressIndicatorBuilder: (context, url, progress) =>
                                                                                 CircularProgressIndicator(),
-                                                                            errorWidget: (context,
-                                                                                    url,
-                                                                                    error) =>
+                                                                            errorWidget: (context, url, error) =>
                                                                                 Image.asset(
                                                                               'assets/user.png',
-                                                                              color:
-                                                                                  Colors.white,
+                                                                              color: Colors.white,
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      )
-                                                                    : fullchatmodal
-                                                                                ?.data
-                                                                                ?.livechat?[index]
-                                                                                .messageType ==
-                                                                            "3"
-                                                                        ? Container(
-                                                                            height:
-                                                                                20.h,
-                                                                            width:
-                                                                                60.w,
-                                                                            child: addVideo(
-                                                                                videoid:
-                                                                                    fullchatmodal?.data?.livechat?[index].message ?? ""),
-                                                                          )
-                                                                        : GestureDetector(
-                                                                            onTap:
-                                                                                () async {
-                                                                              final String? url = (fullchatmodal
-                                                                                  ?.data
-                                                                                  ?.livechat?[index]
-                                                                                  .message);
-                                                                              String
-                                                                                  fileExtension =
-                                                                                  path.extension(url!);
-
-                                                                              if (fileExtension ==
-                                                                                  ".txt") {
-                                                                                Get.to(webview(
-                                                                                  data: fullchatmodal?.data?.livechat?[index].message,
-                                                                                ));
-                                                                                // Navigator.of(context).push(MaterialPageRoute(
-                                                                                //     builder: (context) => webview(
-                                                                                //       data: messagemodel?.data?[index].message,
-                                                                                //     )));
-                                                                              } else {
-                                                                                var response =
-                                                                                    await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
-
-                                                                                String
-                                                                                    fileName =
-                                                                                    url.toString().split('/').last;
-                                                                                Directory? storageDirectory = Platform.isAndroid
-                                                                                    ? await getExternalStorageDirectory()
-                                                                                    : await getDownloadsDirectory();
-                                                                                String
-                                                                                    directoryPath =
-                                                                                    storageDirectory!.path;
-                                                                                File
-                                                                                    file =
-                                                                                    File('$directoryPath/$fileName');
-                                                                                // Directory directory = await getApplicationDocumentsDirectory();
-                                                                                await file.writeAsBytes(response.bodyBytes);
-                                                                                String
-                                                                                    filePath =
-                                                                                    '${storageDirectory.path}/$fileName';
-
-                                                                                try {
-                                                                                  final result = await OpenFile.open(filePath);
-                                                                                } catch (e) {
-                                                                                  print(e.toString());
-                                                                                }
-                                                                              }
-                                                                            },
-                                                                            child:
-                                                                                Text(
-                                                                              fullchatmodal?.data?.livechat?[index].message ??
-                                                                                  "",
-                                                                              style: TextStyle(
-                                                                                  fontSize: 12.sp,
-                                                                                  color: Colors.white,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  letterSpacing: 1.5,
-                                                                                  fontFamily: 'sofi'),
-                                                                            ),
-                                                                          ),
-                                                          ),
-                                                          SizedBox(height: 1.h),
-                                                        ],
-                                                      ),
-                                                    )
-                                                  : Align(
-                                                      alignment:
-                                                          Alignment.centerLeft,
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment.start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .end,
-                                                            children: [
-                                                              Container(
-                                                                margin: EdgeInsets
-                                                                    .symmetric(
-                                                                        horizontal:
-                                                                            1.w),
-                                                                height: 3.5.h,
-                                                                width: 7.5.w,
-                                                                child: ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20),
-                                                                  child:
-                                                                      CachedNetworkImage(
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                    imageUrl: widget.img.toString(),
-                                                                    progressIndicatorBuilder:
-                                                                        (context,
-                                                                                url,
-                                                                                progress) =>
-                                                                            CircularProgressIndicator(),
-                                                                    errorWidget: (context,
-                                                                            url,
-                                                                            error) =>
-                                                                        Image.asset(
-                                                                      'assets/user.png',
-                                                                      color: Colors
-                                                                          .white,
-                                                                    ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ),
+                                                                  SizedBox(
+                                                                      height:
+                                                                          1.h),
+                                                                  Container(
+                                                                    width: 60.w,
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .centerRight,
+                                                                    padding: EdgeInsets.symmetric(
+                                                                        horizontal:
+                                                                            5.w,
+                                                                        vertical:
+                                                                            1.3.h),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Colors
+                                                                          .blue,
+                                                                      borderRadius:
+                                                                          BorderRadius
+                                                                              .only(
+                                                                        bottomLeft:
+                                                                            Radius.circular(20),
+                                                                        topLeft:
+                                                                            Radius.circular(20),
+                                                                        bottomRight:
+                                                                            Radius.circular(20),
+                                                                      ),
+                                                                    ),
+                                                                    child: fullchatmodal?.data?.livechat?[index].messageType ==
+                                                                            "1"
+                                                                        ? Text(
+                                                                            fullchatmodal?.data?.livechat?[index].message ??
+                                                                                "",
+                                                                            style: TextStyle(
+                                                                                fontSize: 12.sp,
+                                                                                color: Colors.white,
+                                                                                fontWeight: FontWeight.bold,
+                                                                                letterSpacing: 1.5,
+                                                                                fontFamily: 'sofi'),
+                                                                          )
+                                                                        : fullchatmodal?.data?.livechat?[index].messageType ==
+                                                                                "2"
+                                                                            ? Container(
+                                                                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                                                                height: 20.h,
+                                                                                width: 60.w,
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(20),
+                                                                                  child: CachedNetworkImage(
+                                                                                    fit: BoxFit.cover,
+                                                                                    imageUrl: fullchatmodal?.data?.livechat?[index].message ?? '',
+                                                                                    progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(),
+                                                                                    errorWidget: (context, url, error) => Image.asset(
+                                                                                      'assets/user.png',
+                                                                                      color: Colors.white,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              )
+                                                                            : fullchatmodal?.data?.livechat?[index].messageType == "3"
+                                                                                ? Container(
+                                                                                    height: 20.h,
+                                                                                    width: 60.w,
+                                                                                    child: addVideo(videoid: fullchatmodal?.data?.livechat?[index].message ?? ""),
+                                                                                  )
+                                                                                : GestureDetector(
+                                                                                    onTap: () async {
+                                                                                      final String? url = (fullchatmodal?.data?.livechat?[index].message);
+                                                                                      String fileExtension = path.extension(url!);
+
+                                                                                      if (fileExtension == ".txt") {
+                                                                                        Get.to(webview(
+                                                                                          data: fullchatmodal?.data?.livechat?[index].message,
+                                                                                        ));
+                                                                                        // Navigator.of(context).push(MaterialPageRoute(
+                                                                                        //     builder: (context) => webview(
+                                                                                        //       data: messagemodel?.data?[index].message,
+                                                                                        //     )));
+                                                                                      } else {
+                                                                                        var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+
+                                                                                        String fileName = url.toString().split('/').last;
+                                                                                        Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
+                                                                                        String directoryPath = storageDirectory!.path;
+                                                                                        File file = File('$directoryPath/$fileName');
+                                                                                        // Directory directory = await getApplicationDocumentsDirectory();
+                                                                                        await file.writeAsBytes(response.bodyBytes);
+                                                                                        String filePath = '${storageDirectory.path}/$fileName';
+
+                                                                                        try {
+                                                                                          final result = await OpenFile.open(filePath);
+                                                                                        } catch (e) {
+                                                                                          print(e.toString());
+                                                                                        }
+                                                                                      }
+                                                                                    },
+                                                                                    child: Text(
+                                                                                      fullchatmodal?.data?.livechat?[index].message ?? "",
+                                                                                      style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontFamily: 'sofi'),
+                                                                                    ),
+                                                                                  ),
+                                                                  ),
+                                                                  SizedBox(
+                                                                      height:
+                                                                          1.h),
+                                                                ],
                                                               ),
-                                                              SizedBox(width: 1.w),
-                                                              Text(
-                                                                DateFormat('HH:mm').format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ?? "")),
-                                                                style: TextStyle(
-                                                                    fontSize: 11.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontFamily:
-                                                                        'sofi'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          SizedBox(height: 1.h),
-                                                          Container(
-                                                            width: 60.w,
-                                                            alignment: Alignment
-                                                                .centerLeft,
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal: 5.w,
-                                                                    vertical:
-                                                                        1.3.h),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Colors.black12,
-                                                              borderRadius:
-                                                                  BorderRadius.only(
-                                                                bottomLeft:
-                                                                    Radius.circular(
-                                                                        20),
-                                                                topLeft:
-                                                                    Radius.circular(
-                                                                        20),
-                                                                bottomRight:
-                                                                    Radius.circular(
-                                                                        20),
-                                                              ),
-                                                            ),
-                                                            child: fullchatmodal
-                                                                        ?.data
-                                                                        ?.livechat?[
-                                                                            index]
-                                                                        .messageType ==
-                                                                    "1"
-                                                                ? Text(
-                                                                    fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[
-                                                                                index]
-                                                                            .message ??
-                                                                        "",
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            12.sp,
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .normal,
-                                                                        letterSpacing:
-                                                                            1.5,
-                                                                        fontFamily:
-                                                                            'sofi'),
-                                                                  )
-                                                                : fullchatmodal
-                                                                            ?.data
-                                                                            ?.livechat?[
-                                                                                index]
-                                                                            .messageType ==
-                                                                        "2"
-                                                                    ? Container(
+                                                            )
+                                                          : Align(
+                                                              alignment: Alignment
+                                                                  .centerLeft,
+                                                              child: Column(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      Container(
                                                                         margin: EdgeInsets.symmetric(
                                                                             horizontal:
                                                                                 1.w),
                                                                         height:
-                                                                            20.h,
-                                                                        width: 60.w,
+                                                                            3.5.h,
+                                                                        width:
+                                                                            7.5.w,
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(
-                                                                                  20),
+                                                                              BorderRadius.circular(20),
                                                                           child:
                                                                               CachedNetworkImage(
-                                                                            fit: BoxFit
-                                                                                .cover,
+                                                                            fit:
+                                                                                BoxFit.cover,
                                                                             imageUrl:
-                                                                                fullchatmodal?.data?.livechat?[index].message ??
-                                                                                    '',
-                                                                            progressIndicatorBuilder: (context,
-                                                                                    url,
-                                                                                    progress) =>
+                                                                                widget.img.toString(),
+                                                                            progressIndicatorBuilder: (context, url, progress) =>
                                                                                 CircularProgressIndicator(),
-                                                                            errorWidget: (context,
-                                                                                    url,
-                                                                                    error) =>
+                                                                            errorWidget: (context, url, error) =>
                                                                                 Image.asset(
-                                                                              'assets/icons/user.png',
-                                                                              color:
-                                                                                  Colors.white,
+                                                                              'assets/user.png',
+                                                                              color: Colors.white,
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      )
-                                                                    : fullchatmodal
-                                                                                ?.data
-                                                                                ?.livechat?[index]
-                                                                                .messageType ==
-                                                                            "3"
-                                                                        ? Container(
-                                                                            height:
-                                                                                20.h,
-                                                                            width:
-                                                                                60.w,
-                                                                            child: addVideo(
-                                                                                videoid:
-                                                                                    fullchatmodal?.data?.livechat?[index].message ?? ""),
+                                                                      ),
+                                                                      SizedBox(
+                                                                          width:
+                                                                              1.w),
+                                                                      Text(
+                                                                        DateFormat('HH:mm').format(DateTime.parse(fullchatmodal?.data?.livechat?[index].createdAt ??
+                                                                            "")),
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                11.sp,
+                                                                            fontWeight: FontWeight.w600,
+                                                                            fontFamily: 'sofi'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  SizedBox(
+                                                                      height:
+                                                                          1.h),
+                                                                  Container(
+                                                                    width: 60.w,
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .centerLeft,
+                                                                    padding: EdgeInsets.symmetric(
+                                                                        horizontal:
+                                                                            5.w,
+                                                                        vertical:
+                                                                            1.3.h),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Colors
+                                                                          .black12,
+                                                                      borderRadius:
+                                                                          BorderRadius
+                                                                              .only(
+                                                                        bottomLeft:
+                                                                            Radius.circular(20),
+                                                                        topLeft:
+                                                                            Radius.circular(20),
+                                                                        bottomRight:
+                                                                            Radius.circular(20),
+                                                                      ),
+                                                                    ),
+                                                                    child: fullchatmodal?.data?.livechat?[index].messageType ==
+                                                                            "1"
+                                                                        ? Text(
+                                                                            fullchatmodal?.data?.livechat?[index].message ??
+                                                                                "",
+                                                                            style: TextStyle(
+                                                                                fontSize: 12.sp,
+                                                                                color: Colors.black,
+                                                                                fontWeight: FontWeight.normal,
+                                                                                letterSpacing: 1.5,
+                                                                                fontFamily: 'sofi'),
                                                                           )
-                                                                        : GestureDetector(
-                                                                            onTap:
-                                                                                () async {
+                                                                        : fullchatmodal?.data?.livechat?[index].messageType ==
+                                                                                "2"
+                                                                            ? Container(
+                                                                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                                                                height: 20.h,
+                                                                                width: 60.w,
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(20),
+                                                                                  child: CachedNetworkImage(
+                                                                                    fit: BoxFit.cover,
+                                                                                    imageUrl: fullchatmodal?.data?.livechat?[index].message ?? '',
+                                                                                    progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(),
+                                                                                    errorWidget: (context, url, error) => Image.asset(
+                                                                                      'assets/icons/user.png',
+                                                                                      color: Colors.white,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              )
+                                                                            : fullchatmodal?.data?.livechat?[index].messageType == "3"
+                                                                                ? Container(
+                                                                                    height: 20.h,
+                                                                                    width: 60.w,
+                                                                                    child: addVideo(videoid: fullchatmodal?.data?.livechat?[index].message ?? ""),
+                                                                                  )
+                                                                                : GestureDetector(
+                                                                                    onTap: () async {
+                                                                                      final String? url = (fullchatmodal?.data?.livechat?[index].message);
+                                                                                      String fileExtension = path.extension(url!);
 
-                                                                              final String? url = (fullchatmodal
-                                                                                  ?.data
-                                                                                  ?.livechat?[index]
-                                                                                  .message);
-                                                                              String
-                                                                                  fileExtension =
-                                                                                  path.extension(url!);
+                                                                                      if (fileExtension == ".txt") {
+                                                                                        Get.to(webview(
+                                                                                          data: fullchatmodal?.data?.livechat?[index].message,
+                                                                                        ));
+                                                                                        // Navigator.of(context).push(MaterialPageRoute(
+                                                                                        //     builder: (context) => webview(
+                                                                                        //       data: messagemodel?.data?[index].message,
+                                                                                        //     )));
+                                                                                      } else {
+                                                                                        var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                                                        print(url);
 
-                                                                              if (fileExtension ==
-                                                                                  ".txt") {
-                                                                                Get.to(webview(
-                                                                                  data: fullchatmodal?.data?.livechat?[index].message,
-                                                                                ));
-                                                                                // Navigator.of(context).push(MaterialPageRoute(
-                                                                                //     builder: (context) => webview(
-                                                                                //       data: messagemodel?.data?[index].message,
-                                                                                //     )));
-                                                                              } else {
+                                                                                        String fileName = url.toString().split('/').last;
+                                                                                        const downloadsFolderPath = '/storage/emulated/0/Download';
+                                                                                        // Directory? storageDirectory = Platform.isAndroid
+                                                                                        //     ? await getExternalStorageDirectory()
+                                                                                        //     : await getDownloadsDirectory();
+                                                                                        // String
+                                                                                        //     directoryPath =
+                                                                                        //     storageDirectory!.path;
+                                                                                        Directory dir = Platform.isAndroid ? Directory(downloadsFolderPath) : await getApplicationDocumentsDirectory();
+                                                                                        // Directory dir =  await getApplicationDocumentsDirectory();
+                                                                                        final String filePath = '${dir.path}/my.pdf';
+                                                                                        print(filePath);
+                                                                                        final File file = File(filePath);
 
-                                                                                var response =
-                                                                                    await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
-                                                                                    print(url);
+                                                                                        // Directory directory = await getApplicationDocumentsDirectory();
+                                                                                        await file.writeAsBytes(response.bodyBytes);
 
-                                                                                String
-                                                                                    fileName =
-                                                                                    url.toString().split('/').last;
-                                                                                const downloadsFolderPath = '/storage/emulated/0/Download';
-                                                                                // Directory? storageDirectory = Platform.isAndroid
-                                                                                //     ? await getExternalStorageDirectory()
-                                                                                //     : await getDownloadsDirectory();
-                                                                                // String
-                                                                                //     directoryPath =
-                                                                                //     storageDirectory!.path;
-                                                                                Directory dir = Platform.isAndroid?Directory(downloadsFolderPath): await getApplicationDocumentsDirectory();
-                                                                                // Directory dir =  await getApplicationDocumentsDirectory();
-                                                                                final String filePath = '${dir.path}/my.pdf';
-                                                                                print(filePath);
-                                                                                final File file = File(filePath);
+                                                                                        print(filePath);
 
-                                                                                // Directory directory = await getApplicationDocumentsDirectory();
-                                                                                await file.writeAsBytes(response.bodyBytes);
-
-                                                                                print(filePath);
-
-                                                                                try {
-                                                                                  final result = await OpenFile.open(filePath);
-                                                                                } catch (e) {
-                                                                                  print(e.toString());
-                                                                                }
-                                                                              }
-                                                                            },
-                                                                            child:
-                                                                                Text(
-                                                                              fullchatmodal?.data?.livechat?[index].message ??
-                                                                                  "",
-                                                                              style: TextStyle(
-                                                                                  fontSize: 12.sp,
-                                                                                  color: Colors.white,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  letterSpacing: 1.5,
-                                                                                  fontFamily: 'sofi'),
-                                                                            ),
-                                                                          ),
-                                                          ),
-                                                          SizedBox(height: 1.h),
-                                                        ],
-                                                      ),
-                                                    )
-                                        ],
-                                      );
-                                    }),
+                                                                                        try {
+                                                                                          final result = await OpenFile.open(filePath);
+                                                                                        } catch (e) {
+                                                                                          print(e.toString());
+                                                                                        }
+                                                                                      }
+                                                                                    },
+                                                                                    child: Text(
+                                                                                      fullchatmodal?.data?.livechat?[index].message ?? "",
+                                                                                      style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontFamily: 'sofi'),
+                                                                                    ),
+                                                                                  ),
+                                                                  ),
+                                                                  SizedBox(
+                                                                      height:
+                                                                          1.h),
+                                                                ],
+                                                              ),
+                                                            )
+                                                ],
+                                              );
+                                            }),
                               ),
-                              fullchatmodal?.data?.livechat?.length == 0?Container() : Positioned(
-                                  top: 0.0,
-                                  left: 30.w,
-                                  right: 30.w,
-                                  child: Container(
-                                      alignment: Alignment.center,
-                                      height: 3.h,
-                                      width: 20.w,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(
-                                            10.0),
-                                        color: Colors.black
-                                            .withOpacity(0.3),
-                                      ),
-                                      child: Text(
-                                        (diff == 0)
-                                            ? "Today"
-                                            : (diff == 1)
-                                            ? "Yesterday"
-                                            : outputDate1
-                                            .toString(),
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12.sp,
-                                            fontFamily: "Poppins"),
-                                      ))),
+                              fullchatmodal?.data?.livechat?.length == 0
+                                  ? Container()
+                                  : Positioned(
+                                      top: 0.0,
+                                      left: 30.w,
+                                      right: 30.w,
+                                      child: Container(
+                                          alignment: Alignment.center,
+                                          height: 3.h,
+                                          width: 20.w,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                          ),
+                                          child: Text(
+                                            (diff == 0)
+                                                ? "Today"
+                                                : (diff == 1)
+                                                    ? "Yesterday"
+                                                    : outputDate1.toString(),
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12.sp,
+                                                fontFamily: "Poppins"),
+                                          ))),
                             ],
                           ),
                         ]),
@@ -801,11 +696,9 @@ class _Msg2State extends State<Msg2> {
                                 color: Colors.blue,
                               )),
                           Container(
-
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                              borderRadius: BorderRadius.circular(25)
-                            ),
+                                borderRadius: BorderRadius.circular(25)),
                             width: 68.w,
                             child: TextField(
                               controller: _msg,
@@ -827,7 +720,6 @@ class _Msg2State extends State<Msg2> {
                                   borderRadius: BorderRadius.circular(90),
                                 ),
                                 border: InputBorder.none,
-
                                 hintText: 'Send a message',
                                 hintStyle: TextStyle(
                                     color: Colors.black, fontFamily: 'get'),
@@ -1084,7 +976,6 @@ class _Msg2State extends State<Msg2> {
         );
       },
     );
-
   }
 
   fullchatap() {
@@ -1093,7 +984,6 @@ class _Msg2State extends State<Msg2> {
         authprovider().fullchatapi(widget.id).then((response) async {
           fullchatmodal = FullchatModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && fullchatmodal?.status == "1") {
-
             setState(() {
               isLoading = false;
             });
@@ -1108,20 +998,19 @@ class _Msg2State extends State<Msg2> {
       }
     });
   }
-  readnewmsgap(){
-      checkInternet().then((internet) async {
-        if (internet) {
-          taskprovider().readmsgapi(widget.id).then((response) async {
-            readnewmsgmodal = ReadnewmsgModal.fromJson(json.decode(response.body));
-            if (response.statusCode == 200 && readnewmsgmodal?.status == "1") {
 
-            } else {
-
-            }
-          });
-        } else {
-          buildErrorDialog(context, 'Error', "Internet Required");
-        }
-      });
+  readnewmsgap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().readmsgapi(widget.id).then((response) async {
+          readnewmsgmodal =
+              ReadnewmsgModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && readnewmsgmodal?.status == "1") {
+          } else {}
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
   }
 }

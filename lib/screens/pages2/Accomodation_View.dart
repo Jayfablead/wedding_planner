@@ -105,14 +105,18 @@ class _Acco_viewState extends State<Acco_view> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Colors.blue),
-                                  child: Icon(CupertinoIcons.back,color: Colors.white,))),
+                                  child: Icon(
+                                    CupertinoIcons.back,
+                                    color: Colors.white,
+                                  ))),
                           InkWell(
                             child: Container(
                                 padding: EdgeInsets.all(2.w),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.blue),
-                                child: Icon(Icons.favorite,color: Colors.white)),
+                                child:
+                                    Icon(Icons.favorite, color: Colors.white)),
                           ),
                         ],
                       ),

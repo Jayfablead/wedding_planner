@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
-import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -136,9 +133,11 @@ class _MeetingsPageState extends State<MeetingsPage> {
                 //     )
                 //   ],
                 // ),
-                header(text: "",callback1: (){
-                  scaffoldKey.currentState?.openDrawer();
-                }),
+                header(
+                    text: "",
+                    callback1: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                 // headerwid(text: ""),
                 SizedBox(height: 1.5.h),
                 Row(

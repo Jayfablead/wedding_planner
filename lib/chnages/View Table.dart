@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
@@ -66,9 +65,11 @@ class _ViewTablesState extends State<ViewTables> {
             //         )),
             //   ],
             // ),
-            header(text: "Guests",callback1: (){
-              scaffoldKey.currentState?.openDrawer();
-            }),
+            header(
+                text: "Guests",
+                callback1: () {
+                  scaffoldKey.currentState?.openDrawer();
+                }),
             // headerwid(text: "Guests"),
             SizedBox(height: 1.5.h),
             Row(

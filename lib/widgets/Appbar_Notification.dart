@@ -10,7 +10,9 @@ class Notification extends StatefulWidget {
   @override
   State<Notification> createState() => _NotificationState();
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 class _NotificationState extends State<Notification> {
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,7 @@ class _NotificationState extends State<Notification> {
               )),
           IconButton(
               onPressed: () {
-                scaffoldKey.currentState
-                    ?.openDrawer();
+                scaffoldKey.currentState?.openDrawer();
               },
               icon: Icon(
                 Icons.menu_rounded,

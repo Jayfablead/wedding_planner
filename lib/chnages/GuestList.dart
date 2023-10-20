@@ -60,9 +60,11 @@ class _GuestListState extends State<GuestList> {
                   child: Column(
                     children: [
                       SizedBox(height: 5.h),
-                      header(text: "Guest List",callback1: (){
-                        scaffoldKey.currentState?.openDrawer();
-                      }),
+                      header(
+                          text: "Guest List",
+                          callback1: () {
+                            scaffoldKey.currentState?.openDrawer();
+                          }),
                       // headerwid(text: "Guest List"),
 
                       SizedBox(height: 1.5.h),

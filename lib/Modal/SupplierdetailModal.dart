@@ -33,16 +33,18 @@ class SupplierInfo {
   String? address;
   String? description;
   Services? services;
+  String? isRequested;
 
   SupplierInfo(
       {this.id,
-        this.name,
-        this.email,
-        this.profile,
-        this.contact,
-        this.address,
-        this.description,
-        this.services});
+      this.name,
+      this.email,
+      this.profile,
+      this.contact,
+      this.address,
+      this.description,
+      this.services,
+      this.isRequested});
 
   SupplierInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -55,6 +57,7 @@ class SupplierInfo {
     services = json['services'] != null
         ? new Services.fromJson(json['services'])
         : null;
+    isRequested = json['is_requested'];
   }
 
   Map<String, dynamic> toJson() {
@@ -69,6 +72,7 @@ class SupplierInfo {
     if (this.services != null) {
       data['services'] = this.services!.toJson();
     }
+    data['is_requested'] = this.isRequested;
     return data;
   }
 }
@@ -83,11 +87,11 @@ class Services {
 
   Services(
       {this.id,
-        this.sId,
-        this.categoryId,
-        this.description,
-        this.cost,
-        this.createdAt});
+      this.sId,
+      this.categoryId,
+      this.description,
+      this.cost,
+      this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];

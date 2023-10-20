@@ -108,9 +108,11 @@ class _ItineryViewState extends State<ItineryView> {
                     //         ))
                     //   ],
                     // ),
-                    header(text: "Itinerary View",callback1: (){
-                      scaffoldKey.currentState?.openDrawer();
-                    }),
+                    header(
+                        text: "Itinerary View",
+                        callback1: () {
+                          scaffoldKey.currentState?.openDrawer();
+                        }),
                     // headerwid(text: "Itinerary View"),
                     SizedBox(height: 1.h),
                   ],
@@ -382,7 +384,10 @@ class _ItineryViewState extends State<ItineryView> {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                                 color: Colors.blue),
-                                            child: Icon(CupertinoIcons.back,color: Colors.white,))),
+                                            child: Icon(
+                                              CupertinoIcons.back,
+                                              color: Colors.white,
+                                            ))),
                                     InkWell(
                                       child: Container(
                                           padding: EdgeInsets.all(2.w),
@@ -390,7 +395,10 @@ class _ItineryViewState extends State<ItineryView> {
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               color: Colors.blue),
-                                          child: Icon(Icons.favorite,color: Colors.white,)),
+                                          child: Icon(
+                                            Icons.favorite,
+                                            color: Colors.white,
+                                          )),
                                     ),
                                   ],
                                 ),

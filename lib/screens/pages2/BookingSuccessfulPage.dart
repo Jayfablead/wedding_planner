@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -62,9 +60,11 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
               //   ],
               // ),
               // headerwid(text: "Booking Successful"),
-              header(text: "Booking Successful",callback1: (){
-                scaffoldKey.currentState?.openDrawer();
-              }),
+              header(
+                  text: "Booking Successful",
+                  callback1: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
               Image.network(
                 "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
                 height: 28.h,

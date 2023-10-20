@@ -1,4 +1,3 @@
-
 import 'package:connectivity/connectivity.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
@@ -16,6 +15,7 @@ import 'package:wedding_planner/Modal/ReadnewmsgModal.dart';
 import 'package:wedding_planner/Modal/ReadnotiModal.dart';
 import 'package:wedding_planner/Modal/RemovefrombudgetModal.dart';
 import 'package:wedding_planner/Modal/RemoveguestModal.dart';
+import 'package:wedding_planner/Modal/SendQuationModal.dart';
 import 'package:wedding_planner/Modal/SendmessageModal.dart';
 import 'package:wedding_planner/Modal/SetbudgetModal.dart';
 import 'package:wedding_planner/Modal/UnreadmsgModal.dart';
@@ -24,11 +24,15 @@ import 'package:wedding_planner/Modal/UpdateprofileModal.dart';
 import 'package:wedding_planner/Modal/UserModal.dart';
 import 'package:wedding_planner/Modal/UserProfileModal.dart';
 import 'package:wedding_planner/Modal/VenuedetailModal.dart';
+import 'package:wedding_planner/Modal/ViewPostModal.dart';
 import 'package:wedding_planner/Modal/ViewguestModal.dart';
 import 'package:wedding_planner/Modal/addchecklistmodal.dart';
 import 'package:wedding_planner/Modal/markcompletedmodal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
 
+import '../Modal/AddpostModal.dart';
+import '../Modal/CategoriesModal.dart';
+import '../Modal/QuoteListModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 
 Future<bool> checkInternet() async {
@@ -67,8 +71,14 @@ AddtofavouriteModal? addtofavouritemodal;
 FavouritelistModal? favouritelistmodal;
 SetbudgetModal? setbudgetmodal;
 RemovefrombudgetModal? removefrombudget;
-addtobudgetModal? addtobudgetmodal;
+AddtobudgetModal? addtobudgetmodal;
 MybudgetModal? mybudgetmodal;
 SupplierdetailModal? supplierdetailmodal;
+CategoriesModal? categoriesmodal;
+ViewPostModal? viewpostmodal;
+AddpostModal? addpostmodal;
+SendQuationModal? sendquationmodal;
+QuoteListModal? quotelistmodal;
+
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

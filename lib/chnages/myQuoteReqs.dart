@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -132,9 +131,11 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
               //         ))
               //   ],
               // ),
-              header(text: "Quotation Requests",callback1: (){
-                scaffoldKey.currentState?.openDrawer();
-              }),
+              header(
+                  text: "Quotation Requests",
+                  callback1: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
               // headerwid(text: "Quotation Requests"),
               SizedBox(height: 1.h),
               searchBox1(),

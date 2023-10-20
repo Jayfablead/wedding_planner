@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/response.dart';
 
@@ -24,7 +25,8 @@ class taskprovider with ChangeNotifier {
   }
 
   Future<http.Response> supplierdetailapi(String? suppid, String? catid) async {
-    String? url = '$baseUrl/supplierDetails/${suppid}/${catid}';
+    String? url =
+        '$baseUrl/supplierDetails/${userData?.user?.id.toString()}/${suppid}/${catid}';
     print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
@@ -334,6 +336,92 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
     print(response.body);
+    return responseJson;
+  }
+
+  Future<http.Response> categoryapi() async {
+    String? url = '$baseUrl/allServices';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
+
+  Future<http.Response> QouteListApi() async {
+    String? url = '$baseUrl/myQuotations/${userData?.user?.id.toString()}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    return responseJson;
+  }
+
+  Future<http.Response> Viewboardsapi(String catid) async {
+    String? url = '$baseUrl/myboards/${userData?.user?.id.toString()}/$catid';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
+
+  Future<http.Response> addpostapi(
+      Map<String, String> bodyData, List<File> imagePaths) async {
+    String? url = '$baseUrl/addBoard/${userData?.user?.id.toString()}';
+    print(url);
+    var responseJson;
+    final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));
+    imageUploadRequest.headers.addAll(headers);
+    if (imagePaths.isNotEmpty) {
+      for (var imagePath in imagePaths) {
+        var file = await http.MultipartFile.fromPath(
+          'postfiles[]',
+          imagePath.path,
+          contentType: MediaType('image', 'jpg'),
+        );
+        imageUploadRequest.files.add(file);
+      }
+    }
+    imageUploadRequest.fields.addAll(bodyData);
+    final streamResponse = await imageUploadRequest.send();
+    var response = await http.Response.fromStream(streamResponse);
+    responseJson = responses(response);
+    // print("responseJson = ${json.decode(responseJson)}");
+    return responseJson;
+  }
+
+  Future<http.Response> quoteapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/sendQuotationReq';
+
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
     return responseJson;
   }
 }

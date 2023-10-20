@@ -104,7 +104,10 @@ class _QuatationDetails2State extends State<QuatationDetails2> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.blue),
-                            child: Icon(CupertinoIcons.back,color: Colors.white,))),
+                            child: Icon(
+                              CupertinoIcons.back,
+                              color: Colors.white,
+                            ))),
                   ),
                   Positioned(
                     bottom: 0.5.h,

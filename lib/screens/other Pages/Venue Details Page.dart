@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -80,9 +79,11 @@ class _VenueViewState extends State<VenueView> {
                 //   ],
                 // ),
                 // headerwid(text: "My Venue"),
-                header(text: "My Venue",callback1: (){
-                  scaffoldKey.currentState?.openDrawer();
-                }),
+                header(
+                    text: "My Venue",
+                    callback1: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                 SizedBox(height: 1.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,7 +268,7 @@ class _VenueViewState extends State<VenueView> {
                           child: InkWell(
                             onTap: () {},
                             child: Icon(
-                            Icons.favorite,
+                              Icons.favorite,
                               color: Colors.white,
                               size: 15.sp,
                             ),

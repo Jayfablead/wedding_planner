@@ -123,9 +123,11 @@ class _BooKNowPageState extends State<BooKNowPage> {
               //             color: Colors.blue, size: 23.sp)),
               //   ],
               // ),
-              header(text: "Booking Details",callback1: (){
-                scaffoldKey.currentState?.openDrawer();
-              }),
+              header(
+                  text: "Booking Details",
+                  callback1: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
               // headerwid(text: "Booking Details"),
               SizedBox(
                 height: 2.h,

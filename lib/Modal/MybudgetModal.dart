@@ -69,14 +69,14 @@ class BudgetItems {
 
   BudgetItems(
       {this.id,
-        this.uid,
-        this.categoryId,
-        this.supplierId,
-        this.estimateCost,
-        this.bookingCost,
-        this.note,
-        this.createdAt,
-        this.supplierInfo});
+      this.uid,
+      this.categoryId,
+      this.supplierId,
+      this.estimateCost,
+      this.bookingCost,
+      this.note,
+      this.createdAt,
+      this.supplierInfo});
 
   BudgetItems.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -119,11 +119,11 @@ class SupplierInfo {
 
   SupplierInfo(
       {this.id,
-        this.name,
-        this.description,
-        this.cost,
-        this.categoryId,
-        this.category});
+      this.name,
+      this.description,
+      this.cost,
+      this.categoryId,
+      this.category});
 
   SupplierInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];

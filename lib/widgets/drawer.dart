@@ -3,10 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/chnages/Check%20List2.dart';
 import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/View%20Table.dart';
@@ -21,15 +19,12 @@ import 'package:wedding_planner/new%20pages/view%20all%20bookings.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/changePassword.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
-import 'package:wedding_planner/screens/other%20Pages/GuestChairManagement.dart';
 import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
 import 'package:wedding_planner/screens/pages2/fbpage.dart';
 import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
 import 'package:wedding_planner/screens/profilePage.dart';
 import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
 import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
-import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
-import 'package:wedding_planner/screens/scrns/foodMenu.dart';
 import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -53,7 +48,8 @@ class _drawer1State extends State<drawer1> {
     print('open');
     unreadnotiap();
   }
-  bool isLoading =true;
+
+  bool isLoading = true;
   bool show = false;
   int vari = 0;
 
@@ -81,8 +77,6 @@ class _drawer1State extends State<drawer1> {
                     children: [
                       IconButton(
                           onPressed: () {
-
-
                             setState(() {
                               show = !show;
                               vari == 1 || vari == 2 || vari == 3
@@ -95,9 +89,11 @@ class _drawer1State extends State<drawer1> {
                                       ? Get.back()
                                       : '';
                             });
-
                           },
-                          icon: Icon(Icons.arrow_back_ios, color: Colors.white,))
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                          ))
                     ],
                   ),
                 ),
@@ -129,7 +125,8 @@ class _drawer1State extends State<drawer1> {
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   fontFamily: 'sofi',
-                                  letterSpacing: 1, color: Colors.white,
+                                  letterSpacing: 1,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -144,7 +141,8 @@ class _drawer1State extends State<drawer1> {
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontFamily: 'sofi',
-                                      letterSpacing: 1, color: Colors.white,
+                                      letterSpacing: 1,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -158,7 +156,8 @@ class _drawer1State extends State<drawer1> {
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontFamily: 'sofi',
-                                      letterSpacing: 1, color: Colors.white,
+                                      letterSpacing: 1,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -550,7 +549,8 @@ class _drawer1State extends State<drawer1> {
                         ],
                       ),
                     )),
-                SizedBox(height: 2.h), InkWell(
+                SizedBox(height: 2.h),
+                InkWell(
                     onTap: () async {
                       Get.back();
                       Get.to(GuestList());
@@ -592,71 +592,72 @@ class _drawer1State extends State<drawer1> {
                       ),
                     )),
                 SizedBox(height: 2.h),
-                 Stack(
-                   children: [
-                     InkWell(
-                         onTap: () async {
-                           Get.back();
-                           Get.to(NotificationScreen());
-                         },
-                         child: Container(
-                           child: Row(
-                             children: [
-                               SizedBox(
-                                 width: 6.w,
-                               ),
-                               Container(
-                                 width: 63.w,
-                                 child: Row(
-                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                   children: [
-                                     Row(
-                                       children: [
-                                         Icon(
-                                           Icons.notifications_none_rounded,
-                                           color: Colors.white,
-                                           size: 22.sp,
-                                         ),
-                                         SizedBox(
-                                           width: 2.w,
-                                         ),
-                                         Text("Notifications",
-                                             style: TextStyle(
-                                               fontSize: 17.sp,
-                                               fontWeight: FontWeight.bold,
-                                               fontFamily: 'sofi',
-                                               color: Colors.white,
-                                             )),
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             ],
-                           ),
-                         )),
-                     unreadnotimodal?.status == "1"?
-
-                     Positioned(
-                       left: 46.w,
-                         bottom: 1.h,
-                         child: Container(
-                           width: 5.w,
-                           height: 5.w,
-                           alignment: Alignment.center,
-                           decoration: BoxDecoration(
-                             color: Colors.red,
-                             shape: BoxShape.circle
-                           ),
-                           child: Text((unreadnotimodal?.unreadNoti).toString(), style: TextStyle(
-                             fontSize: 10.sp,
-                             fontWeight: FontWeight.bold,
-                             fontFamily: 'sofi',
-                             color: Colors.white,
-                           )),
-                         )): Container()
-                   ],
-                 ),
+                Stack(
+                  children: [
+                    InkWell(
+                        onTap: () async {
+                          Get.back();
+                          Get.to(NotificationScreen());
+                        },
+                        child: Container(
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 6.w,
+                              ),
+                              Container(
+                                width: 63.w,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.notifications_none_rounded,
+                                          color: Colors.white,
+                                          size: 22.sp,
+                                        ),
+                                        SizedBox(
+                                          width: 2.w,
+                                        ),
+                                        Text("Notifications",
+                                            style: TextStyle(
+                                              fontSize: 17.sp,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'sofi',
+                                              color: Colors.white,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
+                    unreadnotimodal?.status == "1"
+                        ? Positioned(
+                            left: 46.w,
+                            bottom: 1.h,
+                            child: Container(
+                              width: 5.w,
+                              height: 5.w,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.red, shape: BoxShape.circle),
+                              child:
+                                  Text((unreadnotimodal?.unreadNoti).toString(),
+                                      style: TextStyle(
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'sofi',
+                                        color: Colors.white,
+                                      )),
+                            ))
+                        : Container()
+                  ],
+                ),
                 SizedBox(height: 2.h),
                 InkWell(
                     onTap: () async {
@@ -703,7 +704,7 @@ class _drawer1State extends State<drawer1> {
                 InkWell(
                     onTap: () async {
                       Get.back();
-                     await  SaveDataLocal.clearUserData();
+                      await SaveDataLocal.clearUserData();
                       Get.offAll(LoginPage());
                     },
                     child: Container(
@@ -723,7 +724,6 @@ class _drawer1State extends State<drawer1> {
                                       Icons.logout,
                                       color: Colors.white,
                                       size: 22.sp,
-
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -733,7 +733,6 @@ class _drawer1State extends State<drawer1> {
                                           fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'sofi',
-
                                           color: Colors.white,
                                         )),
                                   ],
@@ -1337,20 +1336,21 @@ class _drawer1State extends State<drawer1> {
       ),
     );
   }
-  unreadnotiap(){
+
+  unreadnotiap() {
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().unreadmsgapi().then((response) async {
-          unreadnotimodal = UnreadnotiModal.fromJson(json.decode(response.body));
+          unreadnotimodal =
+              UnreadnotiModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && unreadnotimodal?.status == "1") {
-                          print(unreadnotimodal?.unreadNoti);
+            print(unreadnotimodal?.unreadNoti);
             setState(() {
-              isLoading =false;
+              isLoading = false;
             });
-          }
-          else {
+          } else {
             setState(() {
-              isLoading =false;
+              isLoading = false;
             });
           }
         });
@@ -1358,7 +1358,6 @@ class _drawer1State extends State<drawer1> {
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
-
   }
 }
 

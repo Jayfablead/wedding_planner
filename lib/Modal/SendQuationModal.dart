@@ -1,10 +1,10 @@
-class AddtobudgetModal {
+class SendQuationModal {
   String? status;
   String? message;
 
-  AddtobudgetModal({this.status, this.message});
+  SendQuationModal({this.status, this.message});
 
-  AddtobudgetModal.fromJson(Map<String, dynamic> json) {
+  SendQuationModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
   }

@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -123,9 +122,11 @@ class _RoomManagementState extends State<RoomManagement> {
                     //   ],
                     // ),
                     // headerwid(text: "Room Management"),
-                    header(text: "Room Management",callback1: (){
-                      scaffoldKey.currentState?.openDrawer();
-                    }),
+                    header(
+                        text: "Room Management",
+                        callback1: () {
+                          scaffoldKey.currentState?.openDrawer();
+                        }),
                     SizedBox(height: 1.5.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

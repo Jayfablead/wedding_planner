@@ -40,14 +40,14 @@ class Myfavourites {
 
   Myfavourites(
       {this.id,
-        this.name,
-        this.role,
-        this.profilePath,
-        this.description,
-        this.type,
-        this.serviceId,
-        this.service,
-        this.serviceDetail});
+      this.name,
+      this.role,
+      this.profilePath,
+      this.description,
+      this.type,
+      this.serviceId,
+      this.service,
+      this.serviceDetail});
 
   Myfavourites.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -90,11 +90,11 @@ class ServiceDetail {
 
   ServiceDetail(
       {this.id,
-        this.sId,
-        this.categoryId,
-        this.description,
-        this.cost,
-        this.createdAt});
+      this.sId,
+      this.categoryId,
+      this.description,
+      this.cost,
+      this.createdAt});
 
   ServiceDetail.fromJson(Map<String, dynamic> json) {
     id = json['id'];

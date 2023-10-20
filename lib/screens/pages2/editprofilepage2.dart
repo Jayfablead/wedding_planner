@@ -13,8 +13,6 @@ import 'package:wedding_planner/screens/profilePage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 
-import '../../main.dart';
-
 // import '../../widgets/drawer.dart';
 
 class EditProfile2 extends StatefulWidget {
@@ -59,6 +57,7 @@ class _EditProfile2State extends State<EditProfile2> {
     _address.text = widget.address.toString();
     _about.text = widget.about.toString();
   }
+
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -137,8 +136,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                       )),
                                   IconButton(
                                       onPressed: () {
-                                        scaffoldKey.currentState
-                                            ?.openDrawer();
+                                        scaffoldKey.currentState?.openDrawer();
                                       },
                                       icon: Icon(
                                         Icons.menu_rounded,

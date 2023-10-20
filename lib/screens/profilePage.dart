@@ -51,6 +51,7 @@ class _MyProfileState extends State<MyProfile> {
       setit = 4;
     });
   }
+
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -84,9 +85,13 @@ class _MyProfileState extends State<MyProfile> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        IconButton(onPressed: () {}, icon: Icon( Icons.arrow_back_ios_new_rounded,
-                          color: Colors.white,
-                          size: 23.sp,)),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: Colors.white,
+                              size: 23.sp,
+                            )),
                         Text(
                           "Profile",
                           style: TextStyle(
@@ -112,8 +117,7 @@ class _MyProfileState extends State<MyProfile> {
                                 )),
                             IconButton(
                                 onPressed: () {
-                                  scaffoldKey.currentState
-                                      ?.openDrawer();
+                                  scaffoldKey.currentState?.openDrawer();
                                 },
                                 icon: Icon(
                                   Icons.menu_rounded,
