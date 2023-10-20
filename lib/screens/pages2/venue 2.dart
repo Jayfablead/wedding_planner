@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class Venue2 extends StatefulWidget {
   const Venue2({super.key});
@@ -104,30 +105,31 @@ class _Venue2State extends State<Venue2> {
                   SizedBox(
                     height: 5.h,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                      Text(
-                        "Venue",
-                        style: TextStyle(
-                          fontSize: 15.sp,
-                          fontFamily: 'sofi',
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(Icons.menu_rounded))
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     IconButton(
+                  //         onPressed: () {
+                  //           Get.back();
+                  //         },
+                  //         icon: Icon(Icons.arrow_back_ios_new_rounded)),
+                  //     Text(
+                  //       "Venue",
+                  //       style: TextStyle(
+                  //         fontSize: 15.sp,
+                  //         fontFamily: 'sofi',
+                  //         letterSpacing: 1,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //     IconButton(
+                  //         onPressed: () {
+                  //           scaffoldKey.currentState?.openDrawer();
+                  //         },
+                  //         icon: Icon(Icons.menu_rounded))
+                  //   ],
+                  // ),
+                  headerwid(text: "Venue"),
                   SizedBox(height: 1.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

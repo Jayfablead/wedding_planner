@@ -20,8 +20,8 @@ class VenueView extends StatefulWidget {
 
 final controller = PageController(viewportFraction: 0.8, keepPage: true);
 List HotelIm = [
-  'https://i0.wp.com/decorsutrablog.com/wp-content/uploads/2020/06/DecorSutra_Wedding-Decor-9_Royal-Decor.jpg?fit=780%2C425&ssl=1',
-  'https://i.pinimg.com/originals/2f/10/f6/2f10f6363ce6fd2461cec2bd46dbc916.jpg',
+  'https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg',
+  'https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg',
   'https://fancdesigns.com/wp-content/uploads/2016/08/royal-decorations-40-royal-wedding-decorations-2246-x-1162-1.jpg',
   'https://i0.wp.com/eventertainments.com/blog/wp-content/uploads/2021/03/Best-Wedding-Stage-Decoration-with-Flowers.jpg?fit=1200%2C900&ssl=1',
   'https://cdn0.weddingwire.in/vendor/8241/3_2/960/jpg/img-20180903-wa0013_15_158241.jpeg',
@@ -228,7 +228,7 @@ class _VenueViewState extends State<VenueView> {
                                 size: 18.sp,
                               ),
                             ),
-                            SizedBox(width: 5.w),
+                            SizedBox(width: 4.w),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -259,11 +259,18 @@ class _VenueViewState extends State<VenueView> {
                             ),
                           ],
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Icon(
-                            CupertinoIcons.heart,
-                            size: 22.sp,
+                        Container(
+                          padding: EdgeInsets.all(3.w),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: Colors.blue),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Icon(
+                            Icons.favorite,
+                              color: Colors.white,
+                              size: 15.sp,
+                            ),
                           ),
                         ),
                       ],

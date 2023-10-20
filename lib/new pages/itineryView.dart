@@ -383,16 +383,16 @@ class _ItineryViewState extends State<ItineryView> {
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                color: Colors.white),
-                                            child: Icon(CupertinoIcons.back))),
+                                                color: Colors.blue),
+                                            child: Icon(CupertinoIcons.back,color: Colors.white,))),
                                     InkWell(
                                       child: Container(
                                           padding: EdgeInsets.all(2.w),
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              color: Colors.white),
-                                          child: Icon(CupertinoIcons.heart)),
+                                              color: Colors.blue),
+                                          child: Icon(Icons.favorite,color: Colors.white,)),
                                     ),
                                   ],
                                 ),

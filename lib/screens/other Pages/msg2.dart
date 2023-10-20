@@ -95,7 +95,7 @@ class _Msg2State extends State<Msg2> {
                                         Get.back();
                                       },
                                       icon: Icon(
-                                          Icons.arrow_back_ios_new_rounded)),
+                                          Icons.arrow_back_ios_new_rounded,color: Colors.blue,)),
                                   Container(
                                     margin:
                                         EdgeInsets.symmetric(horizontal: 1.w),
@@ -136,7 +136,7 @@ class _Msg2State extends State<Msg2> {
                               ),
                               IconButton(
                                   onPressed: () {},
-                                  icon: Icon(Icons.more_vert_rounded))
+                                  icon: Icon(null))
                             ],
                           ),
                           SizedBox(height: 1.h),
@@ -798,9 +798,14 @@ class _Msg2State extends State<Msg2> {
                               icon: Icon(
                                 Icons.attach_file,
                                 size: 20.sp,
+                                color: Colors.blue,
                               )),
                           Container(
-                            color: Colors.white,
+
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                              borderRadius: BorderRadius.circular(25)
+                            ),
                             width: 68.w,
                             child: TextField(
                               controller: _msg,
@@ -810,15 +815,15 @@ class _Msg2State extends State<Msg2> {
                                   fontFamily: 'get'),
                               decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
-                                  // borderSide: BorderSide(color: Colors.black),
+                                  borderSide: BorderSide(color: Colors.white),
                                   borderRadius: BorderRadius.circular(90),
                                 ),
                                 disabledBorder: OutlineInputBorder(
-                                  // borderSide: BorderSide(color: Colors.black),
+                                  borderSide: BorderSide(color: Colors.white),
                                   borderRadius: BorderRadius.circular(90),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  // borderSide: BorderSide(color: Colors.black),
+                                  borderSide: BorderSide(color: Colors.white),
                                   borderRadius: BorderRadius.circular(90),
                                 ),
                                 border: InputBorder.none,
