@@ -79,10 +79,10 @@ class _VenueViewState extends State<VenueView> {
                 //         icon: Icon(Icons.menu_rounded)),
                 //   ],
                 // ),
-                headerwid(text: "My Venue"),
-                // header(text: "My Venue",callback: (){},callback1: (){
-                //   scaffoldKey.currentState?.openDrawer();
-                // }),
+                // headerwid(text: "My Venue"),
+                header(text: "My Venue",callback1: (){
+                  scaffoldKey.currentState?.openDrawer();
+                }),
                 SizedBox(height: 1.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

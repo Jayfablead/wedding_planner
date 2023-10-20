@@ -102,12 +102,10 @@ class _BookingListState extends State<BookingList> {
                   //         ))
                   //   ],
                   // ),
-                  // header(text: "All Bookings",callback: (){
-                  //   Get.back();
-                  // },callback1: (){
-                  //   scaffoldKey.currentState?.openDrawer();
-                  // }),
-                  headerwid(text: "All Bookings"),
+                  header(text: "All Bookings",callback1: (){
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
+                  // headerwid(text: "All Bookings"),
                   SizedBox(
                     height: 2.h,
                   ),

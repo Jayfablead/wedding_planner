@@ -117,7 +117,10 @@ class _ViewAllVenueState extends State<ViewAllVenue> {
                     //         icon: Icon(Icons.menu_rounded))
                     //   ],
                     // ),
-                    headerwid(text: "Venue"),
+                    // headerwid(text: "Venue"),
+                    header(text: "Venue",callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                     SizedBox(height: 1.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

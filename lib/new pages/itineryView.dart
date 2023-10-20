@@ -108,12 +108,10 @@ class _ItineryViewState extends State<ItineryView> {
                     //         ))
                     //   ],
                     // ),
-                    // header(text: "Itinerary View",callback: (){
-                    //   Get.back();
-                    // },callback1: (){
-                    //   scaffoldKey.currentState?.openDrawer();
-                    // }),
-                    headerwid(text: "Itinerary View"),
+                    header(text: "Itinerary View",callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
+                    // headerwid(text: "Itinerary View"),
                     SizedBox(height: 1.h),
                   ],
                 ),

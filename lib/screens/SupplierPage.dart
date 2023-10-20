@@ -62,10 +62,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
               //         ))
               //   ],
               // ),
-              // header(text: "Supplier",callback: (){},callback1: (){
-              //   scaffoldKey.currentState?.openDrawer();
-              // }),
-              headerwid(text: "Supplier"),
+              header(text: "Supplier",callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
+              // headerwid(text: "Supplier"),
               SizedBox(
                 height: 2.h,
               ),
@@ -265,13 +265,36 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
               SizedBox(
                 height: 2.h,
               ),
-              Text(
-                "Details",
-                style: TextStyle(
-                    fontSize: 18.sp,
-                    color: Colors.black,
-                    fontFamily: 'sofi',
-                    fontWeight: FontWeight.bold),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Details",
+                    style: TextStyle(
+                        fontSize: 18.sp,
+                        color: Colors.black,
+                        fontFamily: 'sofi',
+                        fontWeight: FontWeight.bold),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('right');
+
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(2.w),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                          BorderRadius.circular(7),
+                          color: Colors.blue),
+                      child: Icon(
+                        Icons.favorite,
+                        color: Colors.white,
+                        size: 18.sp,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 1.h,

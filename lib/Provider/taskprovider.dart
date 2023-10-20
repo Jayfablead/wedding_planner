@@ -247,4 +247,83 @@ class taskprovider with ChangeNotifier {
   }
 
 
+  Future<http.Response> addtobudgetapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/addTobudget';
+
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> setbudgetapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/setBudget/${userData?.user?.id.toString()}';
+
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  // Future<http.Response> addtobudgetapi(Map<String, String> bodyData) async {
+  //   String? url = '$baseUrl/addTobudget';
+  //
+  //   var responseJson;
+  //   final response = await http
+  //       .post(Uri.parse(url), headers: headers,body: bodyData)
+  //       .timeout(
+  //     const Duration(seconds: 60),
+  //     onTimeout: () {
+  //       throw const SocketException('Something went wrong');
+  //     },
+  //   );
+  //   responseJson = responses(response);
+  //   return responseJson;
+  // }
+  Future<http.Response> removefrombudgetapi(String? data1) async {
+    String? url = '$baseUrl/rmvFrombudget/${data1}';
+    print(url);
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> mybudgetapi() async {
+    String? url = '$baseUrl/mybudget/${userData?.user?.id.toString()}';
+    print(url);
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    return responseJson;
+  }
+
+
 }

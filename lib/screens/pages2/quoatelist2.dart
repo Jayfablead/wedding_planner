@@ -131,12 +131,10 @@ class _QuoateList2State extends State<QuoateList2> {
               //         ))
               //   ],
               // ),
-              // header(text: "Quotation List",callback: (){
-              //   Get.back();
-              // },callback1: (){
-              //   scaffoldKey.currentState?.openDrawer();
-              // }),
-              headerwid(text: "Quotation List"),
+              header(text: "Quotation List",callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
+              // headerwid(text: "Quotation List"),
               SizedBox(height: 1.h),
               searchBox1(),
               SizedBox(height: 1.h),

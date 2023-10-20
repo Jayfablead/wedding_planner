@@ -64,12 +64,10 @@ class _BudgetingListState extends State<BudgetingList> {
               //         ))
               //   ],
               // ),
-              // header(text: "Budget",callback: (){
-              //   Get.back();
-              // },callback1: (){
-              //   scaffoldKey.currentState?.openDrawer();
-              // }),
-              headerwid(text: "Budget"),
+              header(text: "Budget",callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
+              // headerwid(text: "Budget"),
               SizedBox(
                 height: 0.h,
               ),

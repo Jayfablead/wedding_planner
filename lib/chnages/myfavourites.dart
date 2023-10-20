@@ -1,11 +1,21 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
+import 'package:wedding_planner/Modal/FavouritelistModal.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
+import 'package:wedding_planner/widgets/load.dart';
+
+import '../Provider/taskprovider.dart';
 
 class myfavourite extends StatefulWidget {
   myfavourite({super.key});
@@ -175,202 +185,385 @@ class _myfavouriteState extends State<myfavourite> {
         'A Big Hall with sitting',
         5)
   ];
-
+  int? fav;
+  int? mydata;
+  bool isLoading =true;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    favouritelistap();
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      key: scaffoldKey,
-      extendBody: true,
-      bottomNavigationBar: bottomnavbar(selit: -3),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 6.h,
-              ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   children: [
-              //     IconButton(onPressed: () {}, icon: Icon(null)),
-              //     Text(
-              //       "My Favourites",
-              //       style: TextStyle(
-              //         fontSize: 15.sp,
-              //         fontFamily: 'sofi',
-              //         letterSpacing: 1,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     IconButton(
-              //         onPressed: () {
-              //           // _drawerKey.currentState!.open();
-              //           openDrawer();
-              //         },
-              //         icon: Icon(Icons.menu_rounded))
-              //   ],
-              // ),
-              headerwid(text: "My Favourites"),
-              SizedBox(
-                height: 2.h,
-              ),
-              SizedBox(
-                height: 79.h,
-                child: ListView.builder(
-                  itemCount: HotelIm.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.only(top: 1.h, bottom: 1.h),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black26,
-                                // Color of the shadow
-                                offset: Offset(0, 1.5),
-                                // Offset of the shadow (x, y)
-                                blurRadius: 8, // Spread of the shadow
-                                // How much the shadow extends
-                              ),
-                            ],
-                            borderRadius: BorderRadius.circular(10)),
-                        padding: EdgeInsets.symmetric(vertical: 1.h),
-                        alignment: Alignment.center,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 9.h,
-                              width: 18.w,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: HotelIm[index].image ?? '',
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                      CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                        'assets/icons/user.png',
-                                        color: Colors.white,
-                                      ),
+    return commanScreen(
+      isLoading: isLoading,
+      scaffold: Scaffold(
+        backgroundColor: Colors.grey.shade100,
+        key: scaffoldKey,
+        extendBody: true,
+        bottomNavigationBar: bottomnavbar(selit: -3),
+        body:isLoading?Container(): Padding(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 6.h,
+                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     IconButton(onPressed: () {}, icon: Icon(null)),
+                //     Text(
+                //       "My Favourites",
+                //       style: TextStyle(
+                //         fontSize: 15.sp,
+                //         fontFamily: 'sofi',
+                //         letterSpacing: 1,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //     IconButton(
+                //         onPressed: () {
+                //           // _drawerKey.currentState!.open();
+                //           openDrawer();
+                //         },
+                //         icon: Icon(Icons.menu_rounded))
+                //   ],
+                // ),
+                header(
+                    text: "My Favourites",
+                    callback1: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
+                // headerwid(text: "My Favourites",
+                //     onCallback: (){
+                //       scaffoldKey.currentState?.openDrawer();
+                //     }),
+                SizedBox(
+                  height: 2.h,
+                ),
+                SizedBox(
+                  height: 79.h,
+                  child: ListView.builder(
+                    itemCount: favouritelistmodal?.myfavourites?.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 1.h, bottom: 1.h),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  // Color of the shadow
+                                  offset: Offset(0, 1.5),
+                                  // Offset of the shadow (x, y)
+                                  blurRadius: 8, // Spread of the shadow
+                                  // How much the shadow extends
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 50.w,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        HotelIm[index].name ?? '',
-                                        style: TextStyle(
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            fontFamily: 'sofi',
-                                            color: Colors.black),
-                                      ),
-
-                                    ],
+                              ],
+                              borderRadius: BorderRadius.circular(10)),
+                          padding: EdgeInsets.symmetric(vertical: 1.h),
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                height: 9.h,
+                                width: 18.w,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl: favouritelistmodal?.myfavourites?[index].profilePath ?? "",
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) =>
+                                        CircularProgressIndicator(),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                          'assets/user.png',
+                                          color: Colors.white,
+                                        ),
                                   ),
                                 ),
-                                SizedBox(height: 0.8.h),
-                                SizedBox(
-                                  width: 66.w,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SizedBox(
-                                        width: 52.w,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              HotelIm[index].vv ?? '',
-                                              style: TextStyle(
-                                                  fontSize: 11.sp,
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 50.w,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          favouritelistmodal?.myfavourites?[index].name ?? '',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black),
+                                        ),
 
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 0.8.h),
+                                  SizedBox(
+                                    width: 66.w,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        SizedBox(
+                                          width: 52.w,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                          favouritelistmodal?.myfavourites?[index].service ?? '',
+                                                style: TextStyle(
+                                                    fontSize: 11.sp,
+
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily: 'sofi',
+                                                    color:
+                                                    Colors.black.withOpacity(0.5)),
+                                              ),
+                                              SizedBox(height: 0.8.h),
+                                              Text(
+                                                  favouritelistmodal?.myfavourites?[index].description ?? '',
+                                                overflow: TextOverflow.ellipsis,
+                                                maxLines: 1,
+                                                style: TextStyle(
+                                                  fontSize: 13.sp,
                                                   fontWeight: FontWeight.bold,
                                                   fontFamily: 'sofi',
-                                                  color:
-                                                  Colors.black.withOpacity(0.5)),
-                                            ),
-                                            SizedBox(height: 0.8.h),
-                                            Text(
-                                              HotelIm[index].desc ?? '',
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 1,
-                                              style: TextStyle(
-                                                fontSize: 13.sp,
-                                                fontWeight: FontWeight.bold,
-                                                fontFamily: 'sofi',
-                                                color: Colors.black
-                                                    .withOpacity(0.5),
+                                                  color: Colors.black
+                                                      .withOpacity(0.5),
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      InkWell(
-                                        onTap: () {
-                                          print('right');
-
-                                        },
-                                        child: Container(
-                                          padding: EdgeInsets.all(2.w),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.circular(7),
-                                              color: Colors.blue),
-                                          child: Icon(
-                                            Icons.favorite,
-                                            color: Colors.white,
-                                            size: 18.sp,
+                                            ],
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 3.w,
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  padding: EdgeInsets.zero,
-                ),
-              )
+                                        InkWell(
+                                          onTap: () {
+                                            setState((){
+                                              mydata = index;
 
-            ],
+                                            });
+                                           favourite();
+
+                                          },
+                                          child: Container(
+                                            padding: EdgeInsets.all(2.w),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                BorderRadius.circular(7),
+                                                color: Colors.blue),
+                                            child: Icon(
+                                              Icons.favorite,
+                                              color: Colors.white,
+                                              size: 18.sp,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                width: 3.w,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    padding: EdgeInsets.zero,
+                  ),
+                )
+
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+  favouritelistap(){
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().favouritelist().then((response) async {
+          favouritelistmodal = FavouritelistModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && favouritelistmodal?.status == "1") {
+
+            setState(() {
+              isLoading =false;
+            });
+          }
+          else {
+            setState(() {
+              isLoading =false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+
+  }
+  favourite() {
+    showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(15),
+          topLeft: Radius.circular(15),
+        ),
+      ),
+      context: context,
+      builder: (context) {
+        return Stack(
+          children: [
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(height: 3.h),
+                    Text(
+                      homemodal?.suppliers?[mydata!].fav == "0"? 'Are You Sure You Want to add to favourite?':'Are You Sure You Want to remove from favourite?' ,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'sofi',
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          height: 0.17.h,
+                          letterSpacing: 1),
+                    ),
+                    SizedBox(height: 3.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  addtofavouriteap(favouritelistmodal?.myfavourites?[mydata!].id ,favouritelistmodal?.myfavourites?[mydata!].serviceId);
+                                },
+                                child: Container(
+                                  width: 30.w,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(2.5.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.circular(25)),
+                                  child: Text(
+                                    'Yes',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Container(
+                                  width: 30.w,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(2.5.w),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.blue,
+                                      ),
+                                      color: Color(0xfff4f4f4),
+                                      borderRadius: BorderRadius.circular(25)),
+                                  child: Text(
+                                    'No',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 2.h),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+                right: 0,
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(CupertinoIcons.clear_circled_solid)))
+          ],
+        );
+      },
+    );
+  }
+  addtofavouriteap(String? supplierid,String? catid){
+    final Map<String, String> data = {};
+    data['userID'] =(userData?.user?.id).toString();
+    data['supplierID'] =supplierid.toString();
+    data['categoryID'] =catid.toString();
+    data['isFav'] ="0";
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().addtofavouriteapi(data).then((response) async {
+          addtofavouritemodal = AddtofavouriteModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && addtofavouritemodal?.status == "1") {
+            favouritelistap();
+            Get.back();
+
+          } else {
+
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
   }
 }

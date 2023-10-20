@@ -30,6 +30,7 @@ import 'package:wedding_planner/screens/scrns/Accomendation%20Page.dart';
 import 'package:wedding_planner/screens/scrns/Transportationmanagement.dart';
 import 'package:wedding_planner/screens/scrns/budgeting_Page.dart';
 import 'package:wedding_planner/screens/scrns/foodMenu.dart';
+import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
@@ -1157,7 +1158,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(BudgetingList());
+                Get.to(ViewBudget());
               },
               child: Container(
                 height: 24.w,

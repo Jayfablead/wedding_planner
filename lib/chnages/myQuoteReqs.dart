@@ -132,12 +132,10 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
               //         ))
               //   ],
               // ),
-              // header(text: "Quotation Requests",callback: (){
-              //   Get.back();
-              // },callback1: (){
-              //   scaffoldKey.currentState?.openDrawer();
-              // }),
-              headerwid(text: "Quotation Requests"),
+              header(text: "Quotation Requests",callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
+              // headerwid(text: "Quotation Requests"),
               SizedBox(height: 1.h),
               searchBox1(),
               SizedBox(height: 1.h),

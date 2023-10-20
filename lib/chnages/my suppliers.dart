@@ -129,15 +129,12 @@ class _MySuppliersState extends State<MySuppliers> {
               SizedBox(
                 height: 5.h,
               ),
-              // header(
-              //     text: "All Suppliers",
-              //     callback: () {
-              //       Get.back();
-              //     },
-              //     callback1: () {
-              //       scaffoldKey.currentState?.openDrawer();
-              //     }),
-              headerwid(text: "All Suppliers"),
+              header(
+                  text: "All Suppliers",
+                  callback1: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
+              // headerwid(text: "All Suppliers"),
               SizedBox(height: 1.h),
               Container(
                 height: more ? 53.5.h : 71.h,

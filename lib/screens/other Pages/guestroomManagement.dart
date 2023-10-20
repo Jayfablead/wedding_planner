@@ -122,12 +122,10 @@ class _RoomManagementState extends State<RoomManagement> {
                     //         ))
                     //   ],
                     // ),
-                    headerwid(text: "Room Management"),
-                    // header(text: "Room Management",callback: (){
-                    //   Get.back();
-                    // },callback1: (){
-                    //   scaffoldKey.currentState?.openDrawer();
-                    // }),
+                    // headerwid(text: "Room Management"),
+                    header(text: "Room Management",callback1: (){
+                      scaffoldKey.currentState?.openDrawer();
+                    }),
                     SizedBox(height: 1.5.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

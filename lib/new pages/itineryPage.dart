@@ -68,13 +68,11 @@ class _ItinerPageState extends State<ItinerPage> {
               //         ))
               //   ],
               // ),
-              // header(text: "Itinerary List",callback: (){
-              //   Get.back();
-              // },callback1: (){
-              //   scaffoldKey.currentState?.openDrawer();
-              // }),
+              header(text: "Itinerary List",callback1: (){
+                scaffoldKey.currentState?.openDrawer();
+              }),
 
-              headerwid(text: "Itinerary List"),
+              // headerwid(text: "Itinerary List"),
               SizedBox(height: 1.h),
               searchBox1(),
               SizedBox(height: 1.h),
