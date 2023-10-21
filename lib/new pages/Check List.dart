@@ -1041,7 +1041,7 @@ class _Check_listState extends State<Check_list> {
     if (formKey.currentState!.validate()) {
       final Map<String, String> data = {};
       data['title'] = _title.text.trim().toString();
-      data['description'] = 'Done';
+      data['description'] = _desc.text.trim().toString();
       data['category'] = 'Success';
       data['start_time'] = _start.text.trim().toString();
       data['end_time'] = _date.text.trim().toString();
@@ -1166,86 +1166,90 @@ class _Check_listState extends State<Check_list> {
                                       fontFamily: 'Meta1'),
                                 ),
                               ),
-                              // Column(
-                              //   children: [
-                              //     SizedBox(height: 2.h),
-                              //     Text(
-                              //       'Description :',
-                              //       style: TextStyle(
-                              //           fontSize: 14.sp,
-                              //           fontFamily: 'sofi',
-                              //           color: Colors.black,
-                              //           fontWeight: FontWeight.bold,
-                              //           letterSpacing: 1),
-                              //     ),
-                              //     SizedBox(height: 1.h),
-                              //     TextFormField(
-                              //       controller: _desc,
-                              //       onChanged: (value) {},
-                              //       validator: (value) {
-                              //         if (value == null || value.isEmpty) {
-                              //           return 'Please enter check description';
-                              //         }
-                              //         return null;
-                              //       },
-                              //       style: TextStyle(
-                              //           color: Colors.black.withOpacity(0.67),
-                              //           fontFamily: 'Meta1'),
-                              //       decoration: InputDecoration(
-                              //         prefixIcon: Icon(Icons.description),
-                              //         border: InputBorder.none,
-                              //         fillColor: Colors.grey.withOpacity(0.12),
-                              //         filled: true,
-                              //         enabledBorder: OutlineInputBorder(
-                              //             borderRadius: BorderRadius.circular(20),
-                              //             borderSide:
-                              //                 BorderSide(color: Colors.transparent)),
-                              //         hintText: 'Description',
-                              //         hintStyle: TextStyle(
-                              //             color: Colors.black.withOpacity(0.67),
-                              //             fontFamily: 'Meta1'),
-                              //       ),
-                              //     ),
-                              //     SizedBox(height: 2.h),
-                              //     Text(
-                              //       'Category :',
-                              //       style: TextStyle(
-                              //           fontSize: 14.sp,
-                              //           fontFamily: 'sofi',
-                              //           color: Colors.black,
-                              //           fontWeight: FontWeight.bold,
-                              //           letterSpacing: 1),
-                              //     ),
-                              //     SizedBox(height: 1.h),
-                              //     TextFormField(
-                              //       controller: _cate,
-                              //       onChanged: (value) {},
-                              //       validator: (value) {
-                              //         if (value == null || value.isEmpty) {
-                              //           return 'Please enter check category';
-                              //         }
-                              //         return null;
-                              //       },
-                              //       style: TextStyle(
-                              //           color: Colors.black.withOpacity(0.67),
-                              //           fontFamily: 'Meta1'),
-                              //       decoration: InputDecoration(
-                              //         prefixIcon: Icon(Icons.category),
-                              //         border: InputBorder.none,
-                              //         fillColor: Colors.grey.withOpacity(0.12),
-                              //         filled: true,
-                              //         enabledBorder: OutlineInputBorder(
-                              //             borderRadius: BorderRadius.circular(20),
-                              //             borderSide:
-                              //                 BorderSide(color: Colors.transparent)),
-                              //         hintText: 'category',
-                              //         hintStyle: TextStyle(
-                              //             color: Colors.black.withOpacity(0.67),
-                              //             fontFamily: 'Meta1'),
-                              //       ),
-                              //     ),
-                              //   ],
-                              // ),
+                              Column(
+                                children: [
+                                  SizedBox(height: 2.h),
+                                  Text(
+                                    'Description :',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  TextFormField(
+                                    controller: _desc,
+                                    onChanged: (value) {},
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter check description';
+                                      }
+                                      return null;
+                                    },
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.67),
+                                        fontFamily: 'Meta1'),
+                                    decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.description),
+                                      border: InputBorder.none,
+                                      fillColor: Colors.grey.withOpacity(0.12),
+                                      filled: true,
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(20),
+                                          borderSide:
+                                              BorderSide(color: Colors.transparent)),
+                                      hintText: 'Description',
+                                      hintStyle: TextStyle(
+                                          color: Colors.black.withOpacity(0.67),
+                                          fontFamily: 'Meta1'),
+                                    ),
+                                  ),
+                                  // Column(
+                                  //   children: [
+                                  //     SizedBox(height: 2.h),
+                                  //     Text(
+                                  //       'Category :',
+                                  //       style: TextStyle(
+                                  //           fontSize: 14.sp,
+                                  //           fontFamily: 'sofi',
+                                  //           color: Colors.black,
+                                  //           fontWeight: FontWeight.bold,
+                                  //           letterSpacing: 1),
+                                  //     ),
+                                  //     SizedBox(height: 1.h),
+                                  //     TextFormField(
+                                  //       controller: _cate,
+                                  //       onChanged: (value) {},
+                                  //       validator: (value) {
+                                  //         if (value == null || value.isEmpty) {
+                                  //           return 'Please enter check category';
+                                  //         }
+                                  //         return null;
+                                  //       },
+                                  //       style: TextStyle(
+                                  //           color: Colors.black.withOpacity(0.67),
+                                  //           fontFamily: 'Meta1'),
+                                  //       decoration: InputDecoration(
+                                  //         prefixIcon: Icon(Icons.category),
+                                  //         border: InputBorder.none,
+                                  //         fillColor: Colors.grey.withOpacity(0.12),
+                                  //         filled: true,
+                                  //         enabledBorder: OutlineInputBorder(
+                                  //             borderRadius: BorderRadius.circular(20),
+                                  //             borderSide:
+                                  //                 BorderSide(color: Colors.transparent)),
+                                  //         hintText: 'category',
+                                  //         hintStyle: TextStyle(
+                                  //             color: Colors.black.withOpacity(0.67),
+                                  //             fontFamily: 'Meta1'),
+                                  //       ),
+                                  //     ),
+                                  //   ],
+                                  // ),
+                                ],
+                              ),
                               SizedBox(height: 2.h),
                               Text(
                                 'Start Date :',
