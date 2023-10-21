@@ -101,6 +101,7 @@ List<cate1> venue = [
 ];
 TextEditingController _search = TextEditingController();
 int sel = 1;
+int sel1 = 0;
 int? fav;
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();

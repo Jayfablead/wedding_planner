@@ -32,6 +32,7 @@ import 'package:wedding_planner/Modal/removetodoModal.dart';
 
 import '../Modal/AddpostModal.dart';
 import '../Modal/CategoriesModal.dart';
+import '../Modal/MeetingModal.dart';
 import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
@@ -83,6 +84,7 @@ SendQuationModal? sendquationmodal;
 QuoteListModal? quotelistmodal;
 QouteDetailsModal? quotedetailsmodal;
 QouteAcceptModal? qouteacceptmodal;
+MeetingModal? meetingmodal;
 
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

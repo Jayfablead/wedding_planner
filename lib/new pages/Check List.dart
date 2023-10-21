@@ -1166,7 +1166,7 @@ class _Check_listState extends State<Check_list> {
                                       fontFamily: 'Meta1'),
                                 ),
                               ),
-                              Column(
+                              Column(crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 2.h),
                                   Text(
@@ -1192,14 +1192,26 @@ class _Check_listState extends State<Check_list> {
                                         color: Colors.black.withOpacity(0.67),
                                         fontFamily: 'Meta1'),
                                     decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.description),
+                                      prefixIcon: Icon(Icons.description,color: Colors.blue,),
                                       border: InputBorder.none,
-                                      fillColor: Colors.grey.withOpacity(0.12),
+                                      fillColor: Colors.white,
                                       filled: true,
                                       enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius: BorderRadius.circular(25),
                                           borderSide:
-                                              BorderSide(color: Colors.transparent)),
+                                          BorderSide(color: Colors.white)),
+                                      disabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(25),
+                                          borderSide:
+                                          BorderSide(color: Colors.white)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(25),
+                                          borderSide:
+                                          BorderSide(color: Colors.white)),
+                                      errorBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(25),
+                                          borderSide:
+                                          BorderSide(color: Colors.white)),
                                       hintText: 'Description',
                                       hintStyle: TextStyle(
                                           color: Colors.black.withOpacity(0.67),
