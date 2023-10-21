@@ -1053,13 +1053,13 @@ class _Check_listState extends State<Check_list> {
                 AddchecklistModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 &&
                 addchecklistmodal?.status == "1") {
+              checklistap();
               Get.back();
               _title.clear();
               _start.clear();
               _date.clear();
 
               print("fffd");
-              Get.off(Check_list());
             } else {
               buildErrorDialog(
                   context, " Error", (addchecklistmodal?.message).toString());
