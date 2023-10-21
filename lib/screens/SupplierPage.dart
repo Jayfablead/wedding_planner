@@ -2,14 +2,13 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/SendQuationModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/chnages/myQuoteReqs.dart';
 import 'package:wedding_planner/screens/other%20Pages/msg2.dart';
-import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -284,58 +283,106 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          InkWell(
-                            onTap: () {
-                              addtobudgetap();
-                            },
-                            child: Container(
-                              height: 5.h,
-                              width: 40.w,
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(15.sp),
-                              ),
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.add,
+                          supplierdetailmodal?.supplierInfo?.inBudget == '0'
+                              ? InkWell(
+                                  onTap: () {
+                                    addtobudgetap();
+                                  },
+                                  child: Container(
+                                    height: 5.h,
+                                    width: 40.w,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius:
+                                          BorderRadius.circular(15.sp),
+                                    ),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.add,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(width: 3.w),
+                                          Text(
+                                            "Add Budget",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    height: 5.h,
+                                    width: 45.w,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.white),
                                       color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(15.sp),
                                     ),
-                                    SizedBox(width: 3.w),
-                                    Text(
-                                      "Add Budget",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 14.sp),
+                                    child: Center(
+                                      child: Text(
+                                        "Added To Budget",
+                                        style: TextStyle(
+                                            color: Colors.blue.shade300,
+                                            fontSize: 14.sp),
+                                      ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              quotedetalis();
-                            },
-                            child: Container(
-                              height: 5.h,
-                              width: 45.w,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white),
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15.sp),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Quote Requested",
-                                  style: TextStyle(
-                                      color: Colors.blue.shade300,
-                                      fontSize: 14.sp),
+                          supplierdetailmodal?.supplierInfo?.isRequested == '0'
+                              ? InkWell(
+                                  onTap: () {
+                                    quotedetalis();
+                                  },
+                                  child: Container(
+                                    height: 5.h,
+                                    width: 48.w,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.white),
+                                      color: Colors.blue,
+                                      borderRadius:
+                                          BorderRadius.circular(15.sp),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Send Quote Request",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.sp),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    height: 5.h,
+                                    width: 45.w,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.white),
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(15.sp),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Quote Requested",
+                                        style: TextStyle(
+                                            color: Colors.blue.shade300,
+                                            fontSize: 14.sp),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                       SizedBox(
@@ -385,7 +432,15 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
           addtobudgetmodal =
               AddtobudgetModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && addtobudgetmodal?.status == "1") {
-            Get.to(ViewBudget());
+            Fluttertoast.showToast(
+                msg: "Added To Budget Successfully",
+                toastLength: Toast.LENGTH_SHORT,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.black,
+                textColor: Colors.white,
+                fontSize: 11.sp);
+            supplierdetailap();
+            print(supplierdetailmodal?.supplierInfo?.inBudget);
           } else {}
         });
       } else {
@@ -405,7 +460,14 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
           sendquationmodal =
               SendQuationModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && sendquationmodal?.status == "1") {
-            Get.to(MyQuoateReq());
+            Fluttertoast.showToast(
+                msg: "Quote Requested Successfully",
+                toastLength: Toast.LENGTH_SHORT,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.blue,
+                textColor: Colors.white,
+                fontSize: 11.sp);
+            supplierdetailap();
           } else {}
         });
       } else {

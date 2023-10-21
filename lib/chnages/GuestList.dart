@@ -702,11 +702,15 @@ class _GuestListState extends State<GuestList> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey.shade100,
           child: Stack(
             children: [
               SingleChildScrollView(
                 child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.grey.shade100,
+                  ),
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
@@ -775,7 +779,7 @@ class _GuestListState extends State<GuestList> {
                                         borderSide: BorderSide.none,
                                       ),
                                       filled: true,
-                                      fillColor: Colors.grey.withOpacity(0.12),
+                                      fillColor: Colors.white,
                                       hintText: 'Guest Name',
                                       hintStyle: TextStyle(
                                           color: Colors.black.withOpacity(0.67),
@@ -823,7 +827,7 @@ class _GuestListState extends State<GuestList> {
                                         borderSide: BorderSide.none,
                                       ),
                                       filled: true,
-                                      fillColor: Colors.grey.withOpacity(0.12),
+                                      fillColor: Colors.white,
                                       hintText: 'Guest Phone',
                                       hintStyle: TextStyle(
                                           color: Colors.black.withOpacity(0.67),
@@ -871,7 +875,7 @@ class _GuestListState extends State<GuestList> {
                                         borderSide: BorderSide.none,
                                       ),
                                       filled: true,
-                                      fillColor: Colors.grey.withOpacity(0.12),
+                                      fillColor: Colors.white,
                                       hintText: 'Guest Email',
                                       hintStyle: TextStyle(
                                           color: Colors.black.withOpacity(0.67),
@@ -919,7 +923,7 @@ class _GuestListState extends State<GuestList> {
                                         borderSide: BorderSide.none,
                                       ),
                                       filled: true,
-                                      fillColor: Colors.grey.withOpacity(0.12),
+                                      fillColor: Colors.white,
                                       hintText: 'Relation',
                                       hintStyle: TextStyle(
                                           color: Colors.black.withOpacity(0.67),
@@ -942,7 +946,7 @@ class _GuestListState extends State<GuestList> {
                                         decoration: BoxDecoration(
                                             color: Colors.blue,
                                             borderRadius:
-                                                BorderRadius.circular(10)),
+                                                BorderRadius.circular(25)),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,

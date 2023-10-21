@@ -11,6 +11,7 @@ import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
@@ -199,6 +200,7 @@ class _myfavouriteState extends State<myfavourite> {
     return commanScreen(
       isLoading: isLoading,
       scaffold: Scaffold(
+        drawer: drawer1(),
         backgroundColor: Colors.grey.shade100,
         key: scaffoldKey,
         extendBody: true,

@@ -335,7 +335,7 @@ class _QuoateList2State extends State<QuoateList2> {
                                                               .spaceBetween,
                                                       children: [
                                                         SizedBox(
-                                                          width: 52.w,
+                                                          width: 65.w,
                                                           child: Column(
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
@@ -394,32 +394,6 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                 ),
                                                               ),
                                                             ],
-                                                          ),
-                                                        ),
-                                                        InkWell(
-                                                          onTap: () {
-                                                            print('right');
-                                                            Get.to(
-                                                                quotedetailpage());
-                                                          },
-                                                          child: Container(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    2.w),
-                                                            decoration: BoxDecoration(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            7),
-                                                                color: Colors
-                                                                    .blue),
-                                                            child: Icon(
-                                                              CupertinoIcons
-                                                                  .arrow_right,
-                                                              color:
-                                                                  Colors.white,
-                                                              size: 18.sp,
-                                                            ),
                                                           ),
                                                         ),
                                                       ],
@@ -643,7 +617,13 @@ class _QuoateList2State extends State<QuoateList2> {
                                                           onTap: () {
                                                             print('right');
                                                             Get.to(
-                                                                quotedetailpage());
+                                                                quotedetailpage(
+                                                              Qid: quotelistmodal
+                                                                  ?.all
+                                                                  ?.responsed?[
+                                                                      index]
+                                                                  .quotationId,
+                                                            ));
                                                           },
                                                           child: Container(
                                                             padding:

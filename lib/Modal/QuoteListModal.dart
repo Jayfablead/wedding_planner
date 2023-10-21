@@ -61,6 +61,7 @@ class Responsed {
   String? name;
   String? categoryName;
   String? description;
+  String? quotationId;
   bool? response;
   String? createdAt;
 
@@ -70,6 +71,7 @@ class Responsed {
       this.name,
       this.categoryName,
       this.description,
+      this.quotationId,
       this.response,
       this.createdAt});
 
@@ -79,6 +81,7 @@ class Responsed {
     name = json['name'];
     categoryName = json['category_name'];
     description = json['description'];
+    quotationId = json['quotationId'];
     response = json['response'];
     createdAt = json['created_at'];
   }
@@ -90,6 +93,7 @@ class Responsed {
     data['name'] = this.name;
     data['category_name'] = this.categoryName;
     data['description'] = this.description;
+    data['quotationId'] = this.quotationId;
     data['response'] = this.response;
     data['created_at'] = this.createdAt;
     return data;
@@ -98,10 +102,11 @@ class Responsed {
 
 class Requested {
   String? id;
-  Null? profile;
+  String? profile;
   String? name;
   String? categoryName;
   String? description;
+  String? quotationId;
   bool? response;
   String? createdAt;
 
@@ -111,6 +116,7 @@ class Requested {
       this.name,
       this.categoryName,
       this.description,
+      this.quotationId,
       this.response,
       this.createdAt});
 
@@ -120,6 +126,7 @@ class Requested {
     name = json['name'];
     categoryName = json['category_name'];
     description = json['description'];
+    quotationId = json['quotationId'];
     response = json['response'];
     createdAt = json['created_at'];
   }
@@ -131,6 +138,7 @@ class Requested {
     data['name'] = this.name;
     data['category_name'] = this.categoryName;
     data['description'] = this.description;
+    data['quotationId'] = this.quotationId;
     data['response'] = this.response;
     data['created_at'] = this.createdAt;
     return data;

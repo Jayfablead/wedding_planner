@@ -339,6 +339,36 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
+  Future<http.Response> QuoteDetailsApi(String Qid) async {
+    String? url = '$baseUrl/quotationDetails/${Qid}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    return responseJson;
+  }
+
+  Future<http.Response> QuoteAcceptApi(String Qid) async {
+    String? url = '$baseUrl/acceptQuotation/${Qid}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    return responseJson;
+  }
+
   Future<http.Response> categoryapi() async {
     String? url = '$baseUrl/allServices';
     print(url);

@@ -33,6 +33,7 @@ class SupplierInfo {
   String? address;
   String? description;
   Services? services;
+  String? inBudget;
   String? isRequested;
 
   SupplierInfo(
@@ -44,6 +45,7 @@ class SupplierInfo {
       this.address,
       this.description,
       this.services,
+      this.inBudget,
       this.isRequested});
 
   SupplierInfo.fromJson(Map<String, dynamic> json) {
@@ -57,6 +59,7 @@ class SupplierInfo {
     services = json['services'] != null
         ? new Services.fromJson(json['services'])
         : null;
+    inBudget = json['in_budget'];
     isRequested = json['is_requested'];
   }
 
@@ -72,6 +75,7 @@ class SupplierInfo {
     if (this.services != null) {
       data['services'] = this.services!.toJson();
     }
+    data['in_budget'] = this.inBudget;
     data['is_requested'] = this.isRequested;
     return data;
   }

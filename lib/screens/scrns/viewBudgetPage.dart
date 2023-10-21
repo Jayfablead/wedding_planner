@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/MybudgetModal.dart';
 import 'package:wedding_planner/Modal/RemovefrombudgetModal.dart';
 import 'package:wedding_planner/Modal/SetbudgetModal.dart';
@@ -18,7 +17,6 @@ import 'package:wedding_planner/widgets/load.dart';
 
 import '../../widgets/const.dart';
 import '../../widgets/drawer.dart';
-import '../pages2/quoatelist2.dart';
 
 class ViewBudget extends StatefulWidget {
   const ViewBudget({super.key});

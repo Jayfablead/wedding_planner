@@ -118,8 +118,8 @@ class _Msg2State extends State<Msg2> {
                                                     CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
-                                          'assets/icons/user.png',
-                                          color: Colors.white,
+                                          'assets/user.png',
+                                          color: Colors.black,
                                         ),
                                       ),
                                     ),
