@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:image_picker/image_picker.dart';
@@ -391,7 +392,37 @@ class _PostPageState extends State<PostPage> {
     );
   }
 
+  // addpostapi() {
+  //   final Map<String, String> data = {};
+  //   data['category_id'] = categoriesmodal?.services?[sel1].categoryId ?? '';
+  //   print(data);
+  //   checkInternet().then((internet) async {
+  //     if (internet) {
+  //       taskprovider().addpostapi(data, selectedImages).then((response) async {
+  //         addpostmodal = AddpostModal.fromJson(json.decode(response.body));
+  //         if (response.statusCode == 200 && addpostmodal?.status == "1") {
+  //           print('potli added');
+  //           ViewBoardApi();
+  //           setState(() {
+  //             isLoad = false;
+  //           });
+  //         } else {
+  //           setState(() {
+  //             isLoad = false;
+  //           });
+  //         }
+  //       });
+  //     } else {
+  //       setState(() {
+  //         isLoad = false;
+  //       });
+  //       buildErrorDialog(context, 'Error', "Internet Required");
+  //     }
+  //   });
+  // }
+
   addpostapi() {
+    EasyLoading.show(status: 'Posting');
     final Map<String, String> data = {};
     data['category_id'] = categoriesmodal?.services?[sel1].categoryId ?? '';
     print(data);
@@ -400,8 +431,9 @@ class _PostPageState extends State<PostPage> {
         taskprovider().addpostapi(data, selectedImages).then((response) async {
           addpostmodal = AddpostModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && addpostmodal?.status == "1") {
-            print('potli added');
+            EasyLoading.showSuccess('Posted');
             ViewBoardApi();
+
             setState(() {
               isLoad = false;
             });

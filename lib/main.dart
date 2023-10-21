@@ -7,9 +7,11 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/SplashScreen.dart';
+import 'package:wedding_planner/widgets/load.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  configLoading();
   runApp(const MyApp());
 }
 
