@@ -101,40 +101,6 @@ class _CertificateState extends State<Certificate> {
                   SizedBox(
                     height: 5.h,
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     IconButton(
-                  //         onPressed: () {
-                  //           Get.back();
-                  //         },
-                  //         icon: Icon(
-                  //           Icons.arrow_back_ios_new_rounded,
-                  //           size: 23.sp,
-                  //           color: Colors.blue,
-                  //         )),
-                  //     Text(
-                  //       "Certificates",
-                  //       style: TextStyle(
-                  //         fontSize: 18.sp,
-                  //         fontFamily: 'sofi',
-                  //         letterSpacing: 1,
-                  //         color: Colors.blue,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     ),
-                  //     IconButton(
-                  //         onPressed: () {
-                  //           scaffoldKey.currentState?.openDrawer();
-                  //         },
-                  //         icon: Icon(
-                  //           Icons.menu_rounded,
-                  //           color: Colors.blue,
-                  //           size: 23.sp,
-                  //         ))
-                  //   ],
-                  // ),
                   header(
                       text: "Certificates",
                       callback1: () {
@@ -143,18 +109,9 @@ class _CertificateState extends State<Certificate> {
                   // headerwid(text: "Certificates"),
                   SizedBox(height: 1.h),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       searchBox1(),
-                      Container(
-                          padding: EdgeInsets.all(2.8.w),
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(11)),
-                          child: Icon(
-                            CupertinoIcons.sort_up_circle,
-                            color: Colors.white,
-                          )),
                     ],
                   ),
                   SizedBox(height: 2.h),
@@ -289,7 +246,7 @@ class _CertificateState extends State<Certificate> {
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
-      width: 80.w,
+      width: 85.w,
       height: 6.5.h,
       padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(

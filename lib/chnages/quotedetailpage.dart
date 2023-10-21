@@ -258,7 +258,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  ),
+                                                  color: Colors.blue),
                                               borderRadius:
                                                   BorderRadius.circular(25.sp),
                                             ),
@@ -291,7 +291,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                             height: 5.5.h,
                                             width: 40.w,
                                             decoration: BoxDecoration(
-
+                                              color: Colors.blue,
                                               border: Border.all(
                                                   color: Colors.blue),
                                               borderRadius:
@@ -324,7 +324,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                       width: 42.w,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        border: Border.all(color: Colors.blue),
+
                                         borderRadius:
                                             BorderRadius.circular(25.sp),
                                       ),
