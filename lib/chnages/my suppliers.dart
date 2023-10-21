@@ -234,7 +234,15 @@ class _MySuppliersState extends State<MySuppliers> {
                                 Center(
                                   child: InkWell(
                                     onTap: () {
-                                      Get.to(SupplierfourScreen());
+                                      Get.to(SupplierfourScreen(suppid: homemodal
+                                          ?.suppliers?[index]
+                                          .id,
+                                        catid: homemodal
+                                            ?.suppliers?[index]
+                                            .categoryId,
+                                        service: homemodal
+                                            ?.suppliers?[index]
+                                            .service,));
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
