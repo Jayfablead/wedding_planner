@@ -706,6 +706,7 @@ class _EditProfile2State extends State<EditProfile2> {
             updateprofile =
                 UpdateprofileModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && updateprofile?.status == "1") {
+              print(updateprofile?.userDetails?.toString());
               buildErrorDialog1(
                 context,
                 "Success",

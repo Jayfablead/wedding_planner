@@ -64,13 +64,11 @@ class authprovider with ChangeNotifier {
     try {
       final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));
       imageUploadRequest.headers.addAll(headers);
-      if (bodyData['profile_image']?.isNotEmpty ?? false) {
+      if (bodyData['profile_img']?.isNotEmpty ?? false) {
         final file = await http.MultipartFile.fromPath(
-          'profile_image',
-          bodyData['profile_image'] ?? '',
-          contentType: bodyData['type'] == "image"
-              ? MediaType('image', 'jpg,png')
-              : MediaType('video', 'mp4'),
+          'profile_img',
+          bodyData['profile_img'] ?? '',
+          contentType: MediaType('image', 'jpg,png'),
         );
         imageUploadRequest.files.add(file);
       }
