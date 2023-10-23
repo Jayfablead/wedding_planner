@@ -42,7 +42,7 @@ class _Msg2State extends State<Msg2> {
   String? date2 = "";
   String? data1;
   int? diff;
-
+  int? type;
   @override
   void initState() {
     // TODO: implement initState
@@ -346,7 +346,7 @@ class _Msg2State extends State<Msg2> {
                                                                             fit:
                                                                                 BoxFit.cover,
                                                                             imageUrl:
-                                                                                fullchatmodal?.data?.chatUser?.profile ?? "",
+                                                                               userData?.user?.profilePath ?? '',
                                                                             progressIndicatorBuilder: (context, url, progress) =>
                                                                                 CircularProgressIndicator(),
                                                                             errorWidget: (context, url, error) =>
@@ -508,8 +508,7 @@ class _Msg2State extends State<Msg2> {
                                                                                 CircularProgressIndicator(),
                                                                             errorWidget: (context, url, error) =>
                                                                                 Image.asset(
-                                                                              'assets/user.png',
-                                                                              color: Colors.white,
+                                                                                    'assets/defimg.jpg',
                                                                             ),
                                                                           ),
                                                                         ),
@@ -581,8 +580,7 @@ class _Msg2State extends State<Msg2> {
                                                                                     imageUrl: fullchatmodal?.data?.livechat?[index].message ?? '',
                                                                                     progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(),
                                                                                     errorWidget: (context, url, error) => Image.asset(
-                                                                                      'assets/icons/user.png',
-                                                                                      color: Colors.white,
+                                                                                      'assets/defimg.jpg',
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -731,6 +729,9 @@ class _Msg2State extends State<Msg2> {
                           ),
                           InkWell(
                               onTap: () {
+                                setState(() {
+                                  type=1;
+                                });
                                 sendmessageap();
                               },
                               child: Container(
@@ -759,6 +760,7 @@ class _Msg2State extends State<Msg2> {
     final Map<String, String> data = {};
     data['textMsg'] = _msg.text.trim().toString();
     data['file'] = _msg.text == "" ? _pickedFile!.path : "";
+    data['mType'] =type.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -832,6 +834,7 @@ class _Msg2State extends State<Msg2> {
                                   final XFile? photo = await _picker.pickVideo(
                                       source: ImageSource.gallery);
                                   setState(() {
+                                    type=3;
                                     _pickedFile = File(photo!.path);
                                     print("video daat");
                                     print(_pickedFile);
@@ -873,7 +876,7 @@ class _Msg2State extends State<Msg2> {
                                       source: ImageSource.gallery);
                                   setState(() {
                                     _pickedFile = File(photo!.path);
-
+                                    type=2;
                                     print(_pickedFile);
                                   });
                                   sendmessageap();
@@ -919,9 +922,11 @@ class _Msg2State extends State<Msg2> {
 
                                   if (result != null) {
                                     setState(() {
+                                      type=4;
                                       _pickedFile = File(
                                           result.files.single.path.toString());
                                       sendmessageap();
+
                                     });
                                   } else {
                                     // User canceled the picker

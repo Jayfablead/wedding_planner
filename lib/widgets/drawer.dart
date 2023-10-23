@@ -8,7 +8,7 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/View%20Table.dart';
-import 'package:wedding_planner/chnages/my%20suppliers.dart';
+
 import 'package:wedding_planner/chnages/myQuoteReqs.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
@@ -19,6 +19,7 @@ import 'package:wedding_planner/new%20pages/view%20all%20bookings.dart';
 import 'package:wedding_planner/screens/LoginPage.dart';
 import 'package:wedding_planner/screens/changePassword.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
+import 'package:wedding_planner/screens/other%20Pages/Venue%20Details%20Page.dart';
 import 'package:wedding_planner/screens/other%20Pages/guestroomManagement.dart';
 import 'package:wedding_planner/screens/pages2/fbpage.dart';
 import 'package:wedding_planner/screens/pages2/quoatelist2.dart';
@@ -29,6 +30,9 @@ import 'package:wedding_planner/screens/scrns/viewBudgetPage.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
+
+import '../chnages/all suppliers.dart';
+import '../chnages/mysplirs.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -550,48 +554,48 @@ class _drawer1State extends State<drawer1> {
                       ),
                     )),
                 SizedBox(height: 2.h),
-                InkWell(
-                    onTap: () async {
-                      Get.back();
-                      Get.to(GuestList());
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 63.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.people_alt_outlined,
-                                      color: Colors.white,
-                                      size: 22.sp,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Guests List",
-                                        style: TextStyle(
-                                          fontSize: 17.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'sofi',
-                                          color: Colors.white,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                SizedBox(height: 2.h),
+                // InkWell(
+                //     onTap: () async {
+                //       Get.back();
+                //       Get.to(GuestList());
+                //     },
+                //     child: Container(
+                //       child: Row(
+                //         children: [
+                //           SizedBox(
+                //             width: 6.w,
+                //           ),
+                //           Container(
+                //             width: 63.w,
+                //             child: Row(
+                //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //               children: [
+                //                 Row(
+                //                   children: [
+                //                     Icon(
+                //                       Icons.people_alt_outlined,
+                //                       color: Colors.white,
+                //                       size: 22.sp,
+                //                     ),
+                //                     SizedBox(
+                //                       width: 2.w,
+                //                     ),
+                //                     Text("Guests List",
+                //                         style: TextStyle(
+                //                           fontSize: 17.sp,
+                //                           fontWeight: FontWeight.bold,
+                //                           fontFamily: 'sofi',
+                //                           color: Colors.white,
+                //                         )),
+                //                   ],
+                //                 ),
+                //               ],
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     )),
+                // SizedBox(height: 2.h),
                 Stack(
                   children: [
                     InkWell(
@@ -769,7 +773,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(Certificate());
+                Get.to(VenueView());
               },
               child: Container(
                 alignment: Alignment.center,
@@ -782,7 +786,7 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.contrast,
+                      Icons.location_on,
                       size: 25.sp,
                       color: Colors.green,
                     ),
@@ -791,7 +795,7 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "Contracts",
+                      "My venue",
                       style: TextStyle(
                         fontSize: 8.sp,
                         fontFamily: 'sofi',
@@ -937,7 +941,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(QuoateList2());
+                Get.to(GuestList());
               },
               child: Container(
                 height: 24.w,
@@ -949,16 +953,16 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.request_page,
+                      Icons.people_alt_outlined,
                       size: 25.sp,
-                      color: Colors.blue,
+                      color: Colors.pink,
                     ),
                     // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
                     SizedBox(
                       height: 0.5.h,
                     ),
                     Text(
-                      "Quote Request",
+                      "Guest List",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 8.sp,
@@ -1206,8 +1210,49 @@ class _drawer1State extends State<drawer1> {
       child: Stack(
         children: [
           Positioned(
-            top: 10.w,
-            left: 36.w,
+            top: 11.w,
+            left: 19.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(Certificate());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.contrast,
+                      size: 25.sp,
+                      color: Colors.green,
+                    ),
+                    // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Contracts",
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 11.w,
+            right: 19.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -1217,8 +1262,8 @@ class _drawer1State extends State<drawer1> {
               },
               child: Container(
                 alignment: Alignment.center,
-                height: 28.w,
-                width: 28.w,
+                height: 24.w,
+                width: 24.w,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
@@ -1228,7 +1273,7 @@ class _drawer1State extends State<drawer1> {
                     Icon(
                       Icons.person,
                       size: 25.sp,
-                      color: Colors.green,
+                      color: Colors.red,
                     ),
                     // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
                     SizedBox(
@@ -1249,8 +1294,8 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            bottom: 17.w,
-            right: 17.w,
+            top: 29.w,
+            left: 36.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -1291,17 +1336,17 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            bottom: 17.w,
-            left: 17.w,
+            bottom: 11.w,
+            left: 19.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(MyQuoateReq());
+                Get.to(BookingListPage());
               },
               child: Container(
                 alignment: Alignment.center,
-                height: 28.w,
-                width: 28.w,
+                height: 24.w,
+                width: 24.w,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
@@ -1309,19 +1354,18 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.monetization_on_outlined,
+                      Icons.bookmark_outline,
                       size: 25.sp,
-                      color: Colors.orange,
+                      color: Colors.blue,
                     ),
-                    // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
+                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
                     SizedBox(
                       height: 0.5.h,
                     ),
                     Text(
-                      "My Quotes",
-                      textAlign: TextAlign.center,
+                      "Booking Detail",
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 8.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -1332,15 +1376,191 @@ class _drawer1State extends State<drawer1> {
               ),
             ),
           ),
+          Positioned(
+            bottom: 11.w,
+            right: 19.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(
+                  MySups(
+                    sele: -3,
+                  ),
+                );
+              },
+              child: Container(
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.person_outline,
+                      size: 25.sp,
+                      color: Colors.blue,
+                    ),
+                    // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "My Supplier",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
+      // Stack(
+      //   children: [
+      //     Positioned(
+      //       top: 10.w,
+      //       left: 36.w,
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Get.back();
+      //           Get.to(MySuppliers(
+      //             sele: 4,
+      //           ));
+      //         },
+      //         child: Container(
+      //           alignment: Alignment.center,
+      //           height: 28.w,
+      //           width: 28.w,
+      //           decoration:
+      //               BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      //           child: Column(
+      //             crossAxisAlignment: CrossAxisAlignment.center,
+      //             mainAxisAlignment: MainAxisAlignment.center,
+      //             children: [
+      //               Icon(
+      //                 Icons.person,
+      //                 size: 25.sp,
+      //                 color: Colors.green,
+      //               ),
+      //               // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
+      //               SizedBox(
+      //                 height: 0.5.h,
+      //               ),
+      //               Text(
+      //                 "All Suppliers",
+      //                 style: TextStyle(
+      //                   fontSize: 10.sp,
+      //                   fontFamily: 'sofi',
+      //                   letterSpacing: 1,
+      //                   fontWeight: FontWeight.bold,
+      //                 ),
+      //               ),
+      //             ],
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //     Positioned(
+      //       bottom: 17.w,
+      //       right: 17.w,
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Get.back();
+      //           Get.to(QuoateList2());
+      //         },
+      //         child: Container(
+      //           alignment: Alignment.center,
+      //           height: 28.w,
+      //           width: 28.w,
+      //           decoration:
+      //               BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      //           child: Column(
+      //             crossAxisAlignment: CrossAxisAlignment.center,
+      //             mainAxisAlignment: MainAxisAlignment.center,
+      //             children: [
+      //               Icon(
+      //                 Icons.support_agent,
+      //                 size: 25.sp,
+      //                 color: Colors.red,
+      //               ),
+      //               // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+      //               SizedBox(
+      //                 height: 0.5.h,
+      //               ),
+      //               Text(
+      //                 "New Supplier Quotes",
+      //                 textAlign: TextAlign.center,
+      //                 style: TextStyle(
+      //                   fontSize: 10.sp,
+      //                   fontFamily: 'sofi',
+      //                   letterSpacing: 1,
+      //                   fontWeight: FontWeight.bold,
+      //                 ),
+      //               ),
+      //             ],
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //     Positioned(
+      //       bottom: 17.w,
+      //       left: 17.w,
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Get.back();
+      //           Get.to(MyQuoateReq());
+      //         },
+      //         child: Container(
+      //           alignment: Alignment.center,
+      //           height: 28.w,
+      //           width: 28.w,
+      //           decoration:
+      //               BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+      //           child: Column(
+      //             crossAxisAlignment: CrossAxisAlignment.center,
+      //             mainAxisAlignment: MainAxisAlignment.center,
+      //             children: [
+      //               Icon(
+      //                 Icons.monetization_on_outlined,
+      //                 size: 25.sp,
+      //                 color: Colors.orange,
+      //               ),
+      //               // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
+      //               SizedBox(
+      //                 height: 0.5.h,
+      //               ),
+      //               Text(
+      //                 "My Quotes",
+      //                 textAlign: TextAlign.center,
+      //                 style: TextStyle(
+      //                   fontSize: 10.sp,
+      //                   fontFamily: 'sofi',
+      //                   letterSpacing: 1,
+      //                   fontWeight: FontWeight.bold,
+      //                 ),
+      //               ),
+      //             ],
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 
   unreadnotiap() {
     checkInternet().then((internet) async {
       if (internet) {
-        taskprovider().unreadmsgapi().then((response) async {
+        taskprovider().unreadnotiapi().then((response) async {
           unreadnotimodal =
               UnreadnotiModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && unreadnotimodal?.status == "1") {
@@ -1360,6 +1580,28 @@ class _drawer1State extends State<drawer1> {
     });
   }
 }
+// unreadnotiap() {
+//   checkInternet().then((internet) async {
+//     if (internet) {
+//       taskprovider().unreadmsgapi().then((response) async {
+//         unreadnotimodal =
+//             UnreadnotiModal.fromJson(json.decode(response.body));
+//         if (response.statusCode == 200 && unreadnotimodal?.status == "1") {
+//           print(unreadnotimodal?.unreadNoti);
+//           setState(() {
+//             isLoading = false;
+//           });
+//         } else {
+//           setState(() {
+//             isLoading = false;
+//           });
+//         }
+//       });
+//     } else {
+//       buildErrorDialog(context, 'Error', "Internet Required");
+//     }
+//   });
+// }
 
 //--=*=*=*=*=*=*=*=*=*=*=*   OLD DRAWER  *=*=*=*=*=*=*=*=*=*=*=--
 

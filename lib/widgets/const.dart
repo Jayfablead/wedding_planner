@@ -38,6 +38,7 @@ import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
 import '../Modal/SupplierdetailModal.dart';
+import '../Modal/mySupplierModal.dart';
 
 Future<bool> checkInternet() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -87,6 +88,9 @@ QouteDetailsModal? quotedetailsmodal;
 QouteAcceptModal? qouteacceptmodal;
 MeetingModal? meetingmodal;
 DocumentModal? documentmodal;
+MySuppliersModal? mysupps;
+
+
 
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

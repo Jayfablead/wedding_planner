@@ -34,11 +34,11 @@ class VenueDetails {
 
   VenueDetails(
       {this.id,
-      this.name,
-      this.email,
-      this.contact,
-      this.profile,
-      this.moreInfo});
+        this.name,
+        this.email,
+        this.contact,
+        this.profile,
+        this.moreInfo});
 
   VenueDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -68,6 +68,7 @@ class VenueDetails {
 class MoreInfo {
   String? id;
   String? uid;
+  String? vName;
   String? address;
   List<String>? photos;
   String? vCapacity;
@@ -76,16 +77,18 @@ class MoreInfo {
 
   MoreInfo(
       {this.id,
-      this.uid,
-      this.address,
-      this.photos,
-      this.vCapacity,
-      this.vDetails,
-      this.createdAt});
+        this.uid,
+        this.vName,
+        this.address,
+        this.photos,
+        this.vCapacity,
+        this.vDetails,
+        this.createdAt});
 
   MoreInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uid = json['uid'];
+    vName = json['v_name'];
     address = json['address'];
     photos = json['photos'].cast<String>();
     vCapacity = json['v_capacity'];
@@ -97,6 +100,7 @@ class MoreInfo {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['uid'] = this.uid;
+    data['v_name'] = this.vName;
     data['address'] = this.address;
     data['photos'] = this.photos;
     data['v_capacity'] = this.vCapacity;

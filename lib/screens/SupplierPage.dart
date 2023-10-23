@@ -57,30 +57,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 5.h),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           Get.back();
-                      //         },
-                      //         icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                      //     Text(
-                      //       "Supplier",
-                      //       style: TextStyle(
-                      //         fontSize: 15.sp,
-                      //         fontFamily: 'sofi',
-                      //         letterSpacing: 1,
-                      //         fontWeight: FontWeight.bold,
-                      //       ),
-                      //     ),
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           scaffoldKey.currentState?.openDrawer();
-                      //         },
-                      //         icon: Icon(Icons.menu_rounded))
-                      //   ],
-                      // ),
+
                       header(
                           text: "Supplier",
                           callback1: () {
@@ -138,8 +115,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                     Center(child: CircularProgressIndicator()),
                                 errorWidget: (context, url, error) =>
                                     Image.asset(
-                                  'assets/icons/user.png',
-                                  color: Colors.white,
+                                  'assets/user.png',
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
@@ -172,7 +149,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               placeholder: (context, url) =>
                                   Center(child: CircularProgressIndicator()),
                               errorWidget: (context, url, error) =>
-                                  Icon(Icons.error),
+                                  Image.asset('assets/defimg.jpg'),
                             ),
                           ),
                           SizedBox(

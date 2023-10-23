@@ -193,7 +193,16 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                 fontSize: 18.sp,
                                                 fontFamily: 'sofi',
                                                 letterSpacing: 1,
-                                                color: Colors.blue,
+                                                color: int.parse((mybudgetmodal
+                                                                ?.budgetInfo
+                                                                ?.budget)
+                                                            .toString()) <
+                                                        int.parse((mybudgetmodal
+                                                                ?.budgetInfo
+                                                                ?.finalCost)
+                                                            .toString())
+                                                    ? Colors.red
+                                                    : Colors.blue,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -205,42 +214,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                 ),
                               ),
                             ),
-                            // SizedBox(
-                            //   height: 2.h,
-                            // ),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.center,
-                            //   crossAxisAlignment: CrossAxisAlignment.center,
-                            //   children: [
-                            //     InkWell(
-                            //       onTap: (){
-                            //        setbudget();
-                            //       },
-                            //       child: Container(
-                            //         padding: EdgeInsets.all(2.w),
-                            //         decoration: BoxDecoration(
-                            //             color: Colors.blue,
-                            //             borderRadius: BorderRadius.circular(25)),
-                            //         child: Row(
-                            //           crossAxisAlignment: CrossAxisAlignment.center,
-                            //           children: [
-                            //             Icon(Icons.add, size: 19.sp, color: Colors.white),
-                            //             SizedBox(width: 1.5.w),
-                            //             Text(
-                            //               'Add Items ',
-                            //               style: TextStyle(
-                            //                   fontSize: 15.sp,
-                            //                   color: Colors.white,
-                            //                   fontFamily: 'sofi',
-                            //                   letterSpacing: 1,
-                            //                   fontWeight: FontWeight.bold),
-                            //             ),
-                            //           ],
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
+
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
@@ -522,7 +496,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                   ),
 
                             SizedBox(
-                              height: 2.h,
+                              height: 12.h,
                             )
                           ],
                         ),

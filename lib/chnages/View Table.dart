@@ -164,9 +164,14 @@ class _ViewTablesState extends State<ViewTables> {
                               open = index;
                             });
                           },
-                          child: Icon(Icons.arrow_drop_down_circle_outlined,
+                          child: Icon(
+                              open == index
+                                  ? Icons.arrow_circle_up_rounded
+                                  : Icons.arrow_circle_down_rounded,
                               color:
-                                  open == index ? Colors.white : Colors.blue),
+                                  open == index
+                                  ? Colors.white
+                                  : Colors.blue),
                         )
                       ],
                     ),

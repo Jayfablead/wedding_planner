@@ -106,27 +106,6 @@ class _ChatlistPageState extends State<ChatlistPage> {
                         SizedBox(
                           height: 4.h,
                         ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   children: [
-                        //     IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
-                        //     Text(
-                        //       "",
-                        //       style: TextStyle(
-                        //         fontSize: 15.sp,
-                        //         fontWeight: FontWeight.bold,
-                        //       ),
-                        //     ),
-                        //
-                        //     IconButton(
-                        //         onPressed: () {
-                        //           // Scaffold.of(context).openDrawer();
-                        //           openDrawer();
-                        //         },
-                        //         icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp))
-                        //   ],
-                        // ),
-                        // headerwid(text: ""),
                         header(
                             text: "",
                             callback1: () {
@@ -394,7 +373,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                   CircularProgressIndicator(),
                                           errorWidget: (context, url, error) =>
                                               Image.asset(
-                                            'assets/icons/user.png',
+                                            'assets/user.png',
                                             color: Colors.white,
                                           ),
                                         ),

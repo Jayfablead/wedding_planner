@@ -9,6 +9,9 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/SplashScreen.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
+import 'chnages/BookNowDetails.dart';
+import 'chnages/BookingSuccessfulPage.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configLoading();
@@ -40,7 +43,7 @@ class MyApp extends StatelessWidget {
         builder: (context, orientation, deviceType) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: SplashLogo(),
+            home: BookingSuccessfulPage(),
             builder: EasyLoading.init(),
             theme: ThemeData(
               primarySwatch: Colors.blue,

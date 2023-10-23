@@ -181,7 +181,7 @@ class _MyQuoateReqState extends State<MyQuoateReq> {
                                           CircularProgressIndicator(),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                    'assets/icons/user.png',
+                                    'assets/user.png',
                                     color: Colors.white,
                                   ),
                                 ),

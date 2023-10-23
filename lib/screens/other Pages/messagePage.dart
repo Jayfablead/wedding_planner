@@ -70,7 +70,7 @@ class _MessagePageState extends State<MessagePage> {
                                         CircularProgressIndicator(),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                          'assets/icons/user.png',
+                                          'assets/user.png',
                                           color: Colors.white,
                                         ),
                                   ),

@@ -203,6 +203,19 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> Mysups() async {
+    String? url = '$baseUrl/mySuppliers/${userData?.user?.id.toString()}';
+
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 
   Future<http.Response> unreadnotiapi() async {
     String? url = '$baseUrl/unreadNoti/${userData?.user?.id.toString()}';
