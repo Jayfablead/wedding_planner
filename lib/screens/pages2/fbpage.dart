@@ -225,13 +225,14 @@ class _PostPageState extends State<PostPage> {
                                 resultList =
                                     await ImagePicker().pickMultiImage();
                                 if (resultList != null) {
-                                  setState(() {
+                                  setState(() {   EasyLoading.show(status: 'Posting');
                                     selectedImages = resultList!
                                         .map((XFile file) => File(file.path))
                                         .toList();
                                   });
                                 }
                                 addpostapi();
+
                               },
                               child: Container(
                                 decoration: BoxDecoration(
@@ -422,7 +423,7 @@ class _PostPageState extends State<PostPage> {
   // }
 
   addpostapi() {
-    EasyLoading.show(status: 'Posting');
+
     final Map<String, String> data = {};
     data['category_id'] = categoriesmodal?.services?[sel1].categoryId ?? '';
     print(data);
