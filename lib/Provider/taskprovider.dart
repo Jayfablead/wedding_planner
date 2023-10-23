@@ -414,6 +414,25 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
+  Future<http.Response> documentapi() async {
+    String? url = '$baseUrl/myDocuments/${userData?.user?.id}';
+    print(url);
+    // String? url="https://wedding.fableadtechnolabs.com/wedding/portal/api/myMeetings/17?date=25/10/2023";
+
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers, )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    return responseJson;
+  }
+
   Future<http.Response> Viewboardsapi(String catid) async {
     String? url = '$baseUrl/myboards/${userData?.user?.id.toString()}/$catid';
     print(url);

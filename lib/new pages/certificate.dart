@@ -1,7 +1,17 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/DocumentModal.dart';
+import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
@@ -21,11 +31,11 @@ class cate {
   String? desc;
 
   cate(
-    this.image,
-    this.name,
-    this.desc,
-    this.Rating,
-  );
+      this.image,
+      this.name,
+      this.desc,
+      this.Rating,
+      );
 }
 
 List<cate> venue = [
@@ -83,6 +93,14 @@ List<cate> venue = [
 TextEditingController _search = TextEditingController();
 
 class _CertificateState extends State<Certificate> {
+  static var httpClient = new HttpClient();
+  bool isLoading=true;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    certificateapi();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,163 +108,193 @@ class _CertificateState extends State<Certificate> {
       drawer: drawer1(),
       key: scaffoldKey,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: CustomScrollView(slivers: [
-          SliverToBoxAdapter(
-              child: Container(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  header(
-                      text: "Certificates",
-                      callback1: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      }),
-                  // headerwid(text: "Certificates"),
-                  SizedBox(height: 1.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      searchBox1(),
-                    ],
-                  ),
-                  SizedBox(height: 2.h),
-                ]),
-          )),
-          SliverList.builder(
-            itemBuilder: (context, index) {
-              return Container(
-                  height: 19.h,
-                  padding: EdgeInsets.all(1.w),
-                  margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                  child: Row(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: Column(
+            children: [
+              Container(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 1.w),
-                        height: 14.h,
-                        width: 29.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black38)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            imageUrl: venue[index].image.toString(),
-                            progressIndicatorBuilder:
-                                (context, url, progress) =>
-                                    Center(child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) => Image.asset(
-                              'assets/deprf.png',
-                            ),
-                          ),
-                        ),
+                      SizedBox(
+                        height: 5.h,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   crossAxisAlignment: CrossAxisAlignment.center,
+                      //   children: [
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           Get.back();
+                      //         },
+                      //         icon: Icon(
+                      //           Icons.arrow_back_ios_new_rounded,
+                      //           size: 23.sp,
+                      //           color: Colors.blue,
+                      //         )),
+                      //     Text(
+                      //       "Certificates",
+                      //       style: TextStyle(
+                      //         fontSize: 18.sp,
+                      //         fontFamily: 'sofi',
+                      //         letterSpacing: 1,
+                      //         color: Colors.blue,
+                      //         fontWeight: FontWeight.bold,
+                      //       ),
+                      //     ),
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           scaffoldKey.currentState?.openDrawer();
+                      //         },
+                      //         icon: Icon(
+                      //           Icons.menu_rounded,
+                      //           color: Colors.blue,
+                      //           size: 23.sp,
+                      //         ))
+                      //   ],
+                      // ),
+                      header(
+                          text: "Certificates",
+                          callback1: () {
+                            scaffoldKey.currentState?.openDrawer();
+                          }),
+                      // headerwid(text: "Certificates"),
+                      SizedBox(height: 1.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
-                            width: 54.w,
-                            child: Container(
-                              padding: EdgeInsets.only(left: 1.w),
-                              child: Text(
-                                'Supplier ${index + 1}',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 12.5.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 1.h),
+                          searchBox1(),
                           Container(
-                            padding: EdgeInsets.only(left: 1.w),
-                            width: 55.w,
-                            child: Text(
-                              venue[index].desc.toString(),
-                              maxLines: 2,
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  overflow: TextOverflow.ellipsis,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                          SizedBox(height: 1.h),
-                          InkWell(
-                            onTap: () {},
-                            child: Container(
-                              width: 45.w,
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(vertical: 1.5.h),
-                              margin: EdgeInsets.symmetric(horizontal: 3.w),
+                              padding: EdgeInsets.all(2.8.w),
                               decoration: BoxDecoration(
                                   color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(90)),
-                              child: Text(
-                                'Download',
-                                style: TextStyle(
-                                    fontSize: 11.sp,
-                                    color: Colors.white,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
+                                  borderRadius: BorderRadius.circular(11)),
+                              child: Icon(
+                                CupertinoIcons.sort_up_circle,
+                                color: Colors.white,
+                              )),
                         ],
                       ),
-                    ],
-                  ));
-            },
-            itemCount: venue.length,
-          ),
-        ]),
+                      SizedBox(height: 2.h),
+                    ]),
+              ),
+              Column(
+                children: [
+                  for(int index=0;index<(documentmodal?.data?.allDocandCerti?.length ?? 0 );index++)...[
+                    Container(
+                        height: 19.h,
+                        padding: EdgeInsets.all(1.w),
+                        margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 1.w),
+                              height: 14.h,
+                              width: 29.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.black38)),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl:documentmodal?.data?.allDocandCerti?[index].profile ?? "",
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) =>
+                                      Center(child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) => Image.asset(
+                                    'assets/deprf.png',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 54.w,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 1.w),
+                                    child: Text(
+                                      'Supplier ${index + 1}',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 12.5.sp,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 1.h),
+                                Container(
+                                  padding: EdgeInsets.only(left: 1.w),
+                                  width: 55.w,
+                                  child: Text(
+                                    documentmodal?.data?.allDocandCerti?[index].name ?? "",
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.7),
+                                        overflow: TextOverflow.ellipsis,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                SizedBox(height: 2.h),
+                                InkWell(
+                                  onTap: () async{
+                                    EasyLoading.show(status: null,indicator: CircularProgressIndicator(color: Colors.white,));
+                                    const downloadsFolderPath = '/storage/emulated/0/Download';
+                                    var request = await httpClient.getUrl(Uri.parse(documentmodal?.data?.allDocandCerti?[index].docFile ?? ""));
+                                    var response = await request.close();
+                                    var bytes = await consolidateHttpClientResponseBytes(response);
+                                    Directory dir =await Directory(downloadsFolderPath);
+                                    final String filePath = '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}';
+                                    final File file = File(filePath);
+                                    await file.writeAsBytes(bytes);
+                                    EasyLoading.showSuccess("Downloaded");
+                                    print(file);
+                                  },
+                                  child: Container(
+                                    width: 45.w,
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.symmetric(vertical: 1.5.h),
+                                    margin: EdgeInsets.symmetric(horizontal: 3.w),
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(90)),
+                                    child: Text(
+                                      'Download',
+                                      style: TextStyle(
+                                          fontSize: 11.sp,
+                                          color: Colors.white,
+                                          fontFamily: 'sofi',
+                                          letterSpacing: 1,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ))
+                  ]
+
+                ],
+              )
+
+            ],
+          )
+
+
+
       ),
     );
   }
-
-  Widget searchBox() {
-    return Container(
-      width: 80.w,
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.12),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: TextField(
-        // controller: _search,
-        onChanged: (value) {},
-        style: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.black,
-            size: 20,
-          ),
-          prefixIconConstraints: BoxConstraints(
-            maxHeight: 20,
-            minWidth: 25,
-          ),
-          border: InputBorder.none,
-          hintText: 'Search',
-          hintStyle: TextStyle(color: Colors.black, fontFamily: 'Meta1'),
-        ),
-      ),
-    );
-  }
-
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
-      width: 85.w,
+      width: 80.w,
       height: 6.5.h,
       padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(
@@ -258,7 +306,7 @@ class _CertificateState extends State<Certificate> {
         controller: _search,
         onChanged: (value) {},
         style:
-            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,
@@ -277,4 +325,30 @@ class _CertificateState extends State<Certificate> {
       ),
     );
   }
+  certificateapi(){
+    checkInternet().then((internet) async
+    {
+      if (internet) {
+        taskprovider()
+            .documentapi()
+            .then((response) async {
+          documentmodal = DocumentModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && documentmodal?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          }
+          else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      }
+      else{
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
 }
