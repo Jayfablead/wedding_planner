@@ -243,7 +243,7 @@ class _CertificateState extends State<Certificate> {
                                 SizedBox(height: 2.h),
                                 InkWell(
                                   onTap: () async{
-                                    EasyLoading.show(status: null,indicator: CircularProgressIndicator(color: Colors.white,));
+                                    EasyLoading.show(status: 'Downloading ..',indicator: CircularProgressIndicator(color: Colors.white,));
                                     const downloadsFolderPath = '/storage/emulated/0/Download';
                                     var request = await httpClient.getUrl(Uri.parse(documentmodal?.data?.allDocandCerti?[index].docFile ?? ""));
                                     var response = await request.close();
