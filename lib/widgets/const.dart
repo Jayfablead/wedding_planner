@@ -33,10 +33,13 @@ import 'package:wedding_planner/Modal/removetodoModal.dart';
 import '../Modal/AddpostModal.dart';
 import '../Modal/CategoriesModal.dart';
 import '../Modal/DocumentModal.dart';
+import '../Modal/GuestseatingModal.dart';
 import '../Modal/MeetingModal.dart';
+import '../Modal/MyvenuetableModal.dart';
 import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
+import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/mySupplierModal.dart';
 
@@ -89,7 +92,9 @@ QouteAcceptModal? qouteacceptmodal;
 MeetingModal? meetingmodal;
 DocumentModal? documentmodal;
 MySuppliersModal? mysupps;
-
+SearchCheckListModal? searchchecklist;
+MyvenuetableModal? myvenuetablemodal;
+GuestseatingModal? guestseatingmodal;
 
 
 const String baseUrl =
