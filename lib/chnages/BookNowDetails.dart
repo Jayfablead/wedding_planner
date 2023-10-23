@@ -379,7 +379,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                     height: 3.h,
                   ),
                   Row(children: [ Text(
-                    "Cost : ",
+                    "Starting Cost : ",
                     style: TextStyle(
                         fontSize: 18.sp,
                         letterSpacing: 1,

@@ -5,7 +5,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wedding_planner/Modal/VenuedetailModal.dart';
@@ -16,6 +15,7 @@ import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 import '../../main.dart';
+import '../../widgets/headerwidget.dart';
 
 class VenueView extends StatefulWidget {
   const VenueView({super.key});
@@ -45,8 +45,10 @@ class _VenueViewState extends State<VenueView> {
     });
     venueap();
   }
-  bool isLoading =true;
+
+  bool isLoading = true;
   CarouselController _controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -54,477 +56,490 @@ class _VenueViewState extends State<VenueView> {
       scaffold: Scaffold(
         key: scaffoldKey,
         drawer: drawer1(),
-        body:isLoading?Container(): SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.w),
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: Icon(Icons.arrow_back_ios_new_rounded)),
-                      Text(
-                        'My Venue',
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            scaffoldKey.currentState?.openDrawer();
-                          },
-                          icon: Icon(Icons.menu_rounded)),
-                    ],
-                  ),
-                  SizedBox(height: 1.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            venuedetail?.venueDetails?.name ?? "",
-                            style: TextStyle(
-                                fontSize: 17.sp,
-                                color: Colors.blue,
-                                fontFamily: 'sofi',
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 1.h),
-                          Text(
-                            venuedetail?.venueDetails?.email ?? "",
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                color: Colors.black.withOpacity(0.7),
-                                fontFamily: 'sofi',
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 1.w),
-                        height: 7.h,
-                        width: 15.w,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(90),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            imageUrl:
-                            venuedetail?.venueDetails?.profile ?? "",
-                            progressIndicatorBuilder: (context, url, progress) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) => Image.asset(
-                              'assets/user.png',
-                              color: Colors.white,
-                            ),
-                          ),
+        body: isLoading
+            ? Container()
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 6.h,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 1.h),
-                  Stack(
-                    children: [
-                      CarouselSlider(
-                        carouselController: _controller,
-                        items: (venuedetail?.venueDetails?.moreInfo?.photos ?? []).map((item) {
-                          return Container(
-                            height: 40.h,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: CachedNetworkImage(
-                                imageUrl: item ?? '',
-                                placeholder: (context, url) =>
-                                    Center(
-                                        child: CircularProgressIndicator()),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                        'assets/defimg.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                        options: CarouselOptions(
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                ind = index;
-                                print(ind);
-                              });
-                            },
-                            viewportFraction: 1,
-                            enableInfiniteScroll: false,
-                            pageSnapping: true,
-                            height: 32.h,
-                            padEnds: true,
-                            enlargeCenterPage: true,
-                            enlargeFactor: 0.2),
-                      ),
-
-                      Positioned(
-                        bottom: 0.5.h,
-                        left: 35.w,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.black26.withOpacity(0.25),
-                              borderRadius: BorderRadius.circular(80)),
-                          padding: EdgeInsets.symmetric(
-                              vertical: 0.5.h, horizontal: 3.w),
-                          child: AnimatedSmoothIndicator(
-                            activeIndex: ind,
-                            count:venuedetail?.venueDetails?.moreInfo?.photos?.length ?? 0,
-                            effect: ScrollingDotsEffect(
-                              activeDotColor: Colors.blue,
-                              activeStrokeWidth: 2.6,
-                              activeDotScale: 1.2,
-                              strokeWidth: 9,
-                              maxVisibleDots: 5,
-                              radius: 8,
-                              spacing: 9,
-                              dotHeight: 10,
-                              dotWidth: 10,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 1.5.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(3.w),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: Colors.blue),
-                                child: Icon(
-                                  CupertinoIcons.globe,
-                                  color: Colors.white,
-                                  size: 18.sp,
-                                ),
-                              ),
-                              SizedBox(width: 5.w),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Venue Name : ',
-                                    style: TextStyle(
-                                        fontSize: 17.sp,
-                                        color: Colors.blue,
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(height: 0.5.h),
-                                  SizedBox(
-                                    width: 67.w,
-                                    child: Text(
-                                      venuedetail?.venueDetails?.moreInfo?.vName  ?? "",
-                                      style: TextStyle(
-                                          fontSize: 15.sp,
-                                          color: Colors.black.withOpacity(0.8),
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold),
+                        header(
+                            text: "My Venue",
+                            callback1: () {
+                              scaffoldKey.currentState?.openDrawer();
+                            }),
+                        SizedBox(height: 1.h),
+                        Stack(
+                          children: [
+                            CarouselSlider(
+                              carouselController: _controller,
+                              items: (venuedetail
+                                          ?.venueDetails?.moreInfo?.photos ??
+                                      [])
+                                  .map((item) {
+                                return Container(
+                                  height: 40.h,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    child: CachedNetworkImage(
+                                      imageUrl: item ?? '',
+                                      placeholder: (context, url) => Center(
+                                          child: CircularProgressIndicator()),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset('assets/defimg.jpg'),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(height: 1.5.h),
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(3.w),
+                                );
+                              }).toList(),
+                              options: CarouselOptions(
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      ind = index;
+                                      print(ind);
+                                    });
+                                  },
+                                  viewportFraction: 1,
+                                  enableInfiniteScroll: false,
+                                  pageSnapping: true,
+                                  height: 32.h,
+                                  padEnds: true,
+                                  enlargeCenterPage: true,
+                                  enlargeFactor: 0.2),
+                            ),
+                            Positioned(
+                              bottom: 0.5.h,
+                              left: 35.w,
+                              child: Container(
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: Colors.blue),
-                                child: Icon(
-                                  CupertinoIcons.phone,
-                                  color: Colors.white,
-                                  size: 18.sp,
-                                ),
-                              ),
-                              SizedBox(width: 5.w),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Contact : ',
-                                    style: TextStyle(
-                                        fontSize: 17.sp,
-                                        color: Colors.blue,
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.bold),
+                                    color: Colors.black26.withOpacity(0.25),
+                                    borderRadius: BorderRadius.circular(80)),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 0.5.h, horizontal: 3.w),
+                                child: AnimatedSmoothIndicator(
+                                  activeIndex: ind,
+                                  count: venuedetail?.venueDetails?.moreInfo
+                                          ?.photos?.length ??
+                                      0,
+                                  effect: ScrollingDotsEffect(
+                                    activeDotColor: Colors.blue,
+                                    activeStrokeWidth: 2.6,
+                                    activeDotScale: 1.2,
+                                    strokeWidth: 9,
+                                    maxVisibleDots: 5,
+                                    radius: 8,
+                                    spacing: 9,
+                                    dotHeight: 10,
+                                    dotWidth: 10,
                                   ),
-                                  SizedBox(height: 0.5.h),
-                                  Text(
-                                    venuedetail?.venueDetails?.contact ?? "",
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        color: Colors.black.withOpacity(0.8),
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 1.5.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.all(3.w),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(7),
+                                                  color: Colors.blue),
+                                              child: Icon(
+                                                CupertinoIcons.person,
+                                                color: Colors.white,
+                                                size: 18.sp,
+                                              ),
+                                            ),
+                                            SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Venue Owner Name : ',
+                                                  style: TextStyle(
+                                                      fontSize: 17.sp,
+                                                      color: Colors.blue,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                SizedBox(height: 0.5.h),
+                                                SizedBox(
+                                                  width: 50.w,
+                                                  child: Text(
+                                                    venuedetail?.venueDetails
+                                                            ?.name ??
+                                                        "",
+                                                    style: TextStyle(
+                                                        fontSize: 15.sp,
+                                                        color: Colors.black
+                                                            .withOpacity(0.8),
+                                                        fontFamily: 'sofi',
+                                                        letterSpacing: 1,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 1.5.h),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.all(3.w),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(7),
+                                                  color: Colors.blue),
+                                              child: Icon(
+                                                CupertinoIcons.info,
+                                                color: Colors.white,
+                                                size: 18.sp,
+                                              ),
+                                            ),
+                                            SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Venue Name : ',
+                                                  style: TextStyle(
+                                                      fontSize: 17.sp,
+                                                      color: Colors.blue,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                SizedBox(height: 0.5.h),
+                                                SizedBox(
+                                                  width: 50.w,
+                                                  child: Text(
+                                                    venuedetail?.venueDetails
+                                                            ?.moreInfo?.vName ??
+                                                        "",
+                                                    style: TextStyle(
+                                                        fontSize: 15.sp,
+                                                        color: Colors.black
+                                                            .withOpacity(0.8),
+                                                        fontFamily: 'sofi',
+                                                        letterSpacing: 1,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                  height: 7.h,
+                                  width: 15.w,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(90),
+                                    child: CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl:
+                                          venuedetail?.venueDetails?.profile ??
+                                              "",
+                                      progressIndicatorBuilder:
+                                          (context, url, progress) =>
+                                              CircularProgressIndicator(),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset(
+                                        'assets/user.png',
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      SizedBox(height: 2.5.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(3.w),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                color: Colors.blue),
-                            child: Icon(
-                              Icons.chair_outlined,
-                              color: Colors.white,
-                              size: 18.sp,
-                            ),
-                          ),
-                          SizedBox(width: 5.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Seating Capacity : ',
-                                style: TextStyle(
-                                    fontSize: 17.sp,
-                                    color: Colors.blue,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 0.5.h),
-                              Text(
-                                venuedetail?.venueDetails?.moreInfo?.vCapacity == null?"N/A":venuedetail?.venueDetails?.moreInfo?.vCapacity ?? "",
-                                style: TextStyle(
-                                    fontSize: 15.sp,
-                                    color: Colors.black.withOpacity(0.8),
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 2.5.h),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(3.w),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                color: Colors.blue),
-                            child: Icon(
-                              Icons.location_on_outlined,
-                              color: Colors.white,
-                              size: 18.sp,
-                            ),
-                          ),
-                          SizedBox(width: 5.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Address : ',
-                                style: TextStyle(
-                                    fontSize: 17.sp,
-                                    color: Colors.blue,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 0.5.h),
-                              SizedBox(
-                                width: 77.w,
-                                child: Text(
-                                  venuedetail?.venueDetails?.moreInfo?.address ?? '',
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      color: Colors.black.withOpacity(0.8),
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 2.5.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(3.w),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                color: Colors.blue),
-                            child: Icon(
-                              CupertinoIcons.info_circle,
-                              color: Colors.white,
-                              size: 18.sp,
+                              ],
                             ),
-                          ),
-                          SizedBox(width: 5.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'About : ',
-                                style: TextStyle(
-                                    fontSize: 17.sp,
-                                    color: Colors.blue,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 0.5.h),
-                              SizedBox(
-                                width: 77.w,
-                                child: ReadMoreText(
-                                  venuedetail?.venueDetails?.moreInfo?.vDetails  ?? "",
-                                  trimLines: 4,
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      height: 1,
-                                      fontSize: 15.sp,
-                                      color: Colors.black.withOpacity(0.8),
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold),
-                                  colorClickableText: Colors.blue,
-                                  trimMode: TrimMode.Line,
-                                  trimCollapsedText: ' Read More',
-                                  trimExpandedText: ' Read Less',
-                                  moreStyle: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold),
-                                  lessStyle: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold),
+                            SizedBox(height: 1.5.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        CupertinoIcons.mail,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Venue Email : ',
+                                          style: TextStyle(
+                                              fontSize: 17.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        SizedBox(
+                                          width: 67.w,
+                                          child: Text(
+                                            venuedetail?.venueDetails?.email ??
+                                                "",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 2.5.h),
+                              ],
+                            ),
 
-                      // SizedBox(height: 4.5.h),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     InkWell(
-                      //       child: Container(
-                      //         height: 5.5.h,
-                      //         width: 45.w,
-                      //         decoration: BoxDecoration(
-                      //           color: Colors.blue,
-                      //           borderRadius: BorderRadius.circular(25.sp),
-                      //         ),
-                      //         child: Center(
-                      //             child: Text(
-                      //           "Add to Budget",
-                      //           style: TextStyle(
-                      //               fontSize: 13.sp,
-                      //               color: Colors.white,
-                      //               fontFamily: 'get'),
-                      //         )),
-                      //       ),
-                      //     ),
-                      //     InkWell(
-                      //       onTap: () {},
-                      //       child: Container(
-                      //         height: 5.5.h,
-                      //         width: 45.w,
-                      //         decoration: BoxDecoration(
-                      //           color: Colors.blue,
-                      //           borderRadius: BorderRadius.circular(25.sp),
-                      //         ),
-                      //         child: Center(
-                      //             child: Text(
-                      //           "Book Now",
-                      //           style: TextStyle(
-                      //               fontSize: 13.sp,
-                      //               color: Colors.white,
-                      //               fontFamily: 'get'),
-                      //         )),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
-                      SizedBox(height: 3.5.h),
-                    ],
+                            SizedBox(height: 1.5.h),
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        CupertinoIcons.phone,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Contact : ',
+                                          style: TextStyle(
+                                              fontSize: 17.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        Text(
+                                          venuedetail?.venueDetails?.contact ??
+                                              "",
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 2.5.h),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.start,
+                            //   crossAxisAlignment: CrossAxisAlignment.start,
+                            //   children: [
+                            //     Container(
+                            //       padding: EdgeInsets.all(3.w),
+                            //       decoration: BoxDecoration(
+                            //           borderRadius: BorderRadius.circular(7),
+                            //           color: Colors.blue),
+                            //       child: Icon(
+                            //         CupertinoIcons.info_circle,
+                            //         color: Colors.white,
+                            //         size: 18.sp,
+                            //       ),
+                            //     ),
+                            //     SizedBox(width: 5.w),
+                            //     Column(
+                            //       crossAxisAlignment: CrossAxisAlignment.start,
+                            //       mainAxisAlignment: MainAxisAlignment.start,
+                            //       children: [
+                            //         Text(
+                            //           'About : ',
+                            //           style: TextStyle(
+                            //               fontSize: 17.sp,
+                            //               color: Colors.blue,
+                            //               fontFamily: 'sofi',
+                            //               letterSpacing: 1,
+                            //               fontWeight: FontWeight.bold),
+                            //         ),
+                            //         SizedBox(height: 0.5.h),
+                            //         SizedBox(
+                            //           width: 77.w,
+                            //           child: ReadMoreText(
+                            //             venuedetail?.venueDetails?.moreInfo?.vDetails  ?? "",
+                            //             trimLines: 4,
+                            //             textAlign: TextAlign.justify,
+                            //             style: TextStyle(
+                            //                 height: 1,
+                            //                 fontSize: 15.sp,
+                            //                 color: Colors.black.withOpacity(0.8),
+                            //                 fontFamily: 'sofi',
+                            //                 letterSpacing: 1,
+                            //                 fontWeight: FontWeight.bold),
+                            //             colorClickableText: Colors.blue,
+                            //             trimMode: TrimMode.Line,
+                            //             trimCollapsedText: ' Read More',
+                            //             trimExpandedText: ' Read Less',
+                            //             moreStyle: TextStyle(
+                            //                 fontSize: 13.sp,
+                            //                 color: Colors.blue,
+                            //                 fontWeight: FontWeight.bold),
+                            //             lessStyle: TextStyle(
+                            //                 fontSize: 13.sp,
+                            //                 color: Colors.blue,
+                            //                 fontWeight: FontWeight.bold),
+                            //           ),
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   ],
+                            // ),
+                            SizedBox(height: 2.5.h),
+
+                            // SizedBox(height: 4.5.h),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //   children: [
+                            //     InkWell(
+                            //       child: Container(
+                            //         height: 5.5.h,
+                            //         width: 45.w,
+                            //         decoration: BoxDecoration(
+                            //           color: Colors.blue,
+                            //           borderRadius: BorderRadius.circular(25.sp),
+                            //         ),
+                            //         child: Center(
+                            //             child: Text(
+                            //           "Add to Budget",
+                            //           style: TextStyle(
+                            //               fontSize: 13.sp,
+                            //               color: Colors.white,
+                            //               fontFamily: 'get'),
+                            //         )),
+                            //       ),
+                            //     ),
+                            //     InkWell(
+                            //       onTap: () {},
+                            //       child: Container(
+                            //         height: 5.5.h,
+                            //         width: 45.w,
+                            //         decoration: BoxDecoration(
+                            //           color: Colors.blue,
+                            //           borderRadius: BorderRadius.circular(25.sp),
+                            //         ),
+                            //         child: Center(
+                            //             child: Text(
+                            //           "Book Now",
+                            //           style: TextStyle(
+                            //               fontSize: 13.sp,
+                            //               color: Colors.white,
+                            //               fontFamily: 'get'),
+                            //         )),
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
+                            SizedBox(height: 3.5.h),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
-  venueap(){
+
+  venueap() {
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().venuedeatilapi().then((response) async {
