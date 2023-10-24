@@ -112,7 +112,5 @@ BookinglistModal? bookinglistmodal;
 CategoryWiseSuppliersModal? categorywisesuppliersmodal;
 AddmeetingModal? addmeetingmodal;
 
-
-
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

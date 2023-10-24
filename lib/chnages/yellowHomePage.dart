@@ -5,18 +5,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
 import 'package:wedding_planner/Modal/SuppliersearchModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
-import 'package:wedding_planner/new%20pages/Check%20List.dart';
-import 'package:wedding_planner/screens/SupplierPage.dart';
+import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/load.dart';
+
+import '../Others/Check List.dart';
 
 class YellowHomeScreen extends StatefulWidget {
   int? sele;

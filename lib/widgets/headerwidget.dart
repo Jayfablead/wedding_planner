@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/new%20pages/NotificationScreen.dart';
+import 'package:wedding_planner/Others/NotificationScreen.dart';
 import 'package:wedding_planner/widgets/const.dart';
 
 Widget header({

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/screens/MainScreen.dart';
+
+import '../Authenticate/MainScreen.dart';
 
 class SplashLogo extends StatefulWidget {
   const SplashLogo({super.key});

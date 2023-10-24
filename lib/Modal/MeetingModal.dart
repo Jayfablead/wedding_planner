@@ -39,12 +39,12 @@ class MeetingsByDate {
 
   MeetingsByDate(
       {this.id,
-        this.uid,
-        this.taskTitle,
-        this.taskDesc,
-        this.category,
-        this.startTime,
-        this.endTime});
+      this.uid,
+      this.taskTitle,
+      this.taskDesc,
+      this.category,
+      this.startTime,
+      this.endTime});
 
   MeetingsByDate.fromJson(Map<String, dynamic> json) {
     id = json['id'];
