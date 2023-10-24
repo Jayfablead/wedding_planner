@@ -93,6 +93,18 @@ class authprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> booksuccess(String bId) async {
+    String? url = '$baseUrl/successBookingInfo/$bId';
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 
   Future<http.Response> chatlistapi() async {
     String? url = '$baseUrl/chatList/${userData?.user?.id.toString()}';

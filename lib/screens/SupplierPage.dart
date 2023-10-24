@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/SendQuationModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/chnages/BookNowDetails.dart';
 import 'package:wedding_planner/screens/other%20Pages/msg2.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -57,7 +58,6 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 5.h),
-
                       header(
                           text: "Supplier",
                           callback1: () {
@@ -222,41 +222,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           SizedBox(
                             height: 3.h,
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 2.w),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Starting Price : ",
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black.withOpacity(0.65),
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 1),
-                                ),
-                                Text(
-                                    "\$" +
-                                        (supplierdetailmodal
-                                                ?.supplierInfo?.services?.cost)
-                                            .toString(),
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontFamily: 'sofi',
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        letterSpacing: 1))
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 3.h,
-                          ),
                         ],
                       ),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -361,6 +328,42 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                   ),
                                 ),
                         ],
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                      ),
+                      Center(
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(BookNowDetails(
+                              name: supplierdetailmodal?.supplierInfo?.name,
+                              email: supplierdetailmodal?.supplierInfo?.email,
+                              cid: supplierdetailmodal
+                                  ?.supplierInfo?.services?.categoryId,
+
+                              photo: supplierdetailmodal?.supplierInfo?.profile,
+                              sername: widget.service,
+                              sid: supplierdetailmodal
+                                  ?.supplierInfo?.services?.sId,
+                            ));
+                          },
+                          child: Container(
+                            height: 5.5.h,
+                            width: 90.w,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Book Now",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 14.sp),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 5.h,

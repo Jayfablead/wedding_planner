@@ -2,8 +2,11 @@ import 'package:connectivity/connectivity.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
+import 'package:wedding_planner/Modal/BookSuccessfullModal.dart';
+import 'package:wedding_planner/Modal/BooknowModal.dart';
 import 'package:wedding_planner/Modal/ChangepassModal.dart';
 import 'package:wedding_planner/Modal/ChatListModal.dart';
+import 'package:wedding_planner/Modal/ChatSerchModal.dart';
 import 'package:wedding_planner/Modal/CheckListModal.dart';
 import 'package:wedding_planner/Modal/FavouritelistModal.dart';
 import 'package:wedding_planner/Modal/ForgotpassModal.dart';
@@ -40,6 +43,7 @@ import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
 import '../Modal/SearchCheckListModal.dart';
+import '../Modal/SearchQuotationModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
 import '../Modal/mySupplierModal.dart';
@@ -97,7 +101,10 @@ SearchCheckListModal? searchchecklist;
 MyvenuetableModal? myvenuetablemodal;
 GuestseatingModal? guestseatingmodal;
 SuppliersearchModal? suppliersearchmodal;
-
+BookNowModal? booknowmodal;
+SearchQuotationModal? searchquotationmodal;
+BookSuccessfullModal? booksuccess;
+ChatSerchModal? chatserchmodal;
 
 
 const String baseUrl =

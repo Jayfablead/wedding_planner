@@ -51,6 +51,20 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> sentBookingReq(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/sentBookingReq/${userData?.user?.id.toString()}';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 
 
   Future<http.Response> supplierdetailapi(String? suppid, String? catid) async {
@@ -470,7 +484,36 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+  Future<http.Response> chatserchapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/searchChat/${userData?.user?.id.toString()}';
 
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> searchquotationapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/searchQuotation/${userData?.user?.id.toString()}';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> QouteListApi() async {
     String? url = '$baseUrl/myQuotations/${userData?.user?.id.toString()}';
     print(url);

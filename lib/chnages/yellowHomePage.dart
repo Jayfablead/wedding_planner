@@ -201,7 +201,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                   height: 50.h,
                                   child: ListView.builder(
                                       padding: EdgeInsets.zero,
-                                      scrollDirection: Axis.vertical,
+                                      scrollDirection: Axis.horizontal,
                                       itemCount: suppliersearchmodal
                                           ?.suppliers?.length,
                                       itemBuilder: (context, index) {
@@ -436,7 +436,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                 ],
                                               ),
                                               Positioned(
-                                                  left: 70.w,
+                                                  left: 65.w,
                                                   top: 1.5.h,
                                                   child: Container(
                                                     height: 10.w,
@@ -1121,6 +1121,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
               SuppliersearchModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 &&
               suppliersearchmodal?.status == "1") {
+            setState(() {
+              suppliersearchmodal;
+            });
             print(suppliersearchmodal?.suppliers?.length);
             print("ghdfdsh");
           } else {}
