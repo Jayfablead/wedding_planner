@@ -13,12 +13,14 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
+import '../Modal/CategoryWiseSuppliersModal.dart';
 import '../widgets/load.dart';
 
 class MySuppliers extends StatefulWidget {
+  String? id;
   int? sele;
 
-  MySuppliers({super.key, required this.sele});
+  MySuppliers({super.key, required this.sele, this.id});
 
   @override
   State<MySuppliers> createState() => _MySuppliersState();
@@ -126,198 +128,237 @@ class _MySuppliersState extends State<MySuppliers> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    homeap();
+    // homeap();
+    suppliers();
   }
+
   @override
   Widget build(BuildContext context) {
-    return commanScreen(isLoading: isLoading,
+    return commanScreen(
+      isLoading: isLoading,
       scaffold: Scaffold(
         extendBody: true,
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
         key: scaffoldKey,
-        body: isLoading ?Container():SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.w),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 5.h,
-                ),
-                header(
-                    text: "All Suppliers",
-                    callback1: () {
-                      scaffoldKey.currentState?.openDrawer();
-                    }),
-                // headerwid(text: "All Suppliers"),
-                SizedBox(height: 1.h),
-                homemodal?.suppliers?.length == 0 ||
-                        homemodal?.suppliers?.length == null
-                    ? Container(
-                        height: 80.h,
-                        alignment: Alignment.center,
-                        child: Text(
-                          "No Suppliers Available",
-                          style: TextStyle(
-                              fontSize: 17.sp,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                              fontFamily: 'sofi',
-                              color: Colors.black),
-                        ),
-                      )
-                    : Container(
-                        height: more ? 53.5.h : 71.h,
-                        padding: EdgeInsets.symmetric(horizontal: 2.w),
-                        child: GridView.builder(
-                          padding: EdgeInsets.zero,
-                          itemCount: more ? (homemodal?.suppliers?.length ?? 0)<= 4?homemodal?.suppliers?.length: 4 : homemodal?.suppliers?.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 5.w,
-                              mainAxisSpacing: 1.5.h,
-                              childAspectRatio: 0.78 / 1),
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: EdgeInsets.symmetric(vertical: 0.5.h),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black26,
-                                      // Color of the shadow
-                                      offset: Offset(0, 1.5),
-                                      // Offset of the shadow (x, y)
-                                      blurRadius: 8, // Spread of the shadow
-                                      // How much the shadow extends
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(10)),
+        body: isLoading
+            ? Container()
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      header(
+                          text: "All Suppliers",
+                          callback1: () {
+                            scaffoldKey.currentState?.openDrawer();
+                          }),
+                      // headerwid(text: "All Suppliers"),
+                      SizedBox(height: 1.h),
+                      categorywisesuppliersmodal?.suppliers?.length == 0 ||
+                              categorywisesuppliersmodal?.suppliers?.length ==
+                                  null
+                          ? Container(
+                              height: 80.h,
                               alignment: Alignment.center,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                    height: 8.h,
-                                    width: 16.w,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(90),
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl: homemodal
-                                                ?.suppliers?[index].profilePath ??
-                                            "",
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) =>
-                                                CircularProgressIndicator(),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/user.png',
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    homemodal?.suppliers?[index].service ?? "",
-                                    style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    homemodal?.suppliers?[index].name ?? "",
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black.withOpacity(0.75),
-                                    ),
-                                  ),
-                                  Center(
-                                    child: InkWell(
-                                      onTap: () {
-                                        Get.to(SupplierfourScreen(suppid: homemodal
-                                            ?.suppliers?[index]
-                                            .id,
-                                          catid: homemodal
-                                              ?.suppliers?[index]
-                                              .categoryId,
-                                          service: homemodal
-                                              ?.suppliers?[index]
-                                              .service,));
-                                      },
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        height: 4.5.h,
-                                        width: 38.w,
-                                        decoration: BoxDecoration(
-                                            color: Colors.blue,
+                              child: Text(
+                                "No Suppliers Available",
+                                style: TextStyle(
+                                    fontSize: 17.sp,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                    fontFamily: 'sofi',
+                                    color: Colors.black),
+                              ),
+                            )
+                          : Container(
+                              height: more ? 53.5.h : 71.h,
+                              padding: EdgeInsets.symmetric(horizontal: 2.w),
+                              child: GridView.builder(
+                                padding: EdgeInsets.zero,
+                                itemCount: more
+                                    ? (categorywisesuppliersmodal
+                                                    ?.suppliers?.length ??
+                                                0) <=
+                                            4
+                                        ? categorywisesuppliersmodal
+                                            ?.suppliers?.length
+                                        : 4
+                                    : categorywisesuppliersmodal
+                                        ?.suppliers?.length,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing: 5.w,
+                                        mainAxisSpacing: 1.5.h,
+                                        childAspectRatio: 0.78 / 1),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 2.w),
+                                    margin:
+                                        EdgeInsets.symmetric(vertical: 0.5.h),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black26,
+                                            // Color of the shadow
+                                            offset: Offset(0, 1.5),
+                                            // Offset of the shadow (x, y)
+                                            blurRadius:
+                                                8, // Spread of the shadow
+                                            // How much the shadow extends
+                                          ),
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    alignment: Alignment.center,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 1.w),
+                                          height: 8.h,
+                                          width: 16.w,
+                                          child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(90)),
-                                        child: Text(
-                                          'View Details',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 2,
+                                                BorderRadius.circular(90),
+                                            child: CachedNetworkImage(
+                                              fit: BoxFit.cover,
+                                              imageUrl:
+                                                  categorywisesuppliersmodal
+                                                          ?.suppliers?[index]
+                                                          .profile ??
+                                                      "",
+                                              progressIndicatorBuilder: (context,
+                                                      url, progress) =>
+                                                  CircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Image.asset(
+                                                'assets/user.png',
+                                                color: Colors.black,
+                                              ),
+                                            ),
                                           ),
                                         ),
+                                        Text(
+                                          categorywisesuppliersmodal
+                                                  ?.suppliers?[index].name ??
+                                              "",
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black),
+                                        ),
+                                        Text(
+                                          categorywisesuppliersmodal
+                                                  ?.suppliers?[index]
+                                                  .description ??
+                                              "",
+                                          maxLines: 2,
+                                          style: TextStyle(height: 1.3,
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'sofi',
+                                            color:
+                                                Colors.black.withOpacity(0.75),
+                                          ),
+                                        ),
+                                        Center(
+                                          child: InkWell(
+                                            onTap: () {
+                                              Get.to(SupplierfourScreen(
+                                                suppid: homemodal
+                                                    ?.suppliers?[index].id,
+                                                catid: homemodal
+                                                    ?.suppliers?[index]
+                                                    .categoryId,
+                                                service: homemodal
+                                                    ?.suppliers?[index].service,
+                                              ));
+                                            },
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 4.5.h,
+                                              width: 38.w,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.blue,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          90)),
+                                              child: Text(
+                                                'View Details',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  fontWeight: FontWeight.bold,
+                                                  letterSpacing: 2,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                      SizedBox(height: 1.2.h),
+                      categorywisesuppliersmodal?.suppliers?.length == 0 ||
+                              categorywisesuppliersmodal?.suppliers?.length ==
+                                  null
+                          ? Container()
+                          : (categorywisesuppliersmodal?.suppliers?.length ??
+                                      0) <=
+                                  4
+                              ? Container()
+                              : Center(
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        more = !more;
+                                      });
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 5.h,
+                                      width: 38.w,
+                                      decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(90)),
+                                      child: Text(
+                                        more ? 'View More' : 'View Less',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13.sp,
+                                          fontFamily: 'sofi',
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 2,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                SizedBox(height: 1.2.h),
-                homemodal?.suppliers?.length == 0 ||
-                        homemodal?.suppliers?.length == null
-                    ? Container()
-                    : (homemodal?.suppliers?.length ?? 0) <= 4
-                        ? Container()
-                        : Center(
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  more = !more;
-                                });
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 5.h,
-                                width: 38.w,
-                                decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(90)),
-                                child: Text(
-                                  more ? 'View More' : 'View Less',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13.sp,
-                                    fontFamily: 'sofi',
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 2,
-                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
-                SizedBox(height: 3.h),
-              ],
-            ),
-          ),
-        ),
+                      SizedBox(height: 3.h),
+                    ],
+                  ),
+                ),
+              ),
       ),
     );
   }
@@ -328,6 +369,31 @@ class _MySuppliersState extends State<MySuppliers> {
         taskprovider().homeapi().then((response) async {
           homemodal = HomeModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && homemodal?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  suppliers() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider()
+            .viewcategorryapi(widget.id.toString())
+            .then((response) async {
+          categorywisesuppliersmodal =
+              CategoryWiseSuppliersModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 &&
+              categorywisesuppliersmodal?.status == "1") {
             setState(() {
               isLoading = false;
             });

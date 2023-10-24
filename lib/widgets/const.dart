@@ -36,6 +36,7 @@ import 'package:wedding_planner/Modal/removetodoModal.dart';
 import '../Modal/AddpostModal.dart';
 import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
+import '../Modal/CategoryWiseSuppliersModal.dart';
 import '../Modal/DocumentModal.dart';
 import '../Modal/GuestseatingModal.dart';
 import '../Modal/MeetingModal.dart';
@@ -107,6 +108,9 @@ SearchQuotationModal? searchquotationmodal;
 BookSuccessfullModal? booksuccess;
 ChatSerchModal? chatserchmodal;
 BookinglistModal? bookinglistmodal;
+CategoryWiseSuppliersModal? categorywisesuppliersmodal;
+
+
 
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

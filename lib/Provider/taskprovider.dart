@@ -123,6 +123,20 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
     return responseJson;
+  }  Future<http.Response> viewcategorryapi(String data1) async {
+    String? url = '$baseUrl/categoryWiseSuppliers/${userData?.user?.id.toString()}/${data1}';
+    print(url);
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers,)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
   }
   Future<http.Response> bookinglistapi() async {
     String? url = '$baseUrl/myBookings/${userData?.user?.id.toString()}';

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/chnages/CategoryPage.dart';
 import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/View%20Table.dart';
@@ -1256,9 +1257,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(MySuppliers(
-                  sele: 4,
-                ));
+                Get.to(AllCategoryScreen());
               },
               child: Container(
                 alignment: Alignment.center,
