@@ -198,7 +198,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                 )
                               : Container(
                                   width: MediaQuery.of(context).size.width,
-                                  height: 50.h,
+                                  height: 45.h,
                                   child: ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -317,56 +317,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                             color:
                                                                 Colors.black54,
                                                             letterSpacing: 1)),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 3.h,
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 4.w, right: 4.w),
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                            "Starting Price : ",
-                                                            style: TextStyle(
-                                                                fontSize:
-                                                                    14.5.sp,
-                                                                fontFamily:
-                                                                    'sofi',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                color: Colors
-                                                                    .black54,
-                                                                letterSpacing:
-                                                                    1)),
-                                                        Text(
-                                                            "\$ " +
-                                                                (suppliersearchmodal
-                                                                        ?.suppliers?[
-                                                                            index]
-                                                                        .cost)
-                                                                    .toString(),
-                                                            style: TextStyle(
-                                                                fontSize:
-                                                                    14.5.sp,
-                                                                fontFamily:
-                                                                    'sofi',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    1))
-                                                      ],
-                                                    ),
                                                   ),
                                                   SizedBox(
                                                     height: 4.h,
@@ -542,7 +492,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                 homemodal?.suppliers?.length == 0 ||
                                         homemodal?.suppliers?.length == null
                                     ? Container(
-                                        height: 55.h,
+                                        height: 45.h,
                                         alignment: Alignment.center,
                                         child: Text(
                                           "No Suppliers Available",
@@ -555,7 +505,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                         ),
                                       )
                                     : SizedBox(
-                                        height: 47.h,
+                                        height: 43.h,
                                         child: ListView.builder(
                                             scrollDirection: Axis.horizontal,
                                             itemBuilder: (context, index) {
@@ -718,59 +668,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                   letterSpacing:
                                                                       1)),
                                                         ),
-                                                        SizedBox(
-                                                          height: 3.h,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  left: 4.w,
-                                                                  right: 4.w),
-                                                          child: Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Text("Starting Price : ",
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          14.5
-                                                                              .sp,
-                                                                      fontFamily:
-                                                                          'sofi',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      color: Colors
-                                                                          .black54,
-                                                                      letterSpacing:
-                                                                          1)),
-                                                              Text(
-                                                                  "\$ " +
-                                                                      (homemodal
-                                                                              ?.suppliers?[
-                                                                                  index]
-                                                                              .cost)
-                                                                          .toString(),
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          14.5
-                                                                              .sp,
-                                                                      fontFamily:
-                                                                          'sofi',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          1))
-                                                            ],
-                                                          ),
-                                                        ),
+
                                                         SizedBox(
                                                           height: 4.h,
                                                         ),

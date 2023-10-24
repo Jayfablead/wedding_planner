@@ -1250,7 +1250,7 @@ class _Check_listState extends State<Check_list> {
               checklistap();
               Get.back();
               _title.clear();
-              _start.clear();
+              _start.clear();_desc.clear();
               _date.clear();
 
               print("fffd");
