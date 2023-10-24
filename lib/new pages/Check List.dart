@@ -871,8 +871,8 @@ class _Check_listState extends State<Check_list> {
                                                                 ? Colors.blue
                                                                 : Colors
                                                                     .black87),
-                                                            decoration: (checklistmodal
-                                                                        ?.all?[
+                                                            decoration: (searchchecklist
+                                                                        ?.searched?[
                                                                             index]
                                                                         .isCompleted ==
                                                                     "1"
@@ -998,7 +998,7 @@ class _Check_listState extends State<Check_list> {
       child: TextField(
         controller: _search,
         onChanged: (value) {
-          searchchecklistap(_search.text.trim().toString());
+          searchchecklistap();
         },
         style:
             TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
@@ -1043,9 +1043,9 @@ class _Check_listState extends State<Check_list> {
     });
   }
 
-  searchchecklistap(String value) {
+  searchchecklistap() {
     final Map<String, String> data = {};
-    data['search'] = value.toString();
+    data['search'] = _search.text.toString();
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().searchchecklistapi(data).then((response) async {
@@ -1082,6 +1082,7 @@ class _Check_listState extends State<Check_list> {
               MarkcompletedModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && markcompletemodal?.status == "1") {
             checklistap();
+            searchchecklistap();
           } else {
             buildErrorDialog(
                 context, "Login Error", (userData?.message).toString());

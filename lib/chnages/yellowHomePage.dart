@@ -922,7 +922,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
         onChanged: (value) {
           if (value.isNotEmpty) {
             print(value);
-            searchap(_search.text.toString());
+            searchap();
           }
         },
         style:
@@ -1097,6 +1097,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
           if (response.statusCode == 200 &&
               addtofavouritemodal?.status == "1") {
             homeap();
+            searchap();
             Get.back();
           } else {
             buildErrorDialog(
@@ -1109,9 +1110,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
     });
   }
 
-  searchap(String value) {
+  searchap() {
     final Map<String, String> data = {};
-    data['search'] = value.toString();
+    data['search'] = _search.text.toString();
 
     print(data);
     checkInternet().then((internet) async {
