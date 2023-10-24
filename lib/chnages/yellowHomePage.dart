@@ -9,7 +9,7 @@ import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
 import 'package:wedding_planner/Modal/SuppliersearchModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/chnages/Meetings%20Page.dart';
+import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
 import 'package:wedding_planner/screens/SupplierPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';

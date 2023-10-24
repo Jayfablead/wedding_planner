@@ -48,6 +48,7 @@ import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
+import '../Modal/addMeetingModal.dart';
 import '../Modal/mySupplierModal.dart';
 
 Future<bool> checkInternet() async {
@@ -109,6 +110,9 @@ BookSuccessfullModal? booksuccess;
 ChatSerchModal? chatserchmodal;
 BookinglistModal? bookinglistmodal;
 CategoryWiseSuppliersModal? categorywisesuppliersmodal;
+AddmeetingModal? addmeetingmodal;
+
+
 
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

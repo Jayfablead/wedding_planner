@@ -34,15 +34,17 @@ class MeetingsByDate {
   String? taskTitle;
   String? taskDesc;
   String? category;
-  String? isCompleted;
+  String? startTime;
+  String? endTime;
 
   MeetingsByDate(
       {this.id,
-      this.uid,
-      this.taskTitle,
-      this.taskDesc,
-      this.category,
-      this.isCompleted});
+        this.uid,
+        this.taskTitle,
+        this.taskDesc,
+        this.category,
+        this.startTime,
+        this.endTime});
 
   MeetingsByDate.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -50,7 +52,8 @@ class MeetingsByDate {
     taskTitle = json['task_title'];
     taskDesc = json['task_desc'];
     category = json['category'];
-    isCompleted = json['is_completed'];
+    startTime = json['start_time'];
+    endTime = json['end_time'];
   }
 
   Map<String, dynamic> toJson() {
@@ -60,7 +63,8 @@ class MeetingsByDate {
     data['task_title'] = this.taskTitle;
     data['task_desc'] = this.taskDesc;
     data['category'] = this.category;
-    data['is_completed'] = this.isCompleted;
+    data['start_time'] = this.startTime;
+    data['end_time'] = this.endTime;
     return data;
   }
 }

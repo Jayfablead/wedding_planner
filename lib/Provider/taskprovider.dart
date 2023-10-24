@@ -128,7 +128,21 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> addmeetingapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/addMeeting/${userData?.user?.id.toString()}';
 
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers,body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> viewcategorryapi(String data1) async {
     String? url =
         '$baseUrl/categoryWiseSuppliers/${userData?.user?.id.toString()}/${data1}';

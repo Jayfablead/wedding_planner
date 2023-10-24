@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/UnreadmsgModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/chnages/Meetings%20Page.dart';
+import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
 import 'package:wedding_planner/screens/pages2/fbpage.dart';

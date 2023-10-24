@@ -8,7 +8,7 @@ import 'package:wedding_planner/Guest/View%20Table.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/CategoryPage.dart';
-import 'package:wedding_planner/chnages/Meetings%20Page.dart';
+import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
