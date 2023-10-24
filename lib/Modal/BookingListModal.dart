@@ -40,14 +40,14 @@ class Bookings {
 
   Bookings(
       {this.id,
-        this.supplierId,
-        this.categoryId,
-        this.bookingNo,
-        this.bDate,
-        this.bTime,
-        this.bStatus,
-        this.bComment,
-        this.supplierDetails});
+      this.supplierId,
+      this.categoryId,
+      this.bookingNo,
+      this.bDate,
+      this.bTime,
+      this.bStatus,
+      this.bComment,
+      this.supplierDetails});
 
   Bookings.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -92,13 +92,13 @@ class SupplierDetails {
 
   SupplierDetails(
       {this.id,
-        this.name,
-        this.email,
-        this.profile,
-        this.contact,
-        this.address,
-        this.description,
-        this.services});
+      this.name,
+      this.email,
+      this.profile,
+      this.contact,
+      this.address,
+      this.description,
+      this.services});
 
   SupplierDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -139,11 +139,11 @@ class Services {
 
   Services(
       {this.id,
-        this.sId,
-        this.categoryId,
-        this.description,
-        this.cost,
-        this.createdAt});
+      this.sId,
+      this.categoryId,
+      this.description,
+      this.cost,
+      this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];

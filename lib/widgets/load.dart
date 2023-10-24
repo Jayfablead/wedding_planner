@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+
 void configLoading() {
   EasyLoading.instance
     ..displayDuration = const Duration(milliseconds: 2000)
@@ -19,6 +20,7 @@ void configLoading() {
     ..dismissOnTap = false;
   // ..customAnimation = CustomAnimation();
 }
+
 Widget spinKit = Container(
   decoration: const BoxDecoration(
     borderRadius: BorderRadius.all(Radius.elliptical(15.0, 15.0)),

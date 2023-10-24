@@ -9,9 +9,6 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/SplashScreen.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
-import 'chnages/BookNowDetails.dart';
-import 'chnages/BookingSuccessfulPage.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configLoading();

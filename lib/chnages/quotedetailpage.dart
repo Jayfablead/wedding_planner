@@ -324,7 +324,6 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                       width: 42.w,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-
                                         borderRadius:
                                             BorderRadius.circular(25.sp),
                                       ),

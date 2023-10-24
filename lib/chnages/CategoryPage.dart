@@ -6,13 +6,11 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/CategoriesModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/chnages/all%20suppliers.dart';
+import 'package:wedding_planner/Suppliers/all%20suppliers.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
-import '../new pages/Check List.dart';
 
 class AllCategoryScreen extends StatefulWidget {
   const AllCategoryScreen({super.key});
@@ -20,6 +18,7 @@ class AllCategoryScreen extends StatefulWidget {
   @override
   State<AllCategoryScreen> createState() => _AllCategoryScreenState();
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class cate {
@@ -27,9 +26,9 @@ class cate {
   String? name;
 
   cate(
-      this.image,
-      this.name,
-      );
+    this.image,
+    this.name,
+  );
 }
 
 List<cate> Categories = [
@@ -55,16 +54,16 @@ List<cate> Categories = [
 
 class _AllCategoryScreenState extends State<AllCategoryScreen> {
   int setit = 0;
+
   void initState() {
     // TODO: implement initState
     super.initState();
     setState(() {
-
       isLoad = true;
     });
     CategApi();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,14 +79,16 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                 callback1: () {
                   scaffoldKey.currentState?.openDrawer();
                 }),
-            SizedBox(height: 1.h,),
+            SizedBox(
+              height: 1.h,
+            ),
             Container(
               height: 86.h,
               child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: categoriesmodal?.services?.length,
-                  itemBuilder: (context, index){
-                    return  Card(
+                  itemBuilder: (context, index) {
+                    return Card(
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
@@ -100,45 +101,42 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                margin:
-                                EdgeInsets.symmetric(horizontal: 0.5.w),
+                                margin: EdgeInsets.symmetric(horizontal: 0.5.w),
                                 height: 16.h,
                                 width: 30.w,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: CachedNetworkImage(
                                     fit: BoxFit.cover,
-                                    imageUrl:
-                                    categoriesmodal?.services?[index]
-                                        .categoryIcon ??
+                                    imageUrl: categoriesmodal
+                                            ?.services?[index].categoryIcon ??
                                         '',
                                     progressIndicatorBuilder:
                                         (context, url, progress) => Center(
-                                        child:
-                                        CircularProgressIndicator()),
+                                            child: CircularProgressIndicator()),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                          'assets/deprf.png',
-                                        ),
+                                      'assets/deprf.png',
+                                    ),
                                   ),
                                 ),
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   SizedBox(
                                     width: 54.w,
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
                                           padding: EdgeInsets.only(left: 1.w),
                                           child: Text(
                                             categoriesmodal?.services?[index]
-                                                .categoryName ??
+                                                    .categoryName ??
                                                 '',
                                             style: TextStyle(
                                                 color: Colors.black,
@@ -154,34 +152,32 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                     padding: EdgeInsets.only(left: 1.w),
                                     width: 55.w,
                                     child: Text(
-                                      categoriesmodal?.services?[index]
-                                          .categoryDesc ??
+                                      categoriesmodal
+                                              ?.services?[index].categoryDesc ??
                                           '',
                                       maxLines: 2,
                                       style: TextStyle(
-                                          color:
-                                          Colors.black.withOpacity(0.7),
+                                          color: Colors.black.withOpacity(0.7),
                                           overflow: TextOverflow.ellipsis,
                                           fontSize: 11.sp,
                                           fontWeight: FontWeight.w600),
                                     ),
                                   ),
-
-
                                   SizedBox(height: 1.h),
                                   SizedBox(
                                     width: 55.w,
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         InkWell(
                                           onTap: () {
                                             Get.to(MySuppliers(
                                               sele: -3,
-                                              id:categoriesmodal?.services?[index]
-                                                  .categoryId ??
-                                                  '' ,
+                                              id: categoriesmodal
+                                                      ?.services?[index]
+                                                      .categoryId ??
+                                                  '',
                                             ));
                                           },
                                           child: Container(
@@ -191,8 +187,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                             decoration: BoxDecoration(
                                                 color: Colors.blue,
                                                 borderRadius:
-                                                BorderRadius.circular(
-                                                    90)),
+                                                    BorderRadius.circular(90)),
                                             child: Text(
                                               'View Suppliers',
                                               style: TextStyle(
@@ -200,8 +195,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                                   color: Colors.white,
                                                   fontFamily: 'sofi',
                                                   letterSpacing: 1,
-                                                  fontWeight:
-                                                  FontWeight.bold),
+                                                  fontWeight: FontWeight.bold),
                                             ),
                                           ),
                                         ),
@@ -213,18 +207,13 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                             ],
                           )),
                     );
-                  }
-              ),
+                  }),
             ),
-
-
-
           ],
         ),
       ),
     );
   }
-
 
   CategApi() {
     checkInternet().then((internet) async {
@@ -251,5 +240,6 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
       }
     });
   }
+
   bool isLoad = true;
 }

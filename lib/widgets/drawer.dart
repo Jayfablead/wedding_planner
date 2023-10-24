@@ -3,14 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Guest/GuestList.dart';
+import 'package:wedding_planner/Guest/View%20Table.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/CategoryPage.dart';
-import 'package:wedding_planner/chnages/GuestList.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
-import 'package:wedding_planner/chnages/View%20Table.dart';
-
-import 'package:wedding_planner/chnages/myQuoteReqs.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
@@ -32,8 +30,7 @@ import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
-import '../chnages/all suppliers.dart';
-import '../chnages/mysplirs.dart';
+import '../Suppliers/mysplirs.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);

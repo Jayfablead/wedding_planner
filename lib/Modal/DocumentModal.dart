@@ -66,11 +66,11 @@ class AllDocandCerti {
 
   AllDocandCerti(
       {this.docName,
-        this.docType,
-        this.docFile,
-        this.name,
-        this.profile,
-        this.createdAt});
+      this.docType,
+      this.docFile,
+      this.name,
+      this.profile,
+      this.createdAt});
 
   AllDocandCerti.fromJson(Map<String, dynamic> json) {
     docName = json['doc_name'];
@@ -102,10 +102,10 @@ class Contracts {
 
   Contracts(
       {this.name,
-        this.profile,
-        this.contractDate,
-        this.contractDesc,
-        this.contractAmount});
+      this.profile,
+      this.contractDate,
+      this.contractDesc,
+      this.contractAmount});
 
   Contracts.fromJson(Map<String, dynamic> json) {
     name = json['name'];

@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/DocumentModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
@@ -31,11 +30,11 @@ class cate {
   String? desc;
 
   cate(
-      this.image,
-      this.name,
-      this.desc,
-      this.Rating,
-      );
+    this.image,
+    this.name,
+    this.desc,
+    this.Rating,
+  );
 }
 
 List<cate> venue = [
@@ -94,13 +93,15 @@ TextEditingController _search = TextEditingController();
 
 class _CertificateState extends State<Certificate> {
   static var httpClient = new HttpClient();
-  bool isLoading=true;
+  bool isLoading = true;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     certificateapi();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -180,7 +181,10 @@ class _CertificateState extends State<Certificate> {
               ),
               Column(
                 children: [
-                  for(int index=0;index<(documentmodal?.data?.allDocandCerti?.length ?? 0 );index++)...[
+                  for (int index = 0;
+                      index <
+                          (documentmodal?.data?.allDocandCerti?.length ?? 0);
+                      index++) ...[
                     Container(
                         height: 19.h,
                         padding: EdgeInsets.all(1.w),
@@ -200,11 +204,14 @@ class _CertificateState extends State<Certificate> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
-                                  imageUrl:documentmodal?.data?.allDocandCerti?[index].profile ?? "",
+                                  imageUrl: documentmodal?.data
+                                          ?.allDocandCerti?[index].profile ??
+                                      "",
                                   progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                      Center(child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) => Image.asset(
+                                      (context, url, progress) => Center(
+                                          child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
                                     'assets/deprf.png',
                                   ),
                                 ),
@@ -231,7 +238,9 @@ class _CertificateState extends State<Certificate> {
                                   padding: EdgeInsets.only(left: 1.w),
                                   width: 55.w,
                                   child: Text(
-                                    documentmodal?.data?.allDocandCerti?[index].name ?? "",
+                                    documentmodal?.data?.allDocandCerti?[index]
+                                            .name ??
+                                        "",
                                     maxLines: 2,
                                     style: TextStyle(
                                         color: Colors.black.withOpacity(0.7),
@@ -242,14 +251,28 @@ class _CertificateState extends State<Certificate> {
                                 ),
                                 SizedBox(height: 2.h),
                                 InkWell(
-                                  onTap: () async{
-                                    EasyLoading.show(status: 'Downloading ..',indicator: CircularProgressIndicator(color: Colors.white,));
-                                    const downloadsFolderPath = '/storage/emulated/0/Download';
-                                    var request = await httpClient.getUrl(Uri.parse(documentmodal?.data?.allDocandCerti?[index].docFile ?? ""));
+                                  onTap: () async {
+                                    EasyLoading.show(
+                                        status: 'Downloading ..',
+                                        indicator: CircularProgressIndicator(
+                                          color: Colors.white,
+                                        ));
+                                    const downloadsFolderPath =
+                                        '/storage/emulated/0/Download';
+                                    var request = await httpClient.getUrl(
+                                        Uri.parse(documentmodal
+                                                ?.data
+                                                ?.allDocandCerti?[index]
+                                                .docFile ??
+                                            ""));
                                     var response = await request.close();
-                                    var bytes = await consolidateHttpClientResponseBytes(response);
-                                    Directory dir =await Directory(downloadsFolderPath);
-                                    final String filePath = '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}';
+                                    var bytes =
+                                        await consolidateHttpClientResponseBytes(
+                                            response);
+                                    Directory dir =
+                                        await Directory(downloadsFolderPath);
+                                    final String filePath =
+                                        '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}';
                                     final File file = File(filePath);
                                     await file.writeAsBytes(bytes);
                                     EasyLoading.showSuccess("Downloaded");
@@ -258,11 +281,14 @@ class _CertificateState extends State<Certificate> {
                                   child: Container(
                                     width: 45.w,
                                     alignment: Alignment.center,
-                                    padding: EdgeInsets.symmetric(vertical: 1.5.h),
-                                    margin: EdgeInsets.symmetric(horizontal: 3.w),
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 1.5.h),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 3.w),
                                     decoration: BoxDecoration(
                                         color: Colors.blue,
-                                        borderRadius: BorderRadius.circular(90)),
+                                        borderRadius:
+                                            BorderRadius.circular(90)),
                                     child: Text(
                                       'Download',
                                       style: TextStyle(
@@ -279,18 +305,13 @@ class _CertificateState extends State<Certificate> {
                           ],
                         ))
                   ]
-
                 ],
               )
-
             ],
-          )
-
-
-
-      ),
+          )),
     );
   }
+
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
@@ -306,7 +327,7 @@ class _CertificateState extends State<Certificate> {
         controller: _search,
         onChanged: (value) {},
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,
@@ -325,30 +346,25 @@ class _CertificateState extends State<Certificate> {
       ),
     );
   }
-  certificateapi(){
-    checkInternet().then((internet) async
-    {
+
+  certificateapi() {
+    checkInternet().then((internet) async {
       if (internet) {
-        taskprovider()
-            .documentapi()
-            .then((response) async {
+        taskprovider().documentapi().then((response) async {
           documentmodal = DocumentModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && documentmodal?.status == "1") {
             setState(() {
               isLoading = false;
             });
-          }
-          else {
+          } else {
             setState(() {
               isLoading = false;
             });
           }
         });
-      }
-      else{
+      } else {
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
-
 }

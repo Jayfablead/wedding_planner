@@ -40,14 +40,14 @@ class Searched {
 
   Searched(
       {this.id,
-        this.uid,
-        this.taskTitle,
-        this.taskDesc,
-        this.category,
-        this.startTime,
-        this.endTime,
-        this.isCompleted,
-        this.createdAt});
+      this.uid,
+      this.taskTitle,
+      this.taskDesc,
+      this.category,
+      this.startTime,
+      this.endTime,
+      this.isCompleted,
+      this.createdAt});
 
   Searched.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -101,704 +101,771 @@ class _ChatlistPageState extends State<ChatlistPage> {
         body: isLoading
             ? Container()
             : SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.w),
-            child: Column(children: [
-              SizedBox(
-                height: 4.h,
-              ),
-              header(
-                  text: "",
-                  callback1: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  }),
-              SizedBox(height: 1.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 1.w),
-                    child: Text(
-                      'Messages',
-                      style: TextStyle(
-                          fontSize: 25.sp,
-                          fontFamily: 'sofi',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color: Colors.black),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Column(children: [
+                    SizedBox(
+                      height: 4.h,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 1.h),
-              searchBox(),
-              _search.text!= ""?chatserchmodal?.data?.length ==0?Text("No Supplier available"):Column(
-                children: [
-                  for (int index = 0;
-                  index < (chatserchmodal?.data?.length ?? 0);
-                  index++) ...[
-                    InkWell(
-                      onTap: () {
-                        print(
-                            chatserchmodal?.data?[index].profile);
-                        Get.to(Msg2(
-                          id: chatserchmodal?.data?[index].id,
-                          name: chatserchmodal?.data?[index].name,
-                          img: chatserchmodal?.data?[index].profile,
-                        ));
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 3.w, vertical: 1.h),
-                        margin: EdgeInsets.symmetric(vertical: 1.h),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
+                    header(
+                        text: "",
+                        callback1: () {
+                          scaffoldKey.currentState?.openDrawer();
+                        }),
+                    SizedBox(height: 1.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 1.w),
+                          child: Text(
+                            'Messages',
+                            style: TextStyle(
+                                fontSize: 25.sp,
+                                fontFamily: 'sofi',
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                                color: Colors.black),
+                          ),
                         ),
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment:
-                          CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 1.w),
-                              height: 7.h,
-                              width: 15.w,
-                              child: ClipRRect(
-                                borderRadius:
-                                BorderRadius.circular(90),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: chatserchmodal?.data?[index]
-                                      .profile ??
-                                      "",
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                      CircularProgressIndicator(),
-                                  errorWidget:
-                                      (context, url, error) =>
-                                      Image.asset(
-                                        'assets/user.png',
-                                        color: Colors.white,
+                      ],
+                    ),
+                    SizedBox(height: 1.h),
+                    searchBox(),
+                    _search.text != ""
+                        ? chatserchmodal?.data?.length == 0
+                            ? Text("No Supplier available")
+                            : Column(
+                                children: [
+                                  for (int index = 0;
+                                      index <
+                                          (chatserchmodal?.data?.length ?? 0);
+                                      index++) ...[
+                                    InkWell(
+                                      onTap: () {
+                                        print(chatserchmodal
+                                            ?.data?[index].profile);
+                                        Get.to(Msg2(
+                                          id: chatserchmodal?.data?[index].id,
+                                          name:
+                                              chatserchmodal?.data?[index].name,
+                                          img: chatserchmodal
+                                              ?.data?[index].profile,
+                                        ));
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 3.w, vertical: 1.h),
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 1.h),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: Colors.white,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  horizontal: 1.w),
+                                              height: 7.h,
+                                              width: 15.w,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(90),
+                                                child: CachedNetworkImage(
+                                                  fit: BoxFit.cover,
+                                                  imageUrl: chatserchmodal
+                                                          ?.data?[index]
+                                                          .profile ??
+                                                      "",
+                                                  progressIndicatorBuilder:
+                                                      (context, url,
+                                                              progress) =>
+                                                          CircularProgressIndicator(),
+                                                  errorWidget:
+                                                      (context, url, error) =>
+                                                          Image.asset(
+                                                    'assets/user.png',
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            // SizedBox(
+                                            //   width: 3.w,
+                                            // ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  width: 68.w,
+                                                  child: Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        chatserchmodal
+                                                                ?.data?[index]
+                                                                .name ??
+                                                            "",
+                                                        style: TextStyle(
+                                                            fontSize: 16.sp,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            letterSpacing: 1,
+                                                            fontFamily: 'sofi',
+                                                            color:
+                                                                Colors.black),
+                                                      ),
+                                                      Text(
+                                                        chatserchmodal
+                                                                    ?.data?[
+                                                                        index]
+                                                                    .lastChatMessageInfo1 ==
+                                                                null
+                                                            ? ""
+                                                            : DateFormat(
+                                                                    'HH:mm')
+                                                                .format(DateTime.parse(chatserchmodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .lastChatMessageInfo1
+                                                                        ?.createdAt ??
+                                                                    "")),
+                                                        style: TextStyle(
+                                                            fontSize: 10.sp,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            fontFamily: 'sofi',
+                                                            color:
+                                                                Colors.black),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 1.h,
+                                                ),
+                                                SizedBox(
+                                                  width: 52.w,
+                                                  child: Text(
+                                                    chatserchmodal?.data?[index]
+                                                                .lastChatMessageInfo1 ==
+                                                            null
+                                                        ? ""
+                                                        : chatserchmodal
+                                                                    ?.data?[
+                                                                        index]
+                                                                    .lastChatMessageInfo1
+                                                                    ?.messageType ==
+                                                                "2"
+                                                            ? "Image"
+                                                            : chatserchmodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .lastChatMessageInfo1
+                                                                        ?.messageType ==
+                                                                    "3"
+                                                                ? "Video"
+                                                                : chatserchmodal
+                                                                            ?.data?[
+                                                                                index]
+                                                                            .lastChatMessageInfo1
+                                                                            ?.messageType ==
+                                                                        "4"
+                                                                    ? "File"
+                                                                    : chatserchmodal
+                                                                            ?.data?[index]
+                                                                            .lastChatMessageInfo1
+                                                                            ?.message ??
+                                                                        "",
+                                                    maxLines: 2,
+                                                    style: TextStyle(
+                                                        fontSize: 12.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontFamily: 'sofi',
+                                                        color: Colors.black54),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            // SizedBox(
+                                            //   width: 3.w,
+                                            // ),
+                                          ],
+                                        ),
                                       ),
-                                ),
+                                    )
+                                  ]
+                                ],
+                              )
+                        : Column(
+                            children: [
+                              SizedBox(height: 2.h),
+                              Row(
+                                children: [
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    'My Venue ',
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
+                                  ),
+                                ],
                               ),
-                            ),
-                            // SizedBox(
-                            //   width: 3.w,
-                            // ),
-                            Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 68.w,
+                              SizedBox(height: 2.h),
+                              InkWell(
+                                onTap: () {
+                                  Get.to(Msg2(
+                                    id: chatlistmodal?.venue?.id,
+                                    name: chatlistmodal?.venue?.name,
+                                    img: chatlistmodal?.venue?.profile,
+                                  ));
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 3.w, vertical: 1.h),
+                                  margin: EdgeInsets.symmetric(vertical: 1.h),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                  ),
                                   child: Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.center,
                                     mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        chatserchmodal?.data?[index]
-                                            .name ??
-                                            "",
-                                        style: TextStyle(
-                                            fontSize: 16.sp,
-                                            fontWeight:
-                                            FontWeight.bold,
-                                            letterSpacing: 1,
-                                            fontFamily: 'sofi',
-                                            color: Colors.black),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 1.w),
+                                        height: 7.h,
+                                        width: 15.w,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(90),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl:
+                                                chatlistmodal?.venue?.profile ??
+                                                    "",
+                                            progressIndicatorBuilder: (context,
+                                                    url, progress) =>
+                                                Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Image.asset(
+                                              'assets/user.png',
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      Text(
-                                        chatserchmodal?.data?[index]
-                                            .lastChatMessageInfo1 ==
-                                            null ? "":DateFormat('HH:mm').format(
-                                            DateTime.parse(chatserchmodal?.data?[
-                                            index]
-                                                .lastChatMessageInfo1
-                                                ?.createdAt ??
-                                                "")),
-                                        style: TextStyle(
-                                            fontSize: 10.sp,
-                                            fontWeight:
-                                            FontWeight.w400,
-                                            fontFamily: 'sofi',
-                                            color: Colors.black),
+                                      SizedBox(
+                                        width: 3.w,
                                       ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 68.w,
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  chatlistmodal?.venue?.name ??
+                                                      "",
+                                                  style: TextStyle(
+                                                      fontSize: 16.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      letterSpacing: 1,
+                                                      fontFamily: 'sofi',
+                                                      color: Colors.black),
+                                                ),
+                                                Text(
+                                                  chatlistmodal?.venue
+                                                              ?.lastChatMessageInfo ==
+                                                          null
+                                                      ? ""
+                                                      : DateFormat('HH:mm').format(
+                                                          DateTime.parse(chatlistmodal
+                                                                  ?.venue
+                                                                  ?.lastChatMessageInfo
+                                                                  ?.createdAt ??
+                                                              "")),
+                                                  style: TextStyle(
+                                                      fontSize: 10.sp,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontFamily: 'soi',
+                                                      color: Colors.black),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 0.5.h,
+                                          ),
+                                          SizedBox(
+                                            width: 52.w,
+                                            child: Text(
+                                              chatlistmodal?.venue
+                                                          ?.lastChatMessageInfo ==
+                                                      null
+                                                  ? ""
+                                                  : chatlistmodal
+                                                              ?.venue
+                                                              ?.lastChatMessageInfo
+                                                              ?.messageType ==
+                                                          "2"
+                                                      ? "Image"
+                                                      : chatlistmodal
+                                                                  ?.venue
+                                                                  ?.lastChatMessageInfo
+                                                                  ?.messageType ==
+                                                              "3"
+                                                          ? "Video"
+                                                          : chatlistmodal
+                                                                      ?.venue
+                                                                      ?.lastChatMessageInfo
+                                                                      ?.messageType ==
+                                                                  "4"
+                                                              ? "File"
+                                                              : chatlistmodal
+                                                                      ?.venue
+                                                                      ?.lastChatMessageInfo
+                                                                      ?.message ??
+                                                                  "",
+                                              maxLines: 2,
+                                              style: TextStyle(
+                                                  fontSize: 12.sp,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontFamily: 'soi',
+                                                  color: Colors.black54),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      // SizedBox(
+                                      //   width: 3.w,
+                                      // ),
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 1.h,
-                                ),
-                                SizedBox(
-                                  width: 52.w,
-                                  child: Text(
-                                    chatserchmodal?.data?[index]
-                                        .lastChatMessageInfo1 ==
-                                        null
-                                        ? ""
-                                        : chatserchmodal?.data?[
-                                    index]
-                                        .lastChatMessageInfo1
-                                        ?.messageType ==
-                                        "2"
-                                        ? "Image"
-                                        :chatserchmodal?.data?[
-                                    index]
-                                        .lastChatMessageInfo1
-                                        ?.messageType ==
-                                        "3"
-                                        ? "Video"
-                                        : chatserchmodal?.data?[
-                                    index]
-                                        .lastChatMessageInfo1
-                                        ?.messageType ==
-                                        "4"
-                                        ? "File"
-                                        : chatserchmodal?.data?[
-                                    index]
-                                        .lastChatMessageInfo1
-                                        ?.message ??
-                                        "",
-                                    maxLines: 2,
+                              ),
+                              SizedBox(height: 1.h),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 2.w),
+                                child: Divider(color: Colors.black87),
+                              ),
+                              SizedBox(height: 1.h),
+                              Row(
+                                children: [
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    'Suppliers ',
                                     style: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
                                         fontFamily: 'sofi',
-                                        color: Colors.black54),
+                                        color: Colors.black),
                                   ),
-                                )
-                              ],
-                            ),
-                            // SizedBox(
-                            //   width: 3.w,
-                            // ),
-                          ],
-                        ),
-                      ),
-                    )
-                  ]
-                ],
-              ): Column(
-                children: [
-                  SizedBox(height: 2.h),
-                  Row(
-                    children: [
-                      SizedBox(width: 2.w),
-                      Text(
-                        'My Venue ',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            fontFamily: 'sofi',
-                            color: Colors.black),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 2.h),
-                  InkWell(
-                    onTap: () {
-                      Get.to(Msg2(
-                        id: chatlistmodal?.venue?.id,
-                        name: chatlistmodal?.venue?.name,
-                        img: chatlistmodal?.venue?.profile,
-                      ));
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 3.w, vertical: 1.h),
-                      margin: EdgeInsets.symmetric(vertical: 1.h),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 1.w),
-                            height: 7.h,
-                            width: 15.w,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(90),
-                              child: CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl:
-                                chatlistmodal?.venue?.profile ?? "",
-                                progressIndicatorBuilder:
-                                    (context, url, progress) => Center(
-                                    child: CircularProgressIndicator()),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                      'assets/user.png',
-                                      color: Colors.black,
-                                    ),
+                                ],
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 68.w,
-                                child: Row(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      chatlistmodal?.venue?.name ?? "",
-                                      style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1,
-                                          fontFamily: 'sofi',
-                                          color: Colors.black),
+                              SizedBox(height: 2.h),
+                              chatlistmodal?.suppliers?.length == 0
+                                  ? Text("No Supplier available")
+                                  : Column(
+                                      children: [
+                                        for (int index = 0;
+                                            index <
+                                                (chatlistmodal
+                                                        ?.suppliers?.length ??
+                                                    0);
+                                            index++) ...[
+                                          InkWell(
+                                            onTap: () {
+                                              print(chatlistmodal
+                                                  ?.suppliers?[index].profile);
+                                              Get.to(Msg2(
+                                                id: chatlistmodal
+                                                    ?.suppliers?[index].id,
+                                                name: chatlistmodal
+                                                    ?.suppliers?[index].name,
+                                                img: chatlistmodal
+                                                    ?.suppliers?[index].profile,
+                                              ));
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 3.w,
+                                                  vertical: 1.h),
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 1.h),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                color: Colors.white,
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 1.w),
+                                                    height: 7.h,
+                                                    width: 15.w,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              90),
+                                                      child: CachedNetworkImage(
+                                                        fit: BoxFit.cover,
+                                                        imageUrl: chatlistmodal
+                                                                ?.suppliers?[
+                                                                    index]
+                                                                .profile ??
+                                                            "",
+                                                        progressIndicatorBuilder:
+                                                            (context, url,
+                                                                    progress) =>
+                                                                CircularProgressIndicator(),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            Image.asset(
+                                                          'assets/user.png',
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  // SizedBox(
+                                                  //   width: 3.w,
+                                                  // ),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                        width: 68.w,
+                                                        child: Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Text(
+                                                              chatlistmodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .name ??
+                                                                  "",
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      16.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  letterSpacing:
+                                                                      1,
+                                                                  fontFamily:
+                                                                      'sofi',
+                                                                  color: Colors
+                                                                      .black),
+                                                            ),
+                                                            Text(
+                                                              chatlistmodal
+                                                                          ?.suppliers?[
+                                                                              index]
+                                                                          .lastChatMessageInfo1 ==
+                                                                      null
+                                                                  ? ""
+                                                                  : DateFormat(
+                                                                          'HH:mm')
+                                                                      .format(DateTime.parse(chatlistmodal
+                                                                              ?.suppliers?[index]
+                                                                              .lastChatMessageInfo1
+                                                                              ?.createdAt ??
+                                                                          "")),
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      10.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400,
+                                                                  fontFamily:
+                                                                      'sofi',
+                                                                  color: Colors
+                                                                      .black),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 1.h,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 52.w,
+                                                        child: Text(
+                                                          chatlistmodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .lastChatMessageInfo1 ==
+                                                                  null
+                                                              ? ""
+                                                              : chatlistmodal
+                                                                          ?.suppliers?[
+                                                                              index]
+                                                                          .lastChatMessageInfo1
+                                                                          ?.messageType ==
+                                                                      "2"
+                                                                  ? "Image"
+                                                                  : chatlistmodal
+                                                                              ?.suppliers?[
+                                                                                  index]
+                                                                              .lastChatMessageInfo1
+                                                                              ?.messageType ==
+                                                                          "3"
+                                                                      ? "Video"
+                                                                      : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.messageType ==
+                                                                              "4"
+                                                                          ? "File"
+                                                                          : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ??
+                                                                              "",
+                                                          maxLines: 2,
+                                                          style: TextStyle(
+                                                              fontSize: 12.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color: Colors
+                                                                  .black54),
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  // SizedBox(
+                                                  //   width: 3.w,
+                                                  // ),
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        ]
+                                      ],
                                     ),
-                                    Text(
-                                      chatlistmodal?.venue
-                                          ?.lastChatMessageInfo ==
-                                          null
-                                          ? ""
-                                          : DateFormat('HH:mm').format(
-                                          DateTime.parse(chatlistmodal
-                                              ?.venue
-                                              ?.lastChatMessageInfo
-                                              ?.createdAt ??
-                                              "")),
-                                      style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: 'soi',
-                                          color: Colors.black),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 0.5.h,
-                              ),
-                              SizedBox(
-                                width: 52.w,
-                                child: Text(
-                                  chatlistmodal?.venue
-                                      ?.lastChatMessageInfo ==
-                                      null
-                                      ? ""
-                                      : chatlistmodal
-                                      ?.venue
-                                      ?.lastChatMessageInfo
-                                      ?.messageType ==
-                                      "2"
-                                      ? "Image"
-                                      : chatlistmodal
-                                      ?.venue
-                                      ?.lastChatMessageInfo
-                                      ?.messageType ==
-                                      "3"
-                                      ? "Video"
-                                      : chatlistmodal
-                                      ?.venue
-                                      ?.lastChatMessageInfo
-                                      ?.messageType ==
-                                      "4"
-                                      ? "File"
-                                      : chatlistmodal
-                                      ?.venue
-                                      ?.lastChatMessageInfo
-                                      ?.message ??
-                                      "",
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: 'soi',
-                                      color: Colors.black54),
-                                ),
-                              )
                             ],
                           ),
-                          // SizedBox(
-                          //   width: 3.w,
-                          // ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 1.h),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 2.w),
-                    child: Divider(color: Colors.black87),
-                  ),
-                  SizedBox(height: 1.h),
-                  Row(
-                    children: [
-                      SizedBox(width: 2.w),
-                      Text(
-                        'Suppliers ',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            fontFamily: 'sofi',
-                            color: Colors.black),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 2.h),
-                  chatlistmodal?.suppliers?.length == 0
-                      ? Text("No Supplier available")
-                      : Column(
-                    children: [
-                      for (int index = 0;
-                      index < (chatlistmodal?.suppliers?.length ?? 0);
-                      index++) ...[
-                        InkWell(
-                          onTap: () {
-                            print(
-                                chatlistmodal?.suppliers?[index].profile);
-                            Get.to(Msg2(
-                              id: chatlistmodal?.suppliers?[index].id,
-                              name: chatlistmodal?.suppliers?[index].name,
-                              img: chatlistmodal
-                                  ?.suppliers?[index].profile,
-                            ));
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 3.w, vertical: 1.h),
-                            margin: EdgeInsets.symmetric(vertical: 1.h),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.white,
-                            ),
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment:
-                              CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal: 1.w),
-                                  height: 7.h,
-                                  width: 15.w,
-                                  child: ClipRRect(
-                                    borderRadius:
-                                    BorderRadius.circular(90),
-                                    child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl: chatlistmodal
-                                          ?.suppliers?[index]
-                                          .profile ??
-                                          "",
-                                      progressIndicatorBuilder:
-                                          (context, url, progress) =>
-                                          CircularProgressIndicator(),
-                                      errorWidget:
-                                          (context, url, error) =>
-                                          Image.asset(
-                                            'assets/user.png',
-                                            color: Colors.white,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                // SizedBox(
-                                //   width: 3.w,
-                                // ),
-                                Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: 68.w,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment
-                                            .spaceBetween,
-                                        children: [
-                                          Text(
-                                            chatlistmodal
-                                                ?.suppliers?[index]
-                                                .name ??
-                                                "",
-                                            style: TextStyle(
-                                                fontSize: 16.sp,
-                                                fontWeight:
-                                                FontWeight.bold,
-                                                letterSpacing: 1,
-                                                fontFamily: 'sofi',
-                                                color: Colors.black),
-                                          ),
-                                          Text(
-                                            chatlistmodal?.suppliers?[index]
-                                                .lastChatMessageInfo1 ==
-                                                null ? "":DateFormat('HH:mm').format(
-                                                DateTime.parse(chatlistmodal
-                                                    ?.suppliers?[
-                                                index]
-                                                    .lastChatMessageInfo1
-                                                    ?.createdAt ??
-                                                    "")),
-                                            style: TextStyle(
-                                                fontSize: 10.sp,
-                                                fontWeight:
-                                                FontWeight.w400,
-                                                fontFamily: 'sofi',
-                                                color: Colors.black),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 1.h,
-                                    ),
-                                    SizedBox(
-                                      width: 52.w,
-                                      child: Text(
-                                        chatlistmodal?.suppliers?[index]
-                                            .lastChatMessageInfo1 ==
-                                            null
-                                            ? ""
-                                            : chatlistmodal
-                                            ?.suppliers?[
-                                        index]
-                                            .lastChatMessageInfo1
-                                            ?.messageType ==
-                                            "2"
-                                            ? "Image"
-                                            : chatlistmodal
-                                            ?.suppliers?[
-                                        index]
-                                            .lastChatMessageInfo1
-                                            ?.messageType ==
-                                            "3"
-                                            ? "Video"
-                                            : chatlistmodal
-                                            ?.suppliers?[
-                                        index]
-                                            .lastChatMessageInfo1
-                                            ?.messageType ==
-                                            "4"
-                                            ? "File"
-                                            : chatlistmodal
-                                            ?.suppliers?[
-                                        index]
-                                            .lastChatMessageInfo1
-                                            ?.message ??
-                                            "",
-                                        maxLines: 2,
-                                        style: TextStyle(
-                                            fontSize: 12.sp,
-                                            fontWeight: FontWeight.w500,
-                                            fontFamily: 'sofi',
-                                            color: Colors.black54),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                // SizedBox(
-                                //   width: 3.w,
-                                // ),
-                              ],
-                            ),
-                          ),
-                        )
-                      ]
-                    ],
-                  ),
-                ],
-              ),
 
-              // ListView.builder(
-              //   itemCount: chatlistmodal?.suppliers?.length,
-              //   itemBuilder: (context, index) {
-              //     String? formattedTime;
-              //     if (chatlistmodal
-              //         ?.suppliers?[index].lastChatMessageInfo1 !=
-              //         null) {
-              //       DateTime dateTime = DateTime.parse(chatlistmodal
-              //           ?.suppliers?[index]
-              //           .lastChatMessageInfo1
-              //           ?.createdAt ??
-              //           "");
-              //       DateFormat timeFormat = DateFormat(
-              //           'HH:mm'); // Customize the format as needed
-              //       formattedTime = timeFormat.format(dateTime);
-              //     } else {
-              //       formattedTime = "";
-              //     }
-              //     return InkWell(
-              //       onTap: () {
-              //         print(chatlistmodal?.suppliers?[index].profile);
-              //         Get.to(Msg2(
-              //           id: chatlistmodal?.suppliers?[index].id,
-              //           name: chatlistmodal?.suppliers?[index].name,
-              //           img: chatlistmodal?.suppliers?[index].profile,
-              //         ));
-              //       },
-              //       child: Container(
-              //         padding: EdgeInsets.symmetric(
-              //             horizontal: 3.w, vertical: 1.h),
-              //         margin: EdgeInsets.symmetric(vertical: 1.h),
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(20),
-              //           color: Colors.white,
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment:
-              //           MainAxisAlignment.spaceBetween,
-              //           crossAxisAlignment: CrossAxisAlignment.center,
-              //           children: [
-              //             Container(
-              //               margin:
-              //               EdgeInsets.symmetric(horizontal: 1.w),
-              //               height: 7.h,
-              //               width: 15.w,
-              //               child: ClipRRect(
-              //                 borderRadius: BorderRadius.circular(90),
-              //                 child: CachedNetworkImage(
-              //                   fit: BoxFit.cover,
-              //                   imageUrl: chatlistmodal
-              //                       ?.suppliers?[index].profile ??
-              //                       "",
-              //                   progressIndicatorBuilder:
-              //                       (context, url, progress) =>
-              //                       CircularProgressIndicator(),
-              //                   errorWidget: (context, url, error) =>
-              //                       Image.asset(
-              //                         'assets/user.png',
-              //                         color: Colors.white,
-              //                       ),
-              //                 ),
-              //               ),
-              //             ),
-              //             // SizedBox(
-              //             //   width: 3.w,
-              //             // ),
-              //             Column(
-              //               crossAxisAlignment:
-              //               CrossAxisAlignment.start,
-              //               mainAxisAlignment:
-              //               MainAxisAlignment.center,
-              //               children: [
-              //                 Container(
-              //                   width: 68.w,
-              //                   child: Row(
-              //                     crossAxisAlignment:
-              //                     CrossAxisAlignment.center,
-              //                     mainAxisAlignment:
-              //                     MainAxisAlignment.spaceBetween,
-              //                     children: [
-              //                       Text(
-              //                         chatlistmodal?.suppliers?[index]
-              //                             .name ??
-              //                             "",
-              //                         style: TextStyle(
-              //                             fontSize: 16.sp,
-              //                             fontWeight: FontWeight.bold,
-              //                             letterSpacing: 1,
-              //                             fontFamily: 'sofi',
-              //                             color: Colors.black),
-              //                       ),
-              //                       Text(
-              //                         DateFormat('HH:mm').format(
-              //                             DateTime.parse(chatlistmodal
-              //                                 ?.suppliers?[index]
-              //                                 .lastChatMessageInfo1
-              //                                 ?.createdAt ??
-              //                                 "")),
-              //                         style: TextStyle(
-              //                             fontSize: 10.sp,
-              //                             fontWeight: FontWeight.w400,
-              //                             fontFamily: 'sofi',
-              //                             color: Colors.black),
-              //                       ),
-              //                     ],
-              //                   ),
-              //                 ),
-              //                 SizedBox(
-              //                   height: 1.h,
-              //                 ),
-              //                 SizedBox(
-              //                   width: 52.w,
-              //                   child: Text(
-              //                     chatlistmodal?.suppliers?[index]
-              //                         .lastChatMessageInfo1 ==
-              //                         null
-              //                         ? ""
-              //                         : chatlistmodal
-              //                         ?.suppliers?[index]
-              //                         .lastChatMessageInfo1
-              //                         ?.messageType ==
-              //                         "2"
-              //                         ? "Image"
-              //                         : chatlistmodal
-              //                         ?.suppliers?[
-              //                     index]
-              //                         .lastChatMessageInfo1
-              //                         ?.messageType ==
-              //                         "3"
-              //                         ? "Video"
-              //                         : chatlistmodal
-              //                         ?.suppliers?[
-              //                     index]
-              //                         .lastChatMessageInfo1
-              //                         ?.messageType ==
-              //                         "4"
-              //                         ? "File"
-              //                         : chatlistmodal
-              //                         ?.suppliers?[
-              //                     index]
-              //                         .lastChatMessageInfo1
-              //                         ?.message ??
-              //                         "",
-              //                     maxLines: 2,
-              //                     style: TextStyle(
-              //                         fontSize: 12.sp,
-              //                         fontWeight: FontWeight.w500,
-              //                         fontFamily: 'sofi',
-              //                         color: Colors.black54),
-              //                   ),
-              //                 )
-              //               ],
-              //             ),
-              //             // SizedBox(
-              //             //   width: 3.w,
-              //             // ),
-              //           ],
-              //         ),
-              //       ),
-              //     );
-              //   },
-              // ),
-              SizedBox(
-                height: 10.h,
+                    // ListView.builder(
+                    //   itemCount: chatlistmodal?.suppliers?.length,
+                    //   itemBuilder: (context, index) {
+                    //     String? formattedTime;
+                    //     if (chatlistmodal
+                    //         ?.suppliers?[index].lastChatMessageInfo1 !=
+                    //         null) {
+                    //       DateTime dateTime = DateTime.parse(chatlistmodal
+                    //           ?.suppliers?[index]
+                    //           .lastChatMessageInfo1
+                    //           ?.createdAt ??
+                    //           "");
+                    //       DateFormat timeFormat = DateFormat(
+                    //           'HH:mm'); // Customize the format as needed
+                    //       formattedTime = timeFormat.format(dateTime);
+                    //     } else {
+                    //       formattedTime = "";
+                    //     }
+                    //     return InkWell(
+                    //       onTap: () {
+                    //         print(chatlistmodal?.suppliers?[index].profile);
+                    //         Get.to(Msg2(
+                    //           id: chatlistmodal?.suppliers?[index].id,
+                    //           name: chatlistmodal?.suppliers?[index].name,
+                    //           img: chatlistmodal?.suppliers?[index].profile,
+                    //         ));
+                    //       },
+                    //       child: Container(
+                    //         padding: EdgeInsets.symmetric(
+                    //             horizontal: 3.w, vertical: 1.h),
+                    //         margin: EdgeInsets.symmetric(vertical: 1.h),
+                    //         decoration: BoxDecoration(
+                    //           borderRadius: BorderRadius.circular(20),
+                    //           color: Colors.white,
+                    //         ),
+                    //         child: Row(
+                    //           mainAxisAlignment:
+                    //           MainAxisAlignment.spaceBetween,
+                    //           crossAxisAlignment: CrossAxisAlignment.center,
+                    //           children: [
+                    //             Container(
+                    //               margin:
+                    //               EdgeInsets.symmetric(horizontal: 1.w),
+                    //               height: 7.h,
+                    //               width: 15.w,
+                    //               child: ClipRRect(
+                    //                 borderRadius: BorderRadius.circular(90),
+                    //                 child: CachedNetworkImage(
+                    //                   fit: BoxFit.cover,
+                    //                   imageUrl: chatlistmodal
+                    //                       ?.suppliers?[index].profile ??
+                    //                       "",
+                    //                   progressIndicatorBuilder:
+                    //                       (context, url, progress) =>
+                    //                       CircularProgressIndicator(),
+                    //                   errorWidget: (context, url, error) =>
+                    //                       Image.asset(
+                    //                         'assets/user.png',
+                    //                         color: Colors.white,
+                    //                       ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //             // SizedBox(
+                    //             //   width: 3.w,
+                    //             // ),
+                    //             Column(
+                    //               crossAxisAlignment:
+                    //               CrossAxisAlignment.start,
+                    //               mainAxisAlignment:
+                    //               MainAxisAlignment.center,
+                    //               children: [
+                    //                 Container(
+                    //                   width: 68.w,
+                    //                   child: Row(
+                    //                     crossAxisAlignment:
+                    //                     CrossAxisAlignment.center,
+                    //                     mainAxisAlignment:
+                    //                     MainAxisAlignment.spaceBetween,
+                    //                     children: [
+                    //                       Text(
+                    //                         chatlistmodal?.suppliers?[index]
+                    //                             .name ??
+                    //                             "",
+                    //                         style: TextStyle(
+                    //                             fontSize: 16.sp,
+                    //                             fontWeight: FontWeight.bold,
+                    //                             letterSpacing: 1,
+                    //                             fontFamily: 'sofi',
+                    //                             color: Colors.black),
+                    //                       ),
+                    //                       Text(
+                    //                         DateFormat('HH:mm').format(
+                    //                             DateTime.parse(chatlistmodal
+                    //                                 ?.suppliers?[index]
+                    //                                 .lastChatMessageInfo1
+                    //                                 ?.createdAt ??
+                    //                                 "")),
+                    //                         style: TextStyle(
+                    //                             fontSize: 10.sp,
+                    //                             fontWeight: FontWeight.w400,
+                    //                             fontFamily: 'sofi',
+                    //                             color: Colors.black),
+                    //                       ),
+                    //                     ],
+                    //                   ),
+                    //                 ),
+                    //                 SizedBox(
+                    //                   height: 1.h,
+                    //                 ),
+                    //                 SizedBox(
+                    //                   width: 52.w,
+                    //                   child: Text(
+                    //                     chatlistmodal?.suppliers?[index]
+                    //                         .lastChatMessageInfo1 ==
+                    //                         null
+                    //                         ? ""
+                    //                         : chatlistmodal
+                    //                         ?.suppliers?[index]
+                    //                         .lastChatMessageInfo1
+                    //                         ?.messageType ==
+                    //                         "2"
+                    //                         ? "Image"
+                    //                         : chatlistmodal
+                    //                         ?.suppliers?[
+                    //                     index]
+                    //                         .lastChatMessageInfo1
+                    //                         ?.messageType ==
+                    //                         "3"
+                    //                         ? "Video"
+                    //                         : chatlistmodal
+                    //                         ?.suppliers?[
+                    //                     index]
+                    //                         .lastChatMessageInfo1
+                    //                         ?.messageType ==
+                    //                         "4"
+                    //                         ? "File"
+                    //                         : chatlistmodal
+                    //                         ?.suppliers?[
+                    //                     index]
+                    //                         .lastChatMessageInfo1
+                    //                         ?.message ??
+                    //                         "",
+                    //                     maxLines: 2,
+                    //                     style: TextStyle(
+                    //                         fontSize: 12.sp,
+                    //                         fontWeight: FontWeight.w500,
+                    //                         fontFamily: 'sofi',
+                    //                         color: Colors.black54),
+                    //                   ),
+                    //                 )
+                    //               ],
+                    //             ),
+                    //             // SizedBox(
+                    //             //   width: 3.w,
+                    //             // ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                  ]),
+                ),
               ),
-            ]),
-          ),
-        ),
       ),
     );
   }
@@ -897,7 +964,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
           chatserchap(value);
         },
         style:
-        TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
+            TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.search,

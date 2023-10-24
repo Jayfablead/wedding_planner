@@ -340,7 +340,6 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               email: supplierdetailmodal?.supplierInfo?.email,
                               cid: supplierdetailmodal
                                   ?.supplierInfo?.services?.categoryId,
-
                               photo: supplierdetailmodal?.supplierInfo?.profile,
                               sername: widget.service,
                               sid: supplierdetailmodal

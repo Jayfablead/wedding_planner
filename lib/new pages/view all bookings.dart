@@ -26,10 +26,10 @@ class icon {
   String? price;
 
   icon(
-      this.image,
-      this.name,
-      this.price,
-      );
+    this.image,
+    this.name,
+    this.price,
+  );
 }
 
 List<icon> Icns = [
@@ -58,7 +58,8 @@ List<icon> Icns = [
 ];
 
 class _BookingListState extends State<BookingList> {
-  bool isLoading= true;
+  bool isLoading = true;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -72,217 +73,241 @@ class _BookingListState extends State<BookingList> {
       backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
       key: scaffoldKey,
-      body: isLoading?Container():SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 3.w),
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     IconButton(
-                  //         onPressed: () {
-                  //           Get.back();
-                  //         },
-                  //         icon: Icon(
-                  //           Icons.arrow_back_ios_new_rounded,
-                  //           color: Colors.blue,
-                  //           size: 23.sp,
-                  //         )),
-                  //     Text(
-                  //       "All Bookings",
-                  //       style: TextStyle(
-                  //         fontSize: 17.sp,
-                  //         fontFamily: 'sofi',
-                  //         letterSpacing: 1,
-                  //         color: Colors.blue,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     ),
-                  //     IconButton(
-                  //         onPressed: () {
-                  //           scaffoldKey.currentState?.openDrawer();
-                  //         },
-                  //         icon: Icon(
-                  //           Icons.menu_rounded,
-                  //           color: Colors.blue,
-                  //           size: 23.sp,
-                  //         ))
-                  //   ],
-                  // ),
-                  header(
-                      text: "All Bookings",
-                      callback1: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      }),
-                  // headerwid(text: "All Bookings"),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  for(int index=0 ;index<(bookinglistmodal?.bookings?.length ?? 0);index++)...[
-                    Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Container(
-                          height: 18.h,
-                          padding: EdgeInsets.all(1.w),
-                          margin: EdgeInsets.symmetric(horizontal: 1.w),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                margin:
-                                EdgeInsets.symmetric(horizontal: 0.5.w),
-                                height: 16.h,
-                                width: 30.w,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl:
-                                    bookinglistmodal?.bookings?[index].supplierDetails?.profile ?? "",
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) => Center(
-                                        child:
-                                        CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                          'assets/deprf.png',
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  SizedBox(
-                                    width: 54.w,
-                                    child: Row(
-                                      mainAxisAlignment:
+      body: isLoading
+          ? Container()
+          : SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                child: Column(
+                  children: [
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   children: [
+                        //     IconButton(
+                        //         onPressed: () {
+                        //           Get.back();
+                        //         },
+                        //         icon: Icon(
+                        //           Icons.arrow_back_ios_new_rounded,
+                        //           color: Colors.blue,
+                        //           size: 23.sp,
+                        //         )),
+                        //     Text(
+                        //       "All Bookings",
+                        //       style: TextStyle(
+                        //         fontSize: 17.sp,
+                        //         fontFamily: 'sofi',
+                        //         letterSpacing: 1,
+                        //         color: Colors.blue,
+                        //         fontWeight: FontWeight.bold,
+                        //       ),
+                        //     ),
+                        //     IconButton(
+                        //         onPressed: () {
+                        //           scaffoldKey.currentState?.openDrawer();
+                        //         },
+                        //         icon: Icon(
+                        //           Icons.menu_rounded,
+                        //           color: Colors.blue,
+                        //           size: 23.sp,
+                        //         ))
+                        //   ],
+                        // ),
+                        header(
+                            text: "All Bookings",
+                            callback1: () {
+                              scaffoldKey.currentState?.openDrawer();
+                            }),
+                        // headerwid(text: "All Bookings"),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        for (int index = 0;
+                            index < (bookinglistmodal?.bookings?.length ?? 0);
+                            index++) ...[
+                          Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Container(
+                                height: 18.h,
+                                padding: EdgeInsets.all(1.w),
+                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 0.5.w),
+                                      height: 16.h,
+                                      width: 30.w,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: CachedNetworkImage(
+                                          fit: BoxFit.cover,
+                                          imageUrl: bookinglistmodal
+                                                  ?.bookings?[index]
+                                                  .supplierDetails
+                                                  ?.profile ??
+                                              "",
+                                          progressIndicatorBuilder: (context,
+                                                  url, progress) =>
+                                              Center(
+                                                  child:
+                                                      CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Image.asset(
+                                            'assets/deprf.png',
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
+                                        SizedBox(
+                                          width: 54.w,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                padding:
+                                                    EdgeInsets.only(left: 1.w),
+                                                child: Text(
+                                                  bookinglistmodal
+                                                          ?.bookings?[index]
+                                                          .supplierDetails
+                                                          ?.name ??
+                                                      "",
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 13.sp,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 1.h),
                                         Container(
                                           padding: EdgeInsets.only(left: 1.w),
+                                          width: 55.w,
                                           child: Text(
-                                            bookinglistmodal?.bookings?[index].supplierDetails?.name ?? "",
+                                            bookinglistmodal
+                                                    ?.bookings?[index]
+                                                    .supplierDetails
+                                                    ?.description ??
+                                                "",
+                                            maxLines: 2,
                                             style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 13.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.7),
+                                                overflow: TextOverflow.ellipsis,
+                                                fontSize: 11.sp,
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  Container(
-                                    padding: EdgeInsets.only(left: 1.w),
-                                    width: 55.w,
-                                    child: Text(
-                                      bookinglistmodal?.bookings?[index].supplierDetails?.description ?? "",
-                                      maxLines: 2,
-                                      style: TextStyle(
-                                          color:
-                                          Colors.black.withOpacity(0.7),
-                                          overflow: TextOverflow.ellipsis,
-                                          fontSize: 11.sp,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.location_on_outlined,
-                                        size: 15.sp,
-                                        color: Colors.black.withOpacity(0.8),
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      Text(
-                                        bookinglistmodal?.bookings?[index].supplierDetails?.address ?? "",
-                                        style: TextStyle(
-                                            color:
-                                            Colors.black.withOpacity(0.8),
-                                            fontSize: 12.sp,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  SizedBox(
-                                    width: 55.w,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        // Container(
-                                        //   padding: EdgeInsets.only(left: 1.w),
-                                        //   child: Text(
-                                        //     '\$ 10000',
-                                        //     style: TextStyle(
-                                        //         color: Colors.black
-                                        //             .withOpacity(0.8),
-                                        //         fontSize: 16.sp,
-                                        //         fontWeight: FontWeight.w600),
-                                        //   ),
-                                        // ),
-                                        InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 3.w,
-                                                vertical: 1.3.h),
-                                            decoration: BoxDecoration(
-                                                color: Colors.blue,
-                                                borderRadius:
-                                                BorderRadius.circular(
-                                                    90)),
-                                            child: Text(
-                                              'View Details',
-                                              style: TextStyle(
-                                                  fontSize: 11.sp,
-                                                  color: Colors.white,
-                                                  fontFamily: 'sofi',
-                                                  letterSpacing: 1,
-                                                  fontWeight:
-                                                  FontWeight.bold),
+                                        SizedBox(height: 1.h),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.location_on_outlined,
+                                              size: 15.sp,
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
                                             ),
+                                            SizedBox(
+                                              width: 1.w,
+                                            ),
+                                            Text(
+                                              bookinglistmodal
+                                                      ?.bookings?[index]
+                                                      .supplierDetails
+                                                      ?.address ??
+                                                  "",
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.8),
+                                                  fontSize: 12.sp,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 1.h),
+                                        SizedBox(
+                                          width: 55.w,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              // Container(
+                                              //   padding: EdgeInsets.only(left: 1.w),
+                                              //   child: Text(
+                                              //     '\$ 10000',
+                                              //     style: TextStyle(
+                                              //         color: Colors.black
+                                              //             .withOpacity(0.8),
+                                              //         fontSize: 16.sp,
+                                              //         fontWeight: FontWeight.w600),
+                                              //   ),
+                                              // ),
+                                              InkWell(
+                                                onTap: () {},
+                                                child: Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 3.w,
+                                                      vertical: 1.3.h),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.blue,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              90)),
+                                                  child: Text(
+                                                    'View Details',
+                                                    style: TextStyle(
+                                                        fontSize: 11.sp,
+                                                        color: Colors.white,
+                                                        fontFamily: 'sofi',
+                                                        letterSpacing: 1,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )),
+                                  ],
+                                )),
+                          ),
+                        ]
+                      ],
                     ),
-                  ]
-
-
-                ],
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
+
   booklinglistap() {
     checkInternet().then((internet) async {
       if (internet) {
@@ -290,7 +315,6 @@ class _BookingListState extends State<BookingList> {
           bookinglistmodal =
               BookinglistModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && unreadnotimodal?.status == "1") {
-
             setState(() {
               isLoading = false;
             });

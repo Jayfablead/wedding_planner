@@ -99,16 +99,16 @@ class GuestList {
 
   GuestList(
       {this.id,
-        this.uid,
-        this.guestName,
-        this.guestEmail,
-        this.guestContact,
-        this.guestTableId,
-        this.guestSeatNo,
-        this.brideOrGroom,
-        this.guestRelationGroup,
-        this.attendingStatus,
-        this.createdAt});
+      this.uid,
+      this.guestName,
+      this.guestEmail,
+      this.guestContact,
+      this.guestTableId,
+      this.guestSeatNo,
+      this.brideOrGroom,
+      this.guestRelationGroup,
+      this.attendingStatus,
+      this.createdAt});
 
   GuestList.fromJson(Map<String, dynamic> json) {
     id = json['id'];

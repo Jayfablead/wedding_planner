@@ -22,11 +22,15 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
     return responseJson;
-  } Future<http.Response> suppliersearchapi(Map<String, String> bodyData) async {
+  }
+
+  Future<http.Response> suppliersearchapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/searchSuppliers/${userData?.user?.id}';
 
     var responseJson;
-    final response = await http.post(Uri.parse(url), headers: headers,body: bodyData).timeout(
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
         throw const SocketException('Something went wrong');
@@ -34,9 +38,9 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
 
-
     return responseJson;
   }
+
   Future<http.Response> searchchecklistapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/searchCheckList/${userData?.user?.id.toString()}';
     var responseJson;
@@ -51,6 +55,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> sentBookingReq(Map<String, String> bodyData) async {
     String? url = '$baseUrl/sentBookingReq/${userData?.user?.id.toString()}';
     var responseJson;
@@ -65,7 +70,6 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-
 
   Future<http.Response> supplierdetailapi(String? suppid, String? catid) async {
     String? url =
@@ -123,12 +127,18 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
     return responseJson;
-  }  Future<http.Response> viewcategorryapi(String data1) async {
-    String? url = '$baseUrl/categoryWiseSuppliers/${userData?.user?.id.toString()}/${data1}';
+  }
+
+  Future<http.Response> viewcategorryapi(String data1) async {
+    String? url =
+        '$baseUrl/categoryWiseSuppliers/${userData?.user?.id.toString()}/${data1}';
     print(url);
     var responseJson;
     final response = await http
-        .get(Uri.parse(url), headers: headers,)
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
@@ -138,13 +148,12 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> bookinglistapi() async {
     String? url = '$baseUrl/myBookings/${userData?.user?.id.toString()}';
 
     var responseJson;
-    final response = await http
-        .get(Uri.parse(url), headers: headers)
-        .timeout(
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),
       onTimeout: () {
         throw const SocketException('Something went wrong');
@@ -153,6 +162,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> venuedeatilapi() async {
     String? url = '$baseUrl/myVenue/${userData?.user?.id.toString()}';
 
@@ -260,6 +270,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> myvenuetableapi() async {
     String? url = '$baseUrl/myVenueTables/${userData?.user?.vid}';
     print(url);
@@ -288,9 +299,9 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
 
-
     return responseJson;
   }
+
   Future<http.Response> homeapi() async {
     String? url = '$baseUrl/myHome/${userData?.user?.id.toString()}';
 
@@ -304,6 +315,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> Mysups() async {
     String? url = '$baseUrl/mySuppliers/${userData?.user?.id.toString()}';
 
@@ -345,13 +357,17 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> meetingapi(String? date1) async {
     String? url = '$baseUrl/myMeetings/${userData?.user?.id}?date=${date1}';
     // String? url="https://wedding.fableadtechnolabs.com/wedding/portal/api/myMeetings/17?date=25/10/2023";
 
     var responseJson;
     final response = await http
-        .get(Uri.parse(url), headers: headers, )
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
@@ -361,6 +377,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> addtofavouriteapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/addToFav';
     print(url);
@@ -512,6 +529,7 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+
   Future<http.Response> chatserchapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/searchChat/${userData?.user?.id.toString()}';
 
@@ -542,6 +560,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> QouteListApi() async {
     String? url = '$baseUrl/myQuotations/${userData?.user?.id.toString()}';
     print(url);
@@ -564,7 +583,10 @@ class taskprovider with ChangeNotifier {
 
     var responseJson;
     final response = await http
-        .get(Uri.parse(url), headers: headers, )
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {

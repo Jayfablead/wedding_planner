@@ -793,7 +793,9 @@ class _MeetingsPageState extends State<MeetingsPage> {
         );
       },
     );
-  }  void timepicker() async {
+  }
+
+  void timepicker() async {
     final picked = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
@@ -813,5 +815,4 @@ class _MeetingsPageState extends State<MeetingsPage> {
       });
     }
   }
-
 }

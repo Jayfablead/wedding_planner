@@ -4,7 +4,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wedding_planner/Modal/VenuedetailModal.dart';
@@ -188,15 +187,14 @@ class _VenueViewState extends State<VenueView> {
                                                   color: Colors.blue,
                                                   fontFamily: 'sofi',
                                                   letterSpacing: 1,
-                                                  fontWeight:
-                                                      FontWeight.bold),
+                                                  fontWeight: FontWeight.bold),
                                             ),
                                             SizedBox(height: 0.5.h),
                                             SizedBox(
                                               width: 45.w,
                                               child: Text(
-                                                venuedetail?.venueDetails
-                                                        ?.name ??
+                                                venuedetail
+                                                        ?.venueDetails?.name ??
                                                     "",
                                                 style: TextStyle(
                                                     fontSize: 15.sp,
@@ -274,25 +272,30 @@ class _VenueViewState extends State<VenueView> {
                                               ],
                                             ),
                                           ],
-                                        ),SizedBox(width: 5.w),    Container(
-                                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                        ),
+                                        SizedBox(width: 5.w),
+                                        Container(
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 1.w),
                                           height: 7.h,
                                           width: 14.w,
                                           child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(15),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
                                             child: CachedNetworkImage(
                                               fit: BoxFit.cover,
-                                              imageUrl:
-                                              venuedetail?.venueDetails?.profile ??
+                                              imageUrl: venuedetail
+                                                      ?.venueDetails?.profile ??
                                                   "",
-                                              progressIndicatorBuilder:
-                                                  (context, url, progress) =>
+                                              progressIndicatorBuilder: (context,
+                                                      url, progress) =>
                                                   CircularProgressIndicator(),
-                                              errorWidget: (context, url, error) =>
-                                                  Image.asset(
-                                                    'assets/user.png',
-                                                    color: Colors.white,
-                                                  ),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Image.asset(
+                                                'assets/user.png',
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -300,7 +303,6 @@ class _VenueViewState extends State<VenueView> {
                                     ),
                                   ],
                                 ),
-
                               ],
                             ),
                             SizedBox(height: 1.5.h),

@@ -57,13 +57,13 @@ class Responsed {
 
   Responsed(
       {this.id,
-        this.profile,
-        this.name,
-        this.categoryName,
-        this.description,
-        this.quotationId,
-        this.response,
-        this.createdAt});
+      this.profile,
+      this.name,
+      this.categoryName,
+      this.description,
+      this.quotationId,
+      this.response,
+      this.createdAt});
 
   Responsed.fromJson(Map<String, dynamic> json) {
     id = json['id'];

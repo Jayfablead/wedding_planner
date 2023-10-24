@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Container(
                                       margin: EdgeInsets.all(2.5.w),
-                                      child: Image.asset('assets/1.png',
+                                      child: Image.asset('assets',
                                           color: sel == 1
                                               ? Colors.white
                                               : Colors.blue,

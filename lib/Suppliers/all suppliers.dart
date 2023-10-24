@@ -268,7 +268,8 @@ class _MySuppliersState extends State<MySuppliers> {
                                                   .description ??
                                               "",
                                           maxLines: 2,
-                                          style: TextStyle(height: 1.3,
+                                          style: TextStyle(
+                                            height: 1.3,
                                             fontSize: 14.sp,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'sofi',

@@ -34,11 +34,11 @@ class VenueDetails {
 
   VenueDetails(
       {this.id,
-        this.name,
-        this.email,
-        this.contact,
-        this.profile,
-        this.moreInfo});
+      this.name,
+      this.email,
+      this.contact,
+      this.profile,
+      this.moreInfo});
 
   VenueDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -77,13 +77,13 @@ class MoreInfo {
 
   MoreInfo(
       {this.id,
-        this.uid,
-        this.vName,
-        this.address,
-        this.photos,
-        this.vCapacity,
-        this.vDetails,
-        this.createdAt});
+      this.uid,
+      this.vName,
+      this.address,
+      this.photos,
+      this.vCapacity,
+      this.vDetails,
+      this.createdAt});
 
   MoreInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
