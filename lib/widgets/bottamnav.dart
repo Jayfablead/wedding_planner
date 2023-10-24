@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/UnreadmsgModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
+import 'package:wedding_planner/chnages/mysplirs.dart';
 
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/screens/other%20Pages/ChatListPage.dart';
@@ -166,7 +167,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
                                 ),
                               )
                             : Get.offAll(
-                                MySuppliers(sele: 4),
+                                MySups(sele: 4),
                               );
           },
         );
