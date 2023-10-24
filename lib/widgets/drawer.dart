@@ -1341,7 +1341,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(BookingListPage());
+                Get.to(BookingList());
               },
               child: Container(
                 alignment: Alignment.center,
