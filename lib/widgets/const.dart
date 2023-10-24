@@ -41,6 +41,7 @@ import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
 import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SupplierdetailModal.dart';
+import '../Modal/SuppliersearchModal.dart';
 import '../Modal/mySupplierModal.dart';
 
 Future<bool> checkInternet() async {
@@ -95,6 +96,8 @@ MySuppliersModal? mysupps;
 SearchCheckListModal? searchchecklist;
 MyvenuetableModal? myvenuetablemodal;
 GuestseatingModal? guestseatingmodal;
+SuppliersearchModal? suppliersearchmodal;
+
 
 
 const String baseUrl =

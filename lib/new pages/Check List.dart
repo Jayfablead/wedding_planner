@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/CheckListModal.dart';
+import 'package:wedding_planner/Modal/SearchCheckListModal.dart';
 import 'package:wedding_planner/Modal/addchecklistmodal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
@@ -163,49 +164,610 @@ class _Check_listState extends State<Check_list> {
                           SizedBox(height: 1.h),
                           searchBox1(),
                           SizedBox(height: 2.h),
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 4.5.h,
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: 4,
-                                itemBuilder: (context, index) {
-                                  return InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        sel1 = index;
-                                      });
-                                      checklistap();
-                                    },
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 1.h, horizontal: 5.w),
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                          color: sel1 == index
-                                              ? Colors.blue
-                                              : Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(25)),
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 2.w),
-                                      child: Text(type[index],
-                                          style: TextStyle(
-                                              fontSize: 14.5.sp,
+                          _search.text == ''
+                              ? Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 4.5.h,
+                                  child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: 4,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              sel1 = index;
+                                            });
+                                            checklistap();
+                                          },
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 1.h, horizontal: 5.w),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                color: sel1 == index
+                                                    ? Colors.blue
+                                                    : Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(25)),
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 2.w),
+                                            child: Text(type[index],
+                                                style: TextStyle(
+                                                    fontSize: 14.5.sp,
+                                                    fontFamily: 'sofi',
+                                                    color: sel1 == index
+                                                        ? Colors.white
+                                                        : Colors.blue,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1)),
+                                          ),
+                                        );
+                                      }),
+                                )
+                              : Container(),
+                          _search.text == ''
+                              ? SizedBox(height: 2.h)
+                              : SizedBox(),
+                          _search.text == ''
+                              ? sel1 == 0
+                                  ? checklistmodal?.all?.length == 0 ||
+                                          checklistmodal?.all?.length == null
+                                      ? Container(
+                                          alignment: Alignment.center,
+                                          height: 60.h,
+                                          child: Text(
+                                            "No Tasks Added",
+                                            style: TextStyle(
+                                              fontSize: 15.sp,
                                               fontFamily: 'sofi',
-                                              color: sel1 == index
-                                                  ? Colors.white
-                                                  : Colors.blue,
+                                              letterSpacing: 1,
                                               fontWeight: FontWeight.bold,
-                                              letterSpacing: 1)),
-                                    ),
-                                  );
-                                }),
-                          ),
-                          SizedBox(height: 2.h),
-                          sel1 == 0
-                              ? checklistmodal?.all?.length == 0 ||
-                                      checklistmodal?.all?.length == null
+                                            ),
+                                          ))
+                                      : Container(
+                                          height: 63.h,
+                                          child: ListView.builder(
+                                            padding: EdgeInsets.zero,
+                                            itemCount:
+                                                (checklistmodal?.all?.length),
+                                            itemBuilder: (context, index) {
+                                              return Container(
+                                                child: Card(
+                                                  elevation: 2,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8)),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.symmetric(
+                                                        vertical: checklistmodal
+                                                                    ?.all?[
+                                                                        index]
+                                                                    .isCompleted ==
+                                                                "1"
+                                                            ? 2.h
+                                                            : 1.h,
+                                                        horizontal: 1.w),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceAround,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        InkWell(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                val = checklistmodal
+                                                                            ?.all?[index]
+                                                                            .isCompleted ==
+                                                                        "1"
+                                                                    ? 0
+                                                                    : 1;
+                                                              });
+                                                              checklistmodal
+                                                                          ?.all?[
+                                                                              index]
+                                                                          .isCompleted ==
+                                                                      "1"
+                                                                  ? null
+                                                                  : markreadap(
+                                                                      val,
+                                                                      checklistmodal
+                                                                          ?.all?[
+                                                                              index]
+                                                                          .id);
+                                                            },
+                                                            child: (checklistmodal
+                                                                        ?.all?[
+                                                                            index]
+                                                                        .isCompleted ==
+                                                                    "1")
+                                                                ? Icon(
+                                                                    Icons
+                                                                        .check_box_rounded,
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    size: 22.sp,
+                                                                  )
+                                                                : Icon(
+                                                                    Icons
+                                                                        .check_box_outline_blank_rounded,
+                                                                    color: Colors
+                                                                        .black54,
+                                                                    size: 22.sp,
+                                                                  )),
+                                                        SizedBox(width: 3.w),
+                                                        Container(
+                                                          width: 65.w,
+                                                          child: Text(
+                                                            (checklistmodal
+                                                                    ?.all?[
+                                                                        index]
+                                                                    .taskTitle)
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                color: (checklistmodal
+                                                                            ?.all?[
+                                                                                index]
+                                                                            .isCompleted ==
+                                                                        "1"
+                                                                    ? Colors
+                                                                        .blue
+                                                                    : Colors
+                                                                        .black87),
+                                                                decoration: (checklistmodal
+                                                                            ?.all?[
+                                                                                index]
+                                                                            .isCompleted ==
+                                                                        "1"
+                                                                    ? TextDecoration
+                                                                        .lineThrough
+                                                                    : TextDecoration
+                                                                        .none),
+                                                                decorationColor:
+                                                                    Colors.blue,
+                                                                decorationThickness:
+                                                                    2,
+                                                                fontSize: 13.sp,
+                                                                fontFamily:
+                                                                    'sofi',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                        ),
+                                                        checklistmodal
+                                                                    ?.all?[
+                                                                        index]
+                                                                    .isCompleted ==
+                                                                "1"
+                                                            ? Container()
+                                                            : IconButton(
+                                                                onPressed: () {
+                                                                  delet(checklistmodal
+                                                                      ?.all?[
+                                                                          index]
+                                                                      .id);
+                                                                },
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .delete_forever,
+                                                                  color: Colors
+                                                                      .red,
+                                                                ))
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                        )
+                                  : sel1 == 1
+                                      ? checklistmodal?.todayAlerts?.length ==
+                                                  0 ||
+                                              checklistmodal
+                                                      ?.todayAlerts?.length ==
+                                                  null
+                                          ? Container(
+                                              alignment: Alignment.center,
+                                              height: 60.h,
+                                              child: Text(
+                                                "No Tasks Added",
+                                                style: TextStyle(
+                                                  fontSize: 15.sp,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ))
+                                          : Container(
+                                              height: 63.h,
+                                              child: ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                itemCount: (checklistmodal
+                                                    ?.todayAlerts?.length),
+                                                itemBuilder: (context, index) {
+                                                  return Container(
+                                                    child: Card(
+                                                      elevation: 2,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8)),
+                                                      child: Padding(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                vertical: 1.h,
+                                                                horizontal:
+                                                                    1.w),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceAround,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            InkWell(
+                                                                onTap: () {
+                                                                  setState(() {
+                                                                    val = checklistmodal?.todayAlerts?[index].isCompleted ==
+                                                                            "1"
+                                                                        ? 0
+                                                                        : 1;
+                                                                  });
+                                                                  markreadap(
+                                                                      val,
+                                                                      checklistmodal
+                                                                          ?.todayAlerts?[
+                                                                              index]
+                                                                          .id);
+                                                                },
+                                                                child: (checklistmodal
+                                                                            ?.todayAlerts?[index]
+                                                                            .isCompleted ==
+                                                                        "1")
+                                                                    ? Icon(
+                                                                        Icons
+                                                                            .check_box_rounded,
+                                                                        color: Colors
+                                                                            .blue,
+                                                                        size: 22
+                                                                            .sp,
+                                                                      )
+                                                                    : Icon(
+                                                                        Icons
+                                                                            .check_box_outline_blank_rounded,
+                                                                        color: Colors
+                                                                            .black54,
+                                                                        size: 22
+                                                                            .sp,
+                                                                      )),
+                                                            SizedBox(
+                                                                width: 3.w),
+                                                            Container(
+                                                              width: 65.w,
+                                                              child: Text(
+                                                                (checklistmodal
+                                                                        ?.todayAlerts?[
+                                                                            index]
+                                                                        .taskTitle)
+                                                                    .toString(),
+                                                                style: TextStyle(
+                                                                    color: (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                                                        ? Colors
+                                                                            .blue
+                                                                        : Colors
+                                                                            .black87),
+                                                                    decoration: (checklistmodal?.todayAlerts?[index].isCompleted == "1"
+                                                                        ? TextDecoration
+                                                                            .lineThrough
+                                                                        : TextDecoration
+                                                                            .none),
+                                                                    decorationColor:
+                                                                        Colors
+                                                                            .blue,
+                                                                    decorationThickness:
+                                                                        2,
+                                                                    fontSize:
+                                                                        13.sp,
+                                                                    fontFamily:
+                                                                        'sofi',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
+                                                              ),
+                                                            ),
+                                                            IconButton(
+                                                                onPressed: () {
+                                                                  delet(checklistmodal
+                                                                      ?.todayAlerts?[
+                                                                          index]
+                                                                      .id);
+                                                                },
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .delete_forever,
+                                                                  color: Colors
+                                                                      .red,
+                                                                ))
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            )
+                                      : sel1 == 2
+                                          ? checklistmodal?.completed?.length ==
+                                                      0 ||
+                                                  checklistmodal
+                                                          ?.completed?.length ==
+                                                      null
+                                              ? Container(
+                                                  alignment: Alignment.center,
+                                                  height: 60.h,
+                                                  child: Text(
+                                                    "No Tasks Added",
+                                                    style: TextStyle(
+                                                      fontSize: 15.sp,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ))
+                                              : Container(
+                                                  alignment: Alignment.center,
+                                                  height: 63.h,
+                                                  child: ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    itemCount: checklistmodal
+                                                        ?.completed?.length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        child: Card(
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8)),
+                                                          child: Padding(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    vertical:
+                                                                        2.h,
+                                                                    horizontal:
+                                                                        1.w),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceAround,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                InkWell(
+                                                                    onTap: () {
+                                                                      setState(
+                                                                          () {
+                                                                        val = checklistmodal?.completed?[index].isCompleted ==
+                                                                                "1"
+                                                                            ? 0
+                                                                            : 1;
+                                                                      });
+                                                                    },
+                                                                    child: (checklistmodal?.completed?[index].isCompleted ==
+                                                                            "1")
+                                                                        ? Icon(
+                                                                            Icons.check_box_rounded,
+                                                                            color:
+                                                                                Colors.blue,
+                                                                            size:
+                                                                                22.sp,
+                                                                          )
+                                                                        : Icon(
+                                                                            Icons.check_box_outline_blank_rounded,
+                                                                            color:
+                                                                                Colors.black54,
+                                                                            size:
+                                                                                22.sp,
+                                                                          )),
+                                                                SizedBox(
+                                                                    width: 3.w),
+                                                                Container(
+                                                                  width: 78.w,
+                                                                  child: Text(
+                                                                    (checklistmodal
+                                                                            ?.completed?[index]
+                                                                            .taskTitle)
+                                                                        .toString(),
+                                                                    style: TextStyle(
+                                                                        color: (checklistmodal?.completed?[index].isCompleted ==
+                                                                                "1"
+                                                                            ? Colors
+                                                                                .blue
+                                                                            : Colors
+                                                                                .black87),
+                                                                        decoration: (checklistmodal?.completed?[index].isCompleted ==
+                                                                                "1"
+                                                                            ? TextDecoration
+                                                                                .lineThrough
+                                                                            : TextDecoration
+                                                                                .none),
+                                                                        decorationColor:
+                                                                            Colors
+                                                                                .blue,
+                                                                        decorationThickness:
+                                                                            2,
+                                                                        fontSize: 13
+                                                                            .sp,
+                                                                        fontFamily:
+                                                                            'sofi',
+                                                                        fontWeight:
+                                                                            FontWeight.w600),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                )
+                                          : checklistmodal?.pending?.length ==
+                                                      0 ||
+                                                  checklistmodal
+                                                          ?.pending?.length ==
+                                                      null
+                                              ? Container(
+                                                  alignment: Alignment.center,
+                                                  height: 60.h,
+                                                  child: Text(
+                                                    "No Tasks Added",
+                                                    style: TextStyle(
+                                                      fontSize: 15.sp,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ))
+                                              : Container(
+                                                  height: 63.h,
+                                                  child: ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    itemCount: checklistmodal
+                                                        ?.pending?.length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        child: Card(
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8)),
+                                                          child: Padding(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    vertical:
+                                                                        1.h,
+                                                                    horizontal:
+                                                                        1.w),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceAround,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap: () {
+                                                                    setState(
+                                                                        () {
+                                                                      val = checklistmodal?.pending?[index].isCompleted ==
+                                                                              "1"
+                                                                          ? 0
+                                                                          : 1;
+                                                                    });
+                                                                    markreadap(
+                                                                        val,
+                                                                        checklistmodal
+                                                                            ?.pending?[index]
+                                                                            .id);
+                                                                  },
+                                                                  child: checklistmodal
+                                                                              ?.pending?[index]
+                                                                              .isCompleted ==
+                                                                          "1"
+                                                                      ? Icon(
+                                                                          Icons
+                                                                              .check_box_rounded,
+                                                                          color:
+                                                                              Colors.blue,
+                                                                          size:
+                                                                              22.sp,
+                                                                        )
+                                                                      : Icon(
+                                                                          Icons
+                                                                              .check_box_outline_blank_rounded,
+                                                                          color:
+                                                                              Colors.black54,
+                                                                          size:
+                                                                              22.sp,
+                                                                        ),
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 3.w),
+                                                                Container(
+                                                                  width: 65.w,
+                                                                  child: Text(
+                                                                    (checklistmodal
+                                                                            ?.pending?[index]
+                                                                            .taskTitle)
+                                                                        .toString(),
+                                                                    style: TextStyle(
+                                                                        color: (checklistmodal?.pending?[index].isCompleted ==
+                                                                                "1"
+                                                                            ? Colors
+                                                                                .blue
+                                                                            : Colors
+                                                                                .black87),
+                                                                        decoration: (checklistmodal?.pending?[index].isCompleted ==
+                                                                                "1"
+                                                                            ? TextDecoration
+                                                                                .lineThrough
+                                                                            : TextDecoration
+                                                                                .none),
+                                                                        decorationColor:
+                                                                            Colors
+                                                                                .blue,
+                                                                        decorationThickness:
+                                                                            2,
+                                                                        fontSize: 13
+                                                                            .sp,
+                                                                        fontFamily:
+                                                                            'sofi',
+                                                                        fontWeight:
+                                                                            FontWeight.w600),
+                                                                  ),
+                                                                ),
+                                                                IconButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      delet(checklistmodal
+                                                                          ?.pending?[
+                                                                              index]
+                                                                          .id);
+                                                                    },
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .delete_forever,
+                                                                      color: Colors
+                                                                          .red,
+                                                                    ))
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                )
+                              : searchchecklist?.searched?.length == 0 ||
+                                      searchchecklist?.searched?.length == null
                                   ? Container(
                                       alignment: Alignment.center,
                                       height: 60.h,
@@ -223,7 +785,7 @@ class _Check_listState extends State<Check_list> {
                                       child: ListView.builder(
                                         padding: EdgeInsets.zero,
                                         itemCount:
-                                            (checklistmodal?.all?.length),
+                                            (searchchecklist?.searched?.length),
                                         itemBuilder: (context, index) {
                                           return Container(
                                             child: Card(
@@ -233,8 +795,9 @@ class _Check_listState extends State<Check_list> {
                                                       BorderRadius.circular(8)),
                                               child: Padding(
                                                 padding: EdgeInsets.symmetric(
-                                                    vertical: checklistmodal
-                                                                ?.all?[index]
+                                                    vertical: searchchecklist
+                                                                ?.searched?[
+                                                                    index]
                                                                 .isCompleted ==
                                                             "1"
                                                         ? 2.h
@@ -250,29 +813,29 @@ class _Check_listState extends State<Check_list> {
                                                     InkWell(
                                                         onTap: () {
                                                           setState(() {
-                                                            val = checklistmodal
-                                                                        ?.all?[
+                                                            val = searchchecklist
+                                                                        ?.searched?[
                                                                             index]
                                                                         .isCompleted ==
                                                                     "1"
                                                                 ? 0
                                                                 : 1;
                                                           });
-                                                          checklistmodal
-                                                                      ?.all?[
+                                                          searchchecklist
+                                                                      ?.searched?[
                                                                           index]
                                                                       .isCompleted ==
                                                                   "1"
                                                               ? null
                                                               : markreadap(
                                                                   val,
-                                                                  checklistmodal
-                                                                      ?.all?[
+                                                                  searchchecklist
+                                                                      ?.searched?[
                                                                           index]
                                                                       .id);
                                                         },
-                                                        child: (checklistmodal
-                                                                    ?.all?[
+                                                        child: (searchchecklist
+                                                                    ?.searched?[
                                                                         index]
                                                                     .isCompleted ==
                                                                 "1")
@@ -294,13 +857,14 @@ class _Check_listState extends State<Check_list> {
                                                     Container(
                                                       width: 65.w,
                                                       child: Text(
-                                                        (checklistmodal
-                                                                ?.all?[index]
+                                                        (searchchecklist
+                                                                ?.searched?[
+                                                                    index]
                                                                 .taskTitle)
                                                             .toString(),
                                                         style: TextStyle(
-                                                            color: (checklistmodal
-                                                                        ?.all?[
+                                                            color: (searchchecklist
+                                                                        ?.searched?[
                                                                             index]
                                                                         .isCompleted ==
                                                                     "1"
@@ -327,7 +891,9 @@ class _Check_listState extends State<Check_list> {
                                                                     .w600),
                                                       ),
                                                     ),
-                                                    checklistmodal?.all?[index]
+                                                    searchchecklist
+                                                                ?.searched?[
+                                                                    index]
                                                                 .isCompleted ==
                                                             "1"
                                                         ? Container()
@@ -351,407 +917,7 @@ class _Check_listState extends State<Check_list> {
                                           );
                                         },
                                       ),
-                                    )
-                              : sel1 == 1
-                                  ? checklistmodal?.todayAlerts?.length == 0 ||
-                                          checklistmodal?.todayAlerts?.length ==
-                                              null
-                                      ? Container(
-                                          alignment: Alignment.center,
-                                          height: 60.h,
-                                          child: Text(
-                                            "No Tasks Added",
-                                            style: TextStyle(
-                                              fontSize: 15.sp,
-                                              fontFamily: 'sofi',
-                                              letterSpacing: 1,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ))
-                                      : Container(
-                                          height: 63.h,
-                                          child: ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            itemCount: (checklistmodal
-                                                ?.todayAlerts?.length),
-                                            itemBuilder: (context, index) {
-                                              return Container(
-                                                child: Card(
-                                                  elevation: 2,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8)),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            vertical: 1.h,
-                                                            horizontal: 1.w),
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceAround,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        InkWell(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                val = checklistmodal
-                                                                            ?.todayAlerts?[index]
-                                                                            .isCompleted ==
-                                                                        "1"
-                                                                    ? 0
-                                                                    : 1;
-                                                              });
-                                                              markreadap(
-                                                                  val,
-                                                                  checklistmodal
-                                                                      ?.todayAlerts?[
-                                                                          index]
-                                                                      .id);
-                                                            },
-                                                            child: (checklistmodal
-                                                                        ?.todayAlerts?[
-                                                                            index]
-                                                                        .isCompleted ==
-                                                                    "1")
-                                                                ? Icon(
-                                                                    Icons
-                                                                        .check_box_rounded,
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    size: 22.sp,
-                                                                  )
-                                                                : Icon(
-                                                                    Icons
-                                                                        .check_box_outline_blank_rounded,
-                                                                    color: Colors
-                                                                        .black54,
-                                                                    size: 22.sp,
-                                                                  )),
-                                                        SizedBox(width: 3.w),
-                                                        Container(
-                                                          width: 65.w,
-                                                          child: Text(
-                                                            (checklistmodal
-                                                                    ?.todayAlerts?[
-                                                                        index]
-                                                                    .taskTitle)
-                                                                .toString(),
-                                                            style: TextStyle(
-                                                                color: (checklistmodal
-                                                                            ?.todayAlerts?[
-                                                                                index]
-                                                                            .isCompleted ==
-                                                                        "1"
-                                                                    ? Colors
-                                                                        .blue
-                                                                    : Colors
-                                                                        .black87),
-                                                                decoration: (checklistmodal
-                                                                            ?.todayAlerts?[
-                                                                                index]
-                                                                            .isCompleted ==
-                                                                        "1"
-                                                                    ? TextDecoration
-                                                                        .lineThrough
-                                                                    : TextDecoration
-                                                                        .none),
-                                                                decorationColor:
-                                                                    Colors.blue,
-                                                                decorationThickness:
-                                                                    2,
-                                                                fontSize: 13.sp,
-                                                                fontFamily:
-                                                                    'sofi',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                        ),
-                                                        IconButton(
-                                                            onPressed: () {
-                                                              delet(checklistmodal
-                                                                  ?.todayAlerts?[
-                                                                      index]
-                                                                  .id);
-                                                            },
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .delete_forever,
-                                                              color: Colors.red,
-                                                            ))
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        )
-                                  : sel1 == 2
-                                      ? checklistmodal?.completed?.length ==
-                                                  0 ||
-                                              checklistmodal
-                                                      ?.completed?.length ==
-                                                  null
-                                          ? Container(
-                                              alignment: Alignment.center,
-                                              height: 60.h,
-                                              child: Text(
-                                                "No Tasks Added",
-                                                style: TextStyle(
-                                                  fontSize: 15.sp,
-                                                  fontFamily: 'sofi',
-                                                  letterSpacing: 1,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ))
-                                          : Container(
-                                              alignment: Alignment.center,
-                                              height: 63.h,
-                                              child: ListView.builder(
-                                                padding: EdgeInsets.zero,
-                                                itemCount: checklistmodal
-                                                    ?.completed?.length,
-                                                itemBuilder: (context, index) {
-                                                  return Container(
-                                                    child: Card(
-                                                      elevation: 2,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8)),
-                                                      child: Padding(
-                                                        padding: EdgeInsets
-                                                            .symmetric(
-                                                                vertical: 2.h,
-                                                                horizontal:
-                                                                    1.w),
-                                                        child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceAround,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            InkWell(
-                                                                onTap: () {
-                                                                  setState(() {
-                                                                    val = checklistmodal?.completed?[index].isCompleted ==
-                                                                            "1"
-                                                                        ? 0
-                                                                        : 1;
-                                                                  });
-                                                                },
-                                                                child: (checklistmodal
-                                                                            ?.completed?[index]
-                                                                            .isCompleted ==
-                                                                        "1")
-                                                                    ? Icon(
-                                                                        Icons
-                                                                            .check_box_rounded,
-                                                                        color: Colors
-                                                                            .blue,
-                                                                        size: 22
-                                                                            .sp,
-                                                                      )
-                                                                    : Icon(
-                                                                        Icons
-                                                                            .check_box_outline_blank_rounded,
-                                                                        color: Colors
-                                                                            .black54,
-                                                                        size: 22
-                                                                            .sp,
-                                                                      )),
-                                                            SizedBox(
-                                                                width: 3.w),
-                                                            Container(
-                                                              width: 78.w,
-                                                              child: Text(
-                                                                (checklistmodal
-                                                                        ?.completed?[
-                                                                            index]
-                                                                        .taskTitle)
-                                                                    .toString(),
-                                                                style: TextStyle(
-                                                                    color: (checklistmodal?.completed?[index].isCompleted == "1"
-                                                                        ? Colors
-                                                                            .blue
-                                                                        : Colors
-                                                                            .black87),
-                                                                    decoration: (checklistmodal?.completed?[index].isCompleted == "1"
-                                                                        ? TextDecoration
-                                                                            .lineThrough
-                                                                        : TextDecoration
-                                                                            .none),
-                                                                    decorationColor:
-                                                                        Colors
-                                                                            .blue,
-                                                                    decorationThickness:
-                                                                        2,
-                                                                    fontSize:
-                                                                        13.sp,
-                                                                    fontFamily:
-                                                                        'sofi',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            )
-                                      : checklistmodal?.pending?.length == 0 ||
-                                              checklistmodal?.pending?.length ==
-                                                  null
-                                          ? Container(
-                                              alignment: Alignment.center,
-                                              height: 60.h,
-                                              child: Text(
-                                                "No Tasks Added",
-                                                style: TextStyle(
-                                                  fontSize: 15.sp,
-                                                  fontFamily: 'sofi',
-                                                  letterSpacing: 1,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ))
-                                          : Container(
-                                              height: 63.h,
-                                              child: ListView.builder(
-                                                padding: EdgeInsets.zero,
-                                                itemCount: checklistmodal
-                                                    ?.pending?.length,
-                                                itemBuilder: (context, index) {
-                                                  return Container(
-                                                    child: Card(
-                                                      elevation: 2,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8)),
-                                                      child: Padding(
-                                                        padding: EdgeInsets
-                                                            .symmetric(
-                                                                vertical: 1.h,
-                                                                horizontal:
-                                                                    1.w),
-                                                        child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceAround,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            InkWell(
-                                                              onTap: () {
-                                                                setState(() {
-                                                                  val = checklistmodal
-                                                                              ?.pending?[index]
-                                                                              .isCompleted ==
-                                                                          "1"
-                                                                      ? 0
-                                                                      : 1;
-                                                                });
-                                                                markreadap(
-                                                                    val,
-                                                                    checklistmodal
-                                                                        ?.pending?[
-                                                                            index]
-                                                                        .id);
-                                                              },
-                                                              child: checklistmodal
-                                                                          ?.pending?[
-                                                                              index]
-                                                                          .isCompleted ==
-                                                                      "1"
-                                                                  ? Icon(
-                                                                      Icons
-                                                                          .check_box_rounded,
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      size:
-                                                                          22.sp,
-                                                                    )
-                                                                  : Icon(
-                                                                      Icons
-                                                                          .check_box_outline_blank_rounded,
-                                                                      color: Colors
-                                                                          .black54,
-                                                                      size:
-                                                                          22.sp,
-                                                                    ),
-                                                            ),
-                                                            SizedBox(
-                                                                width: 3.w),
-                                                            Container(
-                                                              width: 65.w,
-                                                              child: Text(
-                                                                (checklistmodal
-                                                                        ?.pending?[
-                                                                            index]
-                                                                        .taskTitle)
-                                                                    .toString(),
-                                                                style: TextStyle(
-                                                                    color: (checklistmodal?.pending?[index].isCompleted == "1"
-                                                                        ? Colors
-                                                                            .blue
-                                                                        : Colors
-                                                                            .black87),
-                                                                    decoration: (checklistmodal?.pending?[index].isCompleted == "1"
-                                                                        ? TextDecoration
-                                                                            .lineThrough
-                                                                        : TextDecoration
-                                                                            .none),
-                                                                    decorationColor:
-                                                                        Colors
-                                                                            .blue,
-                                                                    decorationThickness:
-                                                                        2,
-                                                                    fontSize:
-                                                                        13.sp,
-                                                                    fontFamily:
-                                                                        'sofi',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
-                                                              ),
-                                                            ),
-                                                            IconButton(
-                                                                onPressed: () {
-                                                                  delet(checklistmodal
-                                                                      ?.pending?[
-                                                                          index]
-                                                                      .id);
-                                                                },
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .delete_forever,
-                                                                  color: Colors
-                                                                      .red,
-                                                                ))
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
+                                    ),
                         ]),
                       ),
                       Positioned(
@@ -831,7 +997,9 @@ class _Check_listState extends State<Check_list> {
       ),
       child: TextField(
         controller: _search,
-        onChanged: (value) {},
+        onChanged: (value) {
+          searchchecklistap(_search.text.trim().toString());
+        },
         style:
             TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
@@ -860,6 +1028,31 @@ class _Check_listState extends State<Check_list> {
           checklistmodal = CheckListModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && checklistmodal?.status == "1") {
             print(checklistmodal?.todayAlerts?[0].taskTitle);
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  searchchecklistap(String value) {
+    final Map<String, String> data = {};
+    data['search'] = value.toString();
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().searchchecklistapi(data).then((response) async {
+          searchchecklist =
+              SearchCheckListModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && searchchecklist?.status == "1") {
+            print(searchchecklist?.searched?[0].taskTitle);
             setState(() {
               isLoading = false;
             });
@@ -1166,7 +1359,8 @@ class _Check_listState extends State<Check_list> {
                                       fontFamily: 'Meta1'),
                                 ),
                               ),
-                              Column(crossAxisAlignment: CrossAxisAlignment.start,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 2.h),
                                   Text(
@@ -1192,26 +1386,33 @@ class _Check_listState extends State<Check_list> {
                                         color: Colors.black.withOpacity(0.67),
                                         fontFamily: 'Meta1'),
                                     decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.description,color: Colors.blue,),
+                                      prefixIcon: Icon(
+                                        Icons.description,
+                                        color: Colors.blue,
+                                      ),
                                       border: InputBorder.none,
                                       fillColor: Colors.white,
                                       filled: true,
                                       enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(25),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                           borderSide:
-                                          BorderSide(color: Colors.white)),
+                                              BorderSide(color: Colors.white)),
                                       disabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(25),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                           borderSide:
-                                          BorderSide(color: Colors.white)),
+                                              BorderSide(color: Colors.white)),
                                       focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(25),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                           borderSide:
-                                          BorderSide(color: Colors.white)),
+                                              BorderSide(color: Colors.white)),
                                       errorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(25),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                           borderSide:
-                                          BorderSide(color: Colors.white)),
+                                              BorderSide(color: Colors.white)),
                                       hintText: 'Description',
                                       hintStyle: TextStyle(
                                           color: Colors.black.withOpacity(0.67),

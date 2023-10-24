@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
+import 'package:wedding_planner/Modal/SuppliersearchModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/chnages/Meetings%20Page.dart';
 import 'package:wedding_planner/new%20pages/Check%20List.dart';
@@ -26,119 +27,14 @@ class YellowHomeScreen extends StatefulWidget {
   State<YellowHomeScreen> createState() => _YellowHomeScreenState();
 }
 
-class cate {
-  String? image;
-  String? name;
-
-  cate(
-    this.image,
-    this.name,
-  );
-}
-
-class cate1 {
-  String? image;
-  String? name;
-  String? desc;
-
-  cate1(
-    this.image,
-    this.name,
-    this.desc,
-  );
-}
-
-class kop {
-  String? image;
-  String? name;
-  String? dec;
-  String? price;
-  String? btn;
-
-  kop(
-    this.image,
-    this.name,
-    this.dec,
-    this.price,
-    this.btn,
-  );
-}
-
-List<cate> Categories = [
-  cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
-  cate(
-      'https://cdn-icons-png.flaticon.com/512/3436/3436370.png', 'Engagement '),
-  cate('https://cdn-icons-png.flaticon.com/512/6117/6117300.png',
-      'Anniversary '),
-  cate('https://cdn-icons-png.flaticon.com/512/2454/2454313.png', 'Birthday '),
-  cate('https://cdn-icons-png.flaticon.com/512/6491/6491166.png', 'Wedding '),
-];
-List<cate1> venue = [
-  cate1(
-      'https://media.weddingz.in/images/98203e459408c4f2f9c9014d9a6f669f/luxury-wedding-venues-in-surat-that-you-must-check-out-prior-to-finalizing-your-wedding-destination.jpg',
-      'Dining',
-      'A Big Hall with sitting'),
-  cate1(
-      'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
-      'Royal Decor',
-      'A Royal Decoration venue'),
-  cate1(
-      'https://media.weddingz.in/images/98203e459408c4f2f9c9014d9a6f669f/luxury-wedding-venues-in-surat-that-you-must-check-out-prior-to-finalizing-your-wedding-destination.jpg',
-      'Dining',
-      'A Big Hall with sitting'),
-  cate1(
-      'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
-      'Royal Decor',
-      'A Royal Decoration venue'),
-  cate1(
-      'https://media.weddingz.in/images/98203e459408c4f2f9c9014d9a6f669f/luxury-wedding-venues-in-surat-that-you-must-check-out-prior-to-finalizing-your-wedding-destination.jpg',
-      'Dining',
-      'A Big Hall with sitting'),
-  cate1(
-      'https://cdn0.weddingwire.in/vendor/3794/3_2/960/jpg/weddingvenue-surat-farms-lawnspace-4_15_413794-165648466054217.jpeg',
-      'Royal Decor',
-      'A Royal Decoration venue'),
-];
-TextEditingController _search = TextEditingController();
-int sel = 1;
-int sel1 = 0;
-int? fav;
-
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-List<kop> Supaliers = [
-  kop(
-      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
-      "Flower Suppliers",
-      "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
-      "\$250",
-      "View Detail"),
-  kop(
-      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
-      "Flower Suppliers",
-      "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
-      "\$250",
-      "View Detail"),
-  kop(
-      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
-      "Flower Suppliers",
-      "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
-      "\$250",
-      "View Detail"),
-  kop(
-      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
-      "Flower Suppliers",
-      "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
-      "\$250",
-      "View Detail"),
-  kop(
-      "https://4.imimg.com/data4/JB/XG/MY-11819618/wedding-flower-decoration.jpg",
-      "Flower Suppliers",
-      "Flower suppliers provide a wide range of fresh and beautiful flowers to meet various floral needs",
-      "\$250",
-      "View Detail"),
-];
-
 class _YellowHomeScreenState extends State<YellowHomeScreen> {
+  TextEditingController _search = TextEditingController();
+  int sel = 1;
+  int sel1 = 0;
+  int? fav;
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -149,7 +45,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
     homeap();
   }
 
-  int? sel1 = 0;
+  bool istap = false;
+
   int? mydata;
   bool isLoading = true;
   List<String> type = ["All Suppliers", "To Do", "Meeting"];
@@ -159,6 +56,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
     return commanScreen(
       isLoading: isLoading,
       scaffold: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.grey.shade100,
         key: scaffoldKey,
         extendBody: true,
@@ -281,360 +179,724 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: 3.h,
+                        height: 2.h,
                       ),
-                      Container(
-                        height: 4.5.h,
-                        width: MediaQuery.of(context).size.width,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: 3,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    sel1 = index;
-                                  });
-                                  sel1 == 1
-                                      ? Get.to(Check_list())
-                                      : sel1 == 2
-                                          ? Get.to(MeetingsPage(
-                                              sele: 0,
-                                            ))
-                                          : Container();
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 1.h, horizontal: 3.w),
+                      _search.text != ''
+                          ? suppliersearchmodal?.suppliers?.length == 0
+                              ? Container(
+                                  height: 55.h,
                                   alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color: sel1 == index
-                                          ? Colors.blue
-                                          : Colors.white,
-                                      borderRadius: BorderRadius.circular(25)),
-                                  margin: EdgeInsets.symmetric(horizontal: 2.w),
-                                  child: Text(type[index],
-                                      style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontFamily: 'sofi',
-                                          color: sel1 == index
-                                              ? Colors.white
-                                              : Colors.blue,
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1)),
-                                ),
-                              );
-                            }),
-                      ),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      homemodal?.suppliers?.length == 0 ||
-                              homemodal?.suppliers?.length == null
-                          ? Container(
-                              height: 55.h,
-                              alignment: Alignment.center,
-                              child: Text(
-                                "No Suppliers Available",
-                                style: TextStyle(
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black),
-                              ),
-                            )
-                          : SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  for (int index = 0;
-                                      index <
-                                          (homemodal?.suppliers?.length ?? 0);
-                                      index++) ...[
-                                    Container(
-                                      width: 80.w,
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 2.w),
-                                      padding: EdgeInsets.all(1.w),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          color: Colors.white),
-                                      child: Stack(
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                  child: Text(
+                                    "No Suppliers Available",
+                                    style: TextStyle(
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
+                                  ),
+                                )
+                              : Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 50.h,
+                                  child: ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: suppliersearchmodal
+                                          ?.suppliers?.length,
+                                      itemBuilder: (context, index) {
+                                        return Container(
+                                          width: 80.w,
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 2.w, vertical: 1.h),
+                                          padding: EdgeInsets.all(1.w),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(25),
+                                              color: Colors.white),
+                                          child: Stack(
                                             children: [
-                                              // SizedBox(
-                                              //   height: 0.5.h,
-                                              // ),
-                                              // ClipRRect(
-                                              //   borderRadius:
-                                              //       BorderRadius.circular(20),
-                                              //   child: CachedNetworkImage(
-                                              //     width: 80.w,
-                                              //     height: 20.h,
-                                              //     fit: BoxFit.contain,
-                                              //     imageUrl: homemodal
-                                              //             ?.suppliers?[index]
-                                              //             .profilePath ??
-                                              //         "",
-                                              //     progressIndicatorBuilder:
-                                              //         (context, url,
-                                              //                 progress) =>
-                                              //             Center(
-                                              //                 child:
-                                              //                     CircularProgressIndicator()),
-                                              //     errorWidget:
-                                              //         (context, url, error) =>
-                                              //             Image.asset(
-                                              //       'assets/1b.jpeg',
-                                              //
-                                              //       fit: BoxFit.cover,
-                                              //       width: 80.w,
-                                              //       height: 20.h,
-                                              //     ),
-                                              //   ),
-                                              // ),
-                                              SizedBox(
-                                                height: 0.20.h,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.all(2.w),
-                                                width: 85.w,
-                                                margin: EdgeInsets.symmetric(
-                                                    horizontal: 1.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(15),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20),
-                                                    child: CachedNetworkImage(
-                                                      width: 80.w,
-                                                      height: 20.h,
-                                                      fit: BoxFit.contain,
-                                                      imageUrl: homemodal
-                                                              ?.suppliers?[
-                                                                  index]
-                                                              .profilePath ??
-                                                          "",
-                                                      progressIndicatorBuilder:
-                                                          (context, url,
-                                                                  progress) =>
-                                                              Center(
-                                                                  child:
-                                                                      CircularProgressIndicator()),
-                                                      errorWidget: (context,
-                                                              url, error) =>
-                                                          Image.asset(
-                                                        'assets/user.png',
-                                                        width: 80.w,
-                                                        height: 20.h,
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  SizedBox(
+                                                    height: 0.20.h,
+                                                  ),
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.all(2.w),
+                                                    width: 85.w,
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 1.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          width: 80.w,
+                                                          height: 20.h,
+                                                          fit: BoxFit.contain,
+                                                          imageUrl: suppliersearchmodal
+                                                                  ?.suppliers?[
+                                                                      index]
+                                                                  .profilePath ??
+                                                              "",
+                                                          progressIndicatorBuilder:
+                                                              (context, url,
+                                                                      progress) =>
+                                                                  Center(
+                                                                      child:
+                                                                          CircularProgressIndicator()),
+                                                          errorWidget: (context,
+                                                                  url, error) =>
+                                                              Image.asset(
+                                                            'assets/user.png',
+                                                            width: 80.w,
+                                                            height: 20.h,
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 1.5.h,
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 3.w),
-                                                child: Text(
-                                                    homemodal?.suppliers?[index]
-                                                                    .name ==
-                                                                '' ||
-                                                            homemodal
+                                                  SizedBox(
+                                                    height: 1.5.h,
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 3.w),
+                                                    child: Text(
+                                                        suppliersearchmodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .name ==
+                                                                    '' ||
+                                                                suppliersearchmodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .name ==
+                                                                    null
+                                                            ? 'N/A'
+                                                            : suppliersearchmodal
                                                                     ?.suppliers?[
                                                                         index]
-                                                                    .name ==
-                                                                null
-                                                        ? 'N/A'
-                                                        : homemodal
-                                                                ?.suppliers?[
-                                                                    index]
-                                                                .name ??
-                                                            "",
-                                                    style: TextStyle(
-                                                        fontSize: 14.5.sp,
-                                                        fontFamily: 'sofi',
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                        letterSpacing: 1)),
-                                              ),
-                                              SizedBox(
-                                                height: 1.5.h,
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 3.w),
-                                                child: Text(
-                                                    homemodal?.suppliers?[index]
-                                                            .service ??
-                                                        "",
-                                                    maxLines: 2,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        fontSize: 14.5.sp,
-                                                        fontFamily: 'sofi',
-                                                        color: Colors.black54,
-                                                        letterSpacing: 1)),
-                                              ),
-                                              SizedBox(
-                                                height: 3.h,
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    left: 4.w, right: 4.w),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text("Starting Price : ",
-                                                        style: TextStyle(
-                                                            fontSize: 14.5.sp,
-                                                            fontFamily: 'sofi',
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            color:
-                                                                Colors.black54,
-                                                            letterSpacing: 1)),
-                                                    Text(
-                                                        "\$ " +
-                                                            (homemodal
-                                                                    ?.suppliers?[
-                                                                        index]
-                                                                    .cost)
-                                                                .toString(),
+                                                                    .name ??
+                                                                "",
                                                         style: TextStyle(
                                                             fontSize: 14.5.sp,
                                                             fontFamily: 'sofi',
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             color: Colors.black,
-                                                            letterSpacing: 1))
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 4.h,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      Get.to(SupplierfourScreen(
-                                                        suppid: homemodal
-                                                            ?.suppliers?[index]
-                                                            .id,
-                                                        catid: homemodal
-                                                            ?.suppliers?[index]
-                                                            .categoryId,
-                                                        service: homemodal
-                                                            ?.suppliers?[index]
-                                                            .service,
-                                                      ));
-                                                    },
-                                                    child: Container(
-                                                      width: 50.w,
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              vertical: 1.h,
-                                                              horizontal: 5.w),
-                                                      alignment:
-                                                          Alignment.center,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.blue,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      25)),
-                                                      child: Center(
-                                                        child: Text(
-                                                            "View Detail",
+                                                            letterSpacing: 1)),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 1.5.h,
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 3.w),
+                                                    child: Text(
+                                                        suppliersearchmodal
+                                                                ?.suppliers?[
+                                                                    index]
+                                                                .service ??
+                                                            "",
+                                                        maxLines: 2,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                            fontSize: 14.5.sp,
+                                                            fontFamily: 'sofi',
+                                                            color:
+                                                                Colors.black54,
+                                                            letterSpacing: 1)),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 3.h,
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 4.w, right: 4.w),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                            "Starting Price : ",
                                                             style: TextStyle(
-                                                                fontSize: 17.sp,
+                                                                fontSize:
+                                                                    14.5.sp,
                                                                 fontFamily:
                                                                     'sofi',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
                                                                 color: Colors
-                                                                    .white,
+                                                                    .black54,
                                                                 letterSpacing:
                                                                     1)),
-                                                      ),
+                                                        Text(
+                                                            "\$ " +
+                                                                (suppliersearchmodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .cost)
+                                                                    .toString(),
+                                                            style: TextStyle(
+                                                                fontSize:
+                                                                    14.5.sp,
+                                                                fontFamily:
+                                                                    'sofi',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .black,
+                                                                letterSpacing:
+                                                                    1))
+                                                      ],
                                                     ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 4.h,
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      GestureDetector(
+                                                        onTap: () {
+                                                          Get.to(
+                                                              SupplierfourScreen(
+                                                            suppid:
+                                                                suppliersearchmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .id,
+                                                            catid:
+                                                                suppliersearchmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .categoryId,
+                                                            service:
+                                                                suppliersearchmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .service,
+                                                          ));
+                                                        },
+                                                        child: Container(
+                                                          width: 50.w,
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical: 1.h,
+                                                                  horizontal:
+                                                                      5.w),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  Colors.blue,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          25)),
+                                                          child: Center(
+                                                            child: Text(
+                                                                "View Detail",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        17.sp,
+                                                                    fontFamily:
+                                                                        'sofi',
+                                                                    color: Colors
+                                                                        .white,
+                                                                    letterSpacing:
+                                                                        1)),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: 1.5.h,
                                                   ),
                                                 ],
                                               ),
-                                              SizedBox(
-                                                height: 1.5.h,
-                                              ),
-                                            ],
-                                          ),
-                                          Positioned(
-                                              left: 64.w,
-                                              top: 1.5.h,
-                                              child: Container(
-                                                height: 10.w,
-                                                width: 10.w,
-                                                alignment: Alignment.center,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.blue,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                                child: IconButton(
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        mydata = index;
-                                                        fav = homemodal
+                                              Positioned(
+                                                  left: 70.w,
+                                                  top: 1.5.h,
+                                                  child: Container(
+                                                    height: 10.w,
+                                                    width: 10.w,
+                                                    alignment: Alignment.center,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.blue,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10)),
+                                                    child: IconButton(
+                                                        onPressed: () {
+                                                          setState(() {
+                                                            mydata = index;
+                                                            fav = suppliersearchmodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .fav ==
+                                                                    "1"
+                                                                ? 0
+                                                                : 1;
+                                                          });
+
+                                                          favourite();
+                                                        },
+                                                        icon: suppliersearchmodal
                                                                     ?.suppliers?[
                                                                         index]
                                                                     .fav ==
                                                                 "1"
-                                                            ? 0
-                                                            : 1;
-                                                      });
+                                                            ? Icon(
+                                                                Icons.favorite,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 20.sp,
+                                                              )
+                                                            : Icon(
+                                                                Icons
+                                                                    .favorite_border,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 20.sp,
+                                                              )),
+                                                  ))
+                                            ],
+                                          ),
+                                        );
+                                      }))
+                          : Column(
+                              children: [
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                Container(
+                                  height: 4.5.h,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount: 3,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              sel1 = index;
+                                            });
+                                            sel1 == 1
+                                                ? Get.to(Check_list())
+                                                : sel1 == 2
+                                                    ? Get.to(MeetingsPage(
+                                                        sele: 0,
+                                                      ))
+                                                    : Container();
+                                          },
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 1.h, horizontal: 3.w),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                color: sel1 == index
+                                                    ? Colors.blue
+                                                    : Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(25)),
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 2.w),
+                                            child: Text(type[index],
+                                                style: TextStyle(
+                                                    fontSize: 14.sp,
+                                                    fontFamily: 'sofi',
+                                                    color: sel1 == index
+                                                        ? Colors.white
+                                                        : Colors.blue,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1)),
+                                          ),
+                                        );
+                                      }),
+                                ),
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                homemodal?.suppliers?.length == 0 ||
+                                        homemodal?.suppliers?.length == null
+                                    ? Container(
+                                        height: 55.h,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "No Suppliers Available",
+                                          style: TextStyle(
+                                              fontSize: 17.sp,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black),
+                                        ),
+                                      )
+                                    : SizedBox(
+                                        height: 47.h,
+                                        child: ListView.builder(
+                                            scrollDirection: Axis.horizontal,
+                                            itemBuilder: (context, index) {
+                                              return Container(
+                                                width: 80.w,
+                                                margin: EdgeInsets.symmetric(
+                                                    horizontal: 2.w),
+                                                padding: EdgeInsets.all(1.w),
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25),
+                                                    color: Colors.white),
+                                                child: Stack(
+                                                  children: [
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        // SizedBox(
+                                                        //   height: 0.5.h,
+                                                        // ),
+                                                        // ClipRRect(
+                                                        //   borderRadius:
+                                                        //       BorderRadius.circular(20),
+                                                        //   child: CachedNetworkImage(
+                                                        //     width: 80.w,
+                                                        //     height: 20.h,
+                                                        //     fit: BoxFit.contain,
+                                                        //     imageUrl: homemodal
+                                                        //             ?.suppliers?[index]
+                                                        //             .profilePath ??
+                                                        //         "",
+                                                        //     progressIndicatorBuilder:
+                                                        //         (context, url,
+                                                        //                 progress) =>
+                                                        //             Center(
+                                                        //                 child:
+                                                        //                     CircularProgressIndicator()),
+                                                        //     errorWidget:
+                                                        //         (context, url, error) =>
+                                                        //             Image.asset(
+                                                        //       'assets/1b.jpeg',
+                                                        //
+                                                        //       fit: BoxFit.cover,
+                                                        //       width: 80.w,
+                                                        //       height: 20.h,
+                                                        //     ),
+                                                        //   ),
+                                                        // ),
+                                                        SizedBox(
+                                                          height: 0.20.h,
+                                                        ),
+                                                        Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  2.w),
+                                                          width: 85.w,
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      1.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        15),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20),
+                                                              child:
+                                                                  CachedNetworkImage(
+                                                                width: 80.w,
+                                                                height: 20.h,
+                                                                fit: BoxFit
+                                                                    .contain,
+                                                                imageUrl: homemodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .profilePath ??
+                                                                    "",
+                                                                progressIndicatorBuilder: (context,
+                                                                        url,
+                                                                        progress) =>
+                                                                    Center(
+                                                                        child:
+                                                                            CircularProgressIndicator()),
+                                                                errorWidget: (context,
+                                                                        url,
+                                                                        error) =>
+                                                                    Image.asset(
+                                                                  'assets/user.png',
+                                                                  width: 80.w,
+                                                                  height: 20.h,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 1.5.h,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 3.w),
+                                                          child: Text(
+                                                              homemodal?.suppliers?[index].name ==
+                                                                          '' ||
+                                                                      homemodal
+                                                                              ?.suppliers?[
+                                                                                  index]
+                                                                              .name ==
+                                                                          null
+                                                                  ? 'N/A'
+                                                                  : homemodal
+                                                                          ?.suppliers?[
+                                                                              index]
+                                                                          .name ??
+                                                                      "",
+                                                              style: TextStyle(
+                                                                  fontSize: 14.5
+                                                                      .sp,
+                                                                  fontFamily:
+                                                                      'sofi',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  color: Colors
+                                                                      .black,
+                                                                  letterSpacing:
+                                                                      1)),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 1.5.h,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 3.w),
+                                                          child: Text(
+                                                              homemodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .service ??
+                                                                  "",
+                                                              maxLines: 2,
+                                                              overflow: TextOverflow
+                                                                  .ellipsis,
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      14.5.sp,
+                                                                  fontFamily:
+                                                                      'sofi',
+                                                                  color: Colors
+                                                                      .black54,
+                                                                  letterSpacing:
+                                                                      1)),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 3.h,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 4.w,
+                                                                  right: 4.w),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Text("Starting Price : ",
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          14.5
+                                                                              .sp,
+                                                                      fontFamily:
+                                                                          'sofi',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      color: Colors
+                                                                          .black54,
+                                                                      letterSpacing:
+                                                                          1)),
+                                                              Text(
+                                                                  "\$ " +
+                                                                      (homemodal
+                                                                              ?.suppliers?[
+                                                                                  index]
+                                                                              .cost)
+                                                                          .toString(),
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          14.5
+                                                                              .sp,
+                                                                      fontFamily:
+                                                                          'sofi',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      color: Colors
+                                                                          .black,
+                                                                      letterSpacing:
+                                                                          1))
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 4.h,
+                                                        ),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            GestureDetector(
+                                                              onTap: () {
+                                                                Get.to(
+                                                                    SupplierfourScreen(
+                                                                  suppid: homemodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .id,
+                                                                  catid: homemodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .categoryId,
+                                                                  service: homemodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .service,
+                                                                ));
+                                                              },
+                                                              child: Container(
+                                                                width: 50.w,
+                                                                padding: EdgeInsets
+                                                                    .symmetric(
+                                                                        vertical:
+                                                                            1.h,
+                                                                        horizontal:
+                                                                            5.w),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            25)),
+                                                                child: Center(
+                                                                  child: Text(
+                                                                      "View Detail",
+                                                                      style: TextStyle(
+                                                                          fontSize: 17
+                                                                              .sp,
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          color: Colors
+                                                                              .white,
+                                                                          letterSpacing:
+                                                                              1)),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(
+                                                          height: 1.5.h,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Positioned(
+                                                        left: 64.w,
+                                                        top: 1.5.h,
+                                                        child: Container(
+                                                          height: 10.w,
+                                                          width: 10.w,
+                                                          alignment:
+                                                              Alignment.center,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  Colors.blue,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          10)),
+                                                          child: IconButton(
+                                                              onPressed: () {
+                                                                setState(() {
+                                                                  mydata =
+                                                                      index;
+                                                                  fav = homemodal
+                                                                              ?.suppliers?[index]
+                                                                              .fav ==
+                                                                          "1"
+                                                                      ? 0
+                                                                      : 1;
+                                                                });
 
-                                                      favourite();
-                                                    },
-                                                    icon: homemodal
-                                                                ?.suppliers?[
-                                                                    index]
-                                                                .fav ==
-                                                            "1"
-                                                        ? Icon(
-                                                            Icons.favorite,
-                                                            color: Colors.white,
-                                                            size: 20.sp,
-                                                          )
-                                                        : Icon(
-                                                            Icons
-                                                                .favorite_border,
-                                                            color: Colors.white,
-                                                            size: 20.sp,
-                                                          )),
-                                              ))
-                                        ],
+                                                                favourite();
+                                                              },
+                                                              icon: homemodal
+                                                                          ?.suppliers?[
+                                                                              index]
+                                                                          .fav ==
+                                                                      "1"
+                                                                  ? Icon(
+                                                                      Icons
+                                                                          .favorite,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size:
+                                                                          20.sp,
+                                                                    )
+                                                                  : Icon(
+                                                                      Icons
+                                                                          .favorite_border,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size:
+                                                                          20.sp,
+                                                                    )),
+                                                        ))
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                            itemCount:
+                                                homemodal?.suppliers?.length),
                                       ),
-                                    )
-                                  ]
-                                ],
-                              ),
-                            ),
+                              ],
+                            )
                     ],
                   ),
                 ),
@@ -657,7 +919,12 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       ),
       child: TextField(
         controller: _search,
-        onChanged: (value) {},
+        onChanged: (value) {
+          if (value.isNotEmpty) {
+            print(value);
+            searchap(_search.text.toString());
+          }
+        },
         style:
             TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
         decoration: InputDecoration(
@@ -835,6 +1102,28 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             buildErrorDialog(
                 context, "Login Error", (userData?.message).toString());
           }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  searchap(String value) {
+    final Map<String, String> data = {};
+    data['search'] = value.toString();
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().suppliersearchapi(data).then((response) async {
+          suppliersearchmodal =
+              SuppliersearchModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 &&
+              suppliersearchmodal?.status == "1") {
+            print(suppliersearchmodal?.suppliers?.length);
+            print("ghdfdsh");
+          } else {}
         });
       } else {
         buildErrorDialog(context, 'Error', "Internet Required");
