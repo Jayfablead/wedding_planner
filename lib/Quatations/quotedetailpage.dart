@@ -13,6 +13,7 @@ import 'package:wedding_planner/Chat/msg2.dart';
 import 'package:wedding_planner/Modal/QouteDetailsModal.dart';
 import 'package:wedding_planner/Modal/QuotationAcceptModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/bookings/BookNowDetails.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/load.dart';
@@ -167,41 +168,89 @@ class _quotedetailpageState extends State<quotedetailpage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(height: 2.h),
-                              Text(
-                                quotedetailsmodal?.details?.supplier
-                                                ?.categoryName ==
-                                            '' ||
-                                        quotedetailsmodal?.details?.supplier
-                                                ?.categoryName ==
-                                            null
-                                    ? 'N/A'
-                                    : quotedetailsmodal
-                                            ?.details?.supplier?.categoryName ??
-                                        '',
-                                style: TextStyle(
-                                    fontSize: 19.sp,
-                                    color: Colors.blue,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                quotedetailsmodal?.details?.supplier?.name ==
-                                            '' ||
-                                        quotedetailsmodal
-                                                ?.details?.supplier?.name ==
-                                            null
-                                    ? 'N/A'
-                                    : quotedetailsmodal
-                                            ?.details?.supplier?.name ??
-                                        '',
-                                style: TextStyle(
-                                    height: 1.5,
-                                    fontSize: 16.sp,
-                                    color: Colors.grey,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        width: 65.w,
+                                        child: Text(
+                                          quotedetailsmodal?.details?.supplier
+                                                          ?.categoryName ==
+                                                      '' ||
+                                                  quotedetailsmodal
+                                                          ?.details
+                                                          ?.supplier
+                                                          ?.categoryName ==
+                                                      null
+                                              ? 'N/A'
+                                              : quotedetailsmodal
+                                                      ?.details
+                                                      ?.supplier
+                                                      ?.categoryName ??
+                                                  '',
+                                          style: TextStyle(
+                                              fontSize: 19.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 65.w,
+                                        child: Text(
+                                          quotedetailsmodal?.details?.supplier
+                                                          ?.name ==
+                                                      '' ||
+                                                  quotedetailsmodal?.details
+                                                          ?.supplier?.name ==
+                                                      null
+                                              ? 'N/A'
+                                              : quotedetailsmodal?.details
+                                                      ?.supplier?.name ??
+                                                  '',
+                                          style: TextStyle(
+                                              height: 1.5,
+                                              fontSize: 16.sp,
+                                              color: Colors.grey,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Get.to(Msg2(
+                                        img: quotedetailsmodal
+                                            ?.details?.supplier?.profile,
+                                        name: quotedetailsmodal
+                                            ?.details?.supplier?.name,
+                                        id: quotedetailsmodal
+                                            ?.details?.supplier?.id,
+                                      ));
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.all(2.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        Icons.chat,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               SizedBox(height: 1.h),
                               Row(
@@ -272,7 +321,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
-                                                  color: Colors.blue),
+                                                  color: Colors.white),
                                               borderRadius:
                                                   BorderRadius.circular(25.sp),
                                             ),
@@ -324,45 +373,80 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                         ),
                                   InkWell(
                                     onTap: () {
-                                      Get.to(Msg2(
-                                        img: quotedetailsmodal
+                                      Get.to(BookNowDetails(
+                                        sername: quotedetailsmodal
+                                            ?.details?.supplier?.categoryName,
+                                        sid: quotedetailsmodal?.details?.sId,
+                                        photo: quotedetailsmodal
                                             ?.details?.supplier?.profile,
+                                        cid: quotedetailsmodal?.details?.cId,
+                                        email: quotedetailsmodal
+                                            ?.details?.supplier?.email,
                                         name: quotedetailsmodal
                                             ?.details?.supplier?.name,
-                                        id: quotedetailsmodal
-                                            ?.details?.supplier?.id,
                                       ));
                                     },
                                     child: Container(
                                       height: 5.5.h,
-                                      width: 42.w,
+                                      width: 40.w,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
+                                        border: Border.all(color: Colors.white),
                                         borderRadius:
                                             BorderRadius.circular(25.sp),
                                       ),
                                       child: Center(
-                                          child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.message,
-                                              color: Colors.blue),
-                                          SizedBox(width: 2.w),
-                                          Text(
-                                            "Chat now",
-                                            style: TextStyle(
-                                                fontSize: 13.sp,
-                                                color: Colors.blue,
-                                                fontWeight: FontWeight.bold,
-                                                fontFamily: 'get'),
-                                          ),
-                                        ],
+                                          child: Text(
+                                        "Book Now",
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            color: Colors.blue,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'get'),
                                       )),
                                     ),
-                                  ),
+                                  )
+                                  // InkWell(
+                                  //   onTap: () {
+                                  //     Get.to(Msg2(
+                                  //       img: quotedetailsmodal
+                                  //           ?.details?.supplier?.profile,
+                                  //       name: quotedetailsmodal
+                                  //           ?.details?.supplier?.name,
+                                  //       id: quotedetailsmodal
+                                  //           ?.details?.supplier?.id,
+                                  //     ));
+                                  //   },
+                                  //   child: Container(
+                                  //     height: 5.5.h,
+                                  //     width: 42.w,
+                                  //     decoration: BoxDecoration(
+                                  //       color: Colors.white,
+                                  //       borderRadius:
+                                  //           BorderRadius.circular(25.sp),
+                                  //     ),
+                                  //     child: Center(
+                                  //         child: Row(
+                                  //       crossAxisAlignment:
+                                  //           CrossAxisAlignment.center,
+                                  //       mainAxisAlignment:
+                                  //           MainAxisAlignment.center,
+                                  //       children: [
+                                  //         Icon(Icons.message,
+                                  //             color: Colors.blue),
+                                  //         SizedBox(width: 2.w),
+                                  //         Text(
+                                  //           "Chat now",
+                                  //           style: TextStyle(
+                                  //               fontSize: 13.sp,
+                                  //               color: Colors.blue,
+                                  //               fontWeight: FontWeight.bold,
+                                  //               fontFamily: 'get'),
+                                  //         ),
+                                  //       ],
+                                  //     )),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                               SizedBox(height: 3.5.h),
