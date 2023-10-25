@@ -90,33 +90,36 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Text(
-                                          "Hi, " +
-                                              (homemodal?.userData?.groomName ==
-                                                          null ||
-                                                      homemodal?.userData
-                                                              ?.groomName ==
-                                                          ""
-                                                  ? "N/A"
-                                                  : (homemodal
-                                                          ?.userData?.groomName)
-                                                      .toString()) +
-                                              " & " +
-                                              (homemodal?.userData?.brideName ==
-                                                          null ||
-                                                      homemodal?.userData
-                                                              ?.brideName ==
-                                                          ""
-                                                  ? "N/A"
-                                                  : (homemodal
-                                                          ?.userData?.brideName)
-                                                      .toString()),
-                                          style: TextStyle(
-                                              fontSize: 23.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold,
-                                              letterSpacing: 1,
-                                              color: Colors.blue),
+                                        Container(
+                                          width: 70.w,
+                                          child: Text(
+                                            "Hi, " +
+                                                (homemodal?.userData?.groomName ==
+                                                            null ||
+                                                        homemodal?.userData
+                                                                ?.groomName ==
+                                                            ""
+                                                    ? "N/A"
+                                                    : (homemodal
+                                                            ?.userData?.groomName)
+                                                        .toString()) +
+                                                " & " +
+                                                (homemodal?.userData?.brideName ==
+                                                            null ||
+                                                        homemodal?.userData
+                                                                ?.brideName ==
+                                                            ""
+                                                    ? "N/A"
+                                                    : (homemodal
+                                                            ?.userData?.brideName)
+                                                        .toString()),
+                                            style: TextStyle(
+                                                fontSize: 23.sp,
+                                                fontFamily: 'sofi',
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 1,
+                                                color: Colors.blue),
+                                          ),
                                         ),
                                         IconButton(
                                           onPressed: () {

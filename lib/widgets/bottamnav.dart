@@ -141,30 +141,30 @@ class _bottomnavbarState extends State<bottomnavbar> {
         setState(
           () {
             index == 0
-                ? Get.offAll(
+                ? Get.to(
                     MeetingsPage(
                       sele: 0,
                     ),
                   )
                 : index == 1
-                    ? Get.offAll(
+                    ? Get.to(
                         PostPage(
                           sele: 1,
                         ),
                       )
                     : index == 2
-                        ? Get.offAll(
+                        ? Get.to(
                             YellowHomeScreen(
                               sele: 2,
                             ),
                           )
                         : index == 3
-                            ? Get.offAll(
+                            ? Get.to(
                                 ChatlistPage(
                                   sele: 3,
                                 ),
                               )
-                            : Get.offAll(
+                            : Get.to(
                                 MySups(sele: 4),
                               );
           },

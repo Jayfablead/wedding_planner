@@ -19,6 +19,7 @@ import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 import '../Modal/ViewPostModal.dart';
@@ -158,53 +159,12 @@ class _PostPageState extends State<PostPage> {
                       SizedBox(
                         height: 4.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.blue,
-                              size: 23.sp,
-                            ),
-                          ),
-                          Text(
-                            "",
-                            style: TextStyle(
-                              fontSize: 15.sp,
-                              fontFamily: 'sofi',
-                              letterSpacing: 1,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    Get.to(NotificationScreen());
-                                  },
-                                  icon: Icon(
-                                    Icons.notifications_none_rounded,
-                                    color: Colors.blue,
-                                    size: 21.sp,
-                                  )),
-                              IconButton(
-                                  onPressed: () {
-                                    scaffoldKey.currentState?.openDrawer();
-                                  },
-                                  icon: Icon(
-                                    Icons.menu_rounded,
-                                    color: Colors.blue,
-                                    size: 23.sp,
-                                  )),
-                            ],
-                          ),
-                        ],
-                      ),
+
+                      header(
+                          text: "",
+                          callback1: () {
+                            scaffoldKey.currentState?.openDrawer();
+                          }),
                       SizedBox(height: 1.h),
                       Padding(
                         padding: EdgeInsets.only(left: 1.w),

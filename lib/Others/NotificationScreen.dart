@@ -11,6 +11,7 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 import '../widgets/drawer.dart';
@@ -79,38 +80,43 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       SizedBox(
                         height: 5.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                Get.back();
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios_new_rounded,
-                                color: Colors.blue,
-                                size: 23.sp,
-                              )),
-                          Text(
-                            "",
-                            style: TextStyle(
-                              fontSize: 15.sp,
-                              fontFamily: 'sofi',
-                              letterSpacing: 1,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                scaffoldKey.currentState?.openDrawer();
-                              },
-                              icon: Icon(
-                                Icons.menu_rounded,
-                                color: Colors.blue,
-                                size: 23.sp,
-                              ))
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           Get.back();
+                      //         },
+                      //         icon: Icon(
+                      //           Icons.arrow_back_ios_new_rounded,
+                      //           color: Colors.blue,
+                      //           size: 23.sp,
+                      //         )),
+                      //     Text(
+                      //       "",
+                      //       style: TextStyle(
+                      //         fontSize: 15.sp,
+                      //         fontFamily: 'sofi',
+                      //         letterSpacing: 1,
+                      //         fontWeight: FontWeight.bold,
+                      //       ),
+                      //     ),
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           scaffoldKey.currentState?.openDrawer();
+                      //         },
+                      //         icon: Icon(
+                      //           Icons.menu_rounded,
+                      //           color: Colors.blue,
+                      //           size: 23.sp,
+                      //         ))
+                      //   ],
+                      // ),
+                      header(
+                          text: "",
+                          callback1: () {
+                            scaffoldKey.currentState?.openDrawer();
+                          }),
                       SizedBox(
                         height: 1.h,
                       ),
@@ -148,7 +154,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                           child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                    'assets/defimg.jpg',
+                                    'assets/user.png',
                                   ),
                                 ),
                               ),
