@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/InvoicelistModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
@@ -302,8 +303,8 @@ class _InvoiceListState extends State<InvoiceList> {
                                             var bytes =
                                                 await consolidateHttpClientResponseBytes(
                                                     response);
-                                            Directory dir = await Directory(
-                                                downloadsFolderPath);
+                                            Directory dir = Platform.isAndroid?Directory(downloadsFolderPath): await getApplicationDocumentsDirectory();
+
                                             final String filePath =
                                                 '${dir.path}/${invoicelistmodal?.invoices?[index].supplierDetails?.name ?? ""}';
                                             final File file = File(filePath);

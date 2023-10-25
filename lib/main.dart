@@ -12,7 +12,9 @@ import 'package:wedding_planner/widgets/load.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configLoading();
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 int setit = 0;

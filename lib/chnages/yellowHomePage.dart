@@ -554,7 +554,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                 width: 80.w,
                                                                 height: 20.h,
                                                                 fit: BoxFit
-                                                                    .contain,
+                                                                    .cover,
                                                                 imageUrl: homemodal
                                                                         ?.suppliers?[
                                                                             index]
