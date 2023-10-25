@@ -374,7 +374,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                   height: 5.5.h,
                                   width: 90.w,
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.blue),
+                                    border: Border.all(color: Colors.white),
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(30),
                                   ),
