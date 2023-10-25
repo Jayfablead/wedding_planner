@@ -216,28 +216,7 @@ class _myfavouriteState extends State<myfavourite> {
                       SizedBox(
                         height: 6.h,
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   crossAxisAlignment: CrossAxisAlignment.center,
-                      //   children: [
-                      //     IconButton(onPressed: () {}, icon: Icon(null)),
-                      //     Text(
-                      //       "My Favourites",
-                      //       style: TextStyle(
-                      //         fontSize: 15.sp,
-                      //         fontFamily: 'sofi',
-                      //         letterSpacing: 1,
-                      //         fontWeight: FontWeight.bold,
-                      //       ),
-                      //     ),
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           // _drawerKey.currentState!.open();
-                      //           openDrawer();
-                      //         },
-                      //         icon: Icon(Icons.menu_rounded))
-                      //   ],
-                      // ),
+
                       header(
                           text: "My Favourites",
                           callback1: () {
@@ -253,178 +232,236 @@ class _myfavouriteState extends State<myfavourite> {
                       Container(
                         alignment: Alignment.center,
                         height: 79.h,
-                        child:favouritelistmodal?.myfavourites?.length == 0? Text("No favourite added",style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            fontFamily: 'sofi',
-                            color: Colors.black),): ListView.builder(
-                          itemCount: favouritelistmodal?.myfavourites?.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.only(top: 1.h, bottom: 1.h),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black26,
-                                        // Color of the shadow
-                                        offset: Offset(0, 1.5),
-                                        // Offset of the shadow (x, y)
-                                        blurRadius: 8, // Spread of the shadow
-                                        // How much the shadow extends
-                                      ),
-                                    ],
-                                    borderRadius: BorderRadius.circular(10)),
-                                padding: EdgeInsets.symmetric(vertical: 1.h),
-                                alignment: Alignment.center,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 1.w),
-                                      height: 9.h,
-                                      width: 18.w,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: favouritelistmodal
-                                                  ?.myfavourites?[index]
-                                                  .profilePath ??
-                                              "",
-                                          progressIndicatorBuilder:
-                                              (context, url, progress) =>
-                                                  CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              Image.asset(
-                                            'assets/user.png',
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5.w,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          width: 50.w,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                favouritelistmodal
+                        child: favouritelistmodal?.myfavourites?.length == 0
+                            ? Text(
+                                "No favourite added",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                    fontFamily: 'sofi',
+                                    color: Colors.black),
+                              )
+                            : ListView.builder(
+                                itemCount:
+                                    favouritelistmodal?.myfavourites?.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding:
+                                        EdgeInsets.only(top: 1.h, bottom: 1.h),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black26,
+                                              // Color of the shadow
+                                              offset: Offset(0, 1.5),
+                                              // Offset of the shadow (x, y)
+                                              blurRadius:
+                                                  8, // Spread of the shadow
+                                              // How much the shadow extends
+                                            ),
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 1.h),
+                                      alignment: Alignment.center,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 1.w),
+                                            height: 9.h,
+                                            width: 18.w,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: favouritelistmodal
                                                         ?.myfavourites?[index]
-                                                        .name ??
-                                                    '',
-                                                style: TextStyle(
-                                                    fontSize: 16.sp,
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1,
-                                                    fontFamily: 'sofi',
-                                                    color: Colors.black),
+                                                        .profilePath ??
+                                                    "",
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
+                                                    CircularProgressIndicator(),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
+                                                  'assets/user.png',
+                                                  color: Colors.black,
+                                                ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
-                                        SizedBox(height: 0.8.h),
-                                        SizedBox(
-                                          width: 66.w,
-                                          child: Row(
+                                          SizedBox(
+                                            width: 5.w,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.center,
                                             children: [
-                                              SizedBox(
-                                                width: 52.w,
-                                                child: Column(
+                                              Container(
+                                                width: 50.w,
+                                                child: Row(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       favouritelistmodal
-                                                              ?.myfavourites?[
-                                                                  index]
-                                                              .service ??
-                                                          '',
+                                                                      ?.myfavourites?[
+                                                                          index]
+                                                                      .name ==
+                                                                  '' ||
+                                                              favouritelistmodal
+                                                                      ?.myfavourites?[
+                                                                          index]
+                                                                      .name ==
+                                                                  null
+                                                          ? 'N/A'
+                                                          : favouritelistmodal
+                                                                  ?.myfavourites?[
+                                                                      index]
+                                                                  .name ??
+                                                              '',
                                                       style: TextStyle(
-                                                          fontSize: 11.sp,
+                                                          fontSize: 16.sp,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          letterSpacing: 1,
                                                           fontFamily: 'sofi',
-                                                          color: Colors.black
-                                                              .withOpacity(
-                                                                  0.5)),
-                                                    ),
-                                                    SizedBox(height: 0.8.h),
-                                                    Text(
-                                                      favouritelistmodal
-                                                              ?.myfavourites?[
-                                                                  index]
-                                                              .description ??
-                                                          '',
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      maxLines: 1,
-                                                      style: TextStyle(
-                                                        fontSize: 13.sp,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontFamily: 'sofi',
-                                                        color: Colors.black
-                                                            .withOpacity(0.5),
-                                                      ),
+                                                          color: Colors.black),
                                                     ),
                                                   ],
                                                 ),
                                               ),
-                                              InkWell(
-                                                onTap: () {
-                                                  setState(() {
-                                                    mydata = index;
-                                                  });
-                                                  favourite();
-                                                },
-                                                child: Container(
-                                                  padding: EdgeInsets.all(2.w),
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              7),
-                                                      color: Colors.blue),
-                                                  child: Icon(
-                                                    Icons.favorite,
-                                                    color: Colors.white,
-                                                    size: 18.sp,
-                                                  ),
+                                              SizedBox(height: 0.8.h),
+                                              SizedBox(
+                                                width: 66.w,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    SizedBox(
+                                                      width: 52.w,
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            favouritelistmodal
+                                                                            ?.myfavourites?[
+                                                                                index]
+                                                                            .service ==
+                                                                        '' ||
+                                                                    favouritelistmodal
+                                                                            ?.myfavourites?[
+                                                                                index]
+                                                                            .service ==
+                                                                        null
+                                                                ? 'N/A'
+                                                                : favouritelistmodal
+                                                                        ?.myfavourites?[
+                                                                            index]
+                                                                        .service ??
+                                                                    '',
+                                                            style: TextStyle(
+                                                                fontSize: 11.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontFamily:
+                                                                    'sofi',
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.5)),
+                                                          ),
+                                                          SizedBox(
+                                                              height: 0.8.h),
+                                                          Text(
+                                                            favouritelistmodal
+                                                                ?.myfavourites?[
+                                                            index]
+                                                                .description == '' ||  favouritelistmodal
+                                                                ?.myfavourites?[
+                                                            index]
+                                                                .description == null ?'N/A':  favouritelistmodal
+                                                                    ?.myfavourites?[
+                                                                        index]
+                                                                    .description ??
+                                                                '',
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            maxLines: 1,
+                                                            style: TextStyle(
+                                                              fontSize: 13.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.5),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          mydata = index;
+                                                        });
+                                                        favourite();
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            EdgeInsets.all(2.w),
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        7),
+                                                            color: Colors.blue),
+                                                        child: Icon(
+                                                          Icons.favorite,
+                                                          color: Colors.white,
+                                                          size: 18.sp,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ),
+                                              )
                                             ],
                                           ),
-                                        )
-                                      ],
+                                          SizedBox(
+                                            width: 3.w,
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(
-                                      width: 3.w,
-                                    ),
-                                  ],
-                                ),
+                                  );
+                                },
+                                padding: EdgeInsets.zero,
                               ),
-                            );
-                          },
-                          padding: EdgeInsets.zero,
-                        ),
                       )
                     ],
                   ),

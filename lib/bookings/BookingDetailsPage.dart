@@ -18,7 +18,6 @@ import '../widgets/const.dart';
 class ViewBookingDetailsPage extends StatefulWidget {
   String? bId;
 
-
   ViewBookingDetailsPage({super.key, this.bId});
 
   @override
@@ -46,462 +45,507 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
         body: isLoading
             ? Container()
             : SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.w),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  header(
-                      text: "Booking Details",
-                      callback1: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      }),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        margin: EdgeInsets.symmetric(horizontal: 0.5.w),
-                        height: 25.h,
-                        width: 95.w,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(25),
-                          child: CachedNetworkImage(
-                            // fit: BoxFit.cover,
-                            imageUrl:
-                            booksuccess?.supplierInfo?.profile ?? '',
-                            fit: BoxFit.cover,
-                            progressIndicatorBuilder:
-                                (context, url, progress) => Center(
-                                child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) =>
-                                Image.asset(
-                                  'assets/deprf.png',
-                                ),
-                          ),
-                        ),
-                      ),
-                      // Image.network(
-                      //   "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
-                      //   height: 28.h,
-                      // ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 1.8.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 2.5.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                    booksuccess?.supplierInfo?.services?.categoryName ?? '',
-                          style: TextStyle(
-                            fontSize: 17.sp,
-                            color: Colors.black.withOpacity(0.9),
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "sofi",
-                          ),
+                        SizedBox(
+                          height: 5.h,
                         ),
-                        InkWell(
-                          onTap: () {
-                            Get.to(Msg2(
-                              id: supplierdetailmodal?.supplierInfo?.id ??
-                                  "",
-                              name: supplierdetailmodal
-                                  ?.supplierInfo?.name ??
-                                  "",
-                              img: supplierdetailmodal
-                                  ?.supplierInfo?.profile ??
-                                  "",
-                            ));
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(2.w),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                color: Colors.blue),
-                            child: Icon(
-                              Icons.chat,
-                              color: Colors.white,
-                              size: 18.sp,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        width: 92.w,
-                        height: 10.h,
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                12.0), // Control the border radius here
-                          ),
-                          child: Padding(
-                            padding:
-                            EdgeInsets.symmetric(horizontal: 2.w),
-                            child: Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  booksuccess?.supplierInfo?.name==""||booksuccess?.supplierInfo?.name==null?"N/A":booksuccess?.supplierInfo?.name ?? '',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: "sofi",
-                                    fontSize: 16.sp,
+                        header(
+                            text: "Booking Details",
+                            callback1: () {
+                              scaffoldKey.currentState?.openDrawer();
+                            }),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              margin: EdgeInsets.symmetric(horizontal: 0.5.w),
+                              height: 25.h,
+                              width: 95.w,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25),
+                                child: CachedNetworkImage(
+                                  // fit: BoxFit.cover,
+                                  imageUrl:
+                                      booksuccess?.supplierInfo?.profile ?? '',
+                                  fit: BoxFit.cover,
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) => Center(
+                                          child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
+                                    'assets/defimg.jpg',
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 1.5.h,
-                                ),
-                                Text(
-                                  booksuccess?.supplierInfo?.email==""||booksuccess?.supplierInfo?.email==null?"N/A":booksuccess?.supplierInfo?.email ?? '',
-                                  style: TextStyle(
-                                      color:
-                                      Colors.black.withOpacity(0.7),
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: "sofi",
-                                      fontSize: 16.sp,
-                                      letterSpacing: 1),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
+                            // Image.network(
+                            //   "https://www.transparentpng.com/thumb/car-png/car-free-transparent-png-8.png",
+                            //   height: 28.h,
+                            // ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Container(
-                    width: 110.w,
-                    height: 10.h,
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              12.0), // Control the border radius here
+                        SizedBox(
+                          height: 1.8.h,
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 2.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Booking ID : ",
+                                booksuccess?.supplierInfo?.services
+                                                ?.categoryName ==
+                                            '' ||
+                                        booksuccess?.supplierInfo?.services
+                                                ?.categoryName ==
+                                            null
+                                    ? 'N/A'
+                                    : booksuccess?.supplierInfo?.services
+                                            ?.categoryName ??
+                                        '',
                                 style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: 17.sp,
+                                  color: Colors.black.withOpacity(0.9),
+                                  fontWeight: FontWeight.bold,
                                   fontFamily: "sofi",
-                                  fontSize: 16.sp,
                                 ),
                               ),
-                              SizedBox(height: 1.5.h),
-                              Text(
-                                booksuccess?.bookingInfo?.bookingNo==""|| booksuccess?.bookingInfo?.bookingNo==null?"N/A": booksuccess?.bookingInfo?.bookingNo ?? '',
-                                style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: "sofi",
-                                  letterSpacing: 1.3,
-                                  fontSize: 16.sp,
+                              InkWell(
+                                onTap: () {
+                                  Get.to(Msg2(
+                                    id: supplierdetailmodal?.supplierInfo?.id ??
+                                        "",
+                                    name: supplierdetailmodal
+                                            ?.supplierInfo?.name ??
+                                        "",
+                                    img: supplierdetailmodal
+                                            ?.supplierInfo?.profile ??
+                                        "",
+                                  ));
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(2.w),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7),
+                                      color: Colors.blue),
+                                  child: Icon(
+                                    Icons.chat,
+                                    color: Colors.white,
+                                    size: 18.sp,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                        )),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  Container(
-                    width: 110.w,
-                    height: 7.h,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                            12.0), // Control the border radius here
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 2.w),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Row(
                           children: [
-                            Text(
-                              "Booking Status : ",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "sofi",
-                                fontSize: 16.sp,
-                              ),
-                            ),
-                            SizedBox(width: 4.w),
-                            Text(
-                              booksuccess?.bookingInfo?.bStatus == '0'
-                                  ? "Pending"
-                                  : 'Conmpleted',
-                              style: TextStyle(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "sofi",
-                                fontSize: 16.sp,
+                            Container(
+                              width: 92.w,
+                              height: 10.h,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      12.0), // Control the border radius here
+                                ),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        booksuccess?.supplierInfo?.name == "" ||
+                                                booksuccess
+                                                        ?.supplierInfo?.name ==
+                                                    null
+                                            ? "N/A"
+                                            : booksuccess?.supplierInfo?.name ??
+                                                '',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600,
+                                          fontFamily: "sofi",
+                                          fontSize: 16.sp,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 1.5.h,
+                                      ),
+                                      Text(
+                                        booksuccess?.supplierInfo?.email ==
+                                                    "" ||
+                                                booksuccess
+                                                        ?.supplierInfo?.email ==
+                                                    null
+                                            ? "N/A"
+                                            : booksuccess
+                                                    ?.supplierInfo?.email ??
+                                                '',
+                                        style: TextStyle(
+                                            color:
+                                                Colors.black.withOpacity(0.7),
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: "sofi",
+                                            fontSize: 16.sp,
+                                            letterSpacing: 1),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Container(
-                    width: 110.w,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         Container(
-                          width: 45.w,
-                          height: 7.5.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
+                          width: 110.w,
+                          height: 10.h,
+                          child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    12.0), // Control the border radius here
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 2.w),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Booking ID : ",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: "sofi",
+                                        fontSize: 16.sp,
+                                      ),
+                                    ),
+                                    SizedBox(height: 1.5.h),
+                                    Text(
+                                      booksuccess?.bookingInfo?.bookingNo ==
+                                                  "" ||
+                                              booksuccess?.bookingInfo
+                                                      ?.bookingNo ==
+                                                  null
+                                          ? "N/A"
+                                          : booksuccess
+                                                  ?.bookingInfo?.bookingNo ??
+                                              '',
+                                      style: TextStyle(
+                                        color: Colors.black.withOpacity(0.7),
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: "sofi",
+                                        letterSpacing: 1.3,
+                                        fontSize: 16.sp,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Container(
+                          width: 110.w,
+                          height: 7.h,
                           child: Card(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
                                   12.0), // Control the border radius here
                             ),
                             child: Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 2.w),
+                              padding: EdgeInsets.symmetric(horizontal: 2.w),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Icon(
-                                    Icons.date_range,
-                                    color: Colors.blue,
-                                    size: 16.sp,
+                                  Text(
+                                    "Booking Status : ",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "sofi",
+                                      fontSize: 16.sp,
+                                    ),
                                   ),
-                                  SizedBox(
-                                    width: 4.w,
+                                  SizedBox(width: 4.w),
+                                  Text(
+                                    booksuccess?.bookingInfo?.bStatus == '0'
+                                        ? "Pending"
+                                        : 'Conmpleted',
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(0.7),
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "sofi",
+                                      fontSize: 16.sp,
+                                    ),
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Date :",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w600,
-                                            fontFamily: "sofi",
-                                            fontSize: 16.sp,
-                                            letterSpacing: 1),
-                                      ),
-                                      SizedBox(height: 0.5.h),
-                                      Text(
-                                        booksuccess?.bookingInfo?.bDate==""||booksuccess?.bookingInfo?.bDate==null?"N/A":booksuccess?.bookingInfo?.bDate ??
-                                            '',
-                                        style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.7),
-                                            fontWeight: FontWeight.w600,
-                                            fontFamily: "sofi",
-                                            fontSize: 16.sp,
-                                            letterSpacing: 1),
-                                      ),
-                                    ],
-                                  )
                                 ],
                               ),
                             ),
                           ),
+                        ),
+                        SizedBox(
+                          height: 2.h,
                         ),
                         Container(
-                          width: 45.w,
-                          height: 7.5.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  12.0), // Control the border radius here
-                            ),
-                            child: Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 2.w),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.access_time,
-                                    color: Colors.blue,
-                                    size: 16.sp,
+                          width: 110.w,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 45.w,
+                                height: 7.5.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        12.0), // Control the border radius here
                                   ),
-                                  SizedBox(
-                                    width: 4.w,
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 2.w),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.date_range,
+                                          color: Colors.blue,
+                                          size: 16.sp,
+                                        ),
+                                        SizedBox(
+                                          width: 4.w,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Date :",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontFamily: "sofi",
+                                                  fontSize: 16.sp,
+                                                  letterSpacing: 1),
+                                            ),
+                                            SizedBox(height: 0.5.h),
+                                            Text(
+                                              booksuccess?.bookingInfo?.bDate ==
+                                                          "" ||
+                                                      booksuccess?.bookingInfo
+                                                              ?.bDate ==
+                                                          null
+                                                  ? "N/A"
+                                                  : booksuccess?.bookingInfo
+                                                          ?.bDate ??
+                                                      '',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.7),
+                                                  fontWeight: FontWeight.w600,
+                                                  fontFamily: "sofi",
+                                                  fontSize: 16.sp,
+                                                  letterSpacing: 1),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Time :",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w600,
-                                            fontFamily: "sofi",
-                                            fontSize: 16.sp,
-                                            letterSpacing: 1),
-                                      ),
-                                      SizedBox(height: 0.5.h),
-                                      Text(
-                                        booksuccess?.bookingInfo?.bTime==""||booksuccess?.bookingInfo?.bTime==null?"N/A":booksuccess?.bookingInfo?.bTime ??
-                                            '',
-                                        style: TextStyle(
-                                            color: Colors.black
-                                                .withOpacity(0.7),
-                                            fontWeight: FontWeight.w600,
-                                            fontFamily: "sofi",
-                                            fontSize: 16.sp,
-                                            letterSpacing: 1),
-                                      ),
-                                    ],
-                                  )
-                                ],
+                                ),
                               ),
-                            ),
+                              Container(
+                                width: 45.w,
+                                height: 7.5.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        12.0), // Control the border radius here
+                                  ),
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 2.w),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.access_time,
+                                          color: Colors.blue,
+                                          size: 16.sp,
+                                        ),
+                                        SizedBox(
+                                          width: 4.w,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Time :",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontFamily: "sofi",
+                                                  fontSize: 16.sp,
+                                                  letterSpacing: 1),
+                                            ),
+                                            SizedBox(height: 0.5.h),
+                                            Text(
+                                              booksuccess?.bookingInfo?.bTime ==
+                                                          "" ||
+                                                      booksuccess?.bookingInfo
+                                                              ?.bTime ==
+                                                          null
+                                                  ? "N/A"
+                                                  : booksuccess?.bookingInfo
+                                                          ?.bTime ??
+                                                      '',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.7),
+                                                  fontWeight: FontWeight.w600,
+                                                  fontFamily: "sofi",
+                                                  fontSize: 16.sp,
+                                                  letterSpacing: 1),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     // Container(
-                  //     //   width: 50.w,
-                  //     //   height: 7.5.h,
-                  //     //   decoration: BoxDecoration(
-                  //     //       borderRadius: BorderRadius.circular(12),
-                  //     //       ),
-                  //     //   child: Card(shape: RoundedRectangleBorder(
-                  //     //     borderRadius: BorderRadius.circular(
-                  //     //         12.0), // Control the border radius here
-                  //     //   ),
-                  //     //     child: Padding(
-                  //     //       padding: EdgeInsets.symmetric(horizontal: 2.w),
-                  //     //       child: Row(
-                  //     //         children: [
-                  //     //           Icon(
-                  //     //             Icons.attach_money_rounded,
-                  //     //             color: Colors.blue,
-                  //     //             size: 16.sp,
-                  //     //           ),
-                  //     //           SizedBox(
-                  //     //             width: 4.w,
-                  //     //           ),
-                  //     //           Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
-                  //     //             children: [
-                  //     //               Text(
-                  //     //                 "Starting Cost :",
-                  //     //                 style: TextStyle(
-                  //     //                   color: Colors.black,
-                  //     //                   fontWeight: FontWeight.w600,
-                  //     //                   fontFamily: "sofi",
-                  //     //                   fontSize: 16.sp,letterSpacing: 1
-                  //     //                 ),
-                  //     //               ),SizedBox(height: 0.5.h),
-                  //     //               Text(
-                  //     //                 "\$ 1,50,000",
-                  //     //                 style: TextStyle(
-                  //     //                     color: Colors.black.withOpacity(0.7),
-                  //     //                     fontWeight: FontWeight.w600,
-                  //     //                     fontFamily: "sofi",
-                  //     //                     fontSize: 16.sp,letterSpacing: 1
-                  //     //                 ),
-                  //     //               ),
-                  //     //             ],
-                  //     //           )
-                  //     //         ],
-                  //     //       ),
-                  //     //     ),
-                  //     //   ),
-                  //     // ),
-                  //     // InkWell(
-                  //     //   onTap: () {},
-                  //     //   child: Container(
-                  //     //     width: 45.w,
-                  //     //     height: 7.5.h,
-                  //     //     decoration: BoxDecoration(
-                  //     //       borderRadius: BorderRadius.circular(12),
-                  //     //     ),
-                  //     //     child: Card(
-                  //     //       shape: RoundedRectangleBorder(
-                  //     //         borderRadius: BorderRadius.circular(
-                  //     //             12.0), // Control the border radius here
-                  //     //       ),
-                  //     //       child: Padding(
-                  //     //         padding:
-                  //     //             EdgeInsets.symmetric(horizontal: 2.w),
-                  //     //         child: Row(
-                  //     //           children: [
-                  //     //             Icon(
-                  //     //               Icons.chat,
-                  //     //               color: Colors.blue,
-                  //     //               size: 21.sp,
-                  //     //             ),
-                  //     //             SizedBox(width: 2.w),
-                  //     //             Text(
-                  //     //               "Chat Now",
-                  //     //               style: TextStyle(
-                  //     //                   color:
-                  //     //                       Colors.black.withOpacity(0.7),
-                  //     //                   fontWeight: FontWeight.w600,
-                  //     //                   fontFamily: "sofi",
-                  //     //                   fontSize: 17.sp,
-                  //     //                   letterSpacing: 1),
-                  //     //             ),
-                  //     //           ],
-                  //     //         ),
-                  //     //       ),
-                  //     //     ),
-                  //     //   ),
-                  //     // ),
-                  //   ],
-                  // ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   crossAxisAlignment: CrossAxisAlignment.center,
+                        //   children: [
+                        //     // Container(
+                        //     //   width: 50.w,
+                        //     //   height: 7.5.h,
+                        //     //   decoration: BoxDecoration(
+                        //     //       borderRadius: BorderRadius.circular(12),
+                        //     //       ),
+                        //     //   child: Card(shape: RoundedRectangleBorder(
+                        //     //     borderRadius: BorderRadius.circular(
+                        //     //         12.0), // Control the border radius here
+                        //     //   ),
+                        //     //     child: Padding(
+                        //     //       padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        //     //       child: Row(
+                        //     //         children: [
+                        //     //           Icon(
+                        //     //             Icons.attach_money_rounded,
+                        //     //             color: Colors.blue,
+                        //     //             size: 16.sp,
+                        //     //           ),
+                        //     //           SizedBox(
+                        //     //             width: 4.w,
+                        //     //           ),
+                        //     //           Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
+                        //     //             children: [
+                        //     //               Text(
+                        //     //                 "Starting Cost :",
+                        //     //                 style: TextStyle(
+                        //     //                   color: Colors.black,
+                        //     //                   fontWeight: FontWeight.w600,
+                        //     //                   fontFamily: "sofi",
+                        //     //                   fontSize: 16.sp,letterSpacing: 1
+                        //     //                 ),
+                        //     //               ),SizedBox(height: 0.5.h),
+                        //     //               Text(
+                        //     //                 "\$ 1,50,000",
+                        //     //                 style: TextStyle(
+                        //     //                     color: Colors.black.withOpacity(0.7),
+                        //     //                     fontWeight: FontWeight.w600,
+                        //     //                     fontFamily: "sofi",
+                        //     //                     fontSize: 16.sp,letterSpacing: 1
+                        //     //                 ),
+                        //     //               ),
+                        //     //             ],
+                        //     //           )
+                        //     //         ],
+                        //     //       ),
+                        //     //     ),
+                        //     //   ),
+                        //     // ),
+                        //     // InkWell(
+                        //     //   onTap: () {},
+                        //     //   child: Container(
+                        //     //     width: 45.w,
+                        //     //     height: 7.5.h,
+                        //     //     decoration: BoxDecoration(
+                        //     //       borderRadius: BorderRadius.circular(12),
+                        //     //     ),
+                        //     //     child: Card(
+                        //     //       shape: RoundedRectangleBorder(
+                        //     //         borderRadius: BorderRadius.circular(
+                        //     //             12.0), // Control the border radius here
+                        //     //       ),
+                        //     //       child: Padding(
+                        //     //         padding:
+                        //     //             EdgeInsets.symmetric(horizontal: 2.w),
+                        //     //         child: Row(
+                        //     //           children: [
+                        //     //             Icon(
+                        //     //               Icons.chat,
+                        //     //               color: Colors.blue,
+                        //     //               size: 21.sp,
+                        //     //             ),
+                        //     //             SizedBox(width: 2.w),
+                        //     //             Text(
+                        //     //               "Chat Now",
+                        //     //               style: TextStyle(
+                        //     //                   color:
+                        //     //                       Colors.black.withOpacity(0.7),
+                        //     //                   fontWeight: FontWeight.w600,
+                        //     //                   fontFamily: "sofi",
+                        //     //                   fontSize: 17.sp,
+                        //     //                   letterSpacing: 1),
+                        //     //             ),
+                        //     //           ],
+                        //     //         ),
+                        //     //       ),
+                        //     //     ),
+                        //     //   ),
+                        //     // ),
+                        //   ],
+                        // ),
 
-                  SizedBox(height: 2.h),
-                ]),
-          ),
-        ),
+                        SizedBox(height: 2.h),
+                      ]),
+                ),
+              ),
       ),
     );
   }

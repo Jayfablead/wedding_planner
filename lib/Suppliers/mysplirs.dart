@@ -168,11 +168,26 @@ class _MySupsState extends State<MySups> {
                                         ),
                                         Text(
                                           mysupps
-                                                  ?.suppliersDetails?[index]
-                                                  .services
-                                                  ?.category
-                                                  ?.categoryName ??
-                                              "",
+                                                          ?.suppliersDetails?[
+                                                              index]
+                                                          .services
+                                                          ?.category
+                                                          ?.categoryName ==
+                                                      '' ||
+                                                  mysupps
+                                                          ?.suppliersDetails?[
+                                                              index]
+                                                          .services
+                                                          ?.category
+                                                          ?.categoryName ==
+                                                      null
+                                              ? 'N/A'
+                                              : mysupps
+                                                      ?.suppliersDetails?[index]
+                                                      .services
+                                                      ?.category
+                                                      ?.categoryName ??
+                                                  "",
                                           style: TextStyle(
                                               fontSize: 16.sp,
                                               fontWeight: FontWeight.bold,
@@ -182,8 +197,18 @@ class _MySupsState extends State<MySups> {
                                         ),
                                         Text(
                                           mysupps?.suppliersDetails?[index]
-                                                  .name ??
-                                              "",
+                                                          .name ==
+                                                      '' ||
+                                                  mysupps
+                                                          ?.suppliersDetails?[
+                                                              index]
+                                                          .name ==
+                                                      null
+                                              ? 'N/A'
+                                              : mysupps
+                                                      ?.suppliersDetails?[index]
+                                                      .name ??
+                                                  "",
                                           maxLines: 2,
                                           style: TextStyle(
                                             fontSize: 14.sp,

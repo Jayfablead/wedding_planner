@@ -89,7 +89,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                                     CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
-                                          'assets/deprf.png',
+                                          'assets/defimg.jpg',
                                         ),
                                       ),
                                     ),
@@ -168,9 +168,16 @@ class _quotedetailpageState extends State<quotedetailpage> {
                             children: [
                               SizedBox(height: 2.h),
                               Text(
-                                quotedetailsmodal
-                                        ?.details?.supplier?.categoryName ??
-                                    '',
+                                quotedetailsmodal?.details?.supplier
+                                                ?.categoryName ==
+                                            '' ||
+                                        quotedetailsmodal?.details?.supplier
+                                                ?.categoryName ==
+                                            null
+                                    ? 'N/A'
+                                    : quotedetailsmodal
+                                            ?.details?.supplier?.categoryName ??
+                                        '',
                                 style: TextStyle(
                                     fontSize: 19.sp,
                                     color: Colors.blue,
@@ -179,8 +186,15 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                quotedetailsmodal?.details?.supplier?.name ??
-                                    '',
+                                quotedetailsmodal?.details?.supplier?.name ==
+                                            '' ||
+                                        quotedetailsmodal
+                                                ?.details?.supplier?.name ==
+                                            null
+                                    ? 'N/A'
+                                    : quotedetailsmodal
+                                            ?.details?.supplier?.name ??
+                                        '',
                                 style: TextStyle(
                                     height: 1.5,
                                     fontSize: 16.sp,
@@ -453,7 +467,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                             errorWidget:
                                                 (context, url, error) =>
                                                     Image.asset(
-                                              'assets/deprf.png',
+                                              'assets/defimg.jpg',
                                             ),
                                           ),
                                         ),

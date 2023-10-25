@@ -312,12 +312,16 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Text(
-                                                                quotelistmodal
-                                                                        ?.all
-                                                                        ?.requested?[
-                                                                            index]
-                                                                        .categoryName ??
-                                                                    '',
+                                                                quotelistmodal?.all?.requested?[index].categoryName ==
+                                                                            '' ||
+                                                                        quotelistmodal?.all?.requested?[index].categoryName ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : quotelistmodal
+                                                                            ?.all
+                                                                            ?.requested?[index]
+                                                                            .categoryName ??
+                                                                        '',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         17.sp,
@@ -332,12 +336,16 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                         .black),
                                                               ),
                                                               Text(
-                                                                quotelistmodal
-                                                                        ?.all
-                                                                        ?.requested?[
-                                                                            index]
-                                                                        .createdAt ??
-                                                                    '',
+                                                                quotelistmodal?.all?.requested?[index].createdAt ==
+                                                                            '' ||
+                                                                        quotelistmodal?.all?.requested?[index].createdAt ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : quotelistmodal
+                                                                            ?.all
+                                                                            ?.requested?[index]
+                                                                            .createdAt ??
+                                                                        '',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         11.sp,
@@ -370,11 +378,12 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      quotelistmodal
-                                                                              ?.all
-                                                                              ?.requested?[index]
-                                                                              .name ??
-                                                                          '',
+                                                                      quotelistmodal?.all?.requested?[index].name == '' ||
+                                                                              quotelistmodal?.all?.requested?[index].name ==
+                                                                                  null
+                                                                          ? 'N/A'
+                                                                          : quotelistmodal?.all?.requested?[index].name ??
+                                                                              '',
                                                                       maxLines:
                                                                           2,
                                                                       style:
@@ -394,11 +403,12 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                         height:
                                                                             0.8.h),
                                                                     Text(
-                                                                      quotelistmodal
-                                                                              ?.all
-                                                                              ?.requested?[index]
-                                                                              .description ??
-                                                                          '',
+                                                                      quotelistmodal?.all?.requested?[index].description == '' ||
+                                                                              quotelistmodal?.all?.requested?[index].description ==
+                                                                                  null
+                                                                          ? 'N/A'
+                                                                          : quotelistmodal?.all?.requested?[index].description ??
+                                                                              '',
                                                                       overflow:
                                                                           TextOverflow
                                                                               .ellipsis,
@@ -537,12 +547,16 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                     .spaceBetween,
                                                             children: [
                                                               Text(
-                                                                quotelistmodal
-                                                                        ?.all
-                                                                        ?.responsed?[
-                                                                            index]
-                                                                        .categoryName ??
-                                                                    '',
+                                                                quotelistmodal?.all?.responsed?[index].categoryName ==
+                                                                            '' ||
+                                                                        quotelistmodal?.all?.responsed?[index].categoryName ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : quotelistmodal
+                                                                            ?.all
+                                                                            ?.responsed?[index]
+                                                                            .categoryName ??
+                                                                        '',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         17.sp,
@@ -557,12 +571,16 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                         .black),
                                                               ),
                                                               Text(
-                                                                quotelistmodal
-                                                                        ?.all
-                                                                        ?.responsed?[
-                                                                            index]
-                                                                        .createdAt ??
-                                                                    '',
+                                                                quotelistmodal?.all?.responsed?[index].createdAt ==
+                                                                            '' ||
+                                                                        quotelistmodal?.all?.responsed?[index].createdAt ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : quotelistmodal
+                                                                            ?.all
+                                                                            ?.responsed?[index]
+                                                                            .createdAt ??
+                                                                        '',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         11.sp,
@@ -595,11 +613,12 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      quotelistmodal
-                                                                              ?.all
-                                                                              ?.responsed?[index]
-                                                                              .name ??
-                                                                          '',
+                                                                      quotelistmodal?.all?.responsed?[index].name == '' ||
+                                                                              quotelistmodal?.all?.responsed?[index].name ==
+                                                                                  null
+                                                                          ? 'N/A'
+                                                                          : quotelistmodal?.all?.responsed?[index].name ??
+                                                                              '',
                                                                       maxLines:
                                                                           2,
                                                                       style:
@@ -619,11 +638,12 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                         height:
                                                                             0.8.h),
                                                                     Text(
-                                                                      quotelistmodal
-                                                                              ?.all
-                                                                              ?.responsed?[index]
-                                                                              .description ??
-                                                                          '',
+                                                                      quotelistmodal?.all?.responsed?[index].description == '' ||
+                                                                              quotelistmodal?.all?.responsed?[index].description ==
+                                                                                  null
+                                                                          ? 'N/A'
+                                                                          : quotelistmodal?.all?.responsed?[index].description ??
+                                                                              '',
                                                                       overflow:
                                                                           TextOverflow
                                                                               .ellipsis,
@@ -797,11 +817,24 @@ class _QuoateList2State extends State<QuoateList2> {
                                                       children: [
                                                         Text(
                                                           searchquotationmodal
-                                                                  ?.all
-                                                                  ?.responsed?[
-                                                                      index]
-                                                                  .categoryName ??
-                                                              '',
+                                                                          ?.all
+                                                                          ?.responsed?[
+                                                                              index]
+                                                                          .categoryName ==
+                                                                      '' ||
+                                                                  searchquotationmodal
+                                                                          ?.all
+                                                                          ?.responsed?[
+                                                                              index]
+                                                                          .categoryName ==
+                                                                      null
+                                                              ? 'N/A'
+                                                              : searchquotationmodal
+                                                                      ?.all
+                                                                      ?.responsed?[
+                                                                          index]
+                                                                      .categoryName ??
+                                                                  '',
                                                           style: TextStyle(
                                                               fontSize: 17.sp,
                                                               fontWeight:
@@ -815,11 +848,24 @@ class _QuoateList2State extends State<QuoateList2> {
                                                         ),
                                                         Text(
                                                           searchquotationmodal
-                                                                  ?.all
-                                                                  ?.responsed?[
-                                                                      index]
-                                                                  .createdAt ??
-                                                              '',
+                                                                          ?.all
+                                                                          ?.responsed?[
+                                                                              index]
+                                                                          .createdAt ==
+                                                                      '' ||
+                                                                  searchquotationmodal
+                                                                          ?.all
+                                                                          ?.responsed?[
+                                                                              index]
+                                                                          .createdAt ==
+                                                                      null
+                                                              ? 'N/A'
+                                                              : searchquotationmodal
+                                                                      ?.all
+                                                                      ?.responsed?[
+                                                                          index]
+                                                                      .createdAt ??
+                                                                  '',
                                                           style: TextStyle(
                                                               fontSize: 11.sp,
                                                               fontWeight:
@@ -851,12 +897,16 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                     .start,
                                                             children: [
                                                               Text(
-                                                                searchquotationmodal
-                                                                        ?.all
-                                                                        ?.responsed?[
-                                                                            index]
-                                                                        .name ??
-                                                                    '',
+                                                                searchquotationmodal?.all?.responsed?[index].name ==
+                                                                            '' ||
+                                                                        searchquotationmodal?.all?.responsed?[index].name ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : searchquotationmodal
+                                                                            ?.all
+                                                                            ?.responsed?[index]
+                                                                            .name ??
+                                                                        '',
                                                                 maxLines: 2,
                                                                 style:
                                                                     TextStyle(
@@ -877,12 +927,16 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                   height:
                                                                       0.8.h),
                                                               Text(
-                                                                searchquotationmodal
-                                                                        ?.all
-                                                                        ?.responsed?[
-                                                                            index]
-                                                                        .description ??
-                                                                    '',
+                                                                searchquotationmodal?.all?.responsed?[index].description ==
+                                                                            '' ||
+                                                                        searchquotationmodal?.all?.responsed?[index].description ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : searchquotationmodal
+                                                                            ?.all
+                                                                            ?.responsed?[index]
+                                                                            .description ??
+                                                                        '',
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,

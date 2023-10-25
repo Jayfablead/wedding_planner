@@ -193,9 +193,17 @@ class _VenueViewState extends State<VenueView> {
                                             SizedBox(
                                               width: 45.w,
                                               child: Text(
-                                                venuedetail
-                                                        ?.venueDetails?.name ??
-                                                    "",
+                                                venuedetail?.venueDetails
+                                                                ?.name ==
+                                                            '' ||
+                                                        venuedetail
+                                                                ?.venueDetails
+                                                                ?.name ==
+                                                            null
+                                                    ? 'N/A'
+                                                    : venuedetail?.venueDetails
+                                                            ?.name ??
+                                                        "",
                                                 style: TextStyle(
                                                     fontSize: 15.sp,
                                                     color: Colors.black
@@ -256,9 +264,22 @@ class _VenueViewState extends State<VenueView> {
                                                 SizedBox(
                                                   width: 52.w,
                                                   child: Text(
-                                                    venuedetail?.venueDetails
-                                                            ?.moreInfo?.vName ??
-                                                        "",
+                                                    venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.vName ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.vName ==
+                                                                null
+                                                        ? 'N/A'
+                                                        : venuedetail
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.vName ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -346,8 +367,15 @@ class _VenueViewState extends State<VenueView> {
                                         SizedBox(
                                           width: 67.w,
                                           child: Text(
-                                            venuedetail?.venueDetails?.email ??
-                                                "",
+                                            venuedetail?.venueDetails?.email ==
+                                                        '' ||
+                                                    venuedetail?.venueDetails
+                                                            ?.email ==
+                                                        null
+                                                ? 'N/A'
+                                                : venuedetail
+                                                        ?.venueDetails?.email ??
+                                                    "",
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
@@ -399,8 +427,15 @@ class _VenueViewState extends State<VenueView> {
                                         ),
                                         SizedBox(height: 0.5.h),
                                         Text(
-                                          venuedetail?.venueDetails?.contact ??
-                                              "",
+                                          venuedetail?.venueDetails?.contact ==
+                                                      '' ||
+                                                  venuedetail?.venueDetails
+                                                          ?.contact ==
+                                                      null
+                                              ? 'N/A'
+                                              : venuedetail
+                                                      ?.venueDetails?.contact ??
+                                                  "",
                                           style: TextStyle(
                                               fontSize: 16.sp,
                                               color:
@@ -415,113 +450,7 @@ class _VenueViewState extends State<VenueView> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 2.5.h),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.start,
-                            //   crossAxisAlignment: CrossAxisAlignment.start,
-                            //   children: [
-                            //     Container(
-                            //       padding: EdgeInsets.all(3.w),
-                            //       decoration: BoxDecoration(
-                            //           borderRadius: BorderRadius.circular(7),
-                            //           color: Colors.blue),
-                            //       child: Icon(
-                            //         CupertinoIcons.info_circle,
-                            //         color: Colors.white,
-                            //         size: 18.sp,
-                            //       ),
-                            //     ),
-                            //     SizedBox(width: 5.w),
-                            //     Column(
-                            //       crossAxisAlignment: CrossAxisAlignment.start,
-                            //       mainAxisAlignment: MainAxisAlignment.start,
-                            //       children: [
-                            //         Text(
-                            //           'About : ',
-                            //           style: TextStyle(
-                            //               fontSize: 17.sp,
-                            //               color: Colors.blue,
-                            //               fontFamily: 'sofi',
-                            //               letterSpacing: 1,
-                            //               fontWeight: FontWeight.bold),
-                            //         ),
-                            //         SizedBox(height: 0.5.h),
-                            //         SizedBox(
-                            //           width: 77.w,
-                            //           child: ReadMoreText(
-                            //             venuedetail?.venueDetails?.moreInfo?.vDetails  ?? "",
-                            //             trimLines: 4,
-                            //             textAlign: TextAlign.justify,
-                            //             style: TextStyle(
-                            //                 height: 1,
-                            //                 fontSize: 15.sp,
-                            //                 color: Colors.black.withOpacity(0.8),
-                            //                 fontFamily: 'sofi',
-                            //                 letterSpacing: 1,
-                            //                 fontWeight: FontWeight.bold),
-                            //             colorClickableText: Colors.blue,
-                            //             trimMode: TrimMode.Line,
-                            //             trimCollapsedText: ' Read More',
-                            //             trimExpandedText: ' Read Less',
-                            //             moreStyle: TextStyle(
-                            //                 fontSize: 13.sp,
-                            //                 color: Colors.blue,
-                            //                 fontWeight: FontWeight.bold),
-                            //             lessStyle: TextStyle(
-                            //                 fontSize: 13.sp,
-                            //                 color: Colors.blue,
-                            //                 fontWeight: FontWeight.bold),
-                            //           ),
-                            //         ),
-                            //       ],
-                            //     ),
-                            //   ],
-                            // ),
-                            SizedBox(height: 2.5.h),
 
-                            // SizedBox(height: 4.5.h),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            //   children: [
-                            //     InkWell(
-                            //       child: Container(
-                            //         height: 5.5.h,
-                            //         width: 45.w,
-                            //         decoration: BoxDecoration(
-                            //           color: Colors.blue,
-                            //           borderRadius: BorderRadius.circular(25.sp),
-                            //         ),
-                            //         child: Center(
-                            //             child: Text(
-                            //           "Add to Budget",
-                            //           style: TextStyle(
-                            //               fontSize: 13.sp,
-                            //               color: Colors.white,
-                            //               fontFamily: 'get'),
-                            //         )),
-                            //       ),
-                            //     ),
-                            //     InkWell(
-                            //       onTap: () {},
-                            //       child: Container(
-                            //         height: 5.5.h,
-                            //         width: 45.w,
-                            //         decoration: BoxDecoration(
-                            //           color: Colors.blue,
-                            //           borderRadius: BorderRadius.circular(25.sp),
-                            //         ),
-                            //         child: Center(
-                            //             child: Text(
-                            //           "Book Now",
-                            //           style: TextStyle(
-                            //               fontSize: 13.sp,
-                            //               color: Colors.white,
-                            //               fontFamily: 'get'),
-                            //         )),
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
                             SizedBox(height: 3.5.h),
                           ],
                         ),

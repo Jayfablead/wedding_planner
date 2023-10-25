@@ -238,7 +238,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(20),
+                                                                .circular(15),
                                                         child:
                                                             CachedNetworkImage(
                                                           width: 80.w,
@@ -258,9 +258,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                           errorWidget: (context,
                                                                   url, error) =>
                                                               Image.asset(
-                                                            'assets/user.png',
-                                                            width: 80.w,
+                                                            'assets/defimg.jpg',
                                                             height: 20.h,
+                                                            fit: BoxFit.cover,
                                                           ),
                                                         ),
                                                       ),
@@ -527,37 +527,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        // SizedBox(
-                                                        //   height: 0.5.h,
-                                                        // ),
-                                                        // ClipRRect(
-                                                        //   borderRadius:
-                                                        //       BorderRadius.circular(20),
-                                                        //   child: CachedNetworkImage(
-                                                        //     width: 80.w,
-                                                        //     height: 20.h,
-                                                        //     fit: BoxFit.contain,
-                                                        //     imageUrl: homemodal
-                                                        //             ?.suppliers?[index]
-                                                        //             .profilePath ??
-                                                        //         "",
-                                                        //     progressIndicatorBuilder:
-                                                        //         (context, url,
-                                                        //                 progress) =>
-                                                        //             Center(
-                                                        //                 child:
-                                                        //                     CircularProgressIndicator()),
-                                                        //     errorWidget:
-                                                        //         (context, url, error) =>
-                                                        //             Image.asset(
-                                                        //       'assets/1b.jpeg',
-                                                        //
-                                                        //       fit: BoxFit.cover,
-                                                        //       width: 80.w,
-                                                        //       height: 20.h,
-                                                        //     ),
-                                                        //   ),
-                                                        // ),
                                                         SizedBox(
                                                           height: 0.20.h,
                                                         ),
@@ -579,7 +548,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20),
+                                                                          15),
                                                               child:
                                                                   CachedNetworkImage(
                                                                 width: 80.w,
@@ -601,9 +570,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                         url,
                                                                         error) =>
                                                                     Image.asset(
-                                                                  'assets/user.png',
-                                                                  width: 80.w,
+                                                                  'assets/defimg.jpg',
                                                                   height: 20.h,
+                                                                  fit: BoxFit
+                                                                      .cover,
                                                                 ),
                                                               ),
                                                             ),
@@ -669,7 +639,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                   letterSpacing:
                                                                       1)),
                                                         ),
-
                                                         SizedBox(
                                                           height: 4.h,
                                                         ),

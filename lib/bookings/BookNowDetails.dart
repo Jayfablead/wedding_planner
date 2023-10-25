@@ -171,7 +171,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                                   CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                        'assets/deprf.png',
+                                        'assets/defimg.jpg',
                                       ),
                                     ),
                                   ),

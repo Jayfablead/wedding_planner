@@ -335,10 +335,21 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                   width: 64.w,
                                                   child: Text(
                                                     meetingmodal
-                                                            ?.meetingsByDate?[
-                                                                index]
-                                                            .taskTitle ??
-                                                        "",
+                                                                    ?.meetingsByDate?[
+                                                                        index]
+                                                                    .taskTitle ==
+                                                                '' ||
+                                                            meetingmodal
+                                                                    ?.meetingsByDate?[
+                                                                        index]
+                                                                    .taskTitle ==
+                                                                null
+                                                        ? 'N/A'
+                                                        : meetingmodal
+                                                                ?.meetingsByDate?[
+                                                                    index]
+                                                                .taskTitle ??
+                                                            "",
                                                     style: TextStyle(
                                                       fontSize: 13.sp,
                                                       fontFamily: 'sofi',
@@ -351,10 +362,21 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                 ),
                                                 Text(
                                                   meetingmodal
-                                                          ?.meetingsByDate?[
-                                                              index]
-                                                          .endTime ??
-                                                      "",
+                                                                  ?.meetingsByDate?[
+                                                                      index]
+                                                                  .endTime ==
+                                                              '' ||
+                                                          meetingmodal
+                                                                  ?.meetingsByDate?[
+                                                                      index]
+                                                                  .endTime ==
+                                                              null
+                                                      ? 'N/A'
+                                                      : meetingmodal
+                                                              ?.meetingsByDate?[
+                                                                  index]
+                                                              .endTime ??
+                                                          "",
                                                   style: TextStyle(
                                                     fontSize: 12.sp,
                                                     fontFamily: 'sofi',
@@ -370,9 +392,21 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                               width: 81.w,
                                               child: Text(
                                                 meetingmodal
-                                                        ?.meetingsByDate?[index]
-                                                        .taskDesc ??
-                                                    "",
+                                                                ?.meetingsByDate?[
+                                                                    index]
+                                                                .taskDesc ==
+                                                            '' ||
+                                                        meetingmodal
+                                                                ?.meetingsByDate?[
+                                                                    index]
+                                                                .taskDesc ==
+                                                            null
+                                                    ? 'N/A'
+                                                    : meetingmodal
+                                                            ?.meetingsByDate?[
+                                                                index]
+                                                            .taskDesc ??
+                                                        "",
                                                 style: TextStyle(
                                                   fontSize: 12.sp,
                                                   fontFamily: 'sofi',
