@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -70,7 +71,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                     Platform.isIOS?SizedBox(
+                  height: 6.5.h,
+                  ): SizedBox(
                         height: 4.5.h,
                       ),
                       Row(
