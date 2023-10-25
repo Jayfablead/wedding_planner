@@ -80,43 +80,39 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       SizedBox(
                         height: 5.h,
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           Get.back();
-                      //         },
-                      //         icon: Icon(
-                      //           Icons.arrow_back_ios_new_rounded,
-                      //           color: Colors.blue,
-                      //           size: 23.sp,
-                      //         )),
-                      //     Text(
-                      //       "",
-                      //       style: TextStyle(
-                      //         fontSize: 15.sp,
-                      //         fontFamily: 'sofi',
-                      //         letterSpacing: 1,
-                      //         fontWeight: FontWeight.bold,
-                      //       ),
-                      //     ),
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           scaffoldKey.currentState?.openDrawer();
-                      //         },
-                      //         icon: Icon(
-                      //           Icons.menu_rounded,
-                      //           color: Colors.blue,
-                      //           size: 23.sp,
-                      //         ))
-                      //   ],
-                      // ),
-                      header(
-                          text: "",
-                          callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
-                          }),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                Get.back();
+                              },
+                              icon: Icon(
+                                Icons.arrow_back_ios_new_rounded,
+                                color: Colors.blue,
+                                size: 23.sp,
+                              )),
+                          Text(
+                            "",
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontFamily: 'sofi',
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          IconButton(
+                              onPressed: () {
+                                scaffoldKey.currentState?.openDrawer();
+                              },
+                              icon: Icon(
+                                Icons.menu_rounded,
+                                color: Colors.blue,
+                                size: 23.sp,
+                              ))
+                        ],
+                      ),
+
                       SizedBox(
                         height: 1.h,
                       ),
