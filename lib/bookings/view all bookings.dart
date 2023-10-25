@@ -105,15 +105,15 @@ class _BookingListState extends State<BookingList> {
                       bookinglistmodal?.bookings?.length == 0 ||
                               bookinglistmodal?.bookings == null
                           ? Container(
-                              height: 70.h,
+                              height: 80.h,
                               width: MediaQuery.of(context).size.width,
                               alignment: Alignment.center,
                               child: Text(
                                 "No booking added",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.bold),
+                                    fontSize: 18.sp,fontFamily: 'sofi',
+letterSpacing: 1,                                    fontWeight: FontWeight.bold),
                               ),
                             )
                           : Column(

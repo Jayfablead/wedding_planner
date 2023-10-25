@@ -35,18 +35,20 @@ class SupplierInfo {
   Services? services;
   String? inBudget;
   String? isRequested;
+  String? isBooked;
 
   SupplierInfo(
       {this.id,
-      this.name,
-      this.email,
-      this.profile,
-      this.contact,
-      this.address,
-      this.description,
-      this.services,
-      this.inBudget,
-      this.isRequested});
+        this.name,
+        this.email,
+        this.profile,
+        this.contact,
+        this.address,
+        this.description,
+        this.services,
+        this.inBudget,
+        this.isRequested,
+        this.isBooked});
 
   SupplierInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -61,6 +63,7 @@ class SupplierInfo {
         : null;
     inBudget = json['in_budget'];
     isRequested = json['is_requested'];
+    isBooked = json['is_booked'];
   }
 
   Map<String, dynamic> toJson() {
@@ -77,6 +80,7 @@ class SupplierInfo {
     }
     data['in_budget'] = this.inBudget;
     data['is_requested'] = this.isRequested;
+    data['is_booked'] = this.isBooked;
     return data;
   }
 }
@@ -91,11 +95,11 @@ class Services {
 
   Services(
       {this.id,
-      this.sId,
-      this.categoryId,
-      this.description,
-      this.cost,
-      this.createdAt});
+        this.sId,
+        this.categoryId,
+        this.description,
+        this.cost,
+        this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -332,38 +332,62 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       SizedBox(
                         height: 3.h,
                       ),
-                      Center(
-                        child: InkWell(
-                          onTap: () {
-                            Get.to(BookNowDetails(
-                              name: supplierdetailmodal?.supplierInfo?.name,
-                              email: supplierdetailmodal?.supplierInfo?.email,
-                              cid: supplierdetailmodal
-                                  ?.supplierInfo?.services?.categoryId,
-                              photo: supplierdetailmodal?.supplierInfo?.profile,
-                              sername: widget.service,
-                              sid: supplierdetailmodal
-                                  ?.supplierInfo?.services?.sId,
-                            ));
-                          },
-                          child: Container(
-                            height: 5.5.h,
-                            width: 90.w,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Book Now",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 14.sp),
+                      supplierdetailmodal?.supplierInfo?.isBooked == '0'
+                          ? Center(
+                              child: InkWell(
+                                onTap: () {
+                                  Get.to(BookNowDetails(
+                                    name:
+                                        supplierdetailmodal?.supplierInfo?.name,
+                                    email: supplierdetailmodal
+                                        ?.supplierInfo?.email,
+                                    cid: supplierdetailmodal
+                                        ?.supplierInfo?.services?.categoryId,
+                                    photo: supplierdetailmodal
+                                        ?.supplierInfo?.profile,
+                                    sername: widget.service,
+                                    sid: supplierdetailmodal
+                                        ?.supplierInfo?.services?.sId,
+                                  ));
+                                },
+                                child: Container(
+                                  height: 5.5.h,
+                                  width: 90.w,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.white),
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Book Now",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 14.sp),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Center(
+                              child: InkWell(
+                                child: Container(
+                                  height: 5.5.h,
+                                  width: 90.w,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.blue),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Booked",
+                                      style: TextStyle(
+                                          color: Colors.blue, fontSize: 14.sp),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      ),
                       SizedBox(
                         height: 5.h,
                       ),
