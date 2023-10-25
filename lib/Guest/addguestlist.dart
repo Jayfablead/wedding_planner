@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Guest/GuestList.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
 import 'package:wedding_planner/Modal/MyvenuetableModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
@@ -153,6 +154,7 @@ class _AddguestlistState extends State<Addguestlist> {
                               SizedBox(height: 1.h),
                               Container(
                                 child: TextFormField(
+                                  keyboardType: TextInputType.number,
                                   controller: _phone,
                                   // controller: _search,
                                   onChanged: (value) {},
@@ -448,7 +450,7 @@ class _AddguestlistState extends State<Addguestlist> {
               _email.text = "";
               _relation.text = "";
 
-              Get.back();
+              Get.off(GuestList());
             } else {}
           });
         } else {

@@ -353,54 +353,51 @@ class _GuestListState extends State<GuestList> {
                                           ],
                                         ),
                                       ),
-                                Positioned(
-                                  top: 72.5.h,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          Get.to(Addguestlist(
-                                            sel1: sel1,
-                                          ));
-                                        },
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          width: 60.w,
-                                          padding: EdgeInsets.all(2.5.w),
-                                          decoration: BoxDecoration(
-                                              color: Colors.blue,
-                                              borderRadius:
-                                                  BorderRadius.circular(25)),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                CupertinoIcons.add,
-                                                size: 17.sp,
-                                                color: Colors.white,
-                                              ),
-                                              SizedBox(
-                                                width: 2.w,
-                                              ),
-                                              Text(
-                                                'Add Guests',
-                                                style: TextStyle(
-                                                    fontSize: 13.sp,
-                                                    fontFamily: 'sofi',
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1),
-                                              ),
-                                            ],
-                                          ),
+                                Row(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        Get.to(Addguestlist(
+                                          sel1: sel1,
+                                        ));
+                                      },
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: 60.w,
+                                        padding: EdgeInsets.all(2.5.w),
+                                        decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                            borderRadius:
+                                                BorderRadius.circular(25)),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              size: 17.sp,
+                                              color: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            Text(
+                                              'Add Guests',
+                                              style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  letterSpacing: 1),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             )
