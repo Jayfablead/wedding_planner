@@ -166,6 +166,10 @@ class _InvoiceListState extends State<InvoiceList> {
                                 height: 19.h,
                                 padding: EdgeInsets.all(1.w),
                                 margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                    color:Colors.white
+                                ),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
@@ -174,7 +178,7 @@ class _InvoiceListState extends State<InvoiceList> {
                                     Container(
                                       margin:
                                           EdgeInsets.symmetric(horizontal: 1.w),
-                                      height: 14.h,
+                                      height: 16.h,
                                       width: 29.w,
                                       decoration: BoxDecoration(
                                           borderRadius:
@@ -282,9 +286,7 @@ class _InvoiceListState extends State<InvoiceList> {
                                         SizedBox(height: 1.h),
                                         InkWell(
                                           onTap: () async {
-                                            invoicelistmodal?.invoices?[index]
-                                                    .invFile ??
-                                                "";
+
                                             EasyLoading.show(
                                                 status: 'Downloading ..',
                                                 indicator: CircularProgressIndicator(
@@ -316,7 +318,7 @@ class _InvoiceListState extends State<InvoiceList> {
                                             width: 45.w,
                                             alignment: Alignment.center,
                                             padding: EdgeInsets.symmetric(
-                                                vertical: 1.5.h),
+                                                vertical: 1.2.h),
                                             margin: EdgeInsets.symmetric(
                                                 horizontal: 3.w),
                                             decoration: BoxDecoration(

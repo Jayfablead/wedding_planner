@@ -706,7 +706,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                     ),
                                                     Positioned(
                                                         left: 64.w,
-                                                        top: 1.5.h,
+                                                        top: 2.h,
                                                         child: Container(
                                                           height: 10.w,
                                                           width: 10.w,
