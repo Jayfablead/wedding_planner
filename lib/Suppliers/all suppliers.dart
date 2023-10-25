@@ -179,7 +179,7 @@ class _MySuppliersState extends State<MySuppliers> {
                   ),
                 )
                     : Container(
-                  height: more ? 57.h : 71.h,
+                  height: more ? 57.h : 72.h,
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
                   child: GridView.builder(
                     padding: EdgeInsets.zero,
@@ -354,7 +354,7 @@ class _MySuppliersState extends State<MySuppliers> {
                     ),
                   ),
                 ),
-                SizedBox(height: 3.h),
+                SizedBox(height: 2.h),
               ],
             ),
           ),
