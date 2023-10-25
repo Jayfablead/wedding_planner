@@ -34,16 +34,20 @@ class Suppliers {
   String? profile;
   String? contact;
   String? address;
+  String? categoryId;
+  String? categoryName;
   String? description;
 
   Suppliers(
       {this.id,
-      this.name,
-      this.email,
-      this.profile,
-      this.contact,
-      this.address,
-      this.description});
+        this.name,
+        this.email,
+        this.profile,
+        this.contact,
+        this.address,
+        this.categoryId,
+        this.categoryName,
+        this.description});
 
   Suppliers.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -52,6 +56,8 @@ class Suppliers {
     profile = json['profile'];
     contact = json['contact'];
     address = json['address'];
+    categoryId = json['category_id'];
+    categoryName = json['category_name'];
     description = json['description'];
   }
 
@@ -63,6 +69,8 @@ class Suppliers {
     data['profile'] = this.profile;
     data['contact'] = this.contact;
     data['address'] = this.address;
+    data['category_id'] = this.categoryId;
+    data['category_name'] = this.categoryName;
     data['description'] = this.description;
     return data;
   }

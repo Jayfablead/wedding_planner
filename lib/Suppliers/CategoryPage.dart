@@ -73,7 +73,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
         backgroundColor: Colors.grey.shade100,
         key: scaffoldKey,
         drawer: drawer1(),
-        body: SingleChildScrollView(
+        body: isLoad?Container():SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: 5.h),
@@ -122,7 +122,6 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
                                             'assets/user.png',
-                                            color: Colors.black,
                                           ),
                                     ),
                                   ),

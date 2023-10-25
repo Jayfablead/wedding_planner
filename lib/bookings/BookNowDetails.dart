@@ -581,7 +581,6 @@ class _BookNowDetailsState extends State<BookNowDetails> {
           booknowmodal = BookNowModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && booknowmodal?.status == "1") {
             Get.to(BookingSuccessfulPage(
-              sername: widget.sername,
               bId: booknowmodal?.bID,
             ));
             setState(() {

@@ -145,7 +145,19 @@ class _ViewTablesState extends State<ViewTables> {
                     //   ],
                     // ),
                     // SizedBox(height: 1.5.h),
-                    Column(
+                    guestseatingmodal?.suppliersDetails?.length == 0 || guestseatingmodal?.suppliersDetails?.length == null ?Container(
+                      height: 65.h,
+                      alignment: Alignment.center,
+                      child: Text(
+                        "No Tables Available",
+                        style: TextStyle(
+                            fontSize: 17.sp,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            fontFamily: 'sofi',
+                            color: Colors.black),
+                      ),
+                    ): Column(
                       children: [
                         for (int index = 0;
                             index <

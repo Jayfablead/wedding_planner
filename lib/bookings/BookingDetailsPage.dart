@@ -15,17 +15,17 @@ import '../Provider/authprovider.dart';
 import '../widgets/buildErrorDialog.dart';
 import '../widgets/const.dart';
 
-class BookingSuccessfulPage extends StatefulWidget {
+class ViewBookingDetailsPage extends StatefulWidget {
   String? bId;
 
 
-  BookingSuccessfulPage({super.key, this.bId});
+  ViewBookingDetailsPage({super.key, this.bId});
 
   @override
-  State<BookingSuccessfulPage> createState() => _BookingSuccessfulPageState();
+  State<ViewBookingDetailsPage> createState() => _ViewBookingDetailsPageState();
 }
 
-class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
+class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLoading = true;
 
@@ -56,7 +56,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                     height: 5.h,
                   ),
                   header(
-                      text: "Booking Successful",
+                      text: "Booking Details",
                       callback1: () {
                         scaffoldKey.currentState?.openDrawer();
                       }),
@@ -102,7 +102,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          booksuccess?.supplierInfo?.services?.categoryName ?? '',
+                    booksuccess?.supplierInfo?.services?.categoryName ?? '',
                           style: TextStyle(
                             fontSize: 17.sp,
                             color: Colors.black.withOpacity(0.9),
@@ -497,37 +497,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                   //     // ),
                   //   ],
                   // ),
-                  SizedBox(height: 2.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Get.offAll(
-                            YellowHomeScreen(sele: 2),
-                          );
-                        },
-                        child: Container(
-                          height: 6.5.h,
-                          width: 90.w,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(35)),
-                          child: Text(
-                            'Continue',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.white,
-                                fontFamily: 'sofi',
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+
                   SizedBox(height: 2.h),
                 ]),
           ),

@@ -176,7 +176,7 @@ class _MySuppliersState extends State<MySuppliers> {
                   ),
                 )
                     : Container(
-                  height: more ? 53.5.h : 71.h,
+                  height: more ? 57.h : 71.h,
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
                   child: GridView.builder(
                     padding: EdgeInsets.zero,
@@ -281,13 +281,9 @@ class _MySuppliersState extends State<MySuppliers> {
                               child: InkWell(
                                 onTap: () {
                                   Get.to(SupplierfourScreen(
-                                    suppid: homemodal
-                                        ?.suppliers?[index].id,
-                                    catid: homemodal
-                                        ?.suppliers?[index]
-                                        .categoryId,
-                                    service: homemodal
-                                        ?.suppliers?[index].service,
+                                    suppid:categorywisesuppliersmodal?.suppliers?[index].id ,
+                                    catid: categorywisesuppliersmodal?.suppliers?[index].categoryId,
+                                    service:categorywisesuppliersmodal?.suppliers?[index].categoryName ,
                                   ));
                                 },
                                 child: Container(

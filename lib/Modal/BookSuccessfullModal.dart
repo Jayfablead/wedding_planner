@@ -46,15 +46,15 @@ class SupplierInfo {
 
   SupplierInfo(
       {this.id,
-      this.name,
-      this.email,
-      this.profile,
-      this.contact,
-      this.address,
-      this.description,
-      this.services,
-      this.inBudget,
-      this.isRequested});
+        this.name,
+        this.email,
+        this.profile,
+        this.contact,
+        this.address,
+        this.description,
+        this.services,
+        this.inBudget,
+        this.isRequested});
 
   SupplierInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -96,14 +96,20 @@ class Services {
   String? description;
   String? cost;
   String? createdAt;
+  String? categoryIcon;
+  String? categoryName;
+  String? categoryDesc;
 
   Services(
       {this.id,
-      this.sId,
-      this.categoryId,
-      this.description,
-      this.cost,
-      this.createdAt});
+        this.sId,
+        this.categoryId,
+        this.description,
+        this.cost,
+        this.createdAt,
+        this.categoryIcon,
+        this.categoryName,
+        this.categoryDesc});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -112,6 +118,9 @@ class Services {
     description = json['description'];
     cost = json['cost'];
     createdAt = json['created_at'];
+    categoryIcon = json['category_icon'];
+    categoryName = json['category_name'];
+    categoryDesc = json['category_desc'];
   }
 
   Map<String, dynamic> toJson() {
@@ -122,6 +131,9 @@ class Services {
     data['description'] = this.description;
     data['cost'] = this.cost;
     data['created_at'] = this.createdAt;
+    data['category_icon'] = this.categoryIcon;
+    data['category_name'] = this.categoryName;
+    data['category_desc'] = this.categoryDesc;
     return data;
   }
 }
@@ -141,16 +153,16 @@ class BookingInfo {
 
   BookingInfo(
       {this.id,
-      this.uid,
-      this.bookingNo,
-      this.supplierId,
-      this.categoryId,
-      this.bComment,
-      this.bDate,
-      this.bTime,
-      this.bStatus,
-      this.createdAt,
-      this.updatedAt});
+        this.uid,
+        this.bookingNo,
+        this.supplierId,
+        this.categoryId,
+        this.bComment,
+        this.bDate,
+        this.bTime,
+        this.bStatus,
+        this.createdAt,
+        this.updatedAt});
 
   BookingInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
