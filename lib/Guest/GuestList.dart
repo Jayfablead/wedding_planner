@@ -630,54 +630,51 @@ class _GuestListState extends State<GuestList> {
                         ),
                       ]),
                     ),
-                    Positioned(
-                      top: 72.5.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Get.to(Addguestlist(
-                                sel1: sel1,
-                              ));
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              width: 60.w,
-                              padding: EdgeInsets.all(2.5.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius:
-                                  BorderRadius.circular(25)),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.add,
-                                    size: 17.sp,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(
-                                    width: 2.w,
-                                  ),
-                                  Text(
-                                    'Add Guests',
-                                    style: TextStyle(
-                                        fontSize: 13.sp,
-                                        fontFamily: 'sofi',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1),
-                                  ),
-                                ],
-                              ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment:
+                      CrossAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Get.to(Addguestlist(
+                              sel1: sel1,
+                            ));
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 60.w,
+                            padding: EdgeInsets.all(2.5.w),
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius:
+                                BorderRadius.circular(25)),
+                            child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  CupertinoIcons.add,
+                                  size: 17.sp,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 2.w,
+                                ),
+                                Text(
+                                  'Add Guests',
+                                  style: TextStyle(
+                                      fontSize: 13.sp,
+                                      fontFamily: 'sofi',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -711,359 +708,6 @@ class _GuestListState extends State<GuestList> {
     );
   }
 
-  // addguest() {
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return
-  //         Dialog(
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(16),
-  //         ),
-  //         backgroundColor: Colors.grey.shade100,
-  //         child:Addguestlist(sel1: sel1,)
-  //         // Stack(
-  //         //   children: [
-  //         //     Container(
-  //         //       decoration: BoxDecoration(
-  //         //         borderRadius: BorderRadius.circular(16),
-  //         //         color: Colors.grey.shade100,
-  //         //       ),
-  //         //       child: Padding(
-  //         //         padding:
-  //         //             EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
-  //         //         child: Form(
-  //         //           key: _formKey,
-  //         //           child: SingleChildScrollView(
-  //         //             child: Column(
-  //         //               mainAxisAlignment: MainAxisAlignment.start,
-  //         //               crossAxisAlignment: CrossAxisAlignment.start,
-  //         //               mainAxisSize: MainAxisSize.min,
-  //         //               children: [
-  //         //                 Text(
-  //         //                   sel1 == 1
-  //         //                       ? 'Add Bride\'s Guest'
-  //         //                       : 'Add Groom\'s Guest',
-  //         //                   style: TextStyle(
-  //         //                       fontSize: 16.sp,
-  //         //                       fontFamily: 'sofi',
-  //         //                       color: Colors.black,
-  //         //                       fontWeight: FontWeight.bold,
-  //         //                       letterSpacing: 1),
-  //         //                 ),
-  //         //                 SizedBox(height: 2.h),
-  //         //                 Padding(
-  //         //                   padding: EdgeInsets.symmetric(horizontal: 2.5.w),
-  //         //                   child: Column(
-  //         //                     mainAxisAlignment: MainAxisAlignment.start,
-  //         //                     crossAxisAlignment: CrossAxisAlignment.start,
-  //         //                     mainAxisSize: MainAxisSize.min,
-  //         //                     children: [
-  //         //                       Text(
-  //         //                         'Name :',
-  //         //                         style: TextStyle(
-  //         //                             fontSize: 14.sp,
-  //         //                             fontFamily: 'sofi',
-  //         //                             color: Colors.black,
-  //         //                             fontWeight: FontWeight.bold,
-  //         //                             letterSpacing: 1),
-  //         //                       ),
-  //         //                       SizedBox(height: 1.h),
-  //         //                       Container(
-  //         //                         child: TextFormField(
-  //         //                           controller: _name,
-  //         //                           // controller: _search,
-  //         //                           onChanged: (value) {},
-  //         //                           validator: (value) {
-  //         //                             if (value!.isEmpty) {
-  //         //                               return "Enter the guest name";
-  //         //                             }
-  //         //                             return null;
-  //         //                           },
-  //         //                           style: TextStyle(
-  //         //                               color: Colors.black.withOpacity(0.67),
-  //         //                               fontFamily: 'Meta1'),
-  //         //                           decoration: InputDecoration(
-  //         //                             border: InputBorder.none,
-  //         //                             errorBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             enabledBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             focusedBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             filled: true,
-  //         //                             fillColor: Colors.white,
-  //         //                             hintText: 'Guest Name',
-  //         //                             hintStyle: TextStyle(
-  //         //                                 color: Colors.black.withOpacity(0.67),
-  //         //                                 fontFamily: 'Meta1'),
-  //         //                           ),
-  //         //                         ),
-  //         //                       ),
-  //         //                       SizedBox(height: 2.h),
-  //         //                       Text(
-  //         //                         'Phone :',
-  //         //                         style: TextStyle(
-  //         //                             fontSize: 14.sp,
-  //         //                             fontFamily: 'sofi',
-  //         //                             color: Colors.black,
-  //         //                             fontWeight: FontWeight.bold,
-  //         //                             letterSpacing: 1),
-  //         //                       ),
-  //         //                       SizedBox(height: 1.h),
-  //         //                       Container(
-  //         //                         child: TextFormField(
-  //         //                           controller: _phone,
-  //         //                           // controller: _search,
-  //         //                           onChanged: (value) {},
-  //         //                           validator: (value) {
-  //         //                             if (value!.isEmpty) {
-  //         //                               return "Enter the guest phone number";
-  //         //                             }
-  //         //                             return null;
-  //         //                           },
-  //         //                           style: TextStyle(
-  //         //                               color: Colors.black.withOpacity(0.67),
-  //         //                               fontFamily: 'Meta1'),
-  //         //                           decoration: InputDecoration(
-  //         //                             border: InputBorder.none,
-  //         //                             enabledBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             focusedBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             errorBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             filled: true,
-  //         //                             fillColor: Colors.white,
-  //         //                             hintText: 'Guest Phone',
-  //         //                             hintStyle: TextStyle(
-  //         //                                 color: Colors.black.withOpacity(0.67),
-  //         //                                 fontFamily: 'Meta1'),
-  //         //                           ),
-  //         //                         ),
-  //         //                       ),
-  //         //                       SizedBox(height: 2.h),
-  //         //                       Text(
-  //         //                         'Email :',
-  //         //                         style: TextStyle(
-  //         //                             fontSize: 14.sp,
-  //         //                             fontFamily: 'sofi',
-  //         //                             color: Colors.black,
-  //         //                             fontWeight: FontWeight.bold,
-  //         //                             letterSpacing: 1),
-  //         //                       ),
-  //         //                       SizedBox(height: 1.h),
-  //         //                       Container(
-  //         //                         child: TextFormField(
-  //         //                           controller: _email,
-  //         //                           // controller: _search,
-  //         //                           onChanged: (value) {},
-  //         //                           validator: (value) {
-  //         //                             if (value!.isEmpty) {
-  //         //                               return "Enter the guest email";
-  //         //                             }
-  //         //                             return null;
-  //         //                           },
-  //         //                           style: TextStyle(
-  //         //                               color: Colors.black.withOpacity(0.67),
-  //         //                               fontFamily: 'Meta1'),
-  //         //                           decoration: InputDecoration(
-  //         //                             border: InputBorder.none,
-  //         //                             enabledBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             focusedBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             errorBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             filled: true,
-  //         //                             fillColor: Colors.white,
-  //         //                             hintText: 'Guest Email',
-  //         //                             hintStyle: TextStyle(
-  //         //                                 color: Colors.black.withOpacity(0.67),
-  //         //                                 fontFamily: 'Meta1'),
-  //         //                           ),
-  //         //                         ),
-  //         //                       ),
-  //         //                       SizedBox(height: 2.h),
-  //         //                       Text(
-  //         //                         'Relation with bride/groom :',
-  //         //                         style: TextStyle(
-  //         //                             fontSize: 14.sp,
-  //         //                             fontFamily: 'sofi',
-  //         //                             color: Colors.black,
-  //         //                             fontWeight: FontWeight.bold,
-  //         //                             letterSpacing: 1),
-  //         //                       ),
-  //         //                       SizedBox(height: 1.h),
-  //         //                       Container(
-  //         //                         child: TextFormField(
-  //         //                           controller: _relation,
-  //         //                           // controller: _search,
-  //         //                           onChanged: (value) {},
-  //         //                           validator: (value) {
-  //         //                             if (value!.isEmpty) {
-  //         //                               return "Enter the relation with bride/groom";
-  //         //                             }
-  //         //                             return null;
-  //         //                           },
-  //         //                           style: TextStyle(
-  //         //                               color: Colors.black.withOpacity(0.67),
-  //         //                               fontFamily: 'Meta1'),
-  //         //                           decoration: InputDecoration(
-  //         //                             border: InputBorder.none,
-  //         //                             enabledBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             focusedBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             errorBorder: OutlineInputBorder(
-  //         //                               borderRadius: BorderRadius.circular(20),
-  //         //                               borderSide: BorderSide.none,
-  //         //                             ),
-  //         //                             filled: true,
-  //         //                             fillColor: Colors.white,
-  //         //                             hintText: 'Relation',
-  //         //                             hintStyle: TextStyle(
-  //         //                                 color: Colors.black.withOpacity(0.67),
-  //         //                                 fontFamily: 'Meta1'),
-  //         //                           ),
-  //         //                         ),
-  //         //                       ),
-  //         //                       SizedBox(height: 2.h),
-  //         //                       Row(
-  //         //                         children: [
-  //         //                           Text(
-  //         //                             'Select Table :',
-  //         //                             style: TextStyle(
-  //         //                                 fontSize: 14.sp,
-  //         //                                 fontFamily: 'sofi',
-  //         //                                 color: Colors.black,
-  //         //                                 fontWeight: FontWeight.bold,
-  //         //                                 letterSpacing: 1),
-  //         //                           ),
-  //         //                           SizedBox(width: 5.w),
-  //         //                           Container(
-  //         //                             width:33.w,
-  //         //                             padding: EdgeInsets.symmetric(horizontal: 3.w,vertical: 0.5.h),
-  //         //                             decoration: BoxDecoration(
-  //         //                               color: Colors.white,
-  //         //                               borderRadius: BorderRadius.circular(20)
-  //         //                             ),
-  //         //                             child: DropdownButtonHideUnderline(
-  //         //                               child: DropdownButton<String>(
-  //         //                                 value: selectedItem,
-  //         //                                 onChanged: (String? newValue) {
-  //         //                                   setState(() {
-  //         //                                     selectedItem = newValue; // Update the selectedItem
-  //         //                                   });
-  //         //                                   addguest();
-  //         //                                 },
-  //         //                                 items: items.map(( item) {
-  //         //                                   return DropdownMenuItem<String>(
-  //         //                                     value: item.id,
-  //         //                                     child: Text(item.title,style: TextStyle(color: Colors.black),),
-  //         //                                   );
-  //         //                                 }).toList(),
-  //         //                               ),
-  //         //                             ),
-  //         //                           ),
-  //         //                         ],
-  //         //                       ),
-  //         //
-  //         //                       SizedBox(height: 2.h),
-  //         //                       Row(
-  //         //                         crossAxisAlignment: CrossAxisAlignment.center,
-  //         //                         mainAxisAlignment: MainAxisAlignment.center,
-  //         //                         children: [
-  //         //                           InkWell(
-  //         //                             onTap: () {
-  //         //                               addguestap();
-  //         //                             },
-  //         //                             child: Container(
-  //         //                               alignment: Alignment.center,
-  //         //                               padding: EdgeInsets.all(2.5.w),
-  //         //                               decoration: BoxDecoration(
-  //         //                                   color: Colors.blue,
-  //         //                                   borderRadius:
-  //         //                                       BorderRadius.circular(25)),
-  //         //                               child: Row(
-  //         //                                 mainAxisAlignment:
-  //         //                                     MainAxisAlignment.center,
-  //         //                                 children: [
-  //         //                                   Icon(
-  //         //                                     CupertinoIcons.add,
-  //         //                                     size: 17.sp,
-  //         //                                     color: Colors.white,
-  //         //                                   ),
-  //         //                                   SizedBox(
-  //         //                                     width: 2.w,
-  //         //                                   ),
-  //         //                                   Text(
-  //         //                                     'Add Guest',
-  //         //                                     style: TextStyle(
-  //         //                                         fontSize: 13.sp,
-  //         //                                         fontFamily: 'sofi',
-  //         //                                         color: Colors.white,
-  //         //                                         fontWeight: FontWeight.bold,
-  //         //                                         letterSpacing: 1),
-  //         //                                   ),
-  //         //                                 ],
-  //         //                               ),
-  //         //                             ),
-  //         //                           ),
-  //         //                         ],
-  //         //                       ),
-  //         //                       SizedBox(height: 2.h),
-  //         //                     ],
-  //         //                   ),
-  //         //                 ),
-  //         //               ],
-  //         //             ),
-  //         //           ),
-  //         //         ),
-  //         //       ),
-  //         //     ),
-  //         //     Padding(
-  //         //         padding: EdgeInsets.only(
-  //         //           top: 0.0,
-  //         //           left:67.w,
-  //         //           right: 0,
-  //         //         ),
-  //         //
-  //         //         child: IconButton(
-  //         //             onPressed: () {
-  //         //               Get.back();
-  //         //             },
-  //         //             icon: Icon(CupertinoIcons.clear_circled_solid))),
-  //         //
-  //         //
-  //         //   ],
-  //         // ),
-  //       );
-  //     },
-  //   );
-  // }
 
   addguestap() {
     if (_formKey.currentState!.validate()) {
