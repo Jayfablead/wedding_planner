@@ -14,6 +14,7 @@ import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 import '../widgets/drawer.dart';
@@ -81,58 +82,12 @@ class _MyProfileState extends State<MyProfile> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.white,
-                              size: 23.sp,
-                            )),
-                        Text(
-                          "Profile",
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(
-                                onPressed: () {
-                                  Get.to(NotificationScreen());
-                                },
-                                icon: Icon(
-                                  Icons.notifications_none_rounded,
-                                  color: Colors.white,
-                                  size: 21.sp,
-                                )),
-                            IconButton(
-                                onPressed: () {
-                                  scaffoldKey.currentState?.openDrawer();
-                                },
-                                icon: Icon(
-                                  Icons.menu_rounded,
-                                  color: Colors.white,
-                                  size: 23.sp,
-                                )),
-                          ],
-                        )
-                      ],
-                    ),
-                    // header(text: "",callback: (){},
-                    //
-                    //     callback1: (){
-                    //   scaffoldKey.currentState?.openDrawer();
-                    // }),
+
+                    header(
+                        text: "Profile",
+                        callback1: () {
+                          scaffoldKey.currentState?.openDrawer();
+                        }),
                     SizedBox(height: 2.h),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -193,7 +148,7 @@ class _MyProfileState extends State<MyProfile> {
                                         ? "N/A"
                                         : (userprofile?.userDetails?.groomName)
                                             .toString()),
-                                style: header),
+                                style: header1),
                             SizedBox(
                               height: 1.h,
                             ),
@@ -208,7 +163,7 @@ class _MyProfileState extends State<MyProfile> {
                                         ? "N/A"
                                         : (userprofile?.userDetails?.brideName)
                                             .toString()),
-                                style: header),
+                                style: header1),
                             SizedBox(
                               height: 1.h,
                             ),
@@ -568,7 +523,7 @@ class _MyProfileState extends State<MyProfile> {
     );
   }
 
-  TextStyle header = TextStyle(
+  TextStyle header1 = TextStyle(
     color: Colors.black,
     fontSize: 15.sp,
     fontFamily: 'sofi',

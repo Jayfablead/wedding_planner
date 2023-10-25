@@ -40,7 +40,7 @@ Widget header({
               size: 21.sp,
             ),
             onOpened: () {
-              print('Opened');
+
             },
             // onSelected: (value) {
             //   // Handle the selected menu item

@@ -214,6 +214,7 @@ class taskprovider with ChangeNotifier {
   Future<http.Response> viewguestapi() async {
     String? url = '$baseUrl/myGuestList/${userData?.user?.id.toString()}';
     // String? url = '$baseUrl/myVenue/17';
+    print(url);
 
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(

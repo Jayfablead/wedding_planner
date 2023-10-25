@@ -37,7 +37,6 @@ class cate {
     this.Rating,
   );
 }
-
 List<cate> venue = [
   cate(
       'https://i.pinimg.com/originals/c5/25/55/c525556bdc809edf44944171ec3d54c7.jpg',
@@ -90,11 +89,9 @@ List<cate> venue = [
       'A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue ',
       3),
 ];
-List<String> type = ["All Suppliers", "To Do", "Meeting"];
-TextEditingController _search = TextEditingController();
-
 class _InvoiceListState extends State<InvoiceList> {
   static var httpClient = new HttpClient();
+  TextEditingController _search = TextEditingController();
 
   @override
   void initState() {

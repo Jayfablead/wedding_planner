@@ -282,9 +282,7 @@ class _PostPageState extends State<PostPage> {
                                           sel1 = index;
                                         });
                                         ViewBoardApi();
-                                        print(sel1);
-                                        print(categoriesmodal
-                                            ?.services?[sel1].categoryId);
+
                                       },
                                       child: Container(
                                         padding: EdgeInsets.symmetric(
@@ -328,6 +326,7 @@ class _PostPageState extends State<PostPage> {
                                       alignment: Alignment.center,
                                       child: Text(
                                         'No Photos Available for this Category',
+                                        textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 15.sp,
                                             color: Colors.black,
