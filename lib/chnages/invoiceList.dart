@@ -1,8 +1,18 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/InvoicelistModal.dart';
+import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/widgets/buildErrorDialog.dart';
+import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
+import 'package:wedding_planner/widgets/load.dart';
 
 class InvoiceList extends StatefulWidget {
   const InvoiceList({super.key});
@@ -83,145 +93,254 @@ List<String> type = ["All Suppliers", "To Do", "Meeting"];
 TextEditingController _search = TextEditingController();
 
 class _InvoiceListState extends State<InvoiceList> {
+  static var httpClient = new HttpClient();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    invoiceap();
+  }
+
+  bool isLoading = true;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      drawer: drawer1(),
-      key: scaffoldKey,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child: CustomScrollView(slivers: [
-          SliverToBoxAdapter(
-              child: Container(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  header(
-                      text: "Invoices",
-                      callback1: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      }),
-                  // headerwid(text: "Certificates"),
-                  SizedBox(height: 1.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      searchBox1(),
-                    ],
-                  ),
-                  SizedBox(height: 2.h),
-                ]),
-          )),
-          SliverList.builder(
-            itemBuilder: (context, index) {
-              return Container(
-                  height: 19.h,
-                  padding: EdgeInsets.all(1.w),
-                  margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 1.w),
-                        height: 14.h,
-                        width: 29.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black38)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            imageUrl: venue[index].image.toString(),
-                            progressIndicatorBuilder:
-                                (context, url, progress) =>
-                                    Center(child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) => Image.asset(
-                              'assets/deprf.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                      Column(
+    return commanScreen(
+      isLoading: isLoading,
+      scaffold: Scaffold(
+        backgroundColor: Colors.grey.shade100,
+        drawer: drawer1(),
+        key: scaffoldKey,
+        body: isLoading
+            ? Container()
+            : Padding(
+                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                child: CustomScrollView(slivers: [
+                  SliverToBoxAdapter(
+                      child: Container(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 54.w,
-                            child: Container(
-                              padding: EdgeInsets.only(left: 1.w),
-                              child: Text(
-                                'Services ${index + 1}',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
+                            height: 5.h,
                           ),
+                          header(
+                              text: "Invoices",
+                              callback1: () {
+                                scaffoldKey.currentState?.openDrawer();
+                              }),
+                          // headerwid(text: "Certificates"),
                           SizedBox(height: 1.h),
-                          Container(
-                            padding: EdgeInsets.only(left: 1.w),
-                            width: 55.w,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              searchBox1(),
+                            ],
+                          ),
+                          SizedBox(height: 2.h),
+                        ]),
+                  )),
+                  invoicelistmodal?.invoices?.length == 0 ||
+                          invoicelistmodal?.invoices == null
+                      ? SliverToBoxAdapter(
+                          child: Container(
+                            height: 65.h,
+                            alignment: Alignment.center,
                             child: Text(
-                              'Suppliers name $index',
-                              maxLines: 2,
+                              "No invoice available",
                               style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  overflow: TextOverflow.ellipsis,
-                                  fontSize: 14.sp,
+                                  color: Colors.black,
+                                  fontSize: 18.sp,
+                                  fontFamily: 'sofi',
                                   fontWeight: FontWeight.w600),
                             ),
                           ),
-                          SizedBox(height: 1.h),
-                          Container(
-                            padding: EdgeInsets.only(left: 1.w),
-                            width: 55.w,
-                            child: Text(
-                              'Invoice id: $index${index + 1}${index + 2}${index + 3}${index + 4}${index + 5}${index + 6}${index + 7}${index + 8}',
-                              maxLines: 2,
-                              style: TextStyle(
-                                  color: Colors.black.withOpacity(0.7),
-                                  overflow: TextOverflow.ellipsis,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                          SizedBox(height: 1.h),
-                          InkWell(
-                            onTap: () {},
-                            child: Container(
-                              width: 45.w,
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(vertical: 1.5.h),
-                              margin: EdgeInsets.symmetric(horizontal: 3.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(90)),
-                              child: Text(
-                                'Download',
-                                style: TextStyle(
-                                    fontSize: 11.sp,
-                                    color: Colors.white,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ));
-            },
-            itemCount: venue.length,
-          ),
-        ]),
+                        )
+                      : SliverList.builder(
+                          itemCount: invoicelistmodal?.invoices?.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                                height: 19.h,
+                                padding: EdgeInsets.all(1.w),
+                                margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 1.w),
+                                      height: 14.h,
+                                      width: 29.w,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                              color: Colors.black38)),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: CachedNetworkImage(
+                                          fit: BoxFit.cover,
+                                          imageUrl: invoicelistmodal
+                                                  ?.invoices?[index]
+                                                  .supplierDetails
+                                                  ?.profile ??
+                                              "",
+                                          progressIndicatorBuilder: (context,
+                                                  url, progress) =>
+                                              Center(
+                                                  child:
+                                                      CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Image.asset(
+                                            'assets/user.png',
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          width: 54.w,
+                                          child: Container(
+                                            padding: EdgeInsets.only(left: 1.w),
+                                            child: Text(
+                                              'Services ${index + 1}',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15.sp,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: 1.h),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 1.w),
+                                          width: 55.w,
+                                          child: Text(
+                                            invoicelistmodal
+                                                            ?.invoices?[index]
+                                                            .supplierDetails
+                                                            ?.name ==
+                                                        "" ||
+                                                    invoicelistmodal
+                                                            ?.invoices?[index]
+                                                            .supplierDetails
+                                                            ?.name ==
+                                                        null
+                                                ? "N/A"
+                                                : invoicelistmodal
+                                                        ?.invoices?[index]
+                                                        .supplierDetails
+                                                        ?.name ??
+                                                    "",
+                                            maxLines: 2,
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.7),
+                                                overflow: TextOverflow.ellipsis,
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ),
+                                        SizedBox(height: 1.h),
+                                        Container(
+                                          padding: EdgeInsets.only(left: 1.w),
+                                          width: 55.w,
+                                          child: Text(
+                                            'Invoice id: ' +
+                                                (invoicelistmodal
+                                                                ?.invoices?[
+                                                                    index]
+                                                                .invId ==
+                                                            "" ||
+                                                        invoicelistmodal
+                                                                ?.invoices?[
+                                                                    index]
+                                                                .invId ==
+                                                            null
+                                                    ? "N/A"
+                                                    : (invoicelistmodal
+                                                            ?.invoices?[index]
+                                                            .invId)
+                                                        .toString()),
+                                            maxLines: 2,
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.7),
+                                                overflow: TextOverflow.ellipsis,
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ),
+                                        SizedBox(height: 1.h),
+                                        InkWell(
+                                          onTap: () async {
+                                            invoicelistmodal?.invoices?[index]
+                                                    .invFile ??
+                                                "";
+                                            EasyLoading.show(
+                                                status: 'Downloading ..',
+                                                indicator: CircularProgressIndicator(
+                                                  color: Colors.white,
+                                                ));
+                                            const downloadsFolderPath =
+                                                '/storage/emulated/0/Download';
+                                            var request =
+                                                await httpClient.getUrl(
+                                                    Uri.parse(invoicelistmodal
+                                                            ?.invoices?[index]
+                                                            .invFile ??
+                                                        ""));
+                                            var response =
+                                                await request.close();
+                                            var bytes =
+                                                await consolidateHttpClientResponseBytes(
+                                                    response);
+                                            Directory dir = await Directory(
+                                                downloadsFolderPath);
+                                            final String filePath =
+                                                '${dir.path}/${invoicelistmodal?.invoices?[index].supplierDetails?.name ?? ""}';
+                                            final File file = File(filePath);
+                                            await file.writeAsBytes(bytes);
+                                            EasyLoading.showSuccess("Downloaded");
+                                            print(file);
+                                          },
+                                          child: Container(
+                                            width: 45.w,
+                                            alignment: Alignment.center,
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 1.5.h),
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 3.w),
+                                            decoration: BoxDecoration(
+                                                color: Colors.blue,
+                                                borderRadius:
+                                                    BorderRadius.circular(90)),
+                                            child: Text(
+                                              'Download',
+                                              style: TextStyle(
+                                                  fontSize: 11.sp,
+                                                  color: Colors.white,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ));
+                          },
+                        ),
+                ]),
+              ),
       ),
     );
   }
@@ -290,5 +409,27 @@ class _InvoiceListState extends State<InvoiceList> {
         ),
       ),
     );
+  }
+
+  invoiceap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().invoicelistapi().then((response) async {
+          invoicelistmodal =
+              Invoicelistmodal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && invoicelistmodal?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
   }
 }

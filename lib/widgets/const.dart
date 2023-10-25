@@ -39,6 +39,7 @@ import '../Modal/CategoriesModal.dart';
 import '../Modal/CategoryWiseSuppliersModal.dart';
 import '../Modal/DocumentModal.dart';
 import '../Modal/GuestseatingModal.dart';
+import '../Modal/InvoicelistModal.dart';
 import '../Modal/MeetingModal.dart';
 import '../Modal/MyvenuetableModal.dart';
 import '../Modal/QouteDetailsModal.dart';
@@ -111,6 +112,9 @@ ChatSerchModal? chatserchmodal;
 BookinglistModal? bookinglistmodal;
 CategoryWiseSuppliersModal? categorywisesuppliersmodal;
 AddmeetingModal? addmeetingmodal;
+Invoicelistmodal? invoicelistmodal;
+
+
 
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

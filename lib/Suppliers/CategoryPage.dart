@@ -121,7 +121,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                           CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                            'assets/defimg.jpg',
+                                            'assets/defimg.jpg',fit: BoxFit.cover,
                                           ),
                                     ),
                                   ),
