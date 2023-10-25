@@ -968,8 +968,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             searchap();
             Get.back();
           } else {
-            buildErrorDialog(
-                context, "Login Error", (userData?.message).toString());
+
           }
         });
       } else {
