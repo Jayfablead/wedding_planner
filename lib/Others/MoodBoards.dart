@@ -300,6 +300,8 @@ class _PostPageState extends State<PostPage> {
                                             horizontal: 2.w),
                                         child: Text(
                                             categoriesmodal?.services?[index]
+                                                .categoryName==""||categoriesmodal?.services?[index]
+                                                .categoryName==null?"N/A":categoriesmodal?.services?[index]
                                                     .categoryName ??
                                                 '',
                                             style: TextStyle(
@@ -363,7 +365,7 @@ class _PostPageState extends State<PostPage> {
                                             errorWidget:
                                                 (context, url, error) =>
                                                     Image.asset(
-                                              'assets/deprf.png',
+                                              'assets/user.png',
                                             ),
                                           ),
                                         ),

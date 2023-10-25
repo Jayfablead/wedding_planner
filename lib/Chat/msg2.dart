@@ -133,7 +133,7 @@ class _Msg2State extends State<Msg2> {
                               SizedBox(
                                 width: 53.w,
                                 child: Text(
-                                  widget.name ?? '',
+                                  widget.name==""||widget.name==null?"N/A":widget.name ?? '',
                                   style: TextStyle(
                                       fontSize: 16.sp,
                                       fontWeight: FontWeight.bold,
@@ -509,7 +509,7 @@ class _Msg2State extends State<Msg2> {
                                                                                 CircularProgressIndicator(),
                                                                             errorWidget: (context, url, error) =>
                                                                                 Image.asset(
-                                                                              'assets/defimg.jpg',
+                                                                              'assets/user.png',
                                                                             ),
                                                                           ),
                                                                         ),

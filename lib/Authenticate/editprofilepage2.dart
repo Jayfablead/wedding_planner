@@ -180,7 +180,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                               CircularProgressIndicator(),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                        'assets/deuser.png',
+                                        'assets/user.png',
                                         fit: BoxFit.cover,
                                         height: 14.5.h,
                                         width: 31.w,

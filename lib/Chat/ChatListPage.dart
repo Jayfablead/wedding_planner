@@ -217,6 +217,10 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                     children: [
                                                       Text(
                                                         chatserchmodal
+                                                            ?.data?[index]
+                                                            .name==""||chatserchmodal
+                                                            ?.data?[index]
+                                                            .name==null?"N/A":chatserchmodal
                                                                 ?.data?[index]
                                                                 .name ??
                                                             "",
@@ -399,7 +403,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  chatlistmodal?.venue?.name ??
+                                                  chatlistmodal?.venue?.name=="" ||chatlistmodal?.venue?.name ==null?"N/A":chatlistmodal?.venue?.name ??
                                                       "",
                                                   style: TextStyle(
                                                       fontSize: 16.sp,
@@ -595,6 +599,12 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                           children: [
                                                             Text(
                                                               chatlistmodal
+                                                                  ?.suppliers?[
+                                                              index]
+                                                                  .name==""||chatlistmodal
+                                                                  ?.suppliers?[
+                                                              index]
+                                                                  .name==null?"N/A":chatlistmodal
                                                                       ?.suppliers?[
                                                                           index]
                                                                       .name ??

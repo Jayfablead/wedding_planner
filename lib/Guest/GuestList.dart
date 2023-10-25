@@ -246,7 +246,7 @@ class _GuestListState extends State<GuestList> {
                                                                             3.w,
                                                                       ),
                                                                       Text(
-                                                                        viewguestmodal?.guestlist?.groomGuestList?[index].guestName ??
+                                                                        viewguestmodal?.guestlist?.groomGuestList?[index].guestName==""||viewguestmodal?.guestlist?.groomGuestList?[index].guestName==null?"N/A":viewguestmodal?.guestlist?.groomGuestList?[index].guestName ??
                                                                             "",
                                                                         style: TextStyle(
                                                                             fontSize: 15
@@ -281,7 +281,7 @@ class _GuestListState extends State<GuestList> {
                                                                               3.w,
                                                                         ),
                                                                         Text(
-                                                                          viewguestmodal?.guestlist?.groomGuestList?[index].guestContact ??
+                                                                          viewguestmodal?.guestlist?.groomGuestList?[index].guestContact==""||viewguestmodal?.guestlist?.groomGuestList?[index].guestContact==null?"N/A":viewguestmodal?.guestlist?.groomGuestList?[index].guestContact ??
                                                                               "",
                                                                           style: TextStyle(
                                                                               fontSize: 13.sp,
@@ -314,7 +314,7 @@ class _GuestListState extends State<GuestList> {
                                                                               3.w,
                                                                         ),
                                                                         Text(
-                                                                          viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail ??
+                                                                          viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail==""||viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail==null?"N/A":viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail ??
                                                                               "",
                                                                           style: TextStyle(
                                                                               fontSize: 13.sp,
@@ -509,6 +509,12 @@ class _GuestListState extends State<GuestList> {
                                                                     ),
                                                                     Text(
                                                                       viewguestmodal
+                                                                          ?.guestlist
+                                                                          ?.brideGuestList?[index]
+                                                                          .guestName ==""||viewguestmodal
+                                                                          ?.guestlist
+                                                                          ?.brideGuestList?[index]
+                                                                          .guestName==null?"N/A":viewguestmodal
                                                                               ?.guestlist
                                                                               ?.brideGuestList?[index]
                                                                               .guestName ??
@@ -549,7 +555,7 @@ class _GuestListState extends State<GuestList> {
                                                                             3.w,
                                                                       ),
                                                                       Text(
-                                                                        viewguestmodal?.guestlist?.brideGuestList?[index].guestContact ??
+                                                                        viewguestmodal?.guestlist?.brideGuestList?[index].guestContact==""||viewguestmodal?.guestlist?.brideGuestList?[index].guestContact==null?"N/A":viewguestmodal?.guestlist?.brideGuestList?[index].guestContact ??
                                                                             "",
                                                                         style: TextStyle(
                                                                             fontSize: 13
@@ -586,7 +592,7 @@ class _GuestListState extends State<GuestList> {
                                                                             3.w,
                                                                       ),
                                                                       Text(
-                                                                        viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail ??
+                                                                        viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail==""||viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail==null?"N/A":viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail ??
                                                                             "",
                                                                         style: TextStyle(
                                                                             fontSize: 13

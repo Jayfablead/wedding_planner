@@ -305,7 +305,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                 (context, url,
                                                                         error) =>
                                                                     Image.asset(
-                                                              'assets/deprf.png',
+                                                              'assets/defimg.jpg',
                                                             ),
                                                           ),
                                                         ),
@@ -332,6 +332,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                               1.w),
                                                                   child: Text(
                                                                     mybudgetmodal
+                                                                        ?.budgetItems?[index]
+                                                                        .supplierInfo
+                                                                        ?.category==""||mybudgetmodal
+                                                                        ?.budgetItems?[index]
+                                                                        .supplierInfo
+                                                                        ?.category==null?"N/A":mybudgetmodal
                                                                             ?.budgetItems?[index]
                                                                             .supplierInfo
                                                                             ?.category ??
@@ -368,6 +374,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                               1.w),
                                                                   child: Text(
                                                                     mybudgetmodal
+                                                                        ?.budgetItems?[index]
+                                                                        .supplierInfo
+                                                                        ?.name==""||mybudgetmodal
+                                                                        ?.budgetItems?[index]
+                                                                        .supplierInfo
+                                                                        ?.name==null?"N/A":mybudgetmodal
                                                                             ?.budgetItems?[index]
                                                                             .supplierInfo
                                                                             ?.name ??
@@ -398,6 +410,14 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                             width: 55.w,
                                                             child: Text(
                                                               mybudgetmodal
+                                                                  ?.budgetItems?[
+                                                              index]
+                                                                  .supplierInfo
+                                                                  ?.description==""||mybudgetmodal
+                                                                  ?.budgetItems?[
+                                                              index]
+                                                                  .supplierInfo
+                                                                  ?.description==null?"":mybudgetmodal
                                                                       ?.budgetItems?[
                                                                           index]
                                                                       .supplierInfo
@@ -451,7 +471,15 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                 EdgeInsets.only(
                                                                     left: 1.w),
                                                             child: Text(
-                                                              "\$ " +
+                                                              mybudgetmodal
+                                                                  ?.budgetItems?[
+                                                              index]
+                                                                  .supplierInfo
+                                                                  ?.cost==""||mybudgetmodal
+                                                                  ?.budgetItems?[
+                                                              index]
+                                                                  .supplierInfo
+                                                                  ?.cost==null?"\$ N/A":"\$ " +
                                                                   (mybudgetmodal
                                                                           ?.budgetItems?[
                                                                               index]

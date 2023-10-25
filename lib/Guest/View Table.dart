@@ -187,6 +187,8 @@ class _ViewTablesState extends State<ViewTables> {
                               children: [
                                 Text(
                                   guestseatingmodal?.suppliersDetails?[index]
+                                      .table?.name==""||guestseatingmodal?.suppliersDetails?[index]
+                                      .table?.name==null?"N/A":guestseatingmodal?.suppliersDetails?[index]
                                           .table?.name ??
                                       "",
                                   style: TextStyle(

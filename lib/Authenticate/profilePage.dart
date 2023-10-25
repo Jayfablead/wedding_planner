@@ -168,7 +168,7 @@ class _MyProfileState extends State<MyProfile> {
                                             CircularProgressIndicator(),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                      'assets/deuser.png',
+                                      'assets/user.png',
                                       fit: BoxFit.cover,
                                       height: 14.5.h,
                                       width: 31.w,

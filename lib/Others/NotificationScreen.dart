@@ -148,7 +148,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                           child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                    'assets/deprf.png',
+                                    'assets/defimg.jpg',
                                   ),
                                 ),
                               ),

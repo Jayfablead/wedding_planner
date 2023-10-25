@@ -239,6 +239,8 @@ class _CertificateState extends State<Certificate> {
                                   width: 55.w,
                                   child: Text(
                                     documentmodal?.data?.allDocandCerti?[index]
+                                        .name==""||documentmodal?.data?.allDocandCerti?[index]
+                                        .name==null?"N/A":documentmodal?.data?.allDocandCerti?[index]
                                             .name ??
                                         "",
                                     maxLines: 2,

@@ -303,6 +303,12 @@ class _Check_listState extends State<Check_list> {
                                                           width: 65.w,
                                                           child: Text(
                                                             (checklistmodal
+                                                                ?.all?[
+                                                            index]
+                                                                .taskTitle)==""||(checklistmodal
+                                                                  ?.all?[
+                                                              index]
+                                                                  .taskTitle)==null?"N/A":(checklistmodal
                                                                     ?.all?[
                                                                         index]
                                                                     .taskTitle)
@@ -454,6 +460,12 @@ class _Check_listState extends State<Check_list> {
                                                               width: 65.w,
                                                               child: Text(
                                                                 (checklistmodal
+                                                                    ?.todayAlerts?[
+                                                                index]
+                                                                    .taskTitle)==""||(checklistmodal
+                                                                    ?.todayAlerts?[
+                                                                index]
+                                                                    .taskTitle)==null?"N/A":(checklistmodal
                                                                         ?.todayAlerts?[
                                                                             index]
                                                                         .taskTitle)
@@ -587,6 +599,10 @@ class _Check_listState extends State<Check_list> {
                                                                   width: 78.w,
                                                                   child: Text(
                                                                     (checklistmodal
+                                                                        ?.completed?[index]
+                                                                        .taskTitle)==""||(checklistmodal
+                                                                        ?.completed?[index]
+                                                                        .taskTitle)==null?"N/A":(checklistmodal
                                                                             ?.completed?[index]
                                                                             .taskTitle)
                                                                         .toString(),
@@ -715,6 +731,10 @@ class _Check_listState extends State<Check_list> {
                                                                   width: 65.w,
                                                                   child: Text(
                                                                     (checklistmodal
+                                                                        ?.pending?[index]
+                                                                        .taskTitle)==""||(checklistmodal
+                                                                        ?.pending?[index]
+                                                                        .taskTitle)==null?"N/A":(checklistmodal
                                                                             ?.pending?[index]
                                                                             .taskTitle)
                                                                         .toString(),
@@ -858,6 +878,12 @@ class _Check_listState extends State<Check_list> {
                                                       width: 65.w,
                                                       child: Text(
                                                         (searchchecklist
+                                                            ?.searched?[
+                                                        index]
+                                                            .taskTitle)==""||(searchchecklist
+                                                            ?.searched?[
+                                                        index]
+                                                            .taskTitle)==null?"N/A":(searchchecklist
                                                                 ?.searched?[
                                                                     index]
                                                                 .taskTitle)
