@@ -145,7 +145,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                               height: 1.5.h,
                                             ),
                                             Text(
-                                              '\$ ' +
+                                            mybudgetmodal?.status =="2"? "N/A":  '\$ ' +
                                                   (mybudgetmodal
                                                           ?.budgetInfo?.budget)
                                                       .toString(),
@@ -185,7 +185,8 @@ class _ViewBudgetState extends State<ViewBudget> {
                                               height: 1.5.h,
                                             ),
                                             Text(
-                                              '\$ ' +
+                                                mybudgetmodal?.budgetInfo
+                                                    ?.finalCost == "" || mybudgetmodal?.status=="2" ?"N/A":  '\$ ' +
                                                   (mybudgetmodal?.budgetInfo
                                                           ?.finalCost)
                                                       .toString(),
@@ -193,7 +194,7 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                 fontSize: 18.sp,
                                                 fontFamily: 'sofi',
                                                 letterSpacing: 1,
-                                                color: int.parse((mybudgetmodal
+                                                color:mybudgetmodal?.status == "2"?Colors.blue: int.parse((mybudgetmodal
                                                                 ?.budgetInfo
                                                                 ?.budget)
                                                             .toString()) <
@@ -529,7 +530,7 @@ class _ViewBudgetState extends State<ViewBudget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 3.h,
+                  height: 2.h,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -545,7 +546,9 @@ class _ViewBudgetState extends State<ViewBudget> {
                     ),
                   ),
                 ),
-                SizedBox(height: 1.h),
+                SizedBox(
+                  height: 2.h,
+                ),
                 TextFormField(
                   controller: _budget,
                   decoration: InputDecoration(

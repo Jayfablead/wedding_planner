@@ -212,7 +212,7 @@ class _CertificateState extends State<Certificate> {
                                           child: CircularProgressIndicator()),
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
-                                    'assets/deprf.png',
+                                    'assets/user.png',
                                   ),
                                 ),
                               ),

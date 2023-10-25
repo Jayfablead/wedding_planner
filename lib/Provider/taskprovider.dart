@@ -167,7 +167,7 @@ class taskprovider with ChangeNotifier {
 
   Future<http.Response> bookinglistapi() async {
     String? url = '$baseUrl/myBookings/${userData?.user?.id.toString()}';
-
+    print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),
@@ -304,7 +304,8 @@ class taskprovider with ChangeNotifier {
   }
 
   Future<http.Response> guestseatingapi() async {
-    String? url = '$baseUrl/myGuestSeating/${userData?.user?.id}';
+    String? url = '$baseUrl/myGuestSeating/${userData?.user?.id.toString()}';
+    print(url);
 
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(

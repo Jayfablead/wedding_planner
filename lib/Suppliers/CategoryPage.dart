@@ -27,9 +27,9 @@ class cate {
   String? name;
 
   cate(
-    this.image,
-    this.name,
-  );
+      this.image,
+      this.name,
+      );
 }
 
 List<cate> Categories = [
@@ -105,7 +105,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                               children: [
                                 Container(
                                   margin:
-                                      EdgeInsets.symmetric(horizontal: 0.5.w),
+                                  EdgeInsets.symmetric(horizontal: 0.5.w),
                                   height: 16.h,
                                   width: 30.w,
                                   child: ClipRRect(
@@ -113,36 +113,37 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl: categoriesmodal
-                                              ?.services?[index].categoryIcon ??
+                                          ?.services?[index].categoryIcon ??
                                           '',
                                       progressIndicatorBuilder:
                                           (context, url, progress) => Center(
-                                              child:
-                                                  CircularProgressIndicator()),
+                                          child:
+                                          CircularProgressIndicator()),
                                       errorWidget: (context, url, error) =>
                                           Image.asset(
-                                        'assets/deprf.png',
-                                      ),
+                                            'assets/user.png',
+                                            color: Colors.black,
+                                          ),
                                     ),
                                   ),
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
                                       width: 54.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                             padding: EdgeInsets.only(left: 1.w),
                                             child: Text(
-                                              categoriesmodal?.services?[index]
-                                                      .categoryName ??
-                                                  '',
+                                              (categoriesmodal?.services?[index].categoryName)==""||(categoriesmodal?.services?[index].categoryName)==null?"N/A":(categoriesmodal?.services?[index].categoryName).toString(),
+
+
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 13.sp,
@@ -157,13 +158,13 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                       padding: EdgeInsets.only(left: 1.w),
                                       width: 55.w,
                                       child: Text(
-                                        categoriesmodal?.services?[index]
-                                                .categoryDesc ??
-                                            '',
+                                        (categoriesmodal?.services?[index].categoryDesc)==""||(categoriesmodal?.services?[index].categoryDesc)==null?"N/A":(categoriesmodal?.services?[index].categoryDesc).toString(),
+
+
                                         maxLines: 2,
                                         style: TextStyle(
                                             color:
-                                                Colors.black.withOpacity(0.7),
+                                            Colors.black.withOpacity(0.7),
                                             overflow: TextOverflow.ellipsis,
                                             fontSize: 11.sp,
                                             fontWeight: FontWeight.w600),
@@ -174,15 +175,15 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                       width: 55.w,
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           InkWell(
                                             onTap: () {
                                               Get.to(MySuppliers(
                                                 sele: -3,
                                                 id: categoriesmodal
-                                                        ?.services?[index]
-                                                        .categoryId ??
+                                                    ?.services?[index]
+                                                    .categoryId ??
                                                     '',
                                               ));
                                             },
@@ -193,8 +194,8 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                               decoration: BoxDecoration(
                                                   color: Colors.blue,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          90)),
+                                                  BorderRadius.circular(
+                                                      90)),
                                               child: Text(
                                                 'View Suppliers',
                                                 style: TextStyle(
@@ -203,7 +204,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1,
                                                     fontWeight:
-                                                        FontWeight.bold),
+                                                    FontWeight.bold),
                                               ),
                                             ),
                                           ),

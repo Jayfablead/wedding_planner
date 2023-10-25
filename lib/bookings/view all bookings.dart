@@ -129,7 +129,19 @@ class _BookingListState extends State<BookingList> {
                         ),
                       ],
                     ),
-                    Column(
+                    bookinglistmodal?.bookings?.length==0 ||  bookinglistmodal?.bookings == null?Container(
+                      height: 70.h,
+                      width: MediaQuery.of(context).size.width,
+                      alignment: Alignment.center,
+                      child:Text(
+                       "No booking added",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.sp,
+                            fontWeight:
+                            FontWeight.bold),
+                      ) ,
+                    ): Column(
                       children: [
                         for (int index = 0;
                             index < (bookinglistmodal?.bookings?.length ?? 0);

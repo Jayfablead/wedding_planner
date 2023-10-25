@@ -250,9 +250,15 @@ class _myfavouriteState extends State<myfavourite> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      SizedBox(
+                      Container(
+                        alignment: Alignment.center,
                         height: 79.h,
-                        child: ListView.builder(
+                        child:favouritelistmodal?.myfavourites?.length == 0? Text("No favourite added",style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            fontFamily: 'sofi',
+                            color: Colors.black),): ListView.builder(
                           itemCount: favouritelistmodal?.myfavourites?.length,
                           itemBuilder: (context, index) {
                             return Padding(

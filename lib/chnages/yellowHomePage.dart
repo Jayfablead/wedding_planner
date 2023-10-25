@@ -243,7 +243,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                             CachedNetworkImage(
                                                           width: 80.w,
                                                           height: 20.h,
-                                                          fit: BoxFit.contain,
+                                                          fit: BoxFit.cover,
                                                           imageUrl: suppliersearchmodal
                                                                   ?.suppliers?[
                                                                       index]
