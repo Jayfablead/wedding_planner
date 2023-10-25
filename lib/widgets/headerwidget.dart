@@ -39,9 +39,7 @@ Widget header({
               color: Colors.blue,
               size: 21.sp,
             ),
-            onOpened: () {
-
-            },
+            onOpened: () {},
             // onSelected: (value) {
             //   // Handle the selected menu item
             //   if (value == 'Option 1') {
@@ -56,7 +54,7 @@ Widget header({
                 ...(notificationmodal?.notiDetails ?? []).take(4).map((item) {
                   return PopupMenuItem<String>(
                     value: item.id,
-                    child: Column(
+                    child:  Column(
                       children: [
                         Container(
                           alignment: Alignment.center,
@@ -113,27 +111,19 @@ Widget header({
                     ),
                   );
                 }).toList(),
-                notificationmodal?.notiDetails == 0 ||
-                        notificationmodal?.notiDetails == null
-                    ? PopupMenuItem(
-                        child: Container(),
-                      )
-                    : PopupMenuItem(
-                        child: Container(
-                          child: Center(
-                            child: Text(
-                              'No Recent Notifications',
-                              style: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'sofi',
-                                  fontSize: 13.sp,
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        ),
-                      ),
-                PopupMenuItem<String>(
+
+                notificationmodal?.notiDetails?.length == 0 ||
+                    notificationmodal?.notiDetails?.length == null     ? PopupMenuItem(child:  Center(
+                  child: Text(
+                    'No Recent Notifications',
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontFamily: 'sofi',
+                        fontSize: 13.sp,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.w600),
+                  ),
+                )):   PopupMenuItem<String>(
                   onTap: () {
                     Navigator.of(context).pop();
                     Get.to(NotificationScreen());
@@ -165,25 +155,10 @@ Widget header({
                 ),
               ];
 
-              //   <PopupMenuEntry<String>>[
-              //   const PopupMenuItem<String>(
-              //     value: 'Option 1',
-              //     child: Text('Option 1'),
-              //   ),
-              //   const PopupMenuItem<String>(
-              //     value: 'Option 2',
-              //     child: Text('Option 2'),
-              //   ),
-              // ];
+
             },
           ),
-          // IconButton(
-          //     onPressed:callback2,
-          //     icon: Icon(
-          //       Icons.notifications_none_rounded,
-          //       color: Colors.blue,
-          //       size: 21.sp,
-          //     )),
+
           IconButton(
               onPressed: callback1,
               icon: Icon(
