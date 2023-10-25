@@ -27,6 +27,7 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 import '../Authenticate/LoginPage.dart';
+import '../Modal/NotificationModal.dart';
 import '../Others/Check List.dart';
 import '../Suppliers/mysplirs.dart';
 import '../Venue/MyVenue.dart';
@@ -47,7 +48,7 @@ class _drawer1State extends State<drawer1> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    notificationap();
     print('open');
     unreadnotiap();
   }
@@ -1553,7 +1554,27 @@ class _drawer1State extends State<drawer1> {
       // ),
     );
   }
-
+  notificationap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().notificationapi().then((response) async {
+          notificationmodal =
+              NotificationModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && notificationmodal?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
   unreadnotiap() {
     checkInternet().then((internet) async {
       if (internet) {

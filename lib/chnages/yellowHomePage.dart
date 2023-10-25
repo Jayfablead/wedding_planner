@@ -9,6 +9,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
+import 'package:wedding_planner/Modal/NotificationModal.dart';
 import 'package:wedding_planner/Modal/SuppliersearchModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
@@ -45,6 +46,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       sel = 1;
     });
     homeap();
+    notificationap();
   }
 
   bool istap = false;
@@ -1002,6 +1004,27 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             print(suppliersearchmodal?.suppliers?.length);
             print("ghdfdsh");
           } else {}
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+  notificationap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().notificationapi().then((response) async {
+          notificationmodal =
+              NotificationModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && notificationmodal?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
         });
       } else {
         buildErrorDialog(context, 'Error', "Internet Required");
