@@ -51,11 +51,12 @@ class _EditProfile2State extends State<EditProfile2> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _gname.text = widget.fname.toString();
-    _bname.text = widget.lname.toString();
-    _phone.text = widget.phone.toString();
-    _address.text = widget.address.toString();
-    _about.text = widget.about.toString();
+  setState(() {
+    _gname.text = widget.fname == '' || widget.fname == null ?'N/A': widget.fname.toString();
+    _bname.text = widget.lname == ''|| widget.lname == null  ?'N/A':widget.lname.toString();
+    _phone.text = widget.phone == '' || widget.phone == null ?'N/A':widget.phone.toString();
+    _address.text = widget.address == '' || widget.address == null ?'N/A':widget.address.toString();
+  });
   }
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();

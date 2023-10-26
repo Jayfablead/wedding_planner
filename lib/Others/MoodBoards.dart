@@ -227,7 +227,7 @@ class _PostPageState extends State<PostPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            categoriesmodal?.services?.length == 0?Container(): Container(
+                            categoriesmodal?.services == null?Container(): Container(
                               height: 4.5.h,
                               width: MediaQuery.of(context).size.width,
                               child: ListView.builder(
@@ -301,7 +301,7 @@ class _PostPageState extends State<PostPage> {
                             SizedBox(
                               height: 1.5.h,
                             ),
-                            Container(
+                            categoriesmodal?.services == null?Container():Container(
                               padding: EdgeInsets.only(left: 3.w),
                               child: Text(
                                   categoriesmodal?.services?[sel1]
@@ -326,13 +326,26 @@ class _PostPageState extends State<PostPage> {
                             ),
                             SizedBox(
                               height: 58.h,
-                              child: viewpostmodal?.boards?.length == 0 ||
+                              child:  categoriesmodal?.services == null?Container(
+                                height: 80.h,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'No Suppliers Available',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 15.sp,
+                                      color: Colors.black,
+                                      fontFamily: 'sofi',
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ):  viewpostmodal?.boards?.length == 0 ||
                                       viewpostmodal?.boards?.length == null
                                   ? Container(
                                       height: 72.h,
                                       alignment: Alignment.center,
                                       child: Text(
-                                        categoriesmodal?.services?.length == 0?"No Supplier available.":  'No Photos Available for this Category',
+                                          'No Photos Available for this Category',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 15.sp,

@@ -163,168 +163,187 @@ class _CertificateState extends State<Certificate> {
                       // headerwid(text: "Certificates"),
                       SizedBox(height: 1.h),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           searchBox1(),
-                          Container(
-                              padding: EdgeInsets.all(2.8.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(11)),
-                              child: Icon(
-                                CupertinoIcons.sort_up_circle,
-                                color: Colors.white,
-                              )),
                         ],
                       ),
                       SizedBox(height: 2.h),
                     ]),
               ),
-              documentmodal?.data?.contracts?.length == 0 ?Container(height: 70.h,alignment: Alignment.center,
-                child: Center(
-                  child: Text("No Certificates available",
-                      style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          fontFamily: 'sofi',
-                          color: Colors.black)),
-                ),
-              ) :Column(
-                children: [
-                  for (int index = 0;
-                      index <
-                          (documentmodal?.data?.allDocandCerti?.length ?? 0);
-                      index++) ...[
-                    Container(
-                        height: 19.h,
-                        padding: EdgeInsets.all(1.w),
-                        margin: EdgeInsets.symmetric(horizontal: 1.5.w),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              height: 14.h,
-                              width: 29.w,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: Colors.black38)),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: documentmodal?.data
-                                          ?.allDocandCerti?[index].profile ??
-                                      "",
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/user.png',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  width: 54.w,
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 1.w),
-                                    child: Text(
-                                      'Supplier ${index + 1}',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 12.5.sp,
-                                          fontFamily: "sofi",
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 1.h),
-                                Container(
-                                  padding: EdgeInsets.only(left: 1.w),
-                                  width: 55.w,
-                                  child: Text(
-                                    documentmodal?.data?.allDocandCerti?[index]
-                                        .name==""||documentmodal?.data?.allDocandCerti?[index]
-                                        .name==null?"N/A":documentmodal?.data?.allDocandCerti?[index]
-                                            .name ??
-                                        "",
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                        color: Colors.black.withOpacity(0.7),
-                                        overflow: TextOverflow.ellipsis,
-                                        fontSize: 15.sp,
-                                        fontFamily: "sofi",
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                                SizedBox(height: 2.h),
-                                InkWell(
-                                  onTap: () async {
-                                    EasyLoading.show(
-                                        status: 'Downloading ..',
-                                        indicator: CircularProgressIndicator(
-                                          color: Colors.white,
-                                        ));
-                                    const downloadsFolderPath =
-                                        '/storage/emulated/0/Download';
-                                    var request = await httpClient.getUrl(
-                                        Uri.parse(documentmodal
+              documentmodal?.data?.contracts?.length == 0
+                  ? Container(
+                      height: 70.h,
+                      alignment: Alignment.center,
+                      child: Center(
+                        child: Text("No Certificates available",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                                fontFamily: 'sofi',
+                                color: Colors.black)),
+                      ),
+                    )
+                  : Column(
+                      children: [
+                        for (int index = 0;
+                            index <
+                                (documentmodal?.data?.allDocandCerti?.length ??
+                                    0);
+                            index++) ...[
+                          Container(
+                              height: 19.h,
+                              padding: EdgeInsets.all(1.w),
+                              margin: EdgeInsets.symmetric(horizontal: 1.5.w),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 1.w),
+                                    height: 14.h,
+                                    width: 29.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border:
+                                            Border.all(color: Colors.black38)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl: documentmodal
                                                 ?.data
                                                 ?.allDocandCerti?[index]
-                                                .docFile ??
-                                            ""));
-                                    var response = await request.close();
-                                    var bytes =
-                                        await consolidateHttpClientResponseBytes(
-                                            response);
-
-
-                                    Directory dir = Platform.isAndroid?Directory(downloadsFolderPath): await getApplicationDocumentsDirectory();
-                                    final String filePath =
-                                        '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}';
-                                    final File file = File(filePath);
-                                    await file.writeAsBytes(bytes);
-                                    EasyLoading.showSuccess("Downloaded");
-                                    print(file);
-                                  },
-                                  child: Container(
-                                    width: 45.w,
-                                    alignment: Alignment.center,
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 1.5.h),
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 3.w),
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        borderRadius:
-                                            BorderRadius.circular(90)),
-                                    child: Text(
-                                      'Download',
-                                      style: TextStyle(
-                                          fontSize: 11.sp,
-                                          color: Colors.white,
-                                          fontFamily: 'sofi',
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.bold),
+                                                .profile ??
+                                            "",
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) => Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
+                                          'assets/user.png',
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ))
-                  ]
-                ],
-              )
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        width: 54.w,
+                                        child: Container(
+                                          padding: EdgeInsets.only(left: 1.w),
+                                          child: Text(
+                                            'Supplier ${index + 1}',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 12.5.sp,
+                                                fontFamily: "sofi",
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(height: 1.h),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 1.w),
+                                        width: 55.w,
+                                        child: Text(
+                                          documentmodal
+                                                          ?.data
+                                                          ?.allDocandCerti?[
+                                                              index]
+                                                          .name ==
+                                                      "" ||
+                                                  documentmodal
+                                                          ?.data
+                                                          ?.allDocandCerti?[
+                                                              index]
+                                                          .name ==
+                                                      null
+                                              ? "N/A"
+                                              : documentmodal
+                                                      ?.data
+                                                      ?.allDocandCerti?[index]
+                                                      .name ??
+                                                  "",
+                                          maxLines: 2,
+                                          style: TextStyle(
+                                              color:
+                                                  Colors.black.withOpacity(0.7),
+                                              overflow: TextOverflow.ellipsis,
+                                              fontSize: 15.sp,
+                                              fontFamily: "sofi",
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                      SizedBox(height: 2.h),
+                                      InkWell(
+                                        onTap: () async {
+                                          EasyLoading.show(
+                                              status: 'Downloading ..',
+                                              indicator:
+                                                  CircularProgressIndicator(
+                                                color: Colors.white,
+                                              ));
+                                          const downloadsFolderPath =
+                                              '/storage/emulated/0/Download';
+                                          var request = await httpClient.getUrl(
+                                              Uri.parse(documentmodal
+                                                      ?.data
+                                                      ?.allDocandCerti?[index]
+                                                      .docFile ??
+                                                  ""));
+                                          var response = await request.close();
+                                          var bytes =
+                                              await consolidateHttpClientResponseBytes(
+                                                  response);
+
+                                          Directory dir = Platform.isAndroid
+                                              ? Directory(downloadsFolderPath)
+                                              : await getApplicationDocumentsDirectory();
+                                          final String filePath =
+                                              '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}';
+                                          final File file = File(filePath);
+                                          await file.writeAsBytes(bytes);
+                                          EasyLoading.showSuccess("Downloaded");
+                                          print(file);
+                                        },
+                                        child: Container(
+                                          width: 45.w,
+                                          alignment: Alignment.center,
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 1.5.h),
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 3.w),
+                                          decoration: BoxDecoration(
+                                              color: Colors.blue,
+                                              borderRadius:
+                                                  BorderRadius.circular(90)),
+                                          child: Text(
+                                            'Download',
+                                            style: TextStyle(
+                                                fontSize: 11.sp,
+                                                color: Colors.white,
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ))
+                        ]
+                      ],
+                    )
             ],
           )),
     );
@@ -333,7 +352,7 @@ class _CertificateState extends State<Certificate> {
   Widget searchBox1() {
     return Container(
       alignment: Alignment.center,
-      width: 80.w,
+      width: 90.w,
       height: 6.5.h,
       padding: EdgeInsets.symmetric(horizontal: 7),
       decoration: BoxDecoration(

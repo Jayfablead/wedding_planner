@@ -339,9 +339,7 @@ class _MyProfileState extends State<MyProfile> {
                       lname: userprofile?.userDetails?.brideName,
                       fname: userprofile?.userDetails?.groomName,
                       image: userprofile?.userDetails?.profileImg,
-                      phone:userprofile?.userDetails?.phone ,
-
-
+                      phone:userprofile?.userDetails?.phone,
                       address: userprofile?.userDetails?.address,
                     ));
                     // Get.to(() => UpdateProfile(
@@ -600,71 +598,7 @@ class _MyProfileState extends State<MyProfile> {
                           SizedBox(
                             height: 3.h,
                           ),
-                          // Row(
-                          //   crossAxisAlignment: CrossAxisAlignment.start,
-                          //   children: [
-                          //     Container(
-                          //       padding: EdgeInsets.all(3.w),
-                          //       decoration: BoxDecoration(
-                          //           borderRadius:
-                          //               BorderRadius.circular(7),
-                          //           color: Colors.blue),
-                          //       child: Icon(
-                          //         CupertinoIcons.info_circle,
-                          //         color: Colors.white,
-                          //         size: 18.sp,
-                          //       ),
-                          //     ),
-                          //     SizedBox(width: 5.w),
-                          //     Column(
-                          //       crossAxisAlignment:
-                          //           CrossAxisAlignment.start,
-                          //       children: [
-                          //         Text(
-                          //           "About : ",
-                          //           maxLines: 2,
-                          //           overflow: TextOverflow.ellipsis,
-                          //           style: TextStyle(
-                          //               color: Colors.black,
-                          //               letterSpacing: 2,
-                          //               fontFamily: "sofi",
-                          //               fontWeight: FontWeight.w600,
-                          //               fontSize: 13.sp),
-                          //         ),
-                          //         SizedBox(
-                          //           height: 1.h,
-                          //         ),
-                          //         SizedBox(
-                          //           width: 75.w,
-                          //           child: ReadMoreText(
-                          //             trimLines: 2,
-                          //             trimLength: 50,
-                          //             colorClickableText: Colors.blue,
-                          //             trimMode: TrimMode.Length,
-                          //             trimCollapsedText: 'Read more',
-                          //             trimExpandedText: '  Read less',
-                          //             moreStyle: TextStyle(
-                          //                 fontSize: 13.sp,
-                          //                 color: Colors.blue,
-                          //                 fontWeight: FontWeight.bold),
-                          //             lessStyle: TextStyle(
-                          //                 fontSize: 13.sp,
-                          //                 color: Colors.blue,
-                          //                 fontWeight: FontWeight.bold),
-                          //             "Born in the East Blue, Zoro is the son of Tera and Roronoa Arashi, the grandson of Shimotsuki Furiko and Roronoa Pinzoro.",
-                          //             style: TextStyle(
-                          //                 color: Colors.black,
-                          //                 fontSize: 13.sp,
-                          //                 fontFamily: 'sofi',
-                          //                 fontWeight: FontWeight.w600,
-                          //                 letterSpacing: 1.5,
-                          //                 height: 1.3),
-                          //           ),
-                          //         ),
-                          //       ],
-                          //     ),
-                          //   ],
-                          // ),
+
                         ],
                       )
                     ]),
