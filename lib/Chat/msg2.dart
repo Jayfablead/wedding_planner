@@ -24,6 +24,8 @@ import 'package:wedding_planner/widgets/load.dart';
 import 'package:wedding_planner/widgets/video.dart';
 import 'package:wedding_planner/widgets/webview.dart';
 
+import '../Modal/UserProfileModal.dart';
+
 class Msg2 extends StatefulWidget {
   String? img;
   String? name;
@@ -51,6 +53,7 @@ class _Msg2State extends State<Msg2> {
 
     fullchatap();
     readnewmsgap();
+    userprofileap();
   }
 
   int? days;
@@ -348,7 +351,7 @@ class _Msg2State extends State<Msg2> {
                                                                             fit:
                                                                                 BoxFit.cover,
                                                                             imageUrl:
-                                                                                userData?.user?.profilePath ?? '',
+                                                                                userprofile?.userDetails?.profileImg ?? '',
                                                                             progressIndicatorBuilder: (context, url, progress) =>
                                                                                 CircularProgressIndicator(),
                                                                             errorWidget: (context, url, error) =>
@@ -1015,6 +1018,27 @@ class _Msg2State extends State<Msg2> {
               ReadnewmsgModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && readnewmsgmodal?.status == "1") {
           } else {}
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+  userprofileap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().userprofileapi().then((response) async {
+          userprofile = UserProfileModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && userprofile?.status == "1") {
+            print(userprofile?.userDetails?.groomName);
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
         });
       } else {
         buildErrorDialog(context, 'Error', "Internet Required");

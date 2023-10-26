@@ -30,11 +30,12 @@ final GlobalKey<ScaffoldState> scaffoldKey4 = GlobalKey<ScaffoldState>();
 class _ViewBudgetState extends State<ViewBudget> {
   TextEditingController _budget = TextEditingController();
   bool isLoading = true;
+  final _formKey = GlobalKey<FormState>();
 
   // int? setit =3;
   @override
   void initState() {
-    // TODO: implement initState
+    // -- TODO: implement initState
     super.initState();
     setState(() {
       setit = -3;
@@ -145,10 +146,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                                               height: 1.5.h,
                                             ),
                                             Text(
-                                            mybudgetmodal?.status =="2"? "N/A":  '\$ ' +
-                                                  (mybudgetmodal
-                                                          ?.budgetInfo?.budget)
-                                                      .toString(),
+                                              mybudgetmodal?.status == "2"
+                                                  ? "N/A"
+                                                  : '\$ ' +
+                                                      (mybudgetmodal?.budgetInfo
+                                                              ?.budget)
+                                                          .toString(),
                                               style: TextStyle(
                                                 fontSize: 18.sp,
                                                 fontFamily: 'sofi',
@@ -185,25 +188,33 @@ class _ViewBudgetState extends State<ViewBudget> {
                                               height: 1.5.h,
                                             ),
                                             Text(
-                                                mybudgetmodal?.budgetInfo
-                                                    ?.finalCost == "" || mybudgetmodal?.status=="2" ?"N/A":  '\$ ' +
-                                                  (mybudgetmodal?.budgetInfo
-                                                          ?.finalCost)
-                                                      .toString(),
+                                              mybudgetmodal?.budgetInfo
+                                                              ?.finalCost ==
+                                                          "" ||
+                                                      mybudgetmodal?.status ==
+                                                          "2"
+                                                  ? "N/A"
+                                                  : '\$ ' +
+                                                      (mybudgetmodal?.budgetInfo
+                                                              ?.finalCost)
+                                                          .toString(),
                                               style: TextStyle(
                                                 fontSize: 18.sp,
                                                 fontFamily: 'sofi',
                                                 letterSpacing: 1,
-                                                color:mybudgetmodal?.status == "2"?Colors.blue: int.parse((mybudgetmodal
-                                                                ?.budgetInfo
-                                                                ?.budget)
-                                                            .toString()) <
-                                                        int.parse((mybudgetmodal
-                                                                ?.budgetInfo
-                                                                ?.finalCost)
-                                                            .toString())
-                                                    ? Colors.red
-                                                    : Colors.blue,
+                                                color: mybudgetmodal?.status ==
+                                                        "2"
+                                                    ? Colors.blue
+                                                    : int.parse((mybudgetmodal
+                                                                    ?.budgetInfo
+                                                                    ?.budget)
+                                                                .toString()) <
+                                                            int.parse((mybudgetmodal
+                                                                    ?.budgetInfo
+                                                                    ?.finalCost)
+                                                                .toString())
+                                                        ? Colors.red
+                                                        : Colors.blue,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -331,17 +342,13 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                           left:
                                                                               1.w),
                                                                   child: Text(
-                                                                    mybudgetmodal
-                                                                        ?.budgetItems?[index]
-                                                                        .supplierInfo
-                                                                        ?.category==""||mybudgetmodal
-                                                                        ?.budgetItems?[index]
-                                                                        .supplierInfo
-                                                                        ?.category==null?"N/A":mybudgetmodal
-                                                                            ?.budgetItems?[index]
-                                                                            .supplierInfo
-                                                                            ?.category ??
-                                                                        "",
+                                                                    mybudgetmodal?.budgetItems?[index].supplierInfo?.category ==
+                                                                                "" ||
+                                                                            mybudgetmodal?.budgetItems?[index].supplierInfo?.category ==
+                                                                                null
+                                                                        ? "N/A"
+                                                                        : mybudgetmodal?.budgetItems?[index].supplierInfo?.category ??
+                                                                            "",
                                                                     style: TextStyle(
                                                                         color: Colors
                                                                             .black,
@@ -373,17 +380,13 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                           left:
                                                                               1.w),
                                                                   child: Text(
-                                                                    mybudgetmodal
-                                                                        ?.budgetItems?[index]
-                                                                        .supplierInfo
-                                                                        ?.name==""||mybudgetmodal
-                                                                        ?.budgetItems?[index]
-                                                                        .supplierInfo
-                                                                        ?.name==null?"N/A":mybudgetmodal
-                                                                            ?.budgetItems?[index]
-                                                                            .supplierInfo
-                                                                            ?.name ??
-                                                                        "",
+                                                                    mybudgetmodal?.budgetItems?[index].supplierInfo?.name ==
+                                                                                "" ||
+                                                                            mybudgetmodal?.budgetItems?[index].supplierInfo?.name ==
+                                                                                null
+                                                                        ? "N/A"
+                                                                        : mybudgetmodal?.budgetItems?[index].supplierInfo?.name ??
+                                                                            "",
                                                                     style: TextStyle(
                                                                         color: Colors
                                                                             .grey
@@ -409,20 +412,21 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                     left: 1.w),
                                                             width: 55.w,
                                                             child: Text(
-                                                              mybudgetmodal
-                                                                  ?.budgetItems?[
-                                                              index]
-                                                                  .supplierInfo
-                                                                  ?.description==""||mybudgetmodal
-                                                                  ?.budgetItems?[
-                                                              index]
-                                                                  .supplierInfo
-                                                                  ?.description==null?"":mybudgetmodal
-                                                                      ?.budgetItems?[
-                                                                          index]
-                                                                      .supplierInfo
-                                                                      ?.description ??
-                                                                  "",
+                                                              mybudgetmodal?.budgetItems?[index].supplierInfo?.description ==
+                                                                          "" ||
+                                                                      mybudgetmodal
+                                                                              ?.budgetItems?[
+                                                                                  index]
+                                                                              .supplierInfo
+                                                                              ?.description ==
+                                                                          null
+                                                                  ? ""
+                                                                  : mybudgetmodal
+                                                                          ?.budgetItems?[
+                                                                              index]
+                                                                          .supplierInfo
+                                                                          ?.description ??
+                                                                      "",
                                                               maxLines: 2,
                                                               style: TextStyle(
                                                                   color: Colors
@@ -471,21 +475,21 @@ class _ViewBudgetState extends State<ViewBudget> {
                                                                 EdgeInsets.only(
                                                                     left: 1.w),
                                                             child: Text(
-                                                              mybudgetmodal
-                                                                  ?.budgetItems?[
-                                                              index]
-                                                                  .supplierInfo
-                                                                  ?.cost==""||mybudgetmodal
-                                                                  ?.budgetItems?[
-                                                              index]
-                                                                  .supplierInfo
-                                                                  ?.cost==null?"\$ N/A":"\$ " +
-                                                                  (mybudgetmodal
-                                                                          ?.budgetItems?[
-                                                                              index]
-                                                                          .supplierInfo
-                                                                          ?.cost)
-                                                                      .toString(),
+                                                              mybudgetmodal?.budgetItems?[index].supplierInfo?.cost ==
+                                                                          "" ||
+                                                                      mybudgetmodal
+                                                                              ?.budgetItems?[
+                                                                                  index]
+                                                                              .supplierInfo
+                                                                              ?.cost ==
+                                                                          null
+                                                                  ? "\$ N/A"
+                                                                  : "\$ " +
+                                                                      (mybudgetmodal
+                                                                              ?.budgetItems?[index]
+                                                                              .supplierInfo
+                                                                              ?.cost)
+                                                                          .toString(),
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .black
@@ -577,40 +581,43 @@ class _ViewBudgetState extends State<ViewBudget> {
                 SizedBox(
                   height: 2.h,
                 ),
-                TextFormField(
-                  controller: _budget,
-                  decoration: InputDecoration(
-                    hintText: 'Enter total budget',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(90),
+                Form(
+                  key: _formKey,
+                  child: TextFormField(
+                    controller: _budget,
+                    decoration: InputDecoration(
+                      hintText: 'Enter total budget',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(90),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(90),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(90),
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(90),
+                      ),
+                      fillColor: Colors.white,
+                      filled: true,
+                      errorStyle: TextStyle(
+                          fontSize: 12.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 0.7,
+                          fontWeight: FontWeight.bold),
                     ),
-                    disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(90),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(90),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(90),
-                    ),
-                    fillColor: Colors.white,
-                    filled: true,
-                    errorStyle: TextStyle(
-                        fontSize: 12.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 0.7,
-                        fontWeight: FontWeight.bold),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Password';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your Password';
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: 2.h),
                 InkWell(
@@ -646,24 +653,27 @@ class _ViewBudgetState extends State<ViewBudget> {
   }
 
   setbudgetap() {
-    final Map<String, String> data = {};
-    data['budget'] = _budget.text.trim().toString();
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['budget'] = _budget.text.trim().toString();
 
-    checkInternet().then((internet) async {
-      if (internet) {
-        taskprovider().setbudgetapi(data).then((response) async {
-          setbudgetmodal = SetbudgetModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && setbudgetmodal?.status == "1") {
-            print(setbudgetmodal?.message);
-            _budget.text = "";
-            viewbudgetap();
-            Get.back();
-          } else {}
-        });
-      } else {
-        buildErrorDialog(context, 'Error', "Internet Required");
-      }
-    });
+      checkInternet().then((internet) async {
+        if (internet) {
+          taskprovider().setbudgetapi(data).then((response) async {
+            setbudgetmodal =
+                SetbudgetModal.fromJson(json.decode(response.body));
+            if (response.statusCode == 200 && setbudgetmodal?.status == "1") {
+              print(setbudgetmodal?.message);
+              _budget.text = "";
+              viewbudgetap();
+              Get.back();
+            } else {}
+          });
+        } else {
+          buildErrorDialog(context, 'Error', "Internet Required");
+        }
+      });
+    }
   }
 
   removefrombudgetap() {

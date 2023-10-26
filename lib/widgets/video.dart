@@ -26,7 +26,7 @@ class _addVideoState extends State<addVideo> {
       if (_controller.value.isPlaying && _controller.value.isInitialized) {}
     });
     _controller.initialize().then((_) => setState(() {}));
-    _controller.play();
+
     _controller.setVolume(0.0);
     _controller.setLooping(true);
   }

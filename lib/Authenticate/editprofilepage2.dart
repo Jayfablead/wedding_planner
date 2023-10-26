@@ -8,7 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Authenticate/profilePage.dart';
 import 'package:wedding_planner/Modal/UpdateprofileModal.dart';
-import 'package:wedding_planner/Others/NotificationScreen.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -25,12 +24,12 @@ class EditProfile2 extends StatefulWidget {
 
   EditProfile2(
       {super.key,
-        this.image,
-        this.about,
-        this.address,
-        this.phone,
-        this.lname,
-        this.fname});
+      this.image,
+      this.about,
+      this.address,
+      this.phone,
+      this.lname,
+      this.fname});
 
   @override
   State<EditProfile2> createState() => _EditProfile2State();
@@ -51,12 +50,20 @@ class _EditProfile2State extends State<EditProfile2> {
   void initState() {
     // TODO: implement initState
     super.initState();
-  setState(() {
-    _gname.text = widget.fname == '' || widget.fname == null ?'N/A': widget.fname.toString();
-    _bname.text = widget.lname == ''|| widget.lname == null  ?'N/A':widget.lname.toString();
-    _phone.text = widget.phone == '' || widget.phone == null ?'N/A':widget.phone.toString();
-    _address.text = widget.address == '' || widget.address == null ?'N/A':widget.address.toString();
-  });
+    setState(() {
+      _gname.text = widget.fname == '' || widget.fname == null
+          ? 'N/A'
+          : widget.fname.toString();
+      _bname.text = widget.lname == '' || widget.lname == null
+          ? 'N/A'
+          : widget.lname.toString();
+      _phone.text = widget.phone == '' || widget.phone == null
+          ? 'N/A'
+          : widget.phone.toString();
+      _address.text = widget.address == '' || widget.address == null
+          ? 'N/A'
+          : widget.address.toString();
+    });
   }
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -85,11 +92,11 @@ class _EditProfile2State extends State<EditProfile2> {
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
-                        'assets/profile.png',
-                      ),
-                      fit: BoxFit.cover,
-                    )),
+                  image: AssetImage(
+                    'assets/profile.png',
+                  ),
+                  fit: BoxFit.cover,
+                )),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
                   child: Stack(
@@ -122,7 +129,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                             IconButton(onPressed: (){}, icon: Icon(null))
+                              IconButton(onPressed: () {}, icon: Icon(null))
                             ],
                           ),
                         ],
@@ -147,23 +154,23 @@ class _EditProfile2State extends State<EditProfile2> {
                               borderRadius: BorderRadius.circular(90),
                               child: _pickedFile != null
                                   ? Image.file(
-                                _pickedFile!,
-                                fit: BoxFit.cover,
-                              )
-                                  : CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl: widget.image.toString(),
-                                progressIndicatorBuilder:
-                                    (context, url, progress) =>
-                                    CircularProgressIndicator(),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                      'assets/user.png',
+                                      _pickedFile!,
                                       fit: BoxFit.cover,
-                                      height: 14.5.h,
-                                      width: 31.w,
+                                    )
+                                  : CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl: widget.image.toString(),
+                                      progressIndicatorBuilder:
+                                          (context, url, progress) =>
+                                              CircularProgressIndicator(),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset(
+                                        'assets/user.png',
+                                        fit: BoxFit.cover,
+                                        height: 14.5.h,
+                                        width: 31.w,
+                                      ),
                                     ),
-                              ),
                             ),
                           ),
                         ),
@@ -176,7 +183,7 @@ class _EditProfile2State extends State<EditProfile2> {
                             width: 11.w,
                             decoration: BoxDecoration(
                                 border:
-                                Border.all(color: Colors.white, width: 3),
+                                    Border.all(color: Colors.white, width: 3),
                                 shape: BoxShape.circle,
                                 color: Colors.black),
                             child: GestureDetector(
@@ -208,13 +215,13 @@ class _EditProfile2State extends State<EditProfile2> {
                                   children: [
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   "Groom Name : ",
@@ -229,7 +236,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                 SizedBox(height: 1.h),
                                                 Container(
                                                   alignment:
-                                                  Alignment.centerLeft,
+                                                      Alignment.centerLeft,
                                                   padding: EdgeInsets.only(
                                                       left: 3.w),
                                                   width: 45.w,
@@ -237,8 +244,8 @@ class _EditProfile2State extends State<EditProfile2> {
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        10),
+                                                        BorderRadius.circular(
+                                                            10),
                                                     border: Border.all(
                                                         color: Colors
                                                             .grey.shade300),
@@ -249,7 +256,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                         offset: Offset(0, 3.5),
                                                         // Offset of the shadow (x, y)
                                                         blurRadius:
-                                                        8, // Spread of the shadow
+                                                            8, // Spread of the shadow
                                                         // How much the shadow extends
                                                       ),
                                                     ],
@@ -261,9 +268,9 @@ class _EditProfile2State extends State<EditProfile2> {
                                                       letterSpacing: 1,
                                                       fontFamily: 'Sofi',
                                                       fontWeight:
-                                                      FontWeight.w700,
+                                                          FontWeight.w700,
                                                       color:
-                                                      Colors.grey.shade700,
+                                                          Colors.grey.shade700,
                                                     ),
                                                     validator: (value) {
                                                       if (value!.isEmpty) {
@@ -293,7 +300,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                             ),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   "Bride Name : ",
@@ -308,7 +315,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                 SizedBox(height: 1.h),
                                                 Container(
                                                   alignment:
-                                                  Alignment.centerLeft,
+                                                      Alignment.centerLeft,
                                                   padding: EdgeInsets.only(
                                                       left: 3.w),
                                                   width: 45.w,
@@ -316,8 +323,8 @@ class _EditProfile2State extends State<EditProfile2> {
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        10),
+                                                        BorderRadius.circular(
+                                                            10),
                                                     border: Border.all(
                                                         color: Colors
                                                             .grey.shade300),
@@ -328,7 +335,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                         offset: Offset(0, 3.5),
                                                         // Offset of the shadow (x, y)
                                                         blurRadius:
-                                                        8, // Spread of the shadow
+                                                            8, // Spread of the shadow
                                                         // How much the shadow extends
                                                       ),
                                                     ],
@@ -340,9 +347,9 @@ class _EditProfile2State extends State<EditProfile2> {
                                                       letterSpacing: 1,
                                                       fontFamily: 'Sofi',
                                                       fontWeight:
-                                                      FontWeight.w700,
+                                                          FontWeight.w700,
                                                       color:
-                                                      Colors.grey.shade700,
+                                                          Colors.grey.shade700,
                                                     ),
                                                     validator: (value) {
                                                       if (value!.isEmpty) {
@@ -375,7 +382,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                         ),
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               "Phone : ",
@@ -391,16 +398,16 @@ class _EditProfile2State extends State<EditProfile2> {
                                             Container(
                                               alignment: Alignment.centerLeft,
                                               padding:
-                                              EdgeInsets.only(left: 3.w),
+                                                  EdgeInsets.only(left: 3.w),
                                               width: 95.w,
                                               height: 6.h,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius:
-                                                BorderRadius.circular(10),
+                                                    BorderRadius.circular(10),
                                                 border: Border.all(
                                                     color:
-                                                    Colors.grey.shade300),
+                                                        Colors.grey.shade300),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     color: Colors.black26,
@@ -408,14 +415,15 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     offset: Offset(0, 3.5),
                                                     // Offset of the shadow (x, y)
                                                     blurRadius:
-                                                    8, // Spread of the shadow
+                                                        8, // Spread of the shadow
                                                     // How much the shadow extends
                                                   ),
                                                 ],
                                               ),
                                               child: TextFormField(
                                                 controller: _phone,
-                                                keyboardType: TextInputType.phone,
+                                                keyboardType:
+                                                    TextInputType.phone,
                                                 style: TextStyle(
                                                   fontSize: 15.sp,
                                                   letterSpacing: 1,
@@ -451,7 +459,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                         ),
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               "Address : ",
@@ -475,10 +483,10 @@ class _EditProfile2State extends State<EditProfile2> {
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius:
-                                                BorderRadius.circular(10),
+                                                    BorderRadius.circular(10),
                                                 border: Border.all(
                                                     color:
-                                                    Colors.grey.shade300),
+                                                        Colors.grey.shade300),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     color: Colors.black26,
@@ -486,14 +494,14 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     offset: Offset(0, 3.5),
                                                     // Offset of the shadow (x, y)
                                                     blurRadius:
-                                                    8, // Spread of the shadow
+                                                        8, // Spread of the shadow
                                                     // How much the shadow extends
                                                   ),
                                                 ],
                                               ),
                                               child: TextFormField(
                                                 cursorColor:
-                                                Colors.grey.shade500,
+                                                    Colors.grey.shade500,
                                                 controller: _address,
                                                 maxLines: 2,
                                                 style: TextStyle(
@@ -620,8 +628,8 @@ class _EditProfile2State extends State<EditProfile2> {
                                               decoration: BoxDecoration(
                                                   color: Colors.blue,
                                                   borderRadius:
-                                                  BorderRadius.circular(
-                                                      90)),
+                                                      BorderRadius.circular(
+                                                          90)),
                                               child: Text(
                                                 'Update Profile',
                                                 style: TextStyle(
@@ -692,7 +700,7 @@ class _EditProfile2State extends State<EditProfile2> {
                 context,
                 "Success",
                 updateprofile?.message ?? "",
-                    () {
+                () {
                   print("ghfjhbfds");
                   Get.to(MyProfile());
                 },
