@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Chat/msg2.dart';
@@ -258,6 +259,52 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                                   ],
                                 ),
                               )),
+                        ),SizedBox(
+                          height: 1.h,
+                        ),
+                        Container(
+                          width: 110.w,
+                          height: 10.h,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  12.0), // Control the border radius here
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Booking Comment : ",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "sofi",
+                                      fontSize: 16.sp,
+                                    ),
+                                  ),
+                                  SizedBox(height: 1.5.h),
+                                  Text(
+                                    booksuccess?.bookingInfo?.bComment == '' ||
+                                        booksuccess
+                                            ?.bookingInfo?.bComment ==
+                                            null
+                                        ? 'N/A'
+                                        : booksuccess?.bookingInfo?.bComment ??
+                                        '',
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(0.7),
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "sofi",
+                                      fontSize: 16.sp,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 1.h,
@@ -302,6 +349,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             ),
                           ),
                         ),
+
                         SizedBox(
                           height: 2.h,
                         ),
@@ -446,101 +494,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                         SizedBox(
                           height: 1.h,
                         ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   crossAxisAlignment: CrossAxisAlignment.center,
-                        //   children: [
-                        //     // Container(
-                        //     //   width: 50.w,
-                        //     //   height: 7.5.h,
-                        //     //   decoration: BoxDecoration(
-                        //     //       borderRadius: BorderRadius.circular(12),
-                        //     //       ),
-                        //     //   child: Card(shape: RoundedRectangleBorder(
-                        //     //     borderRadius: BorderRadius.circular(
-                        //     //         12.0), // Control the border radius here
-                        //     //   ),
-                        //     //     child: Padding(
-                        //     //       padding: EdgeInsets.symmetric(horizontal: 2.w),
-                        //     //       child: Row(
-                        //     //         children: [
-                        //     //           Icon(
-                        //     //             Icons.attach_money_rounded,
-                        //     //             color: Colors.blue,
-                        //     //             size: 16.sp,
-                        //     //           ),
-                        //     //           SizedBox(
-                        //     //             width: 4.w,
-                        //     //           ),
-                        //     //           Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
-                        //     //             children: [
-                        //     //               Text(
-                        //     //                 "Starting Cost :",
-                        //     //                 style: TextStyle(
-                        //     //                   color: Colors.black,
-                        //     //                   fontWeight: FontWeight.w600,
-                        //     //                   fontFamily: "sofi",
-                        //     //                   fontSize: 16.sp,letterSpacing: 1
-                        //     //                 ),
-                        //     //               ),SizedBox(height: 0.5.h),
-                        //     //               Text(
-                        //     //                 "\$ 1,50,000",
-                        //     //                 style: TextStyle(
-                        //     //                     color: Colors.black.withOpacity(0.7),
-                        //     //                     fontWeight: FontWeight.w600,
-                        //     //                     fontFamily: "sofi",
-                        //     //                     fontSize: 16.sp,letterSpacing: 1
-                        //     //                 ),
-                        //     //               ),
-                        //     //             ],
-                        //     //           )
-                        //     //         ],
-                        //     //       ),
-                        //     //     ),
-                        //     //   ),
-                        //     // ),
-                        //     // InkWell(
-                        //     //   onTap: () {},
-                        //     //   child: Container(
-                        //     //     width: 45.w,
-                        //     //     height: 7.5.h,
-                        //     //     decoration: BoxDecoration(
-                        //     //       borderRadius: BorderRadius.circular(12),
-                        //     //     ),
-                        //     //     child: Card(
-                        //     //       shape: RoundedRectangleBorder(
-                        //     //         borderRadius: BorderRadius.circular(
-                        //     //             12.0), // Control the border radius here
-                        //     //       ),
-                        //     //       child: Padding(
-                        //     //         padding:
-                        //     //             EdgeInsets.symmetric(horizontal: 2.w),
-                        //     //         child: Row(
-                        //     //           children: [
-                        //     //             Icon(
-                        //     //               Icons.chat,
-                        //     //               color: Colors.blue,
-                        //     //               size: 21.sp,
-                        //     //             ),
-                        //     //             SizedBox(width: 2.w),
-                        //     //             Text(
-                        //     //               "Chat Now",
-                        //     //               style: TextStyle(
-                        //     //                   color:
-                        //     //                       Colors.black.withOpacity(0.7),
-                        //     //                   fontWeight: FontWeight.w600,
-                        //     //                   fontFamily: "sofi",
-                        //     //                   fontSize: 17.sp,
-                        //     //                   letterSpacing: 1),
-                        //     //             ),
-                        //     //           ],
-                        //     //         ),
-                        //     //       ),
-                        //     //     ),
-                        //     //   ),
-                        //     // ),
-                        //   ],
-                        // ),
+
                         SizedBox(height: 2.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -548,6 +502,13 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                           children: [
                             InkWell(
                               onTap: () {
+                                Fluttertoast.showToast(
+                                    msg: "Booked Successfully",
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.blue,
+                                    textColor: Colors.white,
+                                    fontSize: 11.sp);
                                 Get.offAll(
                                   YellowHomeScreen(sele: 2),
                                 );

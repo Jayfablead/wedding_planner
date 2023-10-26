@@ -362,7 +362,7 @@ class _GuestListState extends State<GuestList> {
                       children: [
                         InkWell(
                           onTap: () {
-                            myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No table added by venue") :   Get.to(Addguestlist(
+                            myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No Tables Added by Your Venue") :   Get.to(Addguestlist(
                               sel1: sel1,
                             ));
                           },
@@ -639,7 +639,7 @@ class _GuestListState extends State<GuestList> {
                       children: [
                         InkWell(
                           onTap: () {
-                         myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No table added by venue") :  Get.to(Addguestlist(
+                         myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No Tables Added by Your Venue") :  Get.to(Addguestlist(
                               sel1: sel1,
                             ));
                           },

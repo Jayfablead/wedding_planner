@@ -32,7 +32,7 @@ class QouteDetailsModal {
     status = json['status'];
     message = json['message'];
     details =
-        json['details'] != null ? new Details.fromJson(json['details']) : null;
+    json['details'] != null ? new Details.fromJson(json['details']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -50,28 +50,33 @@ class Details {
   String? uid;
   String? sId;
   String? cId;
+  String? qComment;
   String? resDetails;
   String? totalAmount;
   String? depositAmount;
   String? status;
   String? bookingAmt;
   Supplier? supplier;
+  String? isBooked;
 
   Details(
       {this.uid,
-      this.sId,
-      this.cId,
-      this.resDetails,
-      this.totalAmount,
-      this.depositAmount,
-      this.status,
-      this.bookingAmt,
-      this.supplier});
+        this.sId,
+        this.cId,
+        this.qComment,
+        this.resDetails,
+        this.totalAmount,
+        this.depositAmount,
+        this.status,
+        this.bookingAmt,
+        this.supplier,
+        this.isBooked});
 
   Details.fromJson(Map<String, dynamic> json) {
     uid = json['uid'];
     sId = json['s_id'];
     cId = json['c_id'];
+    qComment = json['q_comment'];
     resDetails = json['res_details'];
     totalAmount = json['total_amount'];
     depositAmount = json['deposit_amount'];
@@ -80,6 +85,7 @@ class Details {
     supplier = json['supplier'] != null
         ? new Supplier.fromJson(json['supplier'])
         : null;
+    isBooked = json['is_booked'];
   }
 
   Map<String, dynamic> toJson() {
@@ -87,6 +93,7 @@ class Details {
     data['uid'] = this.uid;
     data['s_id'] = this.sId;
     data['c_id'] = this.cId;
+    data['q_comment'] = this.qComment;
     data['res_details'] = this.resDetails;
     data['total_amount'] = this.totalAmount;
     data['deposit_amount'] = this.depositAmount;
@@ -95,6 +102,7 @@ class Details {
     if (this.supplier != null) {
       data['supplier'] = this.supplier!.toJson();
     }
+    data['is_booked'] = this.isBooked;
     return data;
   }
 }
@@ -109,11 +117,11 @@ class Supplier {
 
   Supplier(
       {this.id,
-      this.profile,
-      this.email,
-      this.name,
-      this.categoryName,
-      this.description});
+        this.profile,
+        this.email,
+        this.name,
+        this.categoryName,
+        this.description});
 
   Supplier.fromJson(Map<String, dynamic> json) {
     id = json['id'];

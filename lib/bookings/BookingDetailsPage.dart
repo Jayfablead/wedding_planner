@@ -258,6 +258,52 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   ],
                                 ),
                               )),
+                        ),SizedBox(
+                          height: 1.h,
+                        ),
+                        Container(
+                          width: 110.w,
+                          height: 10.h,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  12.0), // Control the border radius here
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Booking Comment : ",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "sofi",
+                                      fontSize: 16.sp,
+                                    ),
+                                  ),
+                                  SizedBox(height: 1.5.h),
+                                  Text(
+                                    booksuccess?.bookingInfo?.bComment == '' ||
+                                        booksuccess
+                                            ?.bookingInfo?.bComment ==
+                                            null
+                                        ? 'N/A'
+                                        : booksuccess?.bookingInfo?.bComment ??
+                                        '',
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(0.7),
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "sofi",
+                                      fontSize: 16.sp,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 1.h,

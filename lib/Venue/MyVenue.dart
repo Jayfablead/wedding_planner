@@ -332,7 +332,7 @@ class _VenueViewState extends State<VenueView> {
                                                     (context, url, error) =>
                                                     Image.asset(
                                                       'assets/user.png',
-                                                      color: Colors.white,
+                                                      color: Colors.black,
                                                     ),
                                               ),
                                             ),

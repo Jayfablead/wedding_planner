@@ -70,7 +70,6 @@ class MoreInfo {
   String? uid;
   String? vName;
   String? address;
-  List<String>? photos;
   String? vCapacity;
   String? vDetails;
   String? createdAt;
@@ -80,7 +79,6 @@ class MoreInfo {
         this.uid,
         this.vName,
         this.address,
-        this.photos,
         this.vCapacity,
         this.vDetails,
         this.createdAt});
@@ -90,7 +88,6 @@ class MoreInfo {
     uid = json['uid'];
     vName = json['v_name'];
     address = json['address'];
-    photos = json['photos'].cast<String>();
     vCapacity = json['v_capacity'];
     vDetails = json['v_details'];
     createdAt = json['created_at'];
@@ -102,7 +99,6 @@ class MoreInfo {
     data['uid'] = this.uid;
     data['v_name'] = this.vName;
     data['address'] = this.address;
-    data['photos'] = this.photos;
     data['v_capacity'] = this.vCapacity;
     data['v_details'] = this.vDetails;
     data['created_at'] = this.createdAt;
