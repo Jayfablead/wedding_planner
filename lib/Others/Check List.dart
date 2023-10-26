@@ -1757,33 +1757,6 @@ class _Check_listState extends State<Check_list> {
                             SizedBox(height: 1.h),
                             Row(
                               children: [
-                                Icon(Icons.calendar_month,color: Colors.blue,), SizedBox(width: 2.w),
-                                Text(
-                                  "End date : ",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      height: 0.17.h,
-                                      letterSpacing: 1),
-                                ), SizedBox(width: 2.w),
-                                Text(
-                                  sel1 == 0? (checklistmodal?.all?[var1!].endTime).toString(): sel1 ==1?(checklistmodal?.todayAlerts?[var1!].endTime).toString(): sel1 == 2 ? (checklistmodal?.completed?[var1!].endTime).toString() :(checklistmodal?.pending?[var1!].endTime).toString(),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black.withOpacity(0.7),
-                                      fontWeight: FontWeight.bold,
-                                      height: 0.17.h,
-                                      letterSpacing: 1),
-                                ),
-                              ],
-                            ), SizedBox(height: 1.h),
-                            Row(
-                              children: [
                                 Icon(Icons.info,color: Colors.blue,), SizedBox(width: 2.w),
                                 Text(
                                   "Status : ",
