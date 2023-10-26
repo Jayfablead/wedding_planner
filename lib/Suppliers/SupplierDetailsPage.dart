@@ -15,7 +15,7 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
-
+import 'package:wedding_planner/main.dart';
 import '../Modal/SupplierdetailModal.dart';
 
 class SupplierfourScreen extends StatefulWidget {
@@ -23,13 +23,13 @@ class SupplierfourScreen extends StatefulWidget {
   String? catid;
   String? service;
 
-  SupplierfourScreen({super.key, this.suppid, this.catid, this.service});
+  SupplierfourScreen({super.key, required this.suppid,required this.catid, required this.service});
 
   @override
   State<SupplierfourScreen> createState() => _SupplierfourScreenState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class _SupplierfourScreenState extends State<SupplierfourScreen> {
   bool isLoading = true;
@@ -132,24 +132,26 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           Container(
                             height: 33.h,
                             width: MediaQuery.of(context).size.width,
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  supplierdetailmodal?.supplierInfo?.profile ??
-                                      "",
-                              imageBuilder: (context, imageProvider) =>
-                                  Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.sp),
-                                  image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
+                            child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                   
+                                        "",
+                                imageBuilder: (context, imageProvider) =>
+                                    Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.sp),
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
+                                placeholder: (context, url) =>
+                                    Center(child: CircularProgressIndicator()),
+                                errorWidget: (context, url, error) =>
+                                    Image.asset('assets/defimg.jpg'),
                               ),
-                              placeholder: (context, url) =>
-                                  Center(child: CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  Image.asset('assets/defimg.jpg'),
                             ),
                           ),
                           SizedBox(
@@ -224,7 +226,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           ),
                         ],
                       ),
-                      Row(
+                      supplierdetailmodal?.supplierInfo?.isBooked == '0'
+                          ?Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           supplierdetailmodal?.supplierInfo?.inBudget == '0'
@@ -328,9 +331,9 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                   ),
                                 ),
                         ],
-                      ),
+                      ):Container(),
                       SizedBox(
-                        height: 3.h,
+                        height: 2.h,
                       ),
                       supplierdetailmodal?.supplierInfo?.isBooked == '0'
                           ? Center(

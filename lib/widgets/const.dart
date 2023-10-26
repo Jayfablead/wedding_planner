@@ -14,6 +14,7 @@ import 'package:wedding_planner/Modal/FullchatModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
 import 'package:wedding_planner/Modal/MybudgetModal.dart';
 import 'package:wedding_planner/Modal/NotificationModal.dart';
+import 'package:wedding_planner/Modal/QuataionRejectModal.dart';
 import 'package:wedding_planner/Modal/ReadnewmsgModal.dart';
 import 'package:wedding_planner/Modal/ReadnotiModal.dart';
 import 'package:wedding_planner/Modal/RemovefrombudgetModal.dart';
@@ -113,6 +114,8 @@ BookinglistModal? bookinglistmodal;
 CategoryWiseSuppliersModal? categorywisesuppliersmodal;
 AddmeetingModal? addmeetingmodal;
 Invoicelistmodal? invoicelistmodal;
+QuataationRejectModal? quatationreject;
+
 
 
 

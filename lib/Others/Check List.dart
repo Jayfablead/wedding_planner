@@ -216,7 +216,7 @@ class _Check_listState extends State<Check_list> {
                                           alignment: Alignment.center,
                                           height: 60.h,
                                           child: Text(
-                                            "No Tasks Added",
+                                            "No Checklist Added",
                                             style: TextStyle(
                                               fontSize: 15.sp,
                                               fontFamily: 'sofi',
@@ -381,7 +381,7 @@ class _Check_listState extends State<Check_list> {
                                               alignment: Alignment.center,
                                               height: 60.h,
                                               child: Text(
-                                                "No Tasks Added",
+                                                "No Checklist Added",
                                                 style: TextStyle(
                                                   fontSize: 15.sp,
                                                   fontFamily: 'sofi',
@@ -526,7 +526,7 @@ class _Check_listState extends State<Check_list> {
                                                   alignment: Alignment.center,
                                                   height: 60.h,
                                                   child: Text(
-                                                    "No Tasks Added",
+                                                    "No Checklist Added",
                                                     style: TextStyle(
                                                       fontSize: 15.sp,
                                                       fontFamily: 'sofi',
@@ -649,7 +649,7 @@ class _Check_listState extends State<Check_list> {
                                                   alignment: Alignment.center,
                                                   height: 60.h,
                                                   child: Text(
-                                                    "No Tasks Added",
+                                                    "No Checklist Added",
                                                     style: TextStyle(
                                                       fontSize: 15.sp,
                                                       fontFamily: 'sofi',
@@ -792,7 +792,7 @@ class _Check_listState extends State<Check_list> {
                                       alignment: Alignment.center,
                                       height: 60.h,
                                       child: Text(
-                                        "No Tasks Added",
+                                        "No Checklist Found",
                                         style: TextStyle(
                                           fontSize: 15.sp,
                                           fontFamily: 'sofi',
@@ -1305,6 +1305,7 @@ class _Check_listState extends State<Check_list> {
           child: Stack(
             children: [
               Container(
+                width: 80.w,
                   // height: 70.h,
                   child: Padding(
                       padding:
@@ -1337,16 +1338,16 @@ class _Check_listState extends State<Check_list> {
                                 ),
                               ),
                               SizedBox(height: 3.h),
-                              Text(
-                                'Title :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
+                              // Text(
+                              //   'Title :',
+                              //   style: TextStyle(
+                              //       fontSize: 14.sp,
+                              //       fontFamily: 'sofi',
+                              //       color: Colors.black,
+                              //       fontWeight: FontWeight.bold,
+                              //       letterSpacing: 1),
+                              // ),
+                              // SizedBox(height: 1.h),
                               TextFormField(
                                 controller: _title,
                                 onChanged: (value) {},
@@ -1390,18 +1391,19 @@ class _Check_listState extends State<Check_list> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SizedBox(height: 2.h),
-                                  Text(
-                                    'Description :',
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1),
-                                  ),
+                                  // SizedBox(height: 2.h),
+                                  // Text(
+                                  //   'Description :',
+                                  //   style: TextStyle(
+                                  //       fontSize: 14.sp,
+                                  //       fontFamily: 'sofi',
+                                  //       color: Colors.black,
+                                  //       fontWeight: FontWeight.bold,
+                                  //       letterSpacing: 1),
+                                  // ),
                                   SizedBox(height: 1.h),
                                   TextFormField(
+                                    maxLines: 4,
                                     controller: _desc,
                                     onChanged: (value) {},
                                     validator: (value) {
@@ -1492,153 +1494,168 @@ class _Check_listState extends State<Check_list> {
                                 ],
                               ),
                               SizedBox(height: 2.h),
-                              Text(
-                                'Start Date :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
-                              TextFormField(
-                                readOnly: true,
-                                controller: _start,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter check start date';
-                                  }
-                                  return null;
-                                },
-                                onTap: () async {
-                                  DateTime? picked = await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    // Initial date, can be the current date or a specific date
-                                    firstDate: DateTime(2000),
-                                    // The first date that can be selected
-                                    lastDate: DateTime(
-                                        2101), // The last date that can be selected
-                                  );
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: 35.w,
+                                    child: TextFormField(
+                                      readOnly: true,
+                                      controller: _start,
+                                      onChanged: (value) {},
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter check start date';
+                                        }
+                                        return null;
+                                      },
+                                      onTap: () async {
+                                        DateTime? picked = await showDatePicker(
+                                          context: context,
+                                          initialDate: DateTime.now(),
+                                          // Initial date, can be the current date or a specific date
+                                          firstDate: DateTime(2000),
+                                          // The first date that can be selected
+                                          lastDate: DateTime(
+                                              2101), // The last date that can be selected
+                                        );
 
-                                  if (picked != null) {
-                                    setState(() {
-                                      print(picked);
-                                      String formattedDate =
-                                          DateFormat('yyyy-MM-dd')
-                                              .format(picked);
-                                      _start.text = formattedDate
-                                          .toString(); // Store the selected date in a variable
-                                    });
-                                  }
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.calendar_month,
-                                      color: Colors.blue),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  hintText: 'Start date',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
-                              ),
-                              SizedBox(height: 2.h),
-                              Text(
-                                'End Date :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
-                              TextFormField(
-                                readOnly: true,
-                                controller: _date,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter check end date';
-                                  }
-                                  return null;
-                                },
-                                onTap: () async {
-                                  DateTime? picked = await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    // Initial date, can be the current date or a specific date
-                                    firstDate: DateTime(2000),
-                                    // The first date that can be selected
-                                    lastDate: DateTime(
-                                        2101), // The last date that can be selected
-                                  );
+                                        if (picked != null) {
+                                          setState(() {
+                                            print(picked);
+                                            String formattedDate =
+                                            DateFormat('yyyy-MM-dd')
+                                                .format(picked);
+                                            _start.text = formattedDate
+                                                .toString(); // Store the selected date in a variable
+                                          });
+                                        }
+                                      },
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.67),
+                                          fontFamily: 'Meta1'),
+                                      decoration: InputDecoration(
+                                        prefixIcon: Icon(Icons.calendar_month,
+                                            color: Colors.blue),
+                                        border: InputBorder.none,
+                                        fillColor: Colors.white,
+                                        filled: true,
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        disabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        errorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        hintText: 'Start date',
+                                        hintStyle: TextStyle(
+                                            color: Colors.black.withOpacity(0.67),
+                                            fontFamily: 'Meta1'),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 3.w,
+                                  ),
+                                  SizedBox(
+                                    width: 35.w,
+                                    child: TextFormField(
+                                      readOnly: true,
+                                      controller: _date,
+                                      onChanged: (value) {},
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter check end date';
+                                        }
+                                        return null;
+                                      },
+                                      onTap: () async {
+                                        DateTime? picked = await showDatePicker(
+                                          context: context,
+                                          initialDate: DateTime.now(),
+                                          // Initial date, can be the current date or a specific date
+                                          firstDate: DateTime(2000),
+                                          // The first date that can be selected
+                                          lastDate: DateTime(
+                                              2101), // The last date that can be selected
+                                        );
 
-                                  if (picked != null) {
-                                    setState(() {
-                                      print(picked);
-                                      String formattedDate =
-                                          DateFormat('yyyy-MM-dd')
-                                              .format(picked);
-                                      _date.text = formattedDate
-                                          .toString(); // Store the selected date in a variable
-                                    });
-                                  }
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.calendar_month,
-                                      color: Colors.blue),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  hintText: 'End date',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
+                                        if (picked != null) {
+                                          setState(() {
+                                            print(picked);
+                                            String formattedDate =
+                                            DateFormat('yyyy-MM-dd')
+                                                .format(picked);
+                                            _date.text = formattedDate
+                                                .toString(); // Store the selected date in a variable
+                                          });
+                                        }
+                                      },
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.67),
+                                          fontFamily: 'Meta1'),
+                                      decoration: InputDecoration(
+                                        prefixIcon: Icon(Icons.calendar_month,
+                                            color: Colors.blue),
+                                        border: InputBorder.none,
+                                        fillColor: Colors.white,
+                                        filled: true,
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        disabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        errorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(25),
+                                            borderSide:
+                                            BorderSide(color: Colors.white)),
+                                        hintText: 'End date',
+                                        hintStyle: TextStyle(
+                                            color: Colors.black.withOpacity(0.67),
+                                            fontFamily: 'Meta1'),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
+                              // Text(
+                              //   'Start Date :',
+                              //   style: TextStyle(
+                              //       fontSize: 14.sp,
+                              //       fontFamily: 'sofi',
+                              //       color: Colors.black,
+                              //       fontWeight: FontWeight.bold,
+                              //       letterSpacing: 1),
+                              // ),
+                              // SizedBox(height: 1.h),
+
+
+                              // Text(
+                              //   'End Date :',
+                              //   style: TextStyle(
+                              //       fontSize: 14.sp,
+                              //       fontFamily: 'sofi',
+                              //       color: Colors.black,
+                              //       fontWeight: FontWeight.bold,
+                              //       letterSpacing: 1),
+                              // ),
+                              // SizedBox(height: 1.h),
+
                               SizedBox(height: 3.h),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,

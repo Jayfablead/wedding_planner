@@ -353,7 +353,7 @@ class _Msg2State extends State<Msg2> {
                                                                             errorWidget: (context, url, error) =>
                                                                                 Image.asset(
                                                                               'assets/user.png',
-                                                                              color: Colors.white,
+                                                                              color: Colors.black,
                                                                             ),
                                                                           ),
                                                                         ),
@@ -414,7 +414,7 @@ class _Msg2State extends State<Msg2> {
                                                                                     progressIndicatorBuilder: (context, url, progress) => CircularProgressIndicator(),
                                                                                     errorWidget: (context, url, error) => Image.asset(
                                                                                       'assets/user.png',
-                                                                                      color: Colors.white,
+                                                                                      color: Colors.black,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -510,6 +510,7 @@ class _Msg2State extends State<Msg2> {
                                                                             errorWidget: (context, url, error) =>
                                                                                 Image.asset(
                                                                               'assets/user.png',
+                                                                                  color: Colors.black,
                                                                             ),
                                                                           ),
                                                                         ),

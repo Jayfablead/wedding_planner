@@ -530,187 +530,206 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                     color: Colors.white),
                                                 child: Stack(
                                                   children: [
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        SizedBox(
-                                                          height: 0.20.h,
-                                                        ),
-                                                        Container(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  2.w),
-                                                          width: 85.w,
-                                                          margin: EdgeInsets
-                                                              .symmetric(
-                                                                  horizontal:
-                                                                      1.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        15),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        Get.to(
+                                                            SupplierfourScreen(
+                                                              suppid: homemodal
+                                                                  ?.suppliers?[
+                                                              index]
+                                                                  .id,
+                                                              catid: homemodal
+                                                                  ?.suppliers?[
+                                                              index]
+                                                                  .categoryId,
+                                                              service: homemodal
+                                                                  ?.suppliers?[
+                                                              index]
+                                                                  .service,
+                                                            ));
+                                                      },
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 0.20.h,
+                                                          ),
+                                                          Container(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    2.w),
+                                                            width: 85.w,
+                                                            margin: EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        1.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
                                                                           15),
-                                                              child:
-                                                                  CachedNetworkImage(
-                                                                width: 80.w,
-                                                                height: 20.h,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                                imageUrl: homemodal
-                                                                        ?.suppliers?[
-                                                                            index]
-                                                                        .profilePath ??
-                                                                    "",
-                                                                progressIndicatorBuilder: (context,
-                                                                        url,
-                                                                        progress) =>
-                                                                    Center(
-                                                                        child:
-                                                                            CircularProgressIndicator()),
-                                                                errorWidget: (context,
-                                                                        url,
-                                                                        error) =>
-                                                                    Image.asset(
-                                                                  'assets/defimg.jpg',
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            15),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  width: 80.w,
                                                                   height: 20.h,
                                                                   fit: BoxFit
                                                                       .cover,
+                                                                  imageUrl: homemodal
+                                                                          ?.suppliers?[
+                                                                              index]
+                                                                          .profilePath ??
+                                                                      "",
+                                                                  progressIndicatorBuilder: (context,
+                                                                          url,
+                                                                          progress) =>
+                                                                      Center(
+                                                                          child:
+                                                                              CircularProgressIndicator()),
+                                                                  errorWidget: (context,
+                                                                          url,
+                                                                          error) =>
+                                                                      Image.asset(
+                                                                    'assets/defimg.jpg',
+                                                                    height: 20.h,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 1.5.h,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  left: 3.w),
-                                                          child: Text(
-                                                              homemodal?.suppliers?[index].name ==
-                                                                          '' ||
-                                                                      homemodal
-                                                                              ?.suppliers?[
-                                                                                  index]
-                                                                              .name ==
-                                                                          null
-                                                                  ? 'N/A'
-                                                                  : homemodal
-                                                                          ?.suppliers?[
-                                                                              index]
-                                                                          .name ??
-                                                                      "",
-                                                              style: TextStyle(
-                                                                  fontSize: 14.5
-                                                                      .sp,
-                                                                  fontFamily:
-                                                                      'sofi',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  letterSpacing:
-                                                                      1)),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 1.5.h,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  left: 3.w),
-                                                          child: Text(
-                                                              homemodal
-                                                                      ?.suppliers?[
-                                                                          index]
-                                                                      .service ??
-                                                                  "",
-                                                              maxLines: 2,
-                                                              overflow: TextOverflow
-                                                                  .ellipsis,
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      14.5.sp,
-                                                                  fontFamily:
-                                                                      'sofi',
-                                                                  color: Colors
-                                                                      .black54,
-                                                                  letterSpacing:
-                                                                      1)),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 4.h,
-                                                        ),
-                                                        Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            GestureDetector(
-                                                              onTap: () {
-                                                                Get.to(
-                                                                    SupplierfourScreen(
-                                                                  suppid: homemodal
-                                                                      ?.suppliers?[
-                                                                          index]
-                                                                      .id,
-                                                                  catid: homemodal
-                                                                      ?.suppliers?[
-                                                                          index]
-                                                                      .categoryId,
-                                                                  service: homemodal
-                                                                      ?.suppliers?[
-                                                                          index]
-                                                                      .service,
-                                                                ));
-                                                              },
-                                                              child: Container(
-                                                                width: 50.w,
-                                                                padding: EdgeInsets
-                                                                    .symmetric(
-                                                                        vertical:
-                                                                            1.h,
-                                                                        horizontal:
-                                                                            5.w),
-                                                                alignment:
-                                                                    Alignment
-                                                                        .center,
-                                                                decoration: BoxDecoration(
+                                                          SizedBox(
+                                                            height: 1.5.h,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: 3.w),
+                                                            child: Text(
+                                                                homemodal?.suppliers?[index].name ==
+                                                                            '' ||
+                                                                        homemodal
+                                                                                ?.suppliers?[
+                                                                                    index]
+                                                                                .name ==
+                                                                            null
+                                                                    ? 'N/A'
+                                                                    : homemodal
+                                                                            ?.suppliers?[
+                                                                                index]
+                                                                            .name ??
+                                                                        "",
+                                                                style: TextStyle(
+                                                                    fontSize: 14.5
+                                                                        .sp,
+                                                                    fontFamily:
+                                                                        'sofi',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
                                                                     color: Colors
-                                                                        .blue,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            25)),
-                                                                child: Center(
-                                                                  child: Text(
-                                                                      "View Detail",
-                                                                      style: TextStyle(
-                                                                          fontSize: 17
-                                                                              .sp,
-                                                                          fontFamily:
-                                                                              'sofi',
-                                                                          color: Colors
-                                                                              .white,
-                                                                          letterSpacing:
-                                                                              1)),
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        1)),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 1.5.h,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: 3.w),
+                                                            child: Text(
+                                                                homemodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .service ??
+                                                                    "",
+                                                                maxLines: 2,
+                                                                overflow: TextOverflow
+                                                                    .ellipsis,
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        14.5.sp,
+                                                                    fontFamily:
+                                                                        'sofi',
+                                                                    color: Colors
+                                                                        .black54,
+                                                                    letterSpacing:
+                                                                        1)),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 4.h,
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              GestureDetector(
+                                                                onTap: () {
+                                                                  Get.to(
+                                                                      SupplierfourScreen(
+                                                                    suppid: homemodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .id,
+                                                                    catid: homemodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .categoryId,
+                                                                    service: homemodal
+                                                                        ?.suppliers?[
+                                                                            index]
+                                                                        .service,
+                                                                  ));
+                                                                },
+                                                                child: Container(
+                                                                  width: 50.w,
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          vertical:
+                                                                              1.h,
+                                                                          horizontal:
+                                                                              5.w),
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  decoration: BoxDecoration(
+                                                                      color: Colors
+                                                                          .blue,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              25)),
+                                                                  child: Center(
+                                                                    child: Text(
+                                                                        "View Detail",
+                                                                        style: TextStyle(
+                                                                            fontSize: 17
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color: Colors
+                                                                                .white,
+                                                                            letterSpacing:
+                                                                                1)),
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        SizedBox(
-                                                          height: 1.5.h,
-                                                        ),
-                                                      ],
+                                                            ],
+                                                          ),
+                                                          SizedBox(
+                                                            height: 1.5.h,
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                     Positioned(
                                                         left: 64.w,

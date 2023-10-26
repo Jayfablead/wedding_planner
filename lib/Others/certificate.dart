@@ -180,7 +180,15 @@ class _CertificateState extends State<Certificate> {
                       SizedBox(height: 2.h),
                     ]),
               ),
-              Column(
+              documentmodal?.data?.allDocandCerti?.length==0 ?Text(
+                'No supplier certificate available.',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12.5.sp,
+                    fontFamily: "sofi",
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w600),
+              ) :Column(
                 children: [
                   for (int index = 0;
                       index <
@@ -230,6 +238,8 @@ class _CertificateState extends State<Certificate> {
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 12.5.sp,
+                                          fontFamily: "sofi",
+                                          letterSpacing: 1,
                                           fontWeight: FontWeight.w600),
                                     ),
                                   ),
@@ -249,6 +259,8 @@ class _CertificateState extends State<Certificate> {
                                         color: Colors.black.withOpacity(0.7),
                                         overflow: TextOverflow.ellipsis,
                                         fontSize: 15.sp,
+                                        fontFamily: "sofi",
+                                        letterSpacing: 1,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),

@@ -4,15 +4,12 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import 'package:wedding_planner/Modal/AddpostModal.dart';
 import 'package:wedding_planner/Modal/CategoriesModal.dart';
-import 'package:wedding_planner/Others/NotificationScreen.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
@@ -139,6 +136,8 @@ class _PostPageState extends State<PostPage> {
     ViewBoardApi();
   }
 
+  int? sel2;
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -159,7 +158,6 @@ class _PostPageState extends State<PostPage> {
                       SizedBox(
                         height: 4.h,
                       ),
-
                       header(
                           text: "",
                           callback1: () {
@@ -186,7 +184,6 @@ class _PostPageState extends State<PostPage> {
                                     await ImagePicker().pickMultiImage();
                                 if (resultList != null) {
                                   setState(() {
-                                    EasyLoading.show(status: 'Posting');
                                     selectedImages = resultList!
                                         .map((XFile file) => File(file.path))
                                         .toList();
@@ -228,6 +225,7 @@ class _PostPageState extends State<PostPage> {
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 1.h),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               height: 4.5.h,
@@ -236,49 +234,98 @@ class _PostPageState extends State<PostPage> {
                                   scrollDirection: Axis.horizontal,
                                   itemCount: categoriesmodal?.services?.length,
                                   itemBuilder: (context, index) {
-                                    return InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          sel1 = index;
-                                        });
-                                        ViewBoardApi();
-
-                                      },
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 1.h, horizontal: 5.w),
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            color: sel1 == index
-                                                ? Colors.blue
-                                                : Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(25)),
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 2.w),
-                                        child: Text(
-                                            categoriesmodal?.services?[index]
-                                                .categoryName==""||categoriesmodal?.services?[index]
-                                                .categoryName==null?"N/A":categoriesmodal?.services?[index]
-                                                    .categoryName ??
-                                                '',
-                                            style: TextStyle(
-                                                fontSize: 14.sp,
-                                                fontFamily: 'sofi',
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              sel1 = index;
+                                            });
+                                            ViewBoardApi();
+                                          },
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 1.h, horizontal: 5.w),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
                                                 color: sel1 == index
-                                                    ? Colors.white
-                                                    : Colors.blue,
-                                                fontWeight: FontWeight.bold,
-                                                letterSpacing: 1)),
-                                      ),
+                                                    ? Colors.blue
+                                                    : Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(25)),
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 2.w),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                    categoriesmodal
+                                                                    ?.services?[
+                                                                        index]
+                                                                    .supplier
+                                                                    ?.name ==
+                                                                "" ||
+                                                            categoriesmodal
+                                                                    ?.services?[
+                                                                        index]
+                                                                    .supplier
+                                                                    ?.name ==
+                                                                null
+                                                        ? "N/A"
+                                                        : categoriesmodal
+                                                                ?.services?[
+                                                                    index]
+                                                                .supplier
+                                                                ?.name ??
+                                                            '',
+                                                    style: TextStyle(
+                                                        fontSize: 14.sp,
+                                                        fontFamily: 'sofi',
+                                                        color: sel1 == index
+                                                            ? Colors.white
+                                                            : Colors.blue,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        letterSpacing: 1)),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     );
                                   }),
                             ),
                             SizedBox(
                               height: 1.5.h,
                             ),
+                            Container(
+                              padding: EdgeInsets.only(left: 3.w),
+                              child: Text(
+                                  categoriesmodal?.services?[sel1]
+                                                  .categoryName ==
+                                              "" ||
+                                          categoriesmodal?.services?[sel1]
+                                                  .categoryName ==
+                                              null
+                                      ? "N/A"
+                                      : categoriesmodal
+                                              ?.services?[sel1].categoryName ??
+                                          '',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontFamily: 'sofi',
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1)),
+                            ),
                             SizedBox(
-                              height: 72.h,
+                              height: 1.5.h,
+                            ),
+                            SizedBox(
+                              height: 58.h,
                               child: viewpostmodal?.boards?.length == 0 ||
                                       viewpostmodal?.boards?.length == null
                                   ? Container(
@@ -384,8 +431,10 @@ class _PostPageState extends State<PostPage> {
   // }
 
   addpostapi() {
+    EasyLoading.show(status: 'Posting');
     final Map<String, String> data = {};
     data['category_id'] = categoriesmodal?.services?[sel1].categoryId ?? '';
+    data['supplier_id'] = categoriesmodal?.services?[sel1].supplier?.id ?? '';
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
@@ -400,6 +449,8 @@ class _PostPageState extends State<PostPage> {
             });
           } else {
             setState(() {
+              print('nop');
+              EasyLoading.showError('Canceled');
               isLoad = false;
             });
           }
@@ -444,7 +495,8 @@ class _PostPageState extends State<PostPage> {
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider()
-            .Viewboardsapi(categoriesmodal?.services?[sel1].categoryId ?? '')
+            .Viewboardsapi(categoriesmodal?.services?[sel1].supplier?.id ?? "",
+                categoriesmodal?.services?[sel1].categoryId ?? '')
             .then((response) async {
           viewpostmodal = ViewPostModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && viewpostmodal?.status == "1") {

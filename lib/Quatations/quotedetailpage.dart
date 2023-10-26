@@ -11,6 +11,7 @@ import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wedding_planner/Chat/msg2.dart';
 import 'package:wedding_planner/Modal/QouteDetailsModal.dart';
+import 'package:wedding_planner/Modal/QuataionRejectModal.dart';
 import 'package:wedding_planner/Modal/QuotationAcceptModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/bookings/BookNowDetails.dart';
@@ -313,11 +314,26 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   quotedetailsmodal?.details?.status == '0'
                                       ? InkWell(
                                           onTap: () {
-                                            QuoteAcceptApi();
+                                            Get.to(BookNowDetails(
+                                              sername: quotedetailsmodal
+                                                  ?.details
+                                                  ?.supplier
+                                                  ?.categoryName,
+                                              sid: quotedetailsmodal
+                                                  ?.details?.sId,
+                                              photo: quotedetailsmodal
+                                                  ?.details?.supplier?.profile,
+                                              cid: quotedetailsmodal
+                                                  ?.details?.cId,
+                                              email: quotedetailsmodal
+                                                  ?.details?.supplier?.email,
+                                              name: quotedetailsmodal
+                                                  ?.details?.supplier?.name,
+                                            ));
                                           },
                                           child: Container(
                                             height: 5.5.h,
-                                            width: 40.w,
+                                            width: 55.w,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                               border: Border.all(
@@ -333,120 +349,118 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Icon(Icons.check_circle,
-                                                    color: Colors.blue),
+                                                    color: Colors.green),
                                                 SizedBox(width: 2.w),
                                                 Text(
-                                                  "Accept",
+                                                  "Accept & Book Now",
                                                   style: TextStyle(
                                                       fontSize: 13.sp,
-                                                      color: Colors.blue,
+                                                      color: Colors.green,
+                                                      letterSpacing: 0.5,
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      fontFamily: 'get'),
+                                                      fontFamily: 'sofi'),
                                                 ),
                                               ],
                                             )),
                                           ),
                                         )
-                                      : InkWell(
-                                          onTap: () {},
+                                      : quotedetailsmodal?.details?.status ==
+                                              '1'
+                                          ? InkWell(
+                                              onTap: () {},
+                                              child: Container(
+                                                height: 5.5.h,
+                                                width: 75.w,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  border: Border.all(
+                                                      color: Colors.green),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.sp),
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  "Booked",
+                                                  style: TextStyle(
+                                                      fontSize: 13.sp,
+                                                      color: Colors.green,
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontFamily: 'sofi'),
+                                                )),
+                                              ),
+                                            )
+                                          : InkWell(
+                                              onTap: () {},
+                                              child: Container(
+                                                height: 5.5.h,
+                                                width: 75.w,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  border: Border.all(
+                                                      color: Colors.red),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.sp),
+                                                ),
+                                                child: Center(
+                                                    child: Text(
+                                                  "Rejected",
+                                                  style: TextStyle(
+                                                      fontSize: 13.sp,
+                                                      color: Colors.red,
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontFamily: 'sofi'),
+                                                )),
+                                              ),
+                                            ),
+                                  quotedetailsmodal?.details?.status == '0'
+                                      ? InkWell(
+                                          onTap: () {
+                                            delet();
+                                          },
                                           child: Container(
                                             height: 5.5.h,
-                                            width: 40.w,
+                                            width: 30.w,
                                             decoration: BoxDecoration(
-                                              color: Colors.blue,
+                                              color: Colors.white,
                                               border: Border.all(
-                                                  color: Colors.blue),
+                                                  color: Colors.white),
                                               borderRadius:
                                                   BorderRadius.circular(25.sp),
                                             ),
                                             child: Center(
-                                                child: Text(
-                                              "Accepted",
-                                              style: TextStyle(
-                                                  fontSize: 13.sp,
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'get'),
+                                                child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                    CupertinoIcons
+                                                        .xmark_circle_fill,
+                                                    color: Colors.red),
+                                                SizedBox(width: 2.w),
+                                                Text(
+                                                  "Reject",
+                                                  style: TextStyle(
+                                                      fontSize: 13.sp,
+                                                      color: Colors.red,
+                                                      letterSpacing: 0.5,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontFamily: 'sofi'),
+                                                ),
+                                              ],
                                             )),
                                           ),
-                                        ),
-                                  InkWell(
-                                    onTap: () {
-                                      Get.to(BookNowDetails(
-                                        sername: quotedetailsmodal
-                                            ?.details?.supplier?.categoryName,
-                                        sid: quotedetailsmodal?.details?.sId,
-                                        photo: quotedetailsmodal
-                                            ?.details?.supplier?.profile,
-                                        cid: quotedetailsmodal?.details?.cId,
-                                        email: quotedetailsmodal
-                                            ?.details?.supplier?.email,
-                                        name: quotedetailsmodal
-                                            ?.details?.supplier?.name,
-                                      ));
-                                    },
-                                    child: Container(
-                                      height: 5.5.h,
-                                      width: 40.w,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        border: Border.all(color: Colors.white),
-                                        borderRadius:
-                                            BorderRadius.circular(25.sp),
-                                      ),
-                                      child: Center(
-                                          child: Text(
-                                        "Book Now",
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            color: Colors.blue,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'get'),
-                                      )),
-                                    ),
-                                  )
-                                  // InkWell(
-                                  //   onTap: () {
-                                  //     Get.to(Msg2(
-                                  //       img: quotedetailsmodal
-                                  //           ?.details?.supplier?.profile,
-                                  //       name: quotedetailsmodal
-                                  //           ?.details?.supplier?.name,
-                                  //       id: quotedetailsmodal
-                                  //           ?.details?.supplier?.id,
-                                  //     ));
-                                  //   },
-                                  //   child: Container(
-                                  //     height: 5.5.h,
-                                  //     width: 42.w,
-                                  //     decoration: BoxDecoration(
-                                  //       color: Colors.white,
-                                  //       borderRadius:
-                                  //           BorderRadius.circular(25.sp),
-                                  //     ),
-                                  //     child: Center(
-                                  //         child: Row(
-                                  //       crossAxisAlignment:
-                                  //           CrossAxisAlignment.center,
-                                  //       mainAxisAlignment:
-                                  //           MainAxisAlignment.center,
-                                  //       children: [
-                                  //         Icon(Icons.message,
-                                  //             color: Colors.blue),
-                                  //         SizedBox(width: 2.w),
-                                  //         Text(
-                                  //           "Chat now",
-                                  //           style: TextStyle(
-                                  //               fontSize: 13.sp,
-                                  //               color: Colors.blue,
-                                  //               fontWeight: FontWeight.bold,
-                                  //               fontFamily: 'get'),
-                                  //         ),
-                                  //       ],
-                                  //     )),
-                                  //   ),
-                                  // ),
+                                        )
+                                      : Container(),
                                 ],
                               ),
                               SizedBox(height: 3.5.h),
@@ -613,6 +627,38 @@ class _quotedetailpageState extends State<quotedetailpage> {
                 backgroundColor: Colors.blue,
                 textColor: Colors.white,
                 fontSize: 11.sp);
+
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  QuoteRejectedApi() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider()
+            .QuoteRejectApi(widget.Qid.toString())
+            .then((response) async {
+          quatationreject =
+              QuataationRejectModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && quatationreject?.status == "1") {
+            Fluttertoast.showToast(
+                msg: "Response Rejected",
+                toastLength: Toast.LENGTH_SHORT,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.blue,
+                textColor: Colors.white,
+                fontSize: 11.sp);
             QuoteApi();
             setState(() {
               isLoading = false;
@@ -627,5 +673,121 @@ class _quotedetailpageState extends State<quotedetailpage> {
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
+  }
+
+  delet() {
+    showModalBottomSheet(
+      backgroundColor: Colors.grey.shade100,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(15),
+          topLeft: Radius.circular(15),
+        ),
+      ),
+      context: context,
+      builder: (context) {
+        return Stack(
+          children: [
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(height: 3.h),
+                    Text(
+                      'Are You Sure You Want to Reject This Quotation ?',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'sofi',
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          height: 0.17.h,
+                          letterSpacing: 1),
+                    ),
+                    SizedBox(height: 3.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Get.back();
+                                  QuoteRejectedApi();
+                                },
+                                child: Container(
+                                  width: 30.w,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(2.5.w),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.circular(25)),
+                                  child: Text(
+                                    'Yes',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Container(
+                                  width: 30.w,
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(2.5.w),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.white,
+                                      ),
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(25)),
+                                  child: Text(
+                                    'No',
+                                    style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 2.h),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+                right: 0,
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(CupertinoIcons.clear_circled_solid)))
+          ],
+        );
+      },
+    );
   }
 }

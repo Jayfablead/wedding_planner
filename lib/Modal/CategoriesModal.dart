@@ -33,13 +33,15 @@ class Services {
   String? categoryName;
   String? categoryDesc;
   String? createdAt;
+  Supplier? supplier;
 
   Services(
       {this.categoryId,
-      this.categoryIcon,
-      this.categoryName,
-      this.categoryDesc,
-      this.createdAt});
+        this.categoryIcon,
+        this.categoryName,
+        this.categoryDesc,
+        this.createdAt,
+        this.supplier});
 
   Services.fromJson(Map<String, dynamic> json) {
     categoryId = json['category_id'];
@@ -47,6 +49,9 @@ class Services {
     categoryName = json['category_name'];
     categoryDesc = json['category_desc'];
     createdAt = json['created_at'];
+    supplier = json['supplier'] != null
+        ? new Supplier.fromJson(json['supplier'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -56,6 +61,28 @@ class Services {
     data['category_name'] = this.categoryName;
     data['category_desc'] = this.categoryDesc;
     data['created_at'] = this.createdAt;
+    if (this.supplier != null) {
+      data['supplier'] = this.supplier!.toJson();
+    }
+    return data;
+  }
+}
+
+class Supplier {
+  String? id;
+  String? name;
+
+  Supplier({this.id, this.name});
+
+  Supplier.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
     return data;
   }
 }

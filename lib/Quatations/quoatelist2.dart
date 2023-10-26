@@ -5,10 +5,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/Modal/QuoteListModal.dart';
 import 'package:wedding_planner/Modal/SearchQuotationModal.dart';
 import 'package:wedding_planner/Quatations/quotedetailpage.dart';
-import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
+
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
@@ -1105,7 +1107,7 @@ class _QuoateList2State extends State<QuoateList2> {
   }
 
   searchquotation1(String value) {
-    print("dkjsadska");
+
     final Map<String, String> data = {};
     data['search'] = _search.text.toString();
     print(data);
@@ -1114,14 +1116,11 @@ class _QuoateList2State extends State<QuoateList2> {
         taskprovider().searchquotationapi(data).then((response) async {
           searchquotationmodal =
               SearchQuotationModal.fromJson(json.decode(response.body));
-          print(searchquotationmodal?.status);
-          print(searchquotationmodal?.all?.responsed?.length);
-          print(searchquotationmodal?.all?.responsed?[0].name);
+
 
           if (response.statusCode == 200 &&
               searchquotationmodal?.status == "1") {
-            print(searchquotationmodal?.message);
-            print(searchquotationmodal?.all?.responsed?.length);
+
 
             setState(() {
               searchquotationmodal;
