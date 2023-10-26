@@ -164,61 +164,69 @@ class _PostPageState extends State<PostPage> {
                             scaffoldKey.currentState?.openDrawer();
                           }),
                       SizedBox(height: 1.h),
-                      Padding(
-                        padding: EdgeInsets.only(left: 1.w),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Add More Posts',
-                              style: TextStyle(
-                                  fontFamily: 'sofi',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15.sp,
-                                  letterSpacing: 1),
-                            ),
-                            GestureDetector(
-                              onTap: () async {
-                                resultList =
-                                    await ImagePicker().pickMultiImage();
-                                if (resultList != null) {
-                                  setState(() {
-                                    selectedImages = resultList!
-                                        .map((XFile file) => File(file.path))
-                                        .toList();
-                                  });
-                                }
-                                addpostapi();
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(90)),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 1.h, horizontal: 4.w),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.add,
-                                      size: 2.4.h,
-                                      color: Colors.white,
+                      categoriesmodal?.services == null
+                          ? Container()
+                          : Padding(
+                              padding: EdgeInsets.only(left: 1.w),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Add More Posts',
+                                    style: TextStyle(
+                                        fontFamily: 'sofi',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15.sp,
+                                        letterSpacing: 1),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () async {
+                                      resultList =
+                                          await ImagePicker().pickMultiImage();
+                                      if (resultList != null) {
+                                        setState(() {
+                                          selectedImages = resultList!
+                                              .map((XFile file) =>
+                                                  File(file.path))
+                                              .toList();
+                                        });
+                                      }
+                                      addpostapi();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(90)),
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 1.h, horizontal: 4.w),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.add,
+                                            size: 2.4.h,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(width: 1.w),
+                                          Text(
+                                            "Add",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.white),
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(width: 1.w),
-                                    Text(
-                                      "Add",
-                                      style: TextStyle(
-                                          fontSize: 15.sp, color: Colors.white),
-                                    )
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
                       SizedBox(
                         height: 0.5.h,
                       ),
@@ -227,125 +235,123 @@ class _PostPageState extends State<PostPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            categoriesmodal?.services == null?Container(): Container(
-                              height: 4.5.h,
-                              width: MediaQuery.of(context).size.width,
-                              child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: categoriesmodal?.services?.length,
-                                  itemBuilder: (context, index) {
-                                    return Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            setState(() {
-                                              sel1 = index;
-                                            });
-                                            ViewBoardApi();
-                                          },
-                                          child: Container(
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: 1.h, horizontal: 5.w),
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                color: sel1 == index
-                                                    ? Colors.blue
-                                                    : Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(25)),
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 2.w),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                    categoriesmodal
-                                                                    ?.services?[
-                                                                        index]
-                                                                    .supplier
-                                                                    ?.name ==
-                                                                "" ||
-                                                            categoriesmodal
-                                                                    ?.services?[
-                                                                        index]
-                                                                    .supplier
-                                                                    ?.name ==
-                                                                null
-                                                        ? "N/A"
-                                                        : categoriesmodal
-                                                                ?.services?[
-                                                                    index]
-                                                                .supplier
-                                                                ?.name ??
-                                                            '',
-                                                    style: TextStyle(
-                                                        fontSize: 14.sp,
-                                                        fontFamily: 'sofi',
-                                                        color: sel1 == index
-                                                            ? Colors.white
-                                                            : Colors.blue,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        letterSpacing: 1)),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    );
-                                  }),
-                            ),
+                            categoriesmodal?.services == null
+                                ? Container()
+                                : Container(
+                                    height: 4.5.h,
+                                    width: MediaQuery.of(context).size.width,
+                                    child: ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount:
+                                            categoriesmodal?.services?.length,
+                                        itemBuilder: (context, index) {
+                                          return Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  setState(() {
+                                                    sel1 = index;
+                                                  });
+                                                  ViewBoardApi();
+                                                },
+                                                child: Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 1.h,
+                                                      horizontal: 5.w),
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      color: sel1 == index
+                                                          ? Colors.blue
+                                                          : Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25)),
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal: 2.w),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                          categoriesmodal
+                                                                          ?.services?[
+                                                                              index]
+                                                                          .supplier
+                                                                          ?.name ==
+                                                                      "" ||
+                                                                  categoriesmodal
+                                                                          ?.services?[
+                                                                              index]
+                                                                          .supplier
+                                                                          ?.name ==
+                                                                      null
+                                                              ? "N/A"
+                                                              : categoriesmodal
+                                                                      ?.services?[
+                                                                          index]
+                                                                      .supplier
+                                                                      ?.name ??
+                                                                  '',
+                                                          style: TextStyle(
+                                                              fontSize: 14.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color: sel1 ==
+                                                                      index
+                                                                  ? Colors.white
+                                                                  : Colors.blue,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing:
+                                                                  1)),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        }),
+                                  ),
                             SizedBox(
                               height: 1.5.h,
                             ),
-                            categoriesmodal?.services == null?Container():Container(
-                              padding: EdgeInsets.only(left: 3.w),
-                              child: Text(
-                                  categoriesmodal?.services?[sel1]
-                                                  .categoryName ==
-                                              "" ||
-                                          categoriesmodal?.services?[sel1]
-                                                  .categoryName ==
-                                              null
-                                      ? "N/A"
-                                      : categoriesmodal
-                                              ?.services?[sel1].categoryName ??
-                                          '',
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 1)),
-                            ),
+                            categoriesmodal?.services == null
+                                ? Container()
+                                : Container(
+                                    padding: EdgeInsets.only(left: 3.w),
+                                    child: Text(
+                                        categoriesmodal?.services?[sel1]
+                                                        .categoryName ==
+                                                    "" ||
+                                                categoriesmodal?.services?[sel1]
+                                                        .categoryName ==
+                                                    null
+                                            ? "N/A"
+                                            : categoriesmodal?.services?[sel1]
+                                                    .categoryName ??
+                                                '',
+                                        style: TextStyle(
+                                            fontSize: 14.sp,
+                                            fontFamily: 'sofi',
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: 1)),
+                                  ),
                             SizedBox(
                               height: 1.5.h,
                             ),
                             SizedBox(
                               height: 58.h,
-                              child:  categoriesmodal?.services == null?Container(
-                                height: 80.h,
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'No Suppliers Available',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      color: Colors.black,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ):  viewpostmodal?.boards?.length == 0 ||
-                                      viewpostmodal?.boards?.length == null
+                              child: categoriesmodal?.services == null
                                   ? Container(
-                                      height: 72.h,
+                                      height: 100.h,
                                       alignment: Alignment.center,
                                       child: Text(
-                                          'No Photos Available for this Category',
+                                        'No Suppliers Available',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 15.sp,
@@ -355,47 +361,64 @@ class _PostPageState extends State<PostPage> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     )
-                                  : StaggeredGridView.countBuilder(
-                                      padding: EdgeInsets.zero,
+                                  : viewpostmodal?.boards?.length == 0 ||
+                                          viewpostmodal?.boards?.length == null
+                                      ? Container(
+                                          height: 72.h,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            'No Photos Available for this Category',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black,
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        )
+                                      : StaggeredGridView.countBuilder(
+                                          padding: EdgeInsets.zero,
 
-                                      crossAxisCount: 2,
-                                      // Number of columns
-                                      itemCount: viewpostmodal?.boards?.length,
-                                      // Total number of items
-                                      itemBuilder:
-                                          (BuildContext context, int index) =>
+                                          crossAxisCount: 2,
+                                          // Number of columns
+                                          itemCount:
+                                              viewpostmodal?.boards?.length,
+                                          // Total number of items
+                                          itemBuilder: (BuildContext context,
+                                                  int index) =>
                                               Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: CachedNetworkImage(
-                                            fit: BoxFit.cover,
-                                            imageUrl: (viewpostmodal
-                                                    ?.boards?[index].image)
-                                                .toString(),
-                                            progressIndicatorBuilder: (context,
-                                                    url, progress) =>
-                                                Center(
-                                                    child:
-                                                        CircularProgressIndicator()),
-                                            errorWidget:
-                                                (context, url, error) =>
-                                                    Image.asset(
-                                              'assets/user.png',
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: (viewpostmodal
+                                                        ?.boards?[index].image)
+                                                    .toString(),
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
+                                                    Center(
+                                                        child:
+                                                            CircularProgressIndicator()),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
+                                                  'assets/user.png',
+                                                ),
+                                              ),
                                             ),
                                           ),
+                                          staggeredTileBuilder: (int index) =>
+                                              new StaggeredTile.fit(
+                                            1,
+                                          ),
+                                          mainAxisSpacing: 8.0,
+                                          crossAxisSpacing: 8.0,
                                         ),
-                                      ),
-                                      staggeredTileBuilder: (int index) =>
-                                          new StaggeredTile.fit(
-                                        1,
-                                      ),
-                                      mainAxisSpacing: 8.0,
-                                      crossAxisSpacing: 8.0,
-                                    ),
                             ),
                             SizedBox(
                               height: 3.h,
