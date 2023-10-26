@@ -140,8 +140,11 @@ class _QuoateList2State extends State<QuoateList2> {
                       SizedBox(height: 2.h),
 
                       _search.text == ''
-                          ? SizedBox(height: 5.h,
-                            child: ListView( padding: EdgeInsets.zero,scrollDirection: Axis.horizontal,
+                          ? SizedBox(
+                              height: 5.h,
+                              child: ListView(
+                                padding: EdgeInsets.zero,
+                                scrollDirection: Axis.horizontal,
                                 children: [
                                   InkWell(
                                     onTap: () {
@@ -200,7 +203,8 @@ class _QuoateList2State extends State<QuoateList2> {
                                               fontWeight: FontWeight.bold,
                                               letterSpacing: 1)),
                                     ),
-                                  ),  InkWell(
+                                  ),
+                                  InkWell(
                                     onTap: () {
                                       setState(() {
                                         sel1 = 3;
@@ -260,7 +264,7 @@ class _QuoateList2State extends State<QuoateList2> {
                                   ),
                                 ],
                               ),
-                          )
+                            )
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -566,812 +570,758 @@ class _QuoateList2State extends State<QuoateList2> {
                                           },
                                           padding: EdgeInsets.zero,
                                         )
-                                  : sel1 == 2 ?quotelistmodal?.all?.responsed?.length ==
-                                              0 ||
-                                          quotelistmodal
-                                                  ?.all?.responsed?.length ==
-                                              null
-                                      ? Center(
-                                          child: Text(
-                                            'No Responses got',
-                                            style: TextStyle(
-                                                fontFamily: 'sofi',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 17.sp,
-                                                letterSpacing: 1),
-                                          ),
-                                        )
-                                      : ListView.builder(
-                                          itemCount: quotelistmodal
-                                              ?.all?.responsed?.length,
-                                          itemBuilder: (context, index) {
-                                            return Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 1.h, bottom: 1.h),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: Colors.black26,
-                                                        // Color of the shadow
-                                                        offset: Offset(0, 1.5),
-                                                        // Offset of the shadow (x, y)
-                                                        blurRadius:
-                                                            8, // Spread of the shadow
-                                                        // How much the shadow extends
-                                                      ),
-                                                    ],
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 1.h),
-                                                alignment: Alignment.center,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 1.w),
-                                                      height: 8.h,
-                                                      width: 17.w,
-                                                      child: ClipRRect(
+                                  : sel1 == 2
+                                      ? quotelistmodal?.all?.responsed
+                                                      ?.length ==
+                                                  0 ||
+                                              quotelistmodal?.all?.responsed
+                                                      ?.length ==
+                                                  null
+                                          ? Center(
+                                              child: Text(
+                                                'No Responses got',
+                                                style: TextStyle(
+                                                    fontFamily: 'sofi',
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 17.sp,
+                                                    letterSpacing: 1),
+                                              ),
+                                            )
+                                          : ListView.builder(
+                                              itemCount: quotelistmodal
+                                                  ?.all?.responsed?.length,
+                                              itemBuilder: (context, index) {
+                                                return Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 1.h, bottom: 1.h),
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            color:
+                                                                Colors.black26,
+                                                            // Color of the shadow
+                                                            offset:
+                                                                Offset(0, 1.5),
+                                                            // Offset of the shadow (x, y)
+                                                            blurRadius:
+                                                                8, // Spread of the shadow
+                                                            // How much the shadow extends
+                                                          ),
+                                                        ],
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(90),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fit: BoxFit.cover,
-                                                          imageUrl: quotelistmodal
-                                                                  ?.all
-                                                                  ?.responsed?[
-                                                                      index]
-                                                                  .profile ??
-                                                              '',
-                                                          progressIndicatorBuilder:
-                                                              (context, url,
-                                                                      progress) =>
-                                                                  CircularProgressIndicator(),
-                                                          errorWidget: (context,
-                                                                  url, error) =>
-                                                              Image.asset(
-                                                            'assets/user.png',
-                                                            color: Colors.black,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 4.w,
-                                                    ),
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
+                                                                .circular(10)),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 1.h),
+                                                    alignment: Alignment.center,
+                                                    child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
                                                               .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
                                                       children: [
                                                         Container(
-                                                          width: 68.w,
-                                                          child: Row(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                quotelistmodal?.all?.responsed?[index].categoryName ==
-                                                                            '' ||
-                                                                        quotelistmodal?.all?.responsed?[index].categoryName ==
-                                                                            null
-                                                                    ? 'N/A'
-                                                                    : quotelistmodal
-                                                                            ?.all
-                                                                            ?.responsed?[index]
-                                                                            .categoryName ??
-                                                                        '',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        17.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    letterSpacing:
-                                                                        1,
-                                                                    fontFamily:
-                                                                        'sofi',
-                                                                    color: Colors
-                                                                        .black),
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      1.w),
+                                                          height: 8.h,
+                                                          width: 17.w,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        90),
+                                                            child:
+                                                                CachedNetworkImage(
+                                                              fit: BoxFit.cover,
+                                                              imageUrl: quotelistmodal
+                                                                      ?.all
+                                                                      ?.responsed?[
+                                                                          index]
+                                                                      .profile ??
+                                                                  '',
+                                                              progressIndicatorBuilder:
+                                                                  (context, url,
+                                                                          progress) =>
+                                                                      CircularProgressIndicator(),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  Image.asset(
+                                                                'assets/user.png',
+                                                                color: Colors
+                                                                    .black,
                                                               ),
-                                                              Text(
-                                                                quotelistmodal?.all?.responsed?[index].createdAt ==
-                                                                            '' ||
-                                                                        quotelistmodal?.all?.responsed?[index].createdAt ==
-                                                                            null
-                                                                    ? 'N/A'
-                                                                    : quotelistmodal
-                                                                            ?.all
-                                                                            ?.responsed?[index]
-                                                                            .createdAt ??
-                                                                        '',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        11.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'sofi',
-                                                                    color: Colors
-                                                                        .black
-                                                                        .withOpacity(
-                                                                            0.5)),
-                                                              ),
-                                                            ],
+                                                            ),
                                                           ),
                                                         ),
-                                                        SizedBox(height: 0.8.h),
                                                         SizedBox(
-                                                          width: 66.w,
-                                                          child: Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              SizedBox(
-                                                                width: 52.w,
-                                                                child: Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      quotelistmodal?.all?.responsed?[index].name == '' ||
-                                                                              quotelistmodal?.all?.responsed?[index].name ==
-                                                                                  null
-                                                                          ? 'N/A'
-                                                                          : quotelistmodal?.all?.responsed?[index].name ??
-                                                                              '',
-                                                                      maxLines:
-                                                                          2,
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            14.sp,
+                                                          width: 4.w,
+                                                        ),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Container(
+                                                              width: 68.w,
+                                                              child: Row(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(
+                                                                    quotelistmodal?.all?.responsed?[index].categoryName ==
+                                                                                '' ||
+                                                                            quotelistmodal?.all?.responsed?[index].categoryName ==
+                                                                                null
+                                                                        ? 'N/A'
+                                                                        : quotelistmodal?.all?.responsed?[index].categoryName ??
+                                                                            '',
+                                                                    style: TextStyle(
+                                                                        fontSize: 17
+                                                                            .sp,
                                                                         fontWeight:
-                                                                            FontWeight.bold,
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        letterSpacing:
+                                                                            1,
+                                                                        fontFamily:
+                                                                            'sofi',
+                                                                        color: Colors
+                                                                            .black),
+                                                                  ),
+                                                                  Text(
+                                                                    quotelistmodal?.all?.responsed?[index].createdAt ==
+                                                                                '' ||
+                                                                            quotelistmodal?.all?.responsed?[index].createdAt ==
+                                                                                null
+                                                                        ? 'N/A'
+                                                                        : quotelistmodal?.all?.responsed?[index].createdAt ??
+                                                                            '',
+                                                                    style: TextStyle(
+                                                                        fontSize: 11
+                                                                            .sp,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
                                                                         fontFamily:
                                                                             'sofi',
                                                                         color: Colors
                                                                             .black
-                                                                            .withOpacity(0.7),
-                                                                      ),
-                                                                    ),
-                                                                    SizedBox(
-                                                                        height:
-                                                                            0.8.h),
-                                                                    Text(
-                                                                      quotelistmodal?.all?.responsed?[index].description == '' ||
-                                                                              quotelistmodal?.all?.responsed?[index].description ==
-                                                                                  null
-                                                                          ? 'N/A'
-                                                                          : quotelistmodal?.all?.responsed?[index].description ??
-                                                                              '',
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                      maxLines:
-                                                                          1,
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            13.sp,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                        fontFamily:
-                                                                            'sofi',
-                                                                        color: Colors
-                                                                            .black
-                                                                            .withOpacity(0.5),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
+                                                                            .withOpacity(0.5)),
+                                                                  ),
+                                                                ],
                                                               ),
-                                                              InkWell(
-                                                                onTap: () {
-                                                                  print(
-                                                                      'right');
-                                                                  Get.to(
-                                                                      quotedetailpage(
-                                                                    Qid: quotelistmodal
-                                                                        ?.all
-                                                                        ?.responsed?[
-                                                                            index]
-                                                                        .quotationId,
-                                                                  ));
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  padding:
-                                                                      EdgeInsets
+                                                            ),
+                                                            SizedBox(
+                                                                height: 0.8.h),
+                                                            SizedBox(
+                                                              width: 66.w,
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  SizedBox(
+                                                                    width: 52.w,
+                                                                    child:
+                                                                        Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Text(
+                                                                          quotelistmodal?.all?.responsed?[index].name == '' || quotelistmodal?.all?.responsed?[index].name == null
+                                                                              ? 'N/A'
+                                                                              : quotelistmodal?.all?.responsed?[index].name ?? '',
+                                                                          maxLines:
+                                                                              2,
+                                                                          style:
+                                                                              TextStyle(
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black.withOpacity(0.7),
+                                                                          ),
+                                                                        ),
+                                                                        SizedBox(
+                                                                            height:
+                                                                                0.8.h),
+                                                                        Text(
+                                                                          quotelistmodal?.all?.responsed?[index].description == '' || quotelistmodal?.all?.responsed?[index].description == null
+                                                                              ? 'N/A'
+                                                                              : quotelistmodal?.all?.responsed?[index].description ?? '',
+                                                                          overflow:
+                                                                              TextOverflow.ellipsis,
+                                                                          maxLines:
+                                                                              1,
+                                                                          style:
+                                                                              TextStyle(
+                                                                            fontSize:
+                                                                                13.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black.withOpacity(0.5),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  InkWell(
+                                                                    onTap: () {
+                                                                      print(
+                                                                          'right');
+                                                                      Get.to(
+                                                                          quotedetailpage(
+                                                                        Qid: quotelistmodal
+                                                                            ?.all
+                                                                            ?.responsed?[index]
+                                                                            .quotationId,
+                                                                      ));
+                                                                    },
+                                                                    child:
+                                                                        Container(
+                                                                      padding: EdgeInsets
                                                                           .all(2
                                                                               .w),
-                                                                  decoration: BoxDecoration(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
+                                                                      decoration: BoxDecoration(
+                                                                          borderRadius: BorderRadius.circular(
                                                                               7),
-                                                                      color: Colors
-                                                                          .blue),
-                                                                  child: Icon(
-                                                                    CupertinoIcons
-                                                                        .arrow_right,
+                                                                          color:
+                                                                              Colors.blue),
+                                                                      child:
+                                                                          Icon(
+                                                                        CupertinoIcons
+                                                                            .arrow_right,
+                                                                        color: Colors
+                                                                            .white,
+                                                                        size: 18
+                                                                            .sp,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                        SizedBox(
+                                                          width: 3.w,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                              padding: EdgeInsets.zero,
+                                            )
+                                      : sel1 == 3
+                                          ? quotelistmodal?.all?.accepted
+                                                          ?.length ==
+                                                      0 ||
+                                                  quotelistmodal?.all?.accepted
+                                                          ?.length ==
+                                                      null
+                                              ? Center(
+                                                  child: Text(
+                                                    'No Quotations Accepted',
+                                                    style: TextStyle(
+                                                        fontFamily: 'sofi',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 17.sp,
+                                                        letterSpacing: 1),
+                                                  ),
+                                                )
+                                              : ListView.builder(
+                                                  itemCount: quotelistmodal
+                                                      ?.all?.accepted?.length,
+                                                  itemBuilder:
+                                                      (context, index) {
+                                                    return Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 1.h,
+                                                          bottom: 1.h),
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                color: Colors
+                                                                    .white,
+                                                                boxShadow: [
+                                                                  BoxShadow(
                                                                     color: Colors
-                                                                        .white,
-                                                                    size: 18.sp,
+                                                                        .black26,
+                                                                    // Color of the shadow
+                                                                    offset:
+                                                                        Offset(
+                                                                            0,
+                                                                            1.5),
+                                                                    // Offset of the shadow (x, y)
+                                                                    blurRadius:
+                                                                        8, // Spread of the shadow
+                                                                    // How much the shadow extends
+                                                                  ),
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            10)),
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                vertical: 1.h),
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Container(
+                                                              margin: EdgeInsets
+                                                                  .symmetric(
+                                                                      horizontal:
+                                                                          1.w),
+                                                              height: 8.h,
+                                                              width: 17.w,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            90),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                  imageUrl: quotelistmodal
+                                                                          ?.all
+                                                                          ?.accepted?[
+                                                                              index]
+                                                                          .profile ??
+                                                                      '',
+                                                                  progressIndicatorBuilder: (context,
+                                                                          url,
+                                                                          progress) =>
+                                                                      CircularProgressIndicator(),
+                                                                  errorWidget: (context,
+                                                                          url,
+                                                                          error) =>
+                                                                      Image
+                                                                          .asset(
+                                                                    'assets/user.png',
+                                                                    color: Colors
+                                                                        .black,
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ],
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    SizedBox(
-                                                      width: 3.w,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                          padding: EdgeInsets.zero,
-                                        ) : sel1 == 3?
-                              quotelistmodal?.all?.accepted?.length ==
-                                  0 ||
-                                  quotelistmodal
-                                      ?.all?.accepted?.length ==
-                                      null
-                                  ? Center(
-                                child: Text(
-                                  'No Quotations Accepted',
-                                  style: TextStyle(
-                                      fontFamily: 'sofi',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17.sp,
-                                      letterSpacing: 1),
-                                ),
-                              )
-                                  : ListView.builder(
-                                itemCount: quotelistmodal
-                                    ?.all?.accepted?.length,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 1.h, bottom: 1.h),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black26,
-                                              // Color of the shadow
-                                              offset: Offset(0, 1.5),
-                                              // Offset of the shadow (x, y)
-                                              blurRadius:
-                                              8, // Spread of the shadow
-                                              // How much the shadow extends
-                                            ),
-                                          ],
-                                          borderRadius:
-                                          BorderRadius.circular(
-                                              10)),
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 1.h),
-                                      alignment: Alignment.center,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            margin:
-                                            EdgeInsets.symmetric(
-                                                horizontal: 1.w),
-                                            height: 8.h,
-                                            width: 17.w,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                              BorderRadius
-                                                  .circular(90),
-                                              child:
-                                              CachedNetworkImage(
-                                                fit: BoxFit.cover,
-                                                imageUrl: quotelistmodal
-                                                    ?.all
-                                                    ?.accepted?[
-                                                index]
-                                                    .profile ??
-                                                    '',
-                                                progressIndicatorBuilder:
-                                                    (context, url,
-                                                    progress) =>
-                                                    CircularProgressIndicator(),
-                                                errorWidget: (context,
-                                                    url, error) =>
-                                                    Image.asset(
-                                                      'assets/user.png',
-                                                      color: Colors.black,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment
-                                                .start,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .center,
-                                            children: [
-                                              Container(
-                                                width: 68.w,
-                                                child: Row(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment
-                                                      .center,
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      quotelistmodal?.all?.accepted?[index].categoryName ==
-                                                          '' ||
-                                                          quotelistmodal?.all?.accepted?[index].categoryName ==
-                                                              null
-                                                          ? 'N/A'
-                                                          : quotelistmodal
-                                                          ?.all
-                                                          ?.accepted?[index]
-                                                          .categoryName ??
-                                                          '',
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                          17.sp,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          letterSpacing:
-                                                          1,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color: Colors
-                                                              .black),
-                                                    ),
-                                                    Text(
-                                                      quotelistmodal?.all?.accepted?[index].createdAt ==
-                                                          '' ||
-                                                          quotelistmodal?.all?.accepted?[index].createdAt ==
-                                                              null
-                                                          ? 'N/A'
-                                                          : quotelistmodal
-                                                          ?.all
-                                                          ?.accepted?[index]
-                                                          .createdAt ??
-                                                          '',
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                          11.sp,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color: Colors
-                                                              .black
-                                                              .withOpacity(
-                                                              0.5)),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(height: 0.8.h),
-                                              SizedBox(
-                                                width: 66.w,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                                  children: [
-                                                    SizedBox(
-                                                      width: 52.w,
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                        children: [
-                                                          Text(
-                                                            quotelistmodal?.all?.accepted?[index].name == '' ||
-                                                                quotelistmodal?.all?.accepted?[index].name ==
-                                                                    null
-                                                                ? 'N/A'
-                                                                : quotelistmodal?.all?.accepted?[index].name ??
-                                                                '',
-                                                            maxLines:
-                                                            2,
-                                                            style:
-                                                            TextStyle(
-                                                              fontSize:
-                                                              14.sp,
-                                                              fontWeight:
-                                                              FontWeight.bold,
-                                                              fontFamily:
-                                                              'sofi',
-                                                              color: Colors
-                                                                  .black
-                                                                  .withOpacity(0.7),
                                                             ),
-                                                          ),
-                                                          SizedBox(
-                                                              height:
-                                                              0.8.h),
-                                                          Text(
-                                                            quotelistmodal?.all?.accepted?[index].description == '' ||
-                                                                quotelistmodal?.all?.accepted?[index].description ==
-                                                                    null
-                                                                ? 'N/A'
-                                                                : quotelistmodal?.all?.accepted?[index].description ??
-                                                                '',
-                                                            overflow:
-                                                            TextOverflow
-                                                                .ellipsis,
-                                                            maxLines:
-                                                            1,
-                                                            style:
-                                                            TextStyle(
-                                                              fontSize:
-                                                              13.sp,
-                                                              fontWeight:
-                                                              FontWeight.bold,
-                                                              fontFamily:
-                                                              'sofi',
-                                                              color: Colors
-                                                                  .black
-                                                                  .withOpacity(0.5),
+                                                            SizedBox(
+                                                              width: 4.w,
                                                             ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        print(
-                                                            'right');
-                                                        Get.to(
-                                                            quotedetailpage(
-                                                              Qid: quotelistmodal
-                                                                  ?.all
-                                                                  ?.accepted?[
-                                                              index]
-                                                                  .quotationId,
-                                                            ));
-                                                      },
-                                                      child:
-                                                      Container(
-                                                        padding:
-                                                        EdgeInsets
-                                                            .all(2
-                                                            .w),
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                            BorderRadius.circular(
-                                                                7),
-                                                            color: Colors
-                                                                .blue),
-                                                        child: Icon(
-                                                          CupertinoIcons
-                                                              .arrow_right,
-                                                          color: Colors
-                                                              .white,
-                                                          size: 18.sp,
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Container(
+                                                                  width: 68.w,
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .center,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Text(
+                                                                        quotelistmodal?.all?.accepted?[index].categoryName == '' || quotelistmodal?.all?.accepted?[index].categoryName == null
+                                                                            ? 'N/A'
+                                                                            : quotelistmodal?.all?.accepted?[index].categoryName ??
+                                                                                '',
+                                                                        style: TextStyle(
+                                                                            fontSize: 17
+                                                                                .sp,
+                                                                            fontWeight: FontWeight
+                                                                                .bold,
+                                                                            letterSpacing:
+                                                                                1,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black),
+                                                                      ),
+                                                                      Text(
+                                                                        quotelistmodal?.all?.accepted?[index].createdAt == '' || quotelistmodal?.all?.accepted?[index].createdAt == null
+                                                                            ? 'N/A'
+                                                                            : quotelistmodal?.all?.accepted?[index].createdAt ??
+                                                                                '',
+                                                                        style: TextStyle(
+                                                                            fontSize: 11
+                                                                                .sp,
+                                                                            fontWeight: FontWeight
+                                                                                .bold,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black.withOpacity(0.5)),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                    height:
+                                                                        0.8.h),
+                                                                SizedBox(
+                                                                  width: 66.w,
+                                                                  child: Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width:
+                                                                            52.w,
+                                                                        child:
+                                                                            Column(
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              quotelistmodal?.all?.accepted?[index].name == '' || quotelistmodal?.all?.accepted?[index].name == null ? 'N/A' : quotelistmodal?.all?.accepted?[index].name ?? '',
+                                                                              maxLines: 2,
+                                                                              style: TextStyle(
+                                                                                fontSize: 14.sp,
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontFamily: 'sofi',
+                                                                                color: Colors.black.withOpacity(0.7),
+                                                                              ),
+                                                                            ),
+                                                                            SizedBox(height: 0.8.h),
+                                                                            Text(
+                                                                              quotelistmodal?.all?.accepted?[index].description == '' || quotelistmodal?.all?.accepted?[index].description == null ? 'N/A' : quotelistmodal?.all?.accepted?[index].description ?? '',
+                                                                              overflow: TextOverflow.ellipsis,
+                                                                              maxLines: 1,
+                                                                              style: TextStyle(
+                                                                                fontSize: 13.sp,
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontFamily: 'sofi',
+                                                                                color: Colors.black.withOpacity(0.5),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      InkWell(
+                                                                        onTap:
+                                                                            () {
+                                                                          print(
+                                                                              'right');
+                                                                          Get.to(
+                                                                              quotedetailpage(
+                                                                            Qid:
+                                                                                quotelistmodal?.all?.accepted?[index].quotationId,
+                                                                          ));
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          padding:
+                                                                              EdgeInsets.all(2.w),
+                                                                          decoration: BoxDecoration(
+                                                                              borderRadius: BorderRadius.circular(7),
+                                                                              color: Colors.blue),
+                                                                          child:
+                                                                              Icon(
+                                                                            CupertinoIcons.arrow_right,
+                                                                            color:
+                                                                                Colors.white,
+                                                                            size:
+                                                                                18.sp,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            ),
+                                                            SizedBox(
+                                                              width: 3.w,
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            width: 3.w,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
-                                padding: EdgeInsets.zero,
-                              ):quotelistmodal?.all?.rejected?.length ==
-                                  0 ||
-                                  quotelistmodal
-                                      ?.all?.rejected?.length ==
-                                      null
-                                  ? Center(
-                                child: Text(
-                                  'No Quotations Rejected',
-                                  style: TextStyle(
-                                      fontFamily: 'sofi',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17.sp,
-                                      letterSpacing: 1),
-                                ),
-                              )
-                                  : ListView.builder(
-                                itemCount: quotelistmodal
-                                    ?.all?.rejected?.length,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 1.h, bottom: 1.h),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black26,
-                                              // Color of the shadow
-                                              offset: Offset(0, 1.5),
-                                              // Offset of the shadow (x, y)
-                                              blurRadius:
-                                              8, // Spread of the shadow
-                                              // How much the shadow extends
-                                            ),
-                                          ],
-                                          borderRadius:
-                                          BorderRadius.circular(
-                                              10)),
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 1.h),
-                                      alignment: Alignment.center,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            margin:
-                                            EdgeInsets.symmetric(
-                                                horizontal: 1.w),
-                                            height: 8.h,
-                                            width: 17.w,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                              BorderRadius
-                                                  .circular(90),
-                                              child:
-                                              CachedNetworkImage(
-                                                fit: BoxFit.cover,
-                                                imageUrl: quotelistmodal
-                                                    ?.all
-                                                    ?.rejected?[
-                                                index]
-                                                    .profile ??
-                                                    '',
-                                                progressIndicatorBuilder:
-                                                    (context, url,
-                                                    progress) =>
-                                                    CircularProgressIndicator(),
-                                                errorWidget: (context,
-                                                    url, error) =>
-                                                    Image.asset(
-                                                      'assets/user.png',
-                                                      color: Colors.black,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment
-                                                .start,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .center,
-                                            children: [
-                                              Container(
-                                                width: 68.w,
-                                                child: Row(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment
-                                                      .center,
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      quotelistmodal?.all?.rejected?[index].categoryName ==
-                                                          '' ||
-                                                          quotelistmodal?.all?.rejected?[index].categoryName ==
-                                                              null
-                                                          ? 'N/A'
-                                                          : quotelistmodal
-                                                          ?.all
-                                                          ?.rejected?[index]
-                                                          .categoryName ??
-                                                          '',
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                          17.sp,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          letterSpacing:
-                                                          1,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color: Colors
-                                                              .black),
-                                                    ),
-                                                    Text(
-                                                      quotelistmodal?.all?.rejected?[index].createdAt ==
-                                                          '' ||
-                                                          quotelistmodal?.all?.rejected?[index].createdAt ==
-                                                              null
-                                                          ? 'N/A'
-                                                          : quotelistmodal
-                                                          ?.all
-                                                          ?.rejected?[index]
-                                                          .createdAt ??
-                                                          '',
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                          11.sp,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color: Colors
-                                                              .black
-                                                              .withOpacity(
-                                                              0.5)),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(height: 0.8.h),
-                                              SizedBox(
-                                                width: 66.w,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                                  children: [
-                                                    SizedBox(
-                                                      width: 52.w,
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                        children: [
-                                                          Text(
-                                                            quotelistmodal?.all?.rejected?[index].name == '' ||
-                                                                quotelistmodal?.all?.rejected?[index].name ==
-                                                                    null
-                                                                ? 'N/A'
-                                                                : quotelistmodal?.all?.rejected?[index].name ??
-                                                                '',
-                                                            maxLines:
-                                                            2,
-                                                            style:
-                                                            TextStyle(
-                                                              fontSize:
-                                                              14.sp,
-                                                              fontWeight:
-                                                              FontWeight.bold,
-                                                              fontFamily:
-                                                              'sofi',
-                                                              color: Colors
-                                                                  .black
-                                                                  .withOpacity(0.7),
+                                                    );
+                                                  },
+                                                  padding: EdgeInsets.zero,
+                                                )
+                                          : quotelistmodal?.all?.rejected
+                                                          ?.length ==
+                                                      0 ||
+                                                  quotelistmodal?.all?.rejected
+                                                          ?.length ==
+                                                      null
+                                              ? Center(
+                                                  child: Text(
+                                                    'No Quotations Rejected',
+                                                    style: TextStyle(
+                                                        fontFamily: 'sofi',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 17.sp,
+                                                        letterSpacing: 1),
+                                                  ),
+                                                )
+                                              : ListView.builder(
+                                                  itemCount: quotelistmodal
+                                                      ?.all?.rejected?.length,
+                                                  itemBuilder:
+                                                      (context, index) {
+                                                    return Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 1.h,
+                                                          bottom: 1.h),
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                                color: Colors
+                                                                    .white,
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    color: Colors
+                                                                        .black26,
+                                                                    // Color of the shadow
+                                                                    offset:
+                                                                        Offset(
+                                                                            0,
+                                                                            1.5),
+                                                                    // Offset of the shadow (x, y)
+                                                                    blurRadius:
+                                                                        8, // Spread of the shadow
+                                                                    // How much the shadow extends
+                                                                  ),
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            10)),
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                vertical: 1.h),
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Container(
+                                                              margin: EdgeInsets
+                                                                  .symmetric(
+                                                                      horizontal:
+                                                                          1.w),
+                                                              height: 8.h,
+                                                              width: 17.w,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            90),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                  imageUrl: quotelistmodal
+                                                                          ?.all
+                                                                          ?.rejected?[
+                                                                              index]
+                                                                          .profile ??
+                                                                      '',
+                                                                  progressIndicatorBuilder: (context,
+                                                                          url,
+                                                                          progress) =>
+                                                                      CircularProgressIndicator(),
+                                                                  errorWidget: (context,
+                                                                          url,
+                                                                          error) =>
+                                                                      Image
+                                                                          .asset(
+                                                                    'assets/user.png',
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                             ),
-                                                          ),
-                                                          SizedBox(
-                                                              height:
-                                                              0.8.h),
-                                                          Text(
-                                                            quotelistmodal?.all?.rejected?[index].description == '' ||
-                                                                quotelistmodal?.all?.rejected?[index].description ==
-                                                                    null
-                                                                ? 'N/A'
-                                                                : quotelistmodal?.all?.rejected?[index].description ??
-                                                                '',
-                                                            overflow:
-                                                            TextOverflow
-                                                                .ellipsis,
-                                                            maxLines:
-                                                            1,
-                                                            style:
-                                                            TextStyle(
-                                                              fontSize:
-                                                              13.sp,
-                                                              fontWeight:
-                                                              FontWeight.bold,
-                                                              fontFamily:
-                                                              'sofi',
-                                                              color: Colors
-                                                                  .black
-                                                                  .withOpacity(0.5),
+                                                            SizedBox(
+                                                              width: 4.w,
                                                             ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        print(
-                                                            'right');
-                                                        Get.to(
-                                                            quotedetailpage(
-                                                              Qid: quotelistmodal
-                                                                  ?.all
-                                                                  ?.rejected?[
-                                                              index]
-                                                                  .quotationId,
-                                                            ));
-                                                      },
-                                                      child:
-                                                      Container(
-                                                        padding:
-                                                        EdgeInsets
-                                                            .all(2
-                                                            .w),
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                            BorderRadius.circular(
-                                                                7),
-                                                            color: Colors
-                                                                .blue),
-                                                        child: Icon(
-                                                          CupertinoIcons
-                                                              .arrow_right,
-                                                          color: Colors
-                                                              .white,
-                                                          size: 18.sp,
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Container(
+                                                                  width: 68.w,
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .center,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Text(
+                                                                        quotelistmodal?.all?.rejected?[index].categoryName == '' || quotelistmodal?.all?.rejected?[index].categoryName == null
+                                                                            ? 'N/A'
+                                                                            : quotelistmodal?.all?.rejected?[index].categoryName ??
+                                                                                '',
+                                                                        style: TextStyle(
+                                                                            fontSize: 17
+                                                                                .sp,
+                                                                            fontWeight: FontWeight
+                                                                                .bold,
+                                                                            letterSpacing:
+                                                                                1,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black),
+                                                                      ),
+                                                                      Text(
+                                                                        quotelistmodal?.all?.rejected?[index].createdAt == '' || quotelistmodal?.all?.rejected?[index].createdAt == null
+                                                                            ? 'N/A'
+                                                                            : quotelistmodal?.all?.rejected?[index].createdAt ??
+                                                                                '',
+                                                                        style: TextStyle(
+                                                                            fontSize: 11
+                                                                                .sp,
+                                                                            fontWeight: FontWeight
+                                                                                .bold,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black.withOpacity(0.5)),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                    height:
+                                                                        0.8.h),
+                                                                SizedBox(
+                                                                  width: 66.w,
+                                                                  child: Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width:
+                                                                            52.w,
+                                                                        child:
+                                                                            Column(
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              quotelistmodal?.all?.rejected?[index].name == '' || quotelistmodal?.all?.rejected?[index].name == null ? 'N/A' : quotelistmodal?.all?.rejected?[index].name ?? '',
+                                                                              maxLines: 2,
+                                                                              style: TextStyle(
+                                                                                fontSize: 14.sp,
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontFamily: 'sofi',
+                                                                                color: Colors.black.withOpacity(0.7),
+                                                                              ),
+                                                                            ),
+                                                                            SizedBox(height: 0.8.h),
+                                                                            Text(
+                                                                              quotelistmodal?.all?.rejected?[index].description == '' || quotelistmodal?.all?.rejected?[index].description == null ? 'N/A' : quotelistmodal?.all?.rejected?[index].description ?? '',
+                                                                              overflow: TextOverflow.ellipsis,
+                                                                              maxLines: 1,
+                                                                              style: TextStyle(
+                                                                                fontSize: 13.sp,
+                                                                                fontWeight: FontWeight.bold,
+                                                                                fontFamily: 'sofi',
+                                                                                color: Colors.black.withOpacity(0.5),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      InkWell(
+                                                                        onTap:
+                                                                            () {
+                                                                          print(
+                                                                              'right');
+                                                                          Get.to(
+                                                                              quotedetailpage(
+                                                                            Qid:
+                                                                                quotelistmodal?.all?.rejected?[index].quotationId,
+                                                                          ));
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          padding:
+                                                                              EdgeInsets.all(2.w),
+                                                                          decoration: BoxDecoration(
+                                                                              borderRadius: BorderRadius.circular(7),
+                                                                              color: Colors.blue),
+                                                                          child:
+                                                                              Icon(
+                                                                            CupertinoIcons.arrow_right,
+                                                                            color:
+                                                                                Colors.white,
+                                                                            size:
+                                                                                18.sp,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            ),
+                                                            SizedBox(
+                                                              width: 3.w,
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    );
+                                                  },
+                                                  padding: EdgeInsets.zero,
                                                 ),
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            width: 3.w,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
-                                padding: EdgeInsets.zero,
-                              ),
                             )
                           : Container(),
                       _search.text != ""
@@ -1546,14 +1496,13 @@ class _QuoateList2State extends State<QuoateList2> {
                                                           MainAxisAlignment
                                                               .spaceBetween,
                                                       children: [
-                                                        SizedBox(
-                                                          width: 65.w,
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            SizedBox(   width: 55.w,
+                                                              child: Text(
                                                                 searchquotationmodal?.all?.responsed?[index].name ==
                                                                             '' ||
                                                                         searchquotationmodal?.all?.responsed?[index].name ==
@@ -1580,10 +1529,12 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                           0.7),
                                                                 ),
                                                               ),
-                                                              SizedBox(
-                                                                  height:
-                                                                      0.8.h),
-                                                              Text(
+                                                            ),
+                                                            SizedBox(
+                                                                height:
+                                                                    0.8.h),
+                                                            SizedBox(   width: 55.w,
+                                                              child: Text(
                                                                 searchquotationmodal?.all?.responsed?[index].description ==
                                                                             '' ||
                                                                         searchquotationmodal?.all?.responsed?[index].description ==
@@ -1613,7 +1564,36 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                           0.5),
                                                                 ),
                                                               ),
-                                                            ],
+                                                            ),
+                                                          ],
+                                                        ), searchquotationmodal
+                                                            ?.all?.responsed?[index].response == false? Container():InkWell(
+                                                          onTap:
+                                                              () {
+                                                            print(
+                                                                'right');
+                                                            Get.to(
+                                                                quotedetailpage(
+                                                                  Qid:
+                                                                  searchquotationmodal
+                                                                      ?.all?.responsed?[index].quotationId,
+                                                                ));
+                                                          },
+                                                          child:
+                                                          Container(
+                                                            padding:
+                                                            EdgeInsets.all(2.w),
+                                                            decoration: BoxDecoration(
+                                                                borderRadius: BorderRadius.circular(7),
+                                                                color: Colors.blue),
+                                                            child:
+                                                            Icon(
+                                                              CupertinoIcons.arrow_right,
+                                                              color:
+                                                              Colors.white,
+                                                              size:
+                                                              18.sp,
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
@@ -1716,8 +1696,7 @@ class _QuoateList2State extends State<QuoateList2> {
         onChanged: (value) {
           if (value.isNotEmpty) {
             searchquotation1(_search.text.trim().toString());
-          }
-          else{
+          } else {
             QuoteListAp();
             // Get.to(QuoateList2());
           }
