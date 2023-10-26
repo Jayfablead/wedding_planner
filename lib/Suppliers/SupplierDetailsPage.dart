@@ -536,7 +536,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               ),
                               SizedBox(height: 2.h),
 
-                              TextFormField(
+                              TextFormField(maxLines: 4,
                                 controller: _title,
                                 onChanged: (value) {},
                                 validator: (value) {

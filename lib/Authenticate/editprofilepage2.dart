@@ -313,6 +313,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                                   ),
                                                 ),
                                                 SizedBox(height: 1.h),
+
                                                 Container(
                                                   alignment:
                                                       Alignment.centerLeft,
@@ -698,7 +699,7 @@ class _EditProfile2State extends State<EditProfile2> {
               print(updateprofile?.userDetails?.toString());
               buildErrorDialog1(
                 context,
-                "Success",
+                "",
                 updateprofile?.message ?? "",
                 () {
                   print("ghfjhbfds");

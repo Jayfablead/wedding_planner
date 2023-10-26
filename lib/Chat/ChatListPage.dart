@@ -1014,7 +1014,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
             minWidth: 40,
           ),
           border: InputBorder.none,
-          hintText: 'Search',
+          hintText: 'Search Suppliers',
           hintStyle: TextStyle(
               color: Colors.black.withOpacity(0.65), fontFamily: 'get'),
         ),

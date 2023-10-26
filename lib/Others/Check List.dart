@@ -1248,7 +1248,7 @@ class _Check_listState extends State<Check_list> {
       data['description'] = _desc.text.trim().toString();
       data['category'] = 'Success';
       data['start_time'] = _start.text.trim().toString();
-      data['end_time'] = _date.text.trim().toString();
+      data['end_time'] = '1';
       print(data);
       checkInternet().then((internet) async {
         if (internet) {
@@ -1478,144 +1478,71 @@ class _Check_listState extends State<Check_list> {
                                 ],
                               ),
                               SizedBox(height: 2.h),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 35.w,
-                                    child: TextFormField(
-                                      readOnly: true,
-                                      controller: _start,
-                                      onChanged: (value) {},
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return 'Please enter check start date';
-                                        }
-                                        return null;
-                                      },
-                                      onTap: () async {
-                                        DateTime? picked = await showDatePicker(
-                                          context: context,
-                                          initialDate: DateTime.now(),
-                                          // Initial date, can be the current date or a specific date
-                                          firstDate: DateTime(2000),
-                                          // The first date that can be selected
-                                          lastDate: DateTime(
-                                              2101), // The last date that can be selected
-                                        );
+                              TextFormField(
+                                readOnly: true,
+                                controller: _start,
+                                onChanged: (value) {},
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter check start date';
+                                  }
+                                  return null;
+                                },
+                                onTap: () async {
+                                  DateTime? picked = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    // Initial date, can be the current date or a specific date
+                                    firstDate: DateTime.now(),
+                                    // The first date that can be selected
+                                    lastDate: DateTime(
+                                        2101), // The last date that can be selected
+                                  );
 
-                                        if (picked != null) {
-                                          setState(() {
-                                            print(picked);
-                                            String formattedDate =
-                                            DateFormat('yyyy-MM-dd')
-                                                .format(picked);
-                                            _start.text = formattedDate
-                                                .toString(); // Store the selected date in a variable
-                                          });
-                                        }
-                                      },
-                                      style: TextStyle(
-                                          color: Colors.black.withOpacity(0.67),
-                                          fontFamily: 'Meta1'),
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.calendar_month,
-                                            color: Colors.blue),
-                                        border: InputBorder.none,
-                                        fillColor: Colors.white,
-                                        filled: true,
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        disabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        errorBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        hintText: 'Start date',
-                                        hintStyle: TextStyle(
-                                            color: Colors.black.withOpacity(0.67),
-                                            fontFamily: 'Meta1'),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 3.w,
-                                  ),
-                                  SizedBox(
-                                    width: 35.w,
-                                    child: TextFormField(
-                                      readOnly: true,
-                                      controller: _date,
-                                      onChanged: (value) {},
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return 'Please enter check end date';
-                                        }
-                                        return null;
-                                      },
-                                      onTap: () async {
-                                        DateTime? picked = await showDatePicker(
-                                          context: context,
-                                          initialDate: DateTime.now(),
-                                          // Initial date, can be the current date or a specific date
-                                          firstDate: DateTime(2000),
-                                          // The first date that can be selected
-                                          lastDate: DateTime(
-                                              2101), // The last date that can be selected
-                                        );
-
-                                        if (picked != null) {
-                                          setState(() {
-                                            print(picked);
-                                            String formattedDate =
-                                            DateFormat('yyyy-MM-dd')
-                                                .format(picked);
-                                            _date.text = formattedDate
-                                                .toString(); // Store the selected date in a variable
-                                          });
-                                        }
-                                      },
-                                      style: TextStyle(
-                                          color: Colors.black.withOpacity(0.67),
-                                          fontFamily: 'Meta1'),
-                                      decoration: InputDecoration(
-                                        prefixIcon: Icon(Icons.calendar_month,
-                                            color: Colors.blue),
-                                        border: InputBorder.none,
-                                        fillColor: Colors.white,
-                                        filled: true,
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        disabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        errorBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(25),
-                                            borderSide:
-                                            BorderSide(color: Colors.white)),
-                                        hintText: 'End date',
-                                        hintStyle: TextStyle(
-                                            color: Colors.black.withOpacity(0.67),
-                                            fontFamily: 'Meta1'),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  if (picked != null) {
+                                    setState(() {
+                                      print(picked);
+                                      String formattedDate =
+                                      DateFormat('yyyy-MM-dd')
+                                          .format(picked);
+                                      _start.text = formattedDate
+                                          .toString(); // Store the selected date in a variable
+                                    });
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.67),
+                                    fontFamily: 'Meta1'),
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.calendar_month,
+                                      color: Colors.blue),
+                                  border: InputBorder.none,
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  disabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  errorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  hintText: 'Start date',
+                                  hintStyle: TextStyle(
+                                      color: Colors.black.withOpacity(0.67),
+                                      fontFamily: 'Meta1'),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 3.w,
                               ),
                               // Text(
                               //   'Start Date :',

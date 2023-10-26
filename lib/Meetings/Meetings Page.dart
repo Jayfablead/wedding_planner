@@ -681,7 +681,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                     context: context,
                                     initialDate: DateTime.now(),
                                     // Initial date, can be the current date or a specific date
-                                    firstDate: DateTime(2000),
+                                    firstDate: DateTime.now(),
                                     // The first date that can be selected
                                     lastDate: DateTime(
                                         2101), // The last date that can be selected
