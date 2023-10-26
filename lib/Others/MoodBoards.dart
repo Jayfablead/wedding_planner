@@ -227,7 +227,7 @@ class _PostPageState extends State<PostPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
+                            categoriesmodal?.services?.length == 0?Container(): Container(
                               height: 4.5.h,
                               width: MediaQuery.of(context).size.width,
                               child: ListView.builder(
@@ -332,7 +332,7 @@ class _PostPageState extends State<PostPage> {
                                       height: 72.h,
                                       alignment: Alignment.center,
                                       child: Text(
-                                        'No Photos Available for this Category',
+                                        categoriesmodal?.services?.length == 0?"No Supplier available.":  'No Photos Available for this Category',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 15.sp,

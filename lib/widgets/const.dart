@@ -35,6 +35,7 @@ import 'package:wedding_planner/Modal/markcompletedmodal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
 
 import '../Modal/AddpostModal.dart';
+import '../Modal/AllCatagoriesModal.dart';
 import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
 import '../Modal/CategoryWiseSuppliersModal.dart';
@@ -115,7 +116,7 @@ CategoryWiseSuppliersModal? categorywisesuppliersmodal;
 AddmeetingModal? addmeetingmodal;
 Invoicelistmodal? invoicelistmodal;
 QuataationRejectModal? quatationreject;
-
+AllCatagoriesModal? allcat;
 
 
 

@@ -170,6 +170,7 @@ class authprovider with ChangeNotifier {
         throw const SocketException('Something went wrong');
       },
     );
+    print(response.body);
     responseJson = responses(response);
     return responseJson;
   }

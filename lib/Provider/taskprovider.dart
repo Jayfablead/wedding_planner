@@ -64,6 +64,20 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+  Future<http.Response> categoryapi1() async {
+    String? url = '$baseUrl/allServices';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
   Future<http.Response> checklistapi() async {
     String? url = '$baseUrl/checkList/${userData?.user?.id.toString()}';
     var responseJson;
@@ -618,7 +632,7 @@ class taskprovider with ChangeNotifier {
 
   Future<http.Response> chatserchapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/searchChat/${userData?.user?.id.toString()}';
-
+      print(url);
     var responseJson;
     final response = await http
         .post(Uri.parse(url), headers: headers, body: bodyData)
@@ -628,6 +642,7 @@ class taskprovider with ChangeNotifier {
         throw const SocketException('Something went wrong');
       },
     );
+    print(response.body);
     responseJson = responses(response);
     return responseJson;
   }

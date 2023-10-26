@@ -180,14 +180,16 @@ class _CertificateState extends State<Certificate> {
                       SizedBox(height: 2.h),
                     ]),
               ),
-              documentmodal?.data?.allDocandCerti?.length==0 ?Text(
-                'No supplier certificate available.',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12.5.sp,
-                    fontFamily: "sofi",
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w600),
+              documentmodal?.data?.contracts?.length == 0 ?Container(height: 70.h,alignment: Alignment.center,
+                child: Center(
+                  child: Text("No Certificates available",
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          fontFamily: 'sofi',
+                          color: Colors.black)),
+                ),
               ) :Column(
                 children: [
                   for (int index = 0;

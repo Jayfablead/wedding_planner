@@ -149,7 +149,8 @@ class _Msg2State extends State<Msg2> {
                           Stack(
                             children: [
                               Container(
-                                height: 79.h,
+                                height: 77.h,
+
                                 child:
                                     fullchatmodal?.data?.livechat?.length == 0
                                         ? Container(
@@ -658,6 +659,7 @@ class _Msg2State extends State<Msg2> {
                                       top: 0.0,
                                       left: 30.w,
                                       right: 30.w,
+
                                       child: Container(
                                           alignment: Alignment.center,
                                           height: 3.h,

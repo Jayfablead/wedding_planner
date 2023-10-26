@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Guest/addguestlist.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
+import 'package:wedding_planner/Modal/MyvenuetableModal.dart';
 import 'package:wedding_planner/Modal/RemoveguestModal.dart';
 import 'package:wedding_planner/Modal/ViewguestModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
@@ -40,7 +41,7 @@ class _GuestListState extends State<GuestList> {
   final _formKey = GlobalKey<FormState>();
   bool isKeyboardOpen = false;
   String? selectedItem;
-
+  MyvenuetableModal? myvenuetablemodal1;
   @override
   void initState() {
     // TODO: implement initState
@@ -49,6 +50,7 @@ class _GuestListState extends State<GuestList> {
       sel1 = 1;
     });
     viewguestap();
+    tableapi();
   }
 
   List<test> items = [];
@@ -637,7 +639,7 @@ class _GuestListState extends State<GuestList> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.to(Addguestlist(
+                         myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No table added by venue") :  Get.to(Addguestlist(
                               sel1: sel1,
                             ));
                           },
@@ -898,6 +900,36 @@ class _GuestListState extends State<GuestList> {
             setState(() {
               isLoading = false;
             });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+  tableapi() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().myvenuetableapi().then((response) async {
+          myvenuetablemodal1 =
+              MyvenuetableModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && myvenuetablemodal1?.status == "1") {
+            for (int i = 0;
+            i < int.parse((myvenuetablemodal?.data?.length).toString());
+            i++) {
+              items.add(test((myvenuetablemodal?.data?[i].name).toString(),
+                  (myvenuetablemodal?.data?[i].id).toString()));
+            }
+
+            setState(() {
+              print(items);
+              items;
+              // isLoading = false;
+            });
+          } else {
+            // setState(() {
+            //   isLoading = false;
+            // });
           }
         });
       } else {

@@ -133,8 +133,23 @@ class _ChatlistPageState extends State<ChatlistPage> {
                     SizedBox(height: 1.h),
                     searchBox(),
                     _search.text != ""
-                        ? chatserchmodal?.data?.length == 0
-                            ? Text("No Supplier available")
+                        ? chatserchmodal?.data?.length == 0 || chatserchmodal?.data == null
+                            ? Container(
+                      height: 50.h,
+                        width: MediaQuery.of(context).size.width,
+                        alignment: Alignment.center,
+                        child: Text("No Suppliers found" ,style: TextStyle(
+                            fontSize:
+                            16.sp,
+                            fontWeight:
+                            FontWeight
+                                .bold,
+                            letterSpacing:
+                            1,
+                            fontFamily:
+                            'sofi',
+                            color: Colors
+                                .black)))
                             : Column(
                                 children: [
                                   for (int index = 0;
@@ -506,7 +521,20 @@ class _ChatlistPageState extends State<ChatlistPage> {
                               ),
                               SizedBox(height: 2.h),
                               chatlistmodal?.suppliers?.length == 0
-                                  ? Text("No Supplier available")
+                                  ? Container(height: 40.h,alignment: Alignment.center,
+                                    child: Text("No Supplier available", style: TextStyle(
+                                    fontSize:
+                                    16.sp,
+                                    fontWeight:
+                                    FontWeight
+                                        .bold,
+                                    letterSpacing:
+                                    1,
+                                    fontFamily:
+                                    'sofi',
+                                    color: Colors
+                                        .black)),
+                                  )
                                   : Column(
                                       children: [
                                         for (int index = 0;
