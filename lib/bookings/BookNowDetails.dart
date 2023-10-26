@@ -24,15 +24,18 @@ class BookNowDetails extends StatefulWidget {
   String? name;
   String? email;
   String? photo;
+  String? qid;
 
-  BookNowDetails(
-      {super.key,
-      this.cid,
-      this.email,
-      this.name,
-      this.photo,
-      this.sername,
-      this.sid});
+  BookNowDetails({
+    super.key,
+    this.cid,
+    this.email,
+    this.name,
+    this.photo,
+    this.sername,
+    this.sid,
+    this.qid,
+  });
 
   @override
   State<BookNowDetails> createState() => _BookNowDetailsState();
@@ -89,6 +92,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
       });
     }
   }
+
   final _formKey = GlobalKey<FormState>();
   bool isLoading = true;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -151,7 +155,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                               margin: EdgeInsets.symmetric(horizontal: 1.w),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     decoration: BoxDecoration(
@@ -179,7 +184,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                     ),
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
@@ -208,7 +214,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                                         .withOpacity(0.7),
                                                     fontSize: 13.sp,
                                                     fontFamily: 'sofi',
-                                                    fontWeight: FontWeight.w600),
+                                                    fontWeight:
+                                                        FontWeight.w600),
                                               ),
                                             ],
                                           ),
@@ -223,8 +230,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                             maxLines: 2,
                                             style: TextStyle(
                                                 overflow: TextOverflow.ellipsis,
-                                                color:
-                                                    Colors.black.withOpacity(0.7),
+                                                color: Colors.black
+                                                    .withOpacity(0.7),
                                                 fontSize: 13.sp,
                                                 fontFamily: 'sofi',
                                                 fontWeight: FontWeight.w600),
@@ -245,11 +252,13 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                           children: [
                             Container(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         userprofile?.userDetails?.groomName ==
@@ -286,7 +295,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                     ],
                                   ),
                                   Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 1.w),
                                     height: 8.5.h,
                                     width: 19.w,
                                     child: ClipRRect(
@@ -321,7 +331,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                 Container(
                                   width: 45.w,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Date",
@@ -338,13 +349,14 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                       TextFormField(
                                         controller: _dateinput,
                                         readOnly: true,
-                                        validator: (value){
-                                          if(value!.isEmpty){
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
                                             return "Enter the date";
                                           }
                                           return null;
                                         },
-                                        keyboardType: TextInputType.emailAddress,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         decoration: InputDecoration(
                                           prefixIcon: Icon(
                                             Icons.date_range,
@@ -381,12 +393,13 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                               fontFamily: "sofi"),
                                         ),
                                         onTap: () async {
-                                          DateTime? pickedDate = await showDatePicker(
-                                              context: context,
-                                              initialDate: DateTime.now(),
-                                              firstDate: DateTime(1950),
-                                              //DateTime.now() - not to allow to choose before today.
-                                              lastDate: DateTime(2100));
+                                          DateTime? pickedDate =
+                                              await showDatePicker(
+                                                  context: context,
+                                                  initialDate: DateTime.now(),
+                                                  firstDate: DateTime(1950),
+                                                  //DateTime.now() - not to allow to choose before today.
+                                                  lastDate: DateTime(2100));
 
                                           if (pickedDate != null) {
                                             print(
@@ -412,7 +425,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                 Container(
                                   width: 45.w,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Time",
@@ -428,10 +442,11 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                       ),
                                       TextFormField(
                                         readOnly: true,
-                                        keyboardType: TextInputType.emailAddress,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         controller: timeinput1,
-                                        validator: (value){
-                                          if(value!.isEmpty){
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
                                             return "Enter the time";
                                           }
                                           return null;
@@ -509,8 +524,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                   TextFormField(
                                     maxLines: 5,
                                     controller: _comment,
-                                    validator: (value){
-                                      if(value!.isEmpty){
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
                                         return "Enter the comment";
                                       }
                                       return null;
@@ -529,19 +544,23 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                       filled: true,
                                       fillColor: Colors.white,
                                       enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide:
                                               BorderSide(color: Colors.white)),
                                       disabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide:
                                               BorderSide(color: Colors.white)),
                                       focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide:
                                               BorderSide(color: Colors.white)),
                                       border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide:
                                               BorderSide(color: Colors.white)),
                                     ),
@@ -590,8 +609,9 @@ class _BookNowDetailsState extends State<BookNowDetails> {
   }
 
   SentReq() {
-    if(_formKey.currentState!.validate()){
+    if (_formKey.currentState!.validate()) {
       final Map<String, String> data = {};
+      data['q_id'] = widget.qid == '' ? '' : widget.qid.toString();
       data['s_id'] = widget.sid.toString();
       data['c_id'] = widget.cid.toString();
       data['date'] = _dateinput.text.trim().toString();
@@ -619,7 +639,6 @@ class _BookNowDetailsState extends State<BookNowDetails> {
         }
       });
     }
-
   }
 
   userprofileap() {

@@ -314,7 +314,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                   quotedetailsmodal?.details?.status == '0'
                                       ? InkWell(
                                           onTap: () {
-                                            Get.to(BookNowDetails(
+                                            Get.to(BookNowDetails(qid: widget.Qid.toString(),
                                               sername: quotedetailsmodal
                                                   ?.details
                                                   ?.supplier
@@ -611,37 +611,37 @@ class _quotedetailpageState extends State<quotedetailpage> {
     });
   }
 
-  QuoteAcceptApi() {
-    checkInternet().then((internet) async {
-      if (internet) {
-        taskprovider()
-            .QuoteAcceptApi(widget.Qid.toString())
-            .then((response) async {
-          qouteacceptmodal =
-              QouteAcceptModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && qouteacceptmodal?.status == "1") {
-            Fluttertoast.showToast(
-                msg: "Response Accepted Successfully",
-                toastLength: Toast.LENGTH_SHORT,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.blue,
-                textColor: Colors.white,
-                fontSize: 11.sp);
-
-            setState(() {
-              isLoading = false;
-            });
-          } else {
-            setState(() {
-              isLoading = false;
-            });
-          }
-        });
-      } else {
-        buildErrorDialog(context, 'Error', "Internet Required");
-      }
-    });
-  }
+  // QuoteAcceptApi() {
+  //   checkInternet().then((internet) async {
+  //     if (internet) {
+  //       taskprovider()
+  //           .QuoteAcceptApi(widget.Qid.toString())
+  //           .then((response) async {
+  //         qouteacceptmodal =
+  //             QouteAcceptModal.fromJson(json.decode(response.body));
+  //         if (response.statusCode == 200 && qouteacceptmodal?.status == "1") {
+  //           Fluttertoast.showToast(
+  //               msg: "Response Accepted Successfully",
+  //               toastLength: Toast.LENGTH_SHORT,
+  //               timeInSecForIosWeb: 1,
+  //               backgroundColor: Colors.blue,
+  //               textColor: Colors.white,
+  //               fontSize: 11.sp);
+  //
+  //           setState(() {
+  //             isLoading = false;
+  //           });
+  //         } else {
+  //           setState(() {
+  //             isLoading = false;
+  //           });
+  //         }
+  //       });
+  //     } else {
+  //       buildErrorDialog(context, 'Error', "Internet Required");
+  //     }
+  //   });
+  // }
 
   QuoteRejectedApi() {
     checkInternet().then((internet) async {
