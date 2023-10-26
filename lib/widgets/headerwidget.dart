@@ -9,7 +9,8 @@ Widget header({
   required String text,
   required VoidCallback callback1,
 }) {
-  return Row(
+  return
+    Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       IconButton(

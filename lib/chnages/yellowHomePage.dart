@@ -46,7 +46,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       sel = 1;
     });
     homeap();
-    notificationap();
+
   }
 
   bool istap = false;
@@ -819,6 +819,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
             print(value);
             searchap();
           }
+          else{
+            homeap();
+          }
         },
         style:
             TextStyle(color: Colors.black, fontSize: 13.sp, fontFamily: 'get'),
@@ -847,6 +850,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
         taskprovider().homeapi().then((response) async {
           homemodal = HomeModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && homemodal?.status == "1") {
+            notificationap();
             setState(() {
               isLoading = false;
             });

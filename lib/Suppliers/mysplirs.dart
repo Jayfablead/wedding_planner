@@ -45,12 +45,16 @@ class chat {
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 bool more = true;
 bool isLoading = true;
+int sel1 = 1;
 
 class _MySupsState extends State<MySups> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    setState(() {
+      sel1 = 1;
+    });
     homeap();
   }
 
@@ -80,6 +84,71 @@ class _MySupsState extends State<MySups> {
                             scaffoldKey.currentState?.openDrawer();
                           }),
                       // headerwid(text: "All Suppliers"),
+                      SizedBox(height: 1.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                sel1 = 1;
+                              });
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 1.5.h, horizontal: 5.w),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: sel1 == 1
+                                      ? Colors.blue
+                                      : Colors.white,
+                                  borderRadius:
+                                  BorderRadius.circular(25)),
+                              margin:
+                              EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Text('Accepted',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontFamily: 'sofi',
+                                      color: sel1 == 1
+                                          ? Colors.white
+                                          : Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1)),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                sel1 = 2;
+                              });
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 1.5.h, horizontal: 5.w),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: sel1 == 2
+                                      ? Colors.blue
+                                      : Colors.white,
+                                  borderRadius:
+                                  BorderRadius.circular(25)),
+                              margin:
+                              EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Text('Pending ',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontFamily: 'sofi',
+                                      color: sel1 == 2
+                                          ? Colors.white
+                                          : Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1)),
+                            ),
+                          ),
+                        ],
+                      ),
                       SizedBox(height: 1.h),
                       mysupps?.suppliersDetails?.length == 0 ||
                               mysupps?.suppliersDetails?.length == null

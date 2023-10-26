@@ -72,7 +72,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                         Stack(
                           children: [
                             CarouselSlider.builder(
-                              itemCount: HotelIm.length,
+                              itemCount: 1,
                               itemBuilder: (context, index, realIndex) {
                                 return Container(
                                   child: Container(
@@ -81,9 +81,9 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                         // borderRadius: BorderRadius.circular(0),
                                         ),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(15),
                                       child: CachedNetworkImage(
-                                        imageUrl: HotelIm[index],
+                                        imageUrl: '',
                                         fit: BoxFit.cover,
                                         progressIndicatorBuilder:
                                             (context, url, progress) => Center(
@@ -91,7 +91,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                                     CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
-                                          'assets/defimg.jpg',
+                                          'assets/defimg.jpg',fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
@@ -149,7 +149,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               vertical: 0.5.h, horizontal: 3.w),
                           child: AnimatedSmoothIndicator(
                             activeIndex: ind,
-                            count: HotelIm.length,
+                            count: 1,
                             effect: ScrollingDotsEffect(
                               activeDotColor: Colors.blue,
                               activeStrokeWidth: 2.6,
@@ -542,7 +542,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                 height: 22.h,
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: 3,
+                                    itemCount: 1,
                                     itemBuilder: (context, index) {
                                       return Container(
                                         width: 40.w,
@@ -555,7 +555,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           child: CachedNetworkImage(
-                                            imageUrl: HotelIm[index],
+                                            imageUrl:'',
                                             fit: BoxFit.cover,
                                             progressIndicatorBuilder: (context,
                                                     url, progress) =>
@@ -565,7 +565,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                             errorWidget:
                                                 (context, url, error) =>
                                                     Image.asset(
-                                              'assets/defimg.jpg',
+                                              'assets/defimg.jpg',fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
