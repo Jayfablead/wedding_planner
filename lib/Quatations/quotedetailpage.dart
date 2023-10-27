@@ -82,7 +82,12 @@ class _quotedetailpageState extends State<quotedetailpage> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: CachedNetworkImage(
-                              imageUrl: "",
+                              imageUrl: quotedetailsmodal
+                                          ?.details?.images?.length ==
+                                      0
+                                  ? ""
+                                  : quotedetailsmodal?.details?.images?[0] ??
+                                      "",
                               imageBuilder: (context, imageProvider) =>
                                   Container(
                                 decoration: BoxDecoration(
@@ -536,38 +541,46 @@ class _quotedetailpageState extends State<quotedetailpage> {
                               ),
                               Container(
                                 height: 22.h,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: 1,
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                        width: 40.w,
-                                        margin: EdgeInsets.only(right: 3.w),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: CachedNetworkImage(
-                                            imageUrl: '',
-                                            fit: BoxFit.cover,
-                                            progressIndicatorBuilder: (context,
-                                                    url, progress) =>
-                                                Center(
-                                                    child:
-                                                        CircularProgressIndicator()),
-                                            errorWidget:
-                                                (context, url, error) =>
-                                                    Image.asset(
-                                              'assets/defimg.jpg',
-                                              fit: BoxFit.cover,
+                                child: quotedetailsmodal
+                                            ?.details?.images?.length ==
+                                        0
+                                    ? Text("No image")
+                                    : ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: quotedetailsmodal
+                                            ?.details?.images?.length,
+                                        itemBuilder: (context, index) {
+                                          return Container(
+                                            width: 40.w,
+                                            margin: EdgeInsets.only(right: 3.w),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
-                                          ),
-                                        ),
-                                      );
-                                    }),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              child: CachedNetworkImage(
+                                                imageUrl: quotedetailsmodal
+                                                        ?.details
+                                                        ?.images?[index] ??
+                                                    "",
+                                                fit: BoxFit.cover,
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
+                                                    Center(
+                                                        child:
+                                                            CircularProgressIndicator()),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
+                                                  'assets/defimg.jpg',
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }),
                               ),
                               SizedBox(
                                 height: 2.5.h,

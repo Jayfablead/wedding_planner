@@ -114,15 +114,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               borderRadius: BorderRadius.circular(90),
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
-                                imageUrl: supplierdetailmodal?.supplierInfo
-                                                ?.images?.length ==
-                                            0 ||
-                                        supplierdetailmodal?.supplierInfo
-                                                ?.images?.length ==
-                                            null
-                                    ? ''
-                                    : supplierdetailmodal
-                                            ?.supplierInfo?.images?[0] ??
+                                imageUrl: supplierdetailmodal
+                                            ?.supplierInfo?.profile ??
                                         '',
                                 progressIndicatorBuilder: (context, url,
                                         progress) =>
@@ -149,7 +142,16 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
                               child: CachedNetworkImage(
-                                imageUrl: "",
+                                imageUrl: supplierdetailmodal?.supplierInfo
+                                    ?.images?.length ==
+                                    0 ||
+                                    supplierdetailmodal?.supplierInfo
+                                        ?.images?.length ==
+                                        null
+                                    ? ''
+                                    : supplierdetailmodal
+                                    ?.supplierInfo?.images?[0] ??
+                                    '',
                                 imageBuilder: (context, imageProvider) =>
                                     Container(
                                   decoration: BoxDecoration(

@@ -586,6 +586,7 @@ class taskprovider with ChangeNotifier {
 
   Future<http.Response> QuoteDetailsApi(String Qid) async {
     String? url = '$baseUrl/quotationDetails/${Qid}';
+
     print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(

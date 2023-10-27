@@ -1,26 +1,3 @@
-// {
-// "status": "1",
-// "message": "Quotation Details.",
-// "details": {
-// "uid": "17",
-// "s_id": "102",
-// "c_id": "3",
-// "res_details": "This is the response of first quotatation",
-// "total_amount": "5000",
-// "deposit_amount": "850",
-// "status": "0",
-// "booking_amt": "4150",
-// "supplier": {
-// "id": "102",
-// "profile": "https://wedding.fableadtechnolabs.com/wedding/portal/public/assets/img/profile/1696593418_fc7576e115c21bafce5c.png",
-// "email": "supplier2@gmail.com",
-// "name": "Supplier2",
-// "category_name": "flourist",
-// "description": "I am Flourist. And I have excellent team to decor stage,winfdows,marriage hall"
-// }
-// }
-// }
-
 class QouteDetailsModal {
   String? status;
   String? message;
@@ -57,6 +34,7 @@ class Details {
   String? status;
   String? bookingAmt;
   Supplier? supplier;
+  List<String>? images;
   String? isBooked;
 
   Details(
@@ -70,6 +48,7 @@ class Details {
         this.status,
         this.bookingAmt,
         this.supplier,
+        this.images,
         this.isBooked});
 
   Details.fromJson(Map<String, dynamic> json) {
@@ -85,6 +64,7 @@ class Details {
     supplier = json['supplier'] != null
         ? new Supplier.fromJson(json['supplier'])
         : null;
+    images = json['images'].cast<String>();
     isBooked = json['is_booked'];
   }
 
@@ -102,6 +82,7 @@ class Details {
     if (this.supplier != null) {
       data['supplier'] = this.supplier!.toJson();
     }
+    data['images'] = this.images;
     data['is_booked'] = this.isBooked;
     return data;
   }
@@ -112,6 +93,7 @@ class Supplier {
   String? profile;
   String? email;
   String? name;
+  String? servicePhotos;
   String? categoryName;
   String? description;
 
@@ -120,6 +102,7 @@ class Supplier {
         this.profile,
         this.email,
         this.name,
+        this.servicePhotos,
         this.categoryName,
         this.description});
 
@@ -128,6 +111,7 @@ class Supplier {
     profile = json['profile'];
     email = json['email'];
     name = json['name'];
+    servicePhotos = json['service_photos'];
     categoryName = json['category_name'];
     description = json['description'];
   }
@@ -138,6 +122,7 @@ class Supplier {
     data['profile'] = this.profile;
     data['email'] = this.email;
     data['name'] = this.name;
+    data['service_photos'] = this.servicePhotos;
     data['category_name'] = this.categoryName;
     data['description'] = this.description;
     return data;
