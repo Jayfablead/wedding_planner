@@ -9,8 +9,7 @@ Widget header({
   required String text,
   required VoidCallback callback1,
 }) {
-  return
-    Row(
+  return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       IconButton(
@@ -55,7 +54,7 @@ Widget header({
                 ...(notificationmodal?.notiDetails ?? []).take(4).map((item) {
                   return PopupMenuItem<String>(
                     value: item.id,
-                    child:  Column(
+                    child: Column(
                       children: [
                         Container(
                           alignment: Alignment.center,
@@ -70,7 +69,7 @@ Widget header({
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
                                     padding: EdgeInsets.all(1.w),
@@ -80,9 +79,15 @@ Widget header({
                                         border: Border.all(
                                             color: Colors.blue, width: 1)),
                                     child: Icon(
-                                      Icons.notifications_none_rounded,
+                                      item.notiType == 'chat'
+                                          ? Icons.chat_outlined
+                                          : item.notiType == 'booking'
+                                              ? Icons.bookmark_outline_rounded
+                                              : item.notiType == 'invoice'
+                                                  ? Icons.attach_money_rounded
+                                                  : Icons.quora,
                                       color: Colors.blue,
-                                      size: 10.sp,
+                                      size: 15.sp,
                                     ),
                                   ),
                                   SizedBox(width: 3.w),
@@ -112,54 +117,53 @@ Widget header({
                     ),
                   );
                 }).toList(),
-
                 notificationmodal?.notiDetails?.length == 0 ||
-                    notificationmodal?.notiDetails?.length == null     ? PopupMenuItem(child:  Center(
-                  child: Text(
-                    'No Recent Notifications',
-                    style: TextStyle(
-                        color: Colors.black87,
-                        fontFamily: 'sofi',
-                        fontSize: 13.sp,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.w600),
-                  ),
-                )):   PopupMenuItem<String>(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Get.to(NotificationScreen());
-                  },
-                  value: 'Option 1',
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      Get.to(NotificationScreen());
-                    },
-                    child: Row(
-                      children: [
-                        Center(
-                            child: Text(
-                          "View All",
+                        notificationmodal?.notiDetails?.length == null
+                    ? PopupMenuItem(
+                        child: Center(
+                        child: Text(
+                          'No Recent Notifications',
                           style: TextStyle(
-                              fontSize: 15.sp,
-                              color: Colors.blue,
-                              fontFamily: 'get'),
-                        )),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.blue,
-                        )
-                      ],
-                    ),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                ),
+                              color: Colors.black87,
+                              fontFamily: 'sofi',
+                              fontSize: 13.sp,
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ))
+                    : PopupMenuItem<String>(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Get.to(NotificationScreen());
+                        },
+                        value: 'Option 1',
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            Get.to(NotificationScreen());
+                          },
+                          child: Row(
+                            children: [
+                              Center(
+                                  child: Text(
+                                "View All",
+                                style: TextStyle(
+                                    fontSize: 15.sp,
+                                    color: Colors.blue,
+                                    fontFamily: 'get'),
+                              )),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.blue,
+                              )
+                            ],
+                          ),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      ),
               ];
-
-
             },
           ),
-
           IconButton(
               onPressed: callback1,
               icon: Icon(

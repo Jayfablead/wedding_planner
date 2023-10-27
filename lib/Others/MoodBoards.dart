@@ -345,7 +345,7 @@ class _PostPageState extends State<PostPage> {
                               height: 1.5.h,
                             ),
                             SizedBox(
-                              height: 58.h,
+                              height: 65.h,
                               child: categoriesmodal?.services == null
                                   ? Container(
                                       height: 100.h,

@@ -263,14 +263,14 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                         ),
                         Container(
                           width: 110.w,
-                          height: 10.h,
+                          padding: EdgeInsets.symmetric(vertical: 1.h),
                           child: Card(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
                                   12.0), // Control the border radius here
                             ),
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 2.w),
+                              padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.h),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,

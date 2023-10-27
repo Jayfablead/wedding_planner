@@ -31,6 +31,7 @@ class NotiDetails {
   String? id;
   String? uid;
   String? bridegroomId;
+  String? notiType;
   String? notiTitle;
   String? notiBody;
   String? readStatus;
@@ -38,17 +39,19 @@ class NotiDetails {
 
   NotiDetails(
       {this.id,
-      this.uid,
-      this.bridegroomId,
-      this.notiTitle,
-      this.notiBody,
-      this.readStatus,
-      this.createdAt});
+        this.uid,
+        this.bridegroomId,
+        this.notiType,
+        this.notiTitle,
+        this.notiBody,
+        this.readStatus,
+        this.createdAt});
 
   NotiDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uid = json['uid'];
     bridegroomId = json['bridegroom_id'];
+    notiType = json['noti_type'];
     notiTitle = json['noti_title'];
     notiBody = json['noti_body'];
     readStatus = json['read_status'];
@@ -60,6 +63,7 @@ class NotiDetails {
     data['id'] = this.id;
     data['uid'] = this.uid;
     data['bridegroom_id'] = this.bridegroomId;
+    data['noti_type'] = this.notiType;
     data['noti_title'] = this.notiTitle;
     data['noti_body'] = this.notiBody;
     data['read_status'] = this.readStatus;

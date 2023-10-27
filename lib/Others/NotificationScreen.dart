@@ -11,9 +11,10 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
-import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
+import '../Modal/UserProfileModal.dart';
+import '../Provider/authprovider.dart';
 import '../widgets/drawer.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -58,6 +59,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     super.initState();
     notificationap();
     readnotiap();
+    userprofileap();
   }
 
   @override
@@ -112,7 +114,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               ))
                         ],
                       ),
-
                       SizedBox(
                         height: 1.h,
                       ),
@@ -144,7 +145,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 borderRadius: BorderRadius.circular(90),
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
-                                  imageUrl: userData?.user?.profilePath ?? "",
+                                  imageUrl: userprofile?.userDetails?.profileImg
+                                      ?? "",
                                   progressIndicatorBuilder:
                                       (context, url, progress) => Center(
                                           child: CircularProgressIndicator()),
@@ -208,8 +210,28 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                               border: Border.all(
                                                   color: Colors.blue,
                                                   width: 2)),
-                                          child: Icon(
-                                              Icons.notifications_none_rounded,
+                                          child:
+                                          Icon(
+                                              notificationmodal
+                                                          ?.notiDetails?[index]
+                                                          .notiType ==
+                                                      'chat'
+                                                  ? Icons.chat_outlined
+                                                  : notificationmodal
+                                                              ?.notiDetails?[
+                                                                  index]
+                                                              .notiType ==
+                                                          'booking'
+                                                      ? Icons
+                                                          .bookmark_outline_rounded
+                                                      : notificationmodal
+                                                                  ?.notiDetails?[
+                                                                      index]
+                                                                  .notiType ==
+                                                              'invoice'
+                                                          ? Icons
+                                                              .attach_money_rounded
+                                                          : Icons.quora,
                                               color: Colors.blue,
                                               size: 24.sp),
                                         ),
@@ -355,6 +377,28 @@ class _NotificationScreenState extends State<NotificationScreen> {
         taskprovider().readnotiapi().then((response) async {
           readnotimodal = ReadnotiModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && readnotimodal?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  userprofileap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().userprofileapi().then((response) async {
+          userprofile = UserProfileModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && userprofile?.status == "1") {
+            print(userprofile?.userDetails?.groomName);
             setState(() {
               isLoading = false;
             });
