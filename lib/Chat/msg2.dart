@@ -295,7 +295,6 @@ class _Msg2State extends State<Msg2> {
                                                   //         ],
                                                   //       )
                                                   //     :
-
                                                   fullchatmodal
                                                                   ?.data
                                                                   ?.livechat?[
