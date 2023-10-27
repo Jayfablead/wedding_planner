@@ -242,11 +242,7 @@ class _Msg2State extends State<Msg2> {
                                               Counter();
 
                                               // outputDate2 = outputFormat2.format(inputDate);
-                                              if (outputDate1 != outputDate2) {
-                                                showSeparator = true;
-                                              } else {
-                                                // showSeparator = true;
-                                              }
+
                                               return Column(
                                                 children: [
                                                   (showSeparator)
@@ -738,8 +734,9 @@ class _Msg2State extends State<Msg2> {
                               onTap: () {
                                 setState(() {
                                   type = 1;
+                                  sendmessageap();
                                 });
-                                sendmessageap();
+
                               },
                               child: Container(
                                   alignment: Alignment.center,
@@ -766,7 +763,7 @@ class _Msg2State extends State<Msg2> {
   sendmessageap() {
     final Map<String, String> data = {};
     data['textMsg'] = _msg.text.trim().toString();
-    data['file'] = _msg.text == "" ? _pickedFile!.path : "";
+    data['file'] = _msg.text == '' ? _pickedFile!.path : "";
     data['mType'] = type.toString();
 
     print(data);
@@ -775,13 +772,13 @@ class _Msg2State extends State<Msg2> {
         authprovider().sendmessageapi(data, widget.id).then((response) async {
           sendmessageModal =
               SendmessageModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && sendmessageModal?.status == "1") {
+          if (response.statusCode == 200 && sendmessageModal?.status == "1") {     fullchatap();
             print(sendmessageModal?.status);
             _msg.text = "";
-            fullchatap();
+
           } else {
             buildErrorDialog(
-                context, " Error", (sendmessageModal?.message).toString());
+                context, " Error", (sendmessageModal?.message).toString());     fullchatap();
           }
         });
       } else {

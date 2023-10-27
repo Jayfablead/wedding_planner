@@ -264,8 +264,12 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                                   ?.categoryName,
                                               sid: quotedetailsmodal
                                                   ?.details?.sId,
-                                              photo: quotedetailsmodal
-                                                  ?.details?.supplier?.profile,
+                                              photo:  quotedetailsmodal
+                                                  ?.details?.images?.length ==
+                                                  0
+                                                  ? ""
+                                                  : quotedetailsmodal?.details?.images?[0] ??
+                                                  "",
                                               cid: quotedetailsmodal
                                                   ?.details?.cId,
                                               email: quotedetailsmodal
