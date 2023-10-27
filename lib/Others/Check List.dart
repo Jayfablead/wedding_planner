@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:wedding_planner/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +25,7 @@ class Check_list extends StatefulWidget {
   State<Check_list> createState() => _Check_listState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 bool ischeck = false;
 
@@ -62,7 +62,7 @@ class checklist {
 //   checklist('Make All Parcels received', false),
 //   checklist('Make All Notifications Page', false),
 // ];
-
+final GlobalKey<ScaffoldState> scaffoldKey16 = GlobalKey<ScaffoldState>();
 class _Check_listState extends State<Check_list> {
   TextEditingController _search = TextEditingController();
   bool isLoading = true;
@@ -91,7 +91,7 @@ class _Check_listState extends State<Check_list> {
     return commanScreen(
       isLoading: isLoading,
       scaffold: Scaffold(
-        key: scaffoldKey,
+        key: scaffoldKey16,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -111,7 +111,7 @@ class _Check_listState extends State<Check_list> {
                         header(
                             text: "Check List",
                             callback1: () {
-                              scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey16.currentState?.openDrawer();
                             }),
                         // headerwid(text: "Check List"),
                         SizedBox(height: 1.h),

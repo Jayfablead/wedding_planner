@@ -12,7 +12,7 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
-
+import 'package:wedding_planner/main.dart';
 class AllCategoryScreen extends StatefulWidget {
   const AllCategoryScreen({super.key});
 
@@ -20,7 +20,7 @@ class AllCategoryScreen extends StatefulWidget {
   State<AllCategoryScreen> createState() => _AllCategoryScreenState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey24 = GlobalKey<ScaffoldState>();
 
 class cate {
   String? image;
@@ -71,7 +71,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
       isLoading: isLoad,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey24,
         drawer: drawer1(),
         body: isLoad
             ? Container()
@@ -82,7 +82,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     header(
                         text: "All Category",
                         callback1: () {
-                          scaffoldKey.currentState?.openDrawer();
+                          scaffoldKey24.currentState?.openDrawer();
                         }),
                     SizedBox(
                       height: 1.h,

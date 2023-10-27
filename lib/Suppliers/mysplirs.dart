@@ -11,7 +11,7 @@ import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
+import 'package:wedding_planner/main.dart';
 import '../Modal/mySupplierModal.dart';
 import '../widgets/load.dart';
 
@@ -25,7 +25,7 @@ class MySups extends StatefulWidget {
 }
 
 TextEditingController _search = TextEditingController();
-
+final GlobalKey<ScaffoldState> scaffoldKey25 = GlobalKey<ScaffoldState>();
 class chat {
   String? image;
   String? name;
@@ -42,7 +42,7 @@ class chat {
   );
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 bool more = true;
 bool isLoading = true;
 int sel1 = 1;
@@ -67,7 +67,7 @@ class _MySupsState extends State<MySups> {
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey25,
         body: isLoading
             ? Container()
             : SingleChildScrollView(
@@ -81,7 +81,7 @@ class _MySupsState extends State<MySups> {
                       header(
                           text: "My Suppliers",
                           callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey25.currentState?.openDrawer();
                           }),
                       // headerwid(text: "All Suppliers"),
                       SizedBox(height: 1.h),

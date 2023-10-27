@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
+import 'package:wedding_planner/main.dart';
 class RoomManagement extends StatefulWidget {
   const RoomManagement({super.key});
 
@@ -66,7 +66,7 @@ List<cate> room = [
       '001',
       '6'),
 ];
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey17 = GlobalKey<ScaffoldState>();
 TextEditingController _search = TextEditingController();
 
 class _RoomManagementState extends State<RoomManagement> {
@@ -75,7 +75,7 @@ class _RoomManagementState extends State<RoomManagement> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
-      key: scaffoldKey,
+      key: scaffoldKey17,
       body: Padding(
         // padding: const EdgeInsets.all(8.0),
         padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -88,44 +88,11 @@ class _RoomManagementState extends State<RoomManagement> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     IconButton(
-                    //         onPressed: () {
-                    //           Get.back();
-                    //         },
-                    //         icon: Icon(
-                    //           Icons.arrow_back_ios_new_rounded,
-                    //           color: Colors.blue,
-                    //           size: 23.sp,
-                    //         )),
-                    //     Text(
-                    //       "Room Management",
-                    //       style: TextStyle(
-                    //         fontSize: 18.sp,
-                    //         fontFamily: 'sofi',
-                    //         letterSpacing: 1,
-                    //         color: Colors.blue,
-                    //         fontWeight: FontWeight.bold,
-                    //       ),
-                    //     ),
-                    //     IconButton(
-                    //         onPressed: () {
-                    //           scaffoldKey.currentState?.openDrawer();
-                    //         },
-                    //         icon: Icon(
-                    //           Icons.menu_rounded,
-                    //           color: Colors.blue,
-                    //           size: 23.sp,
-                    //         ))
-                    //   ],
-                    // ),
-                    // headerwid(text: "Room Management"),
+
                     header(
                         text: "Room Management",
                         callback1: () {
-                          scaffoldKey.currentState?.openDrawer();
+                          scaffoldKey17.currentState?.openDrawer();
                         }),
                     SizedBox(height: 1.5.h),
                     Row(

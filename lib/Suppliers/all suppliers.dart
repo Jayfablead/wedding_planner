@@ -12,7 +12,7 @@ import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
+import 'package:wedding_planner/main.dart';
 import '../Modal/CategoryWiseSuppliersModal.dart';
 import '../widgets/load.dart';
 
@@ -25,7 +25,7 @@ class MySuppliers extends StatefulWidget {
   @override
   State<MySuppliers> createState() => _MySuppliersState();
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey23 = GlobalKey<ScaffoldState>();
 TextEditingController _search = TextEditingController();
 
 class chat {
@@ -119,7 +119,7 @@ List<chat> mesgs = [
       'A decorations of your garden'),
 ];
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 bool more = true;
 bool isLoading = true;
 
@@ -144,7 +144,7 @@ class _MySuppliersState extends State<MySuppliers> {
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey23,
         body: isLoading
             ? Container()
             : SingleChildScrollView(
@@ -158,7 +158,7 @@ class _MySuppliersState extends State<MySuppliers> {
                 header(
                     text: "All Suppliers",
                     callback1: () {
-                      scaffoldKey.currentState?.openDrawer();
+                      scaffoldKey23.currentState?.openDrawer();
                     }),
                 // headerwid(text: "All Suppliers"),
                 SizedBox(height: 1.h),

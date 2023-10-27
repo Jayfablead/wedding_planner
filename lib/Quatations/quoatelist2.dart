@@ -41,7 +41,7 @@ class chat {
     this.details,
   );
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey21 = GlobalKey<ScaffoldState>();
 List<chat> mesgs = [
   chat(
       'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
@@ -117,7 +117,7 @@ class _QuoateList2State extends State<QuoateList2> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey21,
         body: isLoad
             ? Container()
             : SingleChildScrollView(
@@ -132,7 +132,7 @@ class _QuoateList2State extends State<QuoateList2> {
                       header(
                           text: "Quotation List",
                           callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey21.currentState?.openDrawer();
                           }),
                       // headerwid(text: "Quotation List"),
                       SizedBox(height: 1.h),

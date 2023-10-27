@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert';import 'package:wedding_planner/main.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +23,9 @@ class ViewBookingDetailsPage extends StatefulWidget {
   @override
   State<ViewBookingDetailsPage> createState() => _ViewBookingDetailsPageState();
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
 class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool isLoading = true;
 
   @override
@@ -40,7 +40,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey3,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -57,7 +57,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                         header(
                             text: "Booking Details",
                             callback1: () {
-                              scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey3.currentState?.openDrawer();
                             }),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,

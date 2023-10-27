@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -24,9 +24,9 @@ class BookingSuccessfulPage extends StatefulWidget {
   @override
   State<BookingSuccessfulPage> createState() => _BookingSuccessfulPageState();
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey4 = GlobalKey<ScaffoldState>();
 class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool isLoading = true;
 
   @override
@@ -41,7 +41,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey4,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -58,7 +58,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                         header(
                             text: "Booking Successful",
                             callback1: () {
-                              scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey4.currentState?.openDrawer();
                             }),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,

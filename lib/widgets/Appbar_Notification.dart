@@ -3,6 +3,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Others/NotificationScreen.dart';
+import 'package:wedding_planner/main.dart';
 
 class Notification extends StatefulWidget {
   const Notification({super.key});
@@ -11,7 +12,7 @@ class Notification extends StatefulWidget {
   State<Notification> createState() => _NotificationState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class _NotificationState extends State<Notification> {
   @override

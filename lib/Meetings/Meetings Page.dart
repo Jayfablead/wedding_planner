@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:wedding_planner/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,11 +40,11 @@ TextEditingController _desc = TextEditingController();
 TextEditingController _cate = TextEditingController();
 TextEditingController _start = TextEditingController();
 TextEditingController _time = TextEditingController();
-
+final GlobalKey<ScaffoldState> scaffoldKey14 = GlobalKey<ScaffoldState>();
 final formKey = GlobalKey<FormState>();
 
 class _MeetingsPageState extends State<MeetingsPage> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   int? sel1 = 3;
   bool isLoading = true;
   List<cate> nextWeekDatesWithDay = [];
@@ -77,7 +77,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         extendBody: true,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey14,
         body: isLoading
             ? Container()
             : Padding(
@@ -93,7 +93,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                         header(
                             text: "",
                             callback1: () {
-                              scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey14.currentState?.openDrawer();
                             }),
                         // headerwid(text: ""),
                         SizedBox(height: 1.5.h),

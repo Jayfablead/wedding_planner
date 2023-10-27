@@ -28,11 +28,11 @@ class _ChangePasswordState extends State<ChangePassword> {
   bool _obscurePassword = true;
   bool _obscurePassword1 = true;
   bool _obscurePassword2 = true;
-
+  final GlobalKey<ScaffoldState> scaffoldKey1 = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
+      key: scaffoldKey1,
       extendBody: true,
       drawer: drawer1(),
       backgroundColor: Colors.grey.shade100,
@@ -49,7 +49,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 header(
                     text: "",
                     callback1: () {
-                      scaffoldKey.currentState?.openDrawer();
+                      scaffoldKey1.currentState?.openDrawer();
                     }),
                 // headerwid(text: ""),
                 Container(

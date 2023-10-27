@@ -114,7 +114,7 @@ List<cate0> photos = [
 
 List<String> type = ["All Suppliers", "To Do", "Meeting"];
 // final GlobalKey<ScaffoldState>  scaffoldKey2 = GlobalKey<ScaffoldState>();
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey18 = GlobalKey<ScaffoldState>();
 bool isLoad = true;
 
 class _PostPageState extends State<PostPage> {
@@ -147,7 +147,7 @@ class _PostPageState extends State<PostPage> {
         extendBody: true,
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey18,
         body: isLoad
             ? Container()
             : SingleChildScrollView(
@@ -161,7 +161,7 @@ class _PostPageState extends State<PostPage> {
                       header(
                           text: "",
                           callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey18.currentState?.openDrawer();
                           }),
                       SizedBox(height: 1.h),
                       categoriesmodal?.services == null

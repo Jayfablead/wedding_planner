@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,6 +42,7 @@ class _EditProfile2State extends State<EditProfile2> {
   TextEditingController _address = TextEditingController();
   TextEditingController _about = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   bool isKeyboardOpen = false;
   ImagePicker _picker = ImagePicker();
   File? _pickedFile;
@@ -66,7 +67,7 @@ class _EditProfile2State extends State<EditProfile2> {
     });
   }
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {

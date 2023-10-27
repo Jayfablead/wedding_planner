@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -50,7 +50,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
   TextEditingController timeinput1 = TextEditingController();
   TextEditingController timeinput2 = TextEditingController();
   TextEditingController _comment = TextEditingController();
-
+  final GlobalKey<ScaffoldState> scaffoldKey5 = GlobalKey<ScaffoldState>();
   void timepicker() async {
     final picked = await showTimePicker(
       context: context,
@@ -95,7 +95,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
 
   final _formKey = GlobalKey<FormState>();
   bool isLoading = true;
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   void initState() {
@@ -117,7 +117,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey5,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -136,7 +136,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                         header(
                             text: "Booking Details",
                             callback1: () {
-                              scaffoldKey.currentState?.openDrawer();
+                              scaffoldKey5.currentState?.openDrawer();
                             }),
                         // headerwid(text: "Booking Details"),
                         SizedBox(

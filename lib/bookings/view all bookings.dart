@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,7 @@ class BookingList extends StatefulWidget {
   State<BookingList> createState() => _BookingListState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class icon {
   String? image;
@@ -59,7 +59,7 @@ List<icon> Icns = [
   icon('https://cdn-icons-png.flaticon.com/512/2706/2706309.png', 'Planners',
       '1000'),
 ];
-
+final GlobalKey<ScaffoldState> scaffoldKey6 = GlobalKey<ScaffoldState>();
 class _BookingListState extends State<BookingList> {
   bool isLoading = true;
 
@@ -77,7 +77,7 @@ class _BookingListState extends State<BookingList> {
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey6,
         body: isLoading
             ? Container()
             : SingleChildScrollView(
@@ -94,7 +94,7 @@ class _BookingListState extends State<BookingList> {
                           header(
                               text: "All Bookings",
                               callback1: () {
-                                scaffoldKey.currentState?.openDrawer();
+                                scaffoldKey6.currentState?.openDrawer();
                               }),
                           // headerwid(text: "All Bookings"),
                           SizedBox(

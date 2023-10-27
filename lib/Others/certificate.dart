@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -22,7 +22,7 @@ class Certificate extends StatefulWidget {
   State<Certificate> createState() => _CertificateState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class cate {
   String? image;
@@ -37,7 +37,7 @@ class cate {
     this.Rating,
   );
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey15 = GlobalKey<ScaffoldState>();
 List<cate> venue = [
   cate(
       'https://i.pinimg.com/originals/c5/25/55/c525556bdc809edf44944171ec3d54c7.jpg',
@@ -108,7 +108,7 @@ class _CertificateState extends State<Certificate> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       drawer: drawer1(),
-      key: scaffoldKey,
+      key: scaffoldKey15,
       body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
           child: Column(
@@ -158,7 +158,7 @@ class _CertificateState extends State<Certificate> {
                       header(
                           text: "Certificates",
                           callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey15.currentState?.openDrawer();
                           }),
                       // headerwid(text: "Certificates"),
                       SizedBox(height: 1.h),

@@ -16,9 +16,9 @@ void main() {
     const MyApp(),
   );
 }
-
-int setit = 0;
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+int setit = 0;
+
 
 void openDrawer() {
   print("drawer");

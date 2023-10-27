@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,32 +23,7 @@ class NotificationScreen extends StatefulWidget {
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();
 }
-
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-//
-// class icon {
-//   String? name;
-//   String? desc;
-//   String? time;
-//
-//   icon(
-//     this.name,
-//     this.desc,
-//     this.time,
-//   );
-// }
-//
-// List<icon> noti = [
-//   icon(
-//       'Caterers',
-//       'Check this quotation you requested asfcnasasnckasc asjbdasjkdbas',
-//       '10:20 pm'),
-//   icon('Photographer', 'Check this quotation you requested', '10:20 pm'),
-//   icon('mr.Ling', 'Hey ! How Are You?', '10:20 pm'),
-//   icon('Decorators', 'Check this quotation you requested', '10:20 pm'),
-//   icon('Designers', 'Check this quotation you requested', '10:20 pm'),
-//   icon('Salon', 'Check this quotation you requested', '10:20 pm'),
-// ];
+final GlobalKey<ScaffoldState> scaffoldKey19 = GlobalKey<ScaffoldState>();
 
 class _NotificationScreenState extends State<NotificationScreen> {
   bool isLoading = true;
@@ -71,7 +46,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         extendBody: true,
         bottomNavigationBar: bottomnavbar(selit: -3),
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey19,
         body: isLoading
             ? Container()
             : Padding(
@@ -105,7 +80,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           ),
                           IconButton(
                               onPressed: () {
-                                scaffoldKey.currentState?.openDrawer();
+                                scaffoldKey19.currentState?.openDrawer();
                               },
                               icon: Icon(
                                 Icons.menu_rounded,

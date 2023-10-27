@@ -39,7 +39,7 @@ class _AddguestlistState extends State<Addguestlist> {
   final _formKey = GlobalKey<FormState>();
   List<test> items = [];
   test? selectedItem;
-
+  final GlobalKey<ScaffoldState> scaffoldKey11 = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     // TODO: implement initState
@@ -49,7 +49,7 @@ class _AddguestlistState extends State<Addguestlist> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(key: scaffoldKey11,
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Container(
@@ -63,7 +63,7 @@ class _AddguestlistState extends State<Addguestlist> {
               header(
                   text: "Add Guest",
                   callback1: () {
-                    scaffoldKey.currentState?.openDrawer();
+                    scaffoldKey11.currentState?.openDrawer();
                   }),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),

@@ -34,7 +34,7 @@ class SupplierfourScreen extends StatefulWidget {
   @override
   State<SupplierfourScreen> createState() => _SupplierfourScreenState();
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey26 = GlobalKey<ScaffoldState>();
 class _SupplierfourScreenState extends State<SupplierfourScreen> {
   bool isLoading = true;
   TextEditingController _title = TextEditingController();
@@ -53,7 +53,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey26,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -67,7 +67,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       header(
                           text: "Supplier",
                           callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey26.currentState?.openDrawer();
                           }),
                       SizedBox(
                         height: 2.h,
@@ -88,7 +88,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                     fontSize: 19.sp,
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
-                                    color: Colors.black),
+                                    color: Colors.blue),
                               ),
                               SizedBox(height: 0.5.h),
                               Text(
@@ -166,10 +166,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Details",
+                                "Details :",
                                 style: TextStyle(
                                     fontSize: 18.sp,
-                                    color: Colors.black,
+                                    color: Colors.blue,
                                     fontFamily: 'sofi',
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.bold),
@@ -219,10 +219,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                       "",
                               textAlign: TextAlign.justify,
                               style: TextStyle(
-                                  fontSize: 15.sp,
+                                  fontSize: 16.sp,
                                   fontFamily: 'sofi',
                                   color: Colors.black.withOpacity(0.65),
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w600,height: 0.15.h,
                                   letterSpacing: 1),
                             ),
                           ),
@@ -230,6 +230,54 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                             height: 3.h,
                           ),
                         ],
+                      ),
+                      Text(
+                        "Photos :",
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            color: Colors.blue,
+                            fontFamily: 'sofi',
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.bold),
+                      ), SizedBox(
+                        height: 1.h,
+                      ),
+                      Container(
+                        height: 22.h,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 1,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                width: 40.w,
+                                margin: EdgeInsets.only(right: 3.w),
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                  BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius:
+                                  BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    imageUrl:'',
+                                    fit: BoxFit.cover,
+                                    progressIndicatorBuilder: (context,
+                                        url, progress) =>
+                                        Center(
+                                            child:
+                                            CircularProgressIndicator()),
+                                    errorWidget:
+                                        (context, url, error) =>
+                                        Image.asset(
+                                          'assets/defimg.jpg',fit: BoxFit.cover,
+                                        ),
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                      SizedBox(
+                        height: 3.h,
                       ),
                       supplierdetailmodal?.supplierInfo?.isBooked == '0'
                           ? Row(

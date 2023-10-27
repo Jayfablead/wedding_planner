@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
   int sel1 = 0;
   int? fav;
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey10 = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       scaffold: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey10,
         extendBody: true,
         drawer: drawer1(),
         body: isLoading
@@ -128,7 +128,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                         ),
                                         IconButton(
                                           onPressed: () {
-                                            scaffoldKey.currentState
+                                            scaffoldKey10.currentState
                                                 ?.openDrawer();
                                           },
                                           icon: Icon(

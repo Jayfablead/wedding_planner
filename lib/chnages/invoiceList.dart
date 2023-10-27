@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class InvoiceList extends StatefulWidget {
   State<InvoiceList> createState() => _InvoiceListState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class cate {
   String? image;
@@ -92,7 +92,7 @@ List<cate> venue = [
 class _InvoiceListState extends State<InvoiceList> {
   static var httpClient = new HttpClient();
   TextEditingController _search = TextEditingController();
-
+  final GlobalKey<ScaffoldState> scaffoldKey8 = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     // TODO: implement initState
@@ -109,7 +109,7 @@ class _InvoiceListState extends State<InvoiceList> {
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey8,
         body: isLoading
             ? Container()
             : Padding(
@@ -127,7 +127,7 @@ class _InvoiceListState extends State<InvoiceList> {
                           header(
                               text: "Invoices",
                               callback1: () {
-                                scaffoldKey.currentState?.openDrawer();
+                                scaffoldKey8.currentState?.openDrawer();
                               }),
                           // headerwid(text: "Certificates"),
                           SizedBox(height: 1.h),

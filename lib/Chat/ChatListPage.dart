@@ -28,51 +28,9 @@ class ChatlistPage extends StatefulWidget {
   State<ChatlistPage> createState() => _ChatlistPageState();
 }
 
-//
-// class chat {
-//   String? image;
-//   String? name;
-//   String? msg;
-//   String? time;
-//
-//   chat(
-//     this.image,
-//     this.name,
-//     this.msg,
-//     this.time,
-//   );
-// }
-//
-// List<chat> mesgs = [
-//   chat(
-//       'https://e1.pxfuel.com/desktop-wallpaper/238/852/desktop-wallpaper-masque-luffy-smiling-luffy-smile-thumbnail.jpg',
-//       'Luffy',
-//       'Moshi Mosh Oreva Monkey d Luffy Kaizoku wo Naru to nido',
-//       '8:94 AM'),
-//   chat(
-//       'https://static.wikia.nocookie.net/fictionalfighters/images/4/48/Sanji.png/revision/latest?cb=20150406032640',
-//       'Sanji',
-//       'Hoy Mass Head Punk',
-//       '9:10 AM'),
-//   chat(
-//       'https://w0.peakpx.com/wallpaper/311/533/HD-wallpaper-one-piece-nico-robin-one-piece-two-years-later.jpg',
-//       'Robin',
-//       'Oy Zoro kun Ohayoo',
-//       '9:15 AM'),
-//   chat(
-//       'https://i.pinimg.com/736x/59/e3/d2/59e3d2fb93af21511690470abc014831.jpg',
-//       'Nami',
-//       'Hey! Dumb Zoro Don\'t Fight ',
-//       '9:40 AM'),
-//   chat(
-//       'https://i.pinimg.com/236x/23/62/50/236250f1055a352c4a0cd5e0a21aaf33.jpg',
-//       'Chopper',
-//       'You are Injured Come to me I will Fix You ',
-//       '10:50 Am'),
-// ];
-// int selit = 2;
+final GlobalKey<ScaffoldState> scaffoldKey7 = GlobalKey<ScaffoldState>();
 TextEditingController _search = TextEditingController();
-final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
+
 
 class _ChatlistPageState extends State<ChatlistPage> {
   @override
@@ -97,7 +55,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
         bottomNavigationBar: bottomnavbar(selit: widget.sele),
         extendBody: true,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey7,
         body: isLoading
             ? Container()
             : SingleChildScrollView(
@@ -110,7 +68,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                     header(
                         text: "",
                         callback1: () {
-                          scaffoldKey.currentState?.openDrawer();
+                          scaffoldKey7.currentState?.openDrawer();
                         }),
                     SizedBox(height: 1.h),
                     Row(

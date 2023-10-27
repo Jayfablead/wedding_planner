@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
+import 'package:wedding_planner/main.dart';
 class BookingListPage extends StatefulWidget {
   const BookingListPage({super.key});
 
@@ -69,7 +69,7 @@ TextEditingController _search = TextEditingController();
 
 int sel = 0;
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class _BookingListPageState extends State<BookingListPage> {
   @override

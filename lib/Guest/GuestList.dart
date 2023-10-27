@@ -32,7 +32,7 @@ class test {
 
   test(this.title, this.id);
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey12 = GlobalKey<ScaffoldState>();
 class _GuestListState extends State<GuestList> {
   TextEditingController _name = TextEditingController();
   TextEditingController _phone = TextEditingController();
@@ -62,7 +62,7 @@ class _GuestListState extends State<GuestList> {
     return commanScreen(
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey12,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -75,7 +75,7 @@ class _GuestListState extends State<GuestList> {
                 header(
                     text: "Guest List",
                     callback1: () {
-                      scaffoldKey.currentState?.openDrawer();
+                      scaffoldKey12.currentState?.openDrawer();
                     }),
                 // headerwid(text: "Guest List"),
 

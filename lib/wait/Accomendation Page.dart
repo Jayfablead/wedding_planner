@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:wedding_planner/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class Accomendation_Page extends StatefulWidget {
   State<Accomendation_Page> createState() => _Accomendation_PageState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 TextEditingController _search = TextEditingController();
 
 class _Accomendation_PageState extends State<Accomendation_Page> {

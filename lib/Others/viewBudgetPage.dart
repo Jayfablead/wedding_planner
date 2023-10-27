@@ -25,7 +25,7 @@ class ViewBudget extends StatefulWidget {
   State<ViewBudget> createState() => _ViewBudgetState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey4 = GlobalKey<ScaffoldState>();
+final GlobalKey<ScaffoldState> scaffoldKey20 = GlobalKey<ScaffoldState>();
 
 class _ViewBudgetState extends State<ViewBudget> {
   TextEditingController _budget = TextEditingController();
@@ -54,7 +54,7 @@ class _ViewBudgetState extends State<ViewBudget> {
         bottomNavigationBar: bottomnavbar(selit: -3),
         extendBody: true,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey20,
         body: isLoading
             ? Container()
             : SingleChildScrollView(
@@ -67,44 +67,12 @@ class _ViewBudgetState extends State<ViewBudget> {
                             SizedBox(
                               height: 5.h,
                             ),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            //   children: [
-                            //     IconButton(
-                            //         onPressed: () {
-                            //           Get.back();
-                            //         },
-                            //         icon: Icon(
-                            //           Icons.arrow_back_ios_new_rounded,
-                            //           color: Colors.blue,
-                            //           size: 23.sp,
-                            //         )),
-                            //     Text(
-                            //       "Budget",
-                            //       style: TextStyle(
-                            //         fontSize: 18.sp,
-                            //         fontFamily: 'sofi',
-                            //         color: Colors.blue,
-                            //         letterSpacing: 1,
-                            //         fontWeight: FontWeight.bold,
-                            //       ),
-                            //     ),
-                            //     IconButton(
-                            //         onPressed: () {
-                            //           openDrawer();
-                            //         },
-                            //         icon: Icon(
-                            //           Icons.menu_rounded,
-                            //           color: Colors.blue,
-                            //           size: 23.sp,
-                            //         ))
-                            //   ],
-                            // ),
+
 
                             header(
                                 text: "Budget",
                                 callback1: () {
-                                  scaffoldKey.currentState?.openDrawer();
+                                  scaffoldKey20.currentState?.openDrawer();
                                 }),
                             SizedBox(
                               height: 2.h,

@@ -26,7 +26,7 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
-  final GlobalKey<ScaffoldState> scaffoldKey5 = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey2 = GlobalKey<ScaffoldState>();
 
   List img = [
     "assets/ney.jpg",
@@ -52,7 +52,7 @@ class _MyProfileState extends State<MyProfile> {
     });
   }
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class _MyProfileState extends State<MyProfile> {
         bottomNavigationBar: bottomnavbar(selit: -3),
         resizeToAvoidBottomInset: false,
         drawer: drawer1(),
-        key: scaffoldKey,
+        key: scaffoldKey2,
         // Colors.black
         body: isLoading
             ? Container()
@@ -250,7 +250,7 @@ class _MyProfileState extends State<MyProfile> {
                             ),
                             IconButton(
                                 onPressed: () {
-                                  scaffoldKey.currentState?.openDrawer();
+                                  scaffoldKey2.currentState?.openDrawer();
                                 },
                                 icon: Icon(
                                   Icons.menu_rounded,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
+import 'package:wedding_planner/main.dart';
 import '../widgets/drawer.dart';
 import 'itineryView.dart';
 
@@ -15,7 +15,7 @@ class ItinerPage extends StatefulWidget {
   State<ItinerPage> createState() => _ItinerPageState();
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
 class _ItinerPageState extends State<ItinerPage> {
   TextEditingController _search = TextEditingController();

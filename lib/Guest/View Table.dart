@@ -21,7 +21,7 @@ class ViewTables extends StatefulWidget {
 
 int sel1 = 1;
 int sel = 1;
-
+final GlobalKey<ScaffoldState> scaffoldKey13 = GlobalKey<ScaffoldState>();
 class _ViewTablesState extends State<ViewTables> {
   int? open = 0;
   bool test = false;
@@ -41,7 +41,7 @@ class _ViewTablesState extends State<ViewTables> {
       scaffold: Scaffold(
         extendBody: true,
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey13,
         drawer: drawer1(),
         bottomNavigationBar: bottomnavbar(selit: -3),
         body: isLoading
@@ -51,43 +51,11 @@ class _ViewTablesState extends State<ViewTables> {
                 child: Column(
                   children: [
                     SizedBox(height: 5.h),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   crossAxisAlignment: CrossAxisAlignment.center,
-                    //   children: [
-                    //     IconButton(
-                    //         onPressed: () {
-                    //           Get.back();
-                    //         },
-                    //         icon: Icon(
-                    //           Icons.arrow_back_ios_new_rounded,
-                    //           color: Colors.blue,
-                    //           size: 23.sp,
-                    //         )),
-                    //     Text(
-                    //       'Guests',
-                    //       style: TextStyle(
-                    //           fontSize: 17.sp,
-                    //           fontFamily: 'sofi',
-                    //           fontWeight: FontWeight.bold,
-                    //           letterSpacing: 1,
-                    //           color: Colors.blue),
-                    //     ),
-                    //     IconButton(
-                    //         onPressed: () {
-                    //           scaffoldKey.currentState?.openDrawer();
-                    //         },
-                    //         icon: Icon(
-                    //           Icons.menu_rounded,
-                    //           color: Colors.blue,
-                    //           size: 23.sp,
-                    //         )),
-                    //   ],
-                    // ),
+
                     header(
                         text: "Guests",
                         callback1: () {
-                          scaffoldKey.currentState?.openDrawer();
+                          scaffoldKey13.currentState?.openDrawer();
                         }),
                     // headerwid(text: "Guests"),
                     SizedBox(height: 3.h),

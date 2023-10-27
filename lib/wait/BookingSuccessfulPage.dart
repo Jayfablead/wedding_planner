@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-
+import 'package:wedding_planner/main.dart';
 class BookingSuccessfulPage extends StatefulWidget {
   const BookingSuccessfulPage({super.key});
 
@@ -11,7 +11,7 @@ class BookingSuccessfulPage extends StatefulWidget {
 }
 
 class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {

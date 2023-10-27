@@ -188,7 +188,7 @@ class _myfavouriteState extends State<myfavourite> {
   int? fav;
   int? mydata;
   bool isLoading = true;
-
+  final GlobalKey<ScaffoldState> scaffoldKey9 = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     // TODO: implement initState
@@ -203,7 +203,7 @@ class _myfavouriteState extends State<myfavourite> {
       scaffold: Scaffold(
         drawer: drawer1(),
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey9,
         extendBody: true,
         bottomNavigationBar: bottomnavbar(selit: -3),
         body: isLoading
@@ -221,7 +221,7 @@ class _myfavouriteState extends State<myfavourite> {
                       header(
                           text: "My Favourites",
                           callback1: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            scaffoldKey9.currentState?.openDrawer();
                           }),
                       // headerwid(text: "My Favourites",
                       //     onCallback: (){

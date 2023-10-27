@@ -22,7 +22,7 @@ class VenueView extends StatefulWidget {
   @override
   State<VenueView> createState() => _VenueViewState();
 }
-
+final GlobalKey<ScaffoldState> scaffoldKey27 = GlobalKey<ScaffoldState>();
 final controller = PageController(viewportFraction: 0.8, keepPage: true);
 List HotelIm = [
   'https://i0.wp.com/decorsutrablog.com/wp-content/uploads/2020/06/DecorSutra_Wedding-Decor-9_Royal-Decor.jpg?fit=780%2C425&ssl=1',
@@ -54,7 +54,7 @@ class _VenueViewState extends State<VenueView> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        key: scaffoldKey,
+        key: scaffoldKey27,
         drawer: drawer1(),
         body: isLoading
             ? Container()
@@ -71,7 +71,7 @@ class _VenueViewState extends State<VenueView> {
                   header(
                       text: "My Venue",
                       callback1: () {
-                        scaffoldKey.currentState?.openDrawer();
+                        scaffoldKey27.currentState?.openDrawer();
                       }),
                   SizedBox(height: 1.h),
                   // Stack(
