@@ -246,55 +246,57 @@ class _Msg2State extends State<Msg2> {
 
                                               return Column(
                                                 children: [
-                                                  (showSeparator)
-                                                      ? Column(
-                                                          children: [
-                                                            SizedBox(
-                                                              height: 2.h,
-                                                            ),
-                                                            Container(
-                                                                margin:
-                                                                    EdgeInsets
-                                                                        .all(1
-                                                                            .w),
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(1
-                                                                            .w),
-                                                                // height: 4.h,
-                                                                width: 25.w,
-                                                                alignment:
-                                                                    Alignment
-                                                                        .center,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              15.0),
-                                                                  color: Colors
-                                                                      .transparent
-                                                                      .withOpacity(
-                                                                          0.3),
-                                                                ),
-                                                                child: Text(
-                                                                  (diff == 0)
-                                                                      ? "Today"
-                                                                      : (diff ==
-                                                                              1)
-                                                                          ? "Yesterday"
-                                                                          : outputDate1,
-                                                                  style: TextStyle(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      fontSize:
-                                                                          12.sp,
-                                                                      fontFamily:
-                                                                          "Poppins"),
-                                                                )),
-                                                          ],
-                                                        )
-                                                      : fullchatmodal
+                                                  // (showSeparator)
+                                                  //     ? Column(
+                                                  //         children: [
+                                                  //           SizedBox(
+                                                  //             height: 2.h,
+                                                  //           ),
+                                                  //           Container(
+                                                  //               margin:
+                                                  //                   EdgeInsets
+                                                  //                       .all(1
+                                                  //                           .w),
+                                                  //               padding:
+                                                  //                   EdgeInsets
+                                                  //                       .all(1
+                                                  //                           .w),
+                                                  //               // height: 4.h,
+                                                  //               width: 25.w,
+                                                  //               alignment:
+                                                  //                   Alignment
+                                                  //                       .center,
+                                                  //               decoration:
+                                                  //                   BoxDecoration(
+                                                  //                 borderRadius:
+                                                  //                     BorderRadius
+                                                  //                         .circular(
+                                                  //                             15.0),
+                                                  //                 color: Colors
+                                                  //                     .transparent
+                                                  //                     .withOpacity(
+                                                  //                         0.3),
+                                                  //               ),
+                                                  //               child: Text(
+                                                  //                 (diff == 0)
+                                                  //                     ? "Today"
+                                                  //                     : (diff ==
+                                                  //                             1)
+                                                  //                         ? "Yesterday"
+                                                  //                         : outputDate1,
+                                                  //                 style: TextStyle(
+                                                  //                     color: Colors
+                                                  //                         .white,
+                                                  //                     fontSize:
+                                                  //                         12.sp,
+                                                  //                     fontFamily:
+                                                  //                         "Poppins"),
+                                                  //               )),
+                                                  //         ],
+                                                  //       )
+                                                  //     :
+
+                                                  fullchatmodal
                                                                   ?.data
                                                                   ?.livechat?[
                                                                       index]
