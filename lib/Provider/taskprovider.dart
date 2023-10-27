@@ -567,7 +567,9 @@ class taskprovider with ChangeNotifier {
       },
     );
     responseJson = responses(response);
+    print(response.body);
     return responseJson;
+
   }
   Future<http.Response> mybudgetapi() async {
     String? url = '$baseUrl/mybudget/${userData?.user?.id.toString()}';

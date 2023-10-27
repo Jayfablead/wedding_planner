@@ -171,7 +171,7 @@ class _CertificateState extends State<Certificate> {
                       SizedBox(height: 2.h),
                     ]),
               ),
-              documentmodal?.data?.contracts?.length == 0
+              documentmodal?.data?.allDocandCerti?.length == 0
                   ? Container(
                       height: 70.h,
                       alignment: Alignment.center,
@@ -185,7 +185,8 @@ class _CertificateState extends State<Certificate> {
                                 color: Colors.black)),
                       ),
                     )
-                  : Column(
+                  :
+          Column(
                       children: [
                         for (int index = 0;
                             index <
