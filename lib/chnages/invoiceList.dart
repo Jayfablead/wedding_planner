@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +22,6 @@ class InvoiceList extends StatefulWidget {
   State<InvoiceList> createState() => _InvoiceListState();
 }
 
-
-
 class cate {
   String? image;
   String? name;
@@ -37,6 +35,7 @@ class cate {
     this.Rating,
   );
 }
+
 List<cate> venue = [
   cate(
       'https://i.pinimg.com/originals/c5/25/55/c525556bdc809edf44944171ec3d54c7.jpg',
@@ -89,10 +88,12 @@ List<cate> venue = [
       'A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue A Royal Decoration venue ',
       3),
 ];
+
 class _InvoiceListState extends State<InvoiceList> {
   static var httpClient = new HttpClient();
   TextEditingController _search = TextEditingController();
   final GlobalKey<ScaffoldState> scaffoldKey8 = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -164,9 +165,8 @@ class _InvoiceListState extends State<InvoiceList> {
                                 padding: EdgeInsets.all(1.w),
                                 margin: EdgeInsets.symmetric(horizontal: 1.5.w),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                    color:Colors.white
-                                ),
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
@@ -283,10 +283,10 @@ class _InvoiceListState extends State<InvoiceList> {
                                         SizedBox(height: 1.h),
                                         InkWell(
                                           onTap: () async {
-
                                             EasyLoading.show(
                                                 status: 'Downloading ..',
-                                                indicator: CircularProgressIndicator(
+                                                indicator:
+                                                    CircularProgressIndicator(
                                                   color: Colors.white,
                                                 ));
                                             const downloadsFolderPath =
@@ -302,13 +302,16 @@ class _InvoiceListState extends State<InvoiceList> {
                                             var bytes =
                                                 await consolidateHttpClientResponseBytes(
                                                     response);
-                                            Directory dir = Platform.isAndroid?Directory(downloadsFolderPath): await getApplicationDocumentsDirectory();
+                                            Directory dir = Platform.isAndroid
+                                                ? Directory(downloadsFolderPath)
+                                                : await getApplicationDocumentsDirectory();
 
                                             final String filePath =
                                                 '${dir.path}/${invoicelistmodal?.invoices?[index].supplierDetails?.name ?? ""}';
                                             final File file = File(filePath);
                                             await file.writeAsBytes(bytes);
-                                            EasyLoading.showSuccess("Downloaded");
+                                            EasyLoading.showSuccess(
+                                                "Downloaded");
                                             print(file);
                                           },
                                           child: Container(

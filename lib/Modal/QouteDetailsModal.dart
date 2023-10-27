@@ -9,7 +9,7 @@ class QouteDetailsModal {
     status = json['status'];
     message = json['message'];
     details =
-    json['details'] != null ? new Details.fromJson(json['details']) : null;
+        json['details'] != null ? new Details.fromJson(json['details']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -39,17 +39,17 @@ class Details {
 
   Details(
       {this.uid,
-        this.sId,
-        this.cId,
-        this.qComment,
-        this.resDetails,
-        this.totalAmount,
-        this.depositAmount,
-        this.status,
-        this.bookingAmt,
-        this.supplier,
-        this.images,
-        this.isBooked});
+      this.sId,
+      this.cId,
+      this.qComment,
+      this.resDetails,
+      this.totalAmount,
+      this.depositAmount,
+      this.status,
+      this.bookingAmt,
+      this.supplier,
+      this.images,
+      this.isBooked});
 
   Details.fromJson(Map<String, dynamic> json) {
     uid = json['uid'];
@@ -99,12 +99,12 @@ class Supplier {
 
   Supplier(
       {this.id,
-        this.profile,
-        this.email,
-        this.name,
-        this.servicePhotos,
-        this.categoryName,
-        this.description});
+      this.profile,
+      this.email,
+      this.name,
+      this.servicePhotos,
+      this.categoryName,
+      this.description});
 
   Supplier.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -39,16 +39,16 @@ class UserDetails {
 
   UserDetails(
       {this.id,
-        this.vid,
-        this.brideName,
-        this.groomName,
-        this.profileImg,
-        this.phone,
-        this.address,
-        this.email,
-        this.functionDate,
-        this.quotationReq,
-        this.bookingReq});
+      this.vid,
+      this.brideName,
+      this.groomName,
+      this.profileImg,
+      this.phone,
+      this.address,
+      this.email,
+      this.functionDate,
+      this.quotationReq,
+      this.bookingReq});
 
   UserDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];

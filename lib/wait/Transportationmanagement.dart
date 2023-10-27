@@ -2,9 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-import 'package:wedding_planner/main.dart';
+
 class BookingListPage extends StatefulWidget {
   const BookingListPage({super.key});
 
@@ -68,8 +69,6 @@ List cate = ['All', 'Featured Cars', 'Family Car', 'Luxury Car', 'Top Rated'];
 TextEditingController _search = TextEditingController();
 
 int sel = 0;
-
-
 
 class _BookingListPageState extends State<BookingListPage> {
   @override

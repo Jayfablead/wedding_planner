@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -24,9 +24,10 @@ class BookingSuccessfulPage extends StatefulWidget {
   @override
   State<BookingSuccessfulPage> createState() => _BookingSuccessfulPageState();
 }
-final GlobalKey<ScaffoldState> scaffoldKey4 = GlobalKey<ScaffoldState>();
-class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
 
+final GlobalKey<ScaffoldState> scaffoldKey4 = GlobalKey<ScaffoldState>();
+
+class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
   bool isLoading = true;
 
   @override
@@ -259,19 +260,21 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                                   ],
                                 ),
                               )),
-                        ),SizedBox(
+                        ),
+                        SizedBox(
                           height: 1.h,
                         ),
                         Container(
                           width: 110.w,
-                      padding: EdgeInsets.symmetric(vertical: 1.h),
+                          padding: EdgeInsets.symmetric(vertical: 1.h),
                           child: Card(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
                                   12.0), // Control the border radius here
                             ),
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.h),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 1.h),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -288,12 +291,12 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                                   SizedBox(height: 1.h),
                                   Text(
                                     booksuccess?.bookingInfo?.bComment == '' ||
-                                        booksuccess
-                                            ?.bookingInfo?.bComment ==
-                                            null
+                                            booksuccess
+                                                    ?.bookingInfo?.bComment ==
+                                                null
                                         ? 'N/A'
                                         : booksuccess?.bookingInfo?.bComment ??
-                                        '',
+                                            '',
                                     style: TextStyle(
                                       color: Colors.black.withOpacity(0.7),
                                       fontWeight: FontWeight.w600,
@@ -349,7 +352,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             ),
                           ),
                         ),
-
                         SizedBox(
                           height: 2.h,
                         ),
@@ -494,7 +496,6 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                         SizedBox(
                           height: 1.h,
                         ),
-
                         SizedBox(height: 2.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

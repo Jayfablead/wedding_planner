@@ -40,17 +40,17 @@ class SupplierInfo {
 
   SupplierInfo(
       {this.id,
-        this.name,
-        this.email,
-        this.profile,
-        this.contact,
-        this.address,
-        this.description,
-        this.services,
-        this.images,
-        this.inBudget,
-        this.isRequested,
-        this.isBooked});
+      this.name,
+      this.email,
+      this.profile,
+      this.contact,
+      this.address,
+      this.description,
+      this.services,
+      this.images,
+      this.inBudget,
+      this.isRequested,
+      this.isBooked});
 
   SupplierInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -100,12 +100,12 @@ class Services {
 
   Services(
       {this.id,
-        this.sId,
-        this.categoryId,
-        this.servicePhotos,
-        this.description,
-        this.cost,
-        this.createdAt});
+      this.sId,
+      this.categoryId,
+      this.servicePhotos,
+      this.description,
+      this.cost,
+      this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];

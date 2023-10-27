@@ -31,7 +31,6 @@ class ChatlistPage extends StatefulWidget {
 final GlobalKey<ScaffoldState> scaffoldKey7 = GlobalKey<ScaffoldState>();
 TextEditingController _search = TextEditingController();
 
-
 class _ChatlistPageState extends State<ChatlistPage> {
   @override
   void initState() {
@@ -91,23 +90,19 @@ class _ChatlistPageState extends State<ChatlistPage> {
                     SizedBox(height: 1.h),
                     searchBox(),
                     _search.text != ""
-                        ? chatserchmodal?.data?.length == 0 || chatserchmodal?.data == null
+                        ? chatserchmodal?.data?.length == 0 ||
+                                chatserchmodal?.data == null
                             ? Container(
-                      height: 50.h,
-                        width: MediaQuery.of(context).size.width,
-                        alignment: Alignment.center,
-                        child: Text("No Suppliers found" ,style: TextStyle(
-                            fontSize:
-                            16.sp,
-                            fontWeight:
-                            FontWeight
-                                .bold,
-                            letterSpacing:
-                            1,
-                            fontFamily:
-                            'sofi',
-                            color: Colors
-                                .black)))
+                                height: 50.h,
+                                width: MediaQuery.of(context).size.width,
+                                alignment: Alignment.center,
+                                child: Text("No Suppliers found",
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black)))
                             : Column(
                                 children: [
                                   for (int index = 0;
@@ -190,13 +185,21 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                     children: [
                                                       Text(
                                                         chatserchmodal
-                                                            ?.data?[index]
-                                                            .name==""||chatserchmodal
-                                                            ?.data?[index]
-                                                            .name==null?"N/A":chatserchmodal
-                                                                ?.data?[index]
-                                                                .name ??
-                                                            "",
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .name ==
+                                                                    "" ||
+                                                                chatserchmodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .name ==
+                                                                    null
+                                                            ? "N/A"
+                                                            : chatserchmodal
+                                                                    ?.data?[
+                                                                        index]
+                                                                    .name ??
+                                                                "",
                                                         style: TextStyle(
                                                             fontSize: 16.sp,
                                                             fontWeight:
@@ -376,8 +379,15 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  chatlistmodal?.venue?.name=="" ||chatlistmodal?.venue?.name ==null?"N/A":chatlistmodal?.venue?.name ??
-                                                      "",
+                                                  chatlistmodal?.venue?.name ==
+                                                              "" ||
+                                                          chatlistmodal?.venue
+                                                                  ?.name ==
+                                                              null
+                                                      ? "N/A"
+                                                      : chatlistmodal
+                                                              ?.venue?.name ??
+                                                          "",
                                                   style: TextStyle(
                                                       fontSize: 16.sp,
                                                       fontWeight:
@@ -479,20 +489,17 @@ class _ChatlistPageState extends State<ChatlistPage> {
                               ),
                               SizedBox(height: 2.h),
                               chatlistmodal?.suppliers?.length == 0
-                                  ? Container(height: 40.h,alignment: Alignment.center,
-                                    child: Text("No Supplier available", style: TextStyle(
-                                    fontSize:
-                                    16.sp,
-                                    fontWeight:
-                                    FontWeight
-                                        .bold,
-                                    letterSpacing:
-                                    1,
-                                    fontFamily:
-                                    'sofi',
-                                    color: Colors
-                                        .black)),
-                                  )
+                                  ? Container(
+                                      height: 40.h,
+                                      alignment: Alignment.center,
+                                      child: Text("No Supplier available",
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black)),
+                                    )
                                   : Column(
                                       children: [
                                         for (int index = 0;
@@ -584,17 +591,19 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              chatlistmodal
-                                                                  ?.suppliers?[
-                                                              index]
-                                                                  .name==""||chatlistmodal
-                                                                  ?.suppliers?[
-                                                              index]
-                                                                  .name==null?"N/A":chatlistmodal
-                                                                      ?.suppliers?[
-                                                                          index]
-                                                                      .name ??
-                                                                  "",
+                                                              chatlistmodal?.suppliers?[index].name ==
+                                                                          "" ||
+                                                                      chatlistmodal
+                                                                              ?.suppliers?[
+                                                                                  index]
+                                                                              .name ==
+                                                                          null
+                                                                  ? "N/A"
+                                                                  : chatlistmodal
+                                                                          ?.suppliers?[
+                                                                              index]
+                                                                          .name ??
+                                                                      "",
                                                               style: TextStyle(
                                                                   fontSize:
                                                                       16.sp,

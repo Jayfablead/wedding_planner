@@ -44,18 +44,18 @@ class Invoices {
 
   Invoices(
       {this.invId,
-        this.userId,
-        this.supplierId,
-        this.catId,
-        this.invoiceDate,
-        this.dueDate,
-        this.invoiceTotalAmt,
-        this.payStatus,
-        this.payMethod,
-        this.invFile,
-        this.createdAt,
-        this.updatedAt,
-        this.supplierDetails});
+      this.userId,
+      this.supplierId,
+      this.catId,
+      this.invoiceDate,
+      this.dueDate,
+      this.invoiceTotalAmt,
+      this.payStatus,
+      this.payMethod,
+      this.invFile,
+      this.createdAt,
+      this.updatedAt,
+      this.supplierDetails});
 
   Invoices.fromJson(Map<String, dynamic> json) {
     invId = json['inv_id'];
@@ -108,13 +108,13 @@ class SupplierDetails {
 
   SupplierDetails(
       {this.id,
-        this.name,
-        this.email,
-        this.profile,
-        this.contact,
-        this.address,
-        this.description,
-        this.services});
+      this.name,
+      this.email,
+      this.profile,
+      this.contact,
+      this.address,
+      this.description,
+      this.services});
 
   SupplierDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -158,14 +158,14 @@ class Services {
 
   Services(
       {this.id,
-        this.sId,
-        this.categoryId,
-        this.description,
-        this.cost,
-        this.createdAt,
-        this.categoryIcon,
-        this.categoryName,
-        this.categoryDesc});
+      this.sId,
+      this.categoryId,
+      this.description,
+      this.cost,
+      this.createdAt,
+      this.categoryIcon,
+      this.categoryName,
+      this.categoryDesc});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];

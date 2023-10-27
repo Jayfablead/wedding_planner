@@ -12,8 +12,6 @@ class Notification extends StatefulWidget {
   State<Notification> createState() => _NotificationState();
 }
 
-
-
 class _NotificationState extends State<Notification> {
   @override
   Widget build(BuildContext context) {

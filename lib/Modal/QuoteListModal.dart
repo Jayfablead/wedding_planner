@@ -88,14 +88,14 @@ class Responsed {
 
   Responsed(
       {this.id,
-        this.profile,
-        this.name,
-        this.categoryName,
-        this.description,
-        this.quotationId,
-        this.status,
-        this.response,
-        this.createdAt});
+      this.profile,
+      this.name,
+      this.categoryName,
+      this.description,
+      this.quotationId,
+      this.status,
+      this.response,
+      this.createdAt});
 
   Responsed.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -123,6 +123,7 @@ class Responsed {
     return data;
   }
 }
+
 class Requested {
   String? id;
   String? profile;
@@ -136,14 +137,14 @@ class Requested {
 
   Requested(
       {this.id,
-        this.profile,
-        this.name,
-        this.categoryName,
-        this.description,
-        this.quotationId,
-        this.status,
-        this.response,
-        this.createdAt});
+      this.profile,
+      this.name,
+      this.categoryName,
+      this.description,
+      this.quotationId,
+      this.status,
+      this.response,
+      this.createdAt});
 
   Requested.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -171,6 +172,7 @@ class Requested {
     return data;
   }
 }
+
 class Accepted {
   String? id;
   String? profile;
@@ -184,14 +186,14 @@ class Accepted {
 
   Accepted(
       {this.id,
-        this.profile,
-        this.name,
-        this.categoryName,
-        this.description,
-        this.quotationId,
-        this.status,
-        this.response,
-        this.createdAt});
+      this.profile,
+      this.name,
+      this.categoryName,
+      this.description,
+      this.quotationId,
+      this.status,
+      this.response,
+      this.createdAt});
 
   Accepted.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -219,6 +221,7 @@ class Accepted {
     return data;
   }
 }
+
 class Rejected {
   String? id;
   String? profile;
@@ -232,14 +235,14 @@ class Rejected {
 
   Rejected(
       {this.id,
-        this.profile,
-        this.name,
-        this.categoryName,
-        this.description,
-        this.quotationId,
-        this.status,
-        this.response,
-        this.createdAt});
+      this.profile,
+      this.name,
+      this.categoryName,
+      this.description,
+      this.quotationId,
+      this.status,
+      this.response,
+      this.createdAt});
 
   Rejected.fromJson(Map<String, dynamic> json) {
     id = json['id'];

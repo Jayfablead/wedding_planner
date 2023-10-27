@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -51,6 +51,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
   TextEditingController timeinput2 = TextEditingController();
   TextEditingController _comment = TextEditingController();
   final GlobalKey<ScaffoldState> scaffoldKey5 = GlobalKey<ScaffoldState>();
+
   void timepicker() async {
     final picked = await showTimePicker(
       context: context,
@@ -95,7 +96,6 @@ class _BookNowDetailsState extends State<BookNowDetails> {
 
   final _formKey = GlobalKey<FormState>();
   bool isLoading = true;
-
 
   @override
   void initState() {
@@ -178,7 +178,8 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                                     CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
-                                          'assets/defimg.jpg',fit: BoxFit.cover,
+                                          'assets/defimg.jpg',
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
@@ -397,7 +398,7 @@ class _BookNowDetailsState extends State<BookNowDetails> {
                                               await showDatePicker(
                                                   context: context,
                                                   initialDate: DateTime.now(),
-                                                  firstDate:  DateTime.now(),
+                                                  firstDate: DateTime.now(),
                                                   //DateTime.now() - not to allow to choose before today.
                                                   lastDate: DateTime(2100));
 

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +9,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Authenticate/profilePage.dart';
 import 'package:wedding_planner/Modal/UpdateprofileModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 
@@ -24,12 +25,12 @@ class EditProfile2 extends StatefulWidget {
 
   EditProfile2(
       {super.key,
-        this.image,
-        this.about,
-        this.address,
-        this.phone,
-        this.lname,
-        this.fname});
+      this.image,
+      this.about,
+      this.address,
+      this.phone,
+      this.lname,
+      this.fname});
 
   @override
   State<EditProfile2> createState() => _EditProfile2State();
@@ -67,8 +68,6 @@ class _EditProfile2State extends State<EditProfile2> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,11 +92,11 @@ class _EditProfile2State extends State<EditProfile2> {
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
-                        'assets/profile.png',
-                      ),
-                      fit: BoxFit.cover,
-                    )),
+                  image: AssetImage(
+                    'assets/profile.png',
+                  ),
+                  fit: BoxFit.cover,
+                )),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
                   child: Stack(
@@ -155,23 +154,23 @@ class _EditProfile2State extends State<EditProfile2> {
                               borderRadius: BorderRadius.circular(90),
                               child: _pickedFile != null
                                   ? Image.file(
-                                _pickedFile!,
-                                fit: BoxFit.cover,
-                              )
-                                  : CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl: widget.image.toString(),
-                                progressIndicatorBuilder:
-                                    (context, url, progress) =>
-                                    CircularProgressIndicator(),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                      'assets/user.png',
+                                      _pickedFile!,
                                       fit: BoxFit.cover,
-                                      height: 14.5.h,
-                                      width: 31.w,
+                                    )
+                                  : CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl: widget.image.toString(),
+                                      progressIndicatorBuilder:
+                                          (context, url, progress) =>
+                                              CircularProgressIndicator(),
+                                      errorWidget: (context, url, error) =>
+                                          Image.asset(
+                                        'assets/user.png',
+                                        fit: BoxFit.cover,
+                                        height: 14.5.h,
+                                        width: 31.w,
+                                      ),
                                     ),
-                              ),
                             ),
                           ),
                         ),
@@ -184,7 +183,7 @@ class _EditProfile2State extends State<EditProfile2> {
                             width: 11.w,
                             decoration: BoxDecoration(
                                 border:
-                                Border.all(color: Colors.white, width: 3),
+                                    Border.all(color: Colors.white, width: 3),
                                 shape: BoxShape.circle,
                                 color: Colors.black),
                             child: GestureDetector(
@@ -216,13 +215,13 @@ class _EditProfile2State extends State<EditProfile2> {
                                   children: [
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   "Groom Name : ",
@@ -300,33 +299,50 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     controller: _gname,
                                                     decoration: InputDecoration(
                                                       hintText: 'First Name',
-                                                      enabledBorder: OutlineInputBorder(
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                          color:
-                                                          Colors.white,
+                                                          color: Colors.white,
                                                         ),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-                                                      disabledBorder: OutlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                      disabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-                                                      focusedBorder: OutlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-                                                      border: OutlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                      border:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-
                                                       fillColor: Colors.white,
                                                       filled: true,
                                                       errorStyle: TextStyle(
                                                           fontSize: 12.sp,
                                                           fontFamily: 'sofi',
                                                           letterSpacing: 0.7,
-                                                          fontWeight: FontWeight.bold),
+                                                          fontWeight:
+                                                              FontWeight.bold),
                                                     ),
                                                     validator: (value) {
                                                       if (value!.isEmpty) {
@@ -344,7 +360,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                             ),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   "Bride Name : ",
@@ -363,33 +379,50 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     controller: _bname,
                                                     decoration: InputDecoration(
                                                       hintText: 'Last Name',
-                                                      enabledBorder: OutlineInputBorder(
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                          color:
-                                                          Colors.white,
+                                                          color: Colors.white,
                                                         ),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-                                                      disabledBorder: OutlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                      disabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-                                                      focusedBorder: OutlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-                                                      border: OutlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(90),
+                                                      border:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
                                                       ),
-
                                                       fillColor: Colors.white,
                                                       filled: true,
                                                       errorStyle: TextStyle(
                                                           fontSize: 12.sp,
                                                           fontFamily: 'sofi',
                                                           letterSpacing: 0.7,
-                                                          fontWeight: FontWeight.bold),
+                                                          fontWeight:
+                                                              FontWeight.bold),
                                                     ),
                                                     validator: (value) {
                                                       if (value!.isEmpty) {
@@ -461,7 +494,6 @@ class _EditProfile2State extends State<EditProfile2> {
                                                 //   //   ),
                                                 //   // ),
                                                 // ),
-
                                               ],
                                             ),
                                           ],
@@ -471,7 +503,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                         ),
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               "Phone : ",
@@ -545,36 +577,50 @@ class _EditProfile2State extends State<EditProfile2> {
                                               width: 95.w,
                                               child: TextFormField(
                                                 controller: _phone,
-                                                keyboardType: TextInputType.number,
+                                                keyboardType:
+                                                    TextInputType.number,
                                                 decoration: InputDecoration(
                                                   hintText: 'Last Name',
-                                                  enabledBorder: OutlineInputBorder(
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
                                                     borderSide: BorderSide(
-                                                      color:
-                                                      Colors.white,
+                                                      color: Colors.white,
                                                     ),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
-                                                  disabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.white),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                  disabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
-                                                  focusedBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.white),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
                                                   border: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.white),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
-
                                                   fillColor: Colors.white,
                                                   filled: true,
                                                   errorStyle: TextStyle(
                                                       fontSize: 12.sp,
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 0.7,
-                                                      fontWeight: FontWeight.bold),
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
                                                 validator: (value) {
                                                   if (value!.isEmpty) {
@@ -592,7 +638,7 @@ class _EditProfile2State extends State<EditProfile2> {
                                         ),
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               "Address : ",
@@ -670,36 +716,50 @@ class _EditProfile2State extends State<EditProfile2> {
                                               width: 95.w,
                                               child: TextFormField(
                                                 controller: _address,
-                                                keyboardType: TextInputType.number,
+                                                keyboardType:
+                                                    TextInputType.number,
                                                 decoration: InputDecoration(
                                                   hintText: 'Last Name',
-                                                  enabledBorder: OutlineInputBorder(
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
                                                     borderSide: BorderSide(
-                                                      color:
-                                                      Colors.white,
+                                                      color: Colors.white,
                                                     ),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
-                                                  disabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.white),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                  disabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
-                                                  focusedBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.white),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
                                                   border: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.white),
-                                                    borderRadius: BorderRadius.circular(90),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
                                                   ),
-
                                                   fillColor: Colors.white,
                                                   filled: true,
                                                   errorStyle: TextStyle(
                                                       fontSize: 12.sp,
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 0.7,
-                                                      fontWeight: FontWeight.bold),
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
                                                 validator: (value) {
                                                   if (value!.isEmpty) {
@@ -805,8 +865,8 @@ class _EditProfile2State extends State<EditProfile2> {
                                               decoration: BoxDecoration(
                                                   color: Colors.blue,
                                                   borderRadius:
-                                                  BorderRadius.circular(
-                                                      90)),
+                                                      BorderRadius.circular(
+                                                          90)),
                                               child: Text(
                                                 'Update Profile',
                                                 style: TextStyle(
@@ -877,7 +937,7 @@ class _EditProfile2State extends State<EditProfile2> {
                 context,
                 "",
                 updateprofile?.message ?? "",
-                    () {
+                () {
                   print("ghfjhbfds");
                   Get.to(MyProfile());
                 },

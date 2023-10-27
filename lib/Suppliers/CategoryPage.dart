@@ -12,7 +12,7 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
-import 'package:wedding_planner/main.dart';
+
 class AllCategoryScreen extends StatefulWidget {
   const AllCategoryScreen({super.key});
 
@@ -91,14 +91,14 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                       height: 86.h,
                       child: allcat?.services?.length == 0
                           ? Center(
-                            child: Text("No Categories available",
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black)),
-                          )
+                              child: Text("No Categories available",
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1,
+                                      fontFamily: 'sofi',
+                                      color: Colors.black)),
+                            )
                           : ListView.builder(
                               padding: EdgeInsets.zero,
                               itemCount: allcat?.services?.length,

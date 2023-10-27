@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,8 +20,6 @@ class BookingList extends StatefulWidget {
   @override
   State<BookingList> createState() => _BookingListState();
 }
-
-
 
 class icon {
   String? image;
@@ -60,6 +58,7 @@ List<icon> Icns = [
       '1000'),
 ];
 final GlobalKey<ScaffoldState> scaffoldKey6 = GlobalKey<ScaffoldState>();
+
 class _BookingListState extends State<BookingList> {
   bool isLoading = true;
 
@@ -112,8 +111,10 @@ class _BookingListState extends State<BookingList> {
                                 "No booking added",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 18.sp,fontFamily: 'sofi',
-letterSpacing: 1,                                    fontWeight: FontWeight.bold),
+                                    fontSize: 18.sp,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold),
                               ),
                             )
                           : Column(

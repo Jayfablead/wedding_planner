@@ -1,9 +1,10 @@
 import 'dart:ui';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../widgets/drawer.dart';
@@ -14,7 +15,6 @@ class Accomendation_Page extends StatefulWidget {
   @override
   State<Accomendation_Page> createState() => _Accomendation_PageState();
 }
-
 
 TextEditingController _search = TextEditingController();
 

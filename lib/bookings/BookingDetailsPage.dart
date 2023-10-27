@@ -1,4 +1,4 @@
-import 'dart:convert';import 'package:wedding_planner/main.dart';
+import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Chat/msg2.dart';
 import 'package:wedding_planner/Modal/BookSuccessfullModal.dart';
-import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
@@ -23,9 +22,10 @@ class ViewBookingDetailsPage extends StatefulWidget {
   @override
   State<ViewBookingDetailsPage> createState() => _ViewBookingDetailsPageState();
 }
-final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
-class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
 
+final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
+
+class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
   bool isLoading = true;
 
   @override
@@ -258,7 +258,8 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   ],
                                 ),
                               )),
-                        ),SizedBox(
+                        ),
+                        SizedBox(
                           height: 1.h,
                         ),
                         Container(
@@ -270,7 +271,8 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   12.0), // Control the border radius here
                             ),
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.h),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 1.h),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -287,12 +289,12 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   SizedBox(height: 1.5.h),
                                   Text(
                                     booksuccess?.bookingInfo?.bComment == '' ||
-                                        booksuccess
-                                            ?.bookingInfo?.bComment ==
-                                            null
+                                            booksuccess
+                                                    ?.bookingInfo?.bComment ==
+                                                null
                                         ? 'N/A'
                                         : booksuccess?.bookingInfo?.bComment ??
-                                        '',
+                                            '',
                                     style: TextStyle(
                                       color: Colors.black.withOpacity(0.7),
                                       fontWeight: FontWeight.w600,

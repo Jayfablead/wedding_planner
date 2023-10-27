@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-import 'package:wedding_planner/main.dart';
+
 class BookingSuccessfulPage extends StatefulWidget {
   const BookingSuccessfulPage({super.key});
 
@@ -11,8 +12,6 @@ class BookingSuccessfulPage extends StatefulWidget {
 }
 
 class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

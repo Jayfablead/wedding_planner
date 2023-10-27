@@ -10,7 +10,6 @@ import 'package:wedding_planner/Modal/MyvenuetableModal.dart';
 import 'package:wedding_planner/Modal/RemoveguestModal.dart';
 import 'package:wedding_planner/Modal/ViewguestModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -32,7 +31,9 @@ class test {
 
   test(this.title, this.id);
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey12 = GlobalKey<ScaffoldState>();
+
 class _GuestListState extends State<GuestList> {
   TextEditingController _name = TextEditingController();
   TextEditingController _phone = TextEditingController();
@@ -42,6 +43,7 @@ class _GuestListState extends State<GuestList> {
   bool isKeyboardOpen = false;
   String? selectedItem;
   MyvenuetableModal? myvenuetablemodal1;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -67,623 +69,630 @@ class _GuestListState extends State<GuestList> {
         body: isLoading
             ? Container()
             : SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3.w),
-            child: Column(
-              children: [
-                SizedBox(height: 5.h),
-                header(
-                    text: "Guest List",
-                    callback1: () {
-                      scaffoldKey12.currentState?.openDrawer();
-                    }),
-                // headerwid(text: "Guest List"),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 5.h),
+                      header(
+                          text: "Guest List",
+                          callback1: () {
+                            scaffoldKey12.currentState?.openDrawer();
+                          }),
+                      // headerwid(text: "Guest List"),
 
-                SizedBox(height: 1.5.h),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          sel1 = 1;
-                        });
-                        viewguestap();
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 1.3.h, horizontal: 10.w),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: sel1 == 1 ? Colors.blue : Colors.white,
-                            borderRadius: BorderRadius.circular(25)),
-                        margin: EdgeInsets.symmetric(horizontal: 2.w),
-                        child: Text('Bride',
-                            style: TextStyle(
-                                fontSize: 14.5.sp,
-                                fontFamily: 'sofi',
-                                color: sel1 == 1
-                                    ? Colors.white
-                                    : Colors.blue,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1)),
-                      ),
-                    ),
-                    SizedBox(width: 0.w),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          sel1 = 2;
-                        });
-                        viewguestap();
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 1.3.h, horizontal: 10.w),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: sel1 == 2 ? Colors.blue : Colors.white,
-                            borderRadius: BorderRadius.circular(25)),
-                        margin: EdgeInsets.symmetric(horizontal: 2.w),
-                        child: Text('Groom',
-                            style: TextStyle(
-                                fontSize: 14.5.sp,
-                                fontFamily: 'sofi',
-                                color: sel1 == 2
-                                    ? Colors.white
-                                    : Colors.blue,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1)),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 2.h),
-                sel1 == 2
-                    ? Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Groom\'s Guests (' +
-                              (viewguestmodal?.guestlist
-                                  ?.groomGuestList?.length)
-                                  .toString() +
-                              ')',
-                          style: TextStyle(
-                              fontSize: 17.sp,
-                              fontFamily: 'sofi',
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1),
-                        ),
-                        Text(
-                          'Remove',
-                          style: TextStyle(
-                              fontSize: 15.sp,
-                              fontFamily: 'sofi',
-                              color:
-                              Colors.black87.withOpacity(0.7),
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1),
-                        ),
-                      ],
-                    ),
-                    viewguestmodal?.guestlist?.groomGuestList
-                        ?.length ==
-                        0
-                        ? Container(
-                      height: 70.h,
-                      width:
-                      MediaQuery.of(context).size.width,
-                      alignment: Alignment.center,
-                      child: Text(
-                        "No groom guest available",
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                    )
-                        : SizedBox(
-                      height: 70.h,
-                      child: Column(
+                      SizedBox(height: 1.5.h),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 0.5.h),
-                          Container(
-                            height: 69.h,
-                            child: ListView.builder(
-                              itemCount: viewguestmodal
-                                  ?.guestlist
-                                  ?.groomGuestList
-                                  ?.length,
-                              padding: EdgeInsets.zero,
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  padding:
-                                  EdgeInsets.symmetric(
-                                      horizontal: 3.w,
-                                      vertical: 1.h),
-                                  margin:
-                                  EdgeInsets.symmetric(
-                                      vertical: 1.h),
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                    BorderRadius.circular(
-                                        20),
-                                    color: Colors.white,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .center,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .spaceBetween,
-                                    children: [
-                                      Row(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment
-                                              .center,
-                                          mainAxisAlignment:
-                                          MainAxisAlignment
-                                              .spaceBetween,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment
-                                                  .start,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons
-                                                        .person),
-                                                    SizedBox(
-                                                      width:
-                                                      3.w,
-                                                    ),
-                                                    Text(
-                                                      viewguestmodal?.guestlist?.groomGuestList?[index].guestName==""||viewguestmodal?.guestlist?.groomGuestList?[index].guestName==null?"N/A":viewguestmodal?.guestlist?.groomGuestList?[index].guestName ??
-                                                          "",
-                                                      style: TextStyle(
-                                                          fontSize: 15
-                                                              .sp,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color:
-                                                          Colors.black,
-                                                          fontWeight: FontWeight.bold,
-                                                          letterSpacing: 1),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: 0.7
-                                                          .h),
-                                                  child: Row(
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment
-                                                        .center,
-                                                    children: [
-                                                      Icon(
-                                                        Icons
-                                                            .phone,
-                                                        color: Colors
-                                                            .black
-                                                            .withOpacity(0.67),
-                                                      ),
-                                                      SizedBox(
-                                                        width:
-                                                        3.w,
-                                                      ),
-                                                      Text(
-                                                        viewguestmodal?.guestlist?.groomGuestList?[index].guestContact==""||viewguestmodal?.guestlist?.groomGuestList?[index].guestContact==null?"N/A":viewguestmodal?.guestlist?.groomGuestList?[index].guestContact ??
-                                                            "",
-                                                        style: TextStyle(
-                                                            fontSize: 13.sp,
-                                                            fontFamily: 'sofi',
-                                                            color: Colors.black.withOpacity(0.67),
-                                                            fontWeight: FontWeight.bold,
-                                                            letterSpacing: 1),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: 0.7
-                                                          .h),
-                                                  child: Row(
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment
-                                                        .center,
-                                                    children: [
-                                                      Icon(
-                                                        Icons
-                                                            .email_outlined,
-                                                        color: Colors
-                                                            .black
-                                                            .withOpacity(0.67),
-                                                      ),
-                                                      SizedBox(
-                                                        width:
-                                                        3.w,
-                                                      ),
-                                                      Text(
-                                                        viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail==""||viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail==null?"N/A":viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail ??
-                                                            "",
-                                                        style: TextStyle(
-                                                            fontSize: 13.sp,
-                                                            fontFamily: 'sofi',
-                                                            color: Colors.black.withOpacity(0.67),
-                                                            fontWeight: FontWeight.bold,
-                                                            letterSpacing: 1),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            IconButton(
-                                              onPressed: () {
-                                                setState(() {
-                                                  select =
-                                                      index;
-                                                });
-                                                delet();
-                                              },
-                                              icon: Icon(
-                                                CupertinoIcons
-                                                    .delete_solid,
-                                                color: Colors
-                                                    .red,
-                                              ),
-                                            ),
-                                          ])
-                                    ],
-                                  ),
-                                );
-                              },
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                sel1 = 1;
+                              });
+                              viewguestap();
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 1.3.h, horizontal: 10.w),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: sel1 == 1 ? Colors.blue : Colors.white,
+                                  borderRadius: BorderRadius.circular(25)),
+                              margin: EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Text('Bride',
+                                  style: TextStyle(
+                                      fontSize: 14.5.sp,
+                                      fontFamily: 'sofi',
+                                      color: sel1 == 1
+                                          ? Colors.white
+                                          : Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1)),
+                            ),
+                          ),
+                          SizedBox(width: 0.w),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                sel1 = 2;
+                              });
+                              viewguestap();
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 1.3.h, horizontal: 10.w),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: sel1 == 2 ? Colors.blue : Colors.white,
+                                  borderRadius: BorderRadius.circular(25)),
+                              margin: EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Text('Groom',
+                                  style: TextStyle(
+                                      fontSize: 14.5.sp,
+                                      fontFamily: 'sofi',
+                                      color: sel1 == 2
+                                          ? Colors.white
+                                          : Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1)),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No Tables Added by Your Venue") :   Get.to(Addguestlist(
-                              sel1: sel1,
-                            ));
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 60.w,
-                            padding: EdgeInsets.all(2.5.w),
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius:
-                                BorderRadius.circular(25)),
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
+                      SizedBox(height: 2.h),
+                      sel1 == 2
+                          ? Column(
                               children: [
-                                Icon(
-                                  CupertinoIcons.add,
-                                  size: 17.sp,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 2.w,
-                                ),
-                                Text(
-                                  'Add Guests',
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 1),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-                    : Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Bride\'s Guests (' +
-                              (viewguestmodal?.guestlist
-                                  ?.brideGuestList?.length)
-                                  .toString() +
-                              ')',
-                          style: TextStyle(
-                              fontSize: 17.sp,
-                              fontFamily: 'sofi',
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1),
-                        ),
-                        Text(
-                          'Remove',
-                          style: TextStyle(
-                              fontSize: 15.sp,
-                              fontFamily: 'sofi',
-                              color:
-                              Colors.black87.withOpacity(0.7),
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1),
-                        ),
-                      ],
-                    ),
-                    viewguestmodal?.guestlist?.brideGuestList
-                        ?.length ==
-                        0
-                        ? Container(
-                      height: 70.h,
-                      width:
-                      MediaQuery.of(context).size.width,
-                      alignment: Alignment.center,
-                      child: Text(
-                        "No bride guest available",
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontFamily: 'sofi',
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1),
-                      ),
-                    )
-                        : SizedBox(
-                      height: 70.h,
-                      child: Column(children: [
-                        SizedBox(height: 0.5.h),
-                        Container(
-                          height: 69.h,
-                          child: ListView.builder(
-                            itemCount: viewguestmodal
-                                ?.guestlist
-                                ?.brideGuestList
-                                ?.length,
-                            padding: EdgeInsets.zero,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 3.w,
-                                    vertical: 1.h),
-                                margin: EdgeInsets.symmetric(
-                                    vertical: 1.h),
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(
-                                      20),
-                                  color: Colors.white,
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment
-                                      .center,
+                                Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment
-                                      .spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Row(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment
-                                            .center,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment
-                                            .spaceBetween,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment
-                                                .start,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Icon(Icons
-                                                      .person),
-                                                  SizedBox(
-                                                    width:
-                                                    3.w,
-                                                  ),
-                                                  Text(
-                                                    viewguestmodal
-                                                        ?.guestlist
-                                                        ?.brideGuestList?[index]
-                                                        .guestName ==""||viewguestmodal
-                                                        ?.guestlist
-                                                        ?.brideGuestList?[index]
-                                                        .guestName==null?"N/A":viewguestmodal
-                                                        ?.guestlist
-                                                        ?.brideGuestList?[index]
-                                                        .guestName ??
-                                                        "",
-                                                    style: TextStyle(
-                                                        fontSize: 15
-                                                            .sp,
-                                                        fontFamily:
-                                                        'sofi',
-                                                        color: Colors
-                                                            .black,
-                                                        fontWeight: FontWeight
-                                                            .bold,
-                                                        letterSpacing:
-                                                        1),
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets
-                                                    .only(
-                                                    top: 0.7
-                                                        .h),
-                                                child: Row(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment
-                                                      .center,
-                                                  children: [
-                                                    Icon(
-                                                      Icons
-                                                          .phone,
-                                                      color: Colors
-                                                          .black
-                                                          .withOpacity(0.67),
-                                                    ),
-                                                    SizedBox(
-                                                      width:
-                                                      3.w,
-                                                    ),
-                                                    Text(
-                                                      viewguestmodal?.guestlist?.brideGuestList?[index].guestContact==""||viewguestmodal?.guestlist?.brideGuestList?[index].guestContact==null?"N/A":viewguestmodal?.guestlist?.brideGuestList?[index].guestContact ??
-                                                          "",
-                                                      style: TextStyle(
-                                                          fontSize: 13
-                                                              .sp,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color:
-                                                          Colors.black.withOpacity(0.67),
-                                                          fontWeight: FontWeight.bold,
-                                                          letterSpacing: 1),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets
-                                                    .only(
-                                                    top: 0.7
-                                                        .h),
-                                                child: Row(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment
-                                                      .center,
-                                                  children: [
-                                                    Icon(
-                                                      Icons
-                                                          .email_outlined,
-                                                      color: Colors
-                                                          .black
-                                                          .withOpacity(0.67),
-                                                    ),
-                                                    SizedBox(
-                                                      width:
-                                                      3.w,
-                                                    ),
-                                                    Text(
-                                                      viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail==""||viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail==null?"N/A":viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail ??
-                                                          "",
-                                                      style: TextStyle(
-                                                          fontSize: 13
-                                                              .sp,
-                                                          fontFamily:
-                                                          'sofi',
-                                                          color:
-                                                          Colors.black.withOpacity(0.67),
-                                                          fontWeight: FontWeight.bold,
-                                                          letterSpacing: 1),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          IconButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                select =
-                                                    index;
-                                              });
-                                              delet();
-                                            },
-                                            icon: Icon(
-                                              CupertinoIcons
-                                                  .delete_solid,
-                                              color:
-                                              Colors.red,
-                                            ),
-                                          ),
-                                        ])
+                                    Text(
+                                      'Groom\'s Guests (' +
+                                          (viewguestmodal?.guestlist
+                                                  ?.groomGuestList?.length)
+                                              .toString() +
+                                          ')',
+                                      style: TextStyle(
+                                          fontSize: 17.sp,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1),
+                                    ),
+                                    Text(
+                                      'Remove',
+                                      style: TextStyle(
+                                          fontSize: 15.sp,
+                                          fontFamily: 'sofi',
+                                          color:
+                                              Colors.black87.withOpacity(0.7),
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1),
+                                    ),
                                   ],
                                 ),
-                              );
-                            },
-                          ),
-                        ),
-                      ]),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                         myvenuetablemodal1?.data == null ? buildErrorDialog(context, "", "No Tables Added by Your Venue") :  Get.to(Addguestlist(
-                              sel1: sel1,
-                            ));
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 60.w,
-                            padding: EdgeInsets.all(2.5.w),
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius:
-                                BorderRadius.circular(25)),
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
+                                viewguestmodal?.guestlist?.groomGuestList
+                                            ?.length ==
+                                        0
+                                    ? Container(
+                                        height: 70.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "No groom guest available",
+                                          style: TextStyle(
+                                              fontSize: 15.sp,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1),
+                                        ),
+                                      )
+                                    : SizedBox(
+                                        height: 70.h,
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 0.5.h),
+                                            Container(
+                                              height: 69.h,
+                                              child: ListView.builder(
+                                                itemCount: viewguestmodal
+                                                    ?.guestlist
+                                                    ?.groomGuestList
+                                                    ?.length,
+                                                padding: EdgeInsets.zero,
+                                                itemBuilder: (context, index) {
+                                                  return Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 3.w,
+                                                            vertical: 1.h),
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 1.h),
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      color: Colors.white,
+                                                    ),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Row(
+                                                                    children: [
+                                                                      Icon(Icons
+                                                                          .person),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            3.w,
+                                                                      ),
+                                                                      Text(
+                                                                        viewguestmodal?.guestlist?.groomGuestList?[index].guestName == "" || viewguestmodal?.guestlist?.groomGuestList?[index].guestName == null
+                                                                            ? "N/A"
+                                                                            : viewguestmodal?.guestlist?.groomGuestList?[index].guestName ??
+                                                                                "",
+                                                                        style: TextStyle(
+                                                                            fontSize: 15
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight: FontWeight.bold,
+                                                                            letterSpacing: 1),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        top: 0.7
+                                                                            .h),
+                                                                    child: Row(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .phone,
+                                                                          color: Colors
+                                                                              .black
+                                                                              .withOpacity(0.67),
+                                                                        ),
+                                                                        SizedBox(
+                                                                          width:
+                                                                              3.w,
+                                                                        ),
+                                                                        Text(
+                                                                          viewguestmodal?.guestlist?.groomGuestList?[index].guestContact == "" || viewguestmodal?.guestlist?.groomGuestList?[index].guestContact == null
+                                                                              ? "N/A"
+                                                                              : viewguestmodal?.guestlist?.groomGuestList?[index].guestContact ?? "",
+                                                                          style: TextStyle(
+                                                                              fontSize: 13.sp,
+                                                                              fontFamily: 'sofi',
+                                                                              color: Colors.black.withOpacity(0.67),
+                                                                              fontWeight: FontWeight.bold,
+                                                                              letterSpacing: 1),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        top: 0.7
+                                                                            .h),
+                                                                    child: Row(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .email_outlined,
+                                                                          color: Colors
+                                                                              .black
+                                                                              .withOpacity(0.67),
+                                                                        ),
+                                                                        SizedBox(
+                                                                          width:
+                                                                              3.w,
+                                                                        ),
+                                                                        Text(
+                                                                          viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail == "" || viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail == null
+                                                                              ? "N/A"
+                                                                              : viewguestmodal?.guestlist?.groomGuestList?[index].guestEmail ?? "",
+                                                                          style: TextStyle(
+                                                                              fontSize: 13.sp,
+                                                                              fontFamily: 'sofi',
+                                                                              color: Colors.black.withOpacity(0.67),
+                                                                              fontWeight: FontWeight.bold,
+                                                                              letterSpacing: 1),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              IconButton(
+                                                                onPressed: () {
+                                                                  setState(() {
+                                                                    select =
+                                                                        index;
+                                                                  });
+                                                                  delet();
+                                                                },
+                                                                icon: Icon(
+                                                                  CupertinoIcons
+                                                                      .delete_solid,
+                                                                  color: Colors
+                                                                      .red,
+                                                                ),
+                                                              ),
+                                                            ])
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        myvenuetablemodal1?.data == null
+                                            ? buildErrorDialog(context, "",
+                                                "No Tables Added by Your Venue")
+                                            : Get.to(Addguestlist(
+                                                sel1: sel1,
+                                              ));
+                                      },
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: 60.w,
+                                        padding: EdgeInsets.all(2.5.w),
+                                        decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                            borderRadius:
+                                                BorderRadius.circular(25)),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              size: 17.sp,
+                                              color: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            Text(
+                                              'Add Guests',
+                                              style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  letterSpacing: 1),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            )
+                          : Column(
                               children: [
-                                Icon(
-                                  CupertinoIcons.add,
-                                  size: 17.sp,
-                                  color: Colors.white,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Bride\'s Guests (' +
+                                          (viewguestmodal?.guestlist
+                                                  ?.brideGuestList?.length)
+                                              .toString() +
+                                          ')',
+                                      style: TextStyle(
+                                          fontSize: 17.sp,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1),
+                                    ),
+                                    Text(
+                                      'Remove',
+                                      style: TextStyle(
+                                          fontSize: 15.sp,
+                                          fontFamily: 'sofi',
+                                          color:
+                                              Colors.black87.withOpacity(0.7),
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1),
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(
-                                  width: 2.w,
-                                ),
-                                Text(
-                                  'Add Guests',
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 1),
+                                viewguestmodal?.guestlist?.brideGuestList
+                                            ?.length ==
+                                        0
+                                    ? Container(
+                                        height: 70.h,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "No bride guest available",
+                                          style: TextStyle(
+                                              fontSize: 15.sp,
+                                              fontFamily: 'sofi',
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1),
+                                        ),
+                                      )
+                                    : SizedBox(
+                                        height: 70.h,
+                                        child: Column(children: [
+                                          SizedBox(height: 0.5.h),
+                                          Container(
+                                            height: 69.h,
+                                            child: ListView.builder(
+                                              itemCount: viewguestmodal
+                                                  ?.guestlist
+                                                  ?.brideGuestList
+                                                  ?.length,
+                                              padding: EdgeInsets.zero,
+                                              itemBuilder: (context, index) {
+                                                return Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 3.w,
+                                                      vertical: 1.h),
+                                                  margin: EdgeInsets.symmetric(
+                                                      vertical: 1.h),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    color: Colors.white,
+                                                  ),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Row(
+                                                                  children: [
+                                                                    Icon(Icons
+                                                                        .person),
+                                                                    SizedBox(
+                                                                      width:
+                                                                          3.w,
+                                                                    ),
+                                                                    Text(
+                                                                      viewguestmodal?.guestlist?.brideGuestList?[index].guestName == "" ||
+                                                                              viewguestmodal?.guestlist?.brideGuestList?[index].guestName ==
+                                                                                  null
+                                                                          ? "N/A"
+                                                                          : viewguestmodal?.guestlist?.brideGuestList?[index].guestName ??
+                                                                              "",
+                                                                      style: TextStyle(
+                                                                          fontSize: 15
+                                                                              .sp,
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          color: Colors
+                                                                              .black,
+                                                                          fontWeight: FontWeight
+                                                                              .bold,
+                                                                          letterSpacing:
+                                                                              1),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          top: 0.7
+                                                                              .h),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      Icon(
+                                                                        Icons
+                                                                            .phone,
+                                                                        color: Colors
+                                                                            .black
+                                                                            .withOpacity(0.67),
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            3.w,
+                                                                      ),
+                                                                      Text(
+                                                                        viewguestmodal?.guestlist?.brideGuestList?[index].guestContact == "" || viewguestmodal?.guestlist?.brideGuestList?[index].guestContact == null
+                                                                            ? "N/A"
+                                                                            : viewguestmodal?.guestlist?.brideGuestList?[index].guestContact ??
+                                                                                "",
+                                                                        style: TextStyle(
+                                                                            fontSize: 13
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black.withOpacity(0.67),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            letterSpacing: 1),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          top: 0.7
+                                                                              .h),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      Icon(
+                                                                        Icons
+                                                                            .email_outlined,
+                                                                        color: Colors
+                                                                            .black
+                                                                            .withOpacity(0.67),
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            3.w,
+                                                                      ),
+                                                                      Text(
+                                                                        viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail == "" || viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail == null
+                                                                            ? "N/A"
+                                                                            : viewguestmodal?.guestlist?.brideGuestList?[index].guestEmail ??
+                                                                                "",
+                                                                        style: TextStyle(
+                                                                            fontSize: 13
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'sofi',
+                                                                            color:
+                                                                                Colors.black.withOpacity(0.67),
+                                                                            fontWeight: FontWeight.bold,
+                                                                            letterSpacing: 1),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            IconButton(
+                                                              onPressed: () {
+                                                                setState(() {
+                                                                  select =
+                                                                      index;
+                                                                });
+                                                                delet();
+                                                              },
+                                                              icon: Icon(
+                                                                CupertinoIcons
+                                                                    .delete_solid,
+                                                                color:
+                                                                    Colors.red,
+                                                              ),
+                                                            ),
+                                                          ])
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                        ]),
+                                      ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        myvenuetablemodal1?.data == null
+                                            ? buildErrorDialog(context, "",
+                                                "No Tables Added by Your Venue")
+                                            : Get.to(Addguestlist(
+                                                sel1: sel1,
+                                              ));
+                                      },
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: 60.w,
+                                        padding: EdgeInsets.all(2.5.w),
+                                        decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                            borderRadius:
+                                                BorderRadius.circular(25)),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              size: 17.sp,
+                                              color: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            Text(
+                                              'Add Guests',
+                                              style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'sofi',
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  letterSpacing: 1),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
       isLoading: isLoading,
     );
@@ -709,7 +718,6 @@ class _GuestListState extends State<GuestList> {
       ),
     );
   }
-
 
   addguestap() {
     if (_formKey.currentState!.validate()) {
@@ -907,6 +915,7 @@ class _GuestListState extends State<GuestList> {
       }
     });
   }
+
   tableapi() {
     checkInternet().then((internet) async {
       if (internet) {
@@ -915,8 +924,8 @@ class _GuestListState extends State<GuestList> {
               MyvenuetableModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && myvenuetablemodal1?.status == "1") {
             for (int i = 0;
-            i < int.parse((myvenuetablemodal?.data?.length).toString());
-            i++) {
+                i < int.parse((myvenuetablemodal?.data?.length).toString());
+                i++) {
               items.add(test((myvenuetablemodal?.data?[i].name).toString(),
                   (myvenuetablemodal?.data?[i].id).toString()));
             }

@@ -39,13 +39,13 @@ class NotiDetails {
 
   NotiDetails(
       {this.id,
-        this.uid,
-        this.bridegroomId,
-        this.notiType,
-        this.notiTitle,
-        this.notiBody,
-        this.readStatus,
-        this.createdAt});
+      this.uid,
+      this.bridegroomId,
+      this.notiType,
+      this.notiTitle,
+      this.notiBody,
+      this.readStatus,
+      this.createdAt});
 
   NotiDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];

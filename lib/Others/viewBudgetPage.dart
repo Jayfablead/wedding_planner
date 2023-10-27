@@ -67,8 +67,6 @@ class _ViewBudgetState extends State<ViewBudget> {
                             SizedBox(
                               height: 5.h,
                             ),
-
-
                             header(
                                 text: "Budget",
                                 callback1: () {
@@ -194,7 +192,6 @@ class _ViewBudgetState extends State<ViewBudget> {
                                 ),
                               ),
                             ),
-
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
@@ -495,7 +492,6 @@ class _ViewBudgetState extends State<ViewBudget> {
                                       ]
                                     ],
                                   ),
-
                             SizedBox(
                               height: 12.h,
                             )

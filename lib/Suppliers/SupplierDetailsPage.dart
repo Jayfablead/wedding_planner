@@ -115,8 +115,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
                                 imageUrl: supplierdetailmodal
-                                            ?.supplierInfo?.profile ??
-                                        '',
+                                        ?.supplierInfo?.profile ??
+                                    '',
                                 progressIndicatorBuilder: (context, url,
                                         progress) =>
                                     Center(child: CircularProgressIndicator()),
@@ -143,15 +143,15 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               borderRadius: BorderRadius.circular(15),
                               child: CachedNetworkImage(
                                 imageUrl: supplierdetailmodal?.supplierInfo
-                                    ?.images?.length ==
-                                    0 ||
-                                    supplierdetailmodal?.supplierInfo
-                                        ?.images?.length ==
-                                        null
+                                                ?.images?.length ==
+                                            0 ||
+                                        supplierdetailmodal?.supplierInfo
+                                                ?.images?.length ==
+                                            null
                                     ? ''
                                     : supplierdetailmodal
-                                    ?.supplierInfo?.images?[0] ??
-                                    '',
+                                            ?.supplierInfo?.images?[0] ??
+                                        '',
                                 imageBuilder: (context, imageProvider) =>
                                     Container(
                                   decoration: BoxDecoration(
@@ -257,44 +257,51 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       Container(
                         height: 22.h,
                         child: supplierdetailmodal
-                            ?.supplierInfo?.images?.length == 0 || supplierdetailmodal
-                            ?.supplierInfo?.images?.length == null ?Center(
-                            child: Text("No Images available",
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black))): ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: supplierdetailmodal
-                                ?.supplierInfo?.images?.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                width: 40.w,
-                                margin: EdgeInsets.only(right: 3.w),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: CachedNetworkImage(
-                                    imageUrl: supplierdetailmodal
-                                            ?.supplierInfo?.images?[index] ??
-                                        '',
-                                    fit: BoxFit.cover,
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) => Center(
-                                            child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                      'assets/defimg.jpg',
-                                      fit: BoxFit.cover,
+                                        ?.supplierInfo?.images?.length ==
+                                    0 ||
+                                supplierdetailmodal
+                                        ?.supplierInfo?.images?.length ==
+                                    null
+                            ? Center(
+                                child: Text("No Images available",
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black)))
+                            : ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: supplierdetailmodal
+                                    ?.supplierInfo?.images?.length,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    width: 40.w,
+                                    margin: EdgeInsets.only(right: 3.w),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                  ),
-                                ),
-                              );
-                            }),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: CachedNetworkImage(
+                                        imageUrl: supplierdetailmodal
+                                                ?.supplierInfo
+                                                ?.images?[index] ??
+                                            '',
+                                        fit: BoxFit.cover,
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) => Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
+                                          'assets/defimg.jpg',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }),
                       ),
                       SizedBox(
                         height: 3.h,

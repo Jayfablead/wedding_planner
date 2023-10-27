@@ -8,14 +8,13 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/FavouritelistModal.dart';
 import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
-
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
-import 'package:wedding_planner/main.dart';
+
 import '../Provider/taskprovider.dart';
 
 class myfavourite extends StatefulWidget {
@@ -189,6 +188,7 @@ class _myfavouriteState extends State<myfavourite> {
   int? mydata;
   bool isLoading = true;
   final GlobalKey<ScaffoldState> scaffoldKey9 = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -248,12 +248,23 @@ class _myfavouriteState extends State<myfavourite> {
                                     favouritelistmodal?.myfavourites?.length,
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
-                                    onTap: (){
-                                      Get.to(SupplierfourScreen(catid: favouritelistmodal?.myfavourites?[index].serviceDetail?.categoryId,service: favouritelistmodal?.myfavourites?[index].service,suppid:favouritelistmodal?.myfavourites?[index].serviceDetail?.sId ,));
+                                    onTap: () {
+                                      Get.to(SupplierfourScreen(
+                                        catid: favouritelistmodal
+                                            ?.myfavourites?[index]
+                                            .serviceDetail
+                                            ?.categoryId,
+                                        service: favouritelistmodal
+                                            ?.myfavourites?[index].service,
+                                        suppid: favouritelistmodal
+                                            ?.myfavourites?[index]
+                                            .serviceDetail
+                                            ?.sId,
+                                      ));
                                     },
                                     child: Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 1.h, bottom: 1.h),
+                                      padding: EdgeInsets.only(
+                                          top: 1.h, bottom: 1.h),
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Colors.white,
@@ -293,9 +304,10 @@ class _myfavouriteState extends State<myfavourite> {
                                                           ?.myfavourites?[index]
                                                           .profilePath ??
                                                       "",
-                                                  progressIndicatorBuilder: (context,
-                                                          url, progress) =>
-                                                      CircularProgressIndicator(),
+                                                  progressIndicatorBuilder:
+                                                      (context, url,
+                                                              progress) =>
+                                                          CircularProgressIndicator(),
                                                   errorWidget:
                                                       (context, url, error) =>
                                                           Image.asset(
@@ -318,7 +330,8 @@ class _myfavouriteState extends State<myfavourite> {
                                                   width: 50.w,
                                                   child: Row(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment.center,
+                                                        CrossAxisAlignment
+                                                            .center,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceBetween,
@@ -346,7 +359,8 @@ class _myfavouriteState extends State<myfavourite> {
                                                                 FontWeight.bold,
                                                             letterSpacing: 1,
                                                             fontFamily: 'sofi',
-                                                            color: Colors.black),
+                                                            color:
+                                                                Colors.black),
                                                       ),
                                                     ],
                                                   ),
@@ -384,7 +398,8 @@ class _myfavouriteState extends State<myfavourite> {
                                                                           .service ??
                                                                       '',
                                                               style: TextStyle(
-                                                                  fontSize: 11.sp,
+                                                                  fontSize:
+                                                                      11.sp,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -399,16 +414,21 @@ class _myfavouriteState extends State<myfavourite> {
                                                                 height: 0.8.h),
                                                             Text(
                                                               favouritelistmodal
-                                                                  ?.myfavourites?[
-                                                              index]
-                                                                  .description == '' ||  favouritelistmodal
-                                                                  ?.myfavourites?[
-                                                              index]
-                                                                  .description == null ?'N/A':  favouritelistmodal
-                                                                      ?.myfavourites?[
-                                                                          index]
-                                                                      .description ??
-                                                                  '',
+                                                                              ?.myfavourites?[
+                                                                                  index]
+                                                                              .description ==
+                                                                          '' ||
+                                                                      favouritelistmodal
+                                                                              ?.myfavourites?[
+                                                                                  index]
+                                                                              .description ==
+                                                                          null
+                                                                  ? 'N/A'
+                                                                  : favouritelistmodal
+                                                                          ?.myfavourites?[
+                                                                              index]
+                                                                          .description ??
+                                                                      '',
                                                               overflow:
                                                                   TextOverflow
                                                                       .ellipsis,
@@ -438,13 +458,15 @@ class _myfavouriteState extends State<myfavourite> {
                                                         },
                                                         child: Container(
                                                           padding:
-                                                              EdgeInsets.all(2.w),
+                                                              EdgeInsets.all(
+                                                                  2.w),
                                                           decoration: BoxDecoration(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
                                                                           7),
-                                                              color: Colors.blue),
+                                                              color:
+                                                                  Colors.blue),
                                                           child: Icon(
                                                             Icons.favorite,
                                                             color: Colors.white,

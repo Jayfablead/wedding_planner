@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,6 +23,7 @@ class NotificationScreen extends StatefulWidget {
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey19 = GlobalKey<ScaffoldState>();
 
 class _NotificationScreenState extends State<NotificationScreen> {
@@ -120,8 +121,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 borderRadius: BorderRadius.circular(90),
                                 child: CachedNetworkImage(
                                   fit: BoxFit.cover,
-                                  imageUrl: userprofile?.userDetails?.profileImg
-                                      ?? "",
+                                  imageUrl:
+                                      userprofile?.userDetails?.profileImg ??
+                                          "",
                                   progressIndicatorBuilder:
                                       (context, url, progress) => Center(
                                           child: CircularProgressIndicator()),
@@ -185,8 +187,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                               border: Border.all(
                                                   color: Colors.blue,
                                                   width: 2)),
-                                          child:
-                                          Icon(
+                                          child: Icon(
                                               notificationmodal
                                                           ?.notiDetails?[index]
                                                           .notiType ==

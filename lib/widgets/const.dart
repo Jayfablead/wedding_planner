@@ -118,7 +118,5 @@ Invoicelistmodal? invoicelistmodal;
 QuataationRejectModal? quatationreject;
 AllCatagoriesModal? allcat;
 
-
-
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/wedding/portal/api';

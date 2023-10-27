@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/GuestseatingModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
@@ -22,6 +21,7 @@ class ViewTables extends StatefulWidget {
 int sel1 = 1;
 int sel = 1;
 final GlobalKey<ScaffoldState> scaffoldKey13 = GlobalKey<ScaffoldState>();
+
 class _ViewTablesState extends State<ViewTables> {
   int? open = 0;
   bool test = false;
@@ -113,226 +113,255 @@ class _ViewTablesState extends State<ViewTables> {
                     //   ],
                     // ),
                     // SizedBox(height: 1.5.h),
-                    guestseatingmodal?.suppliersDetails?.length == 0 || guestseatingmodal?.suppliersDetails?.length == null ?Container(
-                      height: 65.h,
-                      alignment: Alignment.center,
-                      child: Text(
-                        "No Tables Available",
-                        style: TextStyle(
-                            fontSize: 17.sp,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            fontFamily: 'sofi',
-                            color: Colors.black),
-                      ),
-                    ): Column(
-                      children: [
-                        for (int index = 0;
-                            index <
-                                (guestseatingmodal?.suppliersDetails?.length ??
-                                    0);
-                            index++) ...[
-                          Container(
-                            // height: 7.h,
-                            width: MediaQuery.of(context).size.width,
+                    guestseatingmodal?.suppliersDetails?.length == 0 ||
+                            guestseatingmodal?.suppliersDetails?.length == null
+                        ? Container(
+                            height: 65.h,
+                            alignment: Alignment.center,
+                            child: Text(
+                              "No Tables Available",
+                              style: TextStyle(
+                                  fontSize: 17.sp,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1,
+                                  fontFamily: 'sofi',
+                                  color: Colors.black),
+                            ),
+                          )
+                        : Column(
+                            children: [
+                              for (int index = 0;
+                                  index <
+                                      (guestseatingmodal
+                                              ?.suppliersDetails?.length ??
+                                          0);
+                                  index++) ...[
+                                Container(
+                                  // height: 7.h,
+                                  width: MediaQuery.of(context).size.width,
 
-                            decoration: BoxDecoration(
-                                color:
-                                    open == index ? Colors.blue : Colors.white,
-                                borderRadius: open == index
-                                    ? BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20))
-                                    : BorderRadius.circular(20),
-                                border: open != index
-                                    ? Border.all(color: Colors.blue, width: 2)
-                                    : Border.all(
-                                        color: Colors.transparent, width: 2)),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 1.5.h, horizontal: 3.w),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  guestseatingmodal?.suppliersDetails?[index]
-                                      .table?.name==""||guestseatingmodal?.suppliersDetails?[index]
-                                      .table?.name==null?"N/A":guestseatingmodal?.suppliersDetails?[index]
-                                          .table?.name ??
-                                      "",
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    color: open == index
-                                        ? Colors.white
-                                        : Colors.blue,
-                                    fontWeight: FontWeight.bold,
+                                  decoration: BoxDecoration(
+                                      color: open == index
+                                          ? Colors.blue
+                                          : Colors.white,
+                                      borderRadius: open == index
+                                          ? BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20))
+                                          : BorderRadius.circular(20),
+                                      border: open != index
+                                          ? Border.all(
+                                              color: Colors.blue, width: 2)
+                                          : Border.all(
+                                              color: Colors.transparent,
+                                              width: 2)),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 1.5.h, horizontal: 3.w),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        guestseatingmodal
+                                                        ?.suppliersDetails?[
+                                                            index]
+                                                        .table
+                                                        ?.name ==
+                                                    "" ||
+                                                guestseatingmodal
+                                                        ?.suppliersDetails?[
+                                                            index]
+                                                        .table
+                                                        ?.name ==
+                                                    null
+                                            ? "N/A"
+                                            : guestseatingmodal
+                                                    ?.suppliersDetails?[index]
+                                                    .table
+                                                    ?.name ??
+                                                "",
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontFamily: 'sofi',
+                                          letterSpacing: 1,
+                                          color: open == index
+                                              ? Colors.white
+                                              : Colors.blue,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            open = index;
+                                          });
+                                        },
+                                        child: Icon(
+                                            Icons
+                                                .arrow_drop_down_circle_outlined,
+                                            color: open == index
+                                                ? Colors.white
+                                                : Colors.blue),
+                                      )
+                                    ],
                                   ),
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      open = index;
-                                    });
-                                  },
-                                  child: Icon(
-                                      Icons.arrow_drop_down_circle_outlined,
-                                      color: open == index
-                                          ? Colors.white
-                                          : Colors.blue),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          open == index
-                              ? Column(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(3.w),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          border:
-                                              Border.all(color: Colors.white),
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20))),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                open == index
+                                    ? Column(
                                         children: [
-                                          SizedBox(
-                                            height: 1.h,
-                                          ),
-                                          // Row(
-                                          //   children: [
-                                          //     Icon(
-                                          //       Icons.circle_outlined,
-                                          //       color: Colors.grey.shade600,
-                                          //     ),
-                                          //     SizedBox(
-                                          //       width: 3.w,
-                                          //     ),
-                                          //     Text(
-                                          //      guestseatingmodal?.suppliersDetails?[index].,
-                                          //       style: TextStyle(
-                                          //         fontSize: 16.sp,
-                                          //         fontFamily: 'sofi',
-                                          //         letterSpacing: 1,
-                                          //         color: Colors.blue,
-                                          //         fontWeight: FontWeight.bold,
-                                          //       ),
-                                          //     ),
-                                          //   ],
-                                          // ),
-                                          // SizedBox(
-                                          //   height: 1.h,
-                                          // ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 3.w),
-                                            child: Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.circle_outlined,
-                                                  color: Colors.grey.shade600,
-                                                ),
-                                                SizedBox(
-                                                  width: 3.w,
-                                                ),
-                                                Text(
-                                                  "Available Seats " +
-                                                      (int.parse((guestseatingmodal
-                                                                      ?.suppliersDetails?[
-                                                                          index]
-                                                                      .table
-                                                                      ?.capacity)
-                                                                  .toString()) -
-                                                              int.parse((guestseatingmodal
-                                                                      ?.suppliersDetails?[
-                                                                          index]
-                                                                      .guestList
-                                                                      ?.length)
-                                                                  .toString()))
-                                                          .toString() +
-                                                      " out of " +
-                                                      (guestseatingmodal
-                                                              ?.suppliersDetails?[
-                                                                  index]
-                                                              .table
-                                                              ?.capacity)
-                                                          .toString(),
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 14.sp,
-                                                    fontFamily: 'sofi',
-                                                    letterSpacing: 1,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 1.h,
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 12.w),
+                                          Container(
+                                            padding: EdgeInsets.all(3.w),
+                                            decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                border: Border.all(
+                                                    color: Colors.white),
+                                                borderRadius: BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(20),
+                                                    topRight:
+                                                        Radius.circular(20))),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                for (int index1 = 0;
-                                                    index1 <
-                                                        (guestseatingmodal
-                                                                ?.suppliersDetails?[
-                                                                    index]
-                                                                .guestList
-                                                                ?.length ??
-                                                            0);
-                                                    index1++) ...[
-                                                  Text(
-                                                    (index1 + 1).toString() +
-                                                        " . " +
-                                                        (guestseatingmodal
-                                                                ?.suppliersDetails?[
-                                                                    index]
-                                                                .guestList?[
-                                                                    index1]
-                                                                .guestName)
-                                                            .toString(),
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 12.sp,
-                                                      fontFamily: 'sofi',
-                                                      letterSpacing: 1,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                                SizedBox(
+                                                  height: 1.h,
+                                                ),
+                                                // Row(
+                                                //   children: [
+                                                //     Icon(
+                                                //       Icons.circle_outlined,
+                                                //       color: Colors.grey.shade600,
+                                                //     ),
+                                                //     SizedBox(
+                                                //       width: 3.w,
+                                                //     ),
+                                                //     Text(
+                                                //      guestseatingmodal?.suppliersDetails?[index].,
+                                                //       style: TextStyle(
+                                                //         fontSize: 16.sp,
+                                                //         fontFamily: 'sofi',
+                                                //         letterSpacing: 1,
+                                                //         color: Colors.blue,
+                                                //         fontWeight: FontWeight.bold,
+                                                //       ),
+                                                //     ),
+                                                //   ],
+                                                // ),
+                                                // SizedBox(
+                                                //   height: 1.h,
+                                                // ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 3.w),
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons.circle_outlined,
+                                                        color: Colors
+                                                            .grey.shade600,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 3.w,
+                                                      ),
+                                                      Text(
+                                                        "Available Seats " +
+                                                            (int.parse((guestseatingmodal
+                                                                            ?.suppliersDetails?[
+                                                                                index]
+                                                                            .table
+                                                                            ?.capacity)
+                                                                        .toString()) -
+                                                                    int.parse((guestseatingmodal
+                                                                            ?.suppliersDetails?[
+                                                                                index]
+                                                                            .guestList
+                                                                            ?.length)
+                                                                        .toString()))
+                                                                .toString() +
+                                                            " out of " +
+                                                            (guestseatingmodal
+                                                                    ?.suppliersDetails?[
+                                                                        index]
+                                                                    .table
+                                                                    ?.capacity)
+                                                                .toString(),
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 14.sp,
+                                                          fontFamily: 'sofi',
+                                                          letterSpacing: 1,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
-                                                  SizedBox(height: 1.h),
-                                                ]
+                                                ),
+                                                SizedBox(
+                                                  height: 1.h,
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 12.w),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      for (int index1 = 0;
+                                                          index1 <
+                                                              (guestseatingmodal
+                                                                      ?.suppliersDetails?[
+                                                                          index]
+                                                                      .guestList
+                                                                      ?.length ??
+                                                                  0);
+                                                          index1++) ...[
+                                                        Text(
+                                                          (index1 + 1)
+                                                                  .toString() +
+                                                              " . " +
+                                                              (guestseatingmodal
+                                                                      ?.suppliersDetails?[
+                                                                          index]
+                                                                      .guestList?[
+                                                                          index1]
+                                                                      .guestName)
+                                                                  .toString(),
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 12.sp,
+                                                            fontFamily: 'sofi',
+                                                            letterSpacing: 1,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 1.h),
+                                                      ]
+                                                    ],
+                                                  ),
+                                                ),
                                               ],
                                             ),
                                           ),
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
                                         ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 1.h,
-                                    ),
-                                  ],
-                                )
-                              : Container(),
-                          SizedBox(
-                            height: 1.h,
+                                      )
+                                    : Container(),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                              ]
+                            ],
                           ),
-                        ]
-                      ],
-                    ),
                   ],
                 ),
               ),

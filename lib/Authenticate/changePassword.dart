@@ -7,7 +7,6 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Authenticate/LoginPage.dart';
 import 'package:wedding_planner/Modal/ChangepassModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -29,6 +28,7 @@ class _ChangePasswordState extends State<ChangePassword> {
   bool _obscurePassword1 = true;
   bool _obscurePassword2 = true;
   final GlobalKey<ScaffoldState> scaffoldKey1 = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

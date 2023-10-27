@@ -2,9 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-import 'package:wedding_planner/main.dart';
+
 class BooKNowPage extends StatefulWidget {
   const BooKNowPage({super.key});
 
@@ -62,8 +63,6 @@ class _BooKNowPageState extends State<BooKNowPage> {
       });
     }
   }
-
-
 
   @override
   void initState() {

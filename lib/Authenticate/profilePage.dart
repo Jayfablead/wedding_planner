@@ -52,8 +52,6 @@ class _MyProfileState extends State<MyProfile> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return commanScreen(

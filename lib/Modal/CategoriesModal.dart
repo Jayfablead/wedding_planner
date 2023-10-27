@@ -37,11 +37,11 @@ class Services {
 
   Services(
       {this.categoryId,
-        this.categoryIcon,
-        this.categoryName,
-        this.categoryDesc,
-        this.createdAt,
-        this.supplier});
+      this.categoryIcon,
+      this.categoryName,
+      this.categoryDesc,
+      this.createdAt,
+      this.supplier});
 
   Services.fromJson(Map<String, dynamic> json) {
     categoryId = json['category_id'];

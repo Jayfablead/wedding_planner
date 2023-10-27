@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:wedding_planner/main.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -44,7 +44,6 @@ final GlobalKey<ScaffoldState> scaffoldKey14 = GlobalKey<ScaffoldState>();
 final formKey = GlobalKey<FormState>();
 
 class _MeetingsPageState extends State<MeetingsPage> {
-
   int? sel1 = 3;
   bool isLoading = true;
   List<cate> nextWeekDatesWithDay = [];

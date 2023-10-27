@@ -8,7 +8,6 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/QuoteListModal.dart';
 import 'package:wedding_planner/Modal/SearchQuotationModal.dart';
 import 'package:wedding_planner/Quatations/quotedetailpage.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
@@ -41,6 +40,7 @@ class chat {
     this.details,
   );
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey21 = GlobalKey<ScaffoldState>();
 List<chat> mesgs = [
   chat(
@@ -1501,7 +1501,8 @@ class _QuoateList2State extends State<QuoateList2> {
                                                               CrossAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            SizedBox(   width: 55.w,
+                                                            SizedBox(
+                                                              width: 55.w,
                                                               child: Text(
                                                                 searchquotationmodal?.all?.responsed?[index].name ==
                                                                             '' ||
@@ -1531,9 +1532,9 @@ class _QuoateList2State extends State<QuoateList2> {
                                                               ),
                                                             ),
                                                             SizedBox(
-                                                                height:
-                                                                    0.8.h),
-                                                            SizedBox(   width: 55.w,
+                                                                height: 0.8.h),
+                                                            SizedBox(
+                                                              width: 55.w,
                                                               child: Text(
                                                                 searchquotationmodal?.all?.responsed?[index].description ==
                                                                             '' ||
@@ -1566,36 +1567,48 @@ class _QuoateList2State extends State<QuoateList2> {
                                                               ),
                                                             ),
                                                           ],
-                                                        ), searchquotationmodal
-                                                            ?.all?.responsed?[index].response == false? Container():InkWell(
-                                                          onTap:
-                                                              () {
-                                                            print(
-                                                                'right');
-                                                            Get.to(
-                                                                quotedetailpage(
-                                                                  Qid:
-                                                                  searchquotationmodal
-                                                                      ?.all?.responsed?[index].quotationId,
-                                                                ));
-                                                          },
-                                                          child:
-                                                          Container(
-                                                            padding:
-                                                            EdgeInsets.all(2.w),
-                                                            decoration: BoxDecoration(
-                                                                borderRadius: BorderRadius.circular(7),
-                                                                color: Colors.blue),
-                                                            child:
-                                                            Icon(
-                                                              CupertinoIcons.arrow_right,
-                                                              color:
-                                                              Colors.white,
-                                                              size:
-                                                              18.sp,
-                                                            ),
-                                                          ),
                                                         ),
+                                                        searchquotationmodal
+                                                                    ?.all
+                                                                    ?.responsed?[
+                                                                        index]
+                                                                    .response ==
+                                                                false
+                                                            ? Container()
+                                                            : InkWell(
+                                                                onTap: () {
+                                                                  print(
+                                                                      'right');
+                                                                  Get.to(
+                                                                      quotedetailpage(
+                                                                    Qid: searchquotationmodal
+                                                                        ?.all
+                                                                        ?.responsed?[
+                                                                            index]
+                                                                        .quotationId,
+                                                                  ));
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(2
+                                                                              .w),
+                                                                  decoration: BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              7),
+                                                                      color: Colors
+                                                                          .blue),
+                                                                  child: Icon(
+                                                                    CupertinoIcons
+                                                                        .arrow_right,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    size: 18.sp,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                       ],
                                                     ),
                                                   )

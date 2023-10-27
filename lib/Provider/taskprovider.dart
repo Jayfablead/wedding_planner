@@ -10,8 +10,10 @@ class taskprovider with ChangeNotifier {
   Map<String, String> headers = {
     'Authorization': 'ngjkdsbvsj111nvnbbHHdhsagdf221',
   };
-  Future<http.Response> Viewboardsapi(String suppid,String catid) async {
-    String? url = '$baseUrl/myboards/${userData?.user?.id.toString()}/$suppid/$catid';
+
+  Future<http.Response> Viewboardsapi(String suppid, String catid) async {
+    String? url =
+        '$baseUrl/myboards/${userData?.user?.id.toString()}/$suppid/$catid';
     print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
@@ -64,6 +66,7 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+
   Future<http.Response> categoryapi1() async {
     String? url = '$baseUrl/allServices';
     print(url);
@@ -78,6 +81,7 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+
   Future<http.Response> checklistapi() async {
     String? url = '$baseUrl/checkList/${userData?.user?.id.toString()}';
     var responseJson;
@@ -554,12 +558,16 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> invoicelistapi() async {
     String? url = '$baseUrl/myInvoices/${userData?.user?.id.toString()}';
 
     var responseJson;
     final response = await http
-        .get(Uri.parse(url), headers: headers, )
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
@@ -569,8 +577,8 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     print(response.body);
     return responseJson;
-
   }
+
   Future<http.Response> mybudgetapi() async {
     String? url = '$baseUrl/mybudget/${userData?.user?.id.toString()}';
     print(url);
@@ -616,6 +624,7 @@ class taskprovider with ChangeNotifier {
     print(response.body);
     return responseJson;
   }
+
   Future<http.Response> QuoteRejectApi(String Qid) async {
     String? url = '$baseUrl/rejectQuotation/${Qid}';
     print(url);
@@ -631,11 +640,9 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-
-
   Future<http.Response> chatserchapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/searchChat/${userData?.user?.id.toString()}';
-      print(url);
+    print(url);
     var responseJson;
     final response = await http
         .post(Uri.parse(url), headers: headers, body: bodyData)
@@ -701,8 +708,6 @@ class taskprovider with ChangeNotifier {
     print(response.body);
     return responseJson;
   }
-
-
 
   Future<http.Response> quoteapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/sendQuotationReq';

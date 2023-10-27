@@ -6,8 +6,9 @@ import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/main.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
+
 import '../widgets/drawer.dart';
 
 class ItineryView extends StatefulWidget {
