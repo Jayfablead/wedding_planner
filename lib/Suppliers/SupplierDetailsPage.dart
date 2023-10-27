@@ -11,7 +11,6 @@ import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/SendQuationModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/bookings/BookNowDetails.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -34,7 +33,9 @@ class SupplierfourScreen extends StatefulWidget {
   @override
   State<SupplierfourScreen> createState() => _SupplierfourScreenState();
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey26 = GlobalKey<ScaffoldState>();
+
 class _SupplierfourScreenState extends State<SupplierfourScreen> {
   bool isLoading = true;
   TextEditingController _title = TextEditingController();
@@ -113,9 +114,16 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                               borderRadius: BorderRadius.circular(90),
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
-                                imageUrl:
-                                    (supplierdetailmodal?.supplierInfo?.profile)
-                                        .toString(),
+                                imageUrl: supplierdetailmodal?.supplierInfo
+                                                ?.images?.length ==
+                                            0 ||
+                                        supplierdetailmodal?.supplierInfo
+                                                ?.images?.length ==
+                                            null
+                                    ? ''
+                                    : supplierdetailmodal
+                                            ?.supplierInfo?.images?[0] ??
+                                        '',
                                 progressIndicatorBuilder: (context, url,
                                         progress) =>
                                     Center(child: CircularProgressIndicator()),
@@ -222,7 +230,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                   fontSize: 16.sp,
                                   fontFamily: 'sofi',
                                   color: Colors.black.withOpacity(0.65),
-                                  fontWeight: FontWeight.w600,height: 0.15.h,
+                                  fontWeight: FontWeight.w600,
+                                  height: 0.15.h,
                                   letterSpacing: 1),
                             ),
                           ),
@@ -239,38 +248,47 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                             fontFamily: 'sofi',
                             letterSpacing: 1,
                             fontWeight: FontWeight.bold),
-                      ), SizedBox(
+                      ),
+                      SizedBox(
                         height: 1.h,
                       ),
                       Container(
                         height: 22.h,
-                        child: ListView.builder(
+                        child: supplierdetailmodal
+                            ?.supplierInfo?.images?.length == 0 || supplierdetailmodal
+                            ?.supplierInfo?.images?.length == null ?Center(
+                            child: Text("No Images available",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                    fontFamily: 'sofi',
+                                    color: Colors.black))): ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 1,
+                            itemCount: supplierdetailmodal
+                                ?.supplierInfo?.images?.length,
                             itemBuilder: (context, index) {
                               return Container(
                                 width: 40.w,
                                 margin: EdgeInsets.only(right: 3.w),
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: ClipRRect(
-                                  borderRadius:
-                                  BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(10),
                                   child: CachedNetworkImage(
-                                    imageUrl:'',
+                                    imageUrl: supplierdetailmodal
+                                            ?.supplierInfo?.images?[index] ??
+                                        '',
                                     fit: BoxFit.cover,
-                                    progressIndicatorBuilder: (context,
-                                        url, progress) =>
-                                        Center(
-                                            child:
-                                            CircularProgressIndicator()),
-                                    errorWidget:
-                                        (context, url, error) =>
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
                                         Image.asset(
-                                          'assets/defimg.jpg',fit: BoxFit.cover,
-                                        ),
+                                      'assets/defimg.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               );

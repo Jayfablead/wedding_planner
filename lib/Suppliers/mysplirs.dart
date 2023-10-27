@@ -54,6 +54,7 @@ class _MySupsState extends State<MySups> {
     super.initState();
     setState(() {
       sel1 = 1;
+      isLoading = true;
     });
     homeap();
   }

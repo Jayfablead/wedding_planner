@@ -130,6 +130,7 @@ class _MySuppliersState extends State<MySuppliers> {
     super.initState();
     // homeap();
     setState(() {
+      isLoading = true;
       more =true;
     });
     suppliers();

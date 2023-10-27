@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:wedding_planner/main.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,6 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       sel = 1;
     });
     homeap();
-
   }
 
   bool istap = false;
@@ -73,11 +72,13 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                     Platform.isIOS?SizedBox(
-                  height: 6.5.h,
-                  ): SizedBox(
-                        height: 4.5.h,
-                      ),
+                      Platform.isIOS
+                          ? SizedBox(
+                              height: 6.5.h,
+                            )
+                          : SizedBox(
+                              height: 4.5.h,
+                            ),
                       Row(
                         children: [
                           Column(
@@ -99,24 +100,26 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                           width: 70.w,
                                           child: Text(
                                             "Hi, " +
-                                                (homemodal?.userData?.groomName ==
+                                                (homemodal?.userData
+                                                                ?.groomName ==
                                                             null ||
                                                         homemodal?.userData
                                                                 ?.groomName ==
                                                             ""
                                                     ? "N/A"
-                                                    : (homemodal
-                                                            ?.userData?.groomName)
+                                                    : (homemodal?.userData
+                                                            ?.groomName)
                                                         .toString()) +
                                                 " & " +
-                                                (homemodal?.userData?.brideName ==
+                                                (homemodal?.userData
+                                                                ?.brideName ==
                                                             null ||
                                                         homemodal?.userData
                                                                 ?.brideName ==
                                                             ""
                                                     ? "N/A"
-                                                    : (homemodal
-                                                            ?.userData?.brideName)
+                                                    : (homemodal?.userData
+                                                            ?.brideName)
                                                         .toString()),
                                             style: TextStyle(
                                                 fontSize: 23.sp,
@@ -534,19 +537,19 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                       onTap: () {
                                                         Get.to(
                                                             SupplierfourScreen(
-                                                              suppid: homemodal
-                                                                  ?.suppliers?[
-                                                              index]
-                                                                  .id,
-                                                              catid: homemodal
-                                                                  ?.suppliers?[
-                                                              index]
-                                                                  .categoryId,
-                                                              service: homemodal
-                                                                  ?.suppliers?[
-                                                              index]
-                                                                  .service,
-                                                            ));
+                                                          suppid: homemodal
+                                                              ?.suppliers?[
+                                                                  index]
+                                                              .id,
+                                                          catid: homemodal
+                                                              ?.suppliers?[
+                                                                  index]
+                                                              .categoryId,
+                                                          service: homemodal
+                                                              ?.suppliers?[
+                                                                  index]
+                                                              .service,
+                                                        ));
                                                       },
                                                       child: Column(
                                                         crossAxisAlignment:
@@ -581,11 +584,15 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                   height: 20.h,
                                                                   fit: BoxFit
                                                                       .cover,
-                                                                  imageUrl: homemodal
-                                                                          ?.suppliers?[
-                                                                              index]
-                                                                          .profilePath ??
-                                                                      "",
+                                                                  imageUrl: homemodal?.suppliers?[index].images?.length ==
+                                                                              0 ||
+                                                                          homemodal?.suppliers?[index].images?.length ==
+                                                                              null
+                                                                      ? ''
+                                                                      : homemodal
+                                                                              ?.suppliers?[index]
+                                                                              .images?[0] ??
+                                                                          "",
                                                                   progressIndicatorBuilder: (context,
                                                                           url,
                                                                           progress) =>
@@ -595,9 +602,11 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                   errorWidget: (context,
                                                                           url,
                                                                           error) =>
-                                                                      Image.asset(
+                                                                      Image
+                                                                          .asset(
                                                                     'assets/defimg.jpg',
-                                                                    height: 20.h,
+                                                                    height:
+                                                                        20.h,
                                                                     fit: BoxFit
                                                                         .cover,
                                                                   ),
@@ -615,10 +624,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                             child: Text(
                                                                 homemodal?.suppliers?[index].name ==
                                                                             '' ||
-                                                                        homemodal
-                                                                                ?.suppliers?[
-                                                                                    index]
-                                                                                .name ==
+                                                                        homemodal?.suppliers?[index].name ==
                                                                             null
                                                                     ? 'N/A'
                                                                     : homemodal
@@ -627,8 +633,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                             .name ??
                                                                         "",
                                                                 style: TextStyle(
-                                                                    fontSize: 14.5
-                                                                        .sp,
+                                                                    fontSize:
+                                                                        14.5.sp,
                                                                     fontFamily:
                                                                         'sofi',
                                                                     fontWeight:
@@ -653,8 +659,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                         .service ??
                                                                     "",
                                                                 maxLines: 2,
-                                                                overflow: TextOverflow
-                                                                    .ellipsis,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         14.5.sp,
@@ -691,14 +698,14 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                         .service,
                                                                   ));
                                                                 },
-                                                                child: Container(
+                                                                child:
+                                                                    Container(
                                                                   width: 50.w,
-                                                                  padding: EdgeInsets
-                                                                      .symmetric(
-                                                                          vertical:
-                                                                              1.h,
-                                                                          horizontal:
-                                                                              5.w),
+                                                                  padding: EdgeInsets.symmetric(
+                                                                      vertical:
+                                                                          1.h,
+                                                                      horizontal:
+                                                                          5.w),
                                                                   alignment:
                                                                       Alignment
                                                                           .center,
@@ -716,10 +723,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                                                 .sp,
                                                                             fontFamily:
                                                                                 'sofi',
-                                                                            color: Colors
-                                                                                .white,
-                                                                            letterSpacing:
-                                                                                1)),
+                                                                            color:
+                                                                                Colors.white,
+                                                                            letterSpacing: 1)),
                                                                   ),
                                                                 ),
                                                               ),
@@ -818,8 +824,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
           if (value.isNotEmpty) {
             print(value);
             searchap();
-          }
-          else{
+          } else {
             homeap();
           }
         },
@@ -1033,6 +1038,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       }
     });
   }
+
   notificationap() {
     checkInternet().then((internet) async {
       if (internet) {

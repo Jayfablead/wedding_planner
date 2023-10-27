@@ -33,6 +33,7 @@ class SupplierInfo {
   String? address;
   String? description;
   Services? services;
+  List<String>? images;
   String? inBudget;
   String? isRequested;
   String? isBooked;
@@ -46,6 +47,7 @@ class SupplierInfo {
         this.address,
         this.description,
         this.services,
+        this.images,
         this.inBudget,
         this.isRequested,
         this.isBooked});
@@ -61,6 +63,7 @@ class SupplierInfo {
     services = json['services'] != null
         ? new Services.fromJson(json['services'])
         : null;
+    images = json['images'].cast<String>();
     inBudget = json['in_budget'];
     isRequested = json['is_requested'];
     isBooked = json['is_booked'];
@@ -78,6 +81,7 @@ class SupplierInfo {
     if (this.services != null) {
       data['services'] = this.services!.toJson();
     }
+    data['images'] = this.images;
     data['in_budget'] = this.inBudget;
     data['is_requested'] = this.isRequested;
     data['is_booked'] = this.isBooked;
@@ -89,6 +93,7 @@ class Services {
   String? id;
   String? sId;
   String? categoryId;
+  String? servicePhotos;
   String? description;
   String? cost;
   String? createdAt;
@@ -97,6 +102,7 @@ class Services {
       {this.id,
         this.sId,
         this.categoryId,
+        this.servicePhotos,
         this.description,
         this.cost,
         this.createdAt});
@@ -105,6 +111,7 @@ class Services {
     id = json['id'];
     sId = json['s_id'];
     categoryId = json['category_id'];
+    servicePhotos = json['service_photos'];
     description = json['description'];
     cost = json['cost'];
     createdAt = json['created_at'];
@@ -115,6 +122,7 @@ class Services {
     data['id'] = this.id;
     data['s_id'] = this.sId;
     data['category_id'] = this.categoryId;
+    data['service_photos'] = this.servicePhotos;
     data['description'] = this.description;
     data['cost'] = this.cost;
     data['created_at'] = this.createdAt;
