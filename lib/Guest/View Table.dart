@@ -59,60 +59,6 @@ class _ViewTablesState extends State<ViewTables> {
                         }),
                     // headerwid(text: "Guests"),
                     SizedBox(height: 3.h),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.center,
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     InkWell(
-                    //       onTap: () {
-                    //         setState(() {
-                    //           sel1 = 1;
-                    //         });
-                    //       },
-                    //       child: Container(
-                    //         padding:
-                    //             EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
-                    //         alignment: Alignment.center,
-                    //         decoration: BoxDecoration(
-                    //             color: sel1 == 1 ? Colors.blue : Colors.white,
-                    //             borderRadius: BorderRadius.circular(25)),
-                    //         margin: EdgeInsets.symmetric(horizontal: 2.w),
-                    //         child: Text('Bride',
-                    //             style: TextStyle(
-                    //                 fontSize: 14.5.sp,
-                    //                 fontFamily: 'sofi',
-                    //                 color: sel1 == 1 ? Colors.white : Colors.blue,
-                    //                 fontWeight: FontWeight.bold,
-                    //                 letterSpacing: 1)),
-                    //       ),
-                    //     ),
-                    //     SizedBox(width: 0.w),
-                    //     InkWell(
-                    //       onTap: () {
-                    //         setState(() {
-                    //           sel1 = 2;
-                    //         });
-                    //       },
-                    //       child: Container(
-                    //         padding:
-                    //             EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
-                    //         alignment: Alignment.center,
-                    //         decoration: BoxDecoration(
-                    //             color: sel1 == 2 ? Colors.blue : Colors.white,
-                    //             borderRadius: BorderRadius.circular(25)),
-                    //         margin: EdgeInsets.symmetric(horizontal: 2.w),
-                    //         child: Text('Groom',
-                    //             style: TextStyle(
-                    //                 fontSize: 14.5.sp,
-                    //                 fontFamily: 'sofi',
-                    //                 color: sel1 == 2 ? Colors.white : Colors.blue,
-                    //                 fontWeight: FontWeight.bold,
-                    //                 letterSpacing: 1)),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
-                    // SizedBox(height: 1.5.h),
                     guestseatingmodal?.suppliersDetails?.length == 0 ||
                             guestseatingmodal?.suppliersDetails?.length == null
                         ? Container(

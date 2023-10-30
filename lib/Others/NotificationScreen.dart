@@ -211,7 +211,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                               color: Colors.blue,
                                               size: 24.sp),
                                         ),
-                                        SizedBox(width: 3.w),
+                                        SizedBox(width: 2.w),
                                         Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -226,7 +226,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  width: 60.w,
+                                                  width: 65.w,
                                                   child: Text(
                                                     notificationmodal
                                                                     ?.notiDetails?[

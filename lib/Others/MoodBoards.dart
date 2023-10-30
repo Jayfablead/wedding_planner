@@ -53,35 +53,14 @@ class _PostPageState extends State<PostPage> {
       isLoading = true;
     });
     CategApi();
-    _scrollController.addListener(_scrollListener);
+
     ViewBoardApi();
   }
 
-  void _scrollListener() {
-    if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent - 200) {
-      // Increase the item count when the user is near the bottom
-      itemCount += 5;
-      count1 = itemCount;
-      if (count1! < (viewpostmodal?.boards?.length ?? 0)) {
-        setState(() {
-          count1;
-        });
-      } else {
-        itemCount = itemCount! - (viewpostmodal?.boards?.length ?? 0);
-        count1 = count1! - itemCount;
-        setState(() {
-          count1;
-        });
-      }
-      itemCount = viewpostmodal?.boards?.length ?? 0;
-      count1 = viewpostmodal?.boards?.length ?? 0;
-      // Load 10 more items
-    }
-  }
+
 
   int? sel2;
-  ScrollController _scrollController = ScrollController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -323,12 +302,12 @@ class _PostPageState extends State<PostPage> {
                                           ),
                                         )
                                       : StaggeredGridView.countBuilder(
-                                          controller: _scrollController,
+
                                           padding: EdgeInsets.zero,
 
                                           crossAxisCount: 2,
                                           // Number of columns
-                                          itemCount: count1,
+                                          itemCount: viewpostmodal?.boards?.length,
                                           // Total number of items
                                           itemBuilder: (BuildContext context,
                                                   int index) =>

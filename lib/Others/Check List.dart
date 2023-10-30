@@ -1641,7 +1641,7 @@ class _Check_listState extends State<Check_list> {
                 // height: 70.h,
                 child: Padding(
                     padding:
-                        EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
+                        EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
                     child: SingleChildScrollView(
                       child: Form(
                         key: formKey,
@@ -1650,7 +1650,7 @@ class _Check_listState extends State<Check_list> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           // mainAxisSize: MainAxisSize.min,
                           children: [
-                            SizedBox(height: 1.h),
+
                             Center(
                               child: Text(
                                 "Checklist Detail",
@@ -1712,25 +1712,29 @@ class _Check_listState extends State<Check_list> {
                               ],
                             ),
                             SizedBox(height: 1.h),
-                            Row(
+                            Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
-                                  Icons.description,
-                                  color: Colors.blue,
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.description,
+                                      color: Colors.blue,
+                                    ),
+                                    SizedBox(width: 2.w),
+                                    Text(
+                                      "Description : ",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          height: 0.17.h,
+                                          letterSpacing: 1),
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(width: 2.w),
-                                Text(
-                                  "Description : ",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      height: 0.17.h,
-                                      letterSpacing: 1),
-                                ),
-                                SizedBox(width: 2.w),
+                                SizedBox(height: 1.h),
                                 Text(
                                   sel1 == 0
                                       ? (checklistmodal?.all?[var1!].taskDesc)
@@ -1758,7 +1762,7 @@ class _Check_listState extends State<Check_list> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 1.h),
+                            SizedBox(height: 2.h),
                             Row(
                               children: [
                                 Icon(
@@ -1861,11 +1865,12 @@ class _Check_listState extends State<Check_list> {
                                 ),
                               ],
                             ),
+                            SizedBox(height: 1.5.h),
                           ],
                         ),
                       ),
                     ))),
-            Positioned(
+            Positioned(top: 1.1.h,
                 right: 0,
                 child: IconButton(
                     onPressed: () {

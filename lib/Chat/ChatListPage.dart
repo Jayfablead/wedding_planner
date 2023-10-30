@@ -336,8 +336,8 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                       Container(
                                         margin: EdgeInsets.symmetric(
                                             horizontal: 1.w),
-                                        height: 7.h,
-                                        width: 15.w,
+                                        height: 14.w,
+                                        width: 14.w,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(90),
