@@ -307,7 +307,7 @@ class _InvoiceListState extends State<InvoiceList> {
                                                 : await getApplicationDocumentsDirectory();
 
                                             final String filePath =
-                                                '${dir.path}/${invoicelistmodal?.invoices?[index].supplierDetails?.name ?? ""}';
+                                                '${dir.path}/${invoicelistmodal?.invoices?[index].supplierDetails?.name ?? ""}.pdf';
                                             final File file = File(filePath);
                                             await file.writeAsBytes(bytes);
                                             EasyLoading.showSuccess(

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
@@ -108,16 +109,31 @@ class _PostPageState extends State<PostPage> {
                                   GestureDetector(
                                     onTap: () async {
                                       resultList =
-                                          await ImagePicker().pickMultiImage();
+                                      await ImagePicker().pickMultiImage();
+
                                       if (resultList != null) {
-                                        setState(() {
-                                          selectedImages = resultList!
-                                              .map((XFile file) =>
-                                                  File(file.path))
-                                              .toList();
-                                        });
+                                        if(resultList!.length >=9){
+                                          print(resultList!.length);
+                                          Fluttertoast.showToast(
+                                              msg: "You Can't Add More than 9 images at a time",
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              timeInSecForIosWeb: 1,
+                                              backgroundColor: Colors.blue,
+                                              textColor: Colors.white,
+                                              fontSize: 11.sp);
+
+                                        }
+                                        else{
+                                          setState(() {
+                                            selectedImages = resultList!
+                                                .map((XFile file) =>
+                                                File(file.path))
+                                                .toList();
+                                          });
+                                          addpostapi();
+                                        }
                                       }
-                                      addpostapi();
+
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(

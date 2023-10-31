@@ -307,7 +307,7 @@ class _CertificateState extends State<Certificate> {
                                               ? Directory(downloadsFolderPath)
                                               : await getApplicationDocumentsDirectory();
                                           final String filePath =
-                                              '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}';
+                                              '${dir.path}/${documentmodal?.data?.allDocandCerti?[index].name}.pdf';
                                           final File file = File(filePath);
                                           await file.writeAsBytes(bytes);
                                           EasyLoading.showSuccess("Downloaded");

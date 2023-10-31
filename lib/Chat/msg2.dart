@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -46,7 +47,7 @@ class _Msg2State extends State<Msg2> {
   String? data1;
   int? diff;
   int? type;
-
+  static var httpClient = new HttpClient();
   @override
   void initState() {
     // TODO: implement initState
@@ -389,24 +390,52 @@ class _Msg2State extends State<Msg2> {
                                                     data: fullchatmodal?.data?.livechat?[index].message,
                                                   ));
 
-                                                } else {
-                                                  EasyLoading.show(status: 'Downloading');
-                                                  var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
-
-                                                  String fileName = url.toString().split('/').last;
-                                                  Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
-                                                  String directoryPath = storageDirectory!.path;
-                                                  File file = File('$directoryPath/$fileName');
-                                                  // Directory directory = await getApplicationDocumentsDirectory();
-                                                  await file.writeAsBytes(response.bodyBytes);
-                                                  String filePath = '${storageDirectory.path}/$fileName';
-                                                  EasyLoading.showSuccess("Downloaded");
-                                                  try {
-                                                    final result = await OpenFile.open(filePath);
-                                                  } catch (e) {
-                                                    print(e.toString());
-                                                  }
                                                 }
+                                                else{
+
+                                                  EasyLoading.show(
+                                                      status: 'Downloading ..',
+                                                      indicator:
+                                                      CircularProgressIndicator(
+                                                        color: Colors.white,
+                                                      ));
+                                                  const downloadsFolderPath =
+                                                      '/storage/emulated/0/Download';
+                                                  var request = await httpClient.getUrl(
+                                                      Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                  var response = await request.close();
+                                                  var bytes =
+                                                  await consolidateHttpClientResponseBytes(
+                                                      response);
+                                                  String fileName = url.toString().split('/').last;
+                                                  Directory dir = Platform.isAndroid
+                                                      ? Directory(downloadsFolderPath)
+                                                      : await getApplicationDocumentsDirectory();
+                                                  final String filePath =
+                                                      '${dir.path}/${fileName}';
+                                                  final File file = File(filePath);
+                                                  await file.writeAsBytes(bytes);
+                                                  EasyLoading.showSuccess("Downloaded");
+                                                  print(file);
+                                                }
+                                                // else {
+                                                //   EasyLoading.show(status: 'Downloading');
+                                                //   var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                //
+                                                //   String fileName = url.toString().split('/').last;
+                                                //   Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
+                                                //   String directoryPath = storageDirectory!.path;
+                                                //   File file = File('$directoryPath/$fileName');
+                                                //   // Directory directory = await getApplicationDocumentsDirectory();
+                                                //   await file.writeAsBytes(response.bodyBytes);
+                                                //   String filePath = '${storageDirectory.path}/$fileName';
+                                                //   EasyLoading.showSuccess("Downloaded");
+                                                //   try {
+                                                //     final result = await OpenFile.open(filePath);
+                                                //   } catch (e) {
+                                                //     print(e.toString());
+                                                //   }
+                                                // }
                                               },
                                               child: Text(
                                                 fullchatmodal?.data?.livechat?[index].message ?? "",
@@ -555,24 +584,52 @@ class _Msg2State extends State<Msg2> {
                                                     data: fullchatmodal?.data?.livechat?[index].message,
                                                   ));
 
-                                                } else {
-                                                  EasyLoading.show(status: 'Downloading');
-                                                  var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
-
-                                                  String fileName = url.toString().split('/').last;
-                                                  Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
-                                                  String directoryPath = storageDirectory!.path;
-                                                  File file = File('$directoryPath/$fileName');
-                                                  // Directory directory = await getApplicationDocumentsDirectory();
-                                                  await file.writeAsBytes(response.bodyBytes);
-                                                  String filePath = '${storageDirectory.path}/$fileName';
-                                                  EasyLoading.showSuccess("Downloaded");
-                                                  try {
-                                                    final result = await OpenFile.open(filePath);
-                                                  } catch (e) {
-                                                    print(e.toString());
-                                                  }
                                                 }
+                                                else{
+
+                                                    EasyLoading.show(
+                                                        status: 'Downloading ..',
+                                                        indicator:
+                                                        CircularProgressIndicator(
+                                                          color: Colors.white,
+                                                        ));
+                                                    const downloadsFolderPath =
+                                                        '/storage/emulated/0/Download';
+                                                    var request = await httpClient.getUrl(
+                                                        Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                    var response = await request.close();
+                                                    var bytes =
+                                                    await consolidateHttpClientResponseBytes(
+                                                        response);
+                                                    String fileName = url.toString().split('/').last;
+                                                    Directory dir = Platform.isAndroid
+                                                        ? Directory(downloadsFolderPath)
+                                                        : await getApplicationDocumentsDirectory();
+                                                    final String filePath =
+                                                        '${dir.path}/${fileName}';
+                                                    final File file = File(filePath);
+                                                    await file.writeAsBytes(bytes);
+                                                    EasyLoading.showSuccess("Downloaded");
+                                                    print(file);
+                                                  }
+                                                // else {
+                                                //   EasyLoading.show(status: 'Downloading');
+                                                //   var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
+                                                //
+                                                //   String fileName = url.toString().split('/').last;
+                                                //   Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
+                                                //   String directoryPath = storageDirectory!.path;
+                                                //   File file = File('$directoryPath/$fileName');
+                                                //   // Directory directory = await getApplicationDocumentsDirectory();
+                                                //   await file.writeAsBytes(response.bodyBytes);
+                                                //   String filePath = '${storageDirectory.path}/$fileName';
+                                                //   EasyLoading.showSuccess("Downloaded");
+                                                //   try {
+                                                //     final result = await OpenFile.open(filePath);
+                                                //   } catch (e) {
+                                                //     print(e.toString());
+                                                //   }
+                                                // }
                                               },
                                               child: Text(
                                                 fullchatmodal?.data?.livechat?[index].message ?? "",
