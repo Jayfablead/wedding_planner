@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class ViewTables2 extends StatefulWidget {
   const ViewTables2({super.key});
@@ -19,6 +20,7 @@ int sel = 1;
 class _ViewTables2State extends State<ViewTables2> {
   int? open = 0;
   bool test = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,310 +29,1076 @@ class _ViewTables2State extends State<ViewTables2> {
       key: scaffoldKey,
       drawer: drawer1(),
       bottomNavigationBar: bottomnavbar(selit: -3),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        child:
-        Column(
-          children: [
-            SizedBox(height: 5.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(Icons.arrow_back_ios_new_rounded,color: Colors.blue,size: 23.sp,)),
-                Text(
-                  'Guests',
-                  style: TextStyle(
-                      fontSize: 17.sp, fontFamily: 'sofi',fontWeight: FontWeight.bold,letterSpacing: 1,color: Colors.blue),
-                ),
-                IconButton(
-                    onPressed: () {
-                      scaffoldKey.currentState?.openDrawer();
-                    },
-                    icon: Icon(Icons.menu_rounded,color: Colors.blue,size: 23.sp,)),
-              ],
-            ),
-            // SizedBox(height: 1.5.h),
-            // Row(
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     InkWell(
-            //       onTap: () {
-            //         setState(() {
-            //           sel1 = 1;
-            //         });
-            //       },
-            //       child: Container(
-            //         padding:
-            //         EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
-            //         alignment: Alignment.center,
-            //         decoration: BoxDecoration(
-            //             color: sel1 == 1 ? Colors.blue : Colors.white,
-            //             borderRadius: BorderRadius.circular(9)),
-            //         margin: EdgeInsets.symmetric(horizontal: 2.w),
-            //         child: Text('Bride',
-            //             style: TextStyle(
-            //                 fontSize: 14.5.sp,
-            //                 fontFamily: 'sofi',
-            //                 color: sel1 == 1 ? Colors.white : Colors.blue,
-            //                 fontWeight: FontWeight.bold,
-            //                 letterSpacing: 1)),
-            //       ),
-            //     ),
-            //     SizedBox(width: 0.w),
-            //     InkWell(
-            //       onTap: () {
-            //         setState(() {
-            //           sel1 = 2;
-            //         });
-            //       },
-            //       child: Container(
-            //         padding:
-            //         EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 10.w),
-            //         alignment: Alignment.center,
-            //         decoration: BoxDecoration(
-            //             color: sel1 == 2 ? Colors.blue : Colors.white,
-            //             borderRadius: BorderRadius.circular(9)),
-            //         margin: EdgeInsets.symmetric(horizontal: 2.w),
-            //         child: Text('Groom',
-            //             style: TextStyle(
-            //                 fontSize: 14.5.sp,
-            //                 fontFamily: 'sofi',
-            //                 color: sel1 == 2 ? Colors.white : Colors.blue,
-            //                 fontWeight: FontWeight.bold,
-            //                 letterSpacing: 1)),
-            //       ),
-            //     ),
-            //   ],
-            // ),
-            SizedBox(height: 1.5.h),
-            Column(
-              children: [
-                for(int index = 0;index<4;index++)...[
-                  Container(
-                    // height: 7.h,
-                    width: MediaQuery.of(context).size.width,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: Column(
+            children: [
+              SizedBox(height: 5.h),
+              header(text: 'Seating Chart', callback1: () {}),
+              SizedBox(height: 1.5.h),
+              Column(
+                children: [
+                  for (int index = 0; index < 2; index++) ...[
+                    Container(
+                      // height: 7.h,
+                      width: MediaQuery.of(context).size.width,
 
-                    decoration: BoxDecoration(
-                        color:open == index? Colors.blue:Colors.white,
-                        borderRadius: open == index ? BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
-                            :BorderRadius.circular(20),
-                        border: open != index?
+                      decoration: BoxDecoration(
+                          color: open == index ? Colors.blue : Colors.white,
+                          borderRadius: open == index
+                              ? BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))
+                              : BorderRadius.circular(20),
+                          border: open != index
+                              ? Border.all(color: Colors.blue, width: 2)
+                              : Border.all(color: Colors.transparent, width: 2)),
 
-                        Border.all(color: Colors.blue,width: 2):Border.all(color: Colors.transparent,width: 2)
-                    ),
-
-                    padding: EdgeInsets.symmetric(vertical: 1.5.h,horizontal: 3.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Table " + (index+1).toString(),
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontFamily: 'sofi',
-                            letterSpacing: 1,
-                            color: open == index?Colors.white:Colors.blue,
-                            fontWeight: FontWeight.bold,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 3.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Floor " + (index + 1).toString(),
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontFamily: 'sofi',
+                              letterSpacing: 1,
+                              color: open == index ? Colors.white : Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                            setState(() {
-                              open  =index;
-                            });
-                          },
-                          child: Icon(Icons.arrow_drop_down_circle_outlined,color:open == index?Colors.white:Colors.blue),
-                        )
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                open = index;
+                              });
+                            },
+                            child: Icon(Icons.arrow_drop_down_circle_outlined,
+                                color:
+                                    open == index ? Colors.white : Colors.blue),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height:1.h),
+                    open == index
+                        ? Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: Colors.blue)),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 1.2.h, horizontal: 1.5.w),
+                                    child: SizedBox(
+                                        width: 20.w,
+                                        child: Text(
+                                          'Cake Table',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontSize: 13.sp,
+                                              color: Colors.blue),
+                                        )),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: Colors.blue)),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 1.5.h, horizontal: 10.w),
+                                    child: Row(
+                                      children: [
+                                        Image.asset('assets/stage.webp',
+                                            height: 3.h,
+                                            width: 8.w,
+                                            color: Colors.blue),
+                                        SizedBox(width: 2.w),
+                                        Text(
+                                          'Stage',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontSize: 13.sp,
+                                              color: Colors.blue),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: Colors.blue)),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 2.h, horizontal: 1.5.w),
+                                    child: SizedBox(
+                                        width: 20.w,
+                                        child: Text(
+                                          'Gift Table',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              fontSize: 13.sp,
+                                              color: Colors.blue),
+                                        )),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 2.h),
+                              Row(children: [
+                                Text(
+                                  'Guest-Tables : ',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'sofi',
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1.5,
+                                      fontSize: 15.sp,
+                                      color: Colors.blue),
+                                )
+                              ]),
+                            ],
+                          )
+                        : Container(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        open == index
+                            ? Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(3.w),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              width: 21.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 0;
+                                                      ind < 2;
+                                                      ind++) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showbridedata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind + 1).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            CupertinoIcons
+                                                                .person_alt,
+                                                            color: Colors.blue,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showbridedata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "6",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                Center(
+                                                  child: Container(
+                                                    height: 5.h,
+                                                    width: 25.w,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10),
+                                                      color: Colors.blue.shade200,
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      'Table 1',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily: 'sofi',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          letterSpacing: 1,
+                                                          fontSize: 12.sp),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showbridedata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "3",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Container(
+                                              width: 21.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 5;
+                                                      ind > 3;
+                                                      ind--) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showbridedata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                              CupertinoIcons
+                                                                  .person_alt,
+                                                              color: Colors.blue),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                ],
+                              )
+                            : Container(),
+                        open == index
+                            ? Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(3.w),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              width: 21.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 6;
+                                                      ind < 8;
+                                                      ind++) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showbridedata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind + 1).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            CupertinoIcons
+                                                                .person_alt,
+                                                            color: Colors.blue,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showbridedata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "12",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                Center(
+                                                  child: Container(
+                                                    height: 5.h,
+                                                    width: 25.w,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10),
+                                                      color: Colors.blue.shade200,
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      'Table 2',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily: 'sofi',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          letterSpacing: 1,
+                                                          fontSize: 12.sp),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showbridedata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "9",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Container(
+                                              width: 21.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 11;
+                                                      ind > 9;
+                                                      ind--) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showbridedata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                              CupertinoIcons
+                                                                  .person_alt,
+                                                              color: Colors.blue),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                ],
+                              )
+                            : Container(),
                       ],
                     ),
-                  ),
-                  SizedBox(height: 1.h,),
-                  open == index? Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(3.w),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
-
-                        ),
-
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 1.h,),
-                            Column(
-                              children: [
-                                Container(
-                                  width:40.w,
-                                  alignment: Alignment.center,
-                                  child: Row(crossAxisAlignment:CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      for(int ind=0 ;ind<4 ;ind++)...[
-                                        GestureDetector(
-                                          onTap:(){
-                                            showdata();
-                                          },
-                                          child: Column(
-                                            children: [
-                                              Text((ind+1).toString()),
-                                              Icon(Icons.person),
-                                            ],
-                                          ),
-                                        ),
-                                      ]
-
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(height: 1.h,),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    GestureDetector(
-                                      onTap:(){
-                                        showdata();
-                                      },
-                                      child: Column(
-                                        children: [
-                                          Text("10"),
-                                          Icon(Icons.person),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(width: 1.w,),
-                                    Center(
-                                      child: Container(
-                                        height:7.h,
-                                        width:40.w,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                    SizedBox(width: 1.w,),
-                                    GestureDetector(
-                                      onTap:(){
-                                        showdata();
-                                      },
-                                      child: Column(
-                                        children: [
-                                          Text("5"),
-                                          Icon(Icons.person),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 1.h,),
-                                Container(
-                                  width:40.w,
-                                  alignment: Alignment.center,
-                                  child: Row(crossAxisAlignment:CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      for(int ind=9;ind>5;ind--)...[
-                                        GestureDetector(
-                                          onTap:(){
-                                            showdata();
-                                          },
-                                          child: Column(
-                                            children: [
-                                              Text((ind).toString()),
-                                              Icon(Icons.person),
-                                            ],
-                                          ),
-                                        ),
-                                      ]
-
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            // Row(
-                            //   children: [
-                            //     Icon(Icons.circle_outlined,color: Colors.grey.shade600,),
-                            //     SizedBox(width: 3.w,),
-                            //     Text(
-                            //       "Bride",
-                            //       style: TextStyle(
-                            //         fontSize: 16.sp,
-                            //         fontFamily: 'sofi',
-                            //         letterSpacing: 1,
-                            //         color: Colors.blue,
-                            //         fontWeight: FontWeight.bold,
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
-                            SizedBox(height: 2.h,),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                              child: Row(
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    open == index
+                        ? Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(3.w),
+                          child: Column(
+                            crossAxisAlignment:
+                            CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 1.h,
+                              ),
+                              Column(
                                 children: [
-
-                                  Text(
-                                    "Available Seats 5 out of 60",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold,
+                                  Container(
+                                    width: 60.w,
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        for (int ind = 12;
+                                        ind < 17;
+                                        ind++) ...[
+                                          GestureDetector(
+                                            onTap: () {
+                                              showbridedata();
+                                            },
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  (ind + 1).toString(),
+                                                  style: TextStyle(
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  CupertinoIcons
+                                                      .person_alt,
+                                                  color: Colors.blue,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ]
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.5.h,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          showbridedata();
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "24",
+                                              style: TextStyle(
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                            Icon(
+                                              CupertinoIcons.person_alt,
+                                              color: Colors.blue,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 3.w,
+                                      ),
+                                      Center(
+                                        child: Container(
+                                          height: 7.5.h,
+                                          width: 68.w,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(
+                                                10),
+                                            color: Colors.blue.shade200,
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            'Table 3',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'sofi',
+                                                fontWeight:
+                                                FontWeight.w600,
+                                                letterSpacing: 1,
+                                                fontSize: 12.sp),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 3.w,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          showbridedata();
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "18",
+                                              style: TextStyle(
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                            Icon(
+                                              CupertinoIcons.person_alt,
+                                              color: Colors.blue,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 1.5.h,
+                                  ),
+                                  Container(
+                                    width: 60.w,
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        for (int ind = 23;
+                                        ind > 18;
+                                        ind--) ...[
+                                          GestureDetector(
+                                            onTap: () {
+                                              showbridedata();
+                                            },
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  (ind).toString(),
+                                                  style: TextStyle(
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                                Icon(
+                                                    CupertinoIcons
+                                                        .person_alt,
+                                                    color: Colors.blue),
+                                              ],
+                                            ),
+                                          ),
+                                        ]
+                                      ],
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            SizedBox(height: 1.h,),
-                            Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 6.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  for(int index =0;index<5;index++)...[
-                                    Text(
-                                      (index+1).toString()+"-Guest",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 12.sp,
-                                        fontFamily: 'sofi',
-                                        letterSpacing: 1,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
-                                    SizedBox(height: 1.h),
-                                  ]
-
-
-                                ],
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 1.h,),
-                    ],
-                  ) :Container(),
-                  SizedBox(height: 1.h,),
-
-                ]
-              ],
-            ),
-          ],
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                      ],
+                    )
+                        : Container(),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        open == index
+                            ? Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(3.w),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              width: 18.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 24;
+                                                      ind < 26;
+                                                      ind++) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showgroomdata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind + 1).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            CupertinoIcons
+                                                                .person_alt,
+                                                            color: Colors.blue,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showgroomdata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "30",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                Center(
+                                                  child: Container(
+                                                    height: 9.5.h,
+                                                    width: 21.5.w,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              1000),
+                                                      color: Colors.blue.shade200,
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      'Table 4',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily: 'sofi',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          letterSpacing: 1,
+                                                          fontSize: 12.sp),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showgroomdata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "27",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Container(
+                                              width: 18.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 29;
+                                                      ind > 27;
+                                                      ind--) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showgroomdata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                              CupertinoIcons
+                                                                  .person_alt,
+                                                              color: Colors.blue),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                ],
+                              )
+                            : Container(),
+                        open == index
+                            ? Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(3.w),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              width: 18.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 30;
+                                                      ind < 32;
+                                                      ind++) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showgroomdata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind + 1).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            CupertinoIcons
+                                                                .person_alt,
+                                                            color: Colors.blue,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showgroomdata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "36",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                Center(
+                                                  child: Container(
+                                                    height: 9.5.h,
+                                                    width: 21.5.w,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              1000),
+                                                      color: Colors.blue.shade200,
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      'Table 5',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily: 'sofi',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          letterSpacing: 1,
+                                                          fontSize: 12.sp),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showgroomdata();
+                                                  },
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "33",
+                                                        style: TextStyle(
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        CupertinoIcons.person_alt,
+                                                        color: Colors.blue,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            Container(
+                                              width: 18.w,
+                                              alignment: Alignment.center,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  for (int ind = 35;
+                                                      ind > 33;
+                                                      ind--) ...[
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        showgroomdata();
+                                                      },
+                                                      child: Column(
+                                                        children: [
+                                                          Text(
+                                                            (ind).toString(),
+                                                            style: TextStyle(
+                                                              color: Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                              CupertinoIcons
+                                                                  .person_alt,
+                                                              color: Colors.blue),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ]
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                ],
+                              )
+                            : Container(),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                  ]
+                ],
+              ),
+              SizedBox(height: 10.h)
+            ],
+          ),
         ),
       ),
     );
   }
-  showdata(){
+
+  showbridedata() {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -344,36 +1112,31 @@ class _ViewTables2State extends State<ViewTables2> {
           children: [
             Container(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: 2.h, horizontal: 3.w),
+                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
                 child: Column(
-                  mainAxisAlignment:
-                  MainAxisAlignment.start,
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Groom\'s Guest',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'sofi',
-                                color: Colors.blue,
-                                fontWeight:
-                                FontWeight.bold,
-                                height: 0.17.h,
-                                letterSpacing: 1),
-                          ),
-                        ]),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Text(
+                        'Groom\'s Guest',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 17.sp,
+                            fontFamily: 'sofi',
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            height: 0.17.h,
+                            letterSpacing: 1),
+                      ),
+                    ]),
                     SizedBox(height: 2.h),
                     Row(
                       children: [
-                        Icon(CupertinoIcons.person,color: Colors.blue,size: 17.sp),SizedBox(width: 1.w),
+                        Icon(CupertinoIcons.person_alt,
+                            color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
                         Text(
                           'Guest Name :  ',
                           textAlign: TextAlign.center,
@@ -381,8 +1144,7 @@ class _ViewTables2State extends State<ViewTables2> {
                               fontSize: 16.sp,
                               fontFamily: 'sofi',
                               color: Colors.blue,
-                              fontWeight:
-                              FontWeight.bold,
+                              fontWeight: FontWeight.bold,
                               height: 0.17.h,
                               letterSpacing: 1),
                         ),
@@ -393,8 +1155,7 @@ class _ViewTables2State extends State<ViewTables2> {
                               fontSize: 15.sp,
                               fontFamily: 'sofi',
                               color: Colors.black87,
-                              fontWeight:
-                              FontWeight.bold,
+                              fontWeight: FontWeight.bold,
                               height: 0.17.h,
                               letterSpacing: 1),
                         ),
@@ -403,7 +1164,12 @@ class _ViewTables2State extends State<ViewTables2> {
                     SizedBox(height: 1.h),
                     Row(
                       children: [
-                        Icon(Icons.event_seat,color:Colors.blue),
+                        Image.asset(
+                          'assets/chair.png',
+                          width: 6.w,
+                          height: 3.h,
+                          color: Colors.blue,
+                        ),
                         SizedBox(width: 1.w),
                         Text(
                           'Seat No :  ',
@@ -412,8 +1178,7 @@ class _ViewTables2State extends State<ViewTables2> {
                               fontSize: 16.sp,
                               fontFamily: 'sofi',
                               color: Colors.blue,
-                              fontWeight:
-                              FontWeight.bold,
+                              fontWeight: FontWeight.bold,
                               height: 0.17.h,
                               letterSpacing: 1),
                         ),
@@ -424,8 +1189,7 @@ class _ViewTables2State extends State<ViewTables2> {
                               fontSize: 15.sp,
                               fontFamily: 'sofi',
                               color: Colors.black87,
-                              fontWeight:
-                              FontWeight.bold,
+                              fontWeight: FontWeight.bold,
                               height: 0.17.h,
                               letterSpacing: 1),
                         ),
@@ -442,8 +1206,122 @@ class _ViewTables2State extends State<ViewTables2> {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(CupertinoIcons
-                        .clear_circled_solid)))
+                    icon: Icon(CupertinoIcons.clear_circled_solid)))
+          ],
+        );
+      },
+    );
+  }
+
+  showgroomdata() {
+    showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(15),
+          topLeft: Radius.circular(15),
+        ),
+      ),
+      context: context,
+      builder: (context) {
+        return Stack(
+          children: [
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Text(
+                        'Groom\'s Guest',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 17.sp,
+                            fontFamily: 'sofi',
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            height: 0.17.h,
+                            letterSpacing: 1),
+                      ),
+                    ]),
+                    SizedBox(height: 2.h),
+                    Row(
+                      children: [
+                        Icon(CupertinoIcons.person_alt,
+                            color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Guest Name :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        Text(
+                          'Steave Austin',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 15.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 1.h),
+                    Row(
+                      children: [
+                        Image.asset(
+                          'assets/chair.png',
+                          width: 6.w,
+                          height: 3.h,
+                          color: Colors.blue,
+                        ),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Seat No :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        Text(
+                          '10',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 15.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 3.h),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+                right: 0,
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(CupertinoIcons.clear_circled_solid)))
           ],
         );
       },
