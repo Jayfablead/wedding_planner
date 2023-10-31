@@ -207,20 +207,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showbridedata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind + 1).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                            CupertinoIcons
-                                                                .person_alt,
-                                                            color: Colors.blue,
-                                                          ),
-                                                        ],
+                                                      child: Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -240,19 +231,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showbridedata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "6",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -266,7 +249,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               10),
-                                                      color: Colors.blue.shade200,
+                                                      color: Colors.blue,
                                                     ),
                                                     alignment: Alignment.center,
                                                     child: Text(
@@ -288,19 +271,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showbridedata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "3",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                               ],
@@ -325,19 +300,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showbridedata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                              CupertinoIcons
-                                                                  .person_alt,
-                                                              color: Colors.blue),
-                                                        ],
+                                                      child: Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -386,20 +353,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showbridedata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind + 1).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                            CupertinoIcons
-                                                                .person_alt,
-                                                            color: Colors.blue,
-                                                          ),
-                                                        ],
+                                                      child:Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -419,19 +377,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showbridedata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "12",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child:Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -445,7 +395,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               10),
-                                                      color: Colors.blue.shade200,
+                                                      color: Colors.blue,
                                                     ),
                                                     alignment: Alignment.center,
                                                     child: Text(
@@ -467,22 +417,13 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showbridedata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "9",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
-                                                ),
-                                              ],
+                                                ),],
                                             ),
                                             SizedBox(
                                               height: 1.h,
@@ -504,19 +445,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showbridedata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                              CupertinoIcons
-                                                                  .person_alt,
-                                                              color: Colors.blue),
-                                                        ],
+                                                      child: Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -570,20 +503,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                             onTap: () {
                                               showbridedata();
                                             },
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  (ind + 1).toString(),
-                                                  style: TextStyle(
-                                                    color: Colors.blue,
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  CupertinoIcons
-                                                      .person_alt,
-                                                  color: Colors.blue,
-                                                ),
-                                              ],
+                                            child: Image.asset(
+                                              'assets/chair1.png',
+                                              width: 7.w,
+                                              height: 3.5.h,
+                                              color: Colors.blue,
                                             ),
                                           ),
                                         ]
@@ -603,19 +527,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                         onTap: () {
                                           showbridedata();
                                         },
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              "24",
-                                              style: TextStyle(
-                                                color: Colors.blue,
-                                              ),
-                                            ),
-                                            Icon(
-                                              CupertinoIcons.person_alt,
-                                              color: Colors.blue,
-                                            ),
-                                          ],
+                                        child: Image.asset(
+                                          'assets/chair1.png',
+                                          width: 7.w,
+                                          height: 3.5.h,
+                                          color: Colors.blue,
                                         ),
                                       ),
                                       SizedBox(
@@ -629,7 +545,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                             borderRadius:
                                             BorderRadius.circular(
                                                 10),
-                                            color: Colors.blue.shade200,
+                                            color: Colors.blue,
                                           ),
                                           alignment: Alignment.center,
                                           child: Text(
@@ -651,19 +567,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                         onTap: () {
                                           showbridedata();
                                         },
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              "18",
-                                              style: TextStyle(
-                                                color: Colors.blue,
-                                              ),
-                                            ),
-                                            Icon(
-                                              CupertinoIcons.person_alt,
-                                              color: Colors.blue,
-                                            ),
-                                          ],
+                                        child: Image.asset(
+                                          'assets/chair1.png',
+                                          width: 7.w,
+                                          height: 3.5.h,
+                                          color: Colors.blue,
                                         ),
                                       ),
                                     ],
@@ -688,19 +596,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                             onTap: () {
                                               showbridedata();
                                             },
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  (ind).toString(),
-                                                  style: TextStyle(
-                                                    color: Colors.blue,
-                                                  ),
-                                                ),
-                                                Icon(
-                                                    CupertinoIcons
-                                                        .person_alt,
-                                                    color: Colors.blue),
-                                              ],
+                                            child: Image.asset(
+                                              'assets/chair1.png',
+                                              width: 7.w,
+                                              height: 3.5.h,
+                                              color: Colors.blue,
                                             ),
                                           ),
                                         ]
@@ -755,20 +655,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showgroomdata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind + 1).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                            CupertinoIcons
-                                                                .person_alt,
-                                                            color: Colors.blue,
-                                                          ),
-                                                        ],
+                                                      child: Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -788,19 +679,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showgroomdata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "30",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -814,7 +697,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               1000),
-                                                      color: Colors.blue.shade200,
+                                                      color: Colors.blue,
                                                     ),
                                                     alignment: Alignment.center,
                                                     child: Text(
@@ -836,19 +719,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showgroomdata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "27",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                               ],
@@ -873,19 +748,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showgroomdata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                              CupertinoIcons
-                                                                  .person_alt,
-                                                              color: Colors.blue),
-                                                        ],
+                                                      child:Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -934,20 +801,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showgroomdata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind + 1).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                            CupertinoIcons
-                                                                .person_alt,
-                                                            color: Colors.blue,
-                                                          ),
-                                                        ],
+                                                      child: Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
@@ -955,7 +813,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                               ),
                                             ),
                                             SizedBox(
-                                              height: 1.h,
+                                              height: 0.7.h,
                                             ),
                                             Row(
                                               crossAxisAlignment:
@@ -967,19 +825,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showgroomdata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "36",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child:Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -993,7 +843,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               1000),
-                                                      color: Colors.blue.shade200,
+                                                      color: Colors.blue,
                                                     ),
                                                     alignment: Alignment.center,
                                                     child: Text(
@@ -1015,19 +865,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showgroomdata();
                                                   },
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "33",
-                                                        style: TextStyle(
-                                                          color: Colors.blue,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        CupertinoIcons.person_alt,
-                                                        color: Colors.blue,
-                                                      ),
-                                                    ],
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
                                                   ),
                                                 ),
                                               ],
@@ -1052,19 +894,11 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showgroomdata();
                                                       },
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            (ind).toString(),
-                                                            style: TextStyle(
-                                                              color: Colors.blue,
-                                                            ),
-                                                          ),
-                                                          Icon(
-                                                              CupertinoIcons
-                                                                  .person_alt,
-                                                              color: Colors.blue),
-                                                        ],
+                                                      child: Image.asset(
+                                                        'assets/chair1.png',
+                                                        width: 7.w,
+                                                        height: 3.5.h,
+                                                        color: Colors.blue,
                                                       ),
                                                     ),
                                                   ]
