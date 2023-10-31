@@ -393,6 +393,7 @@ class taskprovider with ChangeNotifier {
 
   Future<http.Response> homeapi() async {
     String? url = '$baseUrl/myHome/${userData?.user?.id.toString()}';
+    print(url);
 
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
@@ -401,6 +402,7 @@ class taskprovider with ChangeNotifier {
         throw const SocketException('Something went wrong');
       },
     );
+    print(response.body);
     responseJson = responses(response);
     return responseJson;
   }

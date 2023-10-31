@@ -124,9 +124,9 @@ class authprovider with ChangeNotifier {
       Map<String, String> bodyData, String? data1) async {
     String? url =
         '$baseUrl/sendMessage/${userData?.user?.id.toString()}/${data1}';
-    print(url);
+
     var responseJson;
-    if (bodyData['mType'] == "1" || bodyData['mType'] == "4") {
+    if (bodyData['mType'] == "1") {
       final response = await http
           .post(Uri.parse(url), headers: headers, body: bodyData)
           .timeout(
@@ -147,7 +147,7 @@ class authprovider with ChangeNotifier {
               'file', bodyData['file'] ?? '',
               contentType: bodyData['mType'] == "2"
                   ? MediaType('image', 'jpg,png')
-                  : MediaType('video', 'mp4'));
+                  :bodyData['mType'] == "2"? MediaType('video', 'mp4'):MediaType('application', 'pdf'));
           imageUploadRequest.files.add(file);
         }
         imageUploadRequest.fields.addAll(bodyData);

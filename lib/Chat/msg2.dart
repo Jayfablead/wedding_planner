@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -52,8 +53,8 @@ class _Msg2State extends State<Msg2> {
     super.initState();
 
     fullchatap();
-    readnewmsgap();
-    userprofileap();
+    // readnewmsgap();
+    // userprofileap();
   }
 
   int? days;
@@ -245,62 +246,14 @@ class _Msg2State extends State<Msg2> {
 
                                 return Column(
                                   children: [
-                                    // (showSeparator)
-                                    //     ? Column(
-                                    //         children: [
-                                    //           SizedBox(
-                                    //             height: 2.h,
-                                    //           ),
-                                    //           Container(
-                                    //               margin:
-                                    //                   EdgeInsets
-                                    //                       .all(1
-                                    //                           .w),
-                                    //               padding:
-                                    //                   EdgeInsets
-                                    //                       .all(1
-                                    //                           .w),
-                                    //               // height: 4.h,
-                                    //               width: 25.w,
-                                    //               alignment:
-                                    //                   Alignment
-                                    //                       .center,
-                                    //               decoration:
-                                    //                   BoxDecoration(
-                                    //                 borderRadius:
-                                    //                     BorderRadius
-                                    //                         .circular(
-                                    //                             15.0),
-                                    //                 color: Colors
-                                    //                     .transparent
-                                    //                     .withOpacity(
-                                    //                         0.3),
-                                    //               ),
-                                    //               child: Text(
-                                    //                 (diff == 0)
-                                    //                     ? "Today"
-                                    //                     : (diff ==
-                                    //                             1)
-                                    //                         ? "Yesterday"
-                                    //                         : outputDate1,
-                                    //                 style: TextStyle(
-                                    //                     color: Colors
-                                    //                         .white,
-                                    //                     fontSize:
-                                    //                         12.sp,
-                                    //                     fontFamily:
-                                    //                         "Poppins"),
-                                    //               )),
-                                    //         ],
-                                    //       )
-                                    //     :
                                     fullchatmodal
                                         ?.data
                                         ?.livechat?[
                                     index]
                                         .fromId ==
                                         userData?.user?.id
-                                        ? Align(
+                                        ?
+                                    Align(
                                       alignment: Alignment
                                           .centerRight,
                                       child: Column(
@@ -435,11 +388,9 @@ class _Msg2State extends State<Msg2> {
                                                   Get.to(webview(
                                                     data: fullchatmodal?.data?.livechat?[index].message,
                                                   ));
-                                                  // Navigator.of(context).push(MaterialPageRoute(
-                                                  //     builder: (context) => webview(
-                                                  //       data: messagemodel?.data?[index].message,
-                                                  //     )));
+
                                                 } else {
+                                                  EasyLoading.show(status: 'Downloading');
                                                   var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
 
                                                   String fileName = url.toString().split('/').last;
@@ -449,7 +400,7 @@ class _Msg2State extends State<Msg2> {
                                                   // Directory directory = await getApplicationDocumentsDirectory();
                                                   await file.writeAsBytes(response.bodyBytes);
                                                   String filePath = '${storageDirectory.path}/$fileName';
-
+                                                  EasyLoading.showSuccess("Downloaded");
                                                   try {
                                                     final result = await OpenFile.open(filePath);
                                                   } catch (e) {
@@ -546,7 +497,7 @@ class _Msg2State extends State<Msg2> {
                                             decoration:
                                             BoxDecoration(
                                               color: Colors
-                                                  .black12,
+                                                  .grey.shade300,
                                               borderRadius:
                                               BorderRadius
                                                   .only(
@@ -603,33 +554,19 @@ class _Msg2State extends State<Msg2> {
                                                   Get.to(webview(
                                                     data: fullchatmodal?.data?.livechat?[index].message,
                                                   ));
-                                                  // Navigator.of(context).push(MaterialPageRoute(
-                                                  //     builder: (context) => webview(
-                                                  //       data: messagemodel?.data?[index].message,
-                                                  //     )));
+
                                                 } else {
+                                                  EasyLoading.show(status: 'Downloading');
                                                   var response = await http.get(Uri.parse((fullchatmodal?.data?.livechat?[index].message).toString()));
-                                                  print(url);
 
                                                   String fileName = url.toString().split('/').last;
-                                                  const downloadsFolderPath = '/storage/emulated/0/Download';
-                                                  // Directory? storageDirectory = Platform.isAndroid
-                                                  //     ? await getExternalStorageDirectory()
-                                                  //     : await getDownloadsDirectory();
-                                                  // String
-                                                  //     directoryPath =
-                                                  //     storageDirectory!.path;
-                                                  Directory dir = Platform.isAndroid ? Directory(downloadsFolderPath) : await getApplicationDocumentsDirectory();
-                                                  // Directory dir =  await getApplicationDocumentsDirectory();
-                                                  final String filePath = '${dir.path}/my.pdf';
-                                                  print(filePath);
-                                                  final File file = File(filePath);
-
+                                                  Directory? storageDirectory = Platform.isAndroid ? await getExternalStorageDirectory() : await getDownloadsDirectory();
+                                                  String directoryPath = storageDirectory!.path;
+                                                  File file = File('$directoryPath/$fileName');
                                                   // Directory directory = await getApplicationDocumentsDirectory();
                                                   await file.writeAsBytes(response.bodyBytes);
-
-                                                  print(filePath);
-
+                                                  String filePath = '${storageDirectory.path}/$fileName';
+                                                  EasyLoading.showSuccess("Downloaded");
                                                   try {
                                                     final result = await OpenFile.open(filePath);
                                                   } catch (e) {
@@ -639,7 +576,7 @@ class _Msg2State extends State<Msg2> {
                                               },
                                               child: Text(
                                                 fullchatmodal?.data?.livechat?[index].message ?? "",
-                                                style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontFamily: 'sofi'),
+                                                style: TextStyle(fontSize: 12.sp, color: Colors.black, fontWeight: FontWeight.normal, letterSpacing: 1.5, fontFamily: 'sofi'),
                                               ),
                                             ),
                                           ),
@@ -759,8 +696,8 @@ class _Msg2State extends State<Msg2> {
 
   sendmessageap() {
     final Map<String, String> data = {};
-    data['textMsg'] = _msg.text.trim().toString();
-    data['file'] = _msg.text == '' ? _pickedFile!.path : "";
+    data['textMsg'] =  type== 1 ?_msg.text  : "";
+    data['file'] = type== 1 ?"" : _pickedFile!.path;
     data['mType'] = type.toString();
 
     print(data);
@@ -919,6 +856,7 @@ class _Msg2State extends State<Msg2> {
                               ),
                               GestureDetector(
                                 onTap: () async {
+                                  print("hooo");
                                   FilePickerResult? result =
                                   await FilePicker.platform.pickFiles();
 
@@ -927,6 +865,7 @@ class _Msg2State extends State<Msg2> {
                                       type = 4;
                                       _pickedFile = File(
                                           result.files.single.path.toString());
+                                      print(_pickedFile);
                                       sendmessageap();
                                     });
                                   } else {
@@ -990,6 +929,8 @@ class _Msg2State extends State<Msg2> {
         authprovider().fullchatapi(widget.id).then((response) async {
           fullchatmodal = FullchatModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && fullchatmodal?.status == "1") {
+            readnewmsgap();
+            userprofileap();
             setState(() {
               isLoading = false;
             });

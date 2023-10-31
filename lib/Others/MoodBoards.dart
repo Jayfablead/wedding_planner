@@ -410,7 +410,7 @@ class _PostPageState extends State<PostPage> {
             });
           } else {
             setState(() {
-              print('nop');
+
               EasyLoading.showError('Canceled');
               isLoading = false;
             });
