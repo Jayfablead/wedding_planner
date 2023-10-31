@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         builder: (context, orientation, deviceType) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: SeatingChart1(),
+            home: SplashLogo(),
             builder: EasyLoading.init(),
             theme: ThemeData(
               primarySwatch: Colors.blue,
