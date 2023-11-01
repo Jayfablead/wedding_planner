@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -47,6 +48,7 @@ class _Msg2State extends State<Msg2> {
   String? data1;
   int? diff;
   int? type;
+  Timer? _timer;
   static var httpClient = new HttpClient();
   @override
   void initState() {
@@ -54,6 +56,10 @@ class _Msg2State extends State<Msg2> {
     super.initState();
 
     fullchatap();
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+
+      fullchatap();
+    });
     // readnewmsgap();
     // userprofileap();
   }

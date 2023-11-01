@@ -49,7 +49,7 @@ class _drawer1State extends State<drawer1> {
     // TODO: implement initState
     super.initState();
     notificationap();
-    print('open');
+
     unreadnotiap();
   }
 
@@ -661,6 +661,46 @@ class _drawer1State extends State<drawer1> {
                             ))
                         : Container()
                   ],
+                ),
+                SizedBox(height: 2.h),
+                InkWell(
+                  onTap: () {
+                    Get.back();
+                    Get.to(ViewTables());
+                  },
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 6.w,
+                      ),
+                      Container(
+                        width: 63.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.chair_rounded,
+                              color: Colors.white,
+                              size: 22.sp,
+                            ),
+                            // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                            SizedBox(
+                              width: 2.w,
+                            ),
+                            Text(
+                              "Seating Chart",
+                                style: TextStyle(
+                                  fontSize: 17.sp,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'sofi',
+                                  color: Colors.white,
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 2.h),
                 InkWell(

@@ -108,22 +108,8 @@ class _PostPageState extends State<PostPage> {
                                   ),
                                   GestureDetector(
                                     onTap: () async {
-                                      resultList =
-                                      await ImagePicker().pickMultiImage();
-
+                                      resultList = await ImagePicker().pickMultiImage();
                                       if (resultList != null) {
-                                        if(resultList!.length >=9){
-                                          print(resultList!.length);
-                                          Fluttertoast.showToast(
-                                              msg: "You Can't Add More than 9 images at a time",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              timeInSecForIosWeb: 1,
-                                              backgroundColor: Colors.blue,
-                                              textColor: Colors.white,
-                                              fontSize: 11.sp);
-
-                                        }
-                                        else{
                                           setState(() {
                                             selectedImages = resultList!
                                                 .map((XFile file) =>
@@ -131,9 +117,7 @@ class _PostPageState extends State<PostPage> {
                                                 .toList();
                                           });
                                           addpostapi();
-                                        }
                                       }
-
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
