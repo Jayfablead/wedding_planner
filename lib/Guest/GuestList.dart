@@ -244,7 +244,9 @@ class _GuestListState extends State<GuestList> {
                                                                   Row(
                                                                     children: [
                                                                       Icon(Icons
-                                                                          .person),
+                                                                          .person,
+                                                                        color: Colors.blue,
+                                                                      ),
                                                                       SizedBox(
                                                                         width:
                                                                             3.w,
@@ -278,9 +280,7 @@ class _GuestListState extends State<GuestList> {
                                                                         Icon(
                                                                           Icons
                                                                               .phone,
-                                                                          color: Colors
-                                                                              .black
-                                                                              .withOpacity(0.67),
+                                                                          color: Colors.blue,
                                                                         ),
                                                                         SizedBox(
                                                                           width:
@@ -312,9 +312,7 @@ class _GuestListState extends State<GuestList> {
                                                                         Icon(
                                                                           Icons
                                                                               .email_outlined,
-                                                                          color: Colors
-                                                                              .black
-                                                                              .withOpacity(0.67),
+                                                                          color: Colors.blue,
                                                                         ),
                                                                         SizedBox(
                                                                           width:
@@ -509,7 +507,8 @@ class _GuestListState extends State<GuestList> {
                                                                 Row(
                                                                   children: [
                                                                     Icon(Icons
-                                                                        .person),
+                                                                        .person,
+                                                                    color: Colors.blue),
                                                                     SizedBox(
                                                                       width:
                                                                           3.w,
@@ -548,9 +547,7 @@ class _GuestListState extends State<GuestList> {
                                                                       Icon(
                                                                         Icons
                                                                             .phone,
-                                                                        color: Colors
-                                                                            .black
-                                                                            .withOpacity(0.67),
+                                                                        color: Colors.blue,
                                                                       ),
                                                                       SizedBox(
                                                                         width:
@@ -587,9 +584,7 @@ class _GuestListState extends State<GuestList> {
                                                                       Icon(
                                                                         Icons
                                                                             .email_outlined,
-                                                                        color: Colors
-                                                                            .black
-                                                                            .withOpacity(0.67),
+                                                                        color:Colors.blue,
                                                                       ),
                                                                       SizedBox(
                                                                         width:
