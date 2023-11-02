@@ -116,10 +116,26 @@ class _LoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold),
                           ),
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your Email';
+                            String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                                "\\@" +
+                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                                "(" +
+                                "\\." +
+                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                                ")+";
+                            //Convert string p to a RegEx
+                            RegExp regExp = RegExp(p);
+                            if (value!.isEmpty) {
+                              return 'Please enter your email';
+                            } else {
+                              //If email address matches pattern
+                              if (regExp.hasMatch(value)) {
+                                return null;
+                              } else {
+                                //If it doesn't match
+                                return 'Email is not valid';
+                              }
                             }
-                            return null;
                           },
                         ),
                       ),
