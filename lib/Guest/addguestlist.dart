@@ -448,7 +448,6 @@ class _AddguestlistState extends State<Addguestlist> {
               _phone.text = "";
               _email.text = "";
               _relation.text = "";
-
               Get.off(GuestList());
             } else {}
           });
