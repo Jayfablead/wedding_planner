@@ -378,7 +378,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                           size: 16.sp,
                                         ),
                                         SizedBox(
-                                          width: 4.w,
+                                          width: 3.w,
                                         ),
                                         Column(
                                           crossAxisAlignment:
@@ -443,7 +443,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                           size: 16.sp,
                                         ),
                                         SizedBox(
-                                          width: 4.w,
+                                          width: 3.w,
                                         ),
                                         Column(
                                           crossAxisAlignment:
