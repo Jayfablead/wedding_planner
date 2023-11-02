@@ -56,10 +56,10 @@ class _Msg2State extends State<Msg2> {
     super.initState();
 
     fullchatap();
-    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
-
-      fullchatap();
-    });
+    // _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+    //
+    //   fullchatap();
+    // });
     // readnewmsgap();
     // userprofileap();
   }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
 class SeatingChart1 extends StatefulWidget {
@@ -12,17 +13,22 @@ class SeatingChart1 extends StatefulWidget {
 }
 
 int open = 1;
+final GlobalKey<ScaffoldState>  scaffoldKey16 = GlobalKey<ScaffoldState>();
 
 class _SeatingChart1State extends State<SeatingChart1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: drawer1(),
+      key: scaffoldKey16,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 2.w),
           child: Column(children: [
             SizedBox(height: 5.h),
-            header(text: 'Seating Chart', callback1: () {}),
+            header(text: 'Seating Chart', callback1: () {
+              scaffoldKey16.currentState?.openDrawer();
+            }),
             SizedBox(height: 2.h),
             Container(
               width: MediaQuery.of(context).size.width,

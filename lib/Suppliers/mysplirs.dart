@@ -148,7 +148,7 @@ class _MySupsState extends State<MySups> {
                                         Container(
                                           margin: EdgeInsets.symmetric(
                                               horizontal: 1.w),
-                                          height: 8.h,
+                                          height: 16.w,
                                           width: 16.w,
                                           child: ClipRRect(
                                             borderRadius:

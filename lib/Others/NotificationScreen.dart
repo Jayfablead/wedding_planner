@@ -163,10 +163,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 itemBuilder: (context, index) {
                                   return Container(
                                     width: MediaQuery.of(context).size.width,
-                                    height: 10.h,
+                                    // height: 10.h,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.symmetric(
-                                        horizontal: 0.70.h),
+                                        horizontal: 0.70.h,vertical: 1.h),
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
@@ -244,6 +244,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                                                     index]
                                                                 .notiTitle ??
                                                             "",
+                                                    maxLines: 2,
+                                                    overflow: TextOverflow.ellipsis,
                                                     style: TextStyle(
                                                       fontSize: 14.sp,
                                                       fontFamily: 'sofi',
@@ -268,6 +270,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                                                           index]
                                                                       .createdAt ??
                                                                   "")),
+                                                  maxLines: 2,
+                                                  overflow: TextOverflow.ellipsis,
                                                   style: TextStyle(
                                                     fontSize: 11.sp,
                                                     fontFamily: 'sofi',

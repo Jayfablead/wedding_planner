@@ -40,14 +40,12 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
   bool isLoading = true;
   TextEditingController _title = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     supplierdetailap();
   }
-
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -108,7 +106,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           ),
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: 1.w),
-                            height: 8.5.h,
+                            height: 18.w,
                             width: 18.w,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(90),

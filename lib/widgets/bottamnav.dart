@@ -78,27 +78,27 @@ class _bottomnavbarState extends State<bottomnavbar> {
                   color: Colors.blue,
                 ),
               ),
-              unreadmsgmodal?.remainToread == 0
-                  ? Container()
-                  : Positioned(
-                      left: 3.w,
-                      bottom: 3.w,
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 3.w,
-                        width: 3.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.red,
-                        ),
-                        child: Text(
-                          unreadmsgmodal?.remainToread.toString() ?? '',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 8.sp),
-                        ),
-                      ))
+              // unreadmsgmodal?.remainToread == 0
+              //     ? Container()
+              //     : Positioned(
+              //         left: 3.w,
+              //         bottom: 3.w,
+              //         child: Container(
+              //           alignment: Alignment.center,
+              //           height: 3.w,
+              //           width: 3.w,
+              //           decoration: BoxDecoration(
+              //             shape: BoxShape.circle,
+              //             color: Colors.red,
+              //           ),
+              //           child: Text(
+              //             unreadmsgmodal?.remainToread.toString() ?? '',
+              //             style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontWeight: FontWeight.bold,
+              //                 fontSize: 8.sp),
+              //           ),
+              //         ))
             ],
           ),
           activeItem: Stack(
@@ -107,24 +107,24 @@ class _bottomnavbarState extends State<bottomnavbar> {
                 child: Image.asset("assets/bottom/5.png",
                     height: 15.h, width: 20.w, color: Colors.white),
               ),
-              unreadmsgmodal?.remainToread == 0
-                  ? Container()
-                  : Positioned(
-                      left: 3.w,
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 2.w,
-                        width: 2.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.red,
-                        ),
-                        child: Text(
-                          unreadmsgmodal?.remainToread.toString() ?? '',
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 12.sp),
-                        ),
-                      ))
+              // unreadmsgmodal?.remainToread == 0
+              //     ? Container()
+              //     : Positioned(
+              //         left: 3.w,
+              //         child: Container(
+              //           alignment: Alignment.center,
+              //           height: 2.w,
+              //           width: 2.w,
+              //           decoration: BoxDecoration(
+              //             shape: BoxShape.circle,
+              //             color: Colors.red,
+              //           ),
+              //           child: Text(
+              //             unreadmsgmodal?.remainToread.toString() ?? '',
+              //             style:
+              //                 TextStyle(color: Colors.white, fontSize: 12.sp),
+              //           ),
+              //         ))
             ],
           ),
           itemLabel: 'Chat',

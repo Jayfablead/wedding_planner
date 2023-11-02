@@ -27,14 +27,12 @@ final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
 
 class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
   bool isLoading = true;
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     BookSuccessap();
   }
-
   Widget build(BuildContext context) {
     return commanScreen(
       isLoading: isLoading,

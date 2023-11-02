@@ -20,13 +20,13 @@ int sel = 1;
 class _ViewTables2State extends State<ViewTables2> {
   int? open = 0;
   bool test = false;
-
+  final GlobalKey<ScaffoldState>  scaffoldKey16 = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
       backgroundColor: Colors.grey.shade100,
-      key: scaffoldKey,
+      key: scaffoldKey16,
       drawer: drawer1(),
       bottomNavigationBar: bottomnavbar(selit: -3),
       body: SingleChildScrollView(
@@ -35,7 +35,9 @@ class _ViewTables2State extends State<ViewTables2> {
           child: Column(
             children: [
               SizedBox(height: 5.h),
-              header(text: 'Seating Chart', callback1: () {}),
+              header(text: 'Seating Chart', callback1: () {
+                scaffoldKey16.currentState?.openDrawer();
+              }),
               SizedBox(height: 1.5.h),
               Column(
                 children: [

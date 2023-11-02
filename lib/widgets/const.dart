@@ -119,4 +119,4 @@ QuataationRejectModal? quatationreject;
 AllCatagoriesModal? allcat;
 
 const String baseUrl =
-    'https://wedding.fableadtechnolabs.com/wedding/portal/api';
+    'https://wedding.fableadtechnolabs.com/portal/api';
