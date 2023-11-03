@@ -644,8 +644,8 @@ class _drawer1State extends State<drawer1> {
                         )),
                     unreadnotimodal?.status == "1"
                         ? Positioned(
-                            left: 46.w,
-                            bottom: 1.h,
+                            left: 47.w,
+                            bottom: 1.2.h,
                             child: Container(
                               width: 5.w,
                               height: 5.w,
