@@ -119,40 +119,7 @@ class _CertificateState extends State<Certificate> {
                       SizedBox(
                         height: 5.h,
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   crossAxisAlignment: CrossAxisAlignment.center,
-                      //   children: [
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           Get.back();
-                      //         },
-                      //         icon: Icon(
-                      //           Icons.arrow_back_ios_new_rounded,
-                      //           size: 23.sp,
-                      //           color: Colors.blue,
-                      //         )),
-                      //     Text(
-                      //       "Certificates",
-                      //       style: TextStyle(
-                      //         fontSize: 18.sp,
-                      //         fontFamily: 'sofi',
-                      //         letterSpacing: 1,
-                      //         color: Colors.blue,
-                      //         fontWeight: FontWeight.bold,
-                      //       ),
-                      //     ),
-                      //     IconButton(
-                      //         onPressed: () {
-                      //           scaffoldKey.currentState?.openDrawer();
-                      //         },
-                      //         icon: Icon(
-                      //           Icons.menu_rounded,
-                      //           color: Colors.blue,
-                      //           size: 23.sp,
-                      //         ))
-                      //   ],
-                      // ),
+
                       header(
                           text: "Certificates",
                           callback1: () {

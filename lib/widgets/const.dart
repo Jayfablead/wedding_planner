@@ -31,6 +31,8 @@ import 'package:wedding_planner/Modal/VenuedetailModal.dart';
 import 'package:wedding_planner/Modal/ViewPostModal.dart';
 import 'package:wedding_planner/Modal/ViewguestModal.dart';
 import 'package:wedding_planner/Modal/addchecklistmodal.dart';
+import 'package:wedding_planner/Modal/itenraryUploadModal.dart';
+import 'package:wedding_planner/Modal/itienraryModal.dart';
 import 'package:wedding_planner/Modal/markcompletedmodal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
 
@@ -117,6 +119,9 @@ AddmeetingModal? addmeetingmodal;
 Invoicelistmodal? invoicelistmodal;
 QuataationRejectModal? quatationreject;
 AllCatagoriesModal? allcat;
+ItienraryModal? itienrarymodal;
+ItienraryuploadModal? iteneryupload;
+
 
 const String baseUrl =
     'https://wedding.fableadtechnolabs.com/portal/api';

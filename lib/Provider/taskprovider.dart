@@ -532,21 +532,7 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-  // Future<http.Response> addtobudgetapi(Map<String, String> bodyData) async {
-  //   String? url = '$baseUrl/addTobudget';
-  //
-  //   var responseJson;
-  //   final response = await http
-  //       .post(Uri.parse(url), headers: headers,body: bodyData)
-  //       .timeout(
-  //     const Duration(seconds: 60),
-  //     onTimeout: () {
-  //       throw const SocketException('Something went wrong');
-  //     },
-  //   );
-  //   responseJson = responses(response);
-  //   return responseJson;
-  // }
+
   Future<http.Response> removefrombudgetapi(String? data1) async {
     String? url = '$baseUrl/rmvFrombudget/${data1}';
     print(url);
@@ -710,6 +696,27 @@ class taskprovider with ChangeNotifier {
     print(response.body);
     return responseJson;
   }
+  Future<http.Response> itienraryapi() async {
+    String? url = '$baseUrl/myItenerary/${userData?.user?.id}';
+    print(url);
+    // String? url="https://wedding.fableadtechnolabs.com/wedding/portal/api/myMeetings/17?date=25/10/2023";
+
+    var responseJson;
+    final response = await http
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    return responseJson;
+  }
 
   Future<http.Response> quoteapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/sendQuotationReq';
@@ -724,6 +731,26 @@ class taskprovider with ChangeNotifier {
       },
     );
     responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> itenraryuploadapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/uploadItenerary/${userData?.user?.id}';
+
+    var responseJson;
+    final imageUploadRequest =
+    http.MultipartRequest('POST', Uri.parse(url));
+    imageUploadRequest.headers.addAll(headers);
+    if (bodyData['itinerary_file']?.isNotEmpty ?? false) {
+      final file = await http.MultipartFile.fromPath(
+          'itinerary_file', bodyData['itinerary_file'] ?? '',
+          contentType: MediaType('application', 'pdf,doc,docx'));
+      imageUploadRequest.files.add(file);
+    }
+    imageUploadRequest.fields.addAll(bodyData);
+    final streamResponse = await imageUploadRequest.send();
+    responseJson =
+        responses(await http.Response.fromStream(streamResponse));
     return responseJson;
   }
 }

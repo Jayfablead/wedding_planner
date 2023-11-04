@@ -24,6 +24,7 @@ import 'package:wedding_planner/chart/seatingChart2.dart';
 import 'package:wedding_planner/chnages/invoiceList.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
+import 'package:wedding_planner/itenrary/Add%20&%20View%20Itenrary.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
@@ -1118,7 +1119,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(BookingListPage());
+                Get.to(AddViewItenrary());
               },
               child: Container(
                 alignment: Alignment.center,
@@ -1140,7 +1141,7 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "Transportation",
+                      "Itinerary",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 8.sp,
@@ -1552,4 +1553,3 @@ class _drawer1State extends State<drawer1> {
     });
   }
 }
-

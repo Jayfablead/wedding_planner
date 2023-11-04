@@ -65,6 +65,8 @@ dependencies:
   open_file:
   flutter_inappwebview:
   fluttertoast:
+  syncfusion_flutter_pdfviewer:
+
 
 dev_dependencies:
   flutter_test:

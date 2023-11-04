@@ -8,6 +8,7 @@ import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 
 import 'package:wedding_planner/chnages/SplashScreen.dart';
+import 'package:wedding_planner/itenrary/Add%20&%20View%20Itenrary.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 void main() {
@@ -43,7 +44,9 @@ class MyApp extends StatelessWidget {
         builder: (context, orientation, deviceType) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: SplashLogo(),
+            home: SplashLogo(
+
+            ),
             builder: EasyLoading.init(),
             theme: ThemeData(
               primarySwatch: Colors.blue,
