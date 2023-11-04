@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  'Planners',
+                  'Touch',
                   style: TextStyle(
                       fontFamily: 'wed',
                       fontSize: 40.sp,

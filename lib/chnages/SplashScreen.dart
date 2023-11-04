@@ -47,7 +47,7 @@ class _SplashLogoState extends State<SplashLogo> {
             ],
           ),
           Text(
-            'Wedding Planners',
+            'Wedding Touch',
             style: TextStyle(
               fontFamily: 'wbold',
               fontSize: 28.sp,
