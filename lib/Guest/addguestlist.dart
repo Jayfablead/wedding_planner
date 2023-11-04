@@ -45,7 +45,6 @@ class _AddguestlistState extends State<Addguestlist> {
     super.initState();
     tableapi();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,10 +206,26 @@ class _AddguestlistState extends State<Addguestlist> {
                                   // controller: _search,
                                   onChanged: (value) {},
                                   validator: (value) {
+                                    String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                                        "\\@" +
+                                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                                        "(" +
+                                        "\\." +
+                                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                                        ")+";
+                                    //Convert string p to a RegEx
+                                    RegExp regExp = RegExp(p);
                                     if (value!.isEmpty) {
-                                      return "Enter the guest email";
+                                      return 'Please enter Guest email';
+                                    } else {
+                                      //If email address matches pattern
+                                      if (regExp.hasMatch(value)) {
+                                        return null;
+                                      } else {
+                                        //If it doesn't match
+                                        return 'Email is not valid';
+                                      }
                                     }
-                                    return null;
                                   },
                                   style: TextStyle(
                                       color: Colors.black.withOpacity(0.67),
@@ -449,7 +464,6 @@ class _AddguestlistState extends State<Addguestlist> {
               _phone.text = "";
               _email.text = "";
               _relation.text = "";
-
               Get.off(GuestList());
             } else {}
           });

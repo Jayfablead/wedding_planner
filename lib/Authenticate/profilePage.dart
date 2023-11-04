@@ -27,7 +27,6 @@ class MyProfile extends StatefulWidget {
 
 class _MyProfileState extends State<MyProfile> {
   final GlobalKey<ScaffoldState> scaffoldKey2 = GlobalKey<ScaffoldState>();
-
   List img = [
     "assets/ney.jpg",
     "assets/ney2.jpg",
@@ -39,9 +38,7 @@ class _MyProfileState extends State<MyProfile> {
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
-
   // int selit = 4;
-
   @override
   void initState() {
     // TODO: implement initState
@@ -51,7 +48,6 @@ class _MyProfileState extends State<MyProfile> {
       setit = 4;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -118,7 +114,6 @@ class _MyProfileState extends State<MyProfile> {
                               //     // Perform action for Option 2
                               //   }
                               // },
-
                               itemBuilder: (BuildContext context) {
                                 return <PopupMenuEntry<String>>[
                                   ...(notificationmodal?.notiDetails ?? [])
@@ -171,7 +166,7 @@ class _MyProfileState extends State<MyProfile> {
                                                     Expanded(
                                                       // width: 50.w,
                                                       child: Text(
-                                                        item.notiTitle ?? "",
+                                                        item.notiTitle==""||item.notiTitle==null?"N/A":item.notiTitle ?? "",
                                                         overflow: TextOverflow
                                                             .ellipsis,
                                                         style: TextStyle(

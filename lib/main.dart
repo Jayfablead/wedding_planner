@@ -6,8 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/chart/seatingChart1.dart';
-import 'package:wedding_planner/chart/seatingChart2.dart';
+
 import 'package:wedding_planner/chnages/SplashScreen.dart';
 import 'package:wedding_planner/widgets/load.dart';
 

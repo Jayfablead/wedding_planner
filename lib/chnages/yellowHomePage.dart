@@ -11,6 +11,7 @@ import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
 import 'package:wedding_planner/Modal/NotificationModal.dart';
 import 'package:wedding_planner/Modal/SuppliersearchModal.dart';
+import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
@@ -46,6 +47,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       sel = 1;
     });
     homeap();
+    notificationap();
+    unreadnotiap();
   }
 
   bool istap = false;
@@ -1060,4 +1063,22 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
       }
     });
   }
+
+  unreadnotiap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().unreadnotiapi().then((response) async {
+          unreadnotimodal = UnreadnotiModal.fromJson(json.decode(response.body));
+          print(response.body);
+          if (response.statusCode == 200 && unreadnotimodal?.status == "1") {
+            print(unreadnotimodal?.unreadNoti);
+          } else {
+
+          }
+        });
+      } else {}
+    });
+  }
+
+
 }

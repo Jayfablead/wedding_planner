@@ -113,19 +113,19 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   fontSize: 17.sp,
                                   color: Colors.black.withOpacity(0.9),
                                   fontWeight: FontWeight.bold,
+
                                   fontFamily: "sofi",
                                 ),
                               ),
                               InkWell(
                                 onTap: () {
+
                                   Get.to(Msg2(
-                                    id: supplierdetailmodal?.supplierInfo?.id ??
+                                    id: booksuccess?.supplierInfo?.id ??
                                         "",
-                                    name: supplierdetailmodal
-                                            ?.supplierInfo?.name ??
+                                    name: booksuccess?.supplierInfo?.name ??
                                         "",
-                                    img: supplierdetailmodal
-                                            ?.supplierInfo?.profile ??
+                                    img: booksuccess?.supplierInfo?.profile ??
                                         "",
                                   ));
                                 },
@@ -378,7 +378,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                           size: 16.sp,
                                         ),
                                         SizedBox(
-                                          width: 4.w,
+                                          width: 3.w,
                                         ),
                                         Column(
                                           crossAxisAlignment:
@@ -443,7 +443,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                           size: 16.sp,
                                         ),
                                         SizedBox(
-                                          width: 4.w,
+                                          width: 3.w,
                                         ),
                                         Column(
                                           crossAxisAlignment:
