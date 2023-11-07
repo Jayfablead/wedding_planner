@@ -66,6 +66,7 @@ dependencies:
   flutter_inappwebview:
   fluttertoast:
   syncfusion_flutter_pdfviewer:
+  auto_size_text:
 
 
 dev_dependencies:

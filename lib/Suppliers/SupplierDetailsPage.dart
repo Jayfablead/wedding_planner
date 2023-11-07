@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Chat/msg2.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
@@ -45,6 +46,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
     // TODO: implement initState
     super.initState();
     supplierdetailap();
+    print(supplierdetailmodal
+        ?.supplierInfo?.images?.length);
   }
   @override
   Widget build(BuildContext context) {
@@ -215,25 +218,57 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           Container(
                             // height: 20.h,
                             width: 90.w,
-                            child: Text(
+                            child:   ReadMoreText(
                               supplierdetailmodal?.supplierInfo?.description ==
-                                          '' ||
-                                      supplierdetailmodal
-                                              ?.supplierInfo?.description ==
-                                          null
+                                  '' ||
+                                  supplierdetailmodal
+                                      ?.supplierInfo?.description ==
+                                      null
                                   ? 'N/A'
                                   : supplierdetailmodal
-                                          ?.supplierInfo?.description ??
-                                      "",
-                              textAlign: TextAlign.justify,
+                                  ?.supplierInfo?.description ??
+                                  "",
+                              trimLines: 2,
+                              colorClickableText: Colors.pink,
+                              trimMode: TrimMode.Line,
                               style: TextStyle(
-                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
                                   fontFamily: 'sofi',
                                   color: Colors.black.withOpacity(0.65),
+                                  fontSize: 16.sp),
+                              trimCollapsedText: 'Show more',
+                              trimExpandedText: 'Show less',
+                              lessStyle: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  height: 0.15.h,
-                                  letterSpacing: 1),
+
+                                  fontFamily: 'sofi',
+                                  color: Colors.blue,
+                                  fontSize: 14.sp),
+                              moreStyle: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'sofi',
+                                  color: Colors.blue,
+                                  fontSize: 14.sp),
                             ),
+                            // Text(
+                            //   supplierdetailmodal?.supplierInfo?.description ==
+                            //               '' ||
+                            //           supplierdetailmodal
+                            //                   ?.supplierInfo?.description ==
+                            //               null
+                            //       ? 'N/A'
+                            //       : supplierdetailmodal
+                            //               ?.supplierInfo?.description ??
+                            //           "",
+                            //   textAlign: TextAlign.justify,
+                            //   style: TextStyle(
+                            //       fontSize: 16.sp,
+                            //       fontFamily: 'sofi',
+                            //       color: Colors.black.withOpacity(0.65),
+                            //       fontWeight: FontWeight.w600,
+                            //       height: 0.15.h,
+                            //       letterSpacing: 1),
+                            // ),
                           ),
                           SizedBox(
                             height: 3.h,
