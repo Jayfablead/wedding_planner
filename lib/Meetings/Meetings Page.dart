@@ -258,7 +258,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                               itemBuilder: (context, index) {
                                 return Container(
                                   padding: EdgeInsets.symmetric(
-                                      horizontal: 3.w, vertical: 1.h),
+                                      horizontal: 2.w, vertical: 1.h),
                                   margin: EdgeInsets.symmetric(vertical: 1.h),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
