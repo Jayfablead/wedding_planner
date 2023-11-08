@@ -219,15 +219,14 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                             // height: 20.h,
                             width: 90.w,
                             child:   ReadMoreText(
-                              supplierdetailmodal?.supplierInfo?.description ==
+                              supplierdetailmodal?.supplierInfo?.services?.description ==
                                   '' ||
                                   supplierdetailmodal
-                                      ?.supplierInfo?.description ==
+                                      ?.supplierInfo?.services?.description ==
                                       null
                                   ? 'N/A'
-                                  : supplierdetailmodal
-                                  ?.supplierInfo?.description ??
-                                  "",
+                                  : (supplierdetailmodal
+                                  ?.supplierInfo?.services?.description).toString(),
                               trimLines: 2,
                               colorClickableText: Colors.pink,
                               trimMode: TrimMode.Line,
@@ -236,15 +235,16 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                   fontFamily: 'sofi',
                                   color: Colors.black.withOpacity(0.65),
                                   fontSize: 16.sp),
-                              trimCollapsedText: 'Show more',
-                              trimExpandedText: 'Show less',
+                              trimCollapsedText: 'Read more',
+                              trimExpandedText: '  Read less',
                               lessStyle: TextStyle(
+                                height: 0.15.h,
                                   fontWeight: FontWeight.w600,
-
                                   fontFamily: 'sofi',
                                   color: Colors.blue,
                                   fontSize: 14.sp),
                               moreStyle: TextStyle(
+                                  height: 0.15.h,
                                   fontWeight: FontWeight.w600,
                                   fontFamily: 'sofi',
                                   color: Colors.blue,
@@ -252,7 +252,6 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                             ),
                             // Text(
                             //   supplierdetailmodal?.supplierInfo?.description ==
-                            //               '' ||
                             //           supplierdetailmodal
                             //                   ?.supplierInfo?.description ==
                             //               null

@@ -478,7 +478,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'About :',
+                                        'Quotation Response :',
                                         style: TextStyle(
                                             fontSize: 16.sp,
                                             color: Colors.blue,
@@ -489,39 +489,25 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                       SizedBox(height: 1.h),
                                       SizedBox(
                                         width: 88.w,
-                                        child: ReadMoreText(
-                                          quotedetailsmodal?.details?.supplier
-                                                          ?.description ==
+                                        child: Text(
+                                          quotedetailsmodal?.details?.resDetails
+                                                           ==
                                                       '' ||
                                                   quotedetailsmodal
                                                           ?.details
-                                                          ?.supplier
-                                                          ?.description ==
+                                                          ?.resDetails
+                                                           ==
                                                       null
                                               ? 'N/A'
                                               : quotedetailsmodal?.details
-                                                      ?.supplier?.description ??
+                                                      ?.resDetails ??
                                                   '',
-                                          trimLines: 4,
-                                          trimLength: 130,
                                           style: TextStyle(
                                               height: 1.5,
                                               fontSize: 13.sp,
                                               color: Colors.grey.shade700,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight: FontWeight.bold),
-                                          colorClickableText: Colors.blue,
-                                          trimMode: TrimMode.Length,
-                                          trimCollapsedText: 'Read More',
-                                          trimExpandedText: ' Read Less',
-                                          moreStyle: TextStyle(
-                                              fontSize: 13.sp,
-                                              color: Colors.blue,
-                                              fontWeight: FontWeight.bold),
-                                          lessStyle: TextStyle(
-                                              fontSize: 13.sp,
-                                              color: Colors.blue,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
@@ -601,6 +587,7 @@ class _quotedetailpageState extends State<quotedetailpage> {
       ),
     );
   }
+
 
   QuoteApi() {
     checkInternet().then((internet) async {
