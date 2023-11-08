@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -137,36 +138,94 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           SizedBox(
                             height: 2.h,
                           ),
-                          Container(
-                            height: 33.h,
-                            width: MediaQuery.of(context).size.width,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: CachedNetworkImage(
-                                imageUrl: supplierdetailmodal?.supplierInfo
-                                                ?.images?.length ==
-                                            0 ||
-                                        supplierdetailmodal?.supplierInfo
-                                                ?.images?.length ==
-                                            null
-                                    ? ''
-                                    : supplierdetailmodal
-                                            ?.supplierInfo?.images?[0] ??
-                                        '',
-                                imageBuilder: (context, imageProvider) =>
+                          GestureDetector(
+                            onTap: (){
+                              showDialog(
+                                context:
+                                context,
+                                builder:
+                                    (context) {return Stack(
+                                  children: [
                                     Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.sp),
-                                    image: DecorationImage(
-                                      image: imageProvider,
-                                      fit: BoxFit.cover,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: CachedNetworkImage(
+                                          imageUrl: supplierdetailmodal
+                                              ?.supplierInfo?.images?[0] ??
+                                              '',
+
+                                          imageBuilder: (context, imageProvider) => Container(
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                // fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) => Icon(Icons.error),
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 87.5.w,
+                                      top: 20.51.h,
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+
+                                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(90),
+                                                color: Colors.blue,
+                                                border: Border.all(color: Colors.blue)),
+                                            padding: EdgeInsets.all(2.w),
+                                            child: Icon(
+                                              Icons.close_rounded,size: 22.sp,
+                                              color: Colors.white,
+                                            )),
+                                      ),
+                                    )
+                                  ],
+                                );
+                                },
+                              );
+                            },
+                            child: Container(
+                              height: 33.h,
+                              width: MediaQuery.of(context).size.width,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: CachedNetworkImage(
+                                  imageUrl: supplierdetailmodal?.supplierInfo
+                                                  ?.images?.length ==
+                                              0 ||
+                                          supplierdetailmodal?.supplierInfo
+                                                  ?.images?.length ==
+                                              null
+                                      ? ''
+                                      : supplierdetailmodal
+                                              ?.supplierInfo?.images?[0] ??
+                                          '',
+                                  imageBuilder: (context, imageProvider) =>
+                                      Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.sp),
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
+                                  placeholder: (context, url) =>
+                                      Center(child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset('assets/defimg.jpg'),
                                 ),
-                                placeholder: (context, url) =>
-                                    Center(child: CircularProgressIndicator()),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset('assets/defimg.jpg'),
                               ),
                             ),
                           ),
@@ -302,38 +361,206 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                         letterSpacing: 1,
                                         fontFamily: 'sofi',
                                         color: Colors.black)))
-                            : ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: supplierdetailmodal
-                                    ?.supplierInfo?.images?.length,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    width: 40.w,
-                                    margin: EdgeInsets.only(right: 3.w),
+                            :
+                        CarouselSlider(
+                          options: CarouselOptions(
+                            height:
+                            supplierdetailmodal
+                                        ?.supplierInfo?.images?.length ==
+                                0 ||
+                                supplierdetailmodal
+                                        ?.supplierInfo?.images?.length ==
+                                    null
+                                ? 7
+                                : 200.0, // Make it full screen
+                            enableInfiniteScroll:
+                            true, // Loop back to the beginning
+                            enlargeCenterPage:
+                            false, // Enlarge the center image
+                            autoPlay:
+                            true, // Automatically play the carousel
+                          ),
+                          items: (supplierdetailmodal?.supplierInfo?.images ?? [])
+                              .map((imagePath) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    showDialog(
+                                      context:
+                                      context,
+                                      builder:
+                                          (context) {return Stack(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.all(4.w),
+                                            margin: EdgeInsets.only(top: 1.h),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(20),
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: CachedNetworkImage(
+                                                imageUrl: imagePath
+                                                    ,
+                                                height: 90.h,
+                                                imageBuilder: (context, imageProvider) => Container(
+                                                  decoration: BoxDecoration(
+
+                                                    image: DecorationImage(
+                                                      image: imageProvider,
+                                                      // fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                                placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                                errorWidget: (context, url, error) => Icon(Icons.error),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            left: 88.5.w,
+                                            top: 25.51.h,
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(90),
+                                                      color: Colors.blue,
+                                                      border: Border.all(color: Colors.blue)),
+                                                  padding: EdgeInsets.all(2.w),
+                                                  child: Icon(
+                                                    Icons.close_rounded,size: 22.sp,
+                                                    color: Colors.white,
+                                                  )),
+                                            ),
+                                          )
+                                        ],
+                                      );
+                                      },
+                                    );
+
+                                  },
+                                  child: Container(
+                                    width:
+                                    MediaQuery.of(context).size.width,
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 5.0),
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius:
+                                      BorderRadius.circular(15),
+                                      color: Colors.transparent,
                                     ),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius:
+                                      BorderRadius.circular(15),
                                       child: CachedNetworkImage(
-                                        imageUrl: supplierdetailmodal
-                                                ?.supplierInfo
-                                                ?.images?[index] ??
-                                            '',
-                                        fit: BoxFit.cover,
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) => Center(
-                                                child:
-                                                    CircularProgressIndicator()),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/defimg.jpg',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                                          imageUrl: imagePath                                                                          ,fit: BoxFit.cover,
+                                          progressIndicatorBuilder: (context,
+                                              url, progress) =>
+                                              Center(
+                                                  child:
+                                                  CircularProgressIndicator()),
+                                          errorWidget: (context, url,
+                                              error) =>
+                                              Icon(Icons
+                                                  .error_outline_rounded)),
                                     ),
-                                  );
-                                }),
+                                  ),
+                                );
+                              },
+                            );
+                          }).toList(),
+                        ),
+                        // ListView.builder(
+                        //         scrollDirection: Axis.horizontal,
+                        //         itemCount: supplierdetailmodal
+                        //             ?.supplierInfo?.images?.length,
+                        //         itemBuilder: (context, index) {
+                        //           return Container(
+                        //             width: 40.w,
+                        //             margin: EdgeInsets.only(right: 3.w),
+                        //             decoration: BoxDecoration(
+                        //               borderRadius: BorderRadius.circular(10),
+                        //             ),
+                        //             child: GestureDetector(
+                        //               onTap: (){
+                        //                 showDialog(
+                        //                   context:
+                        //                   context,
+                        //                   builder:
+                        //                       (context) {return Stack(
+                        //                     children: [
+                        //                       Container(
+                        //                         padding: EdgeInsets.all(4.w),
+                        //                         margin: EdgeInsets.only(top: 1.h),
+                        //                         child: ClipRRect(
+                        //                           borderRadius: BorderRadius.circular(20),
+                        //                           child: CachedNetworkImage(
+                        //                             imageUrl: supplierdetailmodal
+                        //                                 ?.supplierInfo
+                        //                                 ?.images?[index] ??
+                        //                                 '',
+                        //                             height: 90.h,
+                        //                             imageBuilder: (context, imageProvider) => Container(
+                        //                               decoration: BoxDecoration(
+                        //                                 image: DecorationImage(
+                        //                                   image: imageProvider,
+                        //                                   fit: BoxFit.cover,
+                        //                                 ),
+                        //                               ),
+                        //                             ),
+                        //                             placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                        //                             errorWidget: (context, url, error) => Icon(Icons.error),
+                        //                           ),
+                        //                         ),
+                        //                       ),
+                        //                       Positioned(
+                        //                         left: 83.5.w,
+                        //                         top: 3.51.h,
+                        //                         child: InkWell(
+                        //                           onTap: () {
+                        //                             Navigator.pop(context);
+                        //                           },
+                        //                           child: Container(
+                        //                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(90),
+                        //                                   color: Colors.blue,
+                        //                                   border: Border.all(color: Colors.blue)),
+                        //                               padding: EdgeInsets.all(2.w),
+                        //                               child: Icon(
+                        //                                 Icons.close_rounded,size: 22.sp,
+                        //                                 color: Colors.white,
+                        //                               )),
+                        //                         ),
+                        //                       )
+                        //                     ],
+                        //                   );
+                        //                   },
+                        //                 );
+                        //               },
+                        //               child: ClipRRect(
+                        //                 borderRadius: BorderRadius.circular(10),
+                        //                 child: CachedNetworkImage(
+                        //                   imageUrl: supplierdetailmodal
+                        //                           ?.supplierInfo
+                        //                           ?.images?[index] ??
+                        //                       '',
+                        //                   fit: BoxFit.cover,
+                        //                   progressIndicatorBuilder:
+                        //                       (context, url, progress) => Center(
+                        //                           child:
+                        //                               CircularProgressIndicator()),
+                        //                   errorWidget: (context, url, error) =>
+                        //                       Image.asset(
+                        //                     'assets/defimg.jpg',
+                        //                     fit: BoxFit.cover,
+                        //                   ),
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           );
+                        //         }),
                       ),
                       SizedBox(
                         height: 3.h,

@@ -707,7 +707,7 @@ class _drawer1State extends State<drawer1> {
                 InkWell(
                     onTap: () async {
                       Get.back();
-                      Get.to(SeatingChart1());
+                      Get.to(ViewTables2());
                     },
                     child: Container(
                       child: Row(
@@ -730,7 +730,7 @@ class _drawer1State extends State<drawer1> {
                                     SizedBox(
                                       width: 2.w,
                                     ),
-                                    Text("Seating Chart 2",
+                                    Text("Seating Chart ",
                                         style: TextStyle(
                                           fontSize: 17.sp,
                                           fontWeight: FontWeight.bold,
