@@ -28,48 +28,66 @@ class Invoicelistmodal {
 }
 
 class Invoices {
-  String? invId;
-  String? userId;
+  String? id;
+  String? venueId;
   String? supplierId;
-  String? catId;
-  String? invoiceDate;
+  String? catgId;
+  String? brideGroomId;
+  String? eventDate;
   String? dueDate;
-  String? invoiceTotalAmt;
-  String? payStatus;
-  String? payMethod;
+  String? invoiceNo;
+  String? guestCount;
+  String? contactName;
+  String? contactEmail;
+  String? contactPhone;
+  String? servicesInfo;
+  String? invAmt;
+  String? additionalNotes;
   String? invFile;
+  String? bookingStatus;
   String? createdAt;
-  String? updatedAt;
   SupplierDetails? supplierDetails;
 
   Invoices(
-      {this.invId,
-      this.userId,
-      this.supplierId,
-      this.catId,
-      this.invoiceDate,
-      this.dueDate,
-      this.invoiceTotalAmt,
-      this.payStatus,
-      this.payMethod,
-      this.invFile,
-      this.createdAt,
-      this.updatedAt,
-      this.supplierDetails});
+      {this.id,
+        this.venueId,
+        this.supplierId,
+        this.catgId,
+        this.brideGroomId,
+        this.eventDate,
+        this.dueDate,
+        this.invoiceNo,
+        this.guestCount,
+        this.contactName,
+        this.contactEmail,
+        this.contactPhone,
+        this.servicesInfo,
+        this.invAmt,
+        this.additionalNotes,
+        this.invFile,
+        this.bookingStatus,
+        this.createdAt,
+        this.supplierDetails});
 
   Invoices.fromJson(Map<String, dynamic> json) {
-    invId = json['inv_id'];
-    userId = json['user_id'];
+    id = json['id'];
+    venueId = json['venue_id'];
     supplierId = json['supplier_id'];
-    catId = json['cat_id'];
-    invoiceDate = json['invoice_date'];
+    catgId = json['catg_id'];
+    brideGroomId = json['bride_groom_id'];
+    eventDate = json['event_date'];
     dueDate = json['due_date'];
-    invoiceTotalAmt = json['invoice_total_amt'];
-    payStatus = json['pay_status'];
-    payMethod = json['pay_method'];
+    invoiceNo = json['invoice_no'];
+    guestCount = json['guest_count'];
+    contactName = json['contact_name'];
+    contactEmail = json['contact_email'];
+    contactPhone = json['contact_phone'];
+    servicesInfo = json['services_info'];
+    invAmt = json['inv_amt'];
+    additionalNotes = json['additional_notes'];
     invFile = json['inv_file'];
+    bookingStatus = json['booking_status'];
     createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
     supplierDetails = json['supplierDetails'] != null
         ? new SupplierDetails.fromJson(json['supplierDetails'])
         : null;
@@ -77,18 +95,24 @@ class Invoices {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['inv_id'] = this.invId;
-    data['user_id'] = this.userId;
+    data['id'] = this.id;
+    data['venue_id'] = this.venueId;
     data['supplier_id'] = this.supplierId;
-    data['cat_id'] = this.catId;
-    data['invoice_date'] = this.invoiceDate;
+    data['catg_id'] = this.catgId;
+    data['bride_groom_id'] = this.brideGroomId;
+    data['event_date'] = this.eventDate;
     data['due_date'] = this.dueDate;
-    data['invoice_total_amt'] = this.invoiceTotalAmt;
-    data['pay_status'] = this.payStatus;
-    data['pay_method'] = this.payMethod;
+    data['invoice_no'] = this.invoiceNo;
+    data['guest_count'] = this.guestCount;
+    data['contact_name'] = this.contactName;
+    data['contact_email'] = this.contactEmail;
+    data['contact_phone'] = this.contactPhone;
+    data['services_info'] = this.servicesInfo;
+    data['inv_amt'] = this.invAmt;
+    data['additional_notes'] = this.additionalNotes;
     data['inv_file'] = this.invFile;
+    data['booking_status'] = this.bookingStatus;
     data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
     if (this.supplierDetails != null) {
       data['supplierDetails'] = this.supplierDetails!.toJson();
     }
@@ -108,13 +132,13 @@ class SupplierDetails {
 
   SupplierDetails(
       {this.id,
-      this.name,
-      this.email,
-      this.profile,
-      this.contact,
-      this.address,
-      this.description,
-      this.services});
+        this.name,
+        this.email,
+        this.profile,
+        this.contact,
+        this.address,
+        this.description,
+        this.services});
 
   SupplierDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -149,6 +173,7 @@ class Services {
   String? id;
   String? sId;
   String? categoryId;
+  String? servicePhotos;
   String? description;
   String? cost;
   String? createdAt;
@@ -158,19 +183,21 @@ class Services {
 
   Services(
       {this.id,
-      this.sId,
-      this.categoryId,
-      this.description,
-      this.cost,
-      this.createdAt,
-      this.categoryIcon,
-      this.categoryName,
-      this.categoryDesc});
+        this.sId,
+        this.categoryId,
+        this.servicePhotos,
+        this.description,
+        this.cost,
+        this.createdAt,
+        this.categoryIcon,
+        this.categoryName,
+        this.categoryDesc});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     sId = json['s_id'];
     categoryId = json['category_id'];
+    servicePhotos = json['service_photos'];
     description = json['description'];
     cost = json['cost'];
     createdAt = json['created_at'];
@@ -184,6 +211,7 @@ class Services {
     data['id'] = this.id;
     data['s_id'] = this.sId;
     data['category_id'] = this.categoryId;
+    data['service_photos'] = this.servicePhotos;
     data['description'] = this.description;
     data['cost'] = this.cost;
     data['created_at'] = this.createdAt;

@@ -212,7 +212,25 @@ class _InvoiceListState extends State<InvoiceList> {
                                           child: Container(
                                             padding: EdgeInsets.only(left: 1.w),
                                             child: Text(
-                                              'Services ${index + 1}',
+                                              invoicelistmodal
+                                                              ?.invoices?[index]
+                                                              .supplierDetails
+                                                              ?.services
+                                                              ?.categoryName ==
+                                                          "" ||
+                                                      invoicelistmodal
+                                                              ?.invoices?[index]
+                                                              .supplierDetails
+                                                              ?.services
+                                                              ?.categoryName ==
+                                                          null
+                                                  ? "N/A"
+                                                  : (invoicelistmodal
+                                                          ?.invoices?[index]
+                                                          .supplierDetails
+                                                          ?.services
+                                                          ?.categoryName)
+                                                      .toString(),
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 15.sp,
@@ -259,17 +277,17 @@ class _InvoiceListState extends State<InvoiceList> {
                                                 (invoicelistmodal
                                                                 ?.invoices?[
                                                                     index]
-                                                                .invId ==
+                                                                .invoiceNo ==
                                                             "" ||
                                                         invoicelistmodal
                                                                 ?.invoices?[
                                                                     index]
-                                                                .invId ==
+                                                                .invoiceNo ==
                                                             null
                                                     ? "N/A"
                                                     : (invoicelistmodal
                                                             ?.invoices?[index]
-                                                            .invId)
+                                                            .invoiceNo)
                                                         .toString()),
                                             maxLines: 2,
                                             style: TextStyle(
