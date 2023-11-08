@@ -54,9 +54,7 @@ class _Msg2State extends State<Msg2> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
     fullchatap();
-
   }
 
   int? days;
@@ -101,7 +99,7 @@ class _Msg2State extends State<Msg2> {
                   Container(
                     margin:
                     EdgeInsets.symmetric(horizontal: 1.w),
-                    height: 5.h,
+                    height:11.w,
                     width: 11.w,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(90),

@@ -274,7 +274,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           Container(
                             // height: 20.h,
                             width: 90.w,
-                            child:   ReadMoreText(
+                            child: ReadMoreText(
                               supplierdetailmodal?.supplierInfo?.services?.description ==
                                   '' ||
                                   supplierdetailmodal
