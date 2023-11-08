@@ -150,14 +150,12 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                       ),
-
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(20),
                                         child: CachedNetworkImage(
                                           imageUrl: supplierdetailmodal
                                               ?.supplierInfo?.images?[0] ??
                                               '',
-
                                           imageBuilder: (context, imageProvider) => Container(
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
@@ -179,7 +177,6 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                           Navigator.pop(context);
                                         },
                                         child: Container(
-
                                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(90),
                                                 color: Colors.blue,
                                                 border: Border.all(color: Colors.blue)),
@@ -401,12 +398,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                             child: ClipRRect(
                                               borderRadius: BorderRadius.circular(20),
                                               child: CachedNetworkImage(
-                                                imageUrl: imagePath
-                                                    ,
+                                                imageUrl: imagePath,
                                                 height: 90.h,
                                                 imageBuilder: (context, imageProvider) => Container(
                                                   decoration: BoxDecoration(
-
                                                     image: DecorationImage(
                                                       image: imageProvider,
                                                       // fit: BoxFit.cover,
@@ -440,7 +435,6 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                       );
                                       },
                                     );
-
                                   },
                                   child: Container(
                                     width:
