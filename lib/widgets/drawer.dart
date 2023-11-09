@@ -388,15 +388,17 @@ class _drawer1State extends State<drawer1> {
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
-                                        Icons.developer_board,
-                                        size: 30.sp,
-                                        color: Colors.deepOrange,
-                                      ),
+                                      Image.asset("assets/bottom/7.png",
+                                          height: 7.h, width:10.w, color: Colors.redAccent),
+                                      // Icon(
+                                      //   Icons.developer_board,
+                                      //   size: 30.sp,
+                                      //   color: Colors.deepOrange,
+                                      // ),
                                       // Image.asset("assets/board.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.deepOrange),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
+                                      // SizedBox(
+                                      //   height: 1.h,
+                                      // ),
                                       Text(
                                         "Board",
                                         style: TextStyle(

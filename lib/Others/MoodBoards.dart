@@ -302,41 +302,133 @@ class _PostPageState extends State<PostPage> {
                                           ),
                                         )
                                       : StaggeredGridView.countBuilder(
-
                                           padding: EdgeInsets.zero,
-
                                           crossAxisCount: 2,
                                           // Number of columns
                                           itemCount: viewpostmodal?.boards?.length,
                                           // Total number of items
                                           itemBuilder: (BuildContext context,
                                                   int index) =>
-                                              Container(
+                                              GestureDetector(
+                                                onTap: (){
+                                                  showDialog(
+                                                    context:context,
+                                                    builder:
+                                                        (context) {return Stack(
+                                                      children: [
+                                                        Center(
+                                                          child: Container(
+                                                            height: 40.h,
+                                                            width:90.w,
+                                                            alignment: Alignment.center,
+                                                            child: ListView.builder(
+                                                                scrollDirection: Axis.horizontal,
+                                                                itemCount: viewpostmodal?.boards?.length,
+                                                                itemBuilder: (context, index) {
+                                                                  return Container(
+                                                                    width: 90.w,
+                                                                    height: 40.h,
+                                                                    margin: EdgeInsets.only(right: 3.w),
+                                                                    decoration: BoxDecoration(
+                                                                      borderRadius: BorderRadius.circular(10),
+                                                                    ),
+                                                                    child: ClipRRect(
+                                                                      borderRadius: BorderRadius.circular(10),
+                                                                      child: CachedNetworkImage(
+                                                                        imageUrl: (viewpostmodal
+                                                                            ?.boards?[index]
+                                                                            .image).toString(),
+                                                                        // fit: BoxFit.cover,
+                                                                        progressIndicatorBuilder:
+                                                                            (context, url, progress) => Center(
+                                                                            child:
+                                                                            CircularProgressIndicator()),
+                                                                        errorWidget: (context, url, error) =>
+                                                                            Image.asset(
+                                                                              'assets/defimg.jpg',
+                                                                              fit: BoxFit.cover,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                }),
+                                                          ),
+                                                        ),
+                                                        // Container(
+                                                        //   padding: EdgeInsets.all(4.w),
+                                                        //   margin: EdgeInsets.only(top: 1.h),
+                                                        //   decoration: BoxDecoration(
+                                                        //     borderRadius: BorderRadius.circular(20),
+                                                        //   ),
+                                                        //   child: ClipRRect(
+                                                        //     borderRadius: BorderRadius.circular(20),
+                                                        //     child: CachedNetworkImage(
+                                                        //       imageUrl: imagePath,
+                                                        //       height: 90.h,
+                                                        //       imageBuilder: (context, imageProvider) => Container(
+                                                        //         decoration: BoxDecoration(
+                                                        //           image: DecorationImage(
+                                                        //             image: imageProvider,
+                                                        //             fit: BoxFit.cover,
+                                                        //
+                                                        //           ),
+                                                        //         ),
+                                                        //       ),
+                                                        //       placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                                        //       errorWidget: (context, url, error) => Icon(Icons.error),
+                                                        //     ),
+                                                        //   ),
+                                                        // ),
+                                                        Positioned(
+                                                          left: 83.5.w,
+                                                          top: 3.h,
+                                                          child: InkWell(
+                                                            onTap: () {
+                                                              Navigator.pop(context);
+                                                            },
+                                                            child: Container(
+                                                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(90),
+                                                                    color: Colors.blue,
+                                                                    border: Border.all(color: Colors.blue)),
+                                                                padding: EdgeInsets.all(2.w),
+                                                                child: Icon(
+                                                                  Icons.close_rounded,size: 22.sp,
+                                                                  color: Colors.white,
+                                                                )),
+                                                          ),
+                                                        )
+                                                      ],
+                                                    );
+                                                    },
+                                                  );
+                                                },
+                                                child: Container(
                                             decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10)),
                                             child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              child: CachedNetworkImage(
-                                                fit: BoxFit.cover,
-                                                imageUrl: viewpostmodal
-                                                        ?.boards?[index]
-                                                        .image ??
-                                                    "",
-                                                progressIndicatorBuilder: (context,
-                                                        url, progress) =>
-                                                    Center(
-                                                        child:
-                                                            CircularProgressIndicator()),
-                                                errorWidget:
-                                                    (context, url, error) =>
-                                                        Image.asset(
-                                                  'assets/user.png',
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                child: CachedNetworkImage(
+                                                  fit: BoxFit.cover,
+                                                  imageUrl: viewpostmodal
+                                                          ?.boards?[index]
+                                                          .image ??
+                                                      "",
+                                                  progressIndicatorBuilder: (context,
+                                                          url, progress) =>
+                                                      Center(
+                                                          child:
+                                                              CircularProgressIndicator()),
+                                                  errorWidget:
+                                                      (context, url, error) =>
+                                                          Image.asset(
+                                                    'assets/user.png',
+                                                  ),
                                                 ),
-                                              ),
                                             ),
                                           ),
+                                              ),
                                           staggeredTileBuilder: (int index) =>
                                               new StaggeredTile.fit(
                                             1,

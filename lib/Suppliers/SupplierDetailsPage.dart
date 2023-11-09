@@ -146,31 +146,36 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                 builder:
                                     (context) {return Stack(
                                   children: [
-                                    Container(
-                                      padding: EdgeInsets.all(4.w),
-                                      margin: EdgeInsets.only(top: 1.h),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(20),
+                                    Center(
+                                      child: Container(
+                                        height: 40.h,
+                                        width: 100.w,
+                                        alignment: Alignment.center,
+                                        padding: EdgeInsets.all(4.w),
+                                        margin: EdgeInsets.only(top: 1.h),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(20),
 
-                                        child: CachedNetworkImage(
-
-                                          imageUrl: supplierdetailmodal
-                                              ?.supplierInfo?.images?[0] ??
-                                              '',
-                                          height: 90.h,
-                                          imageBuilder: (context, imageProvider) => Container(
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: imageProvider,
-                                                fit: BoxFit.cover,
+                                          child: CachedNetworkImage(
+                                            imageUrl: supplierdetailmodal
+                                                ?.supplierInfo?.images?[0] ??
+                                                '',
+                                            width: 100.w,
+                                            // height: 90.h,
+                                            imageBuilder: (context, imageProvider) => Container(
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: imageProvider,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
+                                            placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                            errorWidget: (context, url, error) => Icon(Icons.error),
                                           ),
-                                          placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                          errorWidget: (context, url, error) => Icon(Icons.error),
                                         ),
                                       ),
                                     ),
@@ -393,31 +398,71 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                       builder:
                                           (context) {return Stack(
                                         children: [
-                                          Container(
-                                            padding: EdgeInsets.all(4.w),
-                                            margin: EdgeInsets.only(top: 1.h),
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                            ),
-                                            child: ClipRRect(
-                                              borderRadius: BorderRadius.circular(20),
-                                              child: CachedNetworkImage(
-                                                imageUrl: imagePath,
-                                                height: 90.h,
-                                                imageBuilder: (context, imageProvider) => Container(
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: imageProvider,
-                                                      fit: BoxFit.cover,
-
-                                                    ),
-                                                  ),
-                                                ),
-                                                placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                                errorWidget: (context, url, error) => Icon(Icons.error),
-                                              ),
+                                          Center(
+                                            child: Container(
+                                              height: 40.h,
+                                              width:90.w,
+                                              alignment: Alignment.center,
+                                              child: ListView.builder(
+                                                  scrollDirection: Axis.horizontal,
+                                                  itemCount: supplierdetailmodal
+                                                      ?.supplierInfo?.images?.length,
+                                                  itemBuilder: (context, index) {
+                                                    return Container(
+                                                      width: 90.w,
+                                                      height: 40.h,
+                                                      margin: EdgeInsets.only(right: 3.w),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(10),
+                                                      ),
+                                                      child: ClipRRect(
+                                                        borderRadius: BorderRadius.circular(10),
+                                                        child: CachedNetworkImage(
+                                                          imageUrl: supplierdetailmodal
+                                                              ?.supplierInfo
+                                                              ?.images?[index] ??
+                                                              '',
+                                                          // fit: BoxFit.cover,
+                                                          progressIndicatorBuilder:
+                                                              (context, url, progress) => Center(
+                                                              child:
+                                                              CircularProgressIndicator()),
+                                                          errorWidget: (context, url, error) =>
+                                                              Image.asset(
+                                                                'assets/defimg.jpg',
+                                                                fit: BoxFit.cover,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }),
                                             ),
                                           ),
+                                          // Container(
+                                          //   padding: EdgeInsets.all(4.w),
+                                          //   margin: EdgeInsets.only(top: 1.h),
+                                          //   decoration: BoxDecoration(
+                                          //     borderRadius: BorderRadius.circular(20),
+                                          //   ),
+                                          //   child: ClipRRect(
+                                          //     borderRadius: BorderRadius.circular(20),
+                                          //     child: CachedNetworkImage(
+                                          //       imageUrl: imagePath,
+                                          //       height: 90.h,
+                                          //       imageBuilder: (context, imageProvider) => Container(
+                                          //         decoration: BoxDecoration(
+                                          //           image: DecorationImage(
+                                          //             image: imageProvider,
+                                          //             fit: BoxFit.cover,
+                                          //
+                                          //           ),
+                                          //         ),
+                                          //       ),
+                                          //       placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                          //       errorWidget: (context, url, error) => Icon(Icons.error),
+                                          //     ),
+                                          //   ),
+                                          // ),
                                           Positioned(
                                             left: 83.5.w,
                                             top: 3.h,
