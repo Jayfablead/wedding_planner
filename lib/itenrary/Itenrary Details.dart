@@ -5,9 +5,7 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class ItenraryDetails extends StatefulWidget {
   String? link;
-
   ItenraryDetails({super.key, this.link});
-
   @override
   State<ItenraryDetails> createState() => _ItenraryDetailsState();
 }
