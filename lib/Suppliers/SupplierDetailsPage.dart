@@ -147,20 +147,25 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                     (context) {return Stack(
                                   children: [
                                     Container(
+                                      padding: EdgeInsets.all(4.w),
+                                      margin: EdgeInsets.only(top: 1.h),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(20),
+
                                         child: CachedNetworkImage(
+
                                           imageUrl: supplierdetailmodal
                                               ?.supplierInfo?.images?[0] ??
                                               '',
+                                          height: 90.h,
                                           imageBuilder: (context, imageProvider) => Container(
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
                                                 image: imageProvider,
-                                                // fit: BoxFit.cover,
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
                                           ),
@@ -170,8 +175,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                       ),
                                     ),
                                     Positioned(
-                                      left: 87.5.w,
-                                      top: 20.51.h,
+                                      left: 83.5.w,
+                                      top: 3.h,
                                       child: InkWell(
                                         onTap: () {
                                           Navigator.pop(context);
@@ -179,7 +184,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                         child: Container(
                                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(90),
                                                 color: Colors.blue,
-                                                border: Border.all(color: Colors.blue)),
+                                                 border: Border.all(color: Colors.blue)),
                                             padding: EdgeInsets.all(2.w),
                                             child: Icon(
                                               Icons.close_rounded,size: 22.sp,
@@ -384,8 +389,7 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                 return GestureDetector(
                                   onTap: () {
                                     showDialog(
-                                      context:
-                                      context,
+                                      context:context,
                                       builder:
                                           (context) {return Stack(
                                         children: [
@@ -404,7 +408,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                                   decoration: BoxDecoration(
                                                     image: DecorationImage(
                                                       image: imageProvider,
-                                                      // fit: BoxFit.cover,
+                                                      fit: BoxFit.cover,
+
                                                     ),
                                                   ),
                                                 ),
@@ -414,8 +419,8 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                                             ),
                                           ),
                                           Positioned(
-                                            left: 88.5.w,
-                                            top: 25.51.h,
+                                            left: 83.5.w,
+                                            top: 3.h,
                                             child: InkWell(
                                               onTap: () {
                                                 Navigator.pop(context);

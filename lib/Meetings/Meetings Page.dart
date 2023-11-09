@@ -88,7 +88,6 @@ class _MeetingsPageState extends State<MeetingsPage> {
                         SizedBox(
                           height: 4.h,
                         ),
-
                         header(
                             text: "",
                             callback1: () {
