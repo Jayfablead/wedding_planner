@@ -50,6 +50,7 @@ class _ItenraryDetailsState extends State<ItenraryDetails> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(onPressed: () {}, icon: Icon(null)),
+
                   ],
                 ),
               ],
