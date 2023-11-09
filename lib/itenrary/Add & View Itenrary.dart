@@ -177,7 +177,6 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                   onTap: () async {
                                     FilePickerResult? result =
                                         await FilePicker.platform.pickFiles();
-
                                     if (result != null) {
                                       setState(() {
                                         _pickedFile = File(result

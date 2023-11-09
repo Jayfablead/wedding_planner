@@ -287,10 +287,12 @@ class _BookingListState extends State<BookingList> {
                                                                   .supplierDetails
                                                                   ?.address ??
                                                               "",
+                                                      maxLines: 2,
                                                       style: TextStyle(
                                                           color: Colors.black
                                                               .withOpacity(0.8),
                                                           fontSize: 12.sp,
+                                                          overflow: TextOverflow.ellipsis,
                                                           fontWeight:
                                                               FontWeight.w600),
                                                     ),
