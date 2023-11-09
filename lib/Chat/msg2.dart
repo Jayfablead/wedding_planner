@@ -749,13 +749,11 @@ class _Msg2State extends State<Msg2> {
       ),
     );
   }
-
   sendmessageap() {
     final Map<String, String> data = {};
     data['textMsg'] =  type== 1 ?_msg.text  : "";
     data['file'] = type== 1 ?"" : _pickedFile!.path;
     data['mType'] = type.toString();
-
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
@@ -767,6 +765,7 @@ class _Msg2State extends State<Msg2> {
             print(sendmessageModal?.status);
             _msg.text = "";
           } else {
+            // buildErrorDialog(context, "", "Please type the message");
             buildErrorDialog(
                 context, " Error", (sendmessageModal?.message).toString());
             fullchatap();

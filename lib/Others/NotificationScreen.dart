@@ -37,7 +37,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
     readnotiap();
     userprofileap();
   }
-
   @override
   Widget build(BuildContext context) {
     return commanScreen(
