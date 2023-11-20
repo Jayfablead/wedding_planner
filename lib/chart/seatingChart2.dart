@@ -693,7 +693,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                 ),
                                                 Center(
                                                   child: Container(
-                                                    height: 9.5.h,
+                                                    height: 21.5.w,
                                                     width: 21.5.w,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
@@ -839,7 +839,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                 ),
                                                 Center(
                                                   child: Container(
-                                                    height: 9.5.h,
+                                                    height: 21.5.w,
                                                     width: 21.5.w,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
