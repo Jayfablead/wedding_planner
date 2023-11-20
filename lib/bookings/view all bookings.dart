@@ -365,7 +365,6 @@ class _BookingListState extends State<BookingList> {
       ),
     );
   }
-
   booklinglistap() {
     checkInternet().then((internet) async {
       if (internet) {
