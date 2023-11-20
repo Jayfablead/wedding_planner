@@ -286,7 +286,7 @@ class _BookingListState extends State<BookingList> {
                                                                       index]
                                                                   .supplierDetails
                                                                   ?.address ??
-                                                              "",
+                                                               "",
                                                       maxLines: 2,
                                                       style: TextStyle(
                                                           color: Colors.black
