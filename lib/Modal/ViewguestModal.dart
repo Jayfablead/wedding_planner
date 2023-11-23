@@ -65,21 +65,33 @@ class BrideGuestList {
   String? guestName;
   String? guestEmail;
   String? guestContact;
+  String? guestFloorId;
+  String? guestTableId;
+  String? guestSeatNo;
   String? brideOrGroom;
   String? guestRelationGroup;
   String? attendingStatus;
   String? createdAt;
+  FloorName? floorName;
+  TableName? tableName;
+  String? accomodationLink;
 
   BrideGuestList(
       {this.id,
-      this.uid,
-      this.guestName,
-      this.guestEmail,
-      this.guestContact,
-      this.brideOrGroom,
-      this.guestRelationGroup,
-      this.attendingStatus,
-      this.createdAt});
+        this.uid,
+        this.guestName,
+        this.guestEmail,
+        this.guestContact,
+        this.guestFloorId,
+        this.guestTableId,
+        this.guestSeatNo,
+        this.brideOrGroom,
+        this.guestRelationGroup,
+        this.attendingStatus,
+        this.createdAt,
+        this.floorName,
+        this.tableName,
+        this.accomodationLink});
 
   BrideGuestList.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -87,10 +99,20 @@ class BrideGuestList {
     guestName = json['guest_name'];
     guestEmail = json['guest_email'];
     guestContact = json['guest_contact'];
+    guestFloorId = json['guest_floor_id'];
+    guestTableId = json['guest_table_id'];
+    guestSeatNo = json['guest_seat_no'];
     brideOrGroom = json['bride_or_groom'];
     guestRelationGroup = json['guest_relation_group'];
     attendingStatus = json['attending_status'];
     createdAt = json['created_at'];
+    floorName = json['floorName'] != null
+        ? new FloorName.fromJson(json['floorName'])
+        : null;
+    tableName = json['tableName'] != null
+        ? new TableName.fromJson(json['tableName'])
+        : null;
+    accomodationLink = json['accomodationLink'];
   }
 
   Map<String, dynamic> toJson() {
@@ -100,10 +122,58 @@ class BrideGuestList {
     data['guest_name'] = this.guestName;
     data['guest_email'] = this.guestEmail;
     data['guest_contact'] = this.guestContact;
+    data['guest_floor_id'] = this.guestFloorId;
+    data['guest_table_id'] = this.guestTableId;
+    data['guest_seat_no'] = this.guestSeatNo;
     data['bride_or_groom'] = this.brideOrGroom;
     data['guest_relation_group'] = this.guestRelationGroup;
     data['attending_status'] = this.attendingStatus;
     data['created_at'] = this.createdAt;
+    if (this.floorName != null) {
+      data['floorName'] = this.floorName!.toJson();
+    }
+    if (this.tableName != null) {
+      data['tableName'] = this.tableName!.toJson();
+    }
+    data['accomodationLink'] = this.accomodationLink;
+    return data;
+  }
+}
+
+class FloorName {
+  String? floorName;
+  String? floorCapacity;
+
+  FloorName({this.floorName, this.floorCapacity});
+
+  FloorName.fromJson(Map<String, dynamic> json) {
+    floorName = json['floor_name'];
+    floorCapacity = json['floor_capacity'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['floor_name'] = this.floorName;
+    data['floor_capacity'] = this.floorCapacity;
+    return data;
+  }
+}
+
+class TableName {
+  String? name;
+  String? capacity;
+
+  TableName({this.name, this.capacity});
+
+  TableName.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    capacity = json['capacity'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['capacity'] = this.capacity;
     return data;
   }
 }
@@ -114,21 +184,33 @@ class GroomGuestList {
   String? guestName;
   String? guestEmail;
   String? guestContact;
+  String? guestFloorId;
+  String? guestTableId;
+  String? guestSeatNo;
   String? brideOrGroom;
   String? guestRelationGroup;
   String? attendingStatus;
   String? createdAt;
+  FloorName? floorName;
+  TableName? tableName;
+  String? accomodationLink;
 
   GroomGuestList(
       {this.id,
-      this.uid,
-      this.guestName,
-      this.guestEmail,
-      this.guestContact,
-      this.brideOrGroom,
-      this.guestRelationGroup,
-      this.attendingStatus,
-      this.createdAt});
+        this.uid,
+        this.guestName,
+        this.guestEmail,
+        this.guestContact,
+        this.guestFloorId,
+        this.guestTableId,
+        this.guestSeatNo,
+        this.brideOrGroom,
+        this.guestRelationGroup,
+        this.attendingStatus,
+        this.createdAt,
+        this.floorName,
+        this.tableName,
+        this.accomodationLink});
 
   GroomGuestList.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -136,10 +218,18 @@ class GroomGuestList {
     guestName = json['guest_name'];
     guestEmail = json['guest_email'];
     guestContact = json['guest_contact'];
+    guestFloorId = json['guest_floor_id'];
+    guestTableId = json['guest_table_id'];
+    guestSeatNo = json['guest_seat_no'];
     brideOrGroom = json['bride_or_groom'];
     guestRelationGroup = json['guest_relation_group'];
     attendingStatus = json['attending_status'];
     createdAt = json['created_at'];
+    floorName = json['floorName'];
+    tableName = json['tableName'] != null
+        ? new TableName.fromJson(json['tableName'])
+        : null;
+    accomodationLink = json['accomodationLink'];
   }
 
   Map<String, dynamic> toJson() {
@@ -149,10 +239,18 @@ class GroomGuestList {
     data['guest_name'] = this.guestName;
     data['guest_email'] = this.guestEmail;
     data['guest_contact'] = this.guestContact;
+    data['guest_floor_id'] = this.guestFloorId;
+    data['guest_table_id'] = this.guestTableId;
+    data['guest_seat_no'] = this.guestSeatNo;
     data['bride_or_groom'] = this.brideOrGroom;
     data['guest_relation_group'] = this.guestRelationGroup;
     data['attending_status'] = this.attendingStatus;
     data['created_at'] = this.createdAt;
+    data['floorName'] = this.floorName;
+    if (this.tableName != null) {
+      data['tableName'] = this.tableName!.toJson();
+    }
+    data['accomodationLink'] = this.accomodationLink;
     return data;
   }
 }

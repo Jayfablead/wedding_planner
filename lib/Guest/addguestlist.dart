@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Guest/GuestList.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
+import 'package:wedding_planner/Modal/FloorDetalisModal.dart';
 import 'package:wedding_planner/Modal/MyvenuetableModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
@@ -29,6 +30,13 @@ class test {
   test(this.title, this.id);
 }
 
+class test1 {
+  String title;
+  String id;
+
+  test1(this.title, this.id);
+}
+
 class _AddguestlistState extends State<Addguestlist> {
   TextEditingController _name = TextEditingController();
   TextEditingController _phone = TextEditingController();
@@ -36,15 +44,18 @@ class _AddguestlistState extends State<Addguestlist> {
   TextEditingController _relation = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   List<test> items = [];
+  List<test1> items1 = [];
   test? selectedItem;
+  test1? selectedItem1;
   final GlobalKey<ScaffoldState> scaffoldKey11 = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    tableapi();
+    Floorapi();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,13 +217,14 @@ class _AddguestlistState extends State<Addguestlist> {
                                   // controller: _search,
                                   onChanged: (value) {},
                                   validator: (value) {
-                                    String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
-                                        "\\@" +
-                                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                                        "(" +
-                                        "\\." +
-                                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                                        ")+";
+                                    String p =
+                                        "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                                            "\\@" +
+                                            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                                            "(" +
+                                            "\\." +
+                                            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                                            ")+";
                                     //Convert string p to a RegEx
                                     RegExp regExp = RegExp(p);
                                     if (value!.isEmpty) {
@@ -300,6 +312,57 @@ class _AddguestlistState extends State<Addguestlist> {
                                         fontFamily: 'Meta1'),
                                   ),
                                 ),
+                              ),
+                              SizedBox(height: 2.h),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Select Floor :',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(width: 5.w),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        width: 52.w,
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 3.w, vertical: 0.5.h),
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton<test1>(
+                                            hint: Text("Select Floor"),
+                                            value: selectedItem1,
+                                            onChanged: (test1? newValue1) {
+                                              setState(() {
+                                                selectedItem1 =
+                                                    newValue1; // Update the selectedItem
+                                              });
+
+                                            },
+                                            items: items1.map((test1 item) {
+                                              return DropdownMenuItem<test1>(
+                                                value: item,
+                                                child: Text(
+                                                  item.title,
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                               SizedBox(height: 2.h),
                               Row(
@@ -411,10 +474,10 @@ class _AddguestlistState extends State<Addguestlist> {
     );
   }
 
-  tableapi() {
+  tableapi(String FId) {
     checkInternet().then((internet) async {
       if (internet) {
-        taskprovider().myvenuetableapi().then((response) async {
+        taskprovider().myvenuetableapi(FId).then((response) async {
           myvenuetablemodal =
               MyvenuetableModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && myvenuetablemodal?.status == "1") {
@@ -442,6 +505,38 @@ class _AddguestlistState extends State<Addguestlist> {
     });
   }
 
+  Floorapi() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().FloorplansList().then((response) async {
+          floordetalismodal =
+              FloorDetalisModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && floordetalismodal?.status == "1") {
+            for (int i = 0;
+                i < int.parse((floordetalismodal?.data?.length).toString());
+                i++) {
+              items1.add(test1(
+                  (floordetalismodal?.data?[i].floorName).toString(),
+                  (floordetalismodal?.data?[i].id).toString()));
+              tableapi(selectedItem1?.id ?? '');
+            }
+            setState(() {
+              print(items1);
+              items1;
+              // isLoading = false;
+            });
+          } else {
+            // setState(() {
+            //   isLoading = false;
+            // });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
   addguestap() {
     if (_formKey.currentState!.validate() &&
         (selectedItem?.id != null || selectedItem?.id != "")) {
@@ -452,6 +547,7 @@ class _AddguestlistState extends State<Addguestlist> {
       data['bride_or_groom'] = widget.sel1 == 1 ? "bride " : "groom";
       data['guest_relation'] = _relation.text.toString();
       data['guest_table_id'] = (selectedItem?.id).toString();
+      data['guest_floor_id'] = (selectedItem1?.id).toString();
       data['guest_seat_no'] = "";
       print(data);
       checkInternet().then((internet) async {
@@ -473,25 +569,4 @@ class _AddguestlistState extends State<Addguestlist> {
       });
     }
   }
-// viewguestap() {
-//   checkInternet().then((internet) async {
-//     if (internet) {
-//       taskprovider().viewguestapi().then((response) async {
-//         viewguestmodal = ViewguestModal.fromJson(json.decode(response.body));
-//         if (response.statusCode == 200 && viewguestmodal?.status == "1") {
-//           viewguestap();
-//           // setState(() {
-//           //   isLoading = false;
-//           // });
-//         } else {
-//           // setState(() {
-//           //   isLoading = false;
-//           // });
-//         }
-//       });
-//     } else {
-//       buildErrorDialog(context, 'Error', "Internet Required");
-//     }
-//   });
-// }
 }

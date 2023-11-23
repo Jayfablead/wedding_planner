@@ -359,8 +359,8 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-  Future<http.Response> myvenuetableapi() async {
-    String? url = '$baseUrl/myVenueTables/${userData?.user?.vid}';
+  Future<http.Response> myvenuetableapi(String floorId) async {
+    String? url = '$baseUrl/myVenueTables/${userData?.user?.vid}/${floorId}';
     print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
@@ -751,6 +751,34 @@ class taskprovider with ChangeNotifier {
     final streamResponse = await imageUploadRequest.send();
     responseJson =
         responses(await http.Response.fromStream(streamResponse));
+    return responseJson;
+  }
+
+  Future<http.Response> floordetelisapi() async {
+    String? url = '$baseUrl/venueFloorPlans/${userData?.user?.vid}';
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers,)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }  Future<http.Response> FloorplansList() async {
+    String? url = '$baseUrl/venueFloorPlans/${userData?.user?.vid}';
+    var responseJson;
+    final response = await http
+        .get(Uri.parse(url), headers: headers,)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
     return responseJson;
   }
 }

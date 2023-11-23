@@ -18,7 +18,7 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Quatations/quoatelist2.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
 import 'package:wedding_planner/bookings/view%20all%20bookings.dart';
-import 'package:wedding_planner/chart/seatingChart2.dart';
+import 'package:wedding_planner/Guest/seatingChart2.dart';
 import 'package:wedding_planner/chnages/invoiceList.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';

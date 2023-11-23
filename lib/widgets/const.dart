@@ -42,6 +42,7 @@ import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
 import '../Modal/CategoryWiseSuppliersModal.dart';
 import '../Modal/DocumentModal.dart';
+import '../Modal/FloorDetalisModal.dart';
 import '../Modal/GuestseatingModal.dart';
 import '../Modal/InvoicelistModal.dart';
 import '../Modal/MeetingModal.dart';
@@ -121,6 +122,8 @@ QuataationRejectModal? quatationreject;
 AllCatagoriesModal? allcat;
 ItienraryModal? itienrarymodal;
 ItienraryuploadModal? iteneryupload;
+FloorDetalisModal? floordetalismodal;
+
 
 
 const String baseUrl =

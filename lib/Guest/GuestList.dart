@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding_planner/Guest/addguestlist.dart';
 import 'package:wedding_planner/Modal/AddguestModal.dart';
 import 'package:wedding_planner/Modal/MyvenuetableModal.dart';
@@ -15,6 +16,8 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
+
+import '../Modal/FloorDetalisModal.dart';
 
 class GuestList extends StatefulWidget {
   const GuestList({super.key});
@@ -44,6 +47,18 @@ class _GuestListState extends State<GuestList> {
   String? selectedItem;
   MyvenuetableModal? myvenuetablemodal1;
 
+  // final Uri _url = Uri.parse('https://www.google.com/');
+
+  Future<void> _launchUrl(context, String Url) async {
+    if (await launchUrl(
+      Uri.parse(Url),
+      mode: LaunchMode.externalApplication,
+    )) {
+    } else {
+      throw buildErrorDialog(context, 'Error', "Please Use Valid Url");
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -52,11 +67,12 @@ class _GuestListState extends State<GuestList> {
       sel1 = 1;
     });
     viewguestap();
-    tableapi();
+   Floorapi();
   }
 
   List<test> items = [];
   int? select = 0;
+  int? select1 = 0;
   bool isLoading = true;
 
   @override
@@ -243,9 +259,11 @@ class _GuestListState extends State<GuestList> {
                                                                 children: [
                                                                   Row(
                                                                     children: [
-                                                                      Icon(Icons
-                                                                          .person,
-                                                                        color: Colors.blue,
+                                                                      Icon(
+                                                                        Icons
+                                                                            .person,
+                                                                        color: Colors
+                                                                            .blue,
                                                                       ),
                                                                       SizedBox(
                                                                         width:
@@ -280,7 +298,8 @@ class _GuestListState extends State<GuestList> {
                                                                         Icon(
                                                                           Icons
                                                                               .phone,
-                                                                          color: Colors.blue,
+                                                                          color:
+                                                                              Colors.blue,
                                                                         ),
                                                                         SizedBox(
                                                                           width:
@@ -312,7 +331,8 @@ class _GuestListState extends State<GuestList> {
                                                                         Icon(
                                                                           Icons
                                                                               .email_outlined,
-                                                                          color: Colors.blue,
+                                                                          color:
+                                                                              Colors.blue,
                                                                         ),
                                                                         SizedBox(
                                                                           width:
@@ -332,22 +352,82 @@ class _GuestListState extends State<GuestList> {
                                                                       ],
                                                                     ),
                                                                   ),
+                                                                  // Padding(
+                                                                  //   padding: EdgeInsets.only(
+                                                                  //       top: 0.7
+                                                                  //           .h),
+                                                                  //   child: Row(
+                                                                  //     crossAxisAlignment:
+                                                                  //         CrossAxisAlignment
+                                                                  //             .center,
+                                                                  //     children: [
+                                                                  //       Icon(
+                                                                  //         Icons
+                                                                  //             .bed_rounded,size: 20.sp,
+                                                                  //         color: Colors.blue,
+                                                                  //       ),
+                                                                  //       SizedBox(
+                                                                  //         width:
+                                                                  //             3.w,
+                                                                  //       ),
+                                                                  //       InkWell(onTap:(){
+                                                                  //         String groomUrl='https://www.pexels.com/search/groom/';
+                                                                  //         print('Groom Link Tapped');
+                                                                  //         _launchUrl(context, groomUrl);
+                                                                  //         print(groomUrl);
+                                                                  //       } ,
+                                                                  //         child: Text(
+                                                                  //           'Accommodation Link',
+                                                                  //           style: TextStyle(
+                                                                  //               fontSize: 15.sp,
+                                                                  //               fontFamily: 'sofi',
+                                                                  //               color: Colors.blue,
+                                                                  //               fontWeight: FontWeight.bold,
+                                                                  //               letterSpacing: 1),
+                                                                  //         ),
+                                                                  //       ),
+                                                                  //     ],
+                                                                  //   ),
+                                                                  // ),
                                                                 ],
                                                               ),
-                                                              IconButton(
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    select =
-                                                                        index;
-                                                                  });
-                                                                  delet();
-                                                                },
-                                                                icon: Icon(
-                                                                  CupertinoIcons
-                                                                      .delete_solid,
-                                                                  color: Colors
-                                                                      .red,
-                                                                ),
+                                                              Column(
+                                                                children: [
+                                                                  IconButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      setState(
+                                                                          () {
+                                                                        select =
+                                                                            index;
+                                                                      });
+                                                                      showgroomdata();
+                                                                    },
+                                                                    icon: Icon(
+                                                                      CupertinoIcons
+                                                                          .info,
+                                                                      color: Colors
+                                                                          .blue,
+                                                                    ),
+                                                                  ),
+                                                                  IconButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      setState(
+                                                                          () {
+                                                                        select =
+                                                                            index;
+                                                                      });
+                                                                      delet();
+                                                                    },
+                                                                    icon: Icon(
+                                                                      CupertinoIcons
+                                                                          .delete_solid,
+                                                                      color: Colors
+                                                                          .red,
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ])
                                                       ],
@@ -506,9 +586,11 @@ class _GuestListState extends State<GuestList> {
                                                               children: [
                                                                 Row(
                                                                   children: [
-                                                                    Icon(Icons
-                                                                        .person,
-                                                                    color: Colors.blue),
+                                                                    Icon(
+                                                                        Icons
+                                                                            .person,
+                                                                        color: Colors
+                                                                            .blue),
                                                                     SizedBox(
                                                                       width:
                                                                           3.w,
@@ -547,7 +629,8 @@ class _GuestListState extends State<GuestList> {
                                                                       Icon(
                                                                         Icons
                                                                             .phone,
-                                                                        color: Colors.blue,
+                                                                        color: Colors
+                                                                            .blue,
                                                                       ),
                                                                       SizedBox(
                                                                         width:
@@ -584,7 +667,8 @@ class _GuestListState extends State<GuestList> {
                                                                       Icon(
                                                                         Icons
                                                                             .email_outlined,
-                                                                        color:Colors.blue,
+                                                                        color: Colors
+                                                                            .blue,
                                                                       ),
                                                                       SizedBox(
                                                                         width:
@@ -608,22 +692,92 @@ class _GuestListState extends State<GuestList> {
                                                                     ],
                                                                   ),
                                                                 ),
+                                                                // Padding(
+                                                                //   padding: EdgeInsets
+                                                                //       .only(
+                                                                //           top: 0.7
+                                                                //               .h),
+                                                                //   child: Row(
+                                                                //     crossAxisAlignment:
+                                                                //         CrossAxisAlignment
+                                                                //             .center,
+                                                                //     children: [
+                                                                //       Icon(
+                                                                //         Icons
+                                                                //             .bed_rounded,
+                                                                //         size: 20
+                                                                //             .sp,
+                                                                //         color: Colors
+                                                                //             .blue,
+                                                                //       ),
+                                                                //       SizedBox(
+                                                                //         width:
+                                                                //             3.w,
+                                                                //       ),
+                                                                //       InkWell(
+                                                                //         onTap:
+                                                                //             () {
+                                                                //           String
+                                                                //               brideUrl =
+                                                                //               'https://www.pexels.com/search/bride/';
+                                                                //           print(
+                                                                //               'Bride Link Tapped');
+                                                                //           _launchUrl(
+                                                                //               context,
+                                                                //               brideUrl);
+                                                                //           print(
+                                                                //               brideUrl);
+                                                                //         },
+                                                                //         child:
+                                                                //             Text(
+                                                                //           'Accommodation Link',
+                                                                //           style: TextStyle(
+                                                                //               fontSize: 15.sp,
+                                                                //               fontFamily: 'sofi',
+                                                                //               color: Colors.blue,
+                                                                //               fontWeight: FontWeight.bold,
+                                                                //               letterSpacing: 1),
+                                                                //         ),
+                                                                //       ),
+                                                                //     ],
+                                                                //   ),
+                                                                // ),
                                                               ],
                                                             ),
-                                                            IconButton(
-                                                              onPressed: () {
-                                                                setState(() {
-                                                                  select =
-                                                                      index;
-                                                                });
-                                                                delet();
-                                                              },
-                                                              icon: Icon(
-                                                                CupertinoIcons
-                                                                    .delete_solid,
-                                                                color:
-                                                                    Colors.red,
+                                                            Column(
+                                                              children: [  IconButton(
+                                                                onPressed:
+                                                                    () {
+                                                                  setState(
+                                                                          () {
+                                                                        select =
+                                                                            index;
+                                                                      });
+                                                                  showgroomdata();
+                                                                },
+                                                                icon: Icon(
+                                                                  CupertinoIcons
+                                                                      .info,
+                                                                  color: Colors
+                                                                      .blue,
+                                                                ),
                                                               ),
+                                                                IconButton(
+                                                                  onPressed: () {
+                                                                    setState(() {
+                                                                      select =
+                                                                          index;
+                                                                    });
+                                                                    delet();
+                                                                  },
+                                                                  icon: Icon(
+                                                                    CupertinoIcons
+                                                                        .delete_solid,
+                                                                    color:
+                                                                        Colors.red,
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ])
                                                     ],
@@ -640,9 +794,9 @@ class _GuestListState extends State<GuestList> {
                                   children: [
                                     InkWell(
                                       onTap: () {
-                                        myvenuetablemodal1?.data == null
+                                        floordetalismodal?.data == null
                                             ? buildErrorDialog(context, "",
-                                                "No Tables Added by Your Venue")
+                                                "No Floors Available In Your Venue")
                                             : Get.to(Addguestlist(
                                                 sel1: sel1,
                                               ));
@@ -690,6 +844,364 @@ class _GuestListState extends State<GuestList> {
               ),
       ),
       isLoading: isLoading,
+    );
+  }
+
+  showgroomdata() {
+    showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(15),
+          topLeft: Radius.circular(15),
+        ),
+      ),
+      context: context,
+      builder: (context) {
+        return Stack(
+          children: [
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Text(
+                        sel1 == 1 ? 'Bride\'s Guest' : 'Groom\'s Guest',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 17.sp,
+                            fontFamily: 'sofi',
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            height: 0.17.h,
+                            letterSpacing: 1),
+                      ),
+                    ]),
+                    SizedBox(height: 2.h),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(CupertinoIcons.person_alt,
+                            color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Guest Name :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        SizedBox(
+                          width: 50.w,
+                          child: Text(
+                            sel1 == 1
+                                ? (viewguestmodal?.guestlist
+                                        ?.brideGuestList?[select!].guestName)
+                                    .toString()
+                                : (viewguestmodal?.guestlist
+                                        ?.groomGuestList?[select!].guestName)
+                                    .toString(),
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                fontFamily: 'sofi',
+                                color: Colors.black87,
+                                fontWeight: FontWeight.bold,
+                                height: 0.17.h,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.phone, color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Guest Phone No :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        Text(
+                          sel1 == 1
+                              ? (viewguestmodal?.guestlist
+                                      ?.brideGuestList?[select!].guestContact)
+                                  .toString()
+                              : (viewguestmodal?.guestlist
+                                      ?.groomGuestList?[select!].guestContact)
+                                  .toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 15.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.mail_outline,
+                            color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Guest Email :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        SizedBox(
+                          width: 50.w,
+                          child: Text(
+                            sel1 == 1
+                                ? (viewguestmodal?.guestlist
+                                        ?.brideGuestList?[select!].guestEmail)
+                                    .toString()
+                                : (viewguestmodal?.guestlist
+                                        ?.groomGuestList?[select!].guestEmail)
+                                    .toString(),
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                fontFamily: 'sofi',
+                                color: Colors.black87,
+                                fontWeight: FontWeight.bold,
+                                height: 0.17.h,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.table_restaurant_outlined,
+                            color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Guest Table :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        SizedBox(
+                          width: 50.w,
+                          child: Text(
+                            sel1 == 1
+                                ? (viewguestmodal
+                                        ?.guestlist
+                                        ?.brideGuestList?[select!]
+                                        .tableName
+                                        ?.name)
+                                    .toString()
+                                : (viewguestmodal
+                                        ?.guestlist
+                                        ?.groomGuestList?[select!]
+                                        .tableName
+                                        ?.name)
+                                    .toString(),
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                fontFamily: 'sofi',
+                                color: Colors.black87,
+                                fontWeight: FontWeight.bold,
+                                height: 0.17.h,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.room_preferences_outlined,
+                            color: Colors.blue, size: 17.sp),
+                        SizedBox(width: 1.w),
+                        Text(
+                          'Guest Floor :  ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontFamily: 'sofi',
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              height: 0.17.h,
+                              letterSpacing: 1),
+                        ),
+                        SizedBox(
+                          width: 50.w,
+                          child: Text(
+                            viewguestmodal?.guestlist?.brideGuestList?[select!]
+                                            .floorName ==
+                                        null ||
+                                    viewguestmodal
+                                            ?.guestlist
+                                            ?.brideGuestList?[select!]
+                                            .floorName ==
+                                        null
+                                ? 'N/A'
+                                : sel1 == 1
+                                    ? (viewguestmodal
+                                            ?.guestlist
+                                            ?.brideGuestList?[select!]
+                                            .floorName
+                                            ?.floorName)
+                                        .toString()
+                                    : (viewguestmodal
+                                            ?.guestlist
+                                            ?.groomGuestList?[select!]
+                                            .floorName
+                                            ?.floorName)
+                                        .toString(),
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                fontFamily: 'sofi',
+                                color: Colors.black87,
+                                fontWeight: FontWeight.bold,
+                                height: 0.17.h,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                    viewguestmodal?.guestlist?.brideGuestList?[select!]
+                                    .accomodationLink ==
+                                null ||
+                            viewguestmodal?.guestlist?.brideGuestList?[select!]
+                                    .accomodationLink ==
+                                '' ||
+                            viewguestmodal?.guestlist?.groomGuestList?[select!]
+                                    .accomodationLink ==
+                                null ||
+                            viewguestmodal?.guestlist?.groomGuestList?[select!]
+                                    .accomodationLink ==
+                                ''
+                        ? Container()
+                        : Column(
+                            children: [
+                              SizedBox(
+                                height: 1.h,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(Icons.bed_rounded,
+                                      color: Colors.blue, size: 20.sp),
+                                  SizedBox(width: 1.w),
+                                  Text(
+                                    'Accommodation :  ',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      _launchUrl(
+                                          context,
+                                          sel1 == 1
+                                              ? (viewguestmodal
+                                                      ?.guestlist
+                                                      ?.brideGuestList?[select!]
+                                                      .accomodationLink)
+                                                  .toString()
+                                              : (viewguestmodal
+                                                      ?.guestlist
+                                                      ?.groomGuestList?[select!]
+                                                      .accomodationLink)
+                                                  .toString());
+                                      print(sel1 == 1
+                                          ? (viewguestmodal
+                                                  ?.guestlist
+                                                  ?.brideGuestList?[select!]
+                                                  .accomodationLink)
+                                              .toString()
+                                          : (viewguestmodal
+                                                  ?.guestlist
+                                                  ?.groomGuestList?[select!]
+                                                  .accomodationLink)
+                                              .toString());
+                                    },
+                                    child: SizedBox(
+                                      child: Text(
+                                        'Click Here',
+                                        // sel1 == 1
+                                        //     ? (viewguestmodal?.guestlist?.brideGuestList?[select!].guestEmail).toString()
+                                        //     : (viewguestmodal?.guestlist?.groomGuestList?[select!].guestEmail).toString() ,
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                            fontSize: 17.sp,
+                                            fontFamily: 'sofi',
+                                            color: Colors.purple,
+                                            fontWeight: FontWeight.bold,
+                                            height: 0.17.h,
+                                            letterSpacing: 1),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                    SizedBox(height: 3.h),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+                right: 0,
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(CupertinoIcons.clear_circled_solid)))
+          ],
+        );
+      },
     );
   }
 
@@ -910,21 +1422,37 @@ class _GuestListState extends State<GuestList> {
       }
     });
   }
-
-  tableapi() {
+  Floorapi() {
     checkInternet().then((internet) async {
       if (internet) {
-        taskprovider().myvenuetableapi().then((response) async {
+        taskprovider().FloorplansList().then((response) async {
+          floordetalismodal =
+              FloorDetalisModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && floordetalismodal?.status == "1") {
+
+
+            setState(() {
+
+              // isLoading = false;
+            });
+          } else {
+            // setState(() {
+            //   isLoading = false;
+            // });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+  tableapi(String Fid) {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().myvenuetableapi(Fid).then((response) async {
           myvenuetablemodal1 =
               MyvenuetableModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && myvenuetablemodal1?.status == "1") {
-            for (int i = 0;
-                i < int.parse((myvenuetablemodal?.data?.length).toString());
-                i++) {
-              items.add(test((myvenuetablemodal?.data?[i].name).toString(),
-                  (myvenuetablemodal?.data?[i].id).toString()));
-            }
-
             setState(() {
               print(items);
               items;
