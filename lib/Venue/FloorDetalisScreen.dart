@@ -338,7 +338,7 @@ class _FloorDetalisScreenState extends State<FloorDetalisScreen> {
                             height: 2.h,
                           ),
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 padding: EdgeInsets.all(3.w),
@@ -354,70 +354,58 @@ class _FloorDetalisScreenState extends State<FloorDetalisScreen> {
                               SizedBox(
                                 width: 5.w,
                               ),
-                              Text(
-                                "Details :",
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: Colors.blue,
-                                    fontFamily: 'sofi',
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold),
+                              Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Details :",
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: Colors.blue,
+                                        fontFamily: 'sofi',
+                                        letterSpacing: 1,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  Container(
+                                    // height: 20.h,
+                                    width: 75.w,
+                                    child: ReadMoreText(
+                                      venuedetalismodal?.data?.floorDesc == "" ||
+                                          venuedetalismodal?.data?.floorDesc == null
+                                          ? ""
+                                          : venuedetalismodal?.data?.floorDesc ?? "",
+                                      trimLines: 2,
+                                      colorClickableText: Colors.purple,
+                                      trimMode: TrimMode.Line,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,height: 0.14.h,
+                                          fontFamily: 'sofi',
+                                          color: Colors.black.withOpacity(0.65),
+                                          fontSize: 16.sp),
+                                      trimCollapsedText: 'Read more',
+                                      trimExpandedText: '  Read less',
+                                      lessStyle: TextStyle(
+                                          height: 0.15.h,
+                                          fontWeight: FontWeight.w600,
+                                          fontFamily: 'sofi',
+                                          color: Colors.blue,
+                                          fontSize: 14.sp),
+                                      moreStyle: TextStyle(
+                                          height: 0.15.h,
+                                          fontWeight: FontWeight.w600,
+                                          fontFamily: 'sofi',
+                                          color: Colors.blue,
+                                          fontSize: 14.sp),
+                                    ),
+
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Container(
-                            // height: 20.h,
-                            width: 90.w,
-                            child: ReadMoreText(
-                              venuedetalismodal?.data?.floorDesc == "" ||
-                                      venuedetalismodal?.data?.floorDesc == null
-                                  ? ""
-                                  : venuedetalismodal?.data?.floorDesc ?? "",
-                              trimLines: 2,
-                              colorClickableText: Colors.pink,
-                              trimMode: TrimMode.Line,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'sofi',
-                                  color: Colors.black.withOpacity(0.65),
-                                  fontSize: 16.sp),
-                              trimCollapsedText: 'Read more',
-                              trimExpandedText: '  Read less',
-                              lessStyle: TextStyle(
-                                  height: 0.15.h,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'sofi',
-                                  color: Colors.blue,
-                                  fontSize: 14.sp),
-                              moreStyle: TextStyle(
-                                  height: 0.15.h,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'sofi',
-                                  color: Colors.blue,
-                                  fontSize: 14.sp),
-                            ),
-                            // Text(
-                            //   supplierdetailmodal?.supplierInfo?.description ==
-                            //           supplierdetailmodal
-                            //                   ?.supplierInfo?.description ==
-                            //               null
-                            //       ? 'N/A'
-                            //       : supplierdetailmodal
-                            //               ?.supplierInfo?.description ??
-                            //           "",
-                            //   textAlign: TextAlign.justify,
-                            //   style: TextStyle(
-                            //       fontSize: 16.sp,
-                            //       fontFamily: 'sofi',
-                            //       color: Colors.black.withOpacity(0.65),
-                            //       fontWeight: FontWeight.w600,
-                            //       height: 0.15.h,
-                            //       letterSpacing: 1),
-                            // ),
-                          ),
+
                           SizedBox(
                             height: 3.h,
                           ),
