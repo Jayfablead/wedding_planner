@@ -39,13 +39,13 @@ class Data {
 
   Data(
       {this.id,
-        this.venueId,
-        this.floorName,
-        this.floorDesc,
-        this.floorCapacity,
-        this.floorPlan,
-        this.createdAt,
-        this.updatedAt});
+      this.venueId,
+      this.floorName,
+      this.floorDesc,
+      this.floorCapacity,
+      this.floorPlan,
+      this.createdAt,
+      this.updatedAt});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -5,18 +5,21 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class ItenraryDetails extends StatefulWidget {
   String? link;
+
   ItenraryDetails({super.key, this.link});
+
   @override
   State<ItenraryDetails> createState() => _ItenraryDetailsState();
 }
 
 class _ItenraryDetailsState extends State<ItenraryDetails> {
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     print(widget.link);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +53,6 @@ class _ItenraryDetailsState extends State<ItenraryDetails> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(onPressed: () {}, icon: Icon(null)),
-
                   ],
                 ),
               ],
@@ -58,7 +60,8 @@ class _ItenraryDetailsState extends State<ItenraryDetails> {
             SizedBox(
               height: 1.h,
             ),
-            SizedBox(height: 85.h,
+            SizedBox(
+              height: 85.h,
               child: SfPdfViewer.network(
                 widget.link.toString(),
               ),

@@ -361,7 +361,7 @@ class _BookingSuccessfulPageState extends State<BookingSuccessfulPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width:46.w,
+                                width: 46.w,
                                 height: 7.5.h,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),

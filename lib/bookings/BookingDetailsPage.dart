@@ -27,12 +27,14 @@ final GlobalKey<ScaffoldState> scaffoldKey3 = GlobalKey<ScaffoldState>();
 
 class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
   bool isLoading = true;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     BookSuccessap();
   }
+
   Widget build(BuildContext context) {
     return commanScreen(
       isLoading: isLoading,
@@ -113,18 +115,14 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   fontSize: 17.sp,
                                   color: Colors.black.withOpacity(0.9),
                                   fontWeight: FontWeight.bold,
-
                                   fontFamily: "sofi",
                                 ),
                               ),
                               InkWell(
                                 onTap: () {
-
                                   Get.to(Msg2(
-                                    id: booksuccess?.supplierInfo?.id ??
-                                        "",
-                                    name: booksuccess?.supplierInfo?.name ??
-                                        "",
+                                    id: booksuccess?.supplierInfo?.id ?? "",
+                                    name: booksuccess?.supplierInfo?.name ?? "",
                                     img: booksuccess?.supplierInfo?.profile ??
                                         "",
                                   ));

@@ -34,13 +34,13 @@ class Data {
 
   Data(
       {this.id,
-        this.uid,
-        this.itineraryFileName,
-        this.itinerary,
-        this.createdAt,
-        this.updatedAt,
-        this.filePath,
-        this.profileImg});
+      this.uid,
+      this.itineraryFileName,
+      this.itinerary,
+      this.createdAt,
+      this.updatedAt,
+      this.filePath,
+      this.profileImg});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];

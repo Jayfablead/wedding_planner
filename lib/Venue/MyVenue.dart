@@ -4,9 +4,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/FloorDetalisModal.dart';
 import 'package:wedding_planner/Modal/VenuedetailModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
+import 'package:wedding_planner/Venue/FloorDetalisScreen.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -42,6 +45,7 @@ class _VenueViewState extends State<VenueView> {
       ind = 0;
     });
     venueap();
+    floordetelisapiwedding();
   }
 
   bool isLoading = true;
@@ -506,9 +510,201 @@ class _VenueViewState extends State<VenueView> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 3.5.h),
+                              SizedBox(height: 2.5.h),
                             ],
                           ),
+                        ),
+                        Row(
+                          children: [
+                            Text("Floor PLans : ",
+                                style: TextStyle(
+                                    fontSize: 17.sp,
+                                    color: Colors.blue,
+                                    fontFamily: 'sofi',
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold))
+                          ],
+                        ),
+                        SizedBox(height: 1.h),
+                        Container(
+                          height: 32.h,
+                          width: 90.w,
+                          child: ListView.builder(
+                              padding: EdgeInsets.zero,
+                              scrollDirection: Axis.vertical,
+                              itemCount: floordetalismodal?.data?.length,
+                              itemBuilder: (context, index) {
+                                return Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 0.7.h),
+                                      child: Container(
+                                        width: 90.w,
+                                        height: 10.h,
+                                        padding: EdgeInsets.only(left: 2.15.w),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          color: Colors.white,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          // crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  height: 16.w,
+                                                  width: 16.w,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                  ),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                    child: CachedNetworkImage(
+                                                      imageUrl:
+                                                          (floordetalismodal
+                                                                  ?.data?[index]
+                                                                  .floorPlan)
+                                                              .toString(),
+
+                                                      // height: 90.h,
+                                                      imageBuilder: (context,
+                                                              imageProvider) =>
+                                                          Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          image:
+                                                              DecorationImage(
+                                                            image:
+                                                                imageProvider,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      placeholder: (context,
+                                                              url) =>
+                                                          Center(
+                                                              child:
+                                                                  CircularProgressIndicator()),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Icon(Icons.error),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(width: 3.w),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      (floordetalismodal
+                                                                      ?.data?[
+                                                                          index]
+                                                                      .floorName) ==
+                                                                  "" ||
+                                                              (floordetalismodal
+                                                                      ?.data?[
+                                                                          index]
+                                                                      .floorName) ==
+                                                                  null
+                                                          ? ""
+                                                          : (floordetalismodal
+                                                                  ?.data?[index]
+                                                                  .floorName)
+                                                              .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 17.sp,
+                                                          color: Colors.blue,
+                                                          fontFamily: 'sofi',
+                                                          letterSpacing: 1,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(height: 0.5.h),
+                                                    SizedBox(
+                                                      width: 52.w,
+                                                      child: Text(
+                                                        (floordetalismodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .floorDesc) ==
+                                                                    "" ||
+                                                                (floordetalismodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .floorDesc) ==
+                                                                    null
+                                                            ? "N/A"
+                                                            : (floordetalismodal
+                                                                    ?.data?[
+                                                                        index]
+                                                                    .floorDesc)
+                                                                .toString(),
+                                                        maxLines: 2,
+                                                        style: TextStyle(
+                                                            fontSize: 14.sp,
+                                                            color: Colors.black
+                                                                .withOpacity(
+                                                                    0.8),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            fontFamily: 'sofi',
+                                                            letterSpacing: 1,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Get.to(FloorDetalisScreen(
+                                                  id: floordetalismodal
+                                                      ?.data?[index].id
+                                                      .toString(),
+                                                ));
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.all(3.w),
+                                                margin:
+                                                    EdgeInsets.only(right: 2.w),
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            7),
+                                                    color: Colors.blue),
+                                                child: Icon(
+                                                  CupertinoIcons.arrow_right,
+                                                  color: Colors.white,
+                                                  size: 18.sp,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }),
                         ),
                       ],
                     ),
@@ -525,6 +721,28 @@ class _VenueViewState extends State<VenueView> {
         taskprovider().venuedeatilapi().then((response) async {
           venuedetail = VenuedetailModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && venuedetail?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  floordetelisapiwedding() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().floordetelisapi().then((response) async {
+          floordetalismodal =
+              FloorDetalisModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && floordetalismodal?.status == "1") {
             setState(() {
               isLoading = false;
             });

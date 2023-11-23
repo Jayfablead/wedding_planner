@@ -50,24 +50,24 @@ class Invoices {
 
   Invoices(
       {this.id,
-        this.venueId,
-        this.supplierId,
-        this.catgId,
-        this.brideGroomId,
-        this.eventDate,
-        this.dueDate,
-        this.invoiceNo,
-        this.guestCount,
-        this.contactName,
-        this.contactEmail,
-        this.contactPhone,
-        this.servicesInfo,
-        this.invAmt,
-        this.additionalNotes,
-        this.invFile,
-        this.bookingStatus,
-        this.createdAt,
-        this.supplierDetails});
+      this.venueId,
+      this.supplierId,
+      this.catgId,
+      this.brideGroomId,
+      this.eventDate,
+      this.dueDate,
+      this.invoiceNo,
+      this.guestCount,
+      this.contactName,
+      this.contactEmail,
+      this.contactPhone,
+      this.servicesInfo,
+      this.invAmt,
+      this.additionalNotes,
+      this.invFile,
+      this.bookingStatus,
+      this.createdAt,
+      this.supplierDetails});
 
   Invoices.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -132,13 +132,13 @@ class SupplierDetails {
 
   SupplierDetails(
       {this.id,
-        this.name,
-        this.email,
-        this.profile,
-        this.contact,
-        this.address,
-        this.description,
-        this.services});
+      this.name,
+      this.email,
+      this.profile,
+      this.contact,
+      this.address,
+      this.description,
+      this.services});
 
   SupplierDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -183,15 +183,15 @@ class Services {
 
   Services(
       {this.id,
-        this.sId,
-        this.categoryId,
-        this.servicePhotos,
-        this.description,
-        this.cost,
-        this.createdAt,
-        this.categoryIcon,
-        this.categoryName,
-        this.categoryDesc});
+      this.sId,
+      this.categoryId,
+      this.servicePhotos,
+      this.description,
+      this.cost,
+      this.createdAt,
+      this.categoryIcon,
+      this.categoryName,
+      this.categoryDesc});
 
   Services.fromJson(Map<String, dynamic> json) {
     id = json['id'];

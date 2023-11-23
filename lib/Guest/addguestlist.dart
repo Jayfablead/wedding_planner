@@ -142,6 +142,10 @@ class _AddguestlistState extends State<Addguestlist> {
                                       borderRadius: BorderRadius.circular(20),
                                       borderSide: BorderSide.none,
                                     ),
+                                    disabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                      borderSide: BorderSide.none,
+                                    ),
                                     filled: true,
                                     fillColor: Colors.white,
                                     hintText: 'Guest Name',
@@ -188,6 +192,10 @@ class _AddguestlistState extends State<Addguestlist> {
                                       borderSide: BorderSide.none,
                                     ),
                                     errorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    disabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20),
                                       borderSide: BorderSide.none,
                                     ),
@@ -267,7 +275,7 @@ class _AddguestlistState extends State<Addguestlist> {
                               ),
                               SizedBox(height: 2.h),
                               Text(
-                                'Relation with bride/groom :',
+                                'Relation with ${widget.sel1 == 1 ? 'bride' : 'groom'} :',
                                 style: TextStyle(
                                     fontSize: 14.sp,
                                     fontFamily: 'sofi',
@@ -283,7 +291,7 @@ class _AddguestlistState extends State<Addguestlist> {
                                   onChanged: (value) {},
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return "Enter the relation with bride/groom";
+                                      return "Enter the relation with ${widget.sel1 == 1 ? 'bride' : 'groom'}";
                                     }
                                     return null;
                                   },
@@ -301,6 +309,10 @@ class _AddguestlistState extends State<Addguestlist> {
                                       borderSide: BorderSide.none,
                                     ),
                                     errorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    disabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20),
                                       borderSide: BorderSide.none,
                                     ),
@@ -345,7 +357,7 @@ class _AddguestlistState extends State<Addguestlist> {
                                                 selectedItem1 =
                                                     newValue1; // Update the selectedItem
                                               });
-
+                                              tableapi(selectedItem1?.id ?? '');
                                             },
                                             items: items1.map((test1 item) {
                                               return DropdownMenuItem<test1>(
@@ -518,7 +530,6 @@ class _AddguestlistState extends State<Addguestlist> {
               items1.add(test1(
                   (floordetalismodal?.data?[i].floorName).toString(),
                   (floordetalismodal?.data?[i].id).toString()));
-              tableapi(selectedItem1?.id ?? '');
             }
             setState(() {
               print(items1);

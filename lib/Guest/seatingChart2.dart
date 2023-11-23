@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/main.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -20,7 +19,8 @@ int sel = 1;
 class _ViewTables2State extends State<ViewTables2> {
   int? open = 0;
   bool test = false;
-  final GlobalKey<ScaffoldState>  scaffoldKey16 = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey16 = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +35,11 @@ class _ViewTables2State extends State<ViewTables2> {
           child: Column(
             children: [
               SizedBox(height: 5.h),
-              header(text: 'Seating Chart', callback1: () {
-                scaffoldKey16.currentState?.openDrawer();
-              }),
+              header(
+                  text: 'Seating Chart',
+                  callback1: () {
+                    scaffoldKey16.currentState?.openDrawer();
+                  }),
               SizedBox(height: 1.5.h),
               Column(
                 children: [
@@ -55,10 +57,11 @@ class _ViewTables2State extends State<ViewTables2> {
                               : BorderRadius.circular(20),
                           border: open != index
                               ? Border.all(color: Colors.blue, width: 2)
-                              : Border.all(color: Colors.transparent, width: 2)),
+                              : Border.all(
+                                  color: Colors.transparent, width: 2)),
 
-                      padding:
-                          EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 3.w),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 1.5.h, horizontal: 3.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -85,12 +88,13 @@ class _ViewTables2State extends State<ViewTables2> {
                         ],
                       ),
                     ),
-                    SizedBox(height:1.h),
+                    SizedBox(height: 1.h),
                     open == index
                         ? Column(
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -285,7 +289,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                             SizedBox(
                                               height: 1.h,
                                             ),
-                                             Container(
+                                            Container(
                                               width: 21.w,
                                               alignment: Alignment.center,
                                               child: Row(
@@ -355,7 +359,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showbridedata();
                                                       },
-                                                      child:Image.asset(
+                                                      child: Image.asset(
                                                         'assets/chair1.png',
                                                         width: 7.w,
                                                         height: 3.5.h,
@@ -379,7 +383,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showbridedata();
                                                   },
-                                                  child:Image.asset(
+                                                  child: Image.asset(
                                                     'assets/chair1.png',
                                                     width: 7.w,
                                                     height: 3.5.h,
@@ -425,7 +429,8 @@ class _ViewTables2State extends State<ViewTables2> {
                                                     height: 3.5.h,
                                                     color: Colors.blue,
                                                   ),
-                                                ),],
+                                                ),
+                                              ],
                                             ),
                                             SizedBox(
                                               height: 1.h,
@@ -476,149 +481,145 @@ class _ViewTables2State extends State<ViewTables2> {
                     ),
                     open == index
                         ? Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(3.w),
-                          child: Column(
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
                             children: [
+                              Container(
+                                padding: EdgeInsets.all(3.w),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          width: 60.w,
+                                          alignment: Alignment.center,
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              for (int ind = 12;
+                                                  ind < 17;
+                                                  ind++) ...[
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showbridedata();
+                                                  },
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                              ]
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 1.5.h,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () {
+                                                showbridedata();
+                                              },
+                                              child: Image.asset(
+                                                'assets/chair1.png',
+                                                width: 7.w,
+                                                height: 3.5.h,
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 3.w,
+                                            ),
+                                            Center(
+                                              child: Container(
+                                                height: 7.5.h,
+                                                width: 68.w,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  color: Colors.blue,
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'Table 3',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontFamily: 'sofi',
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      letterSpacing: 1,
+                                                      fontSize: 12.sp),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 3.w,
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                showbridedata();
+                                              },
+                                              child: Image.asset(
+                                                'assets/chair1.png',
+                                                width: 7.w,
+                                                height: 3.5.h,
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 1.5.h,
+                                        ),
+                                        Container(
+                                          width: 60.w,
+                                          alignment: Alignment.center,
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              for (int ind = 23;
+                                                  ind > 18;
+                                                  ind--) ...[
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    showbridedata();
+                                                  },
+                                                  child: Image.asset(
+                                                    'assets/chair1.png',
+                                                    width: 7.w,
+                                                    height: 3.5.h,
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                              ]
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                               SizedBox(
                                 height: 1.h,
                               ),
-                              Column(
-                                children: [
-                                  Container(
-                                    width: 60.w,
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .spaceBetween,
-                                      children: [
-                                        for (int ind = 12;
-                                        ind < 17;
-                                        ind++) ...[
-                                          GestureDetector(
-                                            onTap: () {
-                                              showbridedata();
-                                            },
-                                            child: Image.asset(
-                                              'assets/chair1.png',
-                                              width: 7.w,
-                                              height: 3.5.h,
-                                              color: Colors.blue,
-                                            ),
-                                          ),
-                                        ]
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 1.5.h,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          showbridedata();
-                                        },
-                                        child: Image.asset(
-                                          'assets/chair1.png',
-                                          width: 7.w,
-                                          height: 3.5.h,
-                                          color: Colors.blue,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 3.w,
-                                      ),
-                                      Center(
-                                        child: Container(
-                                          height: 7.5.h,
-                                          width: 68.w,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                10),
-                                            color: Colors.blue,
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            'Table 3',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontFamily: 'sofi',
-                                                fontWeight:
-                                                FontWeight.w600,
-                                                letterSpacing: 1,
-                                                fontSize: 12.sp),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 3.w,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          showbridedata();
-                                        },
-                                        child: Image.asset(
-                                          'assets/chair1.png',
-                                          width: 7.w,
-                                          height: 3.5.h,
-                                          color: Colors.blue,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 1.5.h,
-                                  ),
-                                  Container(
-                                    width: 60.w,
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .spaceBetween,
-                                      children: [
-                                        for (int ind = 23;
-                                        ind > 18;
-                                        ind--) ...[
-                                          GestureDetector(
-                                            onTap: () {
-                                              showbridedata();
-                                            },
-                                            child: Image.asset(
-                                              'assets/chair1.png',
-                                              width: 7.w,
-                                              height: 3.5.h,
-                                              color: Colors.blue,
-                                            ),
-                                          ),
-                                        ]
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                      ],
-                    )
+                          )
                         : Container(),
                     SizedBox(
                       height: 1.h,
@@ -750,7 +751,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                       onTap: () {
                                                         showgroomdata();
                                                       },
-                                                      child:Image.asset(
+                                                      child: Image.asset(
                                                         'assets/chair1.png',
                                                         width: 7.w,
                                                         height: 3.5.h,
@@ -827,7 +828,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                   onTap: () {
                                                     showgroomdata();
                                                   },
-                                                  child:Image.asset(
+                                                  child: Image.asset(
                                                     'assets/chair1.png',
                                                     width: 7.w,
                                                     height: 3.5.h,

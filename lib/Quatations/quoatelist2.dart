@@ -789,7 +789,8 @@ class _QuoateList2State extends State<QuoateList2> {
                                                                   ),
                                                                   InkWell(
                                                                     onTap: () {
-                                                                      print('right');
+                                                                      print(
+                                                                          'right');
 
                                                                       Get.to(
                                                                           quotedetailpage(

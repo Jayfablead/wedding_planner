@@ -54,6 +54,7 @@ import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
+import '../Modal/VenueDetalisModal.dart';
 import '../Modal/addMeetingModal.dart';
 import '../Modal/mySupplierModal.dart';
 
@@ -123,8 +124,6 @@ AllCatagoriesModal? allcat;
 ItienraryModal? itienrarymodal;
 ItienraryuploadModal? iteneryupload;
 FloorDetalisModal? floordetalismodal;
+VenueDetalisModal? venuedetalismodal;
 
-
-
-const String baseUrl =
-    'https://wedding.fableadtechnolabs.com/portal/api';
+const String baseUrl = 'https://wedding.fableadtechnolabs.com/portal/api';

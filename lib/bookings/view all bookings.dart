@@ -68,6 +68,7 @@ class _BookingListState extends State<BookingList> {
     super.initState();
     booklinglistap();
   }
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -285,13 +286,14 @@ class _BookingListState extends State<BookingList> {
                                                                       index]
                                                                   .supplierDetails
                                                                   ?.address ??
-                                                               "",
+                                                              "",
                                                       maxLines: 2,
                                                       style: TextStyle(
                                                           color: Colors.black
                                                               .withOpacity(0.8),
                                                           fontSize: 12.sp,
-                                                          overflow: TextOverflow.ellipsis,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
                                                           fontWeight:
                                                               FontWeight.w600),
                                                     ),
@@ -364,6 +366,7 @@ class _BookingListState extends State<BookingList> {
       ),
     );
   }
+
   booklinglistap() {
     checkInternet().then((internet) async {
       if (internet) {

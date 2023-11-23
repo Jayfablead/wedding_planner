@@ -1650,7 +1650,6 @@ class _Check_listState extends State<Check_list> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           // mainAxisSize: MainAxisSize.min,
                           children: [
-
                             Center(
                               child: Text(
                                 "Checklist Detail",
@@ -1712,7 +1711,9 @@ class _Check_listState extends State<Check_list> {
                               ],
                             ),
                             SizedBox(height: 1.h),
-                            Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Row(
                                   children: [
@@ -1870,7 +1871,8 @@ class _Check_listState extends State<Check_list> {
                         ),
                       ),
                     ))),
-            Positioned(top: 1.1.h,
+            Positioned(
+                top: 1.1.h,
                 right: 0,
                 child: IconButton(
                     onPressed: () {

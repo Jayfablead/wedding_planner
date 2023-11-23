@@ -38,6 +38,7 @@ class _MyProfileState extends State<MyProfile> {
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
+
   // int selit = 4;
   @override
   void initState() {
@@ -48,6 +49,7 @@ class _MyProfileState extends State<MyProfile> {
       setit = 4;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -166,7 +168,12 @@ class _MyProfileState extends State<MyProfile> {
                                                     Expanded(
                                                       // width: 50.w,
                                                       child: Text(
-                                                        item.notiTitle==""||item.notiTitle==null?"N/A":item.notiTitle ?? "",
+                                                        item.notiTitle == "" ||
+                                                                item.notiTitle ==
+                                                                    null
+                                                            ? "N/A"
+                                                            : item.notiTitle ??
+                                                                "",
                                                         overflow: TextOverflow
                                                             .ellipsis,
                                                         style: TextStyle(

@@ -1068,17 +1068,14 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().unreadnotiapi().then((response) async {
-          unreadnotimodal = UnreadnotiModal.fromJson(json.decode(response.body));
+          unreadnotimodal =
+              UnreadnotiModal.fromJson(json.decode(response.body));
           print(response.body);
           if (response.statusCode == 200 && unreadnotimodal?.status == "1") {
             print(unreadnotimodal?.unreadNoti);
-          } else {
-
-          }
+          } else {}
         });
       } else {}
     });
   }
-
-
 }

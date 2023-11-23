@@ -143,11 +143,13 @@ class authprovider with ChangeNotifier {
             http.MultipartRequest('POST', Uri.parse(url));
         imageUploadRequest.headers.addAll(headers);
         if (bodyData['file']?.isNotEmpty ?? false) {
-          final file = await http.MultipartFile.fromPath(
-              'file', bodyData['file'] ?? '',
-              contentType: bodyData['mType'] == "2"
-                  ? MediaType('image', 'jpg,png')
-                  :bodyData['mType'] == "2"? MediaType('video', 'mp4'):MediaType('application', 'pdf'));
+          final file =
+              await http.MultipartFile.fromPath('file', bodyData['file'] ?? '',
+                  contentType: bodyData['mType'] == "2"
+                      ? MediaType('image', 'jpg,png')
+                      : bodyData['mType'] == "2"
+                          ? MediaType('video', 'mp4')
+                          : MediaType('application', 'pdf'));
           imageUploadRequest.files.add(file);
         }
         imageUploadRequest.fields.addAll(bodyData);

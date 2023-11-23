@@ -107,7 +107,6 @@ class _addchecklistState extends State<addchecklist> {
                               fontFamily: 'Meta1'),
                         ),
                       ),
-
                       SizedBox(height: 2.h),
                       Text(
                         'Start Date :',

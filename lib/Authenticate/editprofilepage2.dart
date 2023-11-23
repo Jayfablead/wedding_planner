@@ -234,7 +234,6 @@ class _EditProfile2State extends State<EditProfile2> {
                                                   ),
                                                 ),
                                                 SizedBox(height: 1.h),
-
                                                 SizedBox(
                                                   width: 45.w,
                                                   child: TextFormField(
@@ -375,8 +374,6 @@ class _EditProfile2State extends State<EditProfile2> {
                                                     },
                                                   ),
                                                 ),
-
-
                                               ],
                                             ),
                                           ],
@@ -399,7 +396,6 @@ class _EditProfile2State extends State<EditProfile2> {
                                               ),
                                             ),
                                             SizedBox(height: 1.h),
-
                                             SizedBox(
                                               width: 95.w,
                                               child: TextFormField(
@@ -543,7 +539,6 @@ class _EditProfile2State extends State<EditProfile2> {
                                               width: 95.w,
                                               child: TextFormField(
                                                 controller: _address,
-
                                                 decoration: InputDecoration(
                                                   hintText: 'Address',
                                                   enabledBorder:
@@ -601,7 +596,6 @@ class _EditProfile2State extends State<EditProfile2> {
                                         SizedBox(
                                           height: 3.h,
                                         ),
-
                                         Center(
                                           child: InkWell(
                                             onTap: () {

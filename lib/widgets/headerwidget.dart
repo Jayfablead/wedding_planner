@@ -1,22 +1,15 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/Modal/NotificationModal.dart';
-import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Others/NotificationScreen.dart';
-import 'package:wedding_planner/Provider/taskprovider.dart';
-
 import 'package:wedding_planner/widgets/const.dart';
 
 Widget header({
   required String text,
   required VoidCallback callback1,
 }) {
-  return
-    Row(
+  return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       IconButton(

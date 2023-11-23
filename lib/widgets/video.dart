@@ -63,7 +63,8 @@ class _addVideoState extends State<addVideo> {
                                 });
                               },
                               icon: Icon(
-                                isPlay ? Icons.pause_circle : Icons.play_circle,color: Colors.white,
+                                isPlay ? Icons.pause_circle : Icons.play_circle,
+                                color: Colors.white,
                               ),
                             ),
                           ),

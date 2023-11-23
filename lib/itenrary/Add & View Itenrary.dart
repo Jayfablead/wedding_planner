@@ -5,7 +5,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/itienraryModal.dart';
@@ -263,8 +262,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
   IteinraryUploadApi() {
     EasyLoading.show(
         status: 'Uploading Please Wait ..',
-        indicator:
-        CircularProgressIndicator(
+        indicator: CircularProgressIndicator(
           color: Colors.white,
         ));
     print('here');

@@ -469,6 +469,42 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
+  Future<http.Response> floordetelisapi() async {
+    String? url = '$baseUrl/venueFloorPlans/${userData?.user?.vid}';
+    var responseJson;
+    final response = await http
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> venuedetaliapi(String Fid) async {
+    String? url = '$baseUrl/venueFloorPlanDetails/${Fid}';
+    var responseJson;
+    final response = await http
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
   Future<http.Response> addtofavouriteapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/addToFav';
     print(url);
@@ -531,7 +567,6 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-
 
   Future<http.Response> removefrombudgetapi(String? data1) async {
     String? url = '$baseUrl/rmvFrombudget/${data1}';
@@ -696,6 +731,7 @@ class taskprovider with ChangeNotifier {
     print(response.body);
     return responseJson;
   }
+
   Future<http.Response> itienraryapi() async {
     String? url = '$baseUrl/myItenerary/${userData?.user?.id}';
     print(url);
@@ -738,8 +774,7 @@ class taskprovider with ChangeNotifier {
     String? url = '$baseUrl/uploadItenerary/${userData?.user?.id}';
 
     var responseJson;
-    final imageUploadRequest =
-    http.MultipartRequest('POST', Uri.parse(url));
+    final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));
     imageUploadRequest.headers.addAll(headers);
     if (bodyData['itinerary_file']?.isNotEmpty ?? false) {
       final file = await http.MultipartFile.fromPath(
@@ -749,29 +784,18 @@ class taskprovider with ChangeNotifier {
     }
     imageUploadRequest.fields.addAll(bodyData);
     final streamResponse = await imageUploadRequest.send();
-    responseJson =
-        responses(await http.Response.fromStream(streamResponse));
+    responseJson = responses(await http.Response.fromStream(streamResponse));
     return responseJson;
   }
 
-  Future<http.Response> floordetelisapi() async {
+  Future<http.Response> FloorplansList() async {
     String? url = '$baseUrl/venueFloorPlans/${userData?.user?.vid}';
     var responseJson;
     final response = await http
-        .get(Uri.parse(url), headers: headers,)
-        .timeout(
-      const Duration(seconds: 60),
-      onTimeout: () {
-        throw const SocketException('Something went wrong');
-      },
-    );
-    responseJson = responses(response);
-    return responseJson;
-  }  Future<http.Response> FloorplansList() async {
-    String? url = '$baseUrl/venueFloorPlans/${userData?.user?.vid}';
-    var responseJson;
-    final response = await http
-        .get(Uri.parse(url), headers: headers,)
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
         .timeout(
       const Duration(seconds: 60),
       onTimeout: () {

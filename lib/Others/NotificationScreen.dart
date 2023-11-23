@@ -37,6 +37,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     readnotiap();
     userprofileap();
   }
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
@@ -165,7 +166,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                     // height: 10.h,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.symmetric(
-                                        horizontal: 0.70.h,vertical: 1.h),
+                                        horizontal: 0.70.h, vertical: 1.h),
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
@@ -244,7 +245,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                                                 .notiTitle ??
                                                             "",
                                                     maxLines: 2,
-                                                    overflow: TextOverflow.ellipsis,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                     style: TextStyle(
                                                       fontSize: 14.sp,
                                                       fontFamily: 'sofi',
@@ -270,7 +272,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                                                       .createdAt ??
                                                                   "")),
                                                   maxLines: 2,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                   style: TextStyle(
                                                     fontSize: 11.sp,
                                                     fontFamily: 'sofi',

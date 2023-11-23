@@ -490,17 +490,15 @@ class _quotedetailpageState extends State<quotedetailpage> {
                                       SizedBox(
                                         width: 88.w,
                                         child: Text(
-                                          quotedetailsmodal?.details?.resDetails
-                                                           ==
+                                          quotedetailsmodal?.details
+                                                          ?.resDetails ==
                                                       '' ||
-                                                  quotedetailsmodal
-                                                          ?.details
-                                                          ?.resDetails
-                                                           ==
+                                                  quotedetailsmodal?.details
+                                                          ?.resDetails ==
                                                       null
                                               ? 'N/A'
-                                              : quotedetailsmodal?.details
-                                                      ?.resDetails ??
+                                              : quotedetailsmodal
+                                                      ?.details?.resDetails ??
                                                   '',
                                           style: TextStyle(
                                               height: 1.5,
@@ -587,7 +585,6 @@ class _quotedetailpageState extends State<quotedetailpage> {
       ),
     );
   }
-
 
   QuoteApi() {
     checkInternet().then((internet) async {
