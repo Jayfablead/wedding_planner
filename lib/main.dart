@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             home: SplashLogo(
-
             ),
             builder: EasyLoading.init(),
             theme: ThemeData(
