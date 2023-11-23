@@ -7,7 +7,6 @@ import 'package:wedding_planner/Authenticate/changePassword.dart';
 import 'package:wedding_planner/Authenticate/profilePage.dart';
 import 'package:wedding_planner/Chat/ChatListPage.dart';
 import 'package:wedding_planner/Guest/GuestList.dart';
-import 'package:wedding_planner/Guest/View%20Table.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Others/MoodBoards.dart';
@@ -19,7 +18,6 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Quatations/quoatelist2.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
 import 'package:wedding_planner/bookings/view%20all%20bookings.dart';
-import 'package:wedding_planner/chart/seatingChart1.dart';
 import 'package:wedding_planner/chart/seatingChart2.dart';
 import 'package:wedding_planner/chnages/invoiceList.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
@@ -35,7 +33,6 @@ import '../Others/Check List.dart';
 import '../Suppliers/mysplirs.dart';
 import '../Venue/MyVenue.dart';
 import '../wait/Accomendation Page.dart';
-import '../wait/Transportationmanagement.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -389,7 +386,9 @@ class _drawer1State extends State<drawer1> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Image.asset("assets/bottom/7.png",
-                                          height: 7.h, width:10.w, color: Colors.redAccent),
+                                          height: 7.h,
+                                          width: 10.w,
+                                          color: Colors.redAccent),
                                       // Icon(
                                       //   Icons.developer_board,
                                       //   size: 30.sp,
@@ -667,87 +666,7 @@ class _drawer1State extends State<drawer1> {
                   ],
                 ),
                 SizedBox(height: 2.h),
-                // InkWell(
-                //   onTap: () {
-                //     Get.back();
-                //     Get.to(ViewTables());
-                //   },
-                //   child: Row(
-                //     children: [
-                //       SizedBox(
-                //         width: 6.w,
-                //       ),
-                //       Container(
-                //         width: 63.w,
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: [
-                //             Icon(
-                //               Icons.chair_rounded,
-                //               color: Colors.white,
-                //               size: 22.sp,
-                //             ),
-                //             // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
-                //             SizedBox(
-                //               width: 2.w,
-                //             ),
-                //             Text(
-                //               "Seating Chart",
-                //                 style: TextStyle(
-                //                   fontSize: 17.sp,
-                //                   fontWeight: FontWeight.bold,
-                //                   fontFamily: 'sofi',
-                //                   color: Colors.white,
-                //                 )
-                //             ),
-                //           ],
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                InkWell(
-                    onTap: () async {
-                      Get.back();
-                      Get.to(ViewTables2());
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 63.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.chair_rounded,
-                                      color: Colors.white,
-                                      size: 22.sp,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Seating Chart ",
-                                        style: TextStyle(
-                                          fontSize: 17.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'sofi',
-                                          color: Colors.white,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                SizedBox(height: 2.h),
+
                 InkWell(
                     onTap: () async {
                       Get.back();
@@ -1506,7 +1425,6 @@ class _drawer1State extends State<drawer1> {
           )
         ],
       ),
-
     );
   }
 
