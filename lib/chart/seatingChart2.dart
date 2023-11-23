@@ -81,7 +81,7 @@ class _ViewTables2State extends State<ViewTables2> {
                             child: Icon(Icons.arrow_drop_down_circle_outlined,
                                 color:
                                     open == index ? Colors.white : Colors.blue),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -285,7 +285,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                             SizedBox(
                                               height: 1.h,
                                             ),
-                                            Container(
+                                             Container(
                                               width: 21.w,
                                               alignment: Alignment.center,
                                               child: Row(
@@ -693,7 +693,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                 ),
                                                 Center(
                                                   child: Container(
-                                                    height: 9.5.h,
+                                                    height: 21.5.w,
                                                     width: 21.5.w,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
@@ -839,7 +839,7 @@ class _ViewTables2State extends State<ViewTables2> {
                                                 ),
                                                 Center(
                                                   child: Container(
-                                                    height: 9.5.h,
+                                                    height: 21.5.w,
                                                     width: 21.5.w,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
