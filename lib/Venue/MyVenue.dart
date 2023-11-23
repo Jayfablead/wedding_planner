@@ -462,180 +462,226 @@ class _VenueViewState extends State<VenueView> {
                         ],
                       ),
                     ),
-                    SliverList.builder(
-                        itemCount: floordetalismodal?.data?.length,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsets.symmetric(vertical: 0.7.h),
-                                child: Container(
-                                  width: 90.w,
-                                  height: 10.h,
-                                  padding: EdgeInsets.only(left: 2.15.w),
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(15),
-                                    color: Colors.white,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    // crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Container(
-                                            height: 16.w,
-                                            width: 16.w,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      15),
-                                            ),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      15),
-                                              child: CachedNetworkImage(
-                                                imageUrl:
-                                                    (floordetalismodal
-                                                            ?.data?[index]
-                                                            .floorPlan)
-                                                        .toString(),
-
-                                                // height: 90.h,
-                                                imageBuilder: (context,
-                                                        imageProvider) =>
-                                                    Container(
-                                                  decoration:
-                                                      BoxDecoration(
-                                                    image:
-                                                        DecorationImage(
-                                                      image:
-                                                          imageProvider,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                                placeholder: (context,
-                                                        url) =>
-                                                    Center(
-                                                        child:
-                                                            CircularProgressIndicator()),
-                                                errorWidget: (context,
-                                                        url, error) =>
-                                                    Icon(Icons.error),
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(width: 3.w),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                (floordetalismodal
-                                                                ?.data?[
-                                                                    index]
-                                                                .floorName) ==
-                                                            "" ||
-                                                        (floordetalismodal
-                                                                ?.data?[
-                                                                    index]
-                                                                .floorName) ==
-                                                            null
-                                                    ? ""
-                                                    : (floordetalismodal
-                                                            ?.data?[index]
-                                                            .floorName)
-                                                        .toString(),
-                                                style: TextStyle(
-                                                    fontSize: 17.sp,
-                                                    color: Colors.blue,
-                                                    fontFamily: 'sofi',
-                                                    letterSpacing: 1,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              SizedBox(height: 0.5.h),
-                                              SizedBox(
-                                                width: 52.w,
-                                                child: Text(
-                                                  (floordetalismodal
-                                                                  ?.data?[
-                                                                      index]
-                                                                  .floorDesc) ==
-                                                              "" ||
-                                                          (floordetalismodal
-                                                                  ?.data?[
-                                                                      index]
-                                                                  .floorDesc) ==
-                                                              null
-                                                      ? "N/A"
-                                                      : (floordetalismodal
-                                                              ?.data?[
-                                                                  index]
-                                                              .floorDesc)
-                                                          .toString(),
-                                                  maxLines: 2,
-                                                  style: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      color: Colors.black
-                                                          .withOpacity(
-                                                              0.8),
-                                                      overflow:
-                                                          TextOverflow
-                                                              .ellipsis,
-                                                      fontFamily: 'sofi',
-                                                      letterSpacing: 1,
-                                                      fontWeight:
-                                                          FontWeight
-                                                              .bold),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          Get.to(FloorDetalisScreen(
-                                            id: floordetalismodal
-                                                ?.data?[index].id
-                                                .toString(),
-                                          ));
-                                        },
-                                        child: Container(
-                                          padding: EdgeInsets.all(3.w),
-                                          margin:
-                                              EdgeInsets.only(right: 2.w),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      7),
-                                              color: Colors.blue),
-                                          child: Icon(
-                                            CupertinoIcons.arrow_right,
-                                            color: Colors.white,
-                                            size: 18.sp,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          );
-                        }),
+                   SliverToBoxAdapter(child:  SizedBox(
+                     height: 43.h,
+                     child:
+                     ListView.builder(
+                         scrollDirection: Axis.horizontal,
+                         itemBuilder: (context, index) {
+                           return Container(
+                             width: 80.w,
+                             margin: EdgeInsets.symmetric(
+                                 horizontal: 2.w),
+                             padding: EdgeInsets.all(1.w),
+                             decoration: BoxDecoration(
+                                 borderRadius:
+                                 BorderRadius.circular(
+                                     25),
+                                 color: Colors.white),
+                             child: GestureDetector(
+                               onTap: () {
+                                 Get.to(FloorDetalisScreen(
+                                   id: floordetalismodal
+                                       ?.data?[index].id
+                                       .toString(),
+                                 ));
+                               },
+                               child: Column(
+                                 crossAxisAlignment:
+                                 CrossAxisAlignment
+                                     .start,
+                                 children: [
+                                   SizedBox(
+                                     height: 0.20.h,
+                                   ),
+                                   Container(
+                                     padding:
+                                     EdgeInsets.all(
+                                         2.w),
+                                     width: 85.w,
+                                     margin: EdgeInsets
+                                         .symmetric(
+                                         horizontal:
+                                         1.0),
+                                     child: ClipRRect(
+                                       borderRadius:
+                                       BorderRadius
+                                           .circular(
+                                           15),
+                                       child: ClipRRect(
+                                         borderRadius:
+                                         BorderRadius
+                                             .circular(
+                                             15),
+                                         child:
+                                         CachedNetworkImage(
+                                           width: 80.w,
+                                           height: 20.h,
+                                           fit: BoxFit
+                                               .cover,
+                                           imageUrl: (floordetalismodal
+                                               ?.data?[index]
+                                               .floorPlan) == '' || (floordetalismodal
+                                               ?.data?[index]
+                                               .floorPlan)== null ?'':  (floordetalismodal
+                                               ?.data?[index]
+                                               .floorPlan)
+                                               .toString(),
+                                           progressIndicatorBuilder: (context,
+                                               url,
+                                               progress) =>
+                                               Center(
+                                                   child:
+                                                   CircularProgressIndicator()),
+                                           errorWidget: (context,
+                                               url,
+                                               error) =>
+                                               Image
+                                                   .asset(
+                                                 'assets/defimg.jpg',
+                                                 height:
+                                                 20.h,
+                                                 fit: BoxFit
+                                                     .cover,
+                                               ),
+                                         ),
+                                       ),
+                                     ),
+                                   ),
+                                   SizedBox(
+                                     height: 1.5.h,
+                                   ),
+                                   Padding(
+                                     padding:
+                                     EdgeInsets.only(
+                                         left: 3.w),
+                                     child: Text(
+                                         (floordetalismodal
+                                             ?.data?[
+                                         index]
+                                             .floorName) ==
+                                             "" ||
+                                             (floordetalismodal
+                                                 ?.data?[
+                                             index]
+                                                 .floorName) ==
+                                                 null
+                                             ? ""
+                                             : (floordetalismodal
+                                             ?.data?[index]
+                                             .floorName)
+                                             .toString(),
+                                         style: TextStyle(
+                                             fontSize:
+                                             14.5.sp,
+                                             fontFamily:
+                                             'sofi',
+                                             fontWeight:
+                                             FontWeight
+                                                 .bold,
+                                             color: Colors
+                                                 .black,
+                                             letterSpacing:
+                                             1)),
+                                   ),
+                                   SizedBox(
+                                     height: 1.5.h,
+                                   ),
+                                   Padding(
+                                     padding:
+                                     EdgeInsets.only(
+                                         left: 3.w),
+                                     child: Text(
+                                         (floordetalismodal
+                                             ?.data?[
+                                         index]
+                                             .floorDesc) ==
+                                             "" ||
+                                             (floordetalismodal
+                                                 ?.data?[
+                                             index]
+                                                 .floorDesc) ==
+                                                 null
+                                             ? "N/A"
+                                             : (floordetalismodal
+                                             ?.data?[
+                                         index]
+                                             .floorDesc)
+                                             .toString(),
+                                         maxLines: 2,
+                                         overflow:
+                                         TextOverflow
+                                             .ellipsis,
+                                         style: TextStyle(
+                                             fontSize:
+                                             14.5.sp,
+                                             fontFamily:
+                                             'sofi',
+                                             color: Colors
+                                                 .black54,
+                                             letterSpacing:
+                                             1)),
+                                   ),
+                                   SizedBox(
+                                     height: 4.h,
+                                   ),
+                                   Row(
+                                     mainAxisAlignment:
+                                     MainAxisAlignment
+                                         .center,
+                                     children: [
+                                       GestureDetector(
+                                         onTap: () {
+                                           Get.to(FloorDetalisScreen(
+                                             id: floordetalismodal
+                                                 ?.data?[index].id
+                                                 .toString(),
+                                           ));
+                                         },
+                                         child:
+                                         Container(
+                                           width: 50.w,
+                                           padding: EdgeInsets.symmetric(
+                                               vertical:
+                                               1.h,
+                                               horizontal:
+                                               5.w),
+                                           alignment:
+                                           Alignment
+                                               .center,
+                                           decoration: BoxDecoration(
+                                               color: Colors
+                                                   .blue,
+                                               borderRadius:
+                                               BorderRadius.circular(
+                                                   25)),
+                                           child: Center(
+                                             child: Text(
+                                                 "View Detail",
+                                                 style: TextStyle(
+                                                     fontSize: 17
+                                                         .sp,
+                                                     fontFamily:
+                                                     'sofi',
+                                                     color:
+                                                     Colors.white,
+                                                     letterSpacing: 1)),
+                                           ),
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(
+                                     height: 1.5.h,
+                                   ),
+                                 ],
+                               ),
+                             ),
+                           );
+                         },
+                         itemCount:
+                         floordetalismodal?.data?.length,),
+                   )),
                       SliverToBoxAdapter(child:  SizedBox(height: 3.h),),
                   ],
                 ),
