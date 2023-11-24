@@ -333,7 +333,7 @@ class _ViewBookingDetailsPageState extends State<ViewBookingDetailsPage> {
                                   Text(
                                     booksuccess?.bookingInfo?.bStatus == '0'
                                         ? "Pending"
-                                        : 'Conmpleted',
+                                        : 'Completed',
                                     style: TextStyle(
                                       color: Colors.black.withOpacity(0.7),
                                       fontWeight: FontWeight.w600,

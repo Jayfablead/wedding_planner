@@ -449,7 +449,7 @@ class _VenueViewState extends State<VenueView> {
                           ),
                           Row(
                             children: [
-                              Text("Floor PLans : ",
+                              Text("Floor Plans : ",
                                   style: TextStyle(
                                       fontSize: 17.sp,
                                       color: Colors.blue,
@@ -463,9 +463,15 @@ class _VenueViewState extends State<VenueView> {
                       ),
                     ),
                    SliverToBoxAdapter(child:  SizedBox(
-                     height: 43.h,
+                     height: floordetalismodal?.data?.length != 0 ||  floordetalismodal?.data?.length != null ?30.h:45.h,
                      child:
-                     ListView.builder(
+                     floordetalismodal?.data?.length != 0 ||  floordetalismodal?.data?.length != null ?Center(child: Text('No Floor Plans Available',
+                       style: TextStyle(
+                         color: Colors.black,
+                         fontWeight: FontWeight.w600,
+                         fontFamily: "sofi",
+                         fontSize: 16.sp,
+                       ),),):ListView.builder(
                          scrollDirection: Axis.horizontal,
                          itemBuilder: (context, index) {
                            return Container(
