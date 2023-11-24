@@ -261,8 +261,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                           imageUrl: suppliersearchmodal
                                                                   ?.suppliers?[
                                                                       index]
-                                                                  .profilePath ??
-                                                              "",
+                                                                  .images?[0] ?? '',
                                                           progressIndicatorBuilder:
                                                               (context, url,
                                                                       progress) =>

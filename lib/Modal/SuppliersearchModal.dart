@@ -69,33 +69,39 @@ class Suppliers {
   String? name;
   String? role;
   String? profilePath;
+  String? servicePhotos;
   String? categoryId;
   String? description;
   String? cost;
+  List<String>? images;
   String? fav;
   String? serviceId;
   String? service;
 
   Suppliers(
       {this.id,
-      this.name,
-      this.role,
-      this.profilePath,
-      this.categoryId,
-      this.description,
-      this.cost,
-      this.fav,
-      this.serviceId,
-      this.service});
+        this.name,
+        this.role,
+        this.profilePath,
+        this.servicePhotos,
+        this.categoryId,
+        this.description,
+        this.cost,
+        this.images,
+        this.fav,
+        this.serviceId,
+        this.service});
 
   Suppliers.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     role = json['role'];
     profilePath = json['profile_path'];
+    servicePhotos = json['service_photos'];
     categoryId = json['category_id'];
     description = json['description'];
     cost = json['cost'];
+    images = json['images'].cast<String>();
     fav = json['fav'];
     serviceId = json['service_id'];
     service = json['service'];
@@ -107,9 +113,11 @@ class Suppliers {
     data['name'] = this.name;
     data['role'] = this.role;
     data['profile_path'] = this.profilePath;
+    data['service_photos'] = this.servicePhotos;
     data['category_id'] = this.categoryId;
     data['description'] = this.description;
     data['cost'] = this.cost;
+    data['images'] = this.images;
     data['fav'] = this.fav;
     data['service_id'] = this.serviceId;
     data['service'] = this.service;
