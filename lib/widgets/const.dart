@@ -52,6 +52,7 @@ import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
 import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
+import '../Modal/SetingcModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
 import '../Modal/VenueDetalisModal.dart';
@@ -125,5 +126,9 @@ ItienraryModal? itienrarymodal;
 ItienraryuploadModal? iteneryupload;
 FloorDetalisModal? floordetalismodal;
 VenueDetalisModal? venuedetalismodal;
+SetingcModal? setingcmodal;
+
+
+
 
 const String baseUrl = 'https://wedding.fableadtechnolabs.com/portal/api';
