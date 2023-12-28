@@ -78,27 +78,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
                   color: Colors.blue,
                 ),
               ),
-              // unreadmsgmodal?.remainToread == 0
-              //     ? Container()
-              //     : Positioned(
-              //         left: 3.w,
-              //         bottom: 3.w,
-              //         child: Container(
-              //           alignment: Alignment.center,
-              //           height: 3.w,
-              //           width: 3.w,
-              //           decoration: BoxDecoration(
-              //             shape: BoxShape.circle,
-              //             color: Colors.red,
-              //           ),
-              //           child: Text(
-              //             unreadmsgmodal?.remainToread.toString() ?? '',
-              //             style: TextStyle(
-              //                 color: Colors.white,
-              //                 fontWeight: FontWeight.bold,
-              //                 fontSize: 8.sp),
-              //           ),
-              //         ))
+
             ],
           ),
           activeItem: Stack(
