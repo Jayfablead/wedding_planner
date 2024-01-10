@@ -59,14 +59,14 @@ class Floor {
 
   Floor(
       {this.id,
-        this.venueId,
-        this.floorName,
-        this.floorDesc,
-        this.floorCapacity,
-        this.floorPlan,
-        this.createdAt,
-        this.updatedAt,
-        this.tables});
+      this.venueId,
+      this.floorName,
+      this.floorDesc,
+      this.floorCapacity,
+      this.floorPlan,
+      this.createdAt,
+      this.updatedAt,
+      this.tables});
 
   Floor.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -141,12 +141,12 @@ class Table {
 
   Table(
       {this.id,
-        this.vid,
-        this.vFloorId,
-        this.name,
-        this.capacity,
-        this.tType,
-        this.createdAt});
+      this.vid,
+      this.vFloorId,
+      this.name,
+      this.capacity,
+      this.tType,
+      this.createdAt});
 
   Table.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -187,17 +187,17 @@ class GuestList {
 
   GuestList(
       {this.id,
-        this.uid,
-        this.guestName,
-        this.guestEmail,
-        this.guestContact,
-        this.guestFloorId,
-        this.guestTableId,
-        this.guestSeatNo,
-        this.brideOrGroom,
-        this.guestRelationGroup,
-        this.attendingStatus,
-        this.createdAt});
+      this.uid,
+      this.guestName,
+      this.guestEmail,
+      this.guestContact,
+      this.guestFloorId,
+      this.guestTableId,
+      this.guestSeatNo,
+      this.brideOrGroom,
+      this.guestRelationGroup,
+      this.attendingStatus,
+      this.createdAt});
 
   GuestList.fromJson(Map<String, dynamic> json) {
     id = json['id'];

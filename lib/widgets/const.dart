@@ -128,7 +128,4 @@ FloorDetalisModal? floordetalismodal;
 VenueDetalisModal? venuedetalismodal;
 SetingcModal? setingcmodal;
 
-
-
-
-const String baseUrl = 'https://wedding.fableadtechnolabs.com/portal/api';
+const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

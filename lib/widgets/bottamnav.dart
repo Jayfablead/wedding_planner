@@ -78,7 +78,6 @@ class _bottomnavbarState extends State<bottomnavbar> {
                   color: Colors.blue,
                 ),
               ),
-
             ],
           ),
           activeItem: Stack(

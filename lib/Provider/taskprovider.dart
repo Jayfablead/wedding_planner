@@ -769,6 +769,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> seatingapiflutterapi() async {
     String? url = '$baseUrl/myGuestSeating/${userData?.user?.id}';
     print(url);
@@ -790,6 +791,7 @@ class taskprovider with ChangeNotifier {
     print(response.body);
     return responseJson;
   }
+
   Future<http.Response> itenraryuploadapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/uploadItenerary/${userData?.user?.id}';
 

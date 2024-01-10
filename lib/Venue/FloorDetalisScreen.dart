@@ -354,7 +354,9 @@ class _FloorDetalisScreenState extends State<FloorDetalisScreen> {
                               SizedBox(
                                 width: 5.w,
                               ),
-                              Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     "Details :",
@@ -372,15 +374,21 @@ class _FloorDetalisScreenState extends State<FloorDetalisScreen> {
                                     // height: 20.h,
                                     width: 75.w,
                                     child: ReadMoreText(
-                                      venuedetalismodal?.data?.floorDesc == "" ||
-                                          venuedetalismodal?.data?.floorDesc == null
+                                      venuedetalismodal?.data?.floorDesc ==
+                                                  "" ||
+                                              venuedetalismodal
+                                                      ?.data?.floorDesc ==
+                                                  null
                                           ? ""
-                                          : venuedetalismodal?.data?.floorDesc ?? "",
+                                          : venuedetalismodal
+                                                  ?.data?.floorDesc ??
+                                              "",
                                       trimLines: 2,
                                       colorClickableText: Colors.purple,
                                       trimMode: TrimMode.Line,
                                       style: TextStyle(
-                                          fontWeight: FontWeight.w600,height: 0.14.h,
+                                          fontWeight: FontWeight.w600,
+                                          height: 0.14.h,
                                           fontFamily: 'sofi',
                                           color: Colors.black.withOpacity(0.65),
                                           fontSize: 16.sp),
@@ -399,13 +407,11 @@ class _FloorDetalisScreenState extends State<FloorDetalisScreen> {
                                           color: Colors.blue,
                                           fontSize: 14.sp),
                                     ),
-
                                   ),
                                 ],
                               ),
                             ],
                           ),
-
                           SizedBox(
                             height: 3.h,
                           ),
