@@ -192,7 +192,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               );
             } else {
               buildErrorDialog(
-                  context, "Login Error", forgotpass?.message ?? "");
+                  context, "Email Sent Error", forgotpass?.message ?? "");
             }
           });
         } else {
