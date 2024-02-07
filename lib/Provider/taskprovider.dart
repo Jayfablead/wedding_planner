@@ -264,6 +264,20 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+  Future<http.Response> SupDrop() async {
+    String? url = '$baseUrl/suppliers_list/${userData?.user?.id.toString()}';
+
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
 
   Future<http.Response> addguestapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/addGuest/${userData?.user?.id.toString()}';
@@ -279,6 +293,22 @@ class taskprovider with ChangeNotifier {
     );
     responseJson = responses(response);
 
+    return responseJson;
+  }
+  Future<http.Response> Addtopicap(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/saveTopic';
+
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+print(response.body);
     return responseJson;
   }
 
@@ -409,7 +439,7 @@ class taskprovider with ChangeNotifier {
 
   Future<http.Response> Mysups() async {
     String? url = '$baseUrl/mySuppliers/${userData?.user?.id.toString()}';
-
+print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),

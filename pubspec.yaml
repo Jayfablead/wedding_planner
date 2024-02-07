@@ -40,7 +40,7 @@ dependencies:
   sizer:
   flutter_easyloading:
   lottie:
-  cached_network_image: ^3.2.3
+  cached_network_image:
   image_picker:
   flutter_rating_bar: ^4.0.1
   staggered_grid_view_flutter:
@@ -51,6 +51,7 @@ dependencies:
   carousel_slider: ^4.2.1
   readmore: ^2.2.0
   http:
+  dropdown_button2:
   modal_progress_hud_nsn:
   keyboard_dismisser:
   http_parser:

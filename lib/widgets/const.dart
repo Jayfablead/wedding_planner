@@ -37,6 +37,7 @@ import 'package:wedding_planner/Modal/markcompletedmodal.dart';
 import 'package:wedding_planner/Modal/removetodoModal.dart';
 
 import '../Modal/AddpostModal.dart';
+import '../Modal/AddtopicModal.dart';
 import '../Modal/AllCatagoriesModal.dart';
 import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
@@ -52,9 +53,13 @@ import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
 import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
+import '../Modal/SendThradModal.dart';
 import '../Modal/SetingcModal.dart';
+import '../Modal/SupplierDropdownModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
+import '../Modal/ThreadChatModal.dart';
+import '../Modal/ThreadListModal.dart';
 import '../Modal/VenueDetalisModal.dart';
 import '../Modal/addMeetingModal.dart';
 import '../Modal/mySupplierModal.dart';
@@ -127,5 +132,13 @@ ItienraryuploadModal? iteneryupload;
 FloorDetalisModal? floordetalismodal;
 VenueDetalisModal? venuedetalismodal;
 SetingcModal? setingcmodal;
+SupplierDropdownModal? dropsups;
+AddTopicModal? addtopic;
+SendThreadModal? sendthread;
+ThreadListModal? threadlist;
+ThreadchatModal? threadchat;
+
+
+
 
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

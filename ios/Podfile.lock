@@ -63,9 +63,9 @@ PODS:
     - Flutter
     - FlutterMacOS
   - Reachability (3.2)
-  - SDWebImage (5.18.3):
-    - SDWebImage/Core (= 5.18.3)
-  - SDWebImage/Core (5.18.3)
+  - SDWebImage (5.18.10):
+    - SDWebImage/Core (= 5.18.10)
+  - SDWebImage/Core (5.18.10)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -75,7 +75,7 @@ PODS:
   - SwiftyGif (5.4.4)
   - syncfusion_flutter_pdfviewer (0.0.1):
     - Flutter
-  - Toast (4.0.0)
+  - Toast (4.1.0)
   - url_launcher_ios (0.0.1):
     - Flutter
   - video_player_avfoundation (0.0.1):
@@ -150,7 +150,7 @@ SPEC CHECKSUMS:
   file_picker: ce3938a0df3cc1ef404671531facef740d03f920
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_inappwebview: 3d32228f1304635e7c028b0d4252937730bbc6cf
-  fluttertoast: fafc4fa4d01a6a9e4f772ecd190ffa525e9e2d9c
+  fluttertoast: 31b00dabfa7fb7bacd9e7dbee580d7a2ff4bf265
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
   modal_progress_hud_nsn: b66f99f02da7de83484e50dfe1fe2d71ac406e67
@@ -158,15 +158,15 @@ SPEC CHECKSUMS:
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 96e0c18ef14010b7485210e92fac888587ebb958
+  SDWebImage: fc8f2d48bbfd72ef39d70e981bd24a3f3be53fec
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
   syncfusion_flutter_pdfviewer: bb9998884b864cfedf72628df3503bdf57e397c0
-  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  Toast: ec33c32b8688982cecc6348adeae667c1b9938da
   url_launcher_ios: 68d46cc9766d0c41dbdc884310529557e3cd7a86
   video_player_avfoundation: 8563f13d8fc8b2c29dc2d09e60b660e4e8128837
 
-PODFILE CHECKSUM: b06da14e3fada4666284e35947c1400c2b03a99f
+PODFILE CHECKSUM: 7be2f5f74864d463a8ad433546ed1de7e0f29aef
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.15.1

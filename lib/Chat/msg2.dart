@@ -53,7 +53,13 @@ class _Msg2State extends State<Msg2> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    setState(() {
+      isLoading = true;
+    });
     fullchatap();
+    _timer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
+      fullchatap();
+    });
   }
 
   int? days;
@@ -70,6 +76,13 @@ class _Msg2State extends State<Msg2> {
   bool isLoading = true;
   ImagePicker _picker = ImagePicker();
   File? _pickedFile = null;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _timer?.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -780,11 +793,13 @@ class _Msg2State extends State<Msg2> {
                                     color: Colors.black.withOpacity(0.3),
                                   ),
                                   child: Text(
-                                    (diff == 0)
-                                        ? "Today"
-                                        : (diff == 1)
-                                            ? "Yesterday"
-                                            : outputDate1.toString(),
+                                    outputDate1 == '' || outputDate1 == null
+                                        ? 'N/A'
+                                        : (diff == 0)
+                                            ? "Today"
+                                            : (diff == 1)
+                                                ? "Yesterday"
+                                                : outputDate1.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 12.sp,
@@ -840,6 +855,7 @@ class _Msg2State extends State<Msg2> {
                               onTap: () {
                                 setState(() {
                                   type = 1;
+                                  FocusScope.of(context).unfocus();
                                   sendmessageap();
                                 });
                               },
