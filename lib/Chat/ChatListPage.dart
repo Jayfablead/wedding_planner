@@ -111,7 +111,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            sel1 == 1?'Messages':'Threads',
+                            sel1 == 1 ? 'Messages' : 'Threads',
                             style: TextStyle(
                                 fontSize: 25.sp,
                                 fontFamily: 'sofi',
@@ -119,172 +119,227 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                 letterSpacing: 1,
                                 color: Colors.black),
                           ),
-                          sel1 == 1?Container(): InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _topic.clear();
-                                  _selectedSupp = null;
-                                  _selectedLocation = null;
-                                });
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return Form(
-                                      key: _formKeychat,
-                                      child: StatefulBuilder(
-                                        builder: (context, setState) {
-                                          return AlertDialog(
-                                            backgroundColor:
-                                                Colors.grey.shade100,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                            ),
-                                            content: Stack(
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
+                          sel1 == 1
+                              ? Container()
+                              : InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      _topic.clear();
+                                      _selectedSupp = null;
+                                      _selectedLocation = null;
+                                    });
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return Form(
+                                          key: _formKeychat,
+                                          child: StatefulBuilder(
+                                            builder: (context, setState) {
+                                              return AlertDialog(
+                                                backgroundColor:
+                                                    Colors.grey.shade100,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                ),
+                                                content: Stack(
                                                   children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
+                                                    Column(
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
-                                                              .center,
+                                                              .start,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
                                                       children: [
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'Start Thread',
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      15.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  letterSpacing:
+                                                                      1,
+                                                                  fontFamily:
+                                                                      'sofi',
+                                                                  color: Colors
+                                                                      .black),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 2.h),
                                                         Text(
-                                                          'Start Thread',
+                                                          'Topic Title :',
                                                           style: TextStyle(
-                                                              fontSize: 15.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
+                                                              fontSize: 13.sp,
                                                               letterSpacing: 1,
                                                               fontFamily:
                                                                   'sofi',
                                                               color:
                                                                   Colors.black),
                                                         ),
-                                                      ],
-                                                    ),
-                                                    SizedBox(height: 2.h),
-                                                    Text(
-                                                      'Topic Title :',
-                                                      style: TextStyle(
-                                                          fontSize: 13.sp,
-                                                          letterSpacing: 1,
-                                                          fontFamily: 'sofi',
-                                                          color: Colors.black),
-                                                    ),
-                                                    SizedBox(height: 1.h),
-                                                    Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 65.w,
-                                                      height: 6.5.h,
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 7),
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        border: Border.all(
-                                                            color:
-                                                                Colors.white),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(65),
-                                                      ),
-                                                      child: TextFormField(
-                                                        controller: _topic,
-                                                        style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 13.sp,
-                                                          fontFamily: 'get',
-                                                        ),
-                                                        decoration:
-                                                            InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          hintText:
-                                                              'Enter Topic Title',
-                                                          hintStyle: TextStyle(
-                                                            color: Colors.black
-                                                                .withOpacity(
-                                                                    0.65),
-                                                            fontFamily: 'get',
+                                                        SizedBox(height: 1.h),
+                                                        Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          width: 65.w,
+                                                          height: 6.5.h,
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      7),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .white),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        65),
+                                                          ),
+                                                          child: TextFormField(
+                                                            controller: _topic,
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 13.sp,
+                                                              fontFamily: 'get',
+                                                            ),
+                                                            decoration:
+                                                                InputDecoration(
+                                                              border:
+                                                                  InputBorder
+                                                                      .none,
+                                                              hintText:
+                                                                  'Enter Topic Title',
+                                                              hintStyle:
+                                                                  TextStyle(
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.65),
+                                                                fontFamily:
+                                                                    'get',
+                                                              ),
+                                                            ),
+                                                            validator: (value) {
+                                                              if (value ==
+                                                                      null ||
+                                                                  value
+                                                                      .isEmpty) {
+                                                                return 'Please enter a topic title';
+                                                              }
+                                                              // You can add additional validation logic as needed
+                                                              return null; // Return null if the input is valid
+                                                            },
                                                           ),
                                                         ),
-                                                        validator: (value) {
-                                                          if (value == null ||
-                                                              value.isEmpty) {
-                                                            return 'Please enter a topic title';
-                                                          }
-                                                          // You can add additional validation logic as needed
-                                                          return null; // Return null if the input is valid
-                                                        },
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 2.h),
-                                                    Text(
-                                                      'Type :',
-                                                      style: TextStyle(
-                                                          fontSize: 13.sp,
-                                                          letterSpacing: 1,
-                                                          fontFamily: 'sofi',
-                                                          color: Colors.black),
-                                                    ),
-                                                    SizedBox(height: 1.h),
-                                                    Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 65.w,
-                                                      height: 6.5.h,
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 7),
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        border: Border.all(
-                                                            color:
-                                                                Colors.white),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(65),
-                                                      ),
-                                                      child:
-                                                          DropdownButtonHideUnderline(
-                                                        child: DropdownButton2(
-                                                          isExpanded: true,
-                                                          hint: Text(
-                                                            'Select Type',
-                                                            style: TextStyle(
+                                                        SizedBox(height: 2.h),
+                                                        Text(
+                                                          'Type :',
+                                                          style: TextStyle(
                                                               fontSize: 13.sp,
                                                               letterSpacing: 1,
                                                               fontFamily:
                                                                   'sofi',
+                                                              color:
+                                                                  Colors.black),
+                                                        ),
+                                                        SizedBox(height: 1.h),
+                                                        Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          width: 65.w,
+                                                          height: 6.5.h,
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      7),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .white),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        65),
+                                                          ),
+                                                          child:
+                                                              DropdownButtonHideUnderline(
+                                                            child:
+                                                                DropdownButton2(
+                                                              isExpanded: true,
+                                                              hint: Text(
+                                                                'Select Type',
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize:
+                                                                      13.sp,
+                                                                  letterSpacing:
+                                                                      1,
+                                                                  fontFamily:
+                                                                      'sofi',
+                                                                ),
+                                                              ),
+                                                              // Not necessary for Option 1
+                                                              value:
+                                                                  _selectedLocation,
+                                                              onChanged:
+                                                                  (newValue) {
+                                                                setState(() {
+                                                                  _selectedLocation =
+                                                                      newValue!;
+                                                                  print(
+                                                                      _selectedLocation);
+                                                                });
+                                                              },
+                                                              items: _locations
+                                                                  .map(
+                                                                      (location) {
+                                                                return DropdownMenuItem(
+                                                                  child: Text(
+                                                                    location,
+                                                                    style: TextStyle(
+                                                                        fontSize: 13
+                                                                            .sp,
+                                                                        letterSpacing:
+                                                                            1,
+                                                                        fontFamily:
+                                                                            'sofi',
+                                                                        color: Colors
+                                                                            .black),
+                                                                  ),
+                                                                  value:
+                                                                      location,
+                                                                );
+                                                              }).toList(),
                                                             ),
                                                           ),
-                                                          // Not necessary for Option 1
-                                                          value:
-                                                              _selectedLocation,
-                                                          onChanged:
-                                                              (newValue) {
-                                                            setState(() {
-                                                              _selectedLocation =
-                                                                  newValue!;
-                                                              print(
-                                                                  _selectedLocation);
-                                                            });
-                                                          },
-                                                          items: _locations
-                                                              .map((location) {
-                                                            return DropdownMenuItem(
-                                                              child: Text(
-                                                                location,
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                        _selectedLocation ==
+                                                                    '' ||
+                                                                _selectedLocation ==
+                                                                    null
+                                                            ? Container()
+                                                            : Text(
+                                                                _selectedLocation ==
+                                                                        'Venue'
+                                                                    ? 'Venue :'
+                                                                    : 'Select Supplier :',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         13.sp,
@@ -295,120 +350,46 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                                     color: Colors
                                                                         .black),
                                                               ),
-                                                              value: location,
-                                                            );
-                                                          }).toList(),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 2.h),
-                                                    _selectedLocation == '' ||
-                                                            _selectedLocation ==
-                                                                null
-                                                        ? Container()
-                                                        : Text(
-                                                            _selectedLocation ==
-                                                                    'Venue'
-                                                                ? 'Venue :'
-                                                                : 'Select Supplier :',
-                                                            style: TextStyle(
-                                                                fontSize: 13.sp,
-                                                                letterSpacing:
-                                                                    1,
-                                                                fontFamily:
-                                                                    'sofi',
-                                                                color: Colors
-                                                                    .black),
-                                                          ),
-                                                    _selectedLocation == '' ||
-                                                            _selectedLocation ==
-                                                                null
-                                                        ? Container()
-                                                        : SizedBox(height: 1.h),
-                                                    _selectedLocation == '' ||
-                                                            _selectedLocation ==
-                                                                null
-                                                        ? Container()
-                                                        : Container(
-                                                            alignment: Alignment
-                                                                .center,
-                                                            width: 65.w,
-                                                            height: 6.5.h,
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        7),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.white,
-                                                              border: Border.all(
+                                                        _selectedLocation ==
+                                                                    '' ||
+                                                                _selectedLocation ==
+                                                                    null
+                                                            ? Container()
+                                                            : SizedBox(
+                                                                height: 1.h),
+                                                        _selectedLocation ==
+                                                                    '' ||
+                                                                _selectedLocation ==
+                                                                    null
+                                                            ? Container()
+                                                            : Container(
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                width: 65.w,
+                                                                height: 6.5.h,
+                                                                padding: EdgeInsets
+                                                                    .symmetric(
+                                                                        horizontal:
+                                                                            7),
+                                                                decoration:
+                                                                    BoxDecoration(
                                                                   color: Colors
-                                                                      .white),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          65),
-                                                            ),
-                                                            child: _selectedLocation ==
-                                                                    'Venue'
-                                                                ? Row(
-                                                                    children: [
-                                                                      Text(
-                                                                        venuedetail?.venueDetails?.name ??
-                                                                            '',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              13.sp,
-                                                                          letterSpacing:
-                                                                              1,
-                                                                          fontFamily:
-                                                                              'sofi',
-                                                                          color:
-                                                                              Colors.black,
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  )
-                                                                : DropdownButtonHideUnderline(
-                                                                    child:
-                                                                        DropdownButton2(
-                                                                      isExpanded:
-                                                                          true,
-                                                                      hint:
+                                                                      .white,
+                                                                  border: Border.all(
+                                                                      color: Colors
+                                                                          .white),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              65),
+                                                                ),
+                                                                child: _selectedLocation ==
+                                                                        'Venue'
+                                                                    ? Row(
+                                                                        children: [
                                                                           Text(
-                                                                        'Select Supplier',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              13.sp,
-                                                                          letterSpacing:
-                                                                              1,
-                                                                          fontFamily:
-                                                                              'sofi',
-                                                                        ),
-                                                                      ),
-                                                                      value:
-                                                                          _selectedSupp,
-                                                                      onChanged:
-                                                                          (newValue1) {
-                                                                        setState(
-                                                                            () {
-                                                                          _selectedSupp =
-                                                                              newValue1!;
-                                                                          print(
-                                                                              _selectedSupp);
-                                                                        });
-                                                                      },
-                                                                      items: dropsups
-                                                                          ?.suppliersDetails
-                                                                          ?.map(
-                                                                              (supps) {
-                                                                        return DropdownMenuItem(
-                                                                          child:
-                                                                              Text(
-                                                                            supps.name ??
+                                                                            venuedetail?.venueDetails?.name ??
                                                                                 '',
                                                                             style:
                                                                                 TextStyle(
@@ -418,117 +399,159 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                                               color: Colors.black,
                                                                             ),
                                                                           ),
+                                                                        ],
+                                                                      )
+                                                                    : DropdownButtonHideUnderline(
+                                                                        child:
+                                                                            DropdownButton2(
+                                                                          isExpanded:
+                                                                              true,
+                                                                          hint:
+                                                                              Text(
+                                                                            'Select Supplier',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              fontSize: 13.sp,
+                                                                              letterSpacing: 1,
+                                                                              fontFamily: 'sofi',
+                                                                            ),
+                                                                          ),
                                                                           value:
-                                                                              supps.id,
-                                                                        );
-                                                                      }).toList(),
-                                                                    ),
-                                                                  ),
-                                                          ),
-                                                    SizedBox(height: 3.h),
-                                                    _selectedLocation == null ||
-                                                            _selectedLocation ==
-                                                                '' ||
-                                                            _selectedLocation ==
-                                                                    'Suppliers' &&
-                                                                _selectedSupp ==
-                                                                    null
-                                                        ? InkWell(
-                                                            onTap: () {},
-                                                            child: Container(
-                                                              width: 65.w,
-                                                              height: 6.h,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color:
-                                                                    Colors.grey,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            25.sp),
+                                                                              _selectedSupp,
+                                                                          onChanged:
+                                                                              (newValue1) {
+                                                                            setState(() {
+                                                                              _selectedSupp = newValue1!;
+                                                                              print(_selectedSupp);
+                                                                            });
+                                                                          },
+                                                                          items: dropsups
+                                                                              ?.suppliersDetails
+                                                                              ?.map((supps) {
+                                                                            return DropdownMenuItem(
+                                                                              child: Text(
+                                                                                supps.name ?? '',
+                                                                                style: TextStyle(
+                                                                                  fontSize: 13.sp,
+                                                                                  letterSpacing: 1,
+                                                                                  fontFamily: 'sofi',
+                                                                                  color: Colors.black,
+                                                                                ),
+                                                                              ),
+                                                                              value: supps.id,
+                                                                            );
+                                                                          }).toList(),
+                                                                        ),
+                                                                      ),
                                                               ),
-                                                              child: Center(
-                                                                  child: Text(
-                                                                "Start",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        13.sp,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontFamily:
-                                                                        'get'),
-                                                              )),
-                                                            ),
-                                                          )
-                                                        : InkWell(
-                                                            onTap: () {
-                                                              if (_formKeychat
-                                                                  .currentState!
-                                                                  .validate()) {
-                                                                adtopicap();
+                                                        SizedBox(height: 3.h),
+                                                        _selectedLocation ==
+                                                                    null ||
                                                                 _selectedLocation ==
-                                                                        'Venue'
-                                                                    ? print(
-                                                                        'topic: ${_topic.text}\nid: ${venuedetail?.venueDetails?.id}\nname: ${venuedetail?.venueDetails?.name}')
-                                                                    : print(
-                                                                        'Supplier');
-                                                              }
-                                                            },
-                                                            child: Container(
-                                                              width: 65.w,
-                                                              height: 6.h,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color:
-                                                                    Colors.blue,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            25.sp),
-                                                              ),
-                                                              child: Center(
-                                                                  child: Text(
-                                                                "Start",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        13.sp,
+                                                                    '' ||
+                                                                _selectedLocation ==
+                                                                        'Suppliers' &&
+                                                                    _selectedSupp ==
+                                                                        null
+                                                            ? InkWell(
+                                                                onTap: () {},
+                                                                child:
+                                                                    Container(
+                                                                  width: 65.w,
+                                                                  height: 6.h,
+                                                                  decoration:
+                                                                      BoxDecoration(
                                                                     color: Colors
-                                                                        .white,
-                                                                    fontFamily:
-                                                                        'get'),
-                                                              )),
-                                                            ),
-                                                          ),
-                                                    SizedBox(height: 1.h),
+                                                                        .grey,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            25.sp),
+                                                                  ),
+                                                                  child: Center(
+                                                                      child:
+                                                                          Text(
+                                                                    "Start",
+                                                                    style: TextStyle(
+                                                                        fontSize: 13
+                                                                            .sp,
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontFamily:
+                                                                            'get'),
+                                                                  )),
+                                                                ),
+                                                              )
+                                                            : InkWell(
+                                                                onTap: () {
+                                                                  if (_formKeychat
+                                                                      .currentState!
+                                                                      .validate()) {
+                                                                    adtopicap();
+                                                                    _selectedLocation ==
+                                                                            'Venue'
+                                                                        ? print(
+                                                                            'topic: ${_topic.text}\nid: ${venuedetail?.venueDetails?.id}\nname: ${venuedetail?.venueDetails?.name}')
+                                                                        : print(
+                                                                            'Supplier');
+                                                                  }
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  width: 65.w,
+                                                                  height: 6.h,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            25.sp),
+                                                                  ),
+                                                                  child: Center(
+                                                                      child:
+                                                                          Text(
+                                                                    "Start",
+                                                                    style: TextStyle(
+                                                                        fontSize: 13
+                                                                            .sp,
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontFamily:
+                                                                            'get'),
+                                                                  )),
+                                                                ),
+                                                              ),
+                                                        SizedBox(height: 1.h),
+                                                      ],
+                                                    ),
+                                                    Positioned(
+                                                      right: 0,
+                                                      child: InkWell(
+                                                          onTap: () {
+                                                            Get.back();
+                                                          },
+                                                          child: Icon(
+                                                              Icons.close)),
+                                                    )
                                                   ],
                                                 ),
-                                                Positioned(
-                                                  right: 0,
-                                                  child: InkWell(
-                                                      onTap: () {
-                                                        Get.back();
-                                                      },
-                                                      child: Icon(Icons.close)),
-                                                )
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      ),
+                                              );
+                                            },
+                                          ),
+                                        );
+                                      },
                                     );
                                   },
-                                );
-                              },
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.blue,
-                                size: 22.sp,
-                              ))
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                    size: 22.sp,
+                                  ))
                         ],
                       ),
                       SizedBox(height: 1.h),
-                      sel1 == 1?searchBox():Container(),
-                      sel1 == 1?SizedBox(height: 2.h):SizedBox(height: 0.h),
+                      sel1 == 1 ? searchBox() : Container(),
+                      sel1 == 1 ? SizedBox(height: 2.h) : SizedBox(height: 0.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -806,575 +829,607 @@ class _ChatlistPageState extends State<ChatlistPage> {
                           : Column(
                               children: [
                                 SizedBox(height: 2.h),
-                                sel1 == 1?Row(
-                                  children: [
-                                    SizedBox(width: 2.w),
-                                    Text(
-                                      'My Venue ',
-                                      style: TextStyle(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1,
-                                          fontFamily: 'sofi',
-                                          color: Colors.black),
-                                    ),
-                                  ],
-                                ):Container(),
-                                sel1 == 1? SizedBox(height: 2.h):Container(),
-                                sel1 == 1? InkWell(
-                                  onTap: () {
-                                    Get.to(Msg2(
-                                      id: chatlistmodal?.venue?.id,
-                                      name: chatlistmodal?.venue?.name,
-                                      img: chatlistmodal?.venue?.profile,
-                                    ));
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 3.w, vertical: 1.h),
-                                    margin: EdgeInsets.symmetric(vertical: 1.h),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.white,
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 1.w),
-                                          height: 14.w,
-                                          width: 14.w,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(90),
-                                            child: CachedNetworkImage(
-                                              fit: BoxFit.cover,
-                                              imageUrl: chatlistmodal
-                                                      ?.venue?.profile ??
-                                                  "",
-                                              progressIndicatorBuilder: (context,
-                                                      url, progress) =>
-                                                  Center(
-                                                      child:
-                                                          CircularProgressIndicator()),
-                                              errorWidget:
-                                                  (context, url, error) =>
-                                                      Image.asset(
-                                                'assets/user.png',
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 3.w,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              width: 68.w,
-                                              child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    chatlistmodal?.venue
-                                                                    ?.name ==
-                                                                "" ||
-                                                            chatlistmodal?.venue
-                                                                    ?.name ==
-                                                                null
-                                                        ? "N/A"
-                                                        : chatlistmodal
-                                                                ?.venue?.name ??
-                                                            "",
-                                                    style: TextStyle(
-                                                        fontSize: 16.sp,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        letterSpacing: 1,
-                                                        fontFamily: 'sofi',
-                                                        color: Colors.black),
-                                                  ),
-                                                  Text(
-                                                    chatlistmodal?.venue
-                                                                ?.lastChatMessageInfo ==
-                                                            null
-                                                        ? ""
-                                                        : DateFormat('HH:mm')
-                                                            .format(DateTime.parse(
-                                                                chatlistmodal
-                                                                        ?.venue
-                                                                        ?.lastChatMessageInfo
-                                                                        ?.createdAt ??
-                                                                    "")),
-                                                    style: TextStyle(
-                                                        fontSize: 10.sp,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontFamily: 'soi',
-                                                        color: Colors.black),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 0.5.h,
-                                            ),
-                                            SizedBox(
-                                              width: 52.w,
-                                              child: Text(
-                                                chatlistmodal?.venue
-                                                            ?.lastChatMessageInfo ==
-                                                        null
-                                                    ? ""
-                                                    : chatlistmodal
-                                                                ?.venue
-                                                                ?.lastChatMessageInfo
-                                                                ?.messageType ==
-                                                            "2"
-                                                        ? "Image"
-                                                        : chatlistmodal
-                                                                    ?.venue
-                                                                    ?.lastChatMessageInfo
-                                                                    ?.messageType ==
-                                                                "3"
-                                                            ? "Video"
-                                                            : chatlistmodal
-                                                                        ?.venue
-                                                                        ?.lastChatMessageInfo
-                                                                        ?.messageType ==
-                                                                    "4"
-                                                                ? "File"
-                                                                : chatlistmodal
-                                                                        ?.venue
-                                                                        ?.lastChatMessageInfo
-                                                                        ?.message ??
-                                                                    "",
-                                                maxLines: 2,
-                                                style: TextStyle(
-                                                    fontSize: 12.sp,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontFamily: 'soi',
-                                                    color: Colors.black54),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                        // SizedBox(
-                                        //   width: 3.w,
-                                        // ),
-                                      ],
-                                    ),
-                                  ),
-                                ):Container(),
-                                sel1 == 1? SizedBox(height: 1.h):Container(),
-                                sel1 == 1? Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 2.w),
-                                  child: Divider(color: Colors.black87),
-                                ):Container(),
-                                sel1 == 1?Container():threadlist?.data?.topicDetails?.length == 0
-                                    ? Container()
-                                    : Column(
+                                sel1 == 1
+                                    ? Row(
                                         children: [
-                                          for (int index = 0;
-                                              index <
-                                                  (threadlist
-                                                          ?.data
-                                                          ?.topicDetails
-                                                          ?.length ??
-                                                      0);
-                                              index++) ...[
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 3.w,
-                                                  vertical: 1.h),
-                                              margin: EdgeInsets.symmetric(
-                                                  vertical: 1.h),
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                color: Colors.white,
-                                              ),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    margin:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 1.w),
-                                                    height: 7.h,
-                                                    width: 15.w,
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              90),
-                                                      child: CachedNetworkImage(
-                                                        fit: BoxFit.cover,
-                                                        imageUrl: threadlist
-                                                                ?.data
-                                                                ?.topicDetails?[
-                                                                    index]
-                                                                .memberProfile
-                                                                ?.profile ??
-                                                            "",
-                                                        progressIndicatorBuilder:
-                                                            (context, url,
-                                                                    progress) =>
-                                                                CircularProgressIndicator(),
-                                                        errorWidget: (context,
-                                                                url, error) =>
-                                                            Image.asset(
-                                                          'assets/user.png',
-                                                          color: Colors.black,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Container(
-                                                            width: 60.w,
-                                                            child: Text(
-                                                              threadlist
-                                                                      ?.data
-                                                                      ?.topicDetails?[
-                                                                          index]
-                                                                      .topicTitle ??
-                                                                  "",
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      16.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  letterSpacing:
-                                                                      1,
-                                                                  fontFamily:
-                                                                      'sofi',
-                                                                  color: Colors
-                                                                      .black),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 1.h,
-                                                          ),
-                                                          SizedBox(
-                                                            width: 60.w,
-                                                            child: Text(
-                                                              threadlist
-                                                                      ?.data
-                                                                      ?.topicDetails?[
-                                                                          index]
-                                                                      .memberProfile
-                                                                      ?.name ??
-                                                                  "",
-                                                              maxLines: 2,
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      12.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontFamily:
-                                                                      'sofi',
-                                                                  color: Colors
-                                                                      .black54),
-                                                            ),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      InkWell(
-                                                        onTap: () {
-                                                          Get.to(ThreadPage(
-                                                            id: threadlist
-                                                                ?.data
-                                                                ?.topicDetails?[
-                                                                    index]
-                                                                .id,
-                                                            name: threadlist
-                                                                ?.data
-                                                                ?.topicDetails?[
-                                                                    index]
-                                                                .topicTitle,
-                                                            img: threadlist
-                                                                ?.data
-                                                                ?.topicDetails?[
-                                                                    index]
-                                                                .memberProfile
-                                                                ?.profile,
-                                                          ));
-                                                        },
-                                                        child: Container(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  5.sp),
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8),
-                                                              color:
-                                                                  Colors.blue),
-                                                          child: Image.asset(
-                                                            "assets/bottom/5.png",
-                                                            height: 2.5.h,
-                                                            width: 5.w,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            )
-                                          ]
-                                        ],
-                                      ),
-                                SizedBox(height: 1.h),
-                                sel1 == 1? Row(
-                                  children: [
-                                    SizedBox(width: 2.w),
-                                    Text(
-                                      'Suppliers ',
-                                      style: TextStyle(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1,
-                                          fontFamily: 'sofi',
-                                          color: Colors.black),
-                                    ),
-                                  ],
-                                ):Container(),
-                                sel1 == 1?SizedBox(height: 2.h):Container(),
-                                sel1 == 1? chatlistmodal?.suppliers?.length == 0
-                                    ? Container(
-                                        height: 40.h,
-                                        alignment: Alignment.center,
-                                        child: Text("No Supplier available",
+                                          SizedBox(width: 2.w),
+                                          Text(
+                                            'My Venue ',
                                             style: TextStyle(
-                                                fontSize: 16.sp,
+                                                fontSize: 18.sp,
                                                 fontWeight: FontWeight.bold,
                                                 letterSpacing: 1,
                                                 fontFamily: 'sofi',
-                                                color: Colors.black)),
+                                                color: Colors.black),
+                                          ),
+                                        ],
                                       )
-                                    : Column(
-                                        children: [
-                                          for (int index = 0;
-                                              index <
-                                                  (chatlistmodal
-                                                          ?.suppliers?.length ??
-                                                      0);
-                                              index++) ...[
-                                            InkWell(
-                                              onTap: () {
-                                                print(chatlistmodal
-                                                    ?.suppliers?[index]
-                                                    .profile);
-                                                Get.to(Msg2(
-                                                  id: chatlistmodal
-                                                      ?.suppliers?[index].id,
-                                                  name: chatlistmodal
-                                                      ?.suppliers?[index].name,
-                                                  img: chatlistmodal
-                                                      ?.suppliers?[index]
-                                                      .profile,
-                                                ));
-                                              },
-                                              child: Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 3.w,
-                                                    vertical: 1.h),
+                                    : Container(),
+                                sel1 == 1 ? SizedBox(height: 2.h) : Container(),
+                                sel1 == 1
+                                    ? InkWell(
+                                        onTap: () {
+                                          Get.to(Msg2(
+                                            id: chatlistmodal?.venue?.id,
+                                            name: chatlistmodal?.venue?.name,
+                                            img: chatlistmodal?.venue?.profile,
+                                          ));
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 3.w, vertical: 1.h),
+                                          margin: EdgeInsets.symmetric(
+                                              vertical: 1.h),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            color: Colors.white,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
                                                 margin: EdgeInsets.symmetric(
-                                                    vertical: 1.h),
-                                                decoration: BoxDecoration(
+                                                    horizontal: 1.w),
+                                                height: 14.w,
+                                                width: 14.w,
+                                                child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(20),
-                                                  color: Colors.white,
+                                                      BorderRadius.circular(90),
+                                                  child: CachedNetworkImage(
+                                                    fit: BoxFit.cover,
+                                                    imageUrl: chatlistmodal
+                                                            ?.venue?.profile ??
+                                                        "",
+                                                    progressIndicatorBuilder:
+                                                        (context, url,
+                                                                progress) =>
+                                                            Center(
+                                                                child:
+                                                                    CircularProgressIndicator()),
+                                                    errorWidget:
+                                                        (context, url, error) =>
+                                                            Image.asset(
+                                                      'assets/user.png',
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
                                                 ),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 1.w),
-                                                      height: 7.h,
-                                                      width: 15.w,
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(90),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fit: BoxFit.cover,
-                                                          imageUrl: chatlistmodal
-                                                                  ?.suppliers?[
-                                                                      index]
-                                                                  .profile ??
-                                                              "",
-                                                          progressIndicatorBuilder:
-                                                              (context, url,
-                                                                      progress) =>
-                                                                  CircularProgressIndicator(),
-                                                          errorWidget: (context,
-                                                                  url, error) =>
-                                                              Image.asset(
-                                                            'assets/user.png',
-                                                            color: Colors.white,
+                                              ),
+                                              SizedBox(
+                                                width: 3.w,
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 68.w,
+                                                    child: Row(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          chatlistmodal?.venue
+                                                                          ?.name ==
+                                                                      "" ||
+                                                                  chatlistmodal
+                                                                          ?.venue
+                                                                          ?.name ==
+                                                                      null
+                                                              ? "N/A"
+                                                              : chatlistmodal
+                                                                      ?.venue
+                                                                      ?.name ??
+                                                                  "",
+                                                          style: TextStyle(
+                                                              fontSize: 16.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 1,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black),
+                                                        ),
+                                                        Text(
+                                                          chatlistmodal?.venue
+                                                                      ?.lastChatMessageInfo ==
+                                                                  null
+                                                              ? ""
+                                                              : DateFormat(
+                                                                      'HH:mm')
+                                                                  .format(DateTime.parse(chatlistmodal
+                                                                          ?.venue
+                                                                          ?.lastChatMessageInfo
+                                                                          ?.createdAt ??
+                                                                      "")),
+                                                          style: TextStyle(
+                                                              fontSize: 10.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                              fontFamily: 'soi',
+                                                              color:
+                                                                  Colors.black),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 0.5.h,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 52.w,
+                                                    child: Text(
+                                                      chatlistmodal?.venue
+                                                                  ?.lastChatMessageInfo ==
+                                                              null
+                                                          ? ""
+                                                          : chatlistmodal
+                                                                      ?.venue
+                                                                      ?.lastChatMessageInfo
+                                                                      ?.messageType ==
+                                                                  "2"
+                                                              ? "Image"
+                                                              : chatlistmodal
+                                                                          ?.venue
+                                                                          ?.lastChatMessageInfo
+                                                                          ?.messageType ==
+                                                                      "3"
+                                                                  ? "Video"
+                                                                  : chatlistmodal
+                                                                              ?.venue
+                                                                              ?.lastChatMessageInfo
+                                                                              ?.messageType ==
+                                                                          "4"
+                                                                      ? "File"
+                                                                      : chatlistmodal
+                                                                              ?.venue
+                                                                              ?.lastChatMessageInfo
+                                                                              ?.message ??
+                                                                          "",
+                                                      maxLines: 2,
+                                                      style: TextStyle(
+                                                          fontSize: 12.sp,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontFamily: 'soi',
+                                                          color:
+                                                              Colors.black54),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              // SizedBox(
+                                              //   width: 3.w,
+                                              // ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    : Container(),
+                                sel1 == 1 ? SizedBox(height: 1.h) : Container(),
+                                sel1 == 1
+                                    ? Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w),
+                                        child: Divider(color: Colors.black87),
+                                      )
+                                    : Container(),
+                                sel1 == 1
+                                    ? Container()
+                                    : threadlist?.data?.topicDetails?.length ==
+                                            0
+                                        ? Container()
+                                        : Column(
+                                            children: [
+                                              for (int index = 0;
+                                                  index <
+                                                      (threadlist
+                                                              ?.data
+                                                              ?.topicDetails
+                                                              ?.length ??
+                                                          0);
+                                                  index++) ...[
+                                                Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 3.w,
+                                                      vertical: 1.h),
+                                                  margin: EdgeInsets.symmetric(
+                                                      vertical: 1.h),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    color: Colors.white,
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                        margin: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal:
+                                                                    1.w),
+                                                        height: 7.h,
+                                                        width: 15.w,
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(90),
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            fit: BoxFit.cover,
+                                                            imageUrl: threadlist
+                                                                    ?.data
+                                                                    ?.topicDetails?[
+                                                                        index]
+                                                                    .memberProfile
+                                                                    ?.profile ??
+                                                                "",
+                                                            progressIndicatorBuilder:
+                                                                (context, url,
+                                                                        progress) =>
+                                                                    CircularProgressIndicator(),
+                                                            errorWidget:
+                                                                (context, url,
+                                                                        error) =>
+                                                                    Image.asset(
+                                                              'assets/user.png',
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
+                                                      Row(
+                                                        children: [
+                                                          Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Container(
+                                                                width: 60.w,
+                                                                child: Text(
+                                                                  threadlist
+                                                                          ?.data
+                                                                          ?.topicDetails?[
+                                                                              index]
+                                                                          .topicTitle ??
+                                                                      "",
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          16.sp,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      letterSpacing:
+                                                                          1,
+                                                                      fontFamily:
+                                                                          'sofi',
+                                                                      color: Colors
+                                                                          .black),
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                height: 1.h,
+                                                              ),
+                                                              SizedBox(
+                                                                width: 60.w,
+                                                                child: Text(
+                                                                  threadlist
+                                                                          ?.data
+                                                                          ?.topicDetails?[
+                                                                              index]
+                                                                          .memberProfile
+                                                                          ?.name ??
+                                                                      "",
+                                                                  maxLines: 2,
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          12.sp,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontFamily:
+                                                                          'sofi',
+                                                                      color: Colors
+                                                                          .black54),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                          InkWell(
+                                                            onTap: () {
+                                                              Get.to(ThreadPage(
+                                                                id: threadlist
+                                                                    ?.data
+                                                                    ?.topicDetails?[
+                                                                        index]
+                                                                    .id,
+                                                                name: threadlist
+                                                                    ?.data
+                                                                    ?.topicDetails?[
+                                                                        index]
+                                                                    .topicTitle,
+                                                                img: threadlist
+                                                                    ?.data
+                                                                    ?.topicDetails?[
+                                                                        index]
+                                                                    .memberProfile
+                                                                    ?.profile,
+                                                              ));
+                                                            },
+                                                            child: Container(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(
+                                                                          5.sp),
+                                                              decoration: BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8),
+                                                                  color: Colors
+                                                                      .blue),
+                                                              child:
+                                                                  Image.asset(
+                                                                "assets/bottom/5.png",
+                                                                height: 2.5.h,
+                                                                width: 5.w,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )
+                                              ]
+                                            ],
+                                          ),
+                                SizedBox(height: 1.h),
+                                sel1 == 1
+                                    ? Row(
+                                        children: [
+                                          SizedBox(width: 2.w),
+                                          Text(
+                                            'Suppliers ',
+                                            style: TextStyle(
+                                                fontSize: 18.sp,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 1,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      )
+                                    : Container(),
+                                sel1 == 1 ? SizedBox(height: 2.h) : Container(),
+                                sel1 == 1
+                                    ? chatlistmodal?.suppliers?.length == 0
+                                        ? Container(
+                                            height: 40.h,
+                                            alignment: Alignment.center,
+                                            child: Text("No Supplier available",
+                                                style: TextStyle(
+                                                    fontSize: 16.sp,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1,
+                                                    fontFamily: 'sofi',
+                                                    color: Colors.black)),
+                                          )
+                                        : Column(
+                                            children: [
+                                              for (int index = 0;
+                                                  index <
+                                                      (chatlistmodal?.suppliers
+                                                              ?.length ??
+                                                          0);
+                                                  index++) ...[
+                                                InkWell(
+                                                  onTap: () {
+                                                    print(chatlistmodal
+                                                        ?.suppliers?[index]
+                                                        .profile);
+                                                    Get.to(Msg2(
+                                                      id: chatlistmodal
+                                                          ?.suppliers?[index]
+                                                          .id,
+                                                      name: chatlistmodal
+                                                          ?.suppliers?[index]
+                                                          .name,
+                                                      img: chatlistmodal
+                                                          ?.suppliers?[index]
+                                                          .profile,
+                                                    ));
+                                                  },
+                                                  child: Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 3.w,
+                                                            vertical: 1.h),
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 1.h),
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      color: Colors.white,
                                                     ),
-                                                    // SizedBox(
-                                                    //   width: 3.w,
-                                                    // ),
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
+                                                    child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
                                                               .center,
                                                       children: [
                                                         Container(
-                                                          width: 68.w,
-                                                          child: Row(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                chatlistmodal?.suppliers?[index].name ==
-                                                                            "" ||
-                                                                        chatlistmodal?.suppliers?[index].name ==
-                                                                            null
-                                                                    ? "N/A"
-                                                                    : chatlistmodal
-                                                                            ?.suppliers?[index]
-                                                                            .name ??
-                                                                        "",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        16.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    letterSpacing:
-                                                                        1,
-                                                                    fontFamily:
-                                                                        'sofi',
-                                                                    color: Colors
-                                                                        .black),
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      1.w),
+                                                          height: 7.h,
+                                                          width: 15.w,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        90),
+                                                            child:
+                                                                CachedNetworkImage(
+                                                              fit: BoxFit.cover,
+                                                              imageUrl: chatlistmodal
+                                                                      ?.suppliers?[
+                                                                          index]
+                                                                      .profile ??
+                                                                  "",
+                                                              progressIndicatorBuilder:
+                                                                  (context, url,
+                                                                          progress) =>
+                                                                      CircularProgressIndicator(),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  Image.asset(
+                                                                'assets/user.png',
+                                                                color: Colors
+                                                                    .white,
                                                               ),
-                                                              Text(
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        // SizedBox(
+                                                        //   width: 3.w,
+                                                        // ),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Container(
+                                                              width: 68.w,
+                                                              child: Row(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(
+                                                                    chatlistmodal?.suppliers?[index].name ==
+                                                                                "" ||
+                                                                            chatlistmodal?.suppliers?[index].name ==
+                                                                                null
+                                                                        ? "N/A"
+                                                                        : chatlistmodal?.suppliers?[index].name ??
+                                                                            "",
+                                                                    style: TextStyle(
+                                                                        fontSize: 16
+                                                                            .sp,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        letterSpacing:
+                                                                            1,
+                                                                        fontFamily:
+                                                                            'sofi',
+                                                                        color: Colors
+                                                                            .black),
+                                                                  ),
+                                                                  Text(
+                                                                    chatlistmodal?.suppliers?[index].lastChatMessageInfo1 ==
+                                                                            null
+                                                                        ? ""
+                                                                        : DateFormat('HH:mm').format(DateTime.parse(chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.createdAt ??
+                                                                            "")),
+                                                                    style: TextStyle(
+                                                                        fontSize: 10
+                                                                            .sp,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .w400,
+                                                                        fontFamily:
+                                                                            'sofi',
+                                                                        color: Colors
+                                                                            .black),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 1.h,
+                                                            ),
+                                                            SizedBox(
+                                                              width: 52.w,
+                                                              child: Text(
                                                                 chatlistmodal
                                                                             ?.suppliers?[
                                                                                 index]
                                                                             .lastChatMessageInfo1 ==
                                                                         null
                                                                     ? ""
-                                                                    : DateFormat('HH:mm').format(DateTime.parse(chatlistmodal
-                                                                            ?.suppliers?[index]
-                                                                            .lastChatMessageInfo1
-                                                                            ?.createdAt ??
-                                                                        "")),
+                                                                    : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.messageType ==
+                                                                            "2"
+                                                                        ? "Image"
+                                                                        : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.messageType ==
+                                                                                "3"
+                                                                            ? "Video"
+                                                                            : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.messageType == "4"
+                                                                                ? "File"
+                                                                                : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ?? "",
+                                                                maxLines: 2,
                                                                 style: TextStyle(
                                                                     fontSize:
-                                                                        10.sp,
+                                                                        12.sp,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w400,
+                                                                            .w500,
                                                                     fontFamily:
                                                                         'sofi',
                                                                     color: Colors
-                                                                        .black),
+                                                                        .black54),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            )
+                                                          ],
                                                         ),
-                                                        SizedBox(
-                                                          height: 1.h,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 52.w,
-                                                          child: Text(
-                                                            chatlistmodal
-                                                                        ?.suppliers?[
-                                                                            index]
-                                                                        .lastChatMessageInfo1 ==
-                                                                    null
-                                                                ? ""
-                                                                : chatlistmodal
-                                                                            ?.suppliers?[
-                                                                                index]
-                                                                            .lastChatMessageInfo1
-                                                                            ?.messageType ==
-                                                                        "2"
-                                                                    ? "Image"
-                                                                    : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.messageType ==
-                                                                            "3"
-                                                                        ? "Video"
-                                                                        : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.messageType ==
-                                                                                "4"
-                                                                            ? "File"
-                                                                            : chatlistmodal?.suppliers?[index].lastChatMessageInfo1?.message ??
-                                                                                "",
-                                                            maxLines: 2,
-                                                            style: TextStyle(
-                                                                fontSize: 12.sp,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontFamily:
-                                                                    'sofi',
-                                                                color: Colors
-                                                                    .black54),
-                                                          ),
-                                                        )
                                                       ],
                                                     ),
-                                                  ],
-                                                ),
-                                              ),
-                                            )
-                                          ]
-                                        ],
-                                      ):Container(),
+                                                  ),
+                                                )
+                                              ]
+                                            ],
+                                          )
+                                    : Container(),
                               ],
                             ),
                       SizedBox(

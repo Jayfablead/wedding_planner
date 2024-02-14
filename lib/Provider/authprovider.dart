@@ -119,6 +119,7 @@ class authprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> threadlistapi() async {
     String? url = '$baseUrl/threadChatTopic/${userData?.user?.id.toString()}';
     var responseJson;
@@ -174,10 +175,9 @@ class authprovider with ChangeNotifier {
       return responseJson;
     }
   }
-  Future<http.Response> sendthreadapi(
-      Map<String, String> bodyData) async {
-    String? url =
-        '$baseUrl/sendThreadMessage/${userData?.user?.id.toString()}';
+
+  Future<http.Response> sendthreadapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/sendThreadMessage/${userData?.user?.id.toString()}';
 
     var responseJson;
     if (bodyData['mType'] == "1") {
@@ -230,8 +230,10 @@ class authprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> threadchatapi(String? data1) async {
-    String? url = '$baseUrl/fullThreadChat/${userData?.user?.id.toString()}/$data1';
+    String? url =
+        '$baseUrl/fullThreadChat/${userData?.user?.id.toString()}/$data1';
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
       const Duration(seconds: 60),

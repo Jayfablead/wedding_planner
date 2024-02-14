@@ -95,12 +95,12 @@ class ThreadData {
 
   ThreadData(
       {this.id,
-        this.memberId,
-        this.createdById,
-        this.userType,
-        this.topicTitle,
-        this.createdByType,
-        this.createdAt});
+      this.memberId,
+      this.createdById,
+      this.userType,
+      this.topicTitle,
+      this.createdByType,
+      this.createdAt});
 
   ThreadData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -138,14 +138,14 @@ class Livechat {
 
   Livechat(
       {this.id,
-        this.userType,
-        this.topicId,
-        this.fromId,
-        this.toId,
-        this.messageType,
-        this.message,
-        this.readStatus,
-        this.createdAt});
+      this.userType,
+      this.topicId,
+      this.fromId,
+      this.toId,
+      this.messageType,
+      this.message,
+      this.readStatus,
+      this.createdAt});
 
   Livechat.fromJson(Map<String, dynamic> json) {
     id = json['id'];

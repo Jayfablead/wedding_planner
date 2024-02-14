@@ -61,13 +61,13 @@ class TopicDetails {
 
   TopicDetails(
       {this.id,
-        this.memberId,
-        this.createdById,
-        this.userType,
-        this.topicTitle,
-        this.createdByType,
-        this.createdAt,
-        this.memberProfile});
+      this.memberId,
+      this.createdById,
+      this.userType,
+      this.topicTitle,
+      this.createdByType,
+      this.createdAt,
+      this.memberProfile});
 
   TopicDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -112,15 +112,15 @@ class MemberProfile {
 
   MemberProfile(
       {this.id,
-        this.name,
-        this.email,
-        this.password,
-        this.role,
-        this.supplierApprovalStatus,
-        this.profile,
-        this.contact,
-        this.forgotPassKey,
-        this.createdAt});
+      this.name,
+      this.email,
+      this.password,
+      this.role,
+      this.supplierApprovalStatus,
+      this.profile,
+      this.contact,
+      this.forgotPassKey,
+      this.createdAt});
 
   MemberProfile.fromJson(Map<String, dynamic> json) {
     id = json['id'];

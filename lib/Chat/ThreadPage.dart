@@ -14,10 +14,8 @@ import 'package:intl/intl.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/Modal/FullchatModal.dart';
 import 'package:wedding_planner/Modal/ReadnewmsgModal.dart';
 import 'package:wedding_planner/Modal/SendThradModal.dart';
-import 'package:wedding_planner/Modal/SendmessageModal.dart';
 import 'package:wedding_planner/Modal/ThreadChatModal.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
@@ -77,12 +75,14 @@ class _ThreadPageState extends State<ThreadPage> {
   bool isLoading = true;
   ImagePicker _picker = ImagePicker();
   File? _pickedFile = null;
-@override
+
+  @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
     _timer?.cancel();
   }
+
   @override
   Widget build(BuildContext context) {
     return commanScreen(
