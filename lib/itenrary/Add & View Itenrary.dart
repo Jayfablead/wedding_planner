@@ -8,7 +8,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/itienraryModal.dart';
-import 'package:wedding_planner/itenrary/Itenrary%20Details.dart';
+
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
@@ -17,6 +17,7 @@ import '../Provider/taskprovider.dart';
 import '../widgets/buildErrorDialog.dart';
 import '../widgets/const.dart';
 import '../widgets/headerwidget.dart';
+import 'Itenrary Details.dart';
 
 class AddViewItenrary extends StatefulWidget {
   const AddViewItenrary({super.key});

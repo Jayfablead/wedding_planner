@@ -1,38 +1,37 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Authenticate/changePassword.dart';
 import 'package:wedding_planner/Authenticate/profilePage.dart';
 import 'package:wedding_planner/Chat/ChatListPage.dart';
-import 'package:wedding_planner/Guest/GuestList.dart';
-import 'package:wedding_planner/Guest/seatingChart2.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Others/MoodBoards.dart';
-import 'package:wedding_planner/Others/NotificationScreen.dart';
 import 'package:wedding_planner/Others/certificate.dart';
 import 'package:wedding_planner/Others/guestroomManagement.dart';
 import 'package:wedding_planner/Others/viewBudgetPage.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Quatations/quoatelist2.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
+import 'package:wedding_planner/Venue/EventSpace.dart';
+import 'package:wedding_planner/Venue/MyVenueDetailspages.dart';
 import 'package:wedding_planner/bookings/view%20all%20bookings.dart';
-import 'package:wedding_planner/chnages/invoiceList.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
 import 'package:wedding_planner/chnages/yellowHomePage.dart';
 import 'package:wedding_planner/itenrary/Add%20&%20View%20Itenrary.dart';
+import 'package:wedding_planner/itenrary/ExampleItnerary.dart';
+import 'package:wedding_planner/widgets/WebScreen.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 import '../Authenticate/LoginPage.dart';
 import '../Modal/NotificationModal.dart';
-import '../Others/Check List.dart';
 import '../Suppliers/mysplirs.dart';
 import '../Venue/MyVenue.dart';
-import '../wait/Accomendation Page.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -83,11 +82,23 @@ class _drawer1State extends State<drawer1> {
                           onPressed: () {
                             setState(() {
                               show = !show;
-                              vari == 1 || vari == 2 || vari == 3
+                              vari == 1 ||
+                                      vari == 2 ||
+                                      vari == 3 ||
+                                      vari == 4 ||
+                                      vari == 5 ||
+                                      vari == 6 ||
+                                      vari == 7
                                   ? vari = 0
                                   : vari;
 
-                              vari == 1 || vari == 2 || vari == 3
+                              vari == 1 ||
+                                      vari == 2 ||
+                                      vari == 3 ||
+                                      vari == 4 ||
+                                      vari == 5 ||
+                                      vari == 6 ||
+                                      vari == 7
                                   ? ""
                                   : show
                                       ? Get.back()
@@ -152,21 +163,92 @@ class _drawer1State extends State<drawer1> {
                                   ),
                                 ),
                               )
-                            : Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: Center(
-                                  child: Text(
-                                    "Others",
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontFamily: 'sofi',
-                                      letterSpacing: 1,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
+                            : vari == 4
+                                ? Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 3.w),
+                                    child: Center(
+                                      child: Text(
+                                        "Settings",
+                                        style: TextStyle(
+                                          fontSize: 20.sp,
+                                          fontFamily: 'sofi',
+                                          letterSpacing: 1,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ),
+                                  )
+                                : vari == 5
+                                    ? Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 3.w),
+                                        child: Center(
+                                          child: Text(
+                                            "Itinerary",
+                                            style: TextStyle(
+                                              fontSize: 20.sp,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : vari == 6
+                                        ? Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 3.w),
+                                            child: Center(
+                                              child: Text(
+                                                "Meetings",
+                                                style: TextStyle(
+                                                  fontSize: 20.sp,
+                                                  fontFamily: 'sofi',
+                                                  letterSpacing: 1,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : vari == 7
+                                            ? Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 3.w),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Delivery/Collection",
+                                                    style: TextStyle(
+                                                      fontSize: 20.sp,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            : Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 3.w),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Others",
+                                                    style: TextStyle(
+                                                      fontSize: 20.sp,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                 SizedBox(
                   height: 3.h,
                 ),
@@ -180,8 +262,8 @@ class _drawer1State extends State<drawer1> {
                         child: Stack(
                           children: [
                             Positioned(
-                              top: 34.w,
-                              left: 3.w,
+                              top: 35.w,
+                              left: 5.w,
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -192,8 +274,8 @@ class _drawer1State extends State<drawer1> {
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
+                                  height: 24.w,
+                                  width: 24.w,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white),
@@ -203,9 +285,9 @@ class _drawer1State extends State<drawer1> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.place_rounded,
+                                        Icons.maps_home_work_outlined,
                                         size: 30.sp,
-                                        color: Colors.green,
+                                        color: Colors.teal,
                                       ),
                                       // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
                                       SizedBox(
@@ -226,8 +308,8 @@ class _drawer1State extends State<drawer1> {
                               ),
                             ),
                             Positioned(
-                              top: 34.w,
-                              right: 3.w,
+                              top: 35.w,
+                              right: 5.w,
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -238,8 +320,8 @@ class _drawer1State extends State<drawer1> {
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
+                                  height: 24.w,
+                                  width: 24.w,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white),
@@ -258,7 +340,7 @@ class _drawer1State extends State<drawer1> {
                                         height: 1.h,
                                       ),
                                       Text(
-                                        "Supplier",
+                                        "Suppliers",
                                         style: TextStyle(
                                           fontSize: 10.sp,
                                           fontFamily: 'sofi',
@@ -296,7 +378,7 @@ class _drawer1State extends State<drawer1> {
                                       Icon(
                                         Icons.home,
                                         size: 30.sp,
-                                        color: Colors.orange,
+                                        color: Colors.indigoAccent,
                                       ),
                                       // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
                                       SizedBox(
@@ -305,7 +387,7 @@ class _drawer1State extends State<drawer1> {
                                       Text(
                                         "Home",
                                         style: TextStyle(
-                                          fontSize: 10.sp,
+                                          fontSize: 12.sp,
                                           fontFamily: 'sofi',
                                           letterSpacing: 1,
                                           fontWeight: FontWeight.bold,
@@ -317,21 +399,20 @@ class _drawer1State extends State<drawer1> {
                               ),
                             ),
                             Positioned(
-                              top: 5.w,
-                              left: 20.w,
+                              top: 10.w,
+                              left: 13.5.w,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.back();
-                                  Get.to(
-                                    MeetingsPage(
-                                      sele: 0,
-                                    ),
-                                  );
+                                  setState(() {
+                                    show = !show;
+                                    vari = 6;
+                                  });
+                                  meetings();
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
+                                  height: 24.w,
+                                  width: 24.w,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white),
@@ -341,16 +422,16 @@ class _drawer1State extends State<drawer1> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.meeting_room_sharp,
-                                        size: 30.sp,
-                                        color: Colors.blueAccent,
+                                        Icons.people_alt_outlined,
+                                        size: 27.sp,
+                                        color: Colors.purpleAccent,
                                       ),
                                       // Image.asset("assets/meeting.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blueAccent),
                                       SizedBox(
                                         height: 1.h,
                                       ),
                                       Text(
-                                        "Meeting",
+                                        "Meetings",
                                         style: TextStyle(
                                           fontSize: 10.sp,
                                           fontFamily: 'sofi',
@@ -364,8 +445,53 @@ class _drawer1State extends State<drawer1> {
                               ),
                             ),
                             Positioned(
-                              top: 5.w,
-                              right: 20.w,
+                              left: 37.7.w,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    show = !show;
+                                    vari = 5;
+                                  });
+                                  itinerary();
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: 24.w,
+                                  width: 24.w,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.emoji_transportation_outlined,
+                                        size: 30.sp,
+                                        color: Colors.deepPurple,
+                                      ),
+                                      // Image.asset("assets/meeting.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blueAccent),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Text(
+                                        "Itinerary",
+                                        style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontFamily: 'sofi',
+                                          letterSpacing: 1,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 10.w,
+                              right: 13.5.w,
                               child: GestureDetector(
                                 onTap: () {
                                   Get.back();
@@ -375,8 +501,8 @@ class _drawer1State extends State<drawer1> {
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
+                                  height: 24.w,
+                                  width: 24.w,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white),
@@ -385,21 +511,14 @@ class _drawer1State extends State<drawer1> {
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Image.asset("assets/bottom/7.png",
-                                          height: 7.h,
-                                          width: 10.w,
-                                          color: Colors.redAccent),
-                                      // Icon(
-                                      //   Icons.developer_board,
-                                      //   size: 30.sp,
-                                      //   color: Colors.deepOrange,
-                                      // ),
-                                      // Image.asset("assets/board.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.deepOrange),
-                                      // SizedBox(
-                                      //   height: 1.h,
-                                      // ),
+                                      Icon(
+                                        CupertinoIcons.calendar,
+                                        size: 23.sp,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
+                                      SizedBox(height: 0.5.h),
                                       Text(
-                                        "Board",
+                                        "My Event",
                                         style: TextStyle(
                                           fontSize: 10.sp,
                                           fontFamily: 'sofi',
@@ -413,8 +532,8 @@ class _drawer1State extends State<drawer1> {
                               ),
                             ),
                             Positioned(
-                              bottom: 5.w,
-                              left: 20.w,
+                              bottom: 9.5.w,
+                              left: 13.w,
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -425,8 +544,8 @@ class _drawer1State extends State<drawer1> {
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  height: 26.w,
-                                  width: 26.w,
+                                  height: 24.w,
+                                  width: 24.w,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white),
@@ -436,8 +555,8 @@ class _drawer1State extends State<drawer1> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.more,
-                                        size: 30.sp,
+                                        CupertinoIcons.app_badge,
+                                        size: 25.sp,
                                         color: Colors.blue,
                                       ),
                                       // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
@@ -459,18 +578,19 @@ class _drawer1State extends State<drawer1> {
                               ),
                             ),
                             Positioned(
-                              bottom: 5.w,
-                              right: 20.w,
+                              bottom: 9.5.w,
+                              right: 13.w,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.back();
-                                  Get.to(
-                                    Check_list(),
-                                  );
+                                  setState(() {
+                                    show = !show;
+                                    vari = 4;
+                                  });
+                                  settings();
                                 },
                                 child: Container(
-                                  height: 26.w,
-                                  width: 26.w,
+                                  height: 24.w,
+                                  width: 24.w,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white),
@@ -480,16 +600,62 @@ class _drawer1State extends State<drawer1> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.checklist_outlined,
-                                        size: 30.sp,
-                                        color: Colors.blue,
+                                        Icons.settings,
+                                        size: 28.sp,
+                                        color: Colors.orange,
                                       ),
                                       // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
                                       SizedBox(
                                         height: 1.h,
                                       ),
                                       Text(
-                                        "Check List",
+                                        "Settings",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontFamily: 'sofi',
+                                          letterSpacing: 1,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0.5.w,
+                              right: 38.w,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    show = !show;
+                                    vari = 7;
+                                  });
+                                  delivery();
+                                },
+                                child: Container(
+                                  height: 24.w,
+                                  width: 24.w,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.car_detailed,
+                                        size: 25.sp,
+                                        color: Colors.pink,
+                                      ),
+                                      // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                                      SizedBox(
+                                        height: 0.8.h,
+                                      ),
+                                      Text(
+                                        "Delivery/Collection",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontSize: 10.sp,
@@ -510,205 +676,20 @@ class _drawer1State extends State<drawer1> {
                         ? venue()
                         : vari == 2
                             ? supplier()
-                            : other(),
+                            : vari == 4
+                                ? settings()
+                                : vari == 5
+                                    ? itinerary()
+                                    : vari == 6
+                                        ? meetings()
+                                        : vari == 7
+                                            ? delivery()
+                                            : other(),
                 SizedBox(
-                  height: 4.h,
+                  height: 7.h,
                 ),
                 // SizedBox(height: 0.5.h,),
-                InkWell(
-                    onTap: () async {
-                      Get.back();
-                      Get.to(MyProfile());
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 63.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.person_2_outlined,
-                                      color: Colors.white,
-                                      size: 22.sp,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("My Profile",
-                                        style: TextStyle(
-                                          fontSize: 17.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'sofi',
-                                          color: Colors.white,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                SizedBox(height: 2.h),
-                // InkWell(
-                //     onTap: () async {
-                //       Get.back();
-                //       Get.to(GuestList());
-                //     },
-                //     child: Container(
-                //       child: Row(
-                //         children: [
-                //           SizedBox(
-                //             width: 6.w,
-                //           ),
-                //           Container(
-                //             width: 63.w,
-                //             child: Row(
-                //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //               children: [
-                //                 Row(
-                //                   children: [
-                //                     Icon(
-                //                       Icons.people_alt_outlined,
-                //                       color: Colors.white,
-                //                       size: 22.sp,
-                //                     ),
-                //                     SizedBox(
-                //                       width: 2.w,
-                //                     ),
-                //                     Text("Guests List",
-                //                         style: TextStyle(
-                //                           fontSize: 17.sp,
-                //                           fontWeight: FontWeight.bold,
-                //                           fontFamily: 'sofi',
-                //                           color: Colors.white,
-                //                         )),
-                //                   ],
-                //                 ),
-                //               ],
-                //             ),
-                //           ),
-                //         ],
-                //       ),
-                //     )),
-                // SizedBox(height: 2.h),
-                Stack(
-                  children: [
-                    InkWell(
-                        onTap: () async {
-                          Get.back();
-                          Get.to(NotificationScreen());
-                        },
-                        child: Container(
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 6.w,
-                              ),
-                              Container(
-                                width: 63.w,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.notifications_none_rounded,
-                                          color: Colors.white,
-                                          size: 22.sp,
-                                        ),
-                                        SizedBox(
-                                          width: 2.w,
-                                        ),
-                                        Text("Notifications",
-                                            style: TextStyle(
-                                              fontSize: 17.sp,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'sofi',
-                                              color: Colors.white,
-                                            )),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        )),
-                    unreadnotimodal?.status == "1"
-                        ? Positioned(
-                            left: 47.w,
-                            bottom: 1.2.h,
-                            child: Container(
-                              width: 5.w,
-                              height: 5.w,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: Colors.red, shape: BoxShape.circle),
-                              child:
-                                  Text((unreadnotimodal?.unreadNoti).toString(),
-                                      style: TextStyle(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'sofi',
-                                        color: Colors.white,
-                                      )),
-                            ))
-                        : Container()
-                  ],
-                ),
-                SizedBox(height: 2.h),
 
-                InkWell(
-                    onTap: () async {
-                      Get.back();
-                      Get.to(ChangePassword());
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 63.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.lock_open_outlined,
-                                      color: Colors.white,
-                                      size: 22.sp,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Change Password",
-                                        style: TextStyle(
-                                          fontSize: 17.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'sofi',
-                                          color: Colors.white,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                SizedBox(height: 2.h),
                 InkWell(
                     onTap: () async {
                       Get.back();
@@ -763,6 +744,7 @@ class _drawer1State extends State<drawer1> {
       fontFamily: 'sofi',
       fontWeight: FontWeight.bold);
 
+
   venue() {
     return Container(
       height: 86.w,
@@ -772,8 +754,8 @@ class _drawer1State extends State<drawer1> {
       child: Stack(
         children: [
           Positioned(
-            top: 11.w,
-            left: 19.w,
+            top: 17.w,
+            left: 38.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -790,7 +772,7 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.location_on,
+                      Icons.home_work_outlined,
                       size: 25.sp,
                       color: Colors.green,
                     ),
@@ -799,9 +781,9 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "My venue",
+                      "Venue Profile",
                       style: TextStyle(
-                        fontSize: 8.sp,
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -813,12 +795,12 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            top: 11.w,
-            right: 19.w,
+            top: 39.w,
+            right: 54.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(ViewTables2());
+                Get.to(VenueDetailsview());
               },
               child: Container(
                 alignment: Alignment.center,
@@ -840,10 +822,10 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "Seating Chart",
+                      "Venue Details",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 8.sp,
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -855,59 +837,14 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            top: 29.w,
-            left: 36.w,
+            bottom: 23.w,
+            right: 22.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(Accomendation_Page());
+                Get.to(EventSpace());
               },
               child: Container(
-                alignment: Alignment.center,
-                height: 28.w,
-                width: 28.w,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.local_hotel_rounded,
-                      size: 25.sp,
-                      color: Colors.orange,
-                    ),
-                    // Image.asset("assets/home.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.orange),
-                    SizedBox(
-                      height: 0.5.h,
-                    ),
-                    Text(
-                      "Accommodation",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 8.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 11.w,
-            left: 19.w,
-            child: GestureDetector(
-              onTap: () {
-                Get.back();
-                Get.to(ChatlistPage(
-                  sele: 3,
-                ));
-              },
-              child: Container(
-                alignment: Alignment.center,
                 height: 24.w,
                 width: 24.w,
                 decoration:
@@ -917,18 +854,74 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.chat,
+                      CupertinoIcons.calendar,
                       size: 25.sp,
-                      color: Colors.blue,
+                      color: Colors.pink,
                     ),
-                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
+                    // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
                     SizedBox(
                       height: 0.5.h,
                     ),
                     Text(
-                      "Chat",
+                      "Event Spaces",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 8.sp,
+                        fontSize: 9.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  delivery() {
+    return Container(
+      height: 86.w,
+      width: 86.w,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: Colors.white.withOpacity(0.4)),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 17.w,
+            left: 38.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(VenueView());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.5.w,
+                width: 24.5.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.home_work_outlined,
+                      size: 25.sp,
+                      color: Colors.green,
+                    ),
+                    // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "My Deliveries/ Collections",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -940,14 +933,111 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            bottom: 11.w,
-            right: 19.w,
+            top: 39.w,
+            right: 54.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(GuestList());
+                Get.to(VenueDetailsview());
               },
               child: Container(
+                alignment: Alignment.center,
+                height: 24.5.w,
+                width: 24.5.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.chair_rounded,
+                      size: 25.sp,
+                      color: Colors.red,
+                    ),
+                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Request Deliveries/ Collections",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 22.w,
+            right: 22.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(EventSpace());
+              },
+              child: Container(
+                height: 24.5.w,
+                width: 24.5.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      CupertinoIcons.calendar,
+                      size: 25.sp,
+                      color: Colors.pink,
+                    ),
+                    // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Pending Delivery Requests",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  meetings() {
+    return Container(
+      height: 86.w,
+      width: 86.w,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: Colors.white.withOpacity(0.4)),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 30.w,
+            right: 54.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(MeetingsPage(sele: 0));
+              },
+              child: Container(
+                alignment: Alignment.center,
                 height: 24.w,
                 width: 24.w,
                 decoration:
@@ -959,6 +1049,47 @@ class _drawer1State extends State<drawer1> {
                     Icon(
                       Icons.people_alt_outlined,
                       size: 25.sp,
+                      color: Colors.red,
+                    ),
+                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Meetings",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 32.w,
+            right: 22.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(AddViewItenrary());
+              },
+              child: Container(
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.person_search_outlined,
+                      size: 25.sp,
                       color: Colors.pink,
                     ),
                     // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
@@ -966,10 +1097,106 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "Guest List",
+                      "Pending Meeting Requests",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 8.sp,
+                        fontSize: 9.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  itinerary() {
+    return Container(
+      height: 86.w,
+      width: 86.w,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: Colors.white.withOpacity(0.4)),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 30.w,
+            right: 54.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(ExampleItinerary());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.chair_rounded,
+                      size: 25.sp,
+                      color: Colors.red,
+                    ),
+                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Example Itinerary",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 32.w,
+            right: 22.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(AddViewItenrary());
+              },
+              child: Container(
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.emoji_transportation_rounded,
+                      size: 25.sp,
+                      color: Colors.pink,
+                    ),
+                    // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Upload my itinerary",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -1040,7 +1267,9 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(AddViewItenrary());
+                Get.to(ChatlistPage(
+                  sele: 3,
+                ));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -1053,17 +1282,16 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.emoji_transportation_outlined,
+                      Icons.chat,
                       size: 25.sp,
-                      color: Colors.red,
+                      color: Colors.blue,
                     ),
-                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
                     SizedBox(
                       height: 0.5.h,
                     ),
                     Text(
-                      "Itinerary",
-                      textAlign: TextAlign.center,
+                      "Chat",
                       style: TextStyle(
                         fontSize: 8.sp,
                         fontFamily: 'sofi',
@@ -1205,6 +1433,197 @@ class _drawer1State extends State<drawer1> {
     );
   }
 
+  settings() {
+    return Container(
+      height: 86.w,
+      width: 86.w,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: Colors.white.withOpacity(0.4)),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 12.w,
+            left: 37.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(ChangePassword());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      CupertinoIcons.lock_circle,
+                      size: 23.sp,
+                      color: Colors.red,
+                    ),
+                    // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Change Password",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 31.5.w,
+            right: 20.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(
+                  Webviewscreen(
+                    paymentsurl:
+                        'https://wedding.londontechequity.co.uk/portal',
+                    title: 'Privacy Policy',
+                  ),
+                );
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      CupertinoIcons.lock_shield,
+                      size: 23.sp,
+                      color: Colors.green,
+                    ),
+                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "Privacy Policy",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.w,
+            left: 37.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(MyProfile());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 24.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      CupertinoIcons.person,
+                      size: 23.sp,
+                      color: Colors.blue,
+                    ),
+                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "My Profile",
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 30.w,
+            left: 18.w,
+            child: GestureDetector(
+              onTap: () {
+                Get.back();
+                Get.to(
+                  Webviewscreen(
+                    paymentsurl:
+                        'https://wedding.londontechequity.co.uk/portal',
+                    title: 'User Policy',
+                  ),
+                );
+              },
+              child: Container(
+                height: 25.w,
+                width: 24.w,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      CupertinoIcons.doc_append,
+                      size: 21.sp,
+                      color: Colors.orange,
+                    ),
+                    // Image.asset("assets/accomo.png",height: 12.w,width: 12.w,color: Colors.orange,fit: BoxFit.cover,),
+                    SizedBox(
+                      height: 0.5.h,
+                    ),
+                    Text(
+                      "User Policy",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 8.sp,
+                        fontFamily: 'sofi',
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   supplier() {
     return Container(
       height: 86.w,
@@ -1214,8 +1633,8 @@ class _drawer1State extends State<drawer1> {
       child: Stack(
         children: [
           Positioned(
-            top: 11.w,
-            left: 19.w,
+            top: 12.w,
+            left: 37.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -1232,7 +1651,7 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.contrast,
+                      Icons.people,
                       size: 25.sp,
                       color: Colors.green,
                     ),
@@ -1241,9 +1660,9 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "Contracts",
+                      "My Suppliers",
                       style: TextStyle(
-                        fontSize: 8.sp,
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -1255,8 +1674,8 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            top: 11.w,
-            right: 19.w,
+            top: 31.5.w,
+            right: 20.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -1275,16 +1694,17 @@ class _drawer1State extends State<drawer1> {
                     Icon(
                       Icons.person,
                       size: 25.sp,
-                      color: Colors.red,
+                      color: Colors.deepOrangeAccent,
                     ),
                     // Image.asset("assets/venue.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.green,),
                     SizedBox(
                       height: 0.5.h,
                     ),
                     Text(
-                      "All Suppliers",
+                      "Approved Suppliers",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -1296,8 +1716,8 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            top: 29.w,
-            left: 36.w,
+            bottom: 12.w,
+            left: 37.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -1305,8 +1725,8 @@ class _drawer1State extends State<drawer1> {
               },
               child: Container(
                 alignment: Alignment.center,
-                height: 28.w,
-                width: 28.w,
+                height: 24.w,
+                width: 24.w,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
@@ -1323,10 +1743,10 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "New Supplier Quotes",
+                      "Request Supplier",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
@@ -1338,49 +1758,8 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            bottom: 11.w,
-            left: 19.w,
-            child: GestureDetector(
-              onTap: () {
-                Get.back();
-                Get.to(InvoiceList());
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 24.w,
-                width: 24.w,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.monetization_on,
-                      size: 25.sp,
-                      color: Colors.amber,
-                    ),
-                    // Image.asset("assets/chat.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.blue),
-                    SizedBox(
-                      height: 0.5.h,
-                    ),
-                    Text(
-                      "Invoice Detail",
-                      style: TextStyle(
-                        fontSize: 8.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 11.w,
-            right: 19.w,
+            bottom: 30.w,
+            left: 18.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
@@ -1400,7 +1779,7 @@ class _drawer1State extends State<drawer1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.person_outline,
+                      Icons.person_search_outlined,
                       size: 25.sp,
                       color: Colors.blue,
                     ),
@@ -1409,10 +1788,10 @@ class _drawer1State extends State<drawer1> {
                       height: 0.5.h,
                     ),
                     Text(
-                      "My Supplier",
+                      "Pending Supplier Requests",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 8.sp,
+                        fontSize: 9.sp,
                         fontFamily: 'sofi',
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
