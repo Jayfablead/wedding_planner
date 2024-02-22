@@ -434,6 +434,7 @@ buildErrorDialog1(
   }
   // show the dialog
 }
+
 buildErrorDialog2(
     BuildContext context, String title, String contant, VoidCallback? callback,
     {String? buttonname}) {
@@ -449,7 +450,8 @@ buildErrorDialog2(
           child: Text(buttonname ?? 'OK',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 11.sp,color: Colors.red,
+                fontSize: 11.sp,
+                color: Colors.red,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'sofi',
                 letterSpacing: 1,

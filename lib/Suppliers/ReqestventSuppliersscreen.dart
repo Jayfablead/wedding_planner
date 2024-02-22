@@ -4,16 +4,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/Modal/HomeModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
-import '../Modal/CategoryWiseSuppliersModal.dart';
 import '../Modal/DeleteRequestedSupplierModal.dart';
 import '../Modal/ReusestViewSuppliersModal.dart';
 import '../widgets/load.dart';
@@ -57,7 +53,6 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
       isLoading: isLoading,
       scaffold: Scaffold(
         extendBody: true,
-        bottomNavigationBar: bottomnavbar(selit: widget.sele),
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
         key: scaffoldKey23,
@@ -182,9 +177,11 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
                                               ? "N/A"
                                               : (reusestviewsuppliersmodal
                                                       ?.suppliers?[index].name)
-                                                  .toString(),maxLines: 1,
+                                                  .toString(),
+                                          maxLines: 1,
                                           style: TextStyle(
-                                              fontSize: 16.sp,overflow: TextOverflow.ellipsis,
+                                              fontSize: 16.sp,
+                                              overflow: TextOverflow.ellipsis,
                                               fontWeight: FontWeight.bold,
                                               letterSpacing: 1,
                                               fontFamily: 'sofi',
@@ -207,7 +204,8 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
                                           maxLines: 2,
                                           style: TextStyle(
                                             height: 1.3,
-                                            fontSize: 14.sp,overflow: TextOverflow.ellipsis,
+                                            fontSize: 14.sp,
+                                            overflow: TextOverflow.ellipsis,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'sofi',
                                             color:

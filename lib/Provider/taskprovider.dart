@@ -803,6 +803,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> deleteItinerary(Map<String, String> bodyData) async {
     String? url = '$baseUrl/delteItenerary';
 
@@ -877,7 +878,8 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-  Future<http.Response> requsestsuppiersapi(Map<String, String> bodyData) async {
+  Future<http.Response> requsestsuppiersapi(
+      Map<String, String> bodyData) async {
     print(bodyData);
     String? url = '$baseUrl/requestSupplier/${userData?.user?.id.toString()}';
     var responseJson;
@@ -902,7 +904,8 @@ class taskprovider with ChangeNotifier {
   }
 
   Future<http.Response> restetsuppliersviewapi() async {
-    String? url = '$baseUrl/requestedSuppliers/${userData?.user?.id.toString()}';
+    String? url =
+        '$baseUrl/requestedSuppliers/${userData?.user?.id.toString()}';
     print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
@@ -914,9 +917,9 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> deletesuppliersresuestapi(String data1) async {
-    String? url =
-        '$baseUrl/deleteRequestedSupplier/${data1}';
+    String? url = '$baseUrl/deleteRequestedSupplier/${data1}';
     print(url);
     var responseJson;
     final response = await http
@@ -934,7 +937,8 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-  Future<http.Response> updatesulierapi(Map<String, String> bodyData,String data1) async {
+  Future<http.Response> updatesulierapi(
+      Map<String, String> bodyData, String data1) async {
     print(bodyData);
     String? url = '$baseUrl/updateRequestedSupplier/${data1}';
     var responseJson;

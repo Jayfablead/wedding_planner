@@ -31,13 +31,13 @@ class _bottomnavbarState extends State<bottomnavbar> {
     setState(() {
       _selectedIndex = index;
     });
-   index == 0
+    index == 0
         ? Get.offAll(
             NotificationScreen(
               sele: 0,
             ),
           )
-        :index == 1
+        : index == 1
             ? Get.offAll(
                 YellowHomeScreen(
                   sele: 1,

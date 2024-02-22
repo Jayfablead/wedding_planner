@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/GuestseatingModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -43,7 +42,6 @@ class _ViewTablesState extends State<ViewTables> {
         backgroundColor: Colors.grey.shade100,
         key: scaffoldKey13,
         drawer: drawer1(),
-        bottomNavigationBar: bottomnavbar(selit: -3),
         body: isLoading
             ? Container()
             : Padding(

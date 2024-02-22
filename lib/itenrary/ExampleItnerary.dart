@@ -10,7 +10,9 @@ class ExampleItinerary extends StatefulWidget {
   @override
   State<ExampleItinerary> createState() => _ExampleItineraryState();
 }
+
 final GlobalKey<ScaffoldState> scaffoldKey165 = GlobalKey<ScaffoldState>();
+
 class _ExampleItineraryState extends State<ExampleItinerary> {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _ExampleItineraryState extends State<ExampleItinerary> {
                   scaffoldKey165.currentState?.openDrawer();
                 }),
             SizedBox(height: 6.h),
-Image.asset('assets/egItinerar.jpg'),
+            Image.asset('assets/egItinerar.jpg'),
           ],
         ),
       ),

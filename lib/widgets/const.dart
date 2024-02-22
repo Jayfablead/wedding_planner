@@ -148,5 +148,4 @@ ReusestViewSuppliersModal? reusestviewsuppliersmodal;
 DeleteRequestedSupplierModal? deleterequestedsuppliermodal;
 UpdateRequestedSupplierModal? updaterequestedsuppliermodal;
 
-
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

@@ -327,7 +327,8 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
         taskprovider().deleteItinerary(data).then((response) async {
           deleteitinerary =
               deleteItineraryModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && deleteitinerary?.status == "Success") {
+          if (response.statusCode == 200 &&
+              deleteitinerary?.status == "Success") {
             EasyLoading.showSuccess("Removed");
             IteinraryApi();
           } else {

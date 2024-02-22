@@ -7,11 +7,12 @@ import 'package:wedding_planner/widgets/drawer.dart';
 
 import '../widgets/headerwidget.dart';
 
-class EventSpace extends StatefulWidget {
-  const EventSpace({super.key});
+class MyDeliveriesCollentionsViewScreen extends StatefulWidget {
+  const MyDeliveriesCollentionsViewScreen({super.key});
 
   @override
-  State<EventSpace> createState() => _EventSpaceState();
+  State<MyDeliveriesCollentionsViewScreen> createState() =>
+      _MyDeliveriesCollentionsViewScreenState();
 }
 
 final GlobalKey<ScaffoldState> scaffoldKey27 = GlobalKey<ScaffoldState>();
@@ -26,7 +27,8 @@ List HotelIm = [
 ];
 int ind = 0;
 
-class _EventSpaceState extends State<EventSpace> {
+class _MyDeliveriesCollentionsViewScreenState
+    extends State<MyDeliveriesCollentionsViewScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -113,9 +115,9 @@ class _EventSpaceState extends State<EventSpace> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              'Venue Owner Name : ',
+                                              'Deliveries Company Name : ',
                                               style: TextStyle(
-                                                  fontSize: 17.sp,
+                                                  fontSize: 15.sp,
                                                   color: Colors.blue,
                                                   fontFamily: 'sofi',
                                                   letterSpacing: 1,
@@ -126,18 +128,6 @@ class _EventSpaceState extends State<EventSpace> {
                                               width: 45.w,
                                               child: Text(
                                                 "Ram Mer",
-                                                // venuedetail?.venueDetails
-                                                //     ?.name ==
-                                                //     '' ||
-                                                //     venuedetail
-                                                //         ?.venueDetails
-                                                //         ?.name ==
-                                                //         null
-                                                //     ? 'N/A'
-                                                //     : venuedetail
-                                                //     ?.venueDetails
-                                                //     ?.name ??
-                                                //     "",
                                                 style: TextStyle(
                                                     fontSize: 15.sp,
                                                     color: Colors.black
@@ -195,7 +185,7 @@ class _EventSpaceState extends State<EventSpace> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  'Venue Name : ',
+                                                  'Event Name : ',
                                                   style: TextStyle(
                                                       fontSize: 17.sp,
                                                       color: Colors.blue,
@@ -209,20 +199,6 @@ class _EventSpaceState extends State<EventSpace> {
                                                   width: 52.w,
                                                   child: Text(
                                                     "Tea",
-                                                    // venuedetail?.venueDetails?.moreInfo
-                                                    //     ?.vName ==
-                                                    //     '' ||
-                                                    //     venuedetail
-                                                    //         ?.venueDetails
-                                                    //         ?.moreInfo
-                                                    //         ?.vName ==
-                                                    //         null
-                                                    //     ? 'N/A'
-                                                    //     : venuedetail
-                                                    //     ?.venueDetails
-                                                    //     ?.moreInfo
-                                                    //     ?.vName ??
-                                                    //     "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -245,10 +221,6 @@ class _EventSpaceState extends State<EventSpace> {
                                                   fit: BoxFit.cover,
                                                   imageUrl:
                                                       "https://images.ctfassets.net/e8bhhtr91vp3/2yfGTWADTN0JmoAeJLFOCb/f17368a0bd0c9271b293919681d88113/hero2_how_to_green_tea-jpg.webp?w=800&q=100",
-                                                  // venuedetail
-                                                  //     ?.venueDetails
-                                                  //     ?.profile ??
-                                                  //     "",
                                                   progressIndicatorBuilder:
                                                       (context, url,
                                                               progress) =>
@@ -319,18 +291,6 @@ class _EventSpaceState extends State<EventSpace> {
                                         SizedBox(height: 0.5.h),
                                         Text(
                                           "9724824359",
-                                          // venuedetail?.venueDetails
-                                          //     ?.contact ==
-                                          //     '' ||
-                                          //     venuedetail
-                                          //         ?.venueDetails
-                                          //         ?.contact ==
-                                          //         null
-                                          //     ? 'N/A'
-                                          //     : venuedetail
-                                          //     ?.venueDetails
-                                          //     ?.contact ??
-                                          //     "",
                                           style: TextStyle(
                                               fontSize: 16.sp,
                                               color:
@@ -382,7 +342,7 @@ class _EventSpaceState extends State<EventSpace> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Capacity: ',
+                                          'Items: ',
                                           style: TextStyle(
                                               fontSize: 17.sp,
                                               color: Colors.blue,
@@ -395,18 +355,6 @@ class _EventSpaceState extends State<EventSpace> {
                                           width: 67.w,
                                           child: Text(
                                             "120 people",
-                                            // venuedetail?.venueDetails
-                                            //     ?.email ==
-                                            //     '' ||
-                                            //     venuedetail
-                                            //         ?.venueDetails
-                                            //         ?.email ==
-                                            //         null
-                                            //     ? 'N/A'
-                                            //     : venuedetail
-                                            //     ?.venueDetails
-                                            //     ?.email ??
-                                            //     "",
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
@@ -459,7 +407,7 @@ class _EventSpaceState extends State<EventSpace> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Fixed furniture: ',
+                                          'Comments: ',
                                           style: TextStyle(
                                               fontSize: 17.sp,
                                               color: Colors.blue,
@@ -472,18 +420,201 @@ class _EventSpaceState extends State<EventSpace> {
                                           width: 67.w,
                                           child: Text(
                                             "120 people",
-                                            // venuedetail?.venueDetails
-                                            //     ?.email ==
-                                            //     '' ||
-                                            //     venuedetail
-                                            //         ?.venueDetails
-                                            //         ?.email ==
-                                            //         null
-                                            //     ? 'N/A'
-                                            //     : venuedetail
-                                            //     ?.venueDetails
-                                            //     ?.email ??
-                                            //     "",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 90.w,
+                                height: 10.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        Icons.hail,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Scheduled Date: ',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        SizedBox(
+                                          width: 67.w,
+                                          child: Text(
+                                            "12/02/2024",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 90.w,
+                                height: 10.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        Icons.hail,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Create Date and Time: ',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        SizedBox(
+                                          width: 67.w,
+                                          child: Text(
+                                            "12:50pm",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 90.w,
+                                height: 10.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        Icons.hail,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'updated Date and Time: ',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        SizedBox(
+                                          width: 67.w,
+                                          child: Text(
+                                            "12:50pm",
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
@@ -504,211 +635,6 @@ class _EventSpaceState extends State<EventSpace> {
                         ],
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text("Floor Plans : ",
-                            style: TextStyle(
-                                fontSize: 17.sp,
-                                color: Colors.blue,
-                                fontFamily: 'sofi',
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.bold))
-                      ],
-                    ),
-                    SizedBox(height: 1.h),
-                    for (int index = 0; index < 2; index++) ...[
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 1.h),
-                        padding: EdgeInsets.all(2.w),
-                        height: 13.h,
-                        width: 90.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Colors.white),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 1.w),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(900),
-                                    ),
-                                    height: 14.w,
-                                    width: 14.w,
-                                    // padding: EdgeInsets.all(1.w),
-                                    child: Image.asset(
-                                        fit: BoxFit.cover,
-                                        'assets/pdficon.png')),
-                                SizedBox(
-                                  width: 2.w,
-                                ),
-                                SizedBox(
-                                  width: 60.w,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Table",
-                                        // 0
-                                        textAlign: TextAlign.start,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontFamily: 'pop',
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14.sp,
-                                          letterSpacing: 1,
-                                        ),
-                                      ),
-                                      SizedBox(height: 0.5.h),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          InkWell(
-                                            onTap: () {
-                                              // Get.to(
-                                              // PdfView(
-                                              // link: viewtopic
-                                              //     ?.data
-                                              //     ?.topic
-                                              //     ?.topicFile?[index],
-                                              // )
-                                              // );
-                                            },
-                                            child: Text(
-                                              'View File',
-                                              textAlign: TextAlign.start,
-                                              maxLines: 2,
-                                              style: TextStyle(
-                                                fontFamily: 'pop',
-                                                color: Colors.blue,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 13.sp,
-                                                letterSpacing: 1,
-                                              ),
-                                            ),
-                                          ),
-                                          InkWell(
-                                            onTap: () async {
-                                              // final String?
-                                              // url =
-                                              // viewtopic
-                                              //     ?.data
-                                              //     ?.topic
-                                              //     ?.topicFile?[index];
-                                              // String
-                                              // fileExtension =
-                                              // path.extension(
-                                              // url!);
-                                              // if (fileExtension ==
-                                              // ".txt") {
-                                              // Navigator.push(
-                                              // context,
-                                              // MaterialPageRoute(
-                                              // builder:
-                                              // (context) {
-                                              // return webview(
-                                              // data: viewtopic
-                                              //     ?.data
-                                              //     ?.topic
-                                              //     ?.topicFile?[index],
-                                              // );
-                                              // },
-                                              // ));
-                                              // } else {
-                                              // EasyLoading.show(
-                                              // status: 'Downloading ..',
-                                              // indicator: CircularProgressIndicator(
-                                              // color:
-                                              // Colors.white,
-                                              // ));
-                                              // const downloadsFolderPath =
-                                              // '/storage/emulated/0/Download';
-                                              // var request = await httpClient.getUrl(Uri.parse((viewtopic
-                                              //     ?.data
-                                              //     ?.topic
-                                              //     ?.topicFile?[index])
-                                              //     .toString()));
-                                              // var response =
-                                              // await request
-                                              //     .close();
-                                              // var bytes =
-                                              // await consolidateHttpClientResponseBytes(
-                                              // response);
-                                              // String fileName = url
-                                              //     .toString()
-                                              //     .split(
-                                              // '/')
-                                              //     .last;
-                                              //
-                                              // Directory dir = Platform
-                                              //     .isAndroid
-                                              // ? Directory(
-                                              // downloadsFolderPath)
-                                              //     : await getApplicationDocumentsDirectory();
-                                              // final String
-                                              // filePath =
-                                              // '${dir.path}/${fileName}${fileName.endsWith('.pdf') ? '' : '.pdf'}';
-                                              // final File
-                                              // file =
-                                              // File(
-                                              // filePath);
-                                              // await file
-                                              //     .writeAsBytes(
-                                              // bytes);
-                                              // EasyLoading
-                                              //     .showSuccess(
-                                              // "Downloaded");
-                                              // print(file);
-                                              // Fluttertoast.showToast(
-                                              // msg:
-                                              // 'file downloaded to : ${dir.path}',
-                                              // toastLength:
-                                              // Toast
-                                              //     .LENGTH_SHORT,
-                                              // timeInSecForIosWeb:
-                                              // 1,
-                                              // backgroundColor:
-                                              // primary,
-                                              // textColor:
-                                              // Colors
-                                              //     .white,
-                                              // fontSize:
-                                              // 13.sp);
-                                              // }
-                                            },
-                                            child: Text(
-                                              'Download',
-                                              textAlign: TextAlign.start,
-                                              maxLines: 2,
-                                              style: TextStyle(
-                                                fontFamily: 'pop',
-                                                color: Colors.blue,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 13.sp,
-                                                letterSpacing: 1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
                   ],
                 ),
               ),

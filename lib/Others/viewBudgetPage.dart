@@ -10,7 +10,6 @@ import 'package:wedding_planner/Modal/RemovefrombudgetModal.dart';
 import 'package:wedding_planner/Modal/SetbudgetModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/main.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
@@ -51,7 +50,6 @@ class _ViewBudgetState extends State<ViewBudget> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        bottomNavigationBar: bottomnavbar(selit: -3),
         extendBody: true,
         drawer: drawer1(),
         key: scaffoldKey20,

@@ -12,7 +12,6 @@ import 'package:wedding_planner/Modal/AddpostModal.dart';
 import 'package:wedding_planner/Modal/CategoriesModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/main.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -66,7 +65,6 @@ class _PostPageState extends State<PostPage> {
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
         extendBody: true,
-        bottomNavigationBar: bottomnavbar(selit: widget.sele),
         drawer: drawer1(),
         key: scaffoldKey,
         body: isLoading

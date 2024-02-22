@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Authenticate/changePassword.dart';
 import 'package:wedding_planner/Authenticate/profilePage.dart';
 import 'package:wedding_planner/Chat/ChatListPage.dart';
+import 'package:wedding_planner/Deliveries/MyDeliveriesCollentionsScreen.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
 import 'package:wedding_planner/Others/certificate.dart';
@@ -894,17 +895,17 @@ class _drawer1State extends State<drawer1> {
       child: Stack(
         children: [
           Positioned(
-            top: 17.w,
-            left: 38.w,
+            top: 30.w,
+            right: 54.w,
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(VenueView());
+                Get.to(MyDeliveriesCollentions());
               },
               child: Container(
                 alignment: Alignment.center,
-                height: 24.5.w,
-                width: 24.5.w,
+                height: 25.w,
+                width: 25.w,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
@@ -920,56 +921,17 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    Text(
-                      "My Deliveries/ Collections",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 9.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 39.w,
-            right: 54.w,
-            child: GestureDetector(
-              onTap: () {
-                Get.back();
-                Get.to(VenueDetailsview());
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: 24.5.w,
-                width: 24.5.w,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.chair_rounded,
-                      size: 25.sp,
-                      color: Colors.red,
-                    ),
-                    // Image.asset("assets/supplier.png",fit: BoxFit.cover,height: 10.w,width: 10.w,color: Colors.red),
                     SizedBox(
-                      height: 0.5.h,
-                    ),
-                    Text(
-                      "Request Deliveries/ Collections",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 9.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                      width: 22.w,
+                      child: Text(
+                        "My Deliveries/ Collections",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 9.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -978,7 +940,7 @@ class _drawer1State extends State<drawer1> {
             ),
           ),
           Positioned(
-            bottom: 22.w,
+            bottom: 32.w,
             right: 22.w,
             child: GestureDetector(
               onTap: () {
@@ -986,8 +948,8 @@ class _drawer1State extends State<drawer1> {
                 Get.to(EventSpace());
               },
               child: Container(
-                height: 24.5.w,
-                width: 24.5.w,
+                height: 25.w,
+                width: 25.w,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(

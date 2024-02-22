@@ -4,12 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/FloorDetalisModal.dart';
 import 'package:wedding_planner/Modal/VenuedetailModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/Venue/FloorDetalisScreen.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -470,11 +468,9 @@ class _VenueViewState extends State<VenueView> {
                                 ],
                               ),
                             ),
-
                           ],
                         ),
                       ),
-
                       SliverToBoxAdapter(
                         child: SizedBox(height: 3.h),
                       ),

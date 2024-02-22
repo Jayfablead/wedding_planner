@@ -20,7 +20,7 @@ import '../widgets/drawer.dart';
 class NotificationScreen extends StatefulWidget {
   int? sele;
 
-  NotificationScreen({super.key,required this.sele});
+  NotificationScreen({super.key, required this.sele});
 
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();

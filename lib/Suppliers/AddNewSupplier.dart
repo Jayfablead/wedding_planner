@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +9,6 @@ import 'package:sizer/sizer.dart';
 
 import '../Modal/AllCatagoriesModal.dart';
 import '../Modal/ReqsetsSuppliersModal.dart';
-import '../Provider/authprovider.dart';
 import '../Provider/taskprovider.dart';
 import '../widgets/buildErrorDialog.dart';
 import '../widgets/const.dart';
@@ -26,25 +24,26 @@ class RequestSupplier extends StatefulWidget {
 
 class _RequestSupplierState extends State<RequestSupplier> {
   bool _obscurePassword = true;
-  TextEditingController _name =TextEditingController();
-  TextEditingController _email =TextEditingController();
-  TextEditingController _passwod =TextEditingController();
-  TextEditingController _confrompassword =TextEditingController();
-  TextEditingController _contact =TextEditingController();
-  TextEditingController _details =TextEditingController();
+  TextEditingController _name = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _passwod = TextEditingController();
+  TextEditingController _confrompassword = TextEditingController();
+  TextEditingController _contact = TextEditingController();
+  TextEditingController _details = TextEditingController();
   final GlobalKey<ScaffoldState> scaffoldKey28 = GlobalKey<ScaffoldState>();
   String? category;
   final _formKey = GlobalKey<FormState>();
   ImagePicker _picker = ImagePicker();
   File? _pickedFile;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     CategApi();
   }
-  @override
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
@@ -53,10 +52,9 @@ class _RequestSupplierState extends State<RequestSupplier> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding:EdgeInsets.symmetric(horizontal: 1.w),
+          padding: EdgeInsets.symmetric(horizontal: 1.w),
           child: SingleChildScrollView(
             child: Column(
-
               children: [
                 SizedBox(
                   height: 6.h,
@@ -66,31 +64,37 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     callback1: () {
                       scaffoldKey28.currentState?.openDrawer();
                     }),
-                SizedBox(height: 3.h,),
+                SizedBox(
+                  height: 3.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Select Category :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Select Category :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width:90.w,
+                      width: 90.w,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(
-                            width: 1, color: Colors.white),
+                        border: Border.all(width: 1, color: Colors.white),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       padding: EdgeInsets.symmetric(
@@ -100,9 +104,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                           hint: Text(
                             'Select Category',
                             style: TextStyle(
-
-                                color:
-                                Colors.black.withOpacity(0.4),
+                                color: Colors.black.withOpacity(0.4),
                                 fontSize: 13.sp,
                                 fontFamily: "task"),
                           ),
@@ -111,14 +113,12 @@ class _RequestSupplierState extends State<RequestSupplier> {
                           onChanged: (newValue) {
                             setState(() {
                               category = newValue.toString();
-
                             });
                           },
-                          items: allcat?.services
-                              ?.map((location) {
+                          items: allcat?.services?.map((location) {
                             return DropdownMenuItem(
                               child: Text(
-                                ( location.categoryName).toString(),
+                                (location.categoryName).toString(),
                                 style: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'task',
@@ -132,23 +132,29 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Name :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Name :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -158,41 +164,23 @@ class _RequestSupplierState extends State<RequestSupplier> {
                         controller: _name,
                         decoration: InputDecoration(
                           hintText: 'Enter Suppliers Name',
-                          enabledBorder:
-                          OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          disabledBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          focusedBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          border:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
                           fillColor: Colors.white,
                           filled: true,
@@ -200,8 +188,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                               fontSize: 12.sp,
                               fontFamily: 'sofi',
                               letterSpacing: 0.7,
-                              fontWeight:
-                              FontWeight.bold),
+                              fontWeight: FontWeight.bold),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -214,22 +201,29 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Email :-",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Email :-",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -291,22 +285,29 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Contact :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Contact :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -316,41 +317,23 @@ class _RequestSupplierState extends State<RequestSupplier> {
                         controller: _contact,
                         decoration: InputDecoration(
                           hintText: 'Enter Suppliers Contact',
-                          enabledBorder:
-                          OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          disabledBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          focusedBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          border:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
                           fillColor: Colors.white,
                           filled: true,
@@ -358,8 +341,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                               fontSize: 12.sp,
                               fontFamily: 'sofi',
                               letterSpacing: 0.7,
-                              fontWeight:
-                              FontWeight.bold),
+                              fontWeight: FontWeight.bold),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -372,68 +354,56 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Details :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Details :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: 90.w,
-
                       child: TextFormField(
                         controller: _details,
                         maxLines: 5,
                         decoration: InputDecoration(
                           hintText: 'Enter Suppliers Details',
-                          enabledBorder:
-                          OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          disabledBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          focusedBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          border:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           fillColor: Colors.white,
                           filled: true,
@@ -441,8 +411,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                               fontSize: 12.sp,
                               fontFamily: 'sofi',
                               letterSpacing: 0.7,
-                              fontWeight:
-                              FontWeight.bold),
+                              fontWeight: FontWeight.bold),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -455,22 +424,29 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Password :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Password :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -527,22 +503,29 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Conform Password :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Conform Password :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -599,20 +582,25 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Select Photo :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Select Photo :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                       InkWell(
-                        onTap: ()async{
+                        onTap: () async {
                           XFile? photo = await _picker.pickImage(
                               source: ImageSource.gallery);
                           setState(() {
@@ -627,40 +615,45 @@ class _RequestSupplierState extends State<RequestSupplier> {
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(25.sp),
                           ),
-                          child: Text("Select Photo",style: TextStyle(
-                              fontSize: 16.sp,
-                              fontFamily: 'get',
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                              color:Colors.white),),
+                          child: Text(
+                            "Select Photo",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'get',
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                                color: Colors.white),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   children: [
                     _pickedFile == null
                         ? Container()
-                        :Container(
-                      height: 14.5.h,
-                      width: 40.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child:  Image.file(
-                            _pickedFile!,
-                            fit: BoxFit.cover,
-                          )
-                      ),
-                    ),
+                        : Container(
+                            height: 14.5.h,
+                            width: 40.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.file(
+                                  _pickedFile!,
+                                  fit: BoxFit.cover,
+                                )),
+                          ),
                   ],
                 ),
-
-                SizedBox(height: 3.h,),
+                SizedBox(
+                  height: 3.h,
+                ),
                 InkWell(
                   onTap: () {
                     requsetsuppiler();
@@ -674,24 +667,25 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                     child: Center(
                         child: Text(
-                          "Request Supplier",
-                          style: TextStyle(
-                              fontSize: 17.sp,
-                              color: Colors.white,
-                              fontFamily: 'get'),
-                        )),
+                      "Request Supplier",
+                      style: TextStyle(
+                          fontSize: 17.sp,
+                          color: Colors.white,
+                          fontFamily: 'get'),
+                    )),
                   ),
                 ),
-                SizedBox(height: 5.h,),
+                SizedBox(
+                  height: 5.h,
+                ),
               ],
             ),
-
           ),
         ),
       ),
     );
-
   }
+
   CategApi() {
     checkInternet().then((internet) async {
       if (internet) {
@@ -716,6 +710,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
       }
     });
   }
+
   bool isLoad = true;
 
   requsetsuppiler() {
@@ -734,13 +729,13 @@ class _RequestSupplierState extends State<RequestSupplier> {
           taskprovider().requsestsuppiersapi(data).then((response) async {
             reqsetssuppliersmodal =
                 ReqsetsSuppliersModal.fromJson(json.decode(response.body));
-            if (response.statusCode == 200 && reqsetssuppliersmodal?.status == "1") {
-
+            if (response.statusCode == 200 &&
+                reqsetssuppliersmodal?.status == "1") {
               buildErrorDialog1(
                 context,
                 "",
                 reqsetssuppliersmodal?.message ?? "",
-                    () {
+                () {
                   Get.back();
                 },
               );

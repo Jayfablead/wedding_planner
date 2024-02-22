@@ -7,7 +7,6 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -142,7 +141,6 @@ class _MySuppliersState extends State<MySuppliers> {
       isLoading: isLoading,
       scaffold: Scaffold(
         extendBody: true,
-        bottomNavigationBar: bottomnavbar(selit: widget.sele),
         backgroundColor: Colors.grey.shade100,
         drawer: drawer1(),
         key: scaffoldKey23,

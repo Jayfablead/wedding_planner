@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,6 @@ import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/MeetingModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
@@ -35,7 +35,8 @@ class cate {
 
 TextEditingController _title = TextEditingController();
 TextEditingController _desc = TextEditingController();
-TextEditingController _cate = TextEditingController();
+TextEditingController _zoom = TextEditingController();
+TextEditingController _call = TextEditingController();
 TextEditingController _start = TextEditingController();
 TextEditingController _time = TextEditingController();
 final GlobalKey<ScaffoldState> scaffoldKey14 = GlobalKey<ScaffoldState>();
@@ -47,6 +48,13 @@ class _MeetingsPageState extends State<MeetingsPage> {
   List<cate> nextWeekDatesWithDay = [];
   DateTime currentDate = DateTime.now();
   List<String> date1 = [];
+  String? category;
+  List timesel = [
+    'Choose Time',
+    'I’m flexible',
+  ];
+  String? Meet;
+  List meeting = ['In person', 'Zoom', 'Phone call'];
 
   @override
   void initState() {
@@ -110,14 +118,18 @@ class _MeetingsPageState extends State<MeetingsPage> {
                             ),
                             InkWell(
                               onTap: () {
+                                setState(() {
+                                  category = null;
+                                  Meet = null;
+                                });
                                 addmeetingdialog();
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                      height: 8.w,
-                                      width: 8.w,
+                                      height: 7.w,
+                                      width: 7.w,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(25),
                                         color: Colors.blue,
@@ -125,7 +137,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       child: Center(
                                           child: Icon(
                                         Icons.add,
-                                        size: 20.sp,
+                                        size: 17.sp,
                                         color: Colors.white,
                                       ))),
                                   SizedBox(
@@ -456,341 +468,548 @@ class _MeetingsPageState extends State<MeetingsPage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          backgroundColor: Colors.grey.shade100,
-          child: Stack(
-            children: [
-              Container(
-                  // height: 70.h,
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
-                      child: SingleChildScrollView(
-                        child: Form(
-                          key: formKey,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            // mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(height: 2.h),
-                              // header(
-                              //     text: "Add Your CheckList",
-                              //     callback1: () {
-                              //       scaffoldKey.currentState?.openDrawer();
-                              //     }),
-                              Center(
-                                child: Text(
-                                  'Request New Meeting',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 17.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      height: 0.17.h,
-                                      letterSpacing: 1),
-                                ),
-                              ),
-                              SizedBox(height: 2.h),
-                              // Text(
-                              //   'Title :',
-                              //   style: TextStyle(
-                              //       fontSize: 14.sp,
-                              //       fontFamily: 'sofi',
-                              //       color: Colors.black,
-                              //       fontWeight: FontWeight.bold,
-                              //       letterSpacing: 1),
-                              // ),
-                              // SizedBox(height: 1.h),
-                              // TextFormField(
-                              //   controller: _title,
-                              //   onChanged: (value) {},
-                              //   validator: (value) {
-                              //     if (value == null || value.isEmpty) {
-                              //       return 'Please enter check title';
-                              //     }
-                              //     return null;
-                              //   },
-                              //   style: TextStyle(
-                              //       color: Colors.black.withOpacity(0.67),
-                              //       fontFamily: 'Meta1'),
-                              //   decoration: InputDecoration(
-                              //     prefixIcon:
-                              //         Icon(Icons.note_add, color: Colors.blue),
-                              //     border: InputBorder.none,
-                              //     fillColor: Colors.white,
-                              //     filled: true,
-                              //     enabledBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(25),
-                              //         borderSide:
-                              //             BorderSide(color: Colors.white)),
-                              //     disabledBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(25),
-                              //         borderSide:
-                              //             BorderSide(color: Colors.white)),
-                              //     focusedBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(25),
-                              //         borderSide:
-                              //             BorderSide(color: Colors.white)),
-                              //     errorBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(25),
-                              //         borderSide:
-                              //             BorderSide(color: Colors.white)),
-                              //     hintText: 'Title',
-                              //     hintStyle: TextStyle(
-                              //         color: Colors.black.withOpacity(0.67),
-                              //         fontFamily: 'Meta1'),
-                              //   ),
-                              // ),
-
-                              SizedBox(height: 2.h),
-                              Text(
-                                'Date :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
-                              TextFormField(
-                                readOnly: true,
-                                controller: _start,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter check start date';
-                                  }
-                                  return null;
-                                },
-                                onTap: () async {
-                                  DateTime? picked = await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    // Initial date, can be the current date or a specific date
-                                    firstDate: DateTime.now(),
-                                    // The first date that can be selected
-                                    lastDate: DateTime(
-                                        2101), // The last date that can be selected
-                                  );
-
-                                  if (picked != null) {
-                                    setState(() {
-                                      print(picked);
-                                      String formattedDate =
-                                          DateFormat('yyyy-MM-dd')
-                                              .format(picked);
-                                      _start.text = formattedDate
-                                          .toString(); // Store the selected date in a variable
-                                    });
-                                  }
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.calendar_month,
-                                      color: Colors.blue),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  hintText: 'Date',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
-                              ),
-                              SizedBox(height: 2.h),
-                              Text(
-                                'Time :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
-                              TextFormField(
-                                readOnly: true,
-                                controller: _time,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter check end date';
-                                  }
-                                  return null;
-                                },
-                                onTap: () async {
-                                  timepicker();
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.access_time_rounded,
-                                      color: Colors.blue),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  hintText: 'Time',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
-                              ),
-                              SizedBox(height: 2.h),
-
-                              Text(
-                                'Comment :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
-                              TextFormField(maxLines: 5,
-                                controller: _desc,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter Comment';
-                                  }
-                                  return null;
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon: Icon(
-                                    Icons.description,
-                                    color: Colors.blue,
-                                  ),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(25),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(25),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(25),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(25),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
-                                  hintText: 'Comment (Optional)',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
-                              ),
-                              SizedBox(height: 3.h),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              backgroundColor: Colors.grey.shade100,
+              child: Stack(
+                children: [
+                  Container(
+                      // height: 70.h,
+                      child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 3.h, horizontal: 3.w),
+                          child: SingleChildScrollView(
+                            child: Form(
+                              key: formKey,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                // mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  InkWell(
-                                    onTap: () {
-                                      addmeetingap();
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      padding: EdgeInsets.all(2.5.w),
-                                      decoration: BoxDecoration(
+                                  SizedBox(height: 2.h),
+                                  // header(
+                                  //     text: "Add Your CheckList",
+                                  //     callback1: () {
+                                  //       scaffoldKey.currentState?.openDrawer();
+                                  //     }),
+                                  Center(
+                                    child: Text(
+                                      'Request New Meeting',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 17.sp,
+                                          fontFamily: 'sofi',
                                           color: Colors.blue,
+                                          fontWeight: FontWeight.bold,
+                                          height: 0.17.h,
+                                          letterSpacing: 1),
+                                    ),
+                                  ),
+
+                                  SizedBox(height: 2.h),
+                                  Text(
+                                    'Date :',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  TextFormField(
+                                    readOnly: true,
+                                    controller: _start,
+                                    onChanged: (value) {},
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter start date';
+                                      }
+                                      return null;
+                                    },
+                                    onTap: () async {
+                                      DateTime? picked = await showDatePicker(
+                                        context: context,
+                                        initialDate: DateTime.now(),
+                                        // Initial date, can be the current date or a specific date
+                                        firstDate: DateTime.now(),
+                                        // The first date that can be selected
+                                        lastDate: DateTime(
+                                            2101), // The last date that can be selected
+                                      );
+
+                                      if (picked != null) {
+                                        setState(() {
+                                          print(picked);
+                                          String formattedDate =
+                                              DateFormat('yyyy-MM-dd')
+                                                  .format(picked);
+                                          _start.text = formattedDate
+                                              .toString(); // Store the selected date in a variable
+                                        });
+                                      }
+                                    },
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.67),
+                                        fontFamily: 'Meta1'),
+                                    decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.calendar_month,
+                                          color: Colors.blue),
+                                      border: InputBorder.none,
+                                      fillColor: Colors.white,
+                                      filled: true,
+                                      enabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(25)),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            CupertinoIcons.add,
-                                            size: 17.sp,
-                                            color: Colors.white,
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          Text(
-                                            'Add Meeting',
-                                            style: TextStyle(
-                                                fontSize: 13.sp,
-                                                fontFamily: 'sofi',
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                letterSpacing: 1),
-                                          ),
-                                        ],
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      disabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      errorBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      hintText: 'Date',
+                                      hintStyle: TextStyle(
+                                          color: Colors.black.withOpacity(0.67),
+                                          fontFamily: 'Meta1'),
+                                    ),
+                                  ),
+                                  SizedBox(height: 2.h),
+                                  Text(
+                                    'Time :',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Container(
+                                    width: 90.w,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: Border.all(
+                                          width: 1, color: Colors.white),
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 5.0, vertical: 0.5.h),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton2(
+                                        hint: Row(
+                                          children: [
+                                            Icon(Icons.access_time_rounded,
+                                                color: Colors.blue),
+                                            SizedBox(width: 4.w),
+                                            Text(
+                                              'Select Time',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.4),
+                                                  fontSize: 13.sp,
+                                                  fontFamily: "task"),
+                                            ),
+                                          ],
+                                        ),
+                                        // Not necessary for Option 1
+                                        value: category,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            category = newValue.toString();
+                                          });
+                                        },
+                                        items: timesel.map((location) {
+                                          return DropdownMenuItem(
+                                            child: Text(
+                                              location.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.black87,
+                                                  fontFamily: 'task',
+                                                  fontSize: 13.sp),
+                                            ),
+                                            value: location,
+                                          );
+                                        }).toList(),
                                       ),
                                     ),
                                   ),
+                                  category != 'Choose Time'
+                                      ? Container()
+                                      : SizedBox(height: 1.5.h),
+                                  category != 'Choose Time'
+                                      ? Container()
+                                      : TextFormField(
+                                          readOnly: true,
+                                          controller: _time,
+                                          onChanged: (value) {},
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Please enter end date';
+                                            }
+                                            return null;
+                                          },
+                                          onTap: () async {
+                                            timepicker();
+                                          },
+                                          style: TextStyle(
+                                              color: Colors.black
+                                                  .withOpacity(0.67),
+                                              fontFamily: 'Meta1'),
+                                          decoration: InputDecoration(
+                                            prefixIcon: Icon(
+                                                Icons.access_time_rounded,
+                                                color: Colors.blue),
+                                            border: InputBorder.none,
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                borderSide: BorderSide(
+                                                    color: Colors.white)),
+                                            disabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                borderSide: BorderSide(
+                                                    color: Colors.white)),
+                                            focusedBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                borderSide: BorderSide(
+                                                    color: Colors.white)),
+                                            errorBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                borderSide: BorderSide(
+                                                    color: Colors.white)),
+                                            hintText: 'Time',
+                                            hintStyle: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.67),
+                                                fontFamily: 'Meta1'),
+                                          ),
+                                        ),
+                                  SizedBox(height: 2.h),
+                                  Text(
+                                    'Meeting Place :',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Container(
+                                    width: 90.w,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: Border.all(
+                                          width: 1, color: Colors.white),
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 5.0, vertical: 0.5.h),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton2(
+                                        hint: Row(
+                                          children: [
+                                            Icon(Icons.place_outlined,
+                                                color: Colors.blue),
+                                            SizedBox(width: 4.w),
+                                            Text(
+                                              'Select Meeting Place',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.4),
+                                                  fontSize: 13.sp,
+                                                  fontFamily: "task"),
+                                            ),
+                                          ],
+                                        ),
+                                        // Not necessary for Option 1
+                                        value: Meet,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            Meet = newValue.toString();
+                                          });
+                                        },
+                                        items: meeting.map((meet) {
+                                          return DropdownMenuItem(
+                                            child: Text(
+                                              meet.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.black87,
+                                                  fontFamily: 'task',
+                                                  fontSize: 13.sp),
+                                            ),
+                                            value: meet,
+                                          );
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  ),
+                                  Meet != 'Zoom'
+                                      ? Container()
+                                      : SizedBox(height: 1.5.h),
+                                  Meet != 'Zoom'
+                                      ? Container()
+                                      : Meet == 'Zoom'
+                                          ? TextFormField(
+                                              controller: _zoom,
+                                              onChanged: (value) {},
+                                              validator: (value) {
+                                                if (value == null ||
+                                                    value.isEmpty) {
+                                                  return 'Please enter Zoom Link';
+                                                }
+                                                return null;
+                                              },
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.67),
+                                                  fontFamily: 'Meta1'),
+                                              decoration: InputDecoration(
+                                                prefixIcon: Icon(
+                                                  Icons.video_call_outlined,
+                                                  color: Colors.blue,
+                                                ),
+                                                border: InputBorder.none,
+                                                fillColor: Colors.white,
+                                                filled: true,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25),
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white)),
+                                                disabledBorder:
+                                                    OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25),
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white)),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25),
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white)),
+                                                errorBorder: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white)),
+                                                hintText: 'Add Zoom Link',
+                                                hintStyle: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(0.67),
+                                                    fontFamily: 'Meta1'),
+                                              ),
+                                            )
+                                          : TextFormField(
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              controller: _call,
+                                              onChanged: (value) {},
+                                              validator: (value) {
+                                                if (value == null ||
+                                                    value.isEmpty) {
+                                                  return 'Please enter Phone No';
+                                                }
+                                                return null;
+                                              },
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.67),
+                                                  fontFamily: 'Meta1'),
+                                              decoration: InputDecoration(
+                                                prefixIcon: Icon(
+                                                  Icons.call,
+                                                  color: Colors.blue,
+                                                ),
+                                                border: InputBorder.none,
+                                                fillColor: Colors.white,
+                                                filled: true,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25),
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white)),
+                                                disabledBorder:
+                                                    OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25),
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white)),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(25),
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white)),
+                                                errorBorder: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.white)),
+                                                hintText: 'Add Phone No',
+                                                hintStyle: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(0.67),
+                                                    fontFamily: 'Meta1'),
+                                              ),
+                                            ),
+                                  SizedBox(height: 2.h),
+
+                                  Text(
+                                    'Comment :',
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  TextFormField(
+                                    maxLines: 5,
+                                    controller: _desc,
+                                    onChanged: (value) {},
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter Comment';
+                                      }
+                                      return null;
+                                    },
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.67),
+                                        fontFamily: 'Meta1'),
+                                    decoration: InputDecoration(
+                                      prefixIcon: Icon(
+                                        Icons.description,
+                                        color: Colors.blue,
+                                      ),
+                                      border: InputBorder.none,
+                                      fillColor: Colors.white,
+                                      filled: true,
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      disabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      errorBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      hintText: 'Comment (Optional)',
+                                      hintStyle: TextStyle(
+                                          color: Colors.black.withOpacity(0.67),
+                                          fontFamily: 'Meta1'),
+                                    ),
+                                  ),
+                                  SizedBox(height: 3.h),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          addmeetingap();
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          padding: EdgeInsets.all(2.5.w),
+                                          decoration: BoxDecoration(
+                                              color: Colors.blue,
+                                              borderRadius:
+                                                  BorderRadius.circular(25)),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                CupertinoIcons.add,
+                                                size: 17.sp,
+                                                color: Colors.white,
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              Text(
+                                                'Request Meeting',
+                                                style: TextStyle(
+                                                    fontSize: 13.sp,
+                                                    fontFamily: 'sofi',
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 2.h),
                                 ],
                               ),
-                              SizedBox(height: 2.h),
-                            ],
-                          ),
-                        ),
-                      ))),
-              Positioned(
-                  right: 0,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(CupertinoIcons.clear_circled_solid)))
-            ],
-          ),
+                            ),
+                          ))),
+                  Positioned(
+                      right: 0,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: Icon(CupertinoIcons.clear_circled_solid)))
+                ],
+              ),
+            );
+          },
         );
       },
     );

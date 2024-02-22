@@ -1,12 +1,10 @@
-
-import 'dart:convert';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+
 import '../widgets/headerwidget.dart';
 
 class My_Event extends StatefulWidget {
@@ -36,19 +34,17 @@ class _My_EventState extends State<My_Event> {
     setState(() {
       ind = 0;
     });
-
   }
-
 
   CarouselController _controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Colors.grey.shade100,
       key: scaffoldKey27,
       drawer: drawer1(),
-      body:Padding(
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Center(
           child: CustomScrollView(
@@ -73,38 +69,32 @@ class _My_EventState extends State<My_Event> {
                         children: [
                           SizedBox(height: 1.5.h),
                           Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
                                     width: 90.w,
                                     height: 10.h,
                                     padding: EdgeInsets.only(left: 2.w),
                                     decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.circular(15),
+                                      borderRadius: BorderRadius.circular(15),
                                       color: Colors.white,
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Container(
                                           padding: EdgeInsets.all(3.w),
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                              BorderRadius.circular(
-                                                  7),
+                                                  BorderRadius.circular(7),
                                               color: Colors.blue),
                                           child: Icon(
                                             CupertinoIcons.person,
@@ -115,9 +105,9 @@ class _My_EventState extends State<My_Event> {
                                         SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'Event Owner Name : ',
@@ -126,13 +116,13 @@ class _My_EventState extends State<My_Event> {
                                                   color: Colors.blue,
                                                   fontFamily: 'sofi',
                                                   letterSpacing: 1,
-                                                  fontWeight:
-                                                  FontWeight.bold),
+                                                  fontWeight: FontWeight.bold),
                                             ),
                                             SizedBox(height: 0.5.h),
                                             SizedBox(
                                               width: 45.w,
-                                              child: Text("Ram Mer",
+                                              child: Text(
+                                                "Ram Mer",
                                                 // venuedetail?.venueDetails
                                                 //     ?.name ==
                                                 //     '' ||
@@ -148,13 +138,11 @@ class _My_EventState extends State<My_Event> {
                                                 style: TextStyle(
                                                     fontSize: 15.sp,
                                                     color: Colors.black
-                                                        .withOpacity(
-                                                        0.8),
+                                                        .withOpacity(0.8),
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1,
                                                     fontWeight:
-                                                    FontWeight
-                                                        .bold),
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           ],
@@ -165,33 +153,30 @@ class _My_EventState extends State<My_Event> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
-                                        padding:
-                                        EdgeInsets.only(left: 2.w),
+                                        padding: EdgeInsets.only(left: 2.w),
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                              MainAxisAlignment.start,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
-                                              padding:
-                                              EdgeInsets.all(3.w),
+                                              padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius
-                                                      .circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 CupertinoIcons.info,
@@ -202,29 +187,25 @@ class _My_EventState extends State<My_Event> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment
-                                                  .start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment
-                                                  .center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Event Name : ',
                                                   style: TextStyle(
                                                       fontSize: 17.sp,
-                                                      color:
-                                                      Colors.blue,
-                                                      fontFamily:
-                                                      'sofi',
+                                                      color: Colors.blue,
+                                                      fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight
-                                                          .bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 52.w,
-                                                  child: Text("Tea",
+                                                  child: Text(
+                                                    "Tea",
                                                     // venuedetail?.venueDetails?.moreInfo
                                                     //     ?.vName ==
                                                     //     '' ||
@@ -241,17 +222,12 @@ class _My_EventState extends State<My_Event> {
                                                     //     "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
-                                                        color: Colors
-                                                            .black
-                                                            .withOpacity(
-                                                            0.8),
-                                                        fontFamily:
-                                                        'sofi',
-                                                        letterSpacing:
-                                                        1,
+                                                        color: Colors.black
+                                                            .withOpacity(0.8),
+                                                        fontFamily: 'sofi',
+                                                        letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight
-                                                            .bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -261,26 +237,25 @@ class _My_EventState extends State<My_Event> {
                                               width: 14.w,
                                               child: ClipRRect(
                                                 borderRadius:
-                                                BorderRadius
-                                                    .circular(15),
-                                                child:
-                                                CachedNetworkImage(
+                                                    BorderRadius.circular(15),
+                                                child: CachedNetworkImage(
                                                   fit: BoxFit.cover,
-                                                  imageUrl: "https://images.ctfassets.net/e8bhhtr91vp3/2yfGTWADTN0JmoAeJLFOCb/f17368a0bd0c9271b293919681d88113/hero2_how_to_green_tea-jpg.webp?w=800&q=100",
+                                                  imageUrl:
+                                                      "https://images.ctfassets.net/e8bhhtr91vp3/2yfGTWADTN0JmoAeJLFOCb/f17368a0bd0c9271b293919681d88113/hero2_how_to_green_tea-jpg.webp?w=800&q=100",
                                                   // venuedetail
                                                   //     ?.venueDetails
                                                   //     ?.profile ??
                                                   //     "",
                                                   progressIndicatorBuilder:
                                                       (context, url,
-                                                      progress) =>
-                                                      CircularProgressIndicator(),
-                                                  errorWidget: (context,
-                                                      url, error) =>
-                                                      Image.asset(
-                                                        'assets/user.png',
-                                                        color: Colors.black,
-                                                      ),
+                                                              progress) =>
+                                                          CircularProgressIndicator(),
+                                                  errorWidget:
+                                                      (context, url, error) =>
+                                                          Image.asset(
+                                                    'assets/user.png',
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -295,30 +270,25 @@ class _My_EventState extends State<My_Event> {
                           ),
                           SizedBox(height: 1.5.h),
                           Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
                                 height: 10.h,
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
                                 ),
                                 child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.center,
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         CupertinoIcons.mail,
@@ -329,9 +299,9 @@ class _My_EventState extends State<My_Event> {
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Event Email : ',
@@ -340,22 +310,20 @@ class _My_EventState extends State<My_Event> {
                                               color: Colors.blue,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         SizedBox(height: 0.5.h),
                                         SizedBox(
                                           width: 67.w,
-                                          child: Text("jay@gmail.com",
-
+                                          child: Text(
+                                            "jay@gmail.com",
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
                                                     .withOpacity(0.8),
                                                 fontFamily: 'sofi',
                                                 letterSpacing: 1,
-                                                fontWeight:
-                                                FontWeight.bold),
+                                                fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                       ],
@@ -368,16 +336,14 @@ class _My_EventState extends State<My_Event> {
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
                                 height: 10.h,
                                 padding: EdgeInsets.only(left: 2.15.w),
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
                                 ),
                                 child: Row(
@@ -388,7 +354,7 @@ class _My_EventState extends State<My_Event> {
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         CupertinoIcons.phone,
@@ -399,9 +365,9 @@ class _My_EventState extends State<My_Event> {
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Contact : ',
@@ -410,20 +376,18 @@ class _My_EventState extends State<My_Event> {
                                               color: Colors.blue,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         SizedBox(height: 0.5.h),
-                                        Text("9724824359",
-
+                                        Text(
+                                          "9724824359",
                                           style: TextStyle(
                                               fontSize: 16.sp,
-                                              color: Colors.black
-                                                  .withOpacity(0.8),
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -435,16 +399,14 @@ class _My_EventState extends State<My_Event> {
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
                                 height: 10.h,
                                 padding: EdgeInsets.only(left: 2.15.w),
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
                                 ),
                                 child: Row(
@@ -455,7 +417,7 @@ class _My_EventState extends State<My_Event> {
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.calendar_month,
@@ -466,9 +428,9 @@ class _My_EventState extends State<My_Event> {
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Event Date',
@@ -477,20 +439,18 @@ class _My_EventState extends State<My_Event> {
                                               color: Colors.blue,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         SizedBox(height: 0.5.h),
-                                        Text("17-08-2024",
-
+                                        Text(
+                                          "17-08-2024",
                                           style: TextStyle(
                                               fontSize: 16.sp,
-                                              color: Colors.black
-                                                  .withOpacity(0.8),
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -502,16 +462,14 @@ class _My_EventState extends State<My_Event> {
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
                                 height: 10.h,
                                 padding: EdgeInsets.only(left: 2.15.w),
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
                                 ),
                                 child: Row(
@@ -522,7 +480,7 @@ class _My_EventState extends State<My_Event> {
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.access_alarm,
@@ -533,9 +491,9 @@ class _My_EventState extends State<My_Event> {
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Event Space Timings',
@@ -544,20 +502,18 @@ class _My_EventState extends State<My_Event> {
                                               color: Colors.blue,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         SizedBox(height: 0.5.h),
-                                        Text("3:30",
-
+                                        Text(
+                                          "3:30",
                                           style: TextStyle(
                                               fontSize: 16.sp,
-                                              color: Colors.black
-                                                  .withOpacity(0.8),
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -569,16 +525,14 @@ class _My_EventState extends State<My_Event> {
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
                                 height: 10.h,
                                 padding: EdgeInsets.only(left: 2.15.w),
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
                                 ),
                                 child: Row(
@@ -589,7 +543,7 @@ class _My_EventState extends State<My_Event> {
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.bedroom_baby_outlined,
@@ -600,9 +554,9 @@ class _My_EventState extends State<My_Event> {
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Furniture Required',
@@ -611,19 +565,18 @@ class _My_EventState extends State<My_Event> {
                                               color: Colors.blue,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         SizedBox(height: 0.5.h),
-                                        Text("Dj Song",
+                                        Text(
+                                          "Dj Song",
                                           style: TextStyle(
                                               fontSize: 16.sp,
-                                              color: Colors.black
-                                                  .withOpacity(0.8),
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -635,16 +588,14 @@ class _My_EventState extends State<My_Event> {
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
                                 height: 10.h,
                                 padding: EdgeInsets.only(left: 2.15.w),
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
                                 ),
                                 child: Row(
@@ -655,7 +606,7 @@ class _My_EventState extends State<My_Event> {
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.people_alt_outlined,
@@ -666,9 +617,9 @@ class _My_EventState extends State<My_Event> {
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Venue coordinator',
@@ -677,19 +628,18 @@ class _My_EventState extends State<My_Event> {
                                               color: Colors.blue,
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         SizedBox(height: 0.5.h),
-                                        Text("View All",
+                                        Text(
+                                          "View All",
                                           style: TextStyle(
                                               fontSize: 16.sp,
-                                              color: Colors.black
-                                                  .withOpacity(0.8),
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
-                                              fontWeight:
-                                              FontWeight.bold),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -702,7 +652,6 @@ class _My_EventState extends State<My_Event> {
                         ],
                       ),
                     ),
-
                     SizedBox(height: 1.h),
                   ],
                 ),

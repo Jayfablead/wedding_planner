@@ -11,7 +11,6 @@ import 'package:wedding_planner/Modal/UserProfileModal.dart';
 import 'package:wedding_planner/Others/NotificationScreen.dart';
 import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/main.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/load.dart';
@@ -56,7 +55,7 @@ class _MyProfileState extends State<MyProfile> {
       isLoading: isLoading,
       scaffold: Scaffold(
         extendBody: true,
-        bottomNavigationBar: bottomnavbar(selit: -3),
+
         resizeToAvoidBottomInset: false,
         drawer: drawer1(),
         key: scaffoldKey2,
@@ -217,13 +216,17 @@ class _MyProfileState extends State<MyProfile> {
                                       : PopupMenuItem<String>(
                                           onTap: () {
                                             Navigator.of(context).pop();
-                                            Get.to(NotificationScreen(sele: 0,));
+                                            Get.to(NotificationScreen(
+                                              sele: 0,
+                                            ));
                                           },
                                           value: 'Option 1',
                                           child: InkWell(
                                             onTap: () {
                                               Navigator.of(context).pop();
-                                              Get.to(NotificationScreen(sele: 0,));
+                                              Get.to(NotificationScreen(
+                                                sele: 0,
+                                              ));
                                             },
                                             child: Row(
                                               children: [

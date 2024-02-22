@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -27,7 +26,6 @@ import 'package:wedding_planner/widgets/headerwidget.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
 import '../Modal/VenuedetailModal.dart';
-import '../Modal/mySupplierModal.dart';
 
 class ChatlistPage extends StatefulWidget {
   int? sele;
@@ -246,78 +244,76 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                           ),
                                                         ),
                                                         SizedBox(height: 2.h),
-
-
                                                         SizedBox(height: 2.h),
                                                         Text(
-                                                                'Venue :'
-                                                                   ,
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        13.sp,
-                                                                    letterSpacing:
-                                                                        1,
-                                                                    fontFamily:
-                                                                        'sofi',
-                                                                    color: Colors
-                                                                        .black),
-                                                              ),
+                                                          'Venue :',
+                                                          style: TextStyle(
+                                                              fontSize: 13.sp,
+                                                              letterSpacing: 1,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              color:
+                                                                  Colors.black),
+                                                        ),
                                                         Row(
                                                           children: [
                                                             Text(
-                                                              venuedetail?.venueDetails?.name ??
+                                                              venuedetail
+                                                                      ?.venueDetails
+                                                                      ?.name ??
                                                                   '',
-                                                              style:
-                                                              TextStyle(
+                                                              style: TextStyle(
                                                                 fontSize: 13.sp,
-                                                                letterSpacing: 1,
-                                                                fontFamily: 'sofi',
-                                                                color: Colors.black,
+                                                                letterSpacing:
+                                                                    1,
+                                                                fontFamily:
+                                                                    'sofi',
+                                                                color: Colors
+                                                                    .black,
                                                               ),
                                                             ),
                                                           ],
                                                         ),
                                                         SizedBox(height: 3.h),
-                                                       InkWell(
-                                                                onTap: () {
-                                                                  if (_formKeychat
-                                                                      .currentState!
-                                                                      .validate()) {
-                                                                    adtopicap();
-                                                                    _selectedLocation ==
-                                                                            'Venue'
-                                                                        ? print(
-                                                                            'topic: ${_topic.text}\nid: ${venuedetail?.venueDetails?.id}\nname: ${venuedetail?.venueDetails?.name}')
-                                                                        : print(
-                                                                            'Supplier');
-                                                                  }
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  width: 65.w,
-                                                                  height: 6.h,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            25.sp),
-                                                                  ),
-                                                                  child: Center(
-                                                                      child:
-                                                                          Text(
-                                                                    "Start",
-                                                                    style: TextStyle(
-                                                                        fontSize: 13
-                                                                            .sp,
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontFamily:
-                                                                            'get'),
-                                                                  )),
-                                                                ),
-                                                              ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            if (_formKeychat
+                                                                .currentState!
+                                                                .validate()) {
+                                                              adtopicap();
+                                                              _selectedLocation ==
+                                                                      'Venue'
+                                                                  ? print(
+                                                                      'topic: ${_topic.text}\nid: ${venuedetail?.venueDetails?.id}\nname: ${venuedetail?.venueDetails?.name}')
+                                                                  : print(
+                                                                      'Supplier');
+                                                            }
+                                                          },
+                                                          child: Container(
+                                                            width: 65.w,
+                                                            height: 6.h,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color:
+                                                                  Colors.blue,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          25.sp),
+                                                            ),
+                                                            child: Center(
+                                                                child: Text(
+                                                              "Start",
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      13.sp,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontFamily:
+                                                                      'get'),
+                                                            )),
+                                                          ),
+                                                        ),
                                                         SizedBox(height: 1.h),
                                                       ],
                                                     ),
@@ -1009,7 +1005,6 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                             ],
                                           ),
                                 SizedBox(height: 1.h),
-
                               ],
                             ),
                       SizedBox(

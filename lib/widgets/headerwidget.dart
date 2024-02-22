@@ -142,13 +142,17 @@ Widget header({
                         : PopupMenuItem<String>(
                             onTap: () {
                               Navigator.of(context).pop();
-                              Get.to(NotificationScreen(sele: 0,));
+                              Get.to(NotificationScreen(
+                                sele: 0,
+                              ));
                             },
                             value: 'Option 1',
                             child: InkWell(
                               onTap: () {
                                 Navigator.of(context).pop();
-                                Get.to(NotificationScreen(sele: 0,));
+                                Get.to(NotificationScreen(
+                                  sele: 0,
+                                ));
                               },
                               child: Row(
                                 children: [

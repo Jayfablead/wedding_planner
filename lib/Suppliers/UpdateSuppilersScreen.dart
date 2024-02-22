@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,11 +8,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Modal/AllCatagoriesModal.dart';
-import '../Modal/ReqsetsSuppliersModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/UpdateRequestedSupplierModal.dart';
 import '../Modal/mySupplierModal.dart';
-import '../Provider/authprovider.dart';
 import '../Provider/taskprovider.dart';
 import '../widgets/buildErrorDialog.dart';
 import '../widgets/const.dart';
@@ -24,7 +21,11 @@ class UpdateSuppilersScreen extends StatefulWidget {
   String? suppid;
   String? catid;
 
-  UpdateSuppilersScreen({super.key,required this.suppid,required this.catid,});
+  UpdateSuppilersScreen({
+    super.key,
+    required this.suppid,
+    required this.catid,
+  });
 
   @override
   State<UpdateSuppilersScreen> createState() => _UpdateSuppilersScreenState();
@@ -32,12 +33,12 @@ class UpdateSuppilersScreen extends StatefulWidget {
 
 class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
   bool _obscurePassword = true;
-  TextEditingController _name =TextEditingController();
-  TextEditingController _email =TextEditingController();
-  TextEditingController _passwod =TextEditingController();
-  TextEditingController _confrompassword =TextEditingController();
-  TextEditingController _contact =TextEditingController();
-  TextEditingController _details =TextEditingController();
+  TextEditingController _name = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _passwod = TextEditingController();
+  TextEditingController _confrompassword = TextEditingController();
+  TextEditingController _contact = TextEditingController();
+  TextEditingController _details = TextEditingController();
   final GlobalKey<ScaffoldState> scaffoldKey28 = GlobalKey<ScaffoldState>();
   String? category;
   final _formKey = GlobalKey<FormState>();
@@ -52,8 +53,8 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
     homeap();
     supplierdetailap();
   }
-  @override
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
@@ -62,7 +63,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding:EdgeInsets.symmetric(horizontal: 1.w),
+          padding: EdgeInsets.symmetric(horizontal: 1.w),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -74,31 +75,37 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     callback1: () {
                       scaffoldKey28.currentState?.openDrawer();
                     }),
-                SizedBox(height: 3.h,),
+                SizedBox(
+                  height: 3.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Select Category :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Select Category :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width:90.w,
+                      width: 90.w,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(
-                            width: 1, color: Colors.white),
+                        border: Border.all(width: 1, color: Colors.white),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       padding: EdgeInsets.symmetric(
@@ -108,9 +115,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                           hint: Text(
                             'Select Category',
                             style: TextStyle(
-
-                                color:
-                                Colors.black.withOpacity(0.4),
+                                color: Colors.black.withOpacity(0.4),
                                 fontSize: 13.sp,
                                 fontFamily: "task"),
                           ),
@@ -119,14 +124,12 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                           onChanged: (newValue) {
                             setState(() {
                               category = newValue.toString();
-
                             });
                           },
-                          items: allcat?.services
-                              ?.map((location) {
+                          items: allcat?.services?.map((location) {
                             return DropdownMenuItem(
                               child: Text(
-                                ( location.categoryName).toString(),
+                                (location.categoryName).toString(),
                                 style: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'task',
@@ -140,23 +143,29 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Name :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Name :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -166,41 +175,23 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                         controller: _name,
                         decoration: InputDecoration(
                           hintText: 'Enter Suppliers Name',
-                          enabledBorder:
-                          OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          disabledBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          focusedBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          border:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
                           fillColor: Colors.white,
                           filled: true,
@@ -208,8 +199,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                               fontSize: 12.sp,
                               fontFamily: 'sofi',
                               letterSpacing: 0.7,
-                              fontWeight:
-                              FontWeight.bold),
+                              fontWeight: FontWeight.bold),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -222,22 +212,29 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Email :-",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Email :-",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -299,22 +296,29 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Contact :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Contact :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -324,41 +328,23 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                         controller: _contact,
                         decoration: InputDecoration(
                           hintText: 'Enter Suppliers Contact',
-                          enabledBorder:
-                          OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          disabledBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          focusedBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
-                          border:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(90),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
                           ),
                           fillColor: Colors.white,
                           filled: true,
@@ -366,8 +352,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                               fontSize: 12.sp,
                               fontFamily: 'sofi',
                               letterSpacing: 0.7,
-                              fontWeight:
-                              FontWeight.bold),
+                              fontWeight: FontWeight.bold),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -380,68 +365,56 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Suppliers Details :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Suppliers Details :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: 90.w,
-
                       child: TextFormField(
                         controller: _details,
                         maxLines: 5,
                         decoration: InputDecoration(
                           hintText: 'Enter Suppliers Details',
-                          enabledBorder:
-                          OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          disabledBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          focusedBorder:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          border:
-                          OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color:
-                                Colors.white),
-                            borderRadius:
-                            BorderRadius
-                                .circular(20),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           fillColor: Colors.white,
                           filled: true,
@@ -449,8 +422,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                               fontSize: 12.sp,
                               fontFamily: 'sofi',
                               letterSpacing: 0.7,
-                              fontWeight:
-                              FontWeight.bold),
+                              fontWeight: FontWeight.bold),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -463,22 +435,29 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Password :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Password :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -535,22 +514,29 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Conform Password :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Conform Password :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -607,20 +593,25 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Select Photo :- ",style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: 'get',
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                          color:Colors.blue),),
+                      Text(
+                        "Select Photo :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
                       InkWell(
-                        onTap: ()async{
+                        onTap: () async {
                           XFile? photo = await _picker.pickImage(
                               source: ImageSource.gallery);
                           setState(() {
@@ -635,40 +626,45 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(25.sp),
                           ),
-                          child: Text("Select Photo",style: TextStyle(
-                              fontSize: 16.sp,
-                              fontFamily: 'get',
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                              color:Colors.white),),
+                          child: Text(
+                            "Select Photo",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'get',
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                                color: Colors.white),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 Row(
                   children: [
                     _pickedFile == null
                         ? Container()
-                        :Container(
-                      height: 14.5.h,
-                      width: 40.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child:  Image.file(
-                            _pickedFile!,
-                            fit: BoxFit.cover,
-                          )
-                      ),
-                    ),
+                        : Container(
+                            height: 14.5.h,
+                            width: 40.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.file(
+                                  _pickedFile!,
+                                  fit: BoxFit.cover,
+                                )),
+                          ),
                   ],
                 ),
-
-                SizedBox(height: 3.h,),
+                SizedBox(
+                  height: 3.h,
+                ),
                 InkWell(
                   onTap: () {
                     requsetsuppiler();
@@ -682,24 +678,25 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
                     ),
                     child: Center(
                         child: Text(
-                          "Update Supplier",
-                          style: TextStyle(
-                              fontSize: 17.sp,
-                              color: Colors.white,
-                              fontFamily: 'get'),
-                        )),
+                      "Update Supplier",
+                      style: TextStyle(
+                          fontSize: 17.sp,
+                          color: Colors.white,
+                          fontFamily: 'get'),
+                    )),
                   ),
                 ),
-                SizedBox(height: 5.h,),
+                SizedBox(
+                  height: 5.h,
+                ),
               ],
             ),
-
           ),
         ),
       ),
     );
-
   }
+
   CategApi() {
     checkInternet().then((internet) async {
       if (internet) {
@@ -724,6 +721,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
       }
     });
   }
+
   bool isLoad = true;
 
   requsetsuppiler() {
@@ -739,22 +737,25 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
       print(data);
       checkInternet().then((internet) async {
         if (internet) {
-          taskprovider().updatesulierapi(data,(widget.suppid).toString()).then((response) async {
+          taskprovider()
+              .updatesulierapi(data, (widget.suppid).toString())
+              .then((response) async {
             updaterequestedsuppliermodal =
-                UpdateRequestedSupplierModal.fromJson(json.decode(response.body));
-            if (response.statusCode == 200 && updaterequestedsuppliermodal?.status == "1") {
-
+                UpdateRequestedSupplierModal.fromJson(
+                    json.decode(response.body));
+            if (response.statusCode == 200 &&
+                updaterequestedsuppliermodal?.status == "1") {
               buildErrorDialog1(
                 context,
                 "",
                 updaterequestedsuppliermodal?.message ?? "",
-                    () {
+                () {
                   Get.back();
                 },
               );
             } else {
-              buildErrorDialog(
-                  context, " Error", (updaterequestedsuppliermodal?.message).toString());
+              buildErrorDialog(context, " Error",
+                  (updaterequestedsuppliermodal?.message).toString());
             }
           });
         } else {
@@ -763,14 +764,13 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
       });
     }
   }
+
   homeap() {
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().Mysups().then((response) async {
           mysupps = MySuppliersModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && mysupps?.status == "1") {
-
-
             setState(() {
               isLoading = false;
             });
@@ -785,7 +785,9 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
       }
     });
   }
+
   bool isLoading = true;
+
   supplierdetailap() {
     checkInternet().then((internet) async {
       if (internet) {
@@ -796,12 +798,12 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
               SupplierdetailModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 &&
               supplierdetailmodal?.status == "1") {
-            _email.text=(supplierdetailmodal?.supplierInfo?.email).toString();
-            _name.text=(supplierdetailmodal?.supplierInfo?.name).toString();
-            _details.text=(supplierdetailmodal?.supplierInfo?.description).toString();
-            _contact.text=(supplierdetailmodal?.supplierInfo?.contact).toString();
-
-
+            _email.text = (supplierdetailmodal?.supplierInfo?.email).toString();
+            _name.text = (supplierdetailmodal?.supplierInfo?.name).toString();
+            _details.text =
+                (supplierdetailmodal?.supplierInfo?.description).toString();
+            _contact.text =
+                (supplierdetailmodal?.supplierInfo?.contact).toString();
 
             setState(() {
               isLoading = false;

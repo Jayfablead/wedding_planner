@@ -22,7 +22,9 @@ class _NotificationState extends State<Notification> {
         children: [
           IconButton(
               onPressed: () {
-                Get.to(NotificationScreen(sele: 0,));
+                Get.to(NotificationScreen(
+                  sele: 0,
+                ));
               },
               icon: Icon(
                 Icons.notifications_none_rounded,

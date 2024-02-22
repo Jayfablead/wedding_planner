@@ -8,7 +8,6 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/FavouritelistModal.dart';
 import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
-import 'package:wedding_planner/widgets/bottamnav.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -205,7 +204,6 @@ class _myfavouriteState extends State<myfavourite> {
         backgroundColor: Colors.grey.shade100,
         key: scaffoldKey9,
         extendBody: true,
-        bottomNavigationBar: bottomnavbar(selit: -3),
         body: isLoading
             ? Container()
             : Padding(

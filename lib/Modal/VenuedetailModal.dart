@@ -70,8 +70,18 @@ class MoreInfo {
   String? uid;
   String? vName;
   String? address;
+  String? photos;
   String? vCapacity;
   String? vDetails;
+  String? parkingInfo;
+  String? furnitureInfo;
+  String? kitchenBarInfo;
+  String? soundInfo;
+  String? safetyInfo;
+  String? supplierAccess;
+  String? guestAccess;
+  String? riggingAllowed;
+  String? onsiteAccomodation;
   String? createdAt;
 
   MoreInfo(
@@ -79,8 +89,18 @@ class MoreInfo {
       this.uid,
       this.vName,
       this.address,
+      this.photos,
       this.vCapacity,
       this.vDetails,
+      this.parkingInfo,
+      this.furnitureInfo,
+      this.kitchenBarInfo,
+      this.soundInfo,
+      this.safetyInfo,
+      this.supplierAccess,
+      this.guestAccess,
+      this.riggingAllowed,
+      this.onsiteAccomodation,
       this.createdAt});
 
   MoreInfo.fromJson(Map<String, dynamic> json) {
@@ -88,8 +108,18 @@ class MoreInfo {
     uid = json['uid'];
     vName = json['v_name'];
     address = json['address'];
+    photos = json['photos'];
     vCapacity = json['v_capacity'];
     vDetails = json['v_details'];
+    parkingInfo = json['parking_info'];
+    furnitureInfo = json['furniture_info'];
+    kitchenBarInfo = json['kitchen_bar_info'];
+    soundInfo = json['sound_info'];
+    safetyInfo = json['safety_info'];
+    supplierAccess = json['supplier_access'];
+    guestAccess = json['guest_access'];
+    riggingAllowed = json['rigging_allowed'];
+    onsiteAccomodation = json['onsite_accomodation'];
     createdAt = json['created_at'];
   }
 
@@ -99,8 +129,18 @@ class MoreInfo {
     data['uid'] = this.uid;
     data['v_name'] = this.vName;
     data['address'] = this.address;
+    data['photos'] = this.photos;
     data['v_capacity'] = this.vCapacity;
     data['v_details'] = this.vDetails;
+    data['parking_info'] = this.parkingInfo;
+    data['furniture_info'] = this.furnitureInfo;
+    data['kitchen_bar_info'] = this.kitchenBarInfo;
+    data['sound_info'] = this.soundInfo;
+    data['safety_info'] = this.safetyInfo;
+    data['supplier_access'] = this.supplierAccess;
+    data['guest_access'] = this.guestAccess;
+    data['rigging_allowed'] = this.riggingAllowed;
+    data['onsite_accomodation'] = this.onsiteAccomodation;
     data['created_at'] = this.createdAt;
     return data;
   }
