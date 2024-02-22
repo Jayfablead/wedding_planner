@@ -217,13 +217,13 @@ class _MyProfileState extends State<MyProfile> {
                                       : PopupMenuItem<String>(
                                           onTap: () {
                                             Navigator.of(context).pop();
-                                            Get.to(NotificationScreen());
+                                            Get.to(NotificationScreen(sele: 0,));
                                           },
                                           value: 'Option 1',
                                           child: InkWell(
                                             onTap: () {
                                               Navigator.of(context).pop();
-                                              Get.to(NotificationScreen());
+                                              Get.to(NotificationScreen(sele: 0,));
                                             },
                                             child: Row(
                                               children: [

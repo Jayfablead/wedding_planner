@@ -6,6 +6,8 @@ import 'package:http_parser/http_parser.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/response.dart';
 
+import '../widgets/CustomExpection.dart';
+
 class taskprovider with ChangeNotifier {
   Map<String, String> headers = {
     'Authorization': 'ngjkdsbvsj111nvnbbHHdhsagdf221',
@@ -857,6 +859,30 @@ class taskprovider with ChangeNotifier {
       },
     );
     responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> requsestsuppiersapi(Map<String, String> bodyData) async {
+    print(bodyData);
+    String? url = '$baseUrl/requestSupplier/${userData?.user?.id.toString()}';
+    var responseJson;
+    try {
+      final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));
+      imageUploadRequest.headers.addAll(headers);
+      if (bodyData['p_img']?.isNotEmpty ?? false) {
+        final file = await http.MultipartFile.fromPath(
+          'p_img',
+          bodyData['p_img'] ?? '',
+          contentType: MediaType('image', 'jpg,png'),
+        );
+        imageUploadRequest.files.add(file);
+      }
+      imageUploadRequest.fields.addAll(bodyData);
+      final streamResponse = await imageUploadRequest.send();
+      responseJson = responses(await http.Response.fromStream(streamResponse));
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
     return responseJson;
   }
 }

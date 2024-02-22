@@ -51,6 +51,7 @@ import '../Modal/MyvenuetableModal.dart';
 import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
+import '../Modal/ReqsetsSuppliersModal.dart';
 import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
 import '../Modal/SendThradModal.dart';
@@ -137,5 +138,9 @@ AddTopicModal? addtopic;
 SendThreadModal? sendthread;
 ThreadListModal? threadlist;
 ThreadchatModal? threadchat;
+ReqsetsSuppliersModal? reqsetssuppliersmodal;
+
+
+
 
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

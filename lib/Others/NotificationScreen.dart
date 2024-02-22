@@ -18,7 +18,9 @@ import '../Provider/authprovider.dart';
 import '../widgets/drawer.dart';
 
 class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({super.key});
+  int? sele;
+
+  NotificationScreen({super.key,required this.sele});
 
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();
@@ -45,7 +47,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
         extendBody: true,
-        bottomNavigationBar: bottomnavbar(selit: -3),
+        bottomNavigationBar: bottomnavbar(selit: 0),
         drawer: drawer1(),
         key: scaffoldKey19,
         body: isLoading

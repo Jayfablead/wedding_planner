@@ -69,6 +69,7 @@ dependencies:
   syncfusion_flutter_pdfviewer:
   auto_size_text:
   url_launcher:
+  convex_bottom_bar:
 
 dev_dependencies:
   flutter_test:

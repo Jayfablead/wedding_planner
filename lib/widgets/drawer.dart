@@ -15,6 +15,7 @@ import 'package:wedding_planner/Others/guestroomManagement.dart';
 import 'package:wedding_planner/Others/viewBudgetPage.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Quatations/quoatelist2.dart';
+import 'package:wedding_planner/Suppliers/AddNewSupplier.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
 import 'package:wedding_planner/Venue/EventSpace.dart';
 import 'package:wedding_planner/Venue/MyVenueDetailspages.dart';
@@ -1268,7 +1269,7 @@ class _drawer1State extends State<drawer1> {
               onTap: () {
                 Get.back();
                 Get.to(ChatlistPage(
-                  sele: 3,
+                  sele: 2,
                 ));
               },
               child: Container(
@@ -1721,7 +1722,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(QuoateList2());
+                Get.to(RequestSupplier());
               },
               child: Container(
                 alignment: Alignment.center,
