@@ -472,7 +472,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                                 ? Get.to(Check_list())
                                                 : sel1 == 2
                                                     ? Get.to(MeetingsPage(
-                                                        sele: 0,
+
                                                       ))
                                                     : Container();
                                           },

@@ -9,12 +9,10 @@ import 'package:wedding_planner/Authenticate/profilePage.dart';
 import 'package:wedding_planner/Chat/ChatListPage.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
-import 'package:wedding_planner/Others/MoodBoards.dart';
 import 'package:wedding_planner/Others/certificate.dart';
 import 'package:wedding_planner/Others/guestroomManagement.dart';
 import 'package:wedding_planner/Others/viewBudgetPage.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/Quatations/quoatelist2.dart';
 import 'package:wedding_planner/Suppliers/AddNewSupplier.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
 import 'package:wedding_planner/Suppliers/ReqestventSuppliersscreen.dart';
@@ -32,8 +30,8 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 import '../Authenticate/LoginPage.dart';
+import '../Meetings/PedingMeetingScreen.dart';
 import '../Modal/NotificationModal.dart';
-import '../Suppliers/mysplirs.dart';
 import '../Venue/MyVenue.dart';
 
 class drawer1 extends StatefulWidget {
@@ -693,48 +691,51 @@ class _drawer1State extends State<drawer1> {
                 ),
                 // SizedBox(height: 0.5.h,),
 
-                show?Container():InkWell(
-                    onTap: () async {
-                      Get.back();
-                      await SaveDataLocal.clearUserData();
-                      Get.offAll(LoginPage());
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 7.w,
-                          ),
-                          Container(
-                            width: 63.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
+                show
+                    ? Container()
+                    : InkWell(
+                        onTap: () async {
+                          Get.back();
+                          await SaveDataLocal.clearUserData();
+                          Get.offAll(LoginPage());
+                        },
+                        child: Container(
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 7.w,
+                              ),
+                              Container(
+                                width: 63.w,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Icon(
-                                      Icons.logout,
-                                      color: Colors.white,
-                                      size: 22.sp,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Logout",
-                                        style: TextStyle(
-                                          fontSize: 17.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'sofi',
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.logout,
                                           color: Colors.white,
-                                        )),
+                                          size: 22.sp,
+                                        ),
+                                        SizedBox(
+                                          width: 2.w,
+                                        ),
+                                        Text("Logout",
+                                            style: TextStyle(
+                                              fontSize: 17.sp,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'sofi',
+                                              color: Colors.white,
+                                            )),
+                                      ],
+                                    ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ))
+                        ))
               ],
             )),
       ),
@@ -746,7 +747,6 @@ class _drawer1State extends State<drawer1> {
       fontSize: 12.sp,
       fontFamily: 'sofi',
       fontWeight: FontWeight.bold);
-
 
   venue() {
     return Container(
@@ -1003,7 +1003,8 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    SizedBox(width: 22.w,
+                    SizedBox(
+                      width: 22.w,
                       child: Text(
                         "Pending Delivery Requests",
                         textAlign: TextAlign.center,
@@ -1039,7 +1040,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(MeetingsPage(sele: 0));
+                Get.to(MeetingsPage());
               },
               child: Container(
                 alignment: Alignment.center,
@@ -1081,7 +1082,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(AddViewItenrary());
+                Get.to(PedingMeetingScreen());
               },
               child: Container(
                 height: 25.w,
@@ -1101,7 +1102,8 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    SizedBox(width: 22.w,
+                    SizedBox(
+                      width: 22.w,
                       child: Text(
                         "Pending Meeting Requests",
                         textAlign: TextAlign.center,
@@ -1475,7 +1477,8 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    SizedBox(width: 22.w,
+                    SizedBox(
+                      width: 22.w,
                       child: Text(
                         "Change Password",
                         textAlign: TextAlign.center,
@@ -1751,7 +1754,8 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    SizedBox(width: 22.w,
+                    SizedBox(
+                      width: 22.w,
                       child: Text(
                         "Request Supplier",
                         textAlign: TextAlign.center,
@@ -1774,9 +1778,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(
-                  ReqestventSupplierscreen(sele: 0)
-                );
+                Get.to(ReqestventSupplierscreen(sele: 0));
               },
               child: Container(
                 height: 24.w,

@@ -17,9 +17,7 @@ import '../Modal/addMeetingModal.dart';
 import '../widgets/const.dart';
 
 class MeetingsPage extends StatefulWidget {
-  int? sele;
-
-  MeetingsPage({super.key, required this.sele});
+  MeetingsPage({super.key});
 
   @override
   State<MeetingsPage> createState() => _MeetingsPageState();
@@ -73,7 +71,6 @@ class _MeetingsPageState extends State<MeetingsPage> {
       isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        bottomNavigationBar: bottomnavbar(selit: widget.sele),
         extendBody: true,
         drawer: drawer1(),
         key: scaffoldKey14,
@@ -136,7 +133,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                   ),
                                   Text(
                                     textAlign: TextAlign.center,
-                                    "Add Meeting",
+                                    "Request Meeting",
                                     style: TextStyle(
                                       fontSize: 14.sp,
                                       letterSpacing: 1,
@@ -487,7 +484,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                               //     }),
                               Center(
                                 child: Text(
-                                  'Add New Meeting',
+                                  'Request New Meeting',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 17.sp,
@@ -498,161 +495,58 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       letterSpacing: 1),
                                 ),
                               ),
-                              SizedBox(height: 3.h),
-                              Text(
-                                'Title :',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(height: 1.h),
-                              TextFormField(
-                                controller: _title,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter check title';
-                                  }
-                                  return null;
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon:
-                                      Icon(Icons.note_add, color: Colors.blue),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  hintText: 'Title',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 2.h),
-                                  Text(
-                                    'Description :',
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1),
-                                  ),
-                                  SizedBox(height: 1.h),
-                                  TextFormField(
-                                    controller: _desc,
-                                    onChanged: (value) {},
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter check description';
-                                      }
-                                      return null;
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.black.withOpacity(0.67),
-                                        fontFamily: 'Meta1'),
-                                    decoration: InputDecoration(
-                                      prefixIcon: Icon(
-                                        Icons.description,
-                                        color: Colors.blue,
-                                      ),
-                                      border: InputBorder.none,
-                                      fillColor: Colors.white,
-                                      filled: true,
-                                      enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          borderSide:
-                                              BorderSide(color: Colors.white)),
-                                      disabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          borderSide:
-                                              BorderSide(color: Colors.white)),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          borderSide:
-                                              BorderSide(color: Colors.white)),
-                                      errorBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          borderSide:
-                                              BorderSide(color: Colors.white)),
-                                      hintText: 'Description',
-                                      hintStyle: TextStyle(
-                                          color: Colors.black.withOpacity(0.67),
-                                          fontFamily: 'Meta1'),
-                                    ),
-                                  ),
-                                  // Column(
-                                  //   children: [
-                                  //     SizedBox(height: 2.h),
-                                  //     Text(
-                                  //       'Category :',
-                                  //       style: TextStyle(
-                                  //           fontSize: 14.sp,
-                                  //           fontFamily: 'sofi',
-                                  //           color: Colors.black,
-                                  //           fontWeight: FontWeight.bold,
-                                  //           letterSpacing: 1),
-                                  //     ),
-                                  //     SizedBox(height: 1.h),
-                                  //     TextFormField(
-                                  //       controller: _cate,
-                                  //       onChanged: (value) {},
-                                  //       validator: (value) {
-                                  //         if (value == null || value.isEmpty) {
-                                  //           return 'Please enter check category';
-                                  //         }
-                                  //         return null;
-                                  //       },
-                                  //       style: TextStyle(
-                                  //           color: Colors.black.withOpacity(0.67),
-                                  //           fontFamily: 'Meta1'),
-                                  //       decoration: InputDecoration(
-                                  //         prefixIcon: Icon(Icons.category),
-                                  //         border: InputBorder.none,
-                                  //         fillColor: Colors.grey.withOpacity(0.12),
-                                  //         filled: true,
-                                  //         enabledBorder: OutlineInputBorder(
-                                  //             borderRadius: BorderRadius.circular(20),
-                                  //             borderSide:
-                                  //                 BorderSide(color: Colors.transparent)),
-                                  //         hintText: 'category',
-                                  //         hintStyle: TextStyle(
-                                  //             color: Colors.black.withOpacity(0.67),
-                                  //             fontFamily: 'Meta1'),
-                                  //       ),
-                                  //     ),
-                                  //   ],
-                                  // ),
-                                ],
-                              ),
+                              SizedBox(height: 2.h),
+                              // Text(
+                              //   'Title :',
+                              //   style: TextStyle(
+                              //       fontSize: 14.sp,
+                              //       fontFamily: 'sofi',
+                              //       color: Colors.black,
+                              //       fontWeight: FontWeight.bold,
+                              //       letterSpacing: 1),
+                              // ),
+                              // SizedBox(height: 1.h),
+                              // TextFormField(
+                              //   controller: _title,
+                              //   onChanged: (value) {},
+                              //   validator: (value) {
+                              //     if (value == null || value.isEmpty) {
+                              //       return 'Please enter check title';
+                              //     }
+                              //     return null;
+                              //   },
+                              //   style: TextStyle(
+                              //       color: Colors.black.withOpacity(0.67),
+                              //       fontFamily: 'Meta1'),
+                              //   decoration: InputDecoration(
+                              //     prefixIcon:
+                              //         Icon(Icons.note_add, color: Colors.blue),
+                              //     border: InputBorder.none,
+                              //     fillColor: Colors.white,
+                              //     filled: true,
+                              //     enabledBorder: OutlineInputBorder(
+                              //         borderRadius: BorderRadius.circular(25),
+                              //         borderSide:
+                              //             BorderSide(color: Colors.white)),
+                              //     disabledBorder: OutlineInputBorder(
+                              //         borderRadius: BorderRadius.circular(25),
+                              //         borderSide:
+                              //             BorderSide(color: Colors.white)),
+                              //     focusedBorder: OutlineInputBorder(
+                              //         borderRadius: BorderRadius.circular(25),
+                              //         borderSide:
+                              //             BorderSide(color: Colors.white)),
+                              //     errorBorder: OutlineInputBorder(
+                              //         borderRadius: BorderRadius.circular(25),
+                              //         borderSide:
+                              //             BorderSide(color: Colors.white)),
+                              //     hintText: 'Title',
+                              //     hintStyle: TextStyle(
+                              //         color: Colors.black.withOpacity(0.67),
+                              //         fontFamily: 'Meta1'),
+                              //   ),
+                              // ),
+
                               SizedBox(height: 2.h),
                               Text(
                                 'Date :',
@@ -777,6 +671,64 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       borderSide:
                                           BorderSide(color: Colors.white)),
                                   hintText: 'Time',
+                                  hintStyle: TextStyle(
+                                      color: Colors.black.withOpacity(0.67),
+                                      fontFamily: 'Meta1'),
+                                ),
+                              ),
+                              SizedBox(height: 2.h),
+
+                              Text(
+                                'Comment :',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: 'sofi',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1),
+                              ),
+                              SizedBox(height: 1.h),
+                              TextFormField(maxLines: 5,
+                                controller: _desc,
+                                onChanged: (value) {},
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter Comment';
+                                  }
+                                  return null;
+                                },
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.67),
+                                    fontFamily: 'Meta1'),
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(
+                                    Icons.description,
+                                    color: Colors.blue,
+                                  ),
+                                  border: InputBorder.none,
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  disabledBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  errorBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.circular(25),
+                                      borderSide:
+                                      BorderSide(color: Colors.white)),
+                                  hintText: 'Comment (Optional)',
                                   hintStyle: TextStyle(
                                       color: Colors.black.withOpacity(0.67),
                                       fontFamily: 'Meta1'),
