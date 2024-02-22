@@ -42,6 +42,7 @@ import '../Modal/AllCatagoriesModal.dart';
 import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
 import '../Modal/CategoryWiseSuppliersModal.dart';
+import '../Modal/DeleteRequestedSupplierModal.dart';
 import '../Modal/DocumentModal.dart';
 import '../Modal/FloorDetalisModal.dart';
 import '../Modal/GuestseatingModal.dart';
@@ -52,6 +53,7 @@ import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
 import '../Modal/ReqsetsSuppliersModal.dart';
+import '../Modal/ReusestViewSuppliersModal.dart';
 import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
 import '../Modal/SendThradModal.dart';
@@ -61,8 +63,10 @@ import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
 import '../Modal/ThreadChatModal.dart';
 import '../Modal/ThreadListModal.dart';
+import '../Modal/UpdateRequestedSupplierModal.dart';
 import '../Modal/VenueDetalisModal.dart';
 import '../Modal/addMeetingModal.dart';
+import '../Modal/deleteItineraryModal.dart';
 import '../Modal/mySupplierModal.dart';
 
 Future<bool> checkInternet() async {
@@ -139,8 +143,10 @@ SendThreadModal? sendthread;
 ThreadListModal? threadlist;
 ThreadchatModal? threadchat;
 ReqsetsSuppliersModal? reqsetssuppliersmodal;
-
-
+deleteItineraryModal? deleteitinerary;
+ReusestViewSuppliersModal? reusestviewsuppliersmodal;
+DeleteRequestedSupplierModal? deleterequestedsuppliermodal;
+UpdateRequestedSupplierModal? updaterequestedsuppliermodal;
 
 
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

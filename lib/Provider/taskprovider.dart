@@ -803,6 +803,21 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> deleteItinerary(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/delteItenerary';
+
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 
   Future<http.Response> seatingapiflutterapi() async {
     String? url = '$baseUrl/myGuestSeating/${userData?.user?.id}';
@@ -865,6 +880,63 @@ class taskprovider with ChangeNotifier {
   Future<http.Response> requsestsuppiersapi(Map<String, String> bodyData) async {
     print(bodyData);
     String? url = '$baseUrl/requestSupplier/${userData?.user?.id.toString()}';
+    var responseJson;
+    try {
+      final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));
+      imageUploadRequest.headers.addAll(headers);
+      if (bodyData['p_img']?.isNotEmpty ?? false) {
+        final file = await http.MultipartFile.fromPath(
+          'p_img',
+          bodyData['p_img'] ?? '',
+          contentType: MediaType('image', 'jpg,png'),
+        );
+        imageUploadRequest.files.add(file);
+      }
+      imageUploadRequest.fields.addAll(bodyData);
+      final streamResponse = await imageUploadRequest.send();
+      responseJson = responses(await http.Response.fromStream(streamResponse));
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+    return responseJson;
+  }
+
+  Future<http.Response> restetsuppliersviewapi() async {
+    String? url = '$baseUrl/requestedSuppliers/${userData?.user?.id.toString()}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> deletesuppliersresuestapi(String data1) async {
+    String? url =
+        '$baseUrl/deleteRequestedSupplier/${data1}';
+    print(url);
+    var responseJson;
+    final response = await http
+        .post(
+      Uri.parse(url),
+      headers: headers,
+    )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> updatesulierapi(Map<String, String> bodyData,String data1) async {
+    print(bodyData);
+    String? url = '$baseUrl/updateRequestedSupplier/${data1}';
     var responseJson;
     try {
       final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));

@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:wedding_planner/Modal/deleteItineraryModal.dart';
 import 'package:wedding_planner/Modal/itienraryModal.dart';
-
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/load.dart';
 
@@ -60,6 +60,27 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                       }),
                   SizedBox(height: 1.h),
                   itienrarymodal?.status == "0" && itienrarymodal?.data == null
+                      ? Container()
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            InkWell(
+                                onTap: () {
+                                  buildErrorDialog2(context, '',
+                                      'Are You Sure You Want to Remove Your Itinerary This Can\'t be Undone ?',
+                                      () {
+                                    Get.back();
+                                    deleteitineraryApi();
+                                  }, buttonname: 'Remove');
+                                },
+                                child: Icon(
+                                  CupertinoIcons.trash,
+                                  color: Colors.red,
+                                )),
+                            SizedBox(width: 3.w),
+                          ],
+                        ),
+                  itienrarymodal?.status == "0" && itienrarymodal?.data == null
                       ? Container(
                           height: 83.h,
                           child: InkWell(
@@ -93,7 +114,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                           ),
                         )
                       : Container(
-                          height: 83.h,
+                          height: 78.h,
                           child: InkWell(
                             onTap: () {
                               Get.to(ItenraryDetails(
@@ -288,6 +309,33 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
           } else {}
         });
       } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  deleteitineraryApi() {
+    EasyLoading.show(
+        status: 'Removing Please Wait ..',
+        indicator: CircularProgressIndicator(
+          color: Colors.white,
+        ));
+    final Map<String, String> data = {};
+    data['Itenerary_id'] = itienrarymodal?.data?.id ?? '';
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().deleteItinerary(data).then((response) async {
+          deleteitinerary =
+              deleteItineraryModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && deleteitinerary?.status == "Success") {
+            EasyLoading.showSuccess("Removed");
+            IteinraryApi();
+          } else {
+            EasyLoading.showError("Can\'t Remove");
+          }
+        });
+      } else {
+        EasyLoading.showError("Can\'t Remove");
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });

@@ -17,7 +17,9 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Quatations/quoatelist2.dart';
 import 'package:wedding_planner/Suppliers/AddNewSupplier.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
+import 'package:wedding_planner/Suppliers/ReqestventSuppliersscreen.dart';
 import 'package:wedding_planner/Venue/EventSpace.dart';
+import 'package:wedding_planner/Venue/My%20Events.dart';
 import 'package:wedding_planner/Venue/MyVenueDetailspages.dart';
 import 'package:wedding_planner/bookings/view%20all%20bookings.dart';
 import 'package:wedding_planner/chnages/myfavourites.dart';
@@ -361,7 +363,7 @@ class _drawer1State extends State<drawer1> {
                                 onTap: () {
                                   Get.back();
                                   Get.offAll(YellowHomeScreen(
-                                    sele: 2,
+                                    sele: 1,
                                   ));
                                 },
                                 child: Container(
@@ -497,7 +499,7 @@ class _drawer1State extends State<drawer1> {
                                 onTap: () {
                                   Get.back();
                                   Get.to(
-                                    PostPage(sele: 1),
+                                    My_Event(),
                                   );
                                 },
                                 child: Container(
@@ -691,7 +693,7 @@ class _drawer1State extends State<drawer1> {
                 ),
                 // SizedBox(height: 0.5.h,),
 
-                InkWell(
+                show?Container():InkWell(
                     onTap: () async {
                       Get.back();
                       await SaveDataLocal.clearUserData();
@@ -1001,14 +1003,16 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    Text(
-                      "Pending Delivery Requests",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 9.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(width: 22.w,
+                      child: Text(
+                        "Pending Delivery Requests",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 9.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -1080,8 +1084,8 @@ class _drawer1State extends State<drawer1> {
                 Get.to(AddViewItenrary());
               },
               child: Container(
-                height: 24.w,
-                width: 24.w,
+                height: 25.w,
+                width: 25.w,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Column(
@@ -1097,14 +1101,16 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    Text(
-                      "Pending Meeting Requests",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 9.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(width: 22.w,
+                      child: Text(
+                        "Pending Meeting Requests",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 9.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -1469,14 +1475,16 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    Text(
-                      "Change Password",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 8.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(width: 22.w,
+                      child: Text(
+                        "Change Password",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 8.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -1743,14 +1751,16 @@ class _drawer1State extends State<drawer1> {
                     SizedBox(
                       height: 0.5.h,
                     ),
-                    Text(
-                      "Request Supplier",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 9.sp,
-                        fontFamily: 'sofi',
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(width: 22.w,
+                      child: Text(
+                        "Request Supplier",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 9.sp,
+                          fontFamily: 'sofi',
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -1765,9 +1775,7 @@ class _drawer1State extends State<drawer1> {
               onTap: () {
                 Get.back();
                 Get.to(
-                  MySups(
-                    sele: 4,
-                  ),
+                  ReqestventSupplierscreen(sele: 0)
                 );
               },
               child: Container(
