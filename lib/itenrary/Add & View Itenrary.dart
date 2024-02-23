@@ -190,7 +190,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                           children: [
                             Center(
                               child: Text(
-                                'Add Itinerary File',
+                                'Add Itinerary File / Image',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 17.sp,
