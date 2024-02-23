@@ -101,7 +101,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                     children: [
                                       SizedBox(width: 2.7.w),
                                       Text(
-                                        'Upload Your File',
+                                        'Upload Your File / Image',
                                         style: TextStyle(
                                             color: Colors.blue,
                                             fontSize: 15.5.sp,
@@ -117,9 +117,21 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                           height: 78.h,
                           child: InkWell(
                             onTap: () {
-                              Get.to(ItenraryDetails(
-                                link: itienrarymodal?.data?.filePath,
-                              ));
+                              String filePath = itienrarymodal?.data?.filePath ?? "";
+                              if (filePath.endsWith('.pdf')) {
+                                Get.to(ItenraryDetails(link: filePath));
+                              } else if (filePath.isNotEmpty) {
+                                // Assuming it's an image if it's not a PDF
+                                // You can replace this logic based on your file handling requirements
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      content: Image.asset(filePath),
+                                    );
+                                  },
+                                );
+                              }
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +147,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                     children: [
                                       SizedBox(width: 2.7.w),
                                       Text(
-                                        'View Your File',
+                                        (itienrarymodal?.data?.filePath.toString())!.endsWith('.pdf') ? 'View Your File' : 'View Your Image',
                                         style: TextStyle(
                                             color: Colors.blue,
                                             fontSize: 15.5.sp,
@@ -228,7 +240,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                           width: 2.w,
                                         ),
                                         Text(
-                                          'Add Your File',
+                                          'Add Your File / Image',
                                           style: TextStyle(
                                               fontSize: 13.sp,
                                               fontFamily: 'sofi',
@@ -293,7 +305,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
-        taskprovider().itenraryuploadapi(data).then((response) async {
+        taskprovider().itineraryUploadApi(data).then((response) async {
           iteneryupload =
               ItienraryuploadModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && iteneryupload?.status == "1") {

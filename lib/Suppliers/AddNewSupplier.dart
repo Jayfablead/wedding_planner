@@ -422,76 +422,76 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
-                // SizedBox(
-                //   height: 1.5.h,
-                // ),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 3.w),
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.start,
-                //     children: [
-                //       Text(
-                //         "Suppliers Details :- ",
-                //         style: TextStyle(
-                //             fontSize: 16.sp,
-                //             fontFamily: 'get',
-                //             fontWeight: FontWeight.bold,
-                //             letterSpacing: 1,
-                //             color: Colors.blue),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 1.5.h,
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     SizedBox(
-                //       width: 90.w,
-                //       child: TextFormField(
-                //         controller: _details,
-                //         maxLines: 5,
-                //         decoration: InputDecoration(
-                //           hintText: 'Enter Suppliers Details',
-                //           enabledBorder: OutlineInputBorder(
-                //             borderSide: BorderSide(
-                //               color: Colors.white,
-                //             ),
-                //             borderRadius: BorderRadius.circular(20),
-                //           ),
-                //           disabledBorder: OutlineInputBorder(
-                //             borderSide: BorderSide(color: Colors.white),
-                //             borderRadius: BorderRadius.circular(20),
-                //           ),
-                //           focusedBorder: OutlineInputBorder(
-                //             borderSide: BorderSide(color: Colors.white),
-                //             borderRadius: BorderRadius.circular(20),
-                //           ),
-                //           border: OutlineInputBorder(
-                //             borderSide: BorderSide(color: Colors.white),
-                //             borderRadius: BorderRadius.circular(20),
-                //           ),
-                //           fillColor: Colors.white,
-                //           filled: true,
-                //           errorStyle: TextStyle(
-                //               fontSize: 12.sp,
-                //               fontFamily: 'sofi',
-                //               letterSpacing: 0.7,
-                //               fontWeight: FontWeight.bold),
-                //         ),
-                //         validator: (value) {
-                //           if (value!.isEmpty) {
-                //             return "Enter the Suppliers name";
-                //           } else {
-                //             return null;
-                //           }
-                //         },
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                SizedBox(
+                  height: 1.5.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Category Details :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 1.5.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 90.w,
+                      child: TextFormField(
+                        controller: _details,
+                        maxLines: 5,
+                        decoration: InputDecoration(
+                          hintText: 'Enter Category Details',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                          errorStyle: TextStyle(
+                              fontSize: 12.sp,
+                              fontFamily: 'sofi',
+                              letterSpacing: 0.7,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Enter the Category name";
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: 1.5.h,
                 ),
@@ -788,7 +788,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
       data['email'] = _email.text.trim().toString();
       data['phone'] = _contact.text.trim().toString();
       data['p_img'] = _pickedFile != null ? _pickedFile!.path : "";
-      data['password'] = _passwod.text.trim().toString();
+      data['password'] = '123456';
       data['categoryId'] = category.toString();
       data['category_detail'] = _details.text.trim().toString();
       print(data);
