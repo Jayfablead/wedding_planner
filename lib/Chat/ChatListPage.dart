@@ -1176,10 +1176,9 @@ class _ChatlistPageState extends State<ChatlistPage> {
     final Map<String, String> data = {};
     data['id'] = userData?.user?.id ?? '';
     data['topic'] = _topic.text.toString();
-    data['user_type'] = _selectedLocation == 'Venue' ? 'venue' : 'supplier';
-    data['member'] = _selectedLocation == 'Venue'
-        ? (venuedetail?.venueDetails?.id).toString()
-        : _selectedSupp.toString();
+    data['user_type'] =  'venue';
+    data['member'] = (venuedetail?.venueDetails?.id).toString()
+       ;
     print(data);
 
     checkInternet().then((internet) async {

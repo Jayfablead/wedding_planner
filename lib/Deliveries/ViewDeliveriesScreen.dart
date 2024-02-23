@@ -1,20 +1,17 @@
-import 'dart:convert';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
+
 import '../widgets/headerwidget.dart';
 
 class MyDeliveriesCollentionsViewScreen extends StatefulWidget {
   const MyDeliveriesCollentionsViewScreen({super.key});
 
   @override
-  State<MyDeliveriesCollentionsViewScreen> createState() => _MyDeliveriesCollentionsViewScreenState();
+  State<MyDeliveriesCollentionsViewScreen> createState() =>
+      _MyDeliveriesCollentionsViewScreenState();
 }
 
 final GlobalKey<ScaffoldState> scaffoldKey27 = GlobalKey<ScaffoldState>();
@@ -29,7 +26,8 @@ List HotelIm = [
 ];
 int ind = 0;
 
-class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollentionsViewScreen> {
+class _MyDeliveriesCollentionsViewScreenState
+    extends State<MyDeliveriesCollentionsViewScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -92,15 +90,15 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Container(
                                           padding: EdgeInsets.all(3.w),
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                              BorderRadius.circular(7),
+                                                  BorderRadius.circular(7),
                                               color: Colors.blue),
                                           child: Icon(
                                             CupertinoIcons.person,
@@ -111,9 +109,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                         SizedBox(width: 5.w),
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'Delivery Company Name : ',
@@ -129,7 +127,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                               width: 45.w,
                                               child: Text(
                                                 "Ram Mer",
-
                                                 style: TextStyle(
                                                     fontSize: 15.sp,
                                                     color: Colors.black
@@ -137,7 +134,7 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                                     fontFamily: 'sofi',
                                                     letterSpacing: 1,
                                                     fontWeight:
-                                                    FontWeight.bold),
+                                                        FontWeight.bold),
                                               ),
                                             ),
                                           ],
@@ -148,9 +145,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Container(
                                         width: 90.w,
@@ -158,21 +155,20 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                         padding: EdgeInsets.only(left: 2.w),
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
-                                        child:
-                                        Row(
+                                        child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                              MainAxisAlignment.start,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 CupertinoIcons.info,
@@ -183,9 +179,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Event Name : ',
@@ -195,14 +191,13 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 52.w,
                                                   child: Text(
                                                     "Tea",
-
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -210,12 +205,11 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
                                             ),
-
                                           ],
                                         ),
                                       ),
@@ -225,7 +219,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                               ),
                             ],
                           ),
-
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -247,7 +240,7 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         CupertinoIcons.phone,
@@ -258,9 +251,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Contact : ',
@@ -274,11 +267,10 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                         SizedBox(height: 0.5.h),
                                         Text(
                                           "9724824359",
-
                                           style: TextStyle(
                                               fontSize: 16.sp,
                                               color:
-                                              Colors.black.withOpacity(0.8),
+                                                  Colors.black.withOpacity(0.8),
                                               fontFamily: 'sofi',
                                               letterSpacing: 1,
                                               fontWeight: FontWeight.bold),
@@ -310,7 +302,7 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         CupertinoIcons.person_2,
@@ -321,9 +313,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Items: ',
@@ -339,7 +331,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                           width: 67.w,
                                           child: Text(
                                             "120 people",
-
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
@@ -355,14 +346,15 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                 ),
                               ),
                             ],
-                          ),SizedBox(height: 1.5.h),
+                          ),
+                          SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 width: 90.w,
-                               padding: EdgeInsets.symmetric(vertical: 1.5.h),
+                                padding: EdgeInsets.symmetric(vertical: 1.5.h),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: Colors.white,
@@ -375,7 +367,7 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.message_rounded,
@@ -386,9 +378,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Comments: ',
@@ -404,7 +396,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                           width: 67.w,
                                           child: Text(
                                             "Very Good Delivery we had Good Contact With them",
-
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
@@ -441,7 +432,7 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.date_range,
@@ -452,9 +443,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Scheduled Date: ',
@@ -470,7 +461,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                           width: 67.w,
                                           child: Text(
                                             "12/02/2024",
-
                                             style: TextStyle(
                                                 fontSize: 15.sp,
                                                 color: Colors.black
@@ -488,7 +478,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                             ],
                           ),
                           SizedBox(height: 1.5.h),
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -508,7 +497,137 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                       padding: EdgeInsets.all(3.w),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(7),
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        Icons.person_search_outlined,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Delivery or Collection : ',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        SizedBox(
+                                          width: 67.w,
+                                          child: Text(
+                                            "Delivery",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 90.w,
+                                height: 10.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        Icons.access_time,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Time : ',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        SizedBox(
+                                          width: 67.w,
+                                          child: Text(
+                                            "12:30 PM",
+                                            style: TextStyle(
+                                                fontSize: 15.sp,
+                                                color: Colors.black
+                                                    .withOpacity(0.8),
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 90.w,
+                                height: 10.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
                                           color: Colors.blue),
                                       child: Icon(
                                         Icons.delivery_dining,
@@ -519,9 +638,9 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                                     SizedBox(width: 5.w),
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Delivery Status: ',
@@ -557,7 +676,6 @@ class _MyDeliveriesCollentionsViewScreenState extends State<MyDeliveriesCollenti
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ),

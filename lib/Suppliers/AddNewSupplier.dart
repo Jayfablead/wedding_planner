@@ -25,6 +25,7 @@ class RequestSupplier extends StatefulWidget {
 class _RequestSupplierState extends State<RequestSupplier> {
   bool _obscurePassword = true;
   TextEditingController _name = TextEditingController();
+  TextEditingController _cname = TextEditingController();
   TextEditingController _email = TextEditingController();
   TextEditingController _passwod = TextEditingController();
   TextEditingController _confrompassword = TextEditingController();
@@ -141,7 +142,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Suppliers Name :- ",
+                        "Company Name :- ",
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: 'get',
@@ -151,8 +152,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
+                ),SizedBox(
                   height: 1.5.h,
                 ),
                 Row(
@@ -163,7 +163,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                       child: TextFormField(
                         controller: _name,
                         decoration: InputDecoration(
-                          hintText: 'Enter Suppliers Name',
+                          hintText: 'Enter Company Name',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
@@ -192,7 +192,75 @@ class _RequestSupplierState extends State<RequestSupplier> {
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Enter the Suppliers name";
+                            return "Enter the Company name";
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),SizedBox(
+                  height: 1.5.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Contact Name :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 1.5.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 90.w,
+                      child: TextFormField(
+                        controller: _cname,
+                        decoration: InputDecoration(
+                          hintText: 'Enter Contact Name',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                          errorStyle: TextStyle(
+                              fontSize: 12.sp,
+                              fontFamily: 'sofi',
+                              letterSpacing: 0.7,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Enter the Contact name";
                           } else {
                             return null;
                           }
@@ -210,7 +278,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Suppliers Email :-",
+                        "Email :-",
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: 'get',
@@ -294,7 +362,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Suppliers Contact :- ",
+                        "Phone no :- ",
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontFamily: 'get',
@@ -354,237 +422,237 @@ class _RequestSupplierState extends State<RequestSupplier> {
                     ),
                   ],
                 ),
+                // SizedBox(
+                //   height: 1.5.h,
+                // ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 3.w),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         "Suppliers Details :- ",
+                //         style: TextStyle(
+                //             fontSize: 16.sp,
+                //             fontFamily: 'get',
+                //             fontWeight: FontWeight.bold,
+                //             letterSpacing: 1,
+                //             color: Colors.blue),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 1.5.h,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     SizedBox(
+                //       width: 90.w,
+                //       child: TextFormField(
+                //         controller: _details,
+                //         maxLines: 5,
+                //         decoration: InputDecoration(
+                //           hintText: 'Enter Suppliers Details',
+                //           enabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(
+                //               color: Colors.white,
+                //             ),
+                //             borderRadius: BorderRadius.circular(20),
+                //           ),
+                //           disabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(20),
+                //           ),
+                //           focusedBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(20),
+                //           ),
+                //           border: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(20),
+                //           ),
+                //           fillColor: Colors.white,
+                //           filled: true,
+                //           errorStyle: TextStyle(
+                //               fontSize: 12.sp,
+                //               fontFamily: 'sofi',
+                //               letterSpacing: 0.7,
+                //               fontWeight: FontWeight.bold),
+                //         ),
+                //         validator: (value) {
+                //           if (value!.isEmpty) {
+                //             return "Enter the Suppliers name";
+                //           } else {
+                //             return null;
+                //           }
+                //         },
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 1.5.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Suppliers Details :- ",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'get',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            color: Colors.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 90.w,
-                      child: TextFormField(
-                        controller: _details,
-                        maxLines: 5,
-                        decoration: InputDecoration(
-                          hintText: 'Enter Suppliers Details',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
-                          errorStyle: TextStyle(
-                              fontSize: 12.sp,
-                              fontFamily: 'sofi',
-                              letterSpacing: 0.7,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Enter the Suppliers name";
-                          } else {
-                            return null;
-                          }
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Password :- ",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'get',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            color: Colors.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 90.w,
-                      child: TextFormField(
-                        obscureText: _obscurePassword,
-                        controller: _passwod,
-                        decoration: InputDecoration(
-                          hintText: 'Enter Password',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
-                          errorStyle: TextStyle(
-                              fontSize: 12.sp,
-                              fontFamily: 'sofi',
-                              letterSpacing: 0.7,
-                              fontWeight: FontWeight.bold),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color: Colors.grey),
-                            onPressed: () {
-                              setState(() {
-                                _obscurePassword = !_obscurePassword;
-                              });
-                            },
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your Password';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Conform Password :- ",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontFamily: 'get',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            color: Colors.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 90.w,
-                      child: TextFormField(
-                        obscureText: _obscurePassword,
-                        controller: _confrompassword,
-                        decoration: InputDecoration(
-                          hintText: 'Enter Conform Password',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
-                          errorStyle: TextStyle(
-                              fontSize: 12.sp,
-                              fontFamily: 'sofi',
-                              letterSpacing: 0.7,
-                              fontWeight: FontWeight.bold),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color: Colors.grey),
-                            onPressed: () {
-                              setState(() {
-                                _obscurePassword = !_obscurePassword;
-                              });
-                            },
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your Conform Password';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 3.w),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         "Password :- ",
+                //         style: TextStyle(
+                //             fontSize: 16.sp,
+                //             fontFamily: 'get',
+                //             fontWeight: FontWeight.bold,
+                //             letterSpacing: 1,
+                //             color: Colors.blue),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 1.5.h,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     SizedBox(
+                //       width: 90.w,
+                //       child: TextFormField(
+                //         obscureText: _obscurePassword,
+                //         controller: _passwod,
+                //         decoration: InputDecoration(
+                //           hintText: 'Enter Password',
+                //           enabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           disabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           focusedBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           border: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           fillColor: Colors.white,
+                //           filled: true,
+                //           errorStyle: TextStyle(
+                //               fontSize: 12.sp,
+                //               fontFamily: 'sofi',
+                //               letterSpacing: 0.7,
+                //               fontWeight: FontWeight.bold),
+                //           suffixIcon: IconButton(
+                //             icon: Icon(
+                //                 _obscurePassword
+                //                     ? Icons.visibility_outlined
+                //                     : Icons.visibility_off_outlined,
+                //                 color: Colors.grey),
+                //             onPressed: () {
+                //               setState(() {
+                //                 _obscurePassword = !_obscurePassword;
+                //               });
+                //             },
+                //           ),
+                //         ),
+                //         validator: (value) {
+                //           if (value == null || value.isEmpty) {
+                //             return 'Please enter your Password';
+                //           }
+                //           return null;
+                //         },
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 1.5.h,
+                // ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 3.w),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         "Conform Password :- ",
+                //         style: TextStyle(
+                //             fontSize: 16.sp,
+                //             fontFamily: 'get',
+                //             fontWeight: FontWeight.bold,
+                //             letterSpacing: 1,
+                //             color: Colors.blue),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 1.5.h,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     SizedBox(
+                //       width: 90.w,
+                //       child: TextFormField(
+                //         obscureText: _obscurePassword,
+                //         controller: _confrompassword,
+                //         decoration: InputDecoration(
+                //           hintText: 'Enter Conform Password',
+                //           enabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           disabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           focusedBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           border: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Colors.white),
+                //             borderRadius: BorderRadius.circular(90),
+                //           ),
+                //           fillColor: Colors.white,
+                //           filled: true,
+                //           errorStyle: TextStyle(
+                //               fontSize: 12.sp,
+                //               fontFamily: 'sofi',
+                //               letterSpacing: 0.7,
+                //               fontWeight: FontWeight.bold),
+                //           suffixIcon: IconButton(
+                //             icon: Icon(
+                //                 _obscurePassword
+                //                     ? Icons.visibility_outlined
+                //                     : Icons.visibility_off_outlined,
+                //                 color: Colors.grey),
+                //             onPressed: () {
+                //               setState(() {
+                //                 _obscurePassword = !_obscurePassword;
+                //               });
+                //             },
+                //           ),
+                //         ),
+                //         validator: (value) {
+                //           if (value == null || value.isEmpty) {
+                //             return 'Please enter your Conform Password';
+                //           }
+                //           return null;
+                //         },
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 1.5.h,
+                // ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(

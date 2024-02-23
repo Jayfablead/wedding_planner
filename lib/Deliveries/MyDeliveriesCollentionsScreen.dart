@@ -106,7 +106,7 @@ class _MyDeliveriesCollentionsState extends State<MyDeliveriesCollentions> {
               height: 86.h,
               child: ListView.builder(
                   padding: EdgeInsets.zero,
-                  itemCount: Categories?.length,
+                  itemCount: Categories.length,
                   itemBuilder: (context, index) {
                     return Card(
                       elevation: 5,
@@ -165,7 +165,7 @@ class _MyDeliveriesCollentionsState extends State<MyDeliveriesCollentions> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: 1.h),
+                                  SizedBox(height: 0.5.h),
                                   Container(
                                     padding: EdgeInsets.only(left: 1.w),
                                     width: 55.w,
@@ -184,7 +184,7 @@ class _MyDeliveriesCollentionsState extends State<MyDeliveriesCollentions> {
                                     width: 55.w,
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                          MainAxisAlignment.start,
                                       children: [
                                         InkWell(
                                           onTap: () {

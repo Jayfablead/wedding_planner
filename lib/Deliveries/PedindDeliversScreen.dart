@@ -98,7 +98,7 @@ class _PedingDeliversScreenState extends State<PedingDeliversScreen> {
           children: [
             SizedBox(height: 5.h),
             header(
-                text: "PendingDelivery",
+                text: "Pending Deliveries",
                 callback1: () {
                   scaffoldKey24.currentState?.openDrawer();
                 }),
@@ -158,7 +158,7 @@ class _PedingDeliversScreenState extends State<PedingDeliversScreen> {
                                         Container(
                                           padding: EdgeInsets.only(left: 1.w),
                                           child: Text(
-                                            Categories?[index].name ?? "",
+                                            Categories[index].name ?? "",
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 13.sp,
@@ -173,7 +173,7 @@ class _PedingDeliversScreenState extends State<PedingDeliversScreen> {
                                     padding: EdgeInsets.only(left: 1.w),
                                     width: 55.w,
                                     child: Text(
-                                      (Categories?[index].name).toString(),
+                                      (Categories[index].name).toString(),
                                       maxLines: 2,
                                       style: TextStyle(
                                           color: Colors.black.withOpacity(0.7),
@@ -187,7 +187,7 @@ class _PedingDeliversScreenState extends State<PedingDeliversScreen> {
                                     width: 55.w,
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                          MainAxisAlignment.start,
                                       children: [
                                         InkWell(
                                           onTap: () {
