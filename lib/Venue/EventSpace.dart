@@ -113,7 +113,7 @@ class _EventSpaceState extends State<EventSpace> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              'Venue Owner Name : ',
+                                              'Event Space Name : ',
                                               style: TextStyle(
                                                   fontSize: 17.sp,
                                                   color: Colors.blue,
@@ -125,7 +125,7 @@ class _EventSpaceState extends State<EventSpace> {
                                             SizedBox(
                                               width: 45.w,
                                               child: Text(
-                                                "Ram Mer",
+                                                "The Space Event",
                                                 // venuedetail?.venueDetails
                                                 //     ?.name ==
                                                 //     '' ||
@@ -153,199 +153,12 @@ class _EventSpaceState extends State<EventSpace> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: 1.5.h),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 90.w,
-                                        height: 10.h,
-                                        padding: EdgeInsets.only(left: 2.w),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          color: Colors.white,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.all(3.w),
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(7),
-                                                  color: Colors.blue),
-                                              child: Icon(
-                                                CupertinoIcons.info,
-                                                color: Colors.white,
-                                                size: 18.sp,
-                                              ),
-                                            ),
-                                            SizedBox(width: 5.w),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  'Venue Name : ',
-                                                  style: TextStyle(
-                                                      fontSize: 17.sp,
-                                                      color: Colors.blue,
-                                                      fontFamily: 'sofi',
-                                                      letterSpacing: 1,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                SizedBox(height: 0.5.h),
-                                                SizedBox(
-                                                  width: 52.w,
-                                                  child: Text(
-                                                    "Tea",
-                                                    // venuedetail?.venueDetails?.moreInfo
-                                                    //     ?.vName ==
-                                                    //     '' ||
-                                                    //     venuedetail
-                                                    //         ?.venueDetails
-                                                    //         ?.moreInfo
-                                                    //         ?.vName ==
-                                                    //         null
-                                                    //     ? 'N/A'
-                                                    //     : venuedetail
-                                                    //     ?.venueDetails
-                                                    //     ?.moreInfo
-                                                    //     ?.vName ??
-                                                    //     "",
-                                                    style: TextStyle(
-                                                        fontSize: 15.sp,
-                                                        color: Colors.black
-                                                            .withOpacity(0.8),
-                                                        fontFamily: 'sofi',
-                                                        letterSpacing: 1,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Container(
-                                              height: 7.h,
-                                              width: 14.w,
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                                child: CachedNetworkImage(
-                                                  fit: BoxFit.cover,
-                                                  imageUrl:
-                                                      "https://images.ctfassets.net/e8bhhtr91vp3/2yfGTWADTN0JmoAeJLFOCb/f17368a0bd0c9271b293919681d88113/hero2_how_to_green_tea-jpg.webp?w=800&q=100",
-                                                  // venuedetail
-                                                  //     ?.venueDetails
-                                                  //     ?.profile ??
-                                                  //     "",
-                                                  progressIndicatorBuilder:
-                                                      (context, url,
-                                                              progress) =>
-                                                          CircularProgressIndicator(),
-                                                  errorWidget:
-                                                      (context, url, error) =>
-                                                          Image.asset(
-                                                    'assets/user.png',
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+
                                 ],
                               ),
                             ],
                           ),
-                          SizedBox(height: 1.5.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 90.w,
-                                height: 10.h,
-                                padding: EdgeInsets.only(left: 2.15.w),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Colors.white,
-                                ),
-                                child: Row(
-                                  // mainAxisAlignment: MainAxisAlignment.start,
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(3.w),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          color: Colors.blue),
-                                      child: Icon(
-                                        CupertinoIcons.phone,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                    ),
-                                    SizedBox(width: 5.w),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Contact : ',
-                                          style: TextStyle(
-                                              fontSize: 17.sp,
-                                              color: Colors.blue,
-                                              fontFamily: 'sofi',
-                                              letterSpacing: 1,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        SizedBox(height: 0.5.h),
-                                        Text(
-                                          "9724824359",
-                                          // venuedetail?.venueDetails
-                                          //     ?.contact ==
-                                          //     '' ||
-                                          //     venuedetail
-                                          //         ?.venueDetails
-                                          //         ?.contact ==
-                                          //         null
-                                          //     ? 'N/A'
-                                          //     : venuedetail
-                                          //     ?.venueDetails
-                                          //     ?.contact ??
-                                          //     "",
-                                          style: TextStyle(
-                                              fontSize: 16.sp,
-                                              color:
-                                                  Colors.black.withOpacity(0.8),
-                                              fontFamily: 'sofi',
-                                              letterSpacing: 1,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+
                           SizedBox(height: 1.5.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -471,7 +284,7 @@ class _EventSpaceState extends State<EventSpace> {
                                         SizedBox(
                                           width: 67.w,
                                           child: Text(
-                                            "120 people",
+                                            "52",
                                             // venuedetail?.venueDetails
                                             //     ?.email ==
                                             //     '' ||

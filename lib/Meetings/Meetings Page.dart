@@ -84,305 +84,336 @@ class _MeetingsPageState extends State<MeetingsPage> {
         key: scaffoldKey14,
         body: isLoading
             ? Container()
-            : Padding(
-                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: 4.h,
-                        ),
-                        header(
-                            text: "",
-                            callback1: () {
-                              scaffoldKey14.currentState?.openDrawer();
-                            }),
-                        // headerwid(text: ""),
-                        SizedBox(height: 1.5.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 2.w),
-                              child: Text(
-                                'Meetings',
-                                style: TextStyle(
-                                  fontSize: 23.sp,
-                                  fontFamily: 'get',
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1,
-                                  color: Colors.black,
+            : SingleChildScrollView(
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: 4.h,
+                          ),
+                          header(
+                              text: "",
+                              callback1: () {
+                                scaffoldKey14.currentState?.openDrawer();
+                              }),
+                          // headerwid(text: ""),
+                          SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 2.w),
+                                child: Text(
+                                  'Meetings',
+                                  style: TextStyle(
+                                    fontSize: 23.sp,
+                                    fontFamily: 'get',
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
-                            ),
-                            InkWell(
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    category = null;
+                                    Meet = null;
+                                  });
+                                  addmeetingdialog();
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        height: 7.w,
+                                        width: 7.w,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(25),
+                                          color: Colors.blue,
+                                        ),
+                                        child: Center(
+                                            child: Icon(
+                                          Icons.add,
+                                          size: 17.sp,
+                                          color: Colors.white,
+                                        ))),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      "Request Meeting",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 2.h),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 12.h,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: nextWeekDatesWithDay.length,
+                          itemBuilder: (context, index) {
+                            return InkWell(
                               onTap: () {
                                 setState(() {
-                                  category = null;
-                                  Meet = null;
+                                  sel1 = index;
                                 });
-                                addmeetingdialog();
+                                meetingap();
                               },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                      height: 7.w,
-                                      width: 7.w,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25),
-                                        color: Colors.blue,
-                                      ),
-                                      child: Center(
-                                          child: Icon(
-                                        Icons.add,
-                                        size: 17.sp,
-                                        color: Colors.white,
-                                      ))),
-                                  SizedBox(
-                                    width: 2.w,
-                                  ),
-                                  Text(
-                                    textAlign: TextAlign.center,
-                                    "Request Meeting",
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      letterSpacing: 1,
-                                      fontFamily: 'sofi',
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                  )
-                                ],
+                              child: Container(
+                                width: 21.w,
+                                child: Card(
+                                    color: sel1 == index
+                                        ? Colors.blue
+                                        : Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10)),
+                                    elevation: 5,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          nextWeekDatesWithDay[index].date ?? '',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 28.sp,
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              color: sel1 == index
+                                                  ? Colors.white
+                                                  : Colors.blue),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        Text(
+                                          nextWeekDatesWithDay[index].name ==
+                                                  "Monday"
+                                              ? "Mon"
+                                              : nextWeekDatesWithDay[index]
+                                                          .name ==
+                                                      "Tuesday"
+                                                  ? "Tue"
+                                                  : nextWeekDatesWithDay[index]
+                                                              .name ==
+                                                          "Wednesday"
+                                                      ? "Wed"
+                                                      : nextWeekDatesWithDay[
+                                                                      index]
+                                                                  .name ==
+                                                              "Thursday"
+                                                          ? "Thu"
+                                                          : nextWeekDatesWithDay[
+                                                                          index]
+                                                                      .name ==
+                                                                  "Friday"
+                                                              ? "Fri"
+                                                              : "Sat",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1,
+                                              color: sel1 == index
+                                                  ? Colors.white
+                                                  : Colors.blue),
+                                        ),
+                                      ],
+                                    )),
                               ),
-                            ),
-                          ],
+                            );
+                          },
                         ),
-                        SizedBox(height: 2.h),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 12.h,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: nextWeekDatesWithDay.length,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              setState(() {
-                                sel1 = index;
-                              });
-                              meetingap();
-                            },
-                            child: Container(
-                              width: 21.w,
-                              child: Card(
-                                  color: sel1 == index
-                                      ? Colors.blue
-                                      : Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
-                                  elevation: 5,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        nextWeekDatesWithDay[index].date ?? '',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 28.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel1 == index
-                                                ? Colors.white
-                                                : Colors.blue),
-                                      ),
-                                      SizedBox(height: 0.5.h),
-                                      Text(
-                                        nextWeekDatesWithDay[index].name ==
-                                                "Monday"
-                                            ? "Mon"
-                                            : nextWeekDatesWithDay[index]
-                                                        .name ==
-                                                    "Tuesday"
-                                                ? "Tue"
-                                                : nextWeekDatesWithDay[index]
-                                                            .name ==
-                                                        "Wednesday"
-                                                    ? "Wed"
-                                                    : nextWeekDatesWithDay[
-                                                                    index]
-                                                                .name ==
-                                                            "Thursday"
-                                                        ? "Thu"
-                                                        : nextWeekDatesWithDay[
-                                                                        index]
-                                                                    .name ==
-                                                                "Friday"
-                                                            ? "Fri"
-                                                            : "Sat",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'sofi',
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: sel1 == index
-                                                ? Colors.white
-                                                : Colors.blue),
-                                      ),
-                                    ],
-                                  )),
-                            ),
-                          );
-                        },
                       ),
-                    ),
-                    SizedBox(height: 1.5.h),
-                    Container(
-                      height: 60.h,
-                      child: meetingmodal?.meetingsByDate == null ||
-                              meetingmodal?.meetingsByDate?.length == 0
-                          ? Container(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "No Meetings Available",
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'sofi',
-                                  fontWeight: FontWeight.w900,
-                                  letterSpacing: 1,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            )
-                          : ListView.builder(
-                              padding: EdgeInsets.zero,
-                              itemCount: meetingmodal?.meetingsByDate?.length,
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 2.w, vertical: 1.h),
-                                  margin: EdgeInsets.symmetric(vertical: 1.h),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
+                      SizedBox(height: 1.5.h),
+                      Container(
+                        height: 60.h,
+                        child: meetingmodal?.meetingsByDate == null ||
+                                meetingmodal?.meetingsByDate?.length == 0
+                            ? Container(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "No Meetings Available",
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontFamily: 'sofi',
+                                    fontWeight: FontWeight.w900,
+                                    letterSpacing: 1,
+                                    color: Colors.black,
                                   ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: 10.h,
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              height: 2.5.h,
-                                              width: 5.w,
-                                              decoration: BoxDecoration(
+                                ),
+                              )
+                            : ListView.builder(
+                                padding: EdgeInsets.zero,
+                                itemCount: meetingmodal?.meetingsByDate?.length,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 2.w, vertical: 1.h),
+                                    margin: EdgeInsets.symmetric(vertical: 1.h),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 10.h,
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                height: 2.5.h,
+                                                width: 5.w,
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      begin: Alignment.topCenter,
+                                                      end: Alignment.bottomCenter,
+                                                      colors: [
+                                                        Colors.blue,
+                                                        Colors.blue.shade500,
+                                                        Colors.blue.shade300,
+                                                        Colors.blue.shade200,
+                                                        Colors.white12
+                                                      ],
+                                                    ),
+                                                    shape: BoxShape.circle),
+                                              ),
+                                              Container(
+                                                height: 7.h,
+                                                width: 1.w,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(10),
+                                                    topRight: Radius.circular(10),
+                                                  ),
                                                   gradient: LinearGradient(
                                                     begin: Alignment.topCenter,
                                                     end: Alignment.bottomCenter,
                                                     colors: [
                                                       Colors.blue,
-                                                      Colors.blue.shade500,
-                                                      Colors.blue.shade300,
-                                                      Colors.blue.shade200,
-                                                      Colors.white12
+                                                      Colors.lightBlueAccent,
+                                                      Colors.white
                                                     ],
                                                   ),
-                                                  shape: BoxShape.circle),
-                                            ),
-                                            Container(
-                                              height: 7.h,
-                                              width: 1.w,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(10),
-                                                  topRight: Radius.circular(10),
-                                                ),
-                                                gradient: LinearGradient(
-                                                  begin: Alignment.topCenter,
-                                                  end: Alignment.bottomCenter,
-                                                  colors: [
-                                                    Colors.blue,
-                                                    Colors.lightBlueAccent,
-                                                    Colors.white
-                                                  ],
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      Container(
-                                        height: 10.h,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Icon(Icons.calendar_month),
-                                                SizedBox(
-                                                  width: 2.w,
-                                                ),
-                                                SizedBox(
-                                                  width: 64.w,
-                                                  child: Text(
+                                        Container(
+                                          height: 10.h,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Icon(Icons.calendar_month),
+                                                  SizedBox(
+                                                    width: 2.w,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 64.w,
+                                                    child: Text(
+                                                      meetingmodal
+                                                                      ?.meetingsByDate?[
+                                                                          index]
+                                                                      .taskTitle ==
+                                                                  '' ||
+                                                              meetingmodal
+                                                                      ?.meetingsByDate?[
+                                                                          index]
+                                                                      .taskTitle ==
+                                                                  null
+                                                          ? 'N/A'
+                                                          : meetingmodal
+                                                                  ?.meetingsByDate?[
+                                                                      index]
+                                                                  .taskTitle ??
+                                                              "",
+                                                      style: TextStyle(
+                                                        fontSize: 13.sp,
+                                                        fontFamily: 'sofi',
+                                                        fontWeight:
+                                                            FontWeight.w900,
+                                                        letterSpacing: 1,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Text(
                                                     meetingmodal
                                                                     ?.meetingsByDate?[
                                                                         index]
-                                                                    .taskTitle ==
+                                                                    .endTime ==
                                                                 '' ||
                                                             meetingmodal
                                                                     ?.meetingsByDate?[
                                                                         index]
-                                                                    .taskTitle ==
+                                                                    .endTime ==
                                                                 null
                                                         ? 'N/A'
                                                         : meetingmodal
                                                                 ?.meetingsByDate?[
                                                                     index]
-                                                                .taskTitle ??
+                                                                .endTime ??
                                                             "",
                                                     style: TextStyle(
-                                                      fontSize: 13.sp,
+                                                      fontSize: 12.sp,
                                                       fontFamily: 'sofi',
-                                                      fontWeight:
-                                                          FontWeight.w900,
+                                                      fontWeight: FontWeight.bold,
                                                       letterSpacing: 1,
-                                                      color: Colors.black,
+                                                      color: Colors.black
+                                                          .withOpacity(0.75),
                                                     ),
                                                   ),
-                                                ),
-                                                Text(
+                                                ],
+                                              ),
+                                              Container(
+                                                width: 81.w,
+                                                child: Text(
                                                   meetingmodal
                                                                   ?.meetingsByDate?[
                                                                       index]
-                                                                  .endTime ==
+                                                                  .taskDesc ==
                                                               '' ||
                                                           meetingmodal
                                                                   ?.meetingsByDate?[
                                                                       index]
-                                                                  .endTime ==
+                                                                  .taskDesc ==
                                                               null
                                                       ? 'N/A'
                                                       : meetingmodal
                                                               ?.meetingsByDate?[
                                                                   index]
-                                                              .endTime ??
+                                                              .taskDesc ??
                                                           "",
                                                   style: TextStyle(
                                                     fontSize: 12.sp,
@@ -393,52 +424,23 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                         .withOpacity(0.75),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
-                                            Container(
-                                              width: 81.w,
-                                              child: Text(
-                                                meetingmodal
-                                                                ?.meetingsByDate?[
-                                                                    index]
-                                                                .taskDesc ==
-                                                            '' ||
-                                                        meetingmodal
-                                                                ?.meetingsByDate?[
-                                                                    index]
-                                                                .taskDesc ==
-                                                            null
-                                                    ? 'N/A'
-                                                    : meetingmodal
-                                                            ?.meetingsByDate?[
-                                                                index]
-                                                            .taskDesc ??
-                                                        "",
-                                                style: TextStyle(
-                                                  fontSize: 12.sp,
-                                                  fontFamily: 'sofi',
-                                                  fontWeight: FontWeight.bold,
-                                                  letterSpacing: 1,
-                                                  color: Colors.black
-                                                      .withOpacity(0.75),
-                                                ),
                                               ),
-                                            ),
-                                            SizedBox(
-                                              height: 0.5.h,
-                                            )
-                                          ],
+                                              SizedBox(
+                                                height: 0.5.h,
+                                              )
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            ),
-                    ),
-                  ],
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+            ),
       ),
     );
   }
@@ -765,10 +767,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       ),
                                     ),
                                   ),
-                                  Meet != 'Zoom'
+                                  Meet == 'In person'
                                       ? Container()
                                       : SizedBox(height: 1.5.h),
-                                  Meet != 'Zoom'
+                                  Meet == 'In person'
                                       ? Container()
                                       : Meet == 'Zoom'
                                           ? TextFormField(
@@ -830,7 +832,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                     fontFamily: 'Meta1'),
                                               ),
                                             )
-                                          : TextFormField(
+                                          : Meet == 'Phone call'?TextFormField(
                                               keyboardType:
                                                   TextInputType.number,
                                               controller: _call,
@@ -890,7 +892,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                         .withOpacity(0.67),
                                                     fontFamily: 'Meta1'),
                                               ),
-                                            ),
+                                            ):Container(),
                                   SizedBox(height: 2.h),
 
                                   Text(

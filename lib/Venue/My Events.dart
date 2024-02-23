@@ -395,6 +395,68 @@ class _My_EventState extends State<My_Event> {
                                 ),
                               ),
                             ],
+                          ),SizedBox(height: 1.5.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 90.w,
+                                height: 10.h,
+                                padding: EdgeInsets.only(left: 2.15.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white,
+                                ),
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.start,
+                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(3.w),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                          color: Colors.blue),
+                                      child: Icon(
+                                        CupertinoIcons.person_2_square_stack,
+                                        color: Colors.white,
+                                        size: 18.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Guests : ',
+                                          style: TextStyle(
+                                              fontSize: 17.sp,
+                                              color: Colors.blue,
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 0.5.h),
+                                        Text(
+                                          "1150 Persons",
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color:
+                                                  Colors.black.withOpacity(0.8),
+                                              fontFamily: 'sofi',
+                                              letterSpacing: 1,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(height: 1.5.h),
                           Row(

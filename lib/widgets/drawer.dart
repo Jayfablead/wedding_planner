@@ -17,6 +17,7 @@ import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Suppliers/AddNewSupplier.dart';
 import 'package:wedding_planner/Suppliers/CategoryPage.dart';
 import 'package:wedding_planner/Suppliers/ReqestventSuppliersscreen.dart';
+import 'package:wedding_planner/Suppliers/mysplirs.dart';
 import 'package:wedding_planner/Venue/EventSpace.dart';
 import 'package:wedding_planner/Venue/My%20Events.dart';
 import 'package:wedding_planner/Venue/MyVenueDetailspages.dart';
@@ -31,8 +32,10 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/sharedpreferance.dart';
 
 import '../Authenticate/LoginPage.dart';
+import '../Deliveries/PedindDeliversScreen.dart';
 import '../Meetings/PedingMeetingScreen.dart';
 import '../Modal/NotificationModal.dart';
+import '../Suppliers/ApprovedSuppliersScreen.dart';
 import '../Venue/MyVenue.dart';
 
 class drawer1 extends StatefulWidget {
@@ -945,7 +948,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(EventSpace());
+                Get.to(PedingDeliversScreen());
               },
               child: Container(
                 height: 25.w,
@@ -1612,7 +1615,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(Certificate());
+                Get.to(MySups());
               },
               child: Container(
                 alignment: Alignment.center,
@@ -1653,7 +1656,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(AllCategoryScreen());
+                Get.to(AppRovedSuppliersScreen());
               },
               child: Container(
                 alignment: Alignment.center,
