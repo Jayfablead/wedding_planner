@@ -869,7 +869,7 @@ class taskprovider with ChangeNotifier {
       final file = await http.MultipartFile.fromPath(
         'itinerary_file',
         bodyData['itinerary_file'] ?? '',
-        contentType: MediaType('image', 'jpeg'), // Change to 'image/jpeg'
+        contentType: MediaType('image', 'jpeg,jpg,png,webp'), // Change to 'image/jpeg'
       );
       imageUploadRequest.files.add(file);
     }
@@ -899,6 +899,26 @@ class taskprovider with ChangeNotifier {
       },
     );
     responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> MyEventDetailsApi() async {
+    String? url = '$baseUrl/myEventDetail/${userData?.user?.id}';
+    print(url);
+    var responseJson;
+    final response = await http
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    print(response.body);
+    print(response.bodyBytes);
     return responseJson;
   }
 

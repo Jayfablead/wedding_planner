@@ -12,6 +12,7 @@ import 'package:wedding_planner/Modal/FavouritelistModal.dart';
 import 'package:wedding_planner/Modal/ForgotpassModal.dart';
 import 'package:wedding_planner/Modal/FullchatModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
+import 'package:wedding_planner/Modal/My_Event_Detials_Modal.dart';
 import 'package:wedding_planner/Modal/MybudgetModal.dart';
 import 'package:wedding_planner/Modal/NotificationModal.dart';
 import 'package:wedding_planner/Modal/QuataionRejectModal.dart';
@@ -147,5 +148,9 @@ deleteItineraryModal? deleteitinerary;
 ReusestViewSuppliersModal? reusestviewsuppliersmodal;
 DeleteRequestedSupplierModal? deleterequestedsuppliermodal;
 UpdateRequestedSupplierModal? updaterequestedsuppliermodal;
+My_Event_Details_Modal? myevent;
+
+
+
 
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

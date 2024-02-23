@@ -318,9 +318,11 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
             //     textColor: Colors.white,
             //     fontSize: 11.sp);
             IteinraryApi();
-          } else {}
+          } else {
+            EasyLoading.showError("Can't Uploaded");IteinraryApi();
+          }
         });
-      } else {
+      } else { EasyLoading.showError("Can't Uploaded");IteinraryApi();
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
