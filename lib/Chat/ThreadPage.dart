@@ -168,7 +168,7 @@ class _ThreadPageState extends State<ThreadPage> {
                                 ? Container(
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "No Message.",
+                                      "No Messages Available",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 14.sp,

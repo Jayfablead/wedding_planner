@@ -169,7 +169,7 @@ class _Msg2State extends State<Msg2> {
                                 ? Container(
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "No Message.",
+                                      "No Messages Available",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 14.sp,

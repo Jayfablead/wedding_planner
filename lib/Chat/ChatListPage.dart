@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
@@ -123,8 +123,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                   onTap: () {
                                     setState(() {
                                       _topic.clear();
-                                      _selectedSupp = null;
-                                      _selectedLocation = null;
+
                                     });
                                     showDialog(
                                       context: context,
@@ -281,12 +280,7 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                                 .currentState!
                                                                 .validate()) {
                                                               adtopicap();
-                                                              _selectedLocation ==
-                                                                      'Venue'
-                                                                  ? print(
-                                                                      'topic: ${_topic.text}\nid: ${venuedetail?.venueDetails?.id}\nname: ${venuedetail?.venueDetails?.name}')
-                                                                  : print(
-                                                                      'Supplier');
+
                                                             }
                                                           },
                                                           child: Container(
@@ -825,7 +819,14 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                     ? Container()
                                     : threadlist?.data?.topicDetails?.length ==
                                             0
-                                        ? Container()
+                                        ? Container(height: 60.h,alignment: Alignment.center,child: Text('No Threads Available',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1,
+                                      fontFamily: 'sofi',
+                                      color: Colors.black),),)
                                         : Column(
                                             children: [
                                               for (int index = 0;
@@ -1173,28 +1174,27 @@ class _ChatlistPageState extends State<ChatlistPage> {
   }
 
   adtopicap() {
+    Get.back();
+    EasyLoading.show(
+        status: 'Starting Thread ..',
+        indicator: CircularProgressIndicator(
+          color: Colors.white,
+        ));
     final Map<String, String> data = {};
     data['id'] = userData?.user?.id ?? '';
     data['topic'] = _topic.text.toString();
-    data['user_type'] =  'venue';
-    data['member'] = (venuedetail?.venueDetails?.id).toString()
-       ;
+    data['user_type'] = 'venue';
+    data['member'] = (userData?.user?.vid).toString();
     print(data);
 
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().Addtopicap(data).then((response) async {
           addtopic = AddTopicModal.fromJson(json.decode(response.body));
+          print('status:  ${addtopic?.status}');
           if (response.statusCode == 200 && addtopic?.status == "1") {
             setState(() {
-              Fluttertoast.showToast(
-                msg: 'Thread Started Successfully',
-                toastLength: Toast.LENGTH_SHORT,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.black,
-                textColor: Colors.white,
-                fontSize: 11.sp,
-              );
+              EasyLoading.showSuccess('Thread Started Successfully');
               Get.to(ThreadPage(
                 name: _topic.text,
                 id: (addtopic?.data?.topicId).toString(),
