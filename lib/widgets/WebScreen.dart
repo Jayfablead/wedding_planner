@@ -41,6 +41,11 @@ class _WebviewscreenState extends State<Webviewscreen> {
           child: InAppWebView(
             initialUrlRequest:
                 URLRequest(url: Uri.parse((widget.paymentsurl).toString())),
+            initialOptions: InAppWebViewGroupOptions(
+              crossPlatform: InAppWebViewOptions(
+                javaScriptEnabled: true, // Enable JavaScript
+              ),
+            ),
             androidOnGeolocationPermissionsShowPrompt:
                 (InAppWebViewController controller, String origin) async {
               return GeolocationPermissionShowPromptResponse(
