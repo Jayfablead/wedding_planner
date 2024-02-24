@@ -1005,4 +1005,48 @@ class taskprovider with ChangeNotifier {
     }
     return responseJson;
   }
+  Future<http.Response> alldelivaryshowapi() async {
+    String? url = '$baseUrl/all_delivery_collection';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
+  Future<http.Response> viewdeliveryapi(String data1) async {
+    String? url = '$baseUrl/view_delivery_collection/${data1}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+
+    return responseJson;
+  }
+
+
+  Future<http.Response> approvedsuppliersapi() async {
+    String? url =
+        '$baseUrl/approvedSuppliers/${userData?.user?.id.toString()}';
+    print(url);
+    var responseJson;
+    final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 }

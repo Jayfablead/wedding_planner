@@ -40,6 +40,8 @@ import 'package:wedding_planner/Modal/removetodoModal.dart';
 import '../Modal/AddpostModal.dart';
 import '../Modal/AddtopicModal.dart';
 import '../Modal/AllCatagoriesModal.dart';
+import '../Modal/AllDelivaryModal.dart';
+import '../Modal/ApprovedSuppliersModal.dart';
 import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
 import '../Modal/CategoryWiseSuppliersModal.dart';
@@ -66,6 +68,7 @@ import '../Modal/ThreadChatModal.dart';
 import '../Modal/ThreadListModal.dart';
 import '../Modal/UpdateRequestedSupplierModal.dart';
 import '../Modal/VenueDetalisModal.dart';
+import '../Modal/ViewDeliversModal.dart';
 import '../Modal/addMeetingModal.dart';
 import '../Modal/deleteItineraryModal.dart';
 import '../Modal/mySupplierModal.dart';
@@ -149,6 +152,9 @@ ReusestViewSuppliersModal? reusestviewsuppliersmodal;
 DeleteRequestedSupplierModal? deleterequestedsuppliermodal;
 UpdateRequestedSupplierModal? updaterequestedsuppliermodal;
 My_Event_Details_Modal? myevent;
+AllDelivaryModal? alldelivarymodal;
+ViewDeliversModal? viewdeliversmodal;
+ApprovedSuppliersModal? approvedsuppliersmodal;
 
 
 
