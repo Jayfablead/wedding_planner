@@ -842,47 +842,23 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-  Future<http.Response> itineraryUploadApi(Map<String, String> bodyData) async {
-    String? url = '$baseUrl/uploadItinerary/${userData?.user?.id}';
+  Future<http.Response> itenraryuploadapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/uploadItenerary/${userData?.user?.id}';
 
     var responseJson;
     final imageUploadRequest = http.MultipartRequest('POST', Uri.parse(url));
     imageUploadRequest.headers.addAll(headers);
-
-    // Check if 'itinerary_file' is not empty and if it's a photo file
     if (bodyData['itinerary_file']?.isNotEmpty ?? false) {
-      // Get the file extension
-      String? fileExtension = bodyData['itinerary_file']?.split('.').last;
-
-      // Set the content type based on the file extension
-      String contentType = '';
-      if (fileExtension == 'pdf') {
-        contentType = 'application/pdf';
-      } else if (fileExtension == 'doc' || fileExtension == 'docx') {
-        contentType = 'application/msword';
-      } else {
-        // If it's none of the above, assume it's a photo
-        contentType = 'image/jpeg';
-      }
-
-      // Create a multipart file from the photo file path
       final file = await http.MultipartFile.fromPath(
-        'itinerary_file',
-        bodyData['itinerary_file'] ?? '',
-        contentType: MediaType('image', 'jpeg,jpg,png,webp'), // Change to 'image/jpeg'
-      );
+          'itinerary_file', bodyData['itinerary_file'] ?? '',
+          contentType: MediaType('application', 'pdf,doc,docx'));
       imageUploadRequest.files.add(file);
     }
-
-    // Add other fields to the request
     imageUploadRequest.fields.addAll(bodyData);
-
-    // Send the request and handle the response
     final streamResponse = await imageUploadRequest.send();
-    responseJson = await http.Response.fromStream(streamResponse);
+    responseJson = responses(await http.Response.fromStream(streamResponse));
     return responseJson;
   }
-
 
   Future<http.Response> FloorplansList() async {
     String? url = '$baseUrl/venueFloorPlans/${userData?.user?.vid}';
@@ -901,6 +877,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> MyEventDetailsApi() async {
     String? url = '$baseUrl/myEventDetail/${userData?.user?.id}';
     print(url);
@@ -1005,6 +982,7 @@ class taskprovider with ChangeNotifier {
     }
     return responseJson;
   }
+
   Future<http.Response> alldelivaryshowapi() async {
     String? url = '$baseUrl/all_delivery_collection';
     print(url);
@@ -1019,6 +997,7 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+
   Future<http.Response> viewdeliveryapi(String data1) async {
     String? url = '$baseUrl/view_delivery_collection/${data1}';
     print(url);
@@ -1034,13 +1013,43 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-
   Future<http.Response> approvedsuppliersapi() async {
-    String? url =
-        '$baseUrl/approvedSuppliers/${userData?.user?.id.toString()}';
+    String? url = '$baseUrl/approvedSuppliers/${userData?.user?.id.toString()}';
     print(url);
     var responseJson;
     final response = await http.get(Uri.parse(url), headers: headers).timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> viewalleventspaceapi(
+      Map<String, String> bodyData) async {
+    String? url = '$baseUrl/eventSpace';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> singaleventspaceapi(
+      Map<String, String> bodyData) async {
+    String? url = '$baseUrl/editeventSpace';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
       const Duration(seconds: 60),
       onTimeout: () {
         throw const SocketException('Something went wrong');

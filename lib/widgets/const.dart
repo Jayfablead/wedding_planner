@@ -41,6 +41,7 @@ import '../Modal/AddpostModal.dart';
 import '../Modal/AddtopicModal.dart';
 import '../Modal/AllCatagoriesModal.dart';
 import '../Modal/AllDelivaryModal.dart';
+import '../Modal/AllSupsTypeModal.dart';
 import '../Modal/ApprovedSuppliersModal.dart';
 import '../Modal/BookingListModal.dart';
 import '../Modal/CategoriesModal.dart';
@@ -61,6 +62,7 @@ import '../Modal/SearchCheckListModal.dart';
 import '../Modal/SearchQuotationModal.dart';
 import '../Modal/SendThradModal.dart';
 import '../Modal/SetingcModal.dart';
+import '../Modal/SingalEventViewModal.dart';
 import '../Modal/SupplierDropdownModal.dart';
 import '../Modal/SupplierdetailModal.dart';
 import '../Modal/SuppliersearchModal.dart';
@@ -68,6 +70,7 @@ import '../Modal/ThreadChatModal.dart';
 import '../Modal/ThreadListModal.dart';
 import '../Modal/UpdateRequestedSupplierModal.dart';
 import '../Modal/VenueDetalisModal.dart';
+import '../Modal/ViewAllEventSpaceModal.dart';
 import '../Modal/ViewDeliversModal.dart';
 import '../Modal/addMeetingModal.dart';
 import '../Modal/deleteItineraryModal.dart';
@@ -155,8 +158,8 @@ My_Event_Details_Modal? myevent;
 AllDelivaryModal? alldelivarymodal;
 ViewDeliversModal? viewdeliversmodal;
 ApprovedSuppliersModal? approvedsuppliersmodal;
-
-
-
+All_Supplier_Type_Modal? allsuupliertypes;
+ViewAllEventSpaceModal? viewAlleventspacemodal;
+SingalEventViewModal? singaleventviewmodal;
 
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

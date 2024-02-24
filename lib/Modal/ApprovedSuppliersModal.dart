@@ -40,14 +40,14 @@ class Suppliers {
 
   Suppliers(
       {this.id,
-        this.name,
-        this.email,
-        this.profile,
-        this.contact,
-        this.address,
-        this.categoryId,
-        this.categoryName,
-        this.description});
+      this.name,
+      this.email,
+      this.profile,
+      this.contact,
+      this.address,
+      this.categoryId,
+      this.categoryName,
+      this.description});
 
   Suppliers.fromJson(Map<String, dynamic> json) {
     id = json['id'];

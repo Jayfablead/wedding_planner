@@ -10,15 +10,13 @@ import 'package:wedding_planner/Chat/ChatListPage.dart';
 import 'package:wedding_planner/Deliveries/MyDeliveriesCollentionsScreen.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
-import 'package:wedding_planner/Others/certificate.dart';
 import 'package:wedding_planner/Others/guestroomManagement.dart';
 import 'package:wedding_planner/Others/viewBudgetPage.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Suppliers/AddNewSupplier.dart';
-import 'package:wedding_planner/Suppliers/CategoryPage.dart';
 import 'package:wedding_planner/Suppliers/ReqestventSuppliersscreen.dart';
 import 'package:wedding_planner/Suppliers/mysplirs.dart';
-import 'package:wedding_planner/Venue/EventSpace.dart';
+import 'package:wedding_planner/Venue/AllEventSpaces.dart';
 import 'package:wedding_planner/Venue/My%20Events.dart';
 import 'package:wedding_planner/Venue/MyVenueDetailspages.dart';
 import 'package:wedding_planner/bookings/view%20all%20bookings.dart';
@@ -849,7 +847,7 @@ class _drawer1State extends State<drawer1> {
             child: GestureDetector(
               onTap: () {
                 Get.back();
-                Get.to(EventSpace());
+                Get.to(AllEventSpaces());
               },
               child: Container(
                 height: 24.w,

@@ -6,16 +6,12 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Modal/AllCatagoriesModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/Suppliers/all%20suppliers.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
-import 'package:wedding_planner/widgets/load.dart';
 
 import 'ViewDeliveriesScreen.dart';
-
-
 
 class PedingDeliversScreen extends StatefulWidget {
   const PedingDeliversScreen({super.key});

@@ -123,7 +123,6 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                   onTap: () {
                                     setState(() {
                                       _topic.clear();
-
                                     });
                                     showDialog(
                                       context: context,
@@ -280,7 +279,6 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                                                 .currentState!
                                                                 .validate()) {
                                                               adtopicap();
-
                                                             }
                                                           },
                                                           child: Container(
@@ -819,14 +817,20 @@ class _ChatlistPageState extends State<ChatlistPage> {
                                     ? Container()
                                     : threadlist?.data?.topicDetails?.length ==
                                             0
-                                        ? Container(height: 60.h,alignment: Alignment.center,child: Text('No Threads Available',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 1,
-                                      fontFamily: 'sofi',
-                                      color: Colors.black),),)
+                                        ? Container(
+                                            height: 60.h,
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              'No Threads Available',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 16.sp,
+                                                  fontWeight: FontWeight.bold,
+                                                  letterSpacing: 1,
+                                                  fontFamily: 'sofi',
+                                                  color: Colors.black),
+                                            ),
+                                          )
                                         : Column(
                                             children: [
                                               for (int index = 0;

@@ -152,7 +152,8 @@ class _RequestSupplierState extends State<RequestSupplier> {
                       ),
                     ],
                   ),
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 1.5.h,
                 ),
                 Row(
@@ -200,7 +201,8 @@ class _RequestSupplierState extends State<RequestSupplier> {
                       ),
                     ),
                   ],
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 1.5.h,
                 ),
                 Padding(

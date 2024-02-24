@@ -57,34 +57,34 @@ class EventDetails {
 
   EventDetails(
       {this.eventId,
-        this.vid,
-        this.eventType,
-        this.eventName,
-        this.guests,
-        this.datesOfEvent,
-        this.billingAddress,
-        this.postCode,
-        this.teamMembers,
-        this.eventGroupId,
-        this.eventSpaceIds,
-        this.coupleEmail,
-        this.createdAt,
-        this.id,
-        this.brideName,
-        this.groomName,
-        this.functionDate,
-        this.profileImg,
-        this.email,
-        this.password,
-        this.phone,
-        this.address,
-        this.forgotPassKey,
-        this.budget,
-        this.finalCost,
-        this.createdt,
-        this.eventCompanies,
-        this.eventContacts,
-        this.eventCouples});
+      this.vid,
+      this.eventType,
+      this.eventName,
+      this.guests,
+      this.datesOfEvent,
+      this.billingAddress,
+      this.postCode,
+      this.teamMembers,
+      this.eventGroupId,
+      this.eventSpaceIds,
+      this.coupleEmail,
+      this.createdAt,
+      this.id,
+      this.brideName,
+      this.groomName,
+      this.functionDate,
+      this.profileImg,
+      this.email,
+      this.password,
+      this.phone,
+      this.address,
+      this.forgotPassKey,
+      this.budget,
+      this.finalCost,
+      this.createdt,
+      this.eventCompanies,
+      this.eventContacts,
+      this.eventCouples});
 
   EventDetails.fromJson(Map<String, dynamic> json) {
     eventId = json['event_id'];
@@ -124,7 +124,7 @@ class EventDetails {
     forgotPassKey = json['forgot_pass_key'];
     budget = json['budget'];
     finalCost = json['final_cost'];
-    createdAt = json['Created_at'];
+    createdt = json['Created_at'];
     if (json['eventCompanies'] != null) {
       eventCompanies = <EventCompanies>[];
       json['eventCompanies'].forEach((v) {
@@ -274,6 +274,7 @@ class RoomDetails {
 class EventSpaceIds {
   String? id;
   String? eventSpaceName;
+  String? eventSpaceTime;
   List<Capacity>? capacity;
   List<String>? docFile;
   List<String>? docFileLabel;
@@ -281,15 +282,17 @@ class EventSpaceIds {
 
   EventSpaceIds(
       {this.id,
-        this.eventSpaceName,
-        this.capacity,
-        this.docFile,
-        this.docFileLabel,
-        this.fixedFurniture});
+      this.eventSpaceName,
+      this.eventSpaceTime,
+      this.capacity,
+      this.docFile,
+      this.docFileLabel,
+      this.fixedFurniture});
 
   EventSpaceIds.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     eventSpaceName = json['event_space_name'];
+    eventSpaceTime = json['event_space_time'];
     if (json['capacity'] != null) {
       capacity = <Capacity>[];
       json['capacity'].forEach((v) {
@@ -310,6 +313,7 @@ class EventSpaceIds {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['event_space_name'] = this.eventSpaceName;
+    data['event_space_time'] = this.eventSpaceTime;
     if (this.capacity != null) {
       data['capacity'] = this.capacity!.map((v) => v.toJson()).toList();
     }
@@ -397,11 +401,11 @@ class EventContacts {
 
   EventContacts(
       {this.eContactId,
-        this.eventID,
-        this.contactName,
-        this.contactEmail,
-        this.contactPhone,
-        this.createdAt});
+      this.eventID,
+      this.contactName,
+      this.contactEmail,
+      this.contactPhone,
+      this.createdAt});
 
   EventContacts.fromJson(Map<String, dynamic> json) {
     eContactId = json['e_contact_id'];

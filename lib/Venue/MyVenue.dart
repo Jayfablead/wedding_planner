@@ -5,7 +5,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/Modal/FloorDetalisModal.dart';
 import 'package:wedding_planner/Modal/VenuedetailModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
@@ -40,10 +39,10 @@ class _VenueViewState extends State<VenueView> {
     // TODO: implement initState
     super.initState();
     setState(() {
+      isLoading = true;
       ind = 0;
     });
     venueap();
-    floordetelisapiwedding();
   }
 
   bool isLoading = true;
@@ -71,11 +70,31 @@ class _VenueViewState extends State<VenueView> {
                               height: 6.h,
                             ),
                             header(
-                                text: "My Venue",
+                                text: "Venue Profile",
                                 callback1: () {
                                   scaffoldKey27.currentState?.openDrawer();
                                 }),
                             SizedBox(height: 1.h),
+                            Container(
+                              height: 28.w,
+                              width: 28.w,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl:
+                                      venuedetail?.venueDetails?.profile ?? "",
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) =>
+                                          CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
+                                    'assets/user.png',
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 2.w),
                               child: Column(
@@ -95,85 +114,6 @@ class _VenueViewState extends State<VenueView> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Container(
-                                            width: 90.w,
-                                            height: 10.h,
-                                            padding: EdgeInsets.only(left: 2.w),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                              color: Colors.white,
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.all(3.w),
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              7),
-                                                      color: Colors.blue),
-                                                  child: Icon(
-                                                    CupertinoIcons.person,
-                                                    color: Colors.white,
-                                                    size: 18.sp,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 5.w),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Venue Owner Name : ',
-                                                      style: TextStyle(
-                                                          fontSize: 17.sp,
-                                                          color: Colors.blue,
-                                                          fontFamily: 'sofi',
-                                                          letterSpacing: 1,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                    SizedBox(height: 0.5.h),
-                                                    SizedBox(
-                                                      width: 45.w,
-                                                      child: Text(
-                                                        venuedetail?.venueDetails
-                                                                        ?.name ==
-                                                                    '' ||
-                                                                venuedetail
-                                                                        ?.venueDetails
-                                                                        ?.name ==
-                                                                    null
-                                                            ? 'N/A'
-                                                            : venuedetail
-                                                                    ?.venueDetails
-                                                                    ?.name ??
-                                                                "",
-                                                        style: TextStyle(
-                                                            fontSize: 15.sp,
-                                                            color: Colors.black
-                                                                .withOpacity(
-                                                                    0.8),
-                                                            fontFamily: 'sofi',
-                                                            letterSpacing: 1,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(height: 1.5.h),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -266,33 +206,6 @@ class _VenueViewState extends State<VenueView> {
                                                           ),
                                                         ),
                                                       ],
-                                                    ),
-                                                    Container(
-                                                      height: 7.h,
-                                                      width: 14.w,
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fit: BoxFit.cover,
-                                                          imageUrl: venuedetail
-                                                                  ?.venueDetails
-                                                                  ?.profile ??
-                                                              "",
-                                                          progressIndicatorBuilder:
-                                                              (context, url,
-                                                                      progress) =>
-                                                                  CircularProgressIndicator(),
-                                                          errorWidget: (context,
-                                                                  url, error) =>
-                                                              Image.asset(
-                                                            'assets/user.png',
-                                                            color: Colors.black,
-                                                          ),
-                                                        ),
-                                                      ),
                                                     ),
                                                   ],
                                                 ),
@@ -488,28 +401,6 @@ class _VenueViewState extends State<VenueView> {
         taskprovider().venuedeatilapi().then((response) async {
           venuedetail = VenuedetailModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && venuedetail?.status == "1") {
-            setState(() {
-              isLoading = false;
-            });
-          } else {
-            setState(() {
-              isLoading = false;
-            });
-          }
-        });
-      } else {
-        buildErrorDialog(context, 'Error', "Internet Required");
-      }
-    });
-  }
-
-  floordetelisapiwedding() {
-    checkInternet().then((internet) async {
-      if (internet) {
-        taskprovider().floordetelisapi().then((response) async {
-          floordetalismodal =
-              FloorDetalisModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 && floordetalismodal?.status == "1") {
             setState(() {
               isLoading = false;
             });

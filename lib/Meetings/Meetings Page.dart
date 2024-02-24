@@ -85,7 +85,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
         body: isLoading
             ? Container()
             : SingleChildScrollView(
-              child: Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Column(
                     children: [
@@ -132,7 +132,8 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                         height: 7.w,
                                         width: 7.w,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(25),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                           color: Colors.blue,
                                         ),
                                         child: Center(
@@ -183,15 +184,18 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                         ? Colors.blue
                                         : Colors.white,
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10)),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     elevation: 5,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          nextWeekDatesWithDay[index].date ?? '',
+                                          nextWeekDatesWithDay[index].date ??
+                                              '',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontSize: 28.sp,
@@ -288,8 +292,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                 width: 5.w,
                                                 decoration: BoxDecoration(
                                                     gradient: LinearGradient(
-                                                      begin: Alignment.topCenter,
-                                                      end: Alignment.bottomCenter,
+                                                      begin:
+                                                          Alignment.topCenter,
+                                                      end: Alignment
+                                                          .bottomCenter,
                                                       colors: [
                                                         Colors.blue,
                                                         Colors.blue.shade500,
@@ -304,9 +310,12 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                 height: 7.h,
                                                 width: 1.w,
                                                 decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.only(
-                                                    topLeft: Radius.circular(10),
-                                                    topRight: Radius.circular(10),
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(10),
+                                                    topRight:
+                                                        Radius.circular(10),
                                                   ),
                                                   gradient: LinearGradient(
                                                     begin: Alignment.topCenter,
@@ -388,7 +397,8 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                     style: TextStyle(
                                                       fontSize: 12.sp,
                                                       fontFamily: 'sofi',
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       letterSpacing: 1,
                                                       color: Colors.black
                                                           .withOpacity(0.75),
@@ -440,7 +450,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                     ],
                   ),
                 ),
-            ),
+              ),
       ),
     );
   }
@@ -832,67 +842,79 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                     fontFamily: 'Meta1'),
                                               ),
                                             )
-                                          : Meet == 'Phone call'?TextFormField(
-                                              keyboardType:
-                                                  TextInputType.number,
-                                              controller: _call,
-                                              onChanged: (value) {},
-                                              validator: (value) {
-                                                if (value == null ||
-                                                    value.isEmpty) {
-                                                  return 'Please enter Phone No';
-                                                }
-                                                return null;
-                                              },
-                                              style: TextStyle(
-                                                  color: Colors.black
-                                                      .withOpacity(0.67),
-                                                  fontFamily: 'Meta1'),
-                                              decoration: InputDecoration(
-                                                prefixIcon: Icon(
-                                                  Icons.call,
-                                                  color: Colors.blue,
-                                                ),
-                                                border: InputBorder.none,
-                                                fillColor: Colors.white,
-                                                filled: true,
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(25),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.white)),
-                                                disabledBorder:
-                                                    OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(25),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.white)),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(25),
-                                                        borderSide: BorderSide(
-                                                            color:
-                                                                Colors.white)),
-                                                errorBorder: OutlineInputBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            25),
-                                                    borderSide: BorderSide(
-                                                        color: Colors.white)),
-                                                hintText: 'Add Phone No',
-                                                hintStyle: TextStyle(
-                                                    color: Colors.black
-                                                        .withOpacity(0.67),
-                                                    fontFamily: 'Meta1'),
-                                              ),
-                                            ):Container(),
+                                          : Meet == 'Phone call'
+                                              ? TextFormField(
+                                                  keyboardType:
+                                                      TextInputType.number,
+                                                  controller: _call,
+                                                  onChanged: (value) {},
+                                                  validator: (value) {
+                                                    if (value == null ||
+                                                        value.isEmpty) {
+                                                      return 'Please enter Phone No';
+                                                    }
+                                                    return null;
+                                                  },
+                                                  style: TextStyle(
+                                                      color: Colors.black
+                                                          .withOpacity(0.67),
+                                                      fontFamily: 'Meta1'),
+                                                  decoration: InputDecoration(
+                                                    prefixIcon: Icon(
+                                                      Icons.call,
+                                                      color: Colors.blue,
+                                                    ),
+                                                    border: InputBorder.none,
+                                                    fillColor: Colors.white,
+                                                    filled: true,
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        25),
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white)),
+                                                    disabledBorder:
+                                                        OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        25),
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white)),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        25),
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white)),
+                                                    errorBorder:
+                                                        OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        25),
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white)),
+                                                    hintText: 'Add Phone No',
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black
+                                                            .withOpacity(0.67),
+                                                        fontFamily: 'Meta1'),
+                                                  ),
+                                                )
+                                              : Container(),
                                   SizedBox(height: 2.h),
 
                                   Text(

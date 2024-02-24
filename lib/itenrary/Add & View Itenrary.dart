@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -91,9 +92,9 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image.asset('assets/pdf.png',
+                                  Image.asset('assets/Upload.png',
                                       height: 27.h, color: Colors.blue),
-                                  SizedBox(height: 2.h),
+                                  SizedBox(height: 3.h),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
@@ -117,7 +118,9 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                           height: 78.h,
                           child: InkWell(
                             onTap: () {
-                              String filePath = itienrarymodal?.data?.filePath ?? "";
+                              String filePath =
+                                  itienrarymodal?.data?.filePath ?? "";
+                              print(filePath);
                               if (filePath.endsWith('.pdf')) {
                                 Get.to(ItenraryDetails(link: filePath));
                               } else if (filePath.isNotEmpty) {
@@ -127,7 +130,17 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      content: Image.asset(filePath),
+                                      content: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl: filePath ?? '',
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) =>
+                                                CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
+                                          'assets/def.jpeg',
+                                        ),
+                                      ),
                                     );
                                   },
                                 );
@@ -137,8 +150,14 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image.asset('assets/pdf.png',
-                                      height: 27.h, color: Colors.blue),
+                                  Image.asset(
+                                      (itienrarymodal?.data?.filePath
+                                                  .toString())!
+                                              .endsWith('.pdf')
+                                          ? 'assets/pdf.png'
+                                          : 'assets/VImage.png',
+                                      height: 27.h,
+                                      color: Colors.blue),
                                   SizedBox(height: 2.h),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -147,7 +166,11 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                     children: [
                                       SizedBox(width: 2.7.w),
                                       Text(
-                                        (itienrarymodal?.data?.filePath.toString())!.endsWith('.pdf') ? 'View Your File' : 'View Your Image',
+                                        (itienrarymodal?.data?.filePath
+                                                    .toString())!
+                                                .endsWith('.pdf')
+                                            ? 'View Your File'
+                                            : 'View Your Image',
                                         style: TextStyle(
                                             color: Colors.blue,
                                             fontSize: 15.5.sp,
@@ -305,7 +328,7 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
-        taskprovider().itineraryUploadApi(data).then((response) async {
+        taskprovider().itenraryuploadapi(data).then((response) async {
           iteneryupload =
               ItienraryuploadModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && iteneryupload?.status == "1") {
@@ -319,10 +342,13 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
             //     fontSize: 11.sp);
             IteinraryApi();
           } else {
-            EasyLoading.showError("Can't Uploaded");IteinraryApi();
+            EasyLoading.showError("Can't Uploaded");
+            IteinraryApi();
           }
         });
-      } else { EasyLoading.showError("Can't Uploaded");IteinraryApi();
+      } else {
+        EasyLoading.showError("Can't Uploaded");
+        IteinraryApi();
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });

@@ -146,10 +146,7 @@ class _My_EventState extends State<My_Event> {
                                                                         ?.groomName ==
                                                                     null
                                                             ? 'N/A'
-                                                            : myevent
-                                                                    ?.eventDetails
-                                                                    ?.groomName ??
-                                                                "",
+                                                            : "${myevent?.eventDetails?.groomName} ${myevent?.eventDetails?.brideName}",
                                                         style: TextStyle(
                                                             fontSize: 15.sp,
                                                             color: Colors.black
@@ -167,85 +164,167 @@ class _My_EventState extends State<My_Event> {
                                               ],
                                             ),
                                           ),
-                                          SizedBox(height: 1.5.h),
-                                          Container(
-                                            width: 90.w,
-                                            height: 10.h,
-                                            padding: EdgeInsets.only(left: 2.w),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                              color: Colors.white,
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.all(3.w),
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              7),
-                                                      color: Colors.blue),
-                                                  child: Icon(
-                                                    CupertinoIcons.person_2,
-                                                    color: Colors.white,
-                                                    size: 18.sp,
-                                                  ),
+                                          myevent?.eventDetails?.eventCompanies
+                                                          ?.length ==
+                                                      0 ||
+                                                  myevent
+                                                          ?.eventDetails
+                                                          ?.eventCompanies
+                                                          ?.length ==
+                                                      null ||
+                                                  myevent?.eventDetails
+                                                          ?.eventCompanies ==
+                                                      null
+                                              ? Container()
+                                              : SizedBox(height: 1.5.h),
+                                          myevent?.eventDetails?.eventCompanies
+                                                          ?.length ==
+                                                      0 ||
+                                                  myevent
+                                                          ?.eventDetails
+                                                          ?.eventCompanies
+                                                          ?.length ==
+                                                      null ||
+                                                  myevent?.eventDetails
+                                                          ?.eventCompanies ==
+                                                      null
+                                              ? Container()
+                                              : Text(
+                                                  'Event Company Names :',
+                                                  style: TextStyle(
+                                                      fontSize: 17.sp,
+                                                      color: Colors.blue,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
-                                                SizedBox(width: 5.w),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Company Name : ',
-                                                      style: TextStyle(
-                                                          fontSize: 17.sp,
-                                                          color: Colors.blue,
-                                                          fontFamily: 'sofi',
-                                                          letterSpacing: 1,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                    SizedBox(height: 0.5.h),
-                                                    SizedBox(
-                                                      width: 45.w,
-                                                      child: Text(
-                                                        myevent?.eventDetails
-                                                                        ?.groomName ==
-                                                                    '' ||
-                                                                myevent?.eventDetails
-                                                                        ?.groomName ==
-                                                                    null
-                                                            ? 'N/A'
-                                                            : myevent
-                                                                    ?.eventDetails
-                                                                    ?.groomName ??
-                                                                "",
-                                                        style: TextStyle(
-                                                            fontSize: 15.sp,
-                                                            color: Colors.black
-                                                                .withOpacity(
-                                                                    0.8),
-                                                            fontFamily: 'sofi',
-                                                            letterSpacing: 1,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
+                                          myevent?.eventDetails?.eventCompanies
+                                                          ?.length ==
+                                                      0 ||
+                                                  myevent
+                                                          ?.eventDetails
+                                                          ?.eventCompanies
+                                                          ?.length ==
+                                                      null ||
+                                                  myevent?.eventDetails
+                                                          ?.eventCompanies ==
+                                                      null
+                                              ? Container()
+                                              : SizedBox(height: 0.5.h),
+                                          myevent?.eventDetails?.eventCompanies
+                                                          ?.length ==
+                                                      0 ||
+                                                  myevent
+                                                          ?.eventDetails
+                                                          ?.eventCompanies
+                                                          ?.length ==
+                                                      null ||
+                                                  myevent?.eventDetails
+                                                          ?.eventCompanies ==
+                                                      null
+                                              ? Container()
+                                              : Column(children: [
+                                                  for (int i = 0;
+                                                      i <
+                                                          (myevent
+                                                                  ?.eventDetails
+                                                                  ?.eventCompanies
+                                                                  ?.length ??
+                                                              0);
+                                                      i++) ...[
+                                                    Container(
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      1.h),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
+                                                            width: 90.w,
+                                                            height: 10.h,
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left:
+                                                                        2.15.w),
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          15),
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            child: Row(
+                                                              // mainAxisAlignment: MainAxisAlignment.start,
+                                                              // crossAxisAlignment: CrossAxisAlignment.center,
+                                                              children: [
+                                                                Container(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(3
+                                                                              .w),
+                                                                  decoration: BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              7),
+                                                                      color: Colors
+                                                                          .blue),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .access_alarm,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    size: 18.sp,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 5.w),
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Text(
+                                                                      myevent
+                                                                              ?.eventDetails
+                                                                              ?.eventCompanies?[i]
+                                                                              .companyName ??
+                                                                          '',
+                                                                      style: TextStyle(
+                                                                          fontSize: 17
+                                                                              .sp,
+                                                                          color: Colors
+                                                                              .blue,
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          letterSpacing:
+                                                                              1,
+                                                                          fontWeight:
+                                                                              FontWeight.bold),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ),
                                                   ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(height: 1.5.h),
+                                                ]),
+                                          SizedBox(height: 1.h),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
@@ -314,96 +393,6 @@ class _My_EventState extends State<My_Event> {
                                                               : myevent
                                                                       ?.eventDetails
                                                                       ?.functionDate ??
-                                                                  "",
-                                                          style: TextStyle(
-                                                              fontSize: 16.sp,
-                                                              color: Colors
-                                                                  .black
-                                                                  .withOpacity(
-                                                                      0.8),
-                                                              fontFamily:
-                                                                  'sofi',
-                                                              letterSpacing: 1,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(height: 1.5.h),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 90.w,
-                                                height: 10.h,
-                                                padding: EdgeInsets.only(
-                                                    left: 2.15.w),
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(15),
-                                                  color: Colors.white,
-                                                ),
-                                                child: Row(
-                                                  // mainAxisAlignment: MainAxisAlignment.start,
-                                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      padding:
-                                                          EdgeInsets.all(3.w),
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(7),
-                                                          color: Colors.blue),
-                                                      child: Icon(
-                                                        Icons.access_alarm,
-                                                        color: Colors.white,
-                                                        size: 18.sp,
-                                                      ),
-                                                    ),
-                                                    SizedBox(width: 5.w),
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'Event Space Timings :',
-                                                          style: TextStyle(
-                                                              fontSize: 17.sp,
-                                                              color:
-                                                                  Colors.blue,
-                                                              fontFamily:
-                                                                  'sofi',
-                                                              letterSpacing: 1,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        SizedBox(height: 0.5.h),
-                                                        Text(
-                                                          myevent?.eventDetails
-                                                                          ?.createdAt ==
-                                                                      '' ||
-                                                                  myevent?.eventDetails
-                                                                          ?.createdAt ==
-                                                                      null
-                                                              ? 'N/A'
-                                                              : myevent
-                                                                      ?.eventDetails
-                                                                      ?.createdAt ??
                                                                   "",
                                                           style: TextStyle(
                                                               fontSize: 16.sp,
@@ -521,11 +510,155 @@ class _My_EventState extends State<My_Event> {
                                               ),
                                             ],
                                           ),
+                                          SizedBox(height: 1.5.h),
+                                          Text(
+                                            'Event Space Timings :',
+                                            style: TextStyle(
+                                                fontSize: 17.sp,
+                                                color: Colors.blue,
+                                                fontFamily: 'sofi',
+                                                letterSpacing: 1,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 0.5.h),
+                                          myevent?.eventDetails?.eventSpaceIds
+                                                          ?.length ==
+                                                      0 ||
+                                                  myevent
+                                                          ?.eventDetails
+                                                          ?.eventSpaceIds
+                                                          ?.length ==
+                                                      null ||
+                                                  myevent?.eventDetails
+                                                          ?.eventSpaceIds ==
+                                                      null
+                                              ? Container()
+                                              : Column(children: [
+                                                  for (int i = 0;
+                                                      i <
+                                                          (myevent
+                                                                  ?.eventDetails
+                                                                  ?.eventSpaceIds
+                                                                  ?.length ??
+                                                              0);
+                                                      i++) ...[
+                                                    Container(
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      1.h),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
+                                                            width: 90.w,
+                                                            height: 10.h,
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left:
+                                                                        2.15.w),
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          15),
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            child: Row(
+                                                              // mainAxisAlignment: MainAxisAlignment.start,
+                                                              // crossAxisAlignment: CrossAxisAlignment.center,
+                                                              children: [
+                                                                Container(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(3
+                                                                              .w),
+                                                                  decoration: BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              7),
+                                                                      color: Colors
+                                                                          .blue),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .access_alarm,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    size: 18.sp,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 5.w),
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Text(
+                                                                      myevent
+                                                                              ?.eventDetails
+                                                                              ?.eventSpaceIds?[i]
+                                                                              .eventSpaceName ??
+                                                                          '',
+                                                                      style: TextStyle(
+                                                                          fontSize: 17
+                                                                              .sp,
+                                                                          color: Colors
+                                                                              .blue,
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          letterSpacing:
+                                                                              1,
+                                                                          fontWeight:
+                                                                              FontWeight.bold),
+                                                                    ),
+                                                                    SizedBox(
+                                                                        height:
+                                                                            0.5.h),
+                                                                    Text(
+                                                                      myevent
+                                                                              ?.eventDetails
+                                                                              ?.eventSpaceIds?[i]
+                                                                              .eventSpaceTime ??
+                                                                          '',
+                                                                      style: TextStyle(
+                                                                          fontSize: 16
+                                                                              .sp,
+                                                                          color: Colors.black.withOpacity(
+                                                                              0.8),
+                                                                          fontFamily:
+                                                                              'sofi',
+                                                                          letterSpacing:
+                                                                              1,
+                                                                          fontWeight:
+                                                                              FontWeight.bold),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ]),
                                         ],
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 1.5.h),
+                                  SizedBox(height: 1.h),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -929,79 +1062,99 @@ class _My_EventState extends State<My_Event> {
                                     ],
                                   ),
                                   SizedBox(height: 1.h),
-                                  Column(children: [for (int i = 0;
-                                  i <
-                                      (myevent?.eventDetails?.teamMembers
-                                          ?.length ??
-                                          0);
-                                  i++) ...[
-                                    Container(
-                                      margin: EdgeInsetsDirectional.symmetric(
-                                          vertical: 1.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 90.w,
-                                            height: 10.h,
-                                            padding:
-                                            EdgeInsets.only(left: 2.15.w),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.circular(15),
-                                              color: Colors.white,
-                                            ),
-                                            child: Row(
-                                              // mainAxisAlignment: MainAxisAlignment.start,
-                                              // crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Container(height: 7.h,width: 14.w,
-                                                  child: ClipRRect(borderRadius: BorderRadiusDirectional.circular(8),
-                                                    child: CachedNetworkImage(
-                                                      fit: BoxFit.cover,
-                                                      imageUrl:myevent?.eventDetails?.teamMembers?[i].profilePicture ?? '',
-                                                      progressIndicatorBuilder:
-                                                          (context, url, progress) =>
-                                                          CircularProgressIndicator(),
-                                                      errorWidget: (context, url, error) =>
-                                                          Image.asset(
-                                                            'assets/def.jpeg',
-                                                          ),
+                                  Column(children: [
+                                    for (int i = 0;
+                                        i <
+                                            (myevent?.eventDetails?.teamMembers
+                                                    ?.length ??
+                                                0);
+                                        i++) ...[
+                                      Container(
+                                        margin: EdgeInsetsDirectional.symmetric(
+                                            vertical: 1.h),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 90.w,
+                                              height: 10.h,
+                                              padding:
+                                                  EdgeInsets.only(left: 2.15.w),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                color: Colors.white,
+                                              ),
+                                              child: Row(
+                                                // mainAxisAlignment: MainAxisAlignment.start,
+                                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    height: 7.h,
+                                                    width: 14.w,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadiusDirectional
+                                                              .circular(8),
+                                                      child: CachedNetworkImage(
+                                                        fit: BoxFit.cover,
+                                                        imageUrl: myevent
+                                                                ?.eventDetails
+                                                                ?.teamMembers?[
+                                                                    i]
+                                                                .profilePicture ??
+                                                            '',
+                                                        progressIndicatorBuilder:
+                                                            (context, url,
+                                                                    progress) =>
+                                                                CircularProgressIndicator(),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            Image.asset(
+                                                          'assets/def.jpeg',
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                SizedBox(width: 5.w),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      myevent?.eventDetails?.teamMembers?[i].fullName ?? '',
-                                                      style: TextStyle(
-                                                          fontSize: 17.sp,
-                                                          color: Colors.blue,
-                                                          fontFamily: 'sofi',
-                                                          letterSpacing: 1,
-                                                          fontWeight:
-                                                          FontWeight.bold),
-                                                    ),
-                                                    SizedBox(height: 0.5.h),
-
-                                                  ],
-                                                ),
-                                              ],
+                                                  SizedBox(width: 5.w),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        myevent
+                                                                ?.eventDetails
+                                                                ?.teamMembers?[
+                                                                    i]
+                                                                .fullName ??
+                                                            '',
+                                                        style: TextStyle(
+                                                            fontSize: 17.sp,
+                                                            color: Colors.blue,
+                                                            fontFamily: 'sofi',
+                                                            letterSpacing: 1,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      SizedBox(height: 0.5.h),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],]),
-
+                                    ],
+                                  ]),
                                   SizedBox(height: 2.5.h),
                                 ],
                               ),
