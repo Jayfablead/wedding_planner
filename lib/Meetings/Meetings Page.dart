@@ -335,77 +335,48 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                           height: 10.h,
                                           child: Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
+                                                MainAxisAlignment.center,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start ,
                                             children: [
                                               Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                MainAxisAlignment
+                                                    .spaceAround,
                                                 children: [
-                                                  Icon(Icons.calendar_month),
-                                                  SizedBox(
-                                                    width: 2.w,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 64.w,
-                                                    child: Text(
-                                                      meetingmodal
-                                                                      ?.meetingsByDate?[
-                                                                          index]
-                                                                      .taskTitle ==
-                                                                  '' ||
-                                                              meetingmodal
-                                                                      ?.meetingsByDate?[
-                                                                          index]
-                                                                      .taskTitle ==
-                                                                  null
-                                                          ? 'N/A'
-                                                          : meetingmodal
-                                                                  ?.meetingsByDate?[
-                                                                      index]
-                                                                  .taskTitle ??
-                                                              "",
-                                                      style: TextStyle(
-                                                        fontSize: 13.sp,
-                                                        fontFamily: 'sofi',
-                                                        fontWeight:
-                                                            FontWeight.w900,
-                                                        letterSpacing: 1,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
+                                                  Icon(Icons.alarm,size: 18.sp,color: Colors.blue,),
+                                                  SizedBox(width:1.w,),
                                                   Text(
                                                     meetingmodal
-                                                                    ?.meetingsByDate?[
-                                                                        index]
-                                                                    .endTime ==
-                                                                '' ||
-                                                            meetingmodal
-                                                                    ?.meetingsByDate?[
-                                                                        index]
-                                                                    .endTime ==
-                                                                null
+                                                        ?.meetingsByDate?[
+                                                    index]
+                                                        .endTime ==
+                                                        '' ||
+                                                        meetingmodal
+                                                            ?.meetingsByDate?[
+                                                        index]
+                                                            .endTime ==
+                                                            null
                                                         ? 'N/A'
                                                         : meetingmodal
-                                                                ?.meetingsByDate?[
-                                                                    index]
-                                                                .endTime ??
-                                                            "",
+                                                        ?.meetingsByDate?[
+                                                    index]
+                                                        .endTime ??
+                                                        "",
                                                     style: TextStyle(
                                                       fontSize: 12.sp,
                                                       fontFamily: 'sofi',
                                                       fontWeight:
-                                                          FontWeight.bold,
+                                                      FontWeight.bold,
                                                       letterSpacing: 1,
                                                       color: Colors.black
                                                           .withOpacity(0.75),
                                                     ),
                                                   ),
+
                                                 ],
                                               ),
+                                              SizedBox(height: 1.h,),
                                               Container(
                                                 width: 81.w,
                                                 child: Text(
@@ -710,7 +681,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                                     BorderRadius.circular(25),
                                                 borderSide: BorderSide(
                                                     color: Colors.white)),
-                                            hintText: 'Time',
+                                            hintText: 'Select Time',
                                             hintStyle: TextStyle(
                                                 color: Colors.black
                                                     .withOpacity(0.67),
@@ -1063,10 +1034,14 @@ class _MeetingsPageState extends State<MeetingsPage> {
   addmeetingap() {
     if (formKey.currentState!.validate()) {
       final Map<String, String> data = {};
-      data['meeting_title'] = _title.text.toString();
       data['meeting_description'] = _desc.text.toString();
       data['start_date'] = _start.text.toString();
-      data['time'] = _time.text.toString();
+      data['time'] = category=="Choose Time"?_time.text.toString():"10am to 07pm";
+      data['time_type'] = category=="Choose Time"?'1':'2';
+      data['place_type'] =Meet=="In person"?"1" :Meet=="Zoom"?"2" : "3";
+      data['place_name'] =Meet=="In person"?"1" :Meet=="Zoom"?"2" : "3" ;
+      data['place_data'] = Meet=="In person"? "": Meet=="Zoom"? _zoom.text.toString(): _call.text.toString();
+
       print(data);
       checkInternet().then((internet) async {
         if (internet) {
@@ -1074,13 +1049,16 @@ class _MeetingsPageState extends State<MeetingsPage> {
             addmeetingmodal =
                 AddmeetingModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && addmeetingmodal?.status == "1") {
+              print("api done");
               _title.text = "";
               _desc.text = "";
               _start.text = "";
               _time.text = "";
               meetingap();
               Get.back();
-            } else {}
+            } else {
+              print("api error");
+            }
           });
         } else {
           buildErrorDialog(context, 'Error', "Internet Required");

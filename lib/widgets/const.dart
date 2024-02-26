@@ -54,6 +54,7 @@ import '../Modal/GuestseatingModal.dart';
 import '../Modal/InvoicelistModal.dart';
 import '../Modal/MeetingModal.dart';
 import '../Modal/MyvenuetableModal.dart';
+import '../Modal/PedingDeliveryCollecationModal.dart';
 import '../Modal/QouteDetailsModal.dart';
 import '../Modal/QuotationAcceptModal.dart';
 import '../Modal/QuoteListModal.dart';
@@ -163,5 +164,6 @@ All_Supplier_Type_Modal? allsuupliertypes;
 ViewAllEventSpaceModal? viewAlleventspacemodal;
 SingalEventViewModal? singaleventviewmodal;
 GetSuppliersServiceModal? getsuppliersservicemodal;
+PedingDeliveryCollecationModal? pedingseliverycollecationmodal;
 
 const String baseUrl = 'https://wedding.londontechequity.co.uk/portal/api';

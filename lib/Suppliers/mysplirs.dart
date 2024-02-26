@@ -476,22 +476,21 @@ class _MySupsState extends State<MySups> {
                                                         onTap: () {
                                                           Get.to(
                                                               SupplierfourScreen(
-                                                            suppid: mysupps
-                                                                ?.suppliersDetails?[
-                                                                    index]
-                                                                .id,
-                                                            catid: mysupps
-                                                                ?.suppliersDetails?[
-                                                                    index]
-                                                                .services
-                                                                ?.category
-                                                                ?.categoryId,
-                                                            service: mysupps
-                                                                ?.suppliersDetails?[
-                                                                    index]
-                                                                .services
-                                                                ?.category
-                                                                ?.categoryName,
+                                                            suppid: getsuppliersservicemodal
+                                                                ?.data?[
+                                                            index]
+                                                                .id ??
+                                                                '',
+                                                            catid:getsuppliersservicemodal
+                                                                ?.data?[
+                                                            index]
+                                                                .id ??
+                                                                '',
+                                                            service: getsuppliersservicemodal
+                                                                ?.data?[
+                                                            index]
+                                                                .name ??
+                                                                '',
                                                           ));
                                                         },
                                                         child: Container(
@@ -534,7 +533,7 @@ class _MySupsState extends State<MySups> {
                                   ),
                                 )
                           : SizedBox(height: 1.2.h),
-                      getsuppliersservicemodal?.data?.length == 0 ||
+                      getsuppliers ? Container():getsuppliersservicemodal?.data?.length == 0 ||
                           getsuppliersservicemodal?.data?.length == null
                           ? Container()
                           : (getsuppliersservicemodal?.data?.length ?? 0) <= 3
@@ -567,7 +566,7 @@ class _MySupsState extends State<MySups> {
                                     ),
                                   ),
                                 ),
-                      mysupps?.suppliersDetails?.length == 0 ||
+                     getsuppliers?Container(): mysupps?.suppliersDetails?.length == 0 ||
                               mysupps?.suppliersDetails?.length == null
                           ? Container(
                               height: 80.h,
@@ -786,7 +785,7 @@ class _MySupsState extends State<MySups> {
                               ),
                             ),
                       SizedBox(height: 1.2.h),
-                      mysupps?.suppliersDetails?.length == 0 ||
+                      getsuppliers?Container():mysupps?.suppliersDetails?.length == 0 ||
                               mysupps?.suppliersDetails?.length == null
                           ? Container()
                           : (mysupps?.suppliersDetails?.length ?? 0) <= 3

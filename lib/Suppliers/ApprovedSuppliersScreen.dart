@@ -11,7 +11,9 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
+import '../Modal/AllSupsTypeModal.dart';
 import '../Modal/ApprovedSuppliersModal.dart';
+import '../Modal/GetSuppliersServiceModal.dart';
 import '../widgets/load.dart';
 import 'AddNewSupplier.dart';
 
@@ -121,6 +123,7 @@ List<chat> mesgs = [
 
 bool more = true;
 bool isLoading = true;
+bool getsuppliers =true;
 
 class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
   @override
@@ -129,6 +132,7 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
     super.initState();
 
     approvedsuppliers();
+    Suppliertypeap();
     setState(() {
       isLoading = true;
       more = true;
@@ -211,37 +215,37 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                       showDialog(
                                         context: context,
                                         builder: (context) {
-                                          return Container(
+                                          return  Container(
                                             height: 60.h,
                                             child: AlertDialog(
                                                 backgroundColor:
-                                                    Colors.grey.shade100,
+                                                Colors.grey.shade100,
                                                 shape: RoundedRectangleBorder(
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            20),
+                                                    BorderRadius.circular(
+                                                        20),
                                                     side: BorderSide(
                                                         color: Colors.white)),
                                                 title: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.min,
+                                                  MainAxisSize.min,
                                                   children: [
                                                     Row(
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                       children: [
                                                         Text(
                                                           'Select Supplier type',
                                                           style: TextStyle(
                                                               fontFamily: "pop",
                                                               fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
+                                                              FontWeight
+                                                                  .w600,
                                                               fontSize: 15.sp,
                                                               letterSpacing: 1,
                                                               color:
-                                                                  Colors.blue),
+                                                              Colors.blue),
                                                         ),
                                                         InkWell(
                                                           onTap: () {
@@ -250,11 +254,10 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                                           child: Icon(
                                                               Icons.close,
                                                               color:
-                                                                  Colors.blue),
+                                                              Colors.blue),
                                                         ),
                                                       ],
                                                     ),
-                                                    SizedBox(height: 1.h),
                                                     Divider()
                                                   ],
                                                 ),
@@ -286,43 +289,64 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                                 //     :
 
                                                 content: SizedBox(
-                                                  height: 25.h,
+                                                  height: 22.h,
                                                   width: 95.w,
                                                   child: GridView.builder(
                                                     padding: EdgeInsets.zero,
                                                     gridDelegate:
-                                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                                            childAspectRatio:
-                                                                10 / 4.5,
-                                                            crossAxisCount: 2),
-                                                    itemCount: 10,
+                                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                                        childAspectRatio:
+                                                        10 / 4.5,
+                                                        crossAxisCount: 2),
+                                                    itemCount: allsuupliertypes
+                                                        ?.data?.length,
                                                     itemBuilder:
                                                         (context, index) {
                                                       return InkWell(
-                                                        onTap: () {},
+                                                        onTap: () {
+                                                          print(
+                                                              '${allsuupliertypes?.data?[index].categoryId} : ');
+                                                          print(
+                                                              '${allsuupliertypes?.data?[index].categoryName}');
+
+
+                                                          setState(() {
+                                                            getsuppliers = true;
+                                                            singalgetdatasupplier(
+                                                                (allsuupliertypes
+                                                                    ?.data?[
+                                                                index]
+                                                                    .categoryId)
+                                                                    .toString());
+                                                          });
+                                                        },
                                                         child: Container(
                                                           alignment:
-                                                              Alignment.center,
+                                                          Alignment.center,
                                                           margin: EdgeInsets
                                                               .symmetric(
-                                                                  vertical: 1.w,
-                                                                  horizontal:
-                                                                      1.w),
+                                                              vertical: 1.w,
+                                                              horizontal:
+                                                              1.w),
                                                           padding: EdgeInsets
                                                               .symmetric(
-                                                                  vertical:
-                                                                      0.5.h,
-                                                                  horizontal:
-                                                                      1.w),
+                                                              vertical:
+                                                              0.5.h,
+                                                              horizontal:
+                                                              1.w),
                                                           decoration: BoxDecoration(
                                                               color:
-                                                                  Colors.white,
+                                                              Colors.white,
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20)),
+                                                              BorderRadius
+                                                                  .circular(
+                                                                  20)),
                                                           child: Text(
-                                                            'Supplier Type ${index + 1}',
+                                                            allsuupliertypes
+                                                                ?.data?[
+                                                            index]
+                                                                .categoryName ??
+                                                                '',
                                                             textAlign: TextAlign
                                                                 .center,
                                                             style: TextStyle(
@@ -330,12 +354,12 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                                                     .black87,
                                                                 fontSize: 12.sp,
                                                                 fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
+                                                                FontWeight
+                                                                    .bold,
                                                                 letterSpacing:
-                                                                    1,
+                                                                1,
                                                                 fontFamily:
-                                                                    'pop'),
+                                                                'pop'),
                                                           ),
                                                         ),
                                                       );
@@ -363,7 +387,246 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                       ),
                       // headerwid(text: "All Suppliers"),
                       SizedBox(height: 1.h),
-                      approvedsuppliersmodal?.suppliers?.length == 0 ||
+                      getsuppliers
+                          ? getsuppliersservicemodal?.data?.length == 0 ||
+                          getsuppliersservicemodal?.data?.length == null
+                          ? Container(
+                        height: 80.h,
+                        alignment: Alignment.center,
+                        child: Text(
+                          "No Suppliers Available",
+                          style: TextStyle(
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                              fontFamily: 'sofi',
+                              color: Colors.black),
+                        ),
+                      )
+                          : Container(
+                        height: more ? 50.5.h : 71.h,
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 2.w),
+                        child: ListView.builder(
+                          padding: EdgeInsets.zero,
+                          itemCount: more
+                              ? (getsuppliersservicemodal
+                              ?.data?.length ??
+                              0) <=
+                              3
+                              ? getsuppliersservicemodal
+                              ?.data?.length
+                              : 3
+                              : getsuppliersservicemodal
+                              ?.data?.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 2.h),
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 0.5.h),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black26,
+                                      // Color of the shadow
+                                      offset: Offset(0.2, 0.5),
+
+                                      blurRadius:
+                                      2, // Spread of the shadow
+                                      // How much the shadow extends
+                                    ),
+                                  ],
+                                  borderRadius:
+                                  BorderRadius.circular(10)),
+                              alignment: Alignment.center,
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment:
+                                CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 1.w),
+                                        height: 22.w,
+                                        width: 22.w,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                          BorderRadius.circular(
+                                              90),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl:
+                                            getsuppliersservicemodal
+                                                ?.data?[index]
+                                                .profilePath ??
+                                                '',
+                                            progressIndicatorBuilder:
+                                                (context, url,
+                                                progress) =>
+                                                CircularProgressIndicator(),
+                                            errorWidget: (context,
+                                                url, error) =>
+                                                Image.asset(
+                                                  'assets/user.png',
+                                                  color: Colors.black,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Column(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            getsuppliersservicemodal
+                                                ?.data?[
+                                            index]
+                                                .name ==
+                                                "" ||
+                                                getsuppliersservicemodal
+                                                    ?.data?[
+                                                index]
+                                                    .name ==
+                                                    null
+                                                ? "N/A"
+                                                : getsuppliersservicemodal
+                                                ?.data?[index]
+                                                .name ??
+                                                "",
+                                            style: TextStyle(
+                                                fontSize: 16.sp,
+                                                fontWeight:
+                                                FontWeight.bold,
+                                                letterSpacing: 1,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black),
+                                          ),
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
+                                          SizedBox(
+                                            width: 55.w,
+                                            child: Text(
+                                              getsuppliersservicemodal
+                                                  ?.data?[
+                                              index]
+                                                  .email ==
+                                                  "" ||
+                                                  getsuppliersservicemodal
+                                                      ?.data?[
+                                                  index]
+                                                      .email ==
+                                                      null
+                                                  ? "N/A"
+                                                  : getsuppliersservicemodal
+                                                  ?.data?[
+                                              index]
+                                                  .email ??
+                                                  '',
+                                              maxLines: 2,
+                                              style: TextStyle(
+                                                fontSize: 14.sp,
+                                                fontWeight:
+                                                FontWeight.bold,
+                                                fontFamily: 'sofi',
+                                                color: Colors.black
+                                                    .withOpacity(
+                                                    0.75),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
+                                          Center(
+                                            child: InkWell(
+                                              onTap: () {
+                                                Get.to(
+                                                    SupplierfourScreen(
+                                                      suppid: getsuppliersservicemodal
+                                                          ?.data?[
+                                                      index]
+                                                          .id ??
+                                                          '',
+                                                      catid:getsuppliersservicemodal
+                                                          ?.data?[
+                                                      index]
+                                                          .id ??
+                                                          '',
+                                                      service: getsuppliersservicemodal
+                                                          ?.data?[
+                                                      index]
+                                                          .name ??
+                                                          '',
+                                                    ));
+                                              },
+                                              child: Container(
+                                                alignment:
+                                                Alignment.center,
+                                                height: 4.5.h,
+                                                width: 38.w,
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                    Colors.blue,
+                                                    borderRadius:
+                                                    BorderRadius
+                                                        .circular(
+                                                        90)),
+                                                child: Text(
+                                                  'View Details',
+                                                  style: TextStyle(
+                                                    color:
+                                                    Colors.white,
+                                                    fontSize: 13.sp,
+                                                    fontFamily:
+                                                    'sofi',
+                                                    fontWeight:
+                                                    FontWeight
+                                                        .bold,
+                                                    letterSpacing: 2,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      )
+                          : SizedBox(height: 1.2.h),
+
+                      getsuppliers?Container(): mysupps?.suppliersDetails?.length == 0 ||
+                          mysupps?.suppliersDetails?.length == null
+                          ? Container(
+                        height: 80.h,
+                        alignment: Alignment.center,
+                        child: Text(
+                          "No Suppliers Available",
+                          style: TextStyle(
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                              fontFamily: 'sofi',
+                              color: Colors.black),
+                        ),
+                      )
+                          :approvedsuppliersmodal?.suppliers?.length == 0 ||
                               approvedsuppliersmodal?.suppliers?.length == null
                           ? Container(
                               height: 80.h,
@@ -607,10 +870,67 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
             print("done");
             setState(() {
               isLoading = false;
+              getsuppliers=false;
             });
           } else {
             setState(() {
               isLoading = false;
+              getsuppliers=false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+  Suppliertypeap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().subtype().then((response) async {
+          allsuupliertypes =
+              All_Supplier_Type_Modal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && allsuupliertypes?.status == "1") {
+            setState(() {
+              isLoading = false;
+              getsuppliers=false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+              getsuppliers=false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+  singalgetdatasupplier(String value) {
+    final Map<String, String> data = {};
+    data['supplier_category_id'] = value.toString();
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().getservicesupplirsapi(data).then((response) async {
+          getsuppliersservicemodal =
+              GetSuppliersServiceModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 &&
+              getsuppliersservicemodal?.status == "1") {
+            print("getsuppliersDone");
+            Get.back();
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            buildErrorDialog(context, " Error",
+                (viewAlleventspacemodal?.message ?? "").toString());
+            setState(() {
+              isLoading = false;
+
             });
           }
         });
