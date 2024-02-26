@@ -12,6 +12,7 @@ import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
+import '../Modal/AllSupsTypeModal.dart';
 import '../Modal/mySupplierModal.dart';
 import '../widgets/load.dart';
 
@@ -55,6 +56,7 @@ class _MySupsState extends State<MySups> {
       isLoading = true;
     });
     homeap();
+    Suppliertypeap();
   }
 
   @override
@@ -210,26 +212,30 @@ class _MySupsState extends State<MySups> {
                                                 //     :
 
                                                 content: SizedBox(
-                                                  height: 25.h,
+                                                  height: 22.h,
                                                   width: 95.w,
                                                   child: GridView.builder(
                                                     padding: EdgeInsets.zero,
                                                     gridDelegate:
                                                         SliverGridDelegateWithFixedCrossAxisCount(
                                                             childAspectRatio:
-                                                                10 / 4.5,
+                                                                9 / 4.5,
                                                             crossAxisCount: 2),
-                                                    itemCount: 10,
+                                                    itemCount: allsuupliertypes?.data?.length,
                                                     itemBuilder:
                                                         (context, index) {
                                                       return InkWell(
-                                                        onTap: () {},
+                                                        onTap: () {
+                                                          print('${allsuupliertypes?.data?[index].categoryId} : ');
+                                                          print('${allsuupliertypes?.data?[index].categoryName}');
+
+                                                        },
                                                         child: Container(
                                                           alignment:
                                                               Alignment.center,
                                                           margin: EdgeInsets
                                                               .symmetric(
-                                                                  vertical: 1.w,
+
                                                                   horizontal:
                                                                       1.w),
                                                           padding: EdgeInsets
@@ -246,7 +252,7 @@ class _MySupsState extends State<MySups> {
                                                                       .circular(
                                                                           20)),
                                                           child: Text(
-                                                            'Supplier Type ${index + 1}',
+                                                            allsuupliertypes?.data?[index].categoryName ?? '',
                                                             textAlign: TextAlign
                                                                 .center,
                                                             style: TextStyle(
@@ -567,4 +573,26 @@ class _MySupsState extends State<MySups> {
       }
     });
   }
+
+  Suppliertypeap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().SupTypesApi().then((response) async {
+          allsuupliertypes = All_Supplier_Type_Modal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && allsuupliertypes?.status == "1") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
 }
