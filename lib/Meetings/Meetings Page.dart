@@ -172,6 +172,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
+                                print("datefrment${date1[sel1!]}");
                                 setState(() {
                                   sel1 = index;
                                 });
