@@ -454,7 +454,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
-  Future<http.Response> SupTypesApi() async {
+  Future<http.Response> subtype() async {
     String? url = '$baseUrl/suppliers_service_categories';
     print(url);
     var responseJson;
@@ -1059,6 +1059,22 @@ class taskprovider with ChangeNotifier {
   Future<http.Response> singaleventspaceapi(
       Map<String, String> bodyData) async {
     String? url = '$baseUrl/editeventSpace';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+
+  Future<http.Response> getservicesupplirsapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/get_suppliers_service/${userData?.user?.id.toString()}';
+
     var responseJson;
     final response = await http
         .post(Uri.parse(url), headers: headers, body: bodyData)

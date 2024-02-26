@@ -13,6 +13,7 @@ import 'package:wedding_planner/widgets/drawer.dart';
 import 'package:wedding_planner/widgets/headerwidget.dart';
 
 import '../Modal/AllSupsTypeModal.dart';
+import '../Modal/GetSuppliersServiceModal.dart';
 import '../Modal/mySupplierModal.dart';
 import '../widgets/load.dart';
 
@@ -44,6 +45,7 @@ class chat {
 
 bool more = true;
 bool isLoading = true;
+bool getsuppliers = true;
 int sel1 = 1;
 
 class _MySupsState extends State<MySups> {
@@ -180,7 +182,6 @@ class _MySupsState extends State<MySups> {
                                                         ),
                                                       ],
                                                     ),
-                                                    SizedBox(height: 1.h),
                                                     Divider()
                                                   ],
                                                 ),
@@ -219,23 +220,36 @@ class _MySupsState extends State<MySups> {
                                                     gridDelegate:
                                                         SliverGridDelegateWithFixedCrossAxisCount(
                                                             childAspectRatio:
-                                                                9 / 4.5,
+                                                                10 / 4.5,
                                                             crossAxisCount: 2),
-                                                    itemCount: allsuupliertypes?.data?.length,
+                                                    itemCount: allsuupliertypes
+                                                        ?.data?.length,
                                                     itemBuilder:
                                                         (context, index) {
                                                       return InkWell(
                                                         onTap: () {
-                                                          print('${allsuupliertypes?.data?[index].categoryId} : ');
-                                                          print('${allsuupliertypes?.data?[index].categoryName}');
+                                                          print(
+                                                              '${allsuupliertypes?.data?[index].categoryId} : ');
+                                                          print(
+                                                              '${allsuupliertypes?.data?[index].categoryName}');
 
+
+                                                          setState(() {
+                                                            getsuppliers = true;
+                                                            singalgetdatasupplier(
+                                                                (allsuupliertypes
+                                                                    ?.data?[
+                                                                index]
+                                                                    .categoryId)
+                                                                    .toString());
+                                                          });
                                                         },
                                                         child: Container(
                                                           alignment:
                                                               Alignment.center,
                                                           margin: EdgeInsets
                                                               .symmetric(
-
+                                                                  vertical: 1.w,
                                                                   horizontal:
                                                                       1.w),
                                                           padding: EdgeInsets
@@ -252,7 +266,11 @@ class _MySupsState extends State<MySups> {
                                                                       .circular(
                                                                           20)),
                                                           child: Text(
-                                                            allsuupliertypes?.data?[index].categoryName ?? '',
+                                                            allsuupliertypes
+                                                                    ?.data?[
+                                                                        index]
+                                                                    .categoryName ??
+                                                                '',
                                                             textAlign: TextAlign
                                                                 .center,
                                                             style: TextStyle(
@@ -292,6 +310,263 @@ class _MySupsState extends State<MySups> {
                         ],
                       ),
                       SizedBox(height: 1.h),
+                      getsuppliers
+                          ? getsuppliersservicemodal?.data?.length == 0 ||
+                                  getsuppliersservicemodal?.data?.length == null
+                              ? Container(
+                                  height: 80.h,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "No Suppliers Available",
+                                    style: TextStyle(
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
+                                  ),
+                                )
+                              : Container(
+                                  height: more ? 50.5.h : 71.h,
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    itemCount: more
+                                        ? (getsuppliersservicemodal
+                                                        ?.data?.length ??
+                                                    0) <=
+                                                3
+                                            ? getsuppliersservicemodal
+                                                ?.data?.length
+                                            : 3
+                                        : getsuppliersservicemodal
+                                            ?.data?.length,
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w, vertical: 2.h),
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 0.5.h),
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black26,
+                                                // Color of the shadow
+                                                offset: Offset(0.2, 0.5),
+
+                                                blurRadius:
+                                                    2, // Spread of the shadow
+                                                // How much the shadow extends
+                                              ),
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        alignment: Alignment.center,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal: 1.w),
+                                                  height: 22.w,
+                                                  width: 22.w,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
+                                                    child: CachedNetworkImage(
+                                                      fit: BoxFit.cover,
+                                                      imageUrl:
+                                                          getsuppliersservicemodal
+                                                                  ?.data?[index]
+                                                                  .profilePath ??
+                                                              '',
+                                                      progressIndicatorBuilder:
+                                                          (context, url,
+                                                                  progress) =>
+                                                              CircularProgressIndicator(),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Image.asset(
+                                                        'assets/user.png',
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 5.w,
+                                                ),
+                                                Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      getsuppliersservicemodal
+                                                                      ?.data?[
+                                                                          index]
+                                                                      .name ==
+                                                                  "" ||
+                                                              getsuppliersservicemodal
+                                                                      ?.data?[
+                                                                          index]
+                                                                      .name ==
+                                                                  null
+                                                          ? "N/A"
+                                                          : getsuppliersservicemodal
+                                                                  ?.data?[index]
+                                                                  .name ??
+                                                              "",
+                                                      style: TextStyle(
+                                                          fontSize: 16.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          letterSpacing: 1,
+                                                          fontFamily: 'sofi',
+                                                          color: Colors.black),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 1.h,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 55.w,
+                                                      child: Text(
+                                                        getsuppliersservicemodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .email ==
+                                                                    "" ||
+                                                                getsuppliersservicemodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .email ==
+                                                                    null
+                                                            ? "N/A"
+                                                            : getsuppliersservicemodal
+                                                                    ?.data?[
+                                                                        index]
+                                                                    .email ??
+                                                                '',
+                                                        maxLines: 2,
+                                                        style: TextStyle(
+                                                          fontSize: 14.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily: 'sofi',
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.75),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 1.h,
+                                                    ),
+                                                    Center(
+                                                      child: InkWell(
+                                                        onTap: () {
+                                                          Get.to(
+                                                              SupplierfourScreen(
+                                                            suppid: mysupps
+                                                                ?.suppliersDetails?[
+                                                                    index]
+                                                                .id,
+                                                            catid: mysupps
+                                                                ?.suppliersDetails?[
+                                                                    index]
+                                                                .services
+                                                                ?.category
+                                                                ?.categoryId,
+                                                            service: mysupps
+                                                                ?.suppliersDetails?[
+                                                                    index]
+                                                                .services
+                                                                ?.category
+                                                                ?.categoryName,
+                                                          ));
+                                                        },
+                                                        child: Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 4.5.h,
+                                                          width: 38.w,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  Colors.blue,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          90)),
+                                                          child: Text(
+                                                            'View Details',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 13.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 2,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                )
+                          : SizedBox(height: 1.2.h),
+                      getsuppliersservicemodal?.data?.length == 0 ||
+                          getsuppliersservicemodal?.data?.length == null
+                          ? Container()
+                          : (getsuppliersservicemodal?.data?.length ?? 0) <= 3
+                              ? Container()
+                              : Center(
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        more = !more;
+                                      });
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 5.h,
+                                      width: 38.w,
+                                      decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(90)),
+                                      child: Text(
+                                        more ? 'View More' : 'View Less',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13.sp,
+                                          fontFamily: 'sofi',
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 2,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                       mysupps?.suppliersDetails?.length == 0 ||
                               mysupps?.suppliersDetails?.length == null
                           ? Container(
@@ -577,15 +852,18 @@ class _MySupsState extends State<MySups> {
   Suppliertypeap() {
     checkInternet().then((internet) async {
       if (internet) {
-        taskprovider().SupTypesApi().then((response) async {
-          allsuupliertypes = All_Supplier_Type_Modal.fromJson(json.decode(response.body));
+        taskprovider().subtype().then((response) async {
+          allsuupliertypes =
+              All_Supplier_Type_Modal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && allsuupliertypes?.status == "1") {
             setState(() {
               isLoading = false;
+              getsuppliers=false;
             });
           } else {
             setState(() {
               isLoading = false;
+              getsuppliers=false;
             });
           }
         });
@@ -595,4 +873,37 @@ class _MySupsState extends State<MySups> {
     });
   }
 
+  singalgetdatasupplier(String value) {
+    final Map<String, String> data = {};
+    data['supplier_category_id'] = value.toString();
+
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().getservicesupplirsapi(data).then((response) async {
+          getsuppliersservicemodal =
+              GetSuppliersServiceModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 &&
+              getsuppliersservicemodal?.status == "1") {
+            print("getsuppliersDone");
+            Get.back();
+            setState(() {
+              isLoading = false;
+
+
+            });
+          } else {
+            buildErrorDialog(context, " Error",
+                (viewAlleventspacemodal?.message ?? "").toString());
+            setState(() {
+              isLoading = false;
+
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
 }
