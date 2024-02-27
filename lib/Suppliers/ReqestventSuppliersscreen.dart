@@ -244,33 +244,36 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
                                                 SizedBox(
                                                   height: 1.h,
                                                 ),
-                                                Text(
-                                                  (reusestviewsuppliersmodal
-                                                                  ?.suppliers?[
-                                                                      index]
-                                                                  .description) ==
-                                                              "" ||
-                                                          (reusestviewsuppliersmodal
-                                                                  ?.suppliers?[
-                                                                      index]
-                                                                  .description) ==
-                                                              null
-                                                      ? "N/A"
-                                                      : (reusestviewsuppliersmodal
-                                                              ?.suppliers?[
-                                                                  index]
-                                                              .description)
-                                                          .toString(),
-                                                  maxLines: 2,
-                                                  style: TextStyle(
-                                                    height: 1.3,
-                                                    fontSize: 14.sp,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: 'sofi',
-                                                    color: Colors.black
-                                                        .withOpacity(0.75),
+                                                SizedBox(
+                                                 width: 55.w,
+                                                  child: Text(
+                                                    (reusestviewsuppliersmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .description) ==
+                                                                "" ||
+                                                            (reusestviewsuppliersmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .description) ==
+                                                                null
+                                                        ? "N/A"
+                                                        : (reusestviewsuppliersmodal
+                                                                ?.suppliers?[
+                                                                    index]
+                                                                .description)
+                                                            .toString(),
+                                                    maxLines: 2,
+                                                    style: TextStyle(
+                                                      height: 1.3,
+                                                      fontSize: 14.sp,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontFamily: 'sofi',
+                                                      color: Colors.black
+                                                          .withOpacity(0.75),
+                                                    ),
                                                   ),
                                                 ),
                                                 SizedBox(

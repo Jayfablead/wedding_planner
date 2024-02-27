@@ -14,6 +14,7 @@ import '../widgets/buildErrorDialog.dart';
 import '../widgets/const.dart';
 import '../widgets/drawer.dart';
 import '../widgets/headerwidget.dart';
+import 'ReqestventSuppliersscreen.dart';
 
 class RequestSupplier extends StatefulWidget {
   const RequestSupplier({super.key});
@@ -806,7 +807,7 @@ class _RequestSupplierState extends State<RequestSupplier> {
                 "",
                 reqsetssuppliersmodal?.message ?? "",
                 () {
-                  Get.back();
+                  Get.to(ReqestventSupplierscreen(sele: 0));
                 },
               );
             } else {

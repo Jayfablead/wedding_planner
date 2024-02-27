@@ -71,7 +71,15 @@ class _My_EventState extends State<My_Event> {
                                   scaffoldKey27.currentState?.openDrawer();
                                 }),
                             SizedBox(height: 1.h),
-                            Padding(
+                            myevent?.eventDetails == null?Container(height: 80.h,child: Center(
+                              child: Text("No Event Details Available", style: TextStyle(
+                                  fontSize: 17.sp,
+                                  color: Colors.black,
+                                  fontFamily: 'sofi',
+                                  letterSpacing: 1,
+                                  fontWeight:
+                                  FontWeight.bold),),
+                            )): Padding(
                               padding: EdgeInsets.symmetric(horizontal: 2.w),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,

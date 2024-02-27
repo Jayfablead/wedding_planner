@@ -1101,4 +1101,38 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+  Future<http.Response> pedingmeetingapi(String? date1) async {
+    String? url = '$baseUrl/myPendingMeetings/${userData?.user?.id}?date=${date1}';
+    // String? url="https://wedding.fableadtechnolabs.com/wedding/portal/api/myMeetings/17?date=25/10/2023";
+
+    var responseJson;
+    final response = await http
+        .get(
+      Uri.parse(url),
+      headers: headers,
+    )
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> viewmeetingapi(Map<String, String> bodyData) async {
+    String? url = '$baseUrl/editMeeting';
+
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), headers: headers, body: bodyData)
+        .timeout(
+      const Duration(seconds: 60),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 }
