@@ -50,7 +50,7 @@ class _PedingDeliversScreenState extends State<PedingDeliversScreen> {
         backgroundColor: Colors.grey.shade100,
         key: scaffoldKey24,
         drawer: drawer1(),
-        body: SingleChildScrollView(
+        body: isLoad?Container():SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: 5.h),

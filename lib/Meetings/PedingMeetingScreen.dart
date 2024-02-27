@@ -239,7 +239,7 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
                     SizedBox(height: 1.5.h),
                     Container(
                       height: 60.h,
-                      child:pedingmeetinmodal?.meetingsByDate == null ||
+                      child:isload ? Container( height: 60.h, child: Center(child: CircularProgressIndicator()),):pedingmeetinmodal?.meetingsByDate == null ||
                           pedingmeetinmodal?.meetingsByDate?.length == 0
                           ? Container(
                         alignment: Alignment.center,

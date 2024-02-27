@@ -153,7 +153,7 @@ class _AllEventSpacesState extends State<AllEventSpaces> {
                                               ),
                                             ),
                                             SizedBox(
-                                              width: 5.w,
+                                              width: 2.w,
                                             ),
                                             Column(
                                               crossAxisAlignment:

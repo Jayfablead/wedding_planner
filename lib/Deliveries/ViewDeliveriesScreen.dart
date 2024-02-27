@@ -99,8 +99,9 @@ class _MyDeliveriesCollentionsViewScreenState
                                         children: [
                                           Container(
                                             width: 90.w,
-                                            height: 10.h,
-                                            padding: EdgeInsets.only(left: 2.w),
+
+                                      padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1
+                                          .h),
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(15),
@@ -285,8 +286,9 @@ class _MyDeliveriesCollentionsViewScreenState
                                     children: [
                                       Container(
                                         width: 90.w,
-                                        height: 10.h,
-                                        padding: EdgeInsets.only(left: 2.15.w),
+
+                                        padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1
+                                        .h),
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(15),
@@ -326,26 +328,29 @@ class _MyDeliveriesCollentionsViewScreenState
                                                           FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
-                                                Text(
-                                                  viewdeliversmodal?.data
-                                                                  ?.contactDetails ==
-                                                              "" ||
-                                                          viewdeliversmodal
-                                                                  ?.data
-                                                                  ?.contactDetails ==
-                                                              null
-                                                      ? "N/A"
-                                                      : viewdeliversmodal?.data
-                                                              ?.contactDetails ??
-                                                          "",
-                                                  style: TextStyle(
-                                                      fontSize: 16.sp,
-                                                      color: Colors.black
-                                                          .withOpacity(0.8),
-                                                      fontFamily: 'sofi',
-                                                      letterSpacing: 1,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                SizedBox(
+                                                  width: 55.w,
+                                                  child: Text(
+                                                    viewdeliversmodal?.data
+                                                                    ?.contactDetails ==
+                                                                "" ||
+                                                            viewdeliversmodal
+                                                                    ?.data
+                                                                    ?.contactDetails ==
+                                                                null
+                                                        ? "N/A"
+                                                        : viewdeliversmodal?.data
+                                                                ?.contactDetails ??
+                                                            "",
+                                                    style: TextStyle(
+                                                        fontSize: 16.sp,
+                                                        color: Colors.black
+                                                            .withOpacity(0.8),
+                                                        fontFamily: 'sofi',
+                                                        letterSpacing: 1,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
                                                 ),
                                               ],
                                             ),

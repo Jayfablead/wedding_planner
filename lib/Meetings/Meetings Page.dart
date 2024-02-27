@@ -1142,6 +1142,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
               _desc.text = "";
               _start.text = "";
               _time.text = "";
+              _meeting.text="";
               meetingap();
               Get.back();
             } else {
