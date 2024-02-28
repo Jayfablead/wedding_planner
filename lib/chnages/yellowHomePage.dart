@@ -55,7 +55,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
 
   int? mydata;
   bool isLoading = true;
-  List<String> type = ["All Suppliers", "To Do", "Meeting"];
+  List<String> type = ["My Suppliers", "To Do", "Meeting"];
 
   @override
   Widget build(BuildContext context) {

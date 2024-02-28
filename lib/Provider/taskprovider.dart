@@ -454,6 +454,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> subtype() async {
     String? url = '$baseUrl/suppliers_service_categories';
     print(url);
@@ -1072,8 +1073,10 @@ class taskprovider with ChangeNotifier {
     return responseJson;
   }
 
-  Future<http.Response> getservicesupplirsapi(Map<String, String> bodyData) async {
-    String? url = '$baseUrl/get_suppliers_service/${userData?.user?.id.toString()}';
+  Future<http.Response> getservicesupplirsapi(
+      Map<String, String> bodyData) async {
+    String? url =
+        '$baseUrl/get_suppliers_service/${userData?.user?.id.toString()}';
 
     var responseJson;
     final response = await http
@@ -1087,6 +1090,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> pedingdeliveryapi() async {
     String? url = '$baseUrl/get_delivery_collection';
     print(url);
@@ -1101,8 +1105,10 @@ class taskprovider with ChangeNotifier {
 
     return responseJson;
   }
+
   Future<http.Response> pedingmeetingapi(String? date1) async {
-    String? url = '$baseUrl/myPendingMeetings/${userData?.user?.id}?date=${date1}';
+    String? url =
+        '$baseUrl/myPendingMeetings/${userData?.user?.id}?date=${date1}';
     // String? url="https://wedding.fableadtechnolabs.com/wedding/portal/api/myMeetings/17?date=25/10/2023";
 
     var responseJson;
@@ -1120,6 +1126,7 @@ class taskprovider with ChangeNotifier {
     responseJson = responses(response);
     return responseJson;
   }
+
   Future<http.Response> viewmeetingapi(Map<String, String> bodyData) async {
     String? url = '$baseUrl/editMeeting';
 

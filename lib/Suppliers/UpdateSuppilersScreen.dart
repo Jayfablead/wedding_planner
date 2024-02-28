@@ -732,7 +732,7 @@ class _UpdateSuppilersScreenState extends State<UpdateSuppilersScreen> {
       data['email'] = _email.text.trim().toString();
       data['phone'] = _contact.text.trim().toString();
       data['p_img'] = _pickedFile != null ? _pickedFile!.path : "";
-      data['password'] ="";
+      data['password'] = "";
       data['categoryId'] = category.toString();
       data['category_detail'] = _details.text.trim().toString();
       print(data);

@@ -99,9 +99,8 @@ class _MyDeliveriesCollentionsViewScreenState
                                         children: [
                                           Container(
                                             width: 90.w,
-
-                                      padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1
-                                          .h),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 2.w, vertical: 1.h),
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(15),
@@ -286,9 +285,8 @@ class _MyDeliveriesCollentionsViewScreenState
                                     children: [
                                       Container(
                                         width: 90.w,
-
-                                        padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1
-                                        .h),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w, vertical: 1.h),
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(15),
@@ -339,7 +337,8 @@ class _MyDeliveriesCollentionsViewScreenState
                                                                     ?.contactDetails ==
                                                                 null
                                                         ? "N/A"
-                                                        : viewdeliversmodal?.data
+                                                        : viewdeliversmodal
+                                                                ?.data
                                                                 ?.contactDetails ??
                                                             "",
                                                     style: TextStyle(

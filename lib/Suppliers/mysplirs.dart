@@ -233,14 +233,13 @@ class _MySupsState extends State<MySups> {
                                                           print(
                                                               '${allsuupliertypes?.data?[index].categoryName}');
 
-
                                                           setState(() {
                                                             getsuppliers = true;
                                                             singalgetdatasupplier(
                                                                 (allsuupliertypes
-                                                                    ?.data?[
-                                                                index]
-                                                                    .categoryId)
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .categoryId)
                                                                     .toString());
                                                           });
                                                         },
@@ -476,21 +475,24 @@ class _MySupsState extends State<MySups> {
                                                         onTap: () {
                                                           Get.to(
                                                               SupplierfourScreen(
-                                                            suppid: getsuppliersservicemodal
-                                                                ?.data?[
-                                                            index]
-                                                                .id ??
-                                                                '',
-                                                            catid:getsuppliersservicemodal
-                                                                ?.data?[
-                                                            index]
-                                                                .id ??
-                                                                '',
-                                                            service: getsuppliersservicemodal
-                                                                ?.data?[
-                                                            index]
-                                                                .name ??
-                                                                '',
+                                                            suppid:
+                                                                getsuppliersservicemodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .id ??
+                                                                    '',
+                                                            catid:
+                                                                getsuppliersservicemodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .id ??
+                                                                    '',
+                                                            service:
+                                                                getsuppliersservicemodal
+                                                                        ?.data?[
+                                                                            index]
+                                                                        .name ??
+                                                                    '',
                                                           ));
                                                         },
                                                         child: Container(
@@ -533,291 +535,306 @@ class _MySupsState extends State<MySups> {
                                   ),
                                 )
                           : SizedBox(height: 1.2.h),
-                      getsuppliers ? Container():getsuppliersservicemodal?.data?.length == 0 ||
-                          getsuppliersservicemodal?.data?.length == null
+                      getsuppliers
                           ? Container()
-                          : (getsuppliersservicemodal?.data?.length ?? 0) <= 3
+                          : getsuppliersservicemodal?.data?.length == 0 ||
+                                  getsuppliersservicemodal?.data?.length == null
                               ? Container()
-                              : Center(
-                                  child: InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        more = !more;
-                                      });
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 5.h,
-                                      width: 38.w,
-                                      decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius:
-                                              BorderRadius.circular(90)),
-                                      child: Text(
-                                        more ? 'View More' : 'View Less',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 13.sp,
-                                          fontFamily: 'sofi',
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 2,
+                              : (getsuppliersservicemodal?.data?.length ?? 0) <=
+                                      3
+                                  ? Container()
+                                  : Center(
+                                      child: InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            more = !more;
+                                          });
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: 5.h,
+                                          width: 38.w,
+                                          decoration: BoxDecoration(
+                                              color: Colors.blue,
+                                              borderRadius:
+                                                  BorderRadius.circular(90)),
+                                          child: Text(
+                                            more ? 'View More' : 'View Less',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13.sp,
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 2,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
+                      getsuppliers
+                          ? Container()
+                          : mysupps?.suppliersDetails?.length == 0 ||
+                                  mysupps?.suppliersDetails?.length == null
+                              ? Container(
+                                  height: 80.h,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "No Suppliers Available",
+                                    style: TextStyle(
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
                                   ),
-                                ),
-                     getsuppliers?Container(): mysupps?.suppliersDetails?.length == 0 ||
-                              mysupps?.suppliersDetails?.length == null
-                          ? Container(
-                              height: 80.h,
-                              alignment: Alignment.center,
-                              child: Text(
-                                "No Suppliers Available",
-                                style: TextStyle(
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black),
-                              ),
-                            )
-                          : Container(
-                              height: more ? 50.5.h : 71.h,
-                              padding: EdgeInsets.symmetric(horizontal: 2.w),
-                              child: ListView.builder(
-                                padding: EdgeInsets.zero,
-                                itemCount: more
-                                    ? (mysupps?.suppliersDetails?.length ??
-                                                0) <=
-                                            3
-                                        ? mysupps?.suppliersDetails?.length
-                                        : 3
-                                    : mysupps?.suppliersDetails?.length,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 2.w, vertical: 2.h),
-                                    margin:
-                                        EdgeInsets.symmetric(vertical: 0.5.h),
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.black26,
-                                            // Color of the shadow
-                                            offset: Offset(0.2, 0.5),
+                                )
+                              : Container(
+                                  height: more ? 50.5.h : 71.h,
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    itemCount: more
+                                        ? (mysupps?.suppliersDetails?.length ??
+                                                    0) <=
+                                                3
+                                            ? mysupps?.suppliersDetails?.length
+                                            : 3
+                                        : mysupps?.suppliersDetails?.length,
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w, vertical: 2.h),
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 0.5.h),
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black26,
+                                                // Color of the shadow
+                                                offset: Offset(0.2, 0.5),
 
-                                            blurRadius:
-                                                2, // Spread of the shadow
-                                            // How much the shadow extends
-                                          ),
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    alignment: Alignment.center,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.symmetric(
-                                                  horizontal: 1.w),
-                                              height: 22.w,
-                                              width: 22.w,
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(90),
-                                                child: CachedNetworkImage(
-                                                  fit: BoxFit.cover,
-                                                  imageUrl: mysupps
-                                                          ?.suppliersDetails?[
-                                                              index]
-                                                          .profile ??
-                                                      "",
-                                                  progressIndicatorBuilder:
-                                                      (context, url,
-                                                              progress) =>
-                                                          CircularProgressIndicator(),
-                                                  errorWidget:
-                                                      (context, url, error) =>
-                                                          Image.asset(
-                                                    'assets/user.png',
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
+                                                blurRadius:
+                                                    2, // Spread of the shadow
+                                                // How much the shadow extends
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 5.w,
-                                            ),
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        alignment: Alignment.center,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Row(
                                               children: [
-                                                Text(
-                                                  mysupps
-                                                                  ?.suppliersDetails?[
-                                                                      index]
-                                                                  .services
-                                                                  ?.category
-                                                                  ?.categoryName ==
-                                                              '' ||
-                                                          mysupps
-                                                                  ?.suppliersDetails?[
-                                                                      index]
-                                                                  .services
-                                                                  ?.category
-                                                                  ?.categoryName ==
-                                                              null
-                                                      ? 'N/A'
-                                                      : mysupps
+                                                Container(
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal: 1.w),
+                                                  height: 22.w,
+                                                  width: 22.w,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
+                                                    child: CachedNetworkImage(
+                                                      fit: BoxFit.cover,
+                                                      imageUrl: mysupps
                                                               ?.suppliersDetails?[
                                                                   index]
-                                                              .services
-                                                              ?.category
-                                                              ?.categoryName ??
+                                                              .profile ??
                                                           "",
-                                                  style: TextStyle(
-                                                      fontSize: 16.sp,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      letterSpacing: 1,
-                                                      fontFamily: 'sofi',
-                                                      color: Colors.black),
-                                                ),
-                                                SizedBox(
-                                                  height: 1.h,
-                                                ),
-                                                SizedBox(
-                                                  width: 55.w,
-                                                  child: Text(
-                                                    mysupps
-                                                                    ?.suppliersDetails?[
-                                                                        index]
-                                                                    .name ==
-                                                                '' ||
-                                                            mysupps
-                                                                    ?.suppliersDetails?[
-                                                                        index]
-                                                                    .name ==
-                                                                null
-                                                        ? 'N/A'
-                                                        : mysupps
-                                                                ?.suppliersDetails?[
-                                                                    index]
-                                                                .name ??
-                                                            "",
-                                                    maxLines: 2,
-                                                    style: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontFamily: 'sofi',
-                                                      color: Colors.black
-                                                          .withOpacity(0.75),
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 1.h,
-                                                ),
-                                                Center(
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      Get.to(SupplierfourScreen(
-                                                        suppid: mysupps
-                                                            ?.suppliersDetails?[
-                                                                index]
-                                                            .id,
-                                                        catid: mysupps
-                                                            ?.suppliersDetails?[
-                                                                index]
-                                                            .services
-                                                            ?.category
-                                                            ?.categoryId,
-                                                        service: mysupps
-                                                            ?.suppliersDetails?[
-                                                                index]
-                                                            .services
-                                                            ?.category
-                                                            ?.categoryName,
-                                                      ));
-                                                    },
-                                                    child: Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      height: 4.5.h,
-                                                      width: 38.w,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.blue,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      90)),
-                                                      child: Text(
-                                                        'View Details',
-                                                        style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 13.sp,
-                                                          fontFamily: 'sofi',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          letterSpacing: 2,
-                                                        ),
+                                                      progressIndicatorBuilder:
+                                                          (context, url,
+                                                                  progress) =>
+                                                              CircularProgressIndicator(),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Image.asset(
+                                                        'assets/user.png',
+                                                        color: Colors.black,
                                                       ),
                                                     ),
                                                   ),
+                                                ),
+                                                SizedBox(
+                                                  width: 5.w,
+                                                ),
+                                                Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      mysupps
+                                                                      ?.suppliersDetails?[
+                                                                          index]
+                                                                      .services
+                                                                      ?.category
+                                                                      ?.categoryName ==
+                                                                  '' ||
+                                                              mysupps
+                                                                      ?.suppliersDetails?[
+                                                                          index]
+                                                                      .services
+                                                                      ?.category
+                                                                      ?.categoryName ==
+                                                                  null
+                                                          ? 'N/A'
+                                                          : mysupps
+                                                                  ?.suppliersDetails?[
+                                                                      index]
+                                                                  .services
+                                                                  ?.category
+                                                                  ?.categoryName ??
+                                                              "",
+                                                      style: TextStyle(
+                                                          fontSize: 16.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          letterSpacing: 1,
+                                                          fontFamily: 'sofi',
+                                                          color: Colors.black),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 1.h,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 55.w,
+                                                      child: Text(
+                                                        mysupps
+                                                                        ?.suppliersDetails?[
+                                                                            index]
+                                                                        .name ==
+                                                                    '' ||
+                                                                mysupps
+                                                                        ?.suppliersDetails?[
+                                                                            index]
+                                                                        .name ==
+                                                                    null
+                                                            ? 'N/A'
+                                                            : mysupps
+                                                                    ?.suppliersDetails?[
+                                                                        index]
+                                                                    .name ??
+                                                                "",
+                                                        maxLines: 2,
+                                                        style: TextStyle(
+                                                          fontSize: 14.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily: 'sofi',
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.75),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 1.h,
+                                                    ),
+                                                    Center(
+                                                      child: InkWell(
+                                                        onTap: () {
+                                                          Get.to(
+                                                              SupplierfourScreen(
+                                                            suppid: mysupps
+                                                                ?.suppliersDetails?[
+                                                                    index]
+                                                                .id,
+                                                            catid: mysupps
+                                                                ?.suppliersDetails?[
+                                                                    index]
+                                                                .services
+                                                                ?.category
+                                                                ?.categoryId,
+                                                            service: mysupps
+                                                                ?.suppliersDetails?[
+                                                                    index]
+                                                                .services
+                                                                ?.category
+                                                                ?.categoryName,
+                                                          ));
+                                                        },
+                                                        child: Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 4.5.h,
+                                                          width: 38.w,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  Colors.blue,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          90)),
+                                                          child: Text(
+                                                            'View Details',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 13.sp,
+                                                              fontFamily:
+                                                                  'sofi',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              letterSpacing: 2,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
                                           ],
                                         ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                      SizedBox(height: 1.2.h),
-                      getsuppliers?Container():mysupps?.suppliersDetails?.length == 0 ||
-                              mysupps?.suppliersDetails?.length == null
-                          ? Container()
-                          : (mysupps?.suppliersDetails?.length ?? 0) <= 3
-                              ? Container()
-                              : Center(
-                                  child: InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        more = !more;
-                                      });
+                                      );
                                     },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 5.h,
-                                      width: 38.w,
-                                      decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius:
-                                              BorderRadius.circular(90)),
-                                      child: Text(
-                                        more ? 'View More' : 'View Less',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 13.sp,
-                                          fontFamily: 'sofi',
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 2,
+                                  ),
+                                ),
+                      SizedBox(height: 1.2.h),
+                      getsuppliers
+                          ? Container()
+                          : mysupps?.suppliersDetails?.length == 0 ||
+                                  mysupps?.suppliersDetails?.length == null
+                              ? Container()
+                              : (mysupps?.suppliersDetails?.length ?? 0) <= 3
+                                  ? Container()
+                                  : Center(
+                                      child: InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            more = !more;
+                                          });
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: 5.h,
+                                          width: 38.w,
+                                          decoration: BoxDecoration(
+                                              color: Colors.blue,
+                                              borderRadius:
+                                                  BorderRadius.circular(90)),
+                                          child: Text(
+                                            more ? 'View More' : 'View Less',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13.sp,
+                                              fontFamily: 'sofi',
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 2,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
                       SizedBox(height: 3.h),
                     ],
                   ),
@@ -857,12 +874,12 @@ class _MySupsState extends State<MySups> {
           if (response.statusCode == 200 && allsuupliertypes?.status == "1") {
             setState(() {
               isLoading = false;
-              getsuppliers=false;
+              getsuppliers = false;
             });
           } else {
             setState(() {
               isLoading = false;
-              getsuppliers=false;
+              getsuppliers = false;
             });
           }
         });
@@ -888,15 +905,12 @@ class _MySupsState extends State<MySups> {
             Get.back();
             setState(() {
               isLoading = false;
-
-
             });
           } else {
             buildErrorDialog(context, " Error",
                 (viewAlleventspacemodal?.message ?? "").toString());
             setState(() {
               isLoading = false;
-
             });
           }
         });

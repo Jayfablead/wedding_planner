@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wedding_planner/Modal/MeetingModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -16,7 +15,6 @@ import '../Modal/PedingMeetinModal.dart';
 import '../Modal/ViewMeetinModal.dart';
 import '../Modal/addMeetingModal.dart';
 import '../widgets/const.dart';
-import 'MeetingAlrettDialongBoxScreen.dart';
 
 class PedingMeetingScreen extends StatefulWidget {
   PedingMeetingScreen({super.key});

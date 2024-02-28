@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Modal/ViewMeetinModal.dart';
@@ -13,25 +12,27 @@ import '../widgets/const.dart';
 
 class MeetingAlrettscreen extends StatefulWidget {
   String? meetingid;
-  MeetingAlrettscreen({super.key,this.meetingid});
+
+  MeetingAlrettscreen({super.key, this.meetingid});
 
   @override
   State<MeetingAlrettscreen> createState() => _MeetingAlrettscreenState();
 }
 
 class _MeetingAlrettscreenState extends State<MeetingAlrettscreen> {
-
   @override
-void initState() {
+  void initState() {
     // TODO: implement initState
     super.initState();
     viewmeetingapi();
   }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  addmeetingdialog(),
+      body: addmeetingdialog(),
     );
   }
+
   addmeetingdialog() {
     showModalBottomSheet(
       backgroundColor: Colors.grey.shade100,
@@ -46,11 +47,11 @@ void initState() {
         return Stack(
           children: [
             Container(
-              // width: 80.w,
-              // height: 70.h,
+                // width: 80.w,
+                // height: 70.h,
                 child: Padding(
                     padding:
-                    EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+                        EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
                     child: SingleChildScrollView(
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.start,
@@ -91,7 +92,7 @@ void initState() {
                               ),
                               SizedBox(width: 2.w),
                               Text(
-                               "Abc",
+                                "Abc",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 14.sp,
@@ -162,9 +163,7 @@ void initState() {
                                     letterSpacing: 1),
                               ),
                               SizedBox(width: 2.w),
-                              Text(
-                               'Date'
-                              ),
+                              Text('Date'),
                             ],
                           ),
                           SizedBox(height: 1.h),
@@ -241,9 +240,10 @@ void initState() {
       },
     );
   }
+
   viewmeetingapi() {
     final Map<String, String> data = {};
-    data['meeting_id'] =widget.meetingid.toString();
+    data['meeting_id'] = widget.meetingid.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -254,14 +254,11 @@ void initState() {
           if (response.statusCode == 200 &&
               viewAlleventspacemodal?.status == true) {
             print("done api");
-            setState(() {
-            });
+            setState(() {});
           } else {
-            buildErrorDialog(context, " Error",
-                (viewmeetinmodal?.message ?? "").toString());
-            setState(() {
-
-            });
+            buildErrorDialog(
+                context, " Error", (viewmeetinmodal?.message ?? "").toString());
+            setState(() {});
           }
         });
       } else {

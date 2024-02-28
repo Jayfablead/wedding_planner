@@ -131,12 +131,12 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
                               ),
                             )
                           : Container(
-                              height:  80.h,
+                              height: 80.h,
                               padding: EdgeInsets.symmetric(horizontal: 2.w),
                               child: ListView.builder(
                                 padding: EdgeInsets.zero,
                                 itemCount: reusestviewsuppliersmodal
-                                        ?.suppliers?.length,
+                                    ?.suppliers?.length,
                                 itemBuilder: (context, index) {
                                   return Container(
                                     padding: EdgeInsets.symmetric(
@@ -237,7 +237,7 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
                                                   height: 1.h,
                                                 ),
                                                 SizedBox(
-                                                 width: 55.w,
+                                                  width: 55.w,
                                                   child: Text(
                                                     (reusestviewsuppliersmodal
                                                                     ?.suppliers?[
@@ -261,7 +261,8 @@ class _ReqestventSupplierscreenState extends State<ReqestventSupplierscreen> {
                                                       fontSize: 14.sp,
                                                       overflow:
                                                           TextOverflow.ellipsis,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       fontFamily: 'sofi',
                                                       color: Colors.black
                                                           .withOpacity(0.75),

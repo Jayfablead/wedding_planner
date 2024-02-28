@@ -34,13 +34,13 @@ class Data {
 
   Data(
       {this.placeType,
-        this.placeName,
-        this.taskDesc,
-        this.category,
-        this.timeType,
-        this.startTime,
-        this.endTime,
-        this.isCompleted});
+      this.placeName,
+      this.taskDesc,
+      this.category,
+      this.timeType,
+      this.startTime,
+      this.endTime,
+      this.isCompleted});
 
   Data.fromJson(Map<String, dynamic> json) {
     placeType = json['place_type'];

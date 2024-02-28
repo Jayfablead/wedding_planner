@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ import 'package:wedding_planner/Chat/msg2.dart';
 import 'package:wedding_planner/Modal/AddtobudgetModal.dart';
 import 'package:wedding_planner/Modal/SendQuationModal.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
-import 'package:wedding_planner/bookings/BookNowDetails.dart';
 import 'package:wedding_planner/widgets/buildErrorDialog.dart';
 import 'package:wedding_planner/widgets/const.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -654,178 +652,178 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                       SizedBox(
                         height: 3.h,
                       ),
-                      supplierdetailmodal?.supplierInfo?.isBooked == '0'
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                supplierdetailmodal?.supplierInfo?.inBudget ==
-                                        '0'
-                                    ? InkWell(
-                                        onTap: () {
-                                          addtobudgetap();
-                                        },
-                                        child: Container(
-                                          height: 5.h,
-                                          width: 42.w,
-                                          decoration: BoxDecoration(
-                                            color: Colors.blue,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
-                                          child: Center(
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.add,
-                                                  color: Colors.white,
-                                                ),
-                                                SizedBox(width: 1.w),
-                                                Text(
-                                                  "Add to Budget",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 14.sp),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    : InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          height: 5.h,
-                                          width: 45.w,
-                                          decoration: BoxDecoration(
-                                            border:
-                                                Border.all(color: Colors.white),
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              "Added To Budget",
-                                              style: TextStyle(
-                                                  color: Colors.blue.shade300,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                supplierdetailmodal
-                                            ?.supplierInfo?.isRequested ==
-                                        '0'
-                                    ? InkWell(
-                                        onTap: () {
-                                          Quote();
-                                        },
-                                        child: Container(
-                                          height: 5.h,
-                                          width: 48.w,
-                                          decoration: BoxDecoration(
-                                            border:
-                                                Border.all(color: Colors.white),
-                                            color: Colors.blue,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              "Send Quote Request",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    : InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          height: 5.h,
-                                          width: 45.w,
-                                          decoration: BoxDecoration(
-                                            border:
-                                                Border.all(color: Colors.white),
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              "Quote Requested",
-                                              style: TextStyle(
-                                                  color: Colors.blue.shade300,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                              ],
-                            )
-                          : Container(),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      supplierdetailmodal?.supplierInfo?.isBooked == '0'
-                          ? Center(
-                              child: InkWell(
-                                onTap: () {
-                                  Get.to(BookNowDetails(
-                                    name:
-                                        supplierdetailmodal?.supplierInfo?.name,
-                                    email: supplierdetailmodal
-                                        ?.supplierInfo?.email,
-                                    cid: supplierdetailmodal
-                                        ?.supplierInfo?.services?.categoryId,
-                                    photo: supplierdetailmodal
-                                        ?.supplierInfo?.profile,
-                                    sername: widget.service,
-                                    sid: supplierdetailmodal
-                                        ?.supplierInfo?.services?.sId,
-                                  ));
-                                },
-                                child: Container(
-                                  height: 5.5.h,
-                                  width: 90.w,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.white),
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Book Now",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 14.sp),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          : Center(
-                              child: InkWell(
-                                child: Container(
-                                  height: 5.5.h,
-                                  width: 90.w,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.white),
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Booked",
-                                      style: TextStyle(
-                                          color: Colors.blue, fontSize: 14.sp),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                      // supplierdetailmodal?.supplierInfo?.isBooked == '0'
+                      //     ? Row(
+                      //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      //         children: [
+                      //           supplierdetailmodal?.supplierInfo?.inBudget ==
+                      //                   '0'
+                      //               ? InkWell(
+                      //                   onTap: () {
+                      //                     addtobudgetap();
+                      //                   },
+                      //                   child: Container(
+                      //                     height: 5.h,
+                      //                     width: 42.w,
+                      //                     decoration: BoxDecoration(
+                      //                       color: Colors.blue,
+                      //                       borderRadius:
+                      //                           BorderRadius.circular(15.sp),
+                      //                     ),
+                      //                     child: Center(
+                      //                       child: Row(
+                      //                         mainAxisAlignment:
+                      //                             MainAxisAlignment.center,
+                      //                         children: [
+                      //                           Icon(
+                      //                             Icons.add,
+                      //                             color: Colors.white,
+                      //                           ),
+                      //                           SizedBox(width: 1.w),
+                      //                           Text(
+                      //                             "Add to Budget",
+                      //                             style: TextStyle(
+                      //                                 color: Colors.white,
+                      //                                 fontSize: 14.sp),
+                      //                           ),
+                      //                         ],
+                      //                       ),
+                      //                     ),
+                      //                   ),
+                      //                 )
+                      //               : InkWell(
+                      //                   onTap: () {},
+                      //                   child: Container(
+                      //                     height: 5.h,
+                      //                     width: 45.w,
+                      //                     decoration: BoxDecoration(
+                      //                       border:
+                      //                           Border.all(color: Colors.white),
+                      //                       color: Colors.white,
+                      //                       borderRadius:
+                      //                           BorderRadius.circular(15.sp),
+                      //                     ),
+                      //                     child: Center(
+                      //                       child: Text(
+                      //                         "Added To Budget",
+                      //                         style: TextStyle(
+                      //                             color: Colors.blue.shade300,
+                      //                             fontSize: 14.sp),
+                      //                       ),
+                      //                     ),
+                      //                   ),
+                      //                 ),
+                      //           supplierdetailmodal
+                      //                       ?.supplierInfo?.isRequested ==
+                      //                   '0'
+                      //               ? InkWell(
+                      //                   onTap: () {
+                      //                     Quote();
+                      //                   },
+                      //                   child: Container(
+                      //                     height: 5.h,
+                      //                     width: 48.w,
+                      //                     decoration: BoxDecoration(
+                      //                       border:
+                      //                           Border.all(color: Colors.white),
+                      //                       color: Colors.blue,
+                      //                       borderRadius:
+                      //                           BorderRadius.circular(15.sp),
+                      //                     ),
+                      //                     child: Center(
+                      //                       child: Text(
+                      //                         "Send Quote Request",
+                      //                         style: TextStyle(
+                      //                             color: Colors.white,
+                      //                             fontSize: 14.sp),
+                      //                       ),
+                      //                     ),
+                      //                   ),
+                      //                 )
+                      //               : InkWell(
+                      //                   onTap: () {},
+                      //                   child: Container(
+                      //                     height: 5.h,
+                      //                     width: 45.w,
+                      //                     decoration: BoxDecoration(
+                      //                       border:
+                      //                           Border.all(color: Colors.white),
+                      //                       color: Colors.white,
+                      //                       borderRadius:
+                      //                           BorderRadius.circular(15.sp),
+                      //                     ),
+                      //                     child: Center(
+                      //                       child: Text(
+                      //                         "Quote Requested",
+                      //                         style: TextStyle(
+                      //                             color: Colors.blue.shade300,
+                      //                             fontSize: 14.sp),
+                      //                       ),
+                      //                     ),
+                      //                   ),
+                      //                 ),
+                      //         ],
+                      //       )
+                      //     : Container(),
+                      // SizedBox(
+                      //   height: 2.h,
+                      // ),
+                      // supplierdetailmodal?.supplierInfo?.isBooked == '0'
+                      //     ? Center(
+                      //         child: InkWell(
+                      //           onTap: () {
+                      //             Get.to(BookNowDetails(
+                      //               name:
+                      //                   supplierdetailmodal?.supplierInfo?.name,
+                      //               email: supplierdetailmodal
+                      //                   ?.supplierInfo?.email,
+                      //               cid: supplierdetailmodal
+                      //                   ?.supplierInfo?.services?.categoryId,
+                      //               photo: supplierdetailmodal
+                      //                   ?.supplierInfo?.profile,
+                      //               sername: widget.service,
+                      //               sid: supplierdetailmodal
+                      //                   ?.supplierInfo?.services?.sId,
+                      //             ));
+                      //           },
+                      //           child: Container(
+                      //             height: 5.5.h,
+                      //             width: 90.w,
+                      //             decoration: BoxDecoration(
+                      //               border: Border.all(color: Colors.white),
+                      //               color: Colors.blue,
+                      //               borderRadius: BorderRadius.circular(30),
+                      //             ),
+                      //             child: Center(
+                      //               child: Text(
+                      //                 "Book Now",
+                      //                 style: TextStyle(
+                      //                     color: Colors.white, fontSize: 14.sp),
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       )
+                      //     : Center(
+                      //         child: InkWell(
+                      //           child: Container(
+                      //             height: 5.5.h,
+                      //             width: 90.w,
+                      //             decoration: BoxDecoration(
+                      //               border: Border.all(color: Colors.white),
+                      //               color: Colors.white,
+                      //               borderRadius: BorderRadius.circular(30),
+                      //             ),
+                      //             child: Center(
+                      //               child: Text(
+                      //                 "Booked",
+                      //                 style: TextStyle(
+                      //                     color: Colors.blue, fontSize: 14.sp),
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
                       SizedBox(
                         height: 5.h,
                       ),
@@ -921,153 +919,153 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
     }
   }
 
-  Quote() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          backgroundColor: Colors.grey.shade100,
-          child: Stack(
-            children: [
-              Container(
-                  width: 80.w,
-                  // height: 70.h,
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
-                      child: SingleChildScrollView(
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            // mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(height: 2.h),
-                              // header(
-                              //     text: "Add Your CheckList",
-                              //     callback1: () {
-                              //       scaffoldKey.currentState?.openDrawer();
-                              //     }),
-                              Center(
-                                child: Text(
-                                  'Add Comment',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: 'sofi',
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      height: 0.17.h,
-                                      letterSpacing: 1),
-                                ),
-                              ),
-                              SizedBox(height: 2.h),
-
-                              TextFormField(
-                                maxLines: 4,
-                                controller: _title,
-                                onChanged: (value) {},
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter comment';
-                                  }
-                                  return null;
-                                },
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.67),
-                                    fontFamily: 'Meta1'),
-                                decoration: InputDecoration(
-                                  prefixIcon:
-                                      Icon(Icons.note_add, color: Colors.blue),
-                                  border: InputBorder.none,
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  disabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                      borderSide:
-                                          BorderSide(color: Colors.white)),
-                                  hintText: 'Comment',
-                                  hintStyle: TextStyle(
-                                      color: Colors.black.withOpacity(0.67),
-                                      fontFamily: 'Meta1'),
-                                ),
-                              ),
-
-                              SizedBox(height: 3.h),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      quotedetalis();
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      padding: EdgeInsets.all(2.5.w),
-                                      decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius:
-                                              BorderRadius.circular(25)),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            CupertinoIcons.add,
-                                            size: 17.sp,
-                                            color: Colors.white,
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          Text(
-                                            'Send Quote Request',
-                                            style: TextStyle(
-                                                fontSize: 13.sp,
-                                                fontFamily: 'sofi',
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                letterSpacing: 1),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 2.h),
-                            ],
-                          ),
-                        ),
-                      ))),
-              Positioned(
-                  right: 0,
-                  child: IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(CupertinoIcons.clear_circled_solid)))
-            ],
-          ),
-        );
-      },
-    );
-  }
+// Quote() {
+//   showDialog(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return Dialog(
+//         shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(16),
+//         ),
+//         backgroundColor: Colors.grey.shade100,
+//         child: Stack(
+//           children: [
+//             Container(
+//                 width: 80.w,
+//                 // height: 70.h,
+//                 child: Padding(
+//                     padding:
+//                         EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
+//                     child: SingleChildScrollView(
+//                       child: Form(
+//                         key: _formKey,
+//                         child: Column(
+//                           mainAxisAlignment: MainAxisAlignment.start,
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           // mainAxisSize: MainAxisSize.min,
+//                           children: [
+//                             SizedBox(height: 2.h),
+//                             // header(
+//                             //     text: "Add Your CheckList",
+//                             //     callback1: () {
+//                             //       scaffoldKey.currentState?.openDrawer();
+//                             //     }),
+//                             Center(
+//                               child: Text(
+//                                 'Add Comment',
+//                                 textAlign: TextAlign.center,
+//                                 style: TextStyle(
+//                                     fontSize: 14.sp,
+//                                     fontFamily: 'sofi',
+//                                     color: Colors.blue,
+//                                     fontWeight: FontWeight.bold,
+//                                     height: 0.17.h,
+//                                     letterSpacing: 1),
+//                               ),
+//                             ),
+//                             SizedBox(height: 2.h),
+//
+//                             TextFormField(
+//                               maxLines: 4,
+//                               controller: _title,
+//                               onChanged: (value) {},
+//                               validator: (value) {
+//                                 if (value == null || value.isEmpty) {
+//                                   return 'Please enter comment';
+//                                 }
+//                                 return null;
+//                               },
+//                               style: TextStyle(
+//                                   color: Colors.black.withOpacity(0.67),
+//                                   fontFamily: 'Meta1'),
+//                               decoration: InputDecoration(
+//                                 prefixIcon:
+//                                     Icon(Icons.note_add, color: Colors.blue),
+//                                 border: InputBorder.none,
+//                                 fillColor: Colors.white,
+//                                 filled: true,
+//                                 enabledBorder: OutlineInputBorder(
+//                                     borderRadius: BorderRadius.circular(25),
+//                                     borderSide:
+//                                         BorderSide(color: Colors.white)),
+//                                 disabledBorder: OutlineInputBorder(
+//                                     borderRadius: BorderRadius.circular(25),
+//                                     borderSide:
+//                                         BorderSide(color: Colors.white)),
+//                                 focusedBorder: OutlineInputBorder(
+//                                     borderRadius: BorderRadius.circular(25),
+//                                     borderSide:
+//                                         BorderSide(color: Colors.white)),
+//                                 errorBorder: OutlineInputBorder(
+//                                     borderRadius: BorderRadius.circular(25),
+//                                     borderSide:
+//                                         BorderSide(color: Colors.white)),
+//                                 hintText: 'Comment',
+//                                 hintStyle: TextStyle(
+//                                     color: Colors.black.withOpacity(0.67),
+//                                     fontFamily: 'Meta1'),
+//                               ),
+//                             ),
+//
+//                             SizedBox(height: 3.h),
+//                             Row(
+//                               crossAxisAlignment: CrossAxisAlignment.center,
+//                               mainAxisAlignment: MainAxisAlignment.center,
+//                               children: [
+//                                 InkWell(
+//                                   onTap: () {
+//                                     quotedetalis();
+//                                   },
+//                                   child: Container(
+//                                     alignment: Alignment.center,
+//                                     padding: EdgeInsets.all(2.5.w),
+//                                     decoration: BoxDecoration(
+//                                         color: Colors.blue,
+//                                         borderRadius:
+//                                             BorderRadius.circular(25)),
+//                                     child: Row(
+//                                       mainAxisAlignment:
+//                                           MainAxisAlignment.center,
+//                                       children: [
+//                                         Icon(
+//                                           CupertinoIcons.add,
+//                                           size: 17.sp,
+//                                           color: Colors.white,
+//                                         ),
+//                                         SizedBox(
+//                                           width: 2.w,
+//                                         ),
+//                                         Text(
+//                                           'Send Quote Request',
+//                                           style: TextStyle(
+//                                               fontSize: 13.sp,
+//                                               fontFamily: 'sofi',
+//                                               color: Colors.white,
+//                                               fontWeight: FontWeight.bold,
+//                                               letterSpacing: 1),
+//                                         ),
+//                                       ],
+//                                     ),
+//                                   ),
+//                                 ),
+//                               ],
+//                             ),
+//                             SizedBox(height: 2.h),
+//                           ],
+//                         ),
+//                       ),
+//                     ))),
+//             Positioned(
+//                 right: 0,
+//                 child: IconButton(
+//                     onPressed: () {
+//                       Get.back();
+//                     },
+//                     icon: Icon(CupertinoIcons.clear_circled_solid)))
+//           ],
+//         ),
+//       );
+//     },
+//   );
+// }
 }

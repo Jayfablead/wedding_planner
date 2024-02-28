@@ -60,7 +60,6 @@ class _MeetingsPageState extends State<MeetingsPage> {
   List meeting = ['In person', 'Zoom', 'Phone call'];
 
   @override
-
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -254,186 +253,214 @@ class _MeetingsPageState extends State<MeetingsPage> {
                         ),
                       ),
                       SizedBox(height: 1.5.h),
-                     Container(
-             height: 60.h,
-             child: isload ? Container( height: 60.h, child: Center(child: CircularProgressIndicator()),): meetingmodal?.meetingsByDate == null ||
-                     meetingmodal?.meetingsByDate?.length == 0
-                 ? Container(
-                     alignment: Alignment.center,
-                     child: Text(
-                       "No Meetings Available",
-                       style: TextStyle(
-                         fontSize: 18.sp,
-                         fontFamily: 'sofi',
-                         fontWeight: FontWeight.w900,
-                         letterSpacing: 1,
-                         color: Colors.black,
-                       ),
-                     ),
-                   )
-                 : ListView.builder(
-                     padding: EdgeInsets.zero,
-                     itemCount: meetingmodal?.meetingsByDate?.length,
-                     itemBuilder: (context, index) {
-                       return InkWell(
-                         onTap: (){
-                           viewmeetingapi(meetingmodal
-                               ?.meetingsByDate?[
-                           index]
-                               .id ??
-                               "");
-                           addmeetttttingdialog();
-                         },
-                         child: Container(
-                           padding: EdgeInsets.symmetric(
-                               horizontal: 2.w, vertical: 1.h),
-                           margin: EdgeInsets.symmetric(vertical: 1.h),
-                           decoration: BoxDecoration(
-                             color: Colors.white,
-                             borderRadius: BorderRadius.circular(20),
-                           ),
-                           child: Row(
-                             mainAxisAlignment:
-                                 MainAxisAlignment.spaceBetween,
-                             crossAxisAlignment:
-                                 CrossAxisAlignment.center,
-                             children: [
-                               Container(
-                                 height: 10.h,
-                                 child: Column(
-                                   children: [
-                                     Container(
-                                       height: 2.5.h,
-                                       width: 5.w,
-                                       decoration: BoxDecoration(
-                                           gradient: LinearGradient(
-                                             begin:
-                                                 Alignment.topCenter,
-                                             end: Alignment
-                                                 .bottomCenter,
-                                             colors: [
-                                               Colors.blue,
-                                               Colors.blue.shade500,
-                                               Colors.blue.shade300,
-                                               Colors.blue.shade200,
-                                               Colors.white12
-                                             ],
-                                           ),
-                                           shape: BoxShape.circle),
-                                     ),
-                                     Container(
-                                       height: 7.h,
-                                       width: 1.w,
-                                       decoration: BoxDecoration(
-                                         borderRadius:
-                                             BorderRadius.only(
-                                           topLeft:
-                                               Radius.circular(10),
-                                           topRight:
-                                               Radius.circular(10),
-                                         ),
-                                         gradient: LinearGradient(
-                                           begin: Alignment.topCenter,
-                                           end: Alignment.bottomCenter,
-                                           colors: [
-                                             Colors.blue,
-                                             Colors.lightBlueAccent,
-                                             Colors.white
-                                           ],
-                                         ),
-                                       ),
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                               Container(
-                                 height: 10.h,
-                                 child: Column(
-                                   mainAxisAlignment:
-                                       MainAxisAlignment.center,
-                                   crossAxisAlignment:
-                                       CrossAxisAlignment.start ,
-                                   children: [
-                                     Row(
-                                       mainAxisAlignment:
-                                       MainAxisAlignment
-                                           .spaceAround,
-                                       children: [
-                                         Icon(Icons.alarm,size: 18.sp,color: Colors.blue,),
-                                         SizedBox(width:1.w,),
-                                         Text(
-                                           meetingmodal
-                                               ?.meetingsByDate?[
-                                           index]
-                                               .endTime ==
-                                               '' ||
-                                               meetingmodal
-                                                   ?.meetingsByDate?[
-                                               index]
-                                                   .endTime ==
-                                                   null
-                                               ? 'N/A'
-                                               : meetingmodal
-                                               ?.meetingsByDate?[
-                                           index]
-                                               .endTime ??
-                                               "",
-                                           style: TextStyle(
-                                             fontSize: 12.sp,
-                                             fontFamily: 'sofi',
-                                             fontWeight:
-                                             FontWeight.bold,
-                                             letterSpacing: 1,
-                                             color: Colors.black
-                                                 .withOpacity(0.75),
-                                           ),
-                                         ),
-
-                                       ],
-                                     ),
-                                     SizedBox(height: 1.h,),
-                                     Container(
-                                       width: 81.w,
-                                       child: Text(
-                                         meetingmodal
-                                                         ?.meetingsByDate?[
-                                                             index]
-                                                         .taskDesc ==
-                                                     '' ||
-                                                 meetingmodal
-                                                         ?.meetingsByDate?[
-                                                             index]
-                                                         .taskDesc ==
-                                                     null
-                                             ? 'N/A'
-                                             : meetingmodal
-                                                     ?.meetingsByDate?[
-                                                         index]
-                                                     .taskDesc ??
-                                                 "",
-                                         style: TextStyle(
-                                           fontSize: 12.sp,
-                                           fontFamily: 'sofi',
-                                           fontWeight: FontWeight.bold,
-                                           letterSpacing: 1,
-                                           color: Colors.black
-                                               .withOpacity(0.75),
-                                         ),
-                                       ),
-                                     ),
-                                     SizedBox(
-                                       height: 0.5.h,
-                                     )
-                                   ],
-                                 ),
-                               ),
-                             ],
-                           ),
-                         ),
-                       );
-                     },
-                   ),
-           ),
+                      Container(
+                        height: 60.h,
+                        child: isload
+                            ? Container(
+                                height: 60.h,
+                                child:
+                                    Center(child: CircularProgressIndicator()),
+                              )
+                            : meetingmodal?.meetingsByDate == null ||
+                                    meetingmodal?.meetingsByDate?.length == 0
+                                ? Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "No Meetings Available",
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontFamily: 'sofi',
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  )
+                                : ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    itemCount:
+                                        meetingmodal?.meetingsByDate?.length,
+                                    itemBuilder: (context, index) {
+                                      return InkWell(
+                                        onTap: () {
+                                          viewmeetingapi(meetingmodal
+                                                  ?.meetingsByDate?[index].id ??
+                                              "");
+                                          addmeetttttingdialog();
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 2.w, vertical: 1.h),
+                                          margin: EdgeInsets.symmetric(
+                                              vertical: 1.h),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                height: 10.h,
+                                                child: Column(
+                                                  children: [
+                                                    Container(
+                                                      height: 2.5.h,
+                                                      width: 5.w,
+                                                      decoration: BoxDecoration(
+                                                          gradient:
+                                                              LinearGradient(
+                                                            begin: Alignment
+                                                                .topCenter,
+                                                            end: Alignment
+                                                                .bottomCenter,
+                                                            colors: [
+                                                              Colors.blue,
+                                                              Colors.blue
+                                                                  .shade500,
+                                                              Colors.blue
+                                                                  .shade300,
+                                                              Colors.blue
+                                                                  .shade200,
+                                                              Colors.white12
+                                                            ],
+                                                          ),
+                                                          shape:
+                                                              BoxShape.circle),
+                                                    ),
+                                                    Container(
+                                                      height: 7.h,
+                                                      width: 1.w,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  10),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  10),
+                                                        ),
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment
+                                                              .topCenter,
+                                                          end: Alignment
+                                                              .bottomCenter,
+                                                          colors: [
+                                                            Colors.blue,
+                                                            Colors
+                                                                .lightBlueAccent,
+                                                            Colors.white
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                height: 10.h,
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceAround,
+                                                      children: [
+                                                        Icon(
+                                                          Icons.alarm,
+                                                          size: 18.sp,
+                                                          color: Colors.blue,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 1.w,
+                                                        ),
+                                                        Text(
+                                                          meetingmodal
+                                                                          ?.meetingsByDate?[
+                                                                              index]
+                                                                          .endTime ==
+                                                                      '' ||
+                                                                  meetingmodal
+                                                                          ?.meetingsByDate?[
+                                                                              index]
+                                                                          .endTime ==
+                                                                      null
+                                                              ? 'N/A'
+                                                              : meetingmodal
+                                                                      ?.meetingsByDate?[
+                                                                          index]
+                                                                      .endTime ??
+                                                                  "",
+                                                          style: TextStyle(
+                                                            fontSize: 12.sp,
+                                                            fontFamily: 'sofi',
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            letterSpacing: 1,
+                                                            color: Colors.black
+                                                                .withOpacity(
+                                                                    0.75),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: 1.h,
+                                                    ),
+                                                    Container(
+                                                      width: 81.w,
+                                                      child: Text(
+                                                        meetingmodal
+                                                                        ?.meetingsByDate?[
+                                                                            index]
+                                                                        .taskDesc ==
+                                                                    '' ||
+                                                                meetingmodal
+                                                                        ?.meetingsByDate?[
+                                                                            index]
+                                                                        .taskDesc ==
+                                                                    null
+                                                            ? 'N/A'
+                                                            : meetingmodal
+                                                                    ?.meetingsByDate?[
+                                                                        index]
+                                                                    .taskDesc ??
+                                                                "",
+                                                        style: TextStyle(
+                                                          fontSize: 12.sp,
+                                                          fontFamily: 'sofi',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          letterSpacing: 1,
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.75),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 0.5.h,
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                      ),
                     ],
                   ),
                 ),
@@ -450,12 +477,12 @@ class _MeetingsPageState extends State<MeetingsPage> {
           if (response.statusCode == 200 && viewpostmodal?.status == "1") {
             setState(() {
               isLoading = false;
-              isload=false;
+              isload = false;
             });
           } else {
             setState(() {
               isLoading = false;
-              isload=false;
+              isload = false;
             });
           }
         });
@@ -519,20 +546,20 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 1),
                                   ),
-                                  SizedBox(height: 1.h,),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
                                   TextFormField(
                                     controller: _meeting,
                                     onChanged: (value) {},
                                     validator: (value) {
-                                      if (value == null ||
-                                          value.isEmpty) {
+                                      if (value == null || value.isEmpty) {
                                         return 'Please enter Meeting Title';
                                       }
                                       return null;
                                     },
                                     style: TextStyle(
-                                        color: Colors.black
-                                            .withOpacity(0.67),
+                                        color: Colors.black.withOpacity(0.67),
                                         fontFamily: 'Meta1'),
                                     decoration: InputDecoration(
                                       prefixIcon: Icon(
@@ -542,40 +569,29 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                       border: InputBorder.none,
                                       fillColor: Colors.white,
                                       filled: true,
-                                      enabledBorder:
-                                      OutlineInputBorder(
+                                      enabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius
-                                              .circular(25),
-                                          borderSide: BorderSide(
-                                              color:
-                                              Colors.white)),
-                                      disabledBorder:
-                                      OutlineInputBorder(
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      disabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius
-                                              .circular(25),
-                                          borderSide: BorderSide(
-                                              color:
-                                              Colors.white)),
-                                      focusedBorder:
-                                      OutlineInputBorder(
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      focusedBorder: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius
-                                              .circular(25),
-                                          borderSide: BorderSide(
-                                              color:
-                                              Colors.white)),
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
                                       errorBorder: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius.circular(
-                                              25),
-                                          borderSide: BorderSide(
-                                              color: Colors.white)),
+                                              BorderRadius.circular(25),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
                                       hintText: 'Title',
                                       hintStyle: TextStyle(
-                                          color: Colors.black
-                                              .withOpacity(0.67),
+                                          color: Colors.black.withOpacity(0.67),
                                           fontFamily: 'Meta1'),
                                     ),
                                   ),
@@ -1124,11 +1140,24 @@ class _MeetingsPageState extends State<MeetingsPage> {
       data['meeting_description'] = _desc.text.toString();
       data['meeting_title'] = _meeting.text.toString();
       data['start_date'] = _start.text.toString();
-      data['time'] = category=="Choose Time"?_time.text.toString():"10am to 07pm";
-      data['time_type'] = category=="Choose Time"?'1':'2';
-      data['place_type'] =Meet=="In person"?"1" :Meet=="Zoom"?"2" : "3";
-      data['place_name'] =Meet=="In person"?"1" :Meet=="Zoom"?"2" : "3" ;
-      data['place_data'] = Meet=="In person"? "": Meet=="Zoom"? _zoom.text.toString(): _call.text.toString();
+      data['time'] =
+          category == "Choose Time" ? _time.text.toString() : "10am to 07pm";
+      data['time_type'] = category == "Choose Time" ? '1' : '2';
+      data['place_type'] = Meet == "In person"
+          ? "1"
+          : Meet == "Zoom"
+              ? "2"
+              : "3";
+      data['place_name'] = Meet == "In person"
+          ? "1"
+          : Meet == "Zoom"
+              ? "2"
+              : "3";
+      data['place_data'] = Meet == "In person"
+          ? ""
+          : Meet == "Zoom"
+              ? _zoom.text.toString()
+              : _call.text.toString();
 
       print(data);
       checkInternet().then((internet) async {
@@ -1142,7 +1171,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
               _desc.text = "";
               _start.text = "";
               _time.text = "";
-              _meeting.text="";
+              _meeting.text = "";
               meetingap();
               Get.back();
             } else {
@@ -1155,6 +1184,7 @@ class _MeetingsPageState extends State<MeetingsPage> {
       });
     }
   }
+
   addmeetttttingdialog() {
     showModalBottomSheet(
       backgroundColor: Colors.grey.shade100,
@@ -1169,11 +1199,11 @@ class _MeetingsPageState extends State<MeetingsPage> {
         return Stack(
           children: [
             Container(
-              // width: 80.w,
-              // height: 70.h,
+                // width: 80.w,
+                // height: 70.h,
                 child: Padding(
                     padding:
-                    EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+                        EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
                     child: SingleChildScrollView(
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.start,
@@ -1214,7 +1244,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
                               ),
                               SizedBox(width: 2.w),
                               Text(
-                                viewmeetinmodal?.data?.startTime==""||viewmeetinmodal?.data?.startTime==null?"N/A":viewmeetinmodal?.data?.startTime ?? "",
+                                viewmeetinmodal?.data?.startTime == "" ||
+                                        viewmeetinmodal?.data?.startTime == null
+                                    ? "N/A"
+                                    : viewmeetinmodal?.data?.startTime ?? "",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 14.sp,
@@ -1253,7 +1286,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
                               ),
                               SizedBox(height: 1.h),
                               Text(
-                                viewmeetinmodal?.data?.taskDesc==""||viewmeetinmodal?.data?.taskDesc==null ? "N/A":viewmeetinmodal?.data?.taskDesc ?? "",
+                                viewmeetinmodal?.data?.taskDesc == "" ||
+                                        viewmeetinmodal?.data?.taskDesc == null
+                                    ? "N/A"
+                                    : viewmeetinmodal?.data?.taskDesc ?? "",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 14.sp,
@@ -1286,7 +1322,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
                               ),
                               SizedBox(width: 2.w),
                               Text(
-                                viewmeetinmodal?.data?.endTime==""|| viewmeetinmodal?.data?.endTime==null ? "N/A":viewmeetinmodal?.data?.endTime ?? "",
+                                viewmeetinmodal?.data?.endTime == "" ||
+                                        viewmeetinmodal?.data?.endTime == null
+                                    ? "N/A"
+                                    : viewmeetinmodal?.data?.endTime ?? "",
                                 style: TextStyle(
                                     fontSize: 16.sp,
                                     fontFamily: 'sofi',
@@ -1295,7 +1334,6 @@ class _MeetingsPageState extends State<MeetingsPage> {
                                     height: 0.17.h,
                                     letterSpacing: 1),
                               ),
-
                             ],
                           ),
                           SizedBox(height: 1.h),
@@ -1319,8 +1357,9 @@ class _MeetingsPageState extends State<MeetingsPage> {
                               ),
                               SizedBox(width: 2.w),
                               Text(
-                                viewmeetinmodal?.data?.isCompleted=="0"?"Pending":"Completed",
-
+                                viewmeetinmodal?.data?.isCompleted == "0"
+                                    ? "Pending"
+                                    : "Completed",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 14.sp,
@@ -1349,9 +1388,10 @@ class _MeetingsPageState extends State<MeetingsPage> {
       },
     );
   }
+
   viewmeetingapi(String value) {
     final Map<String, String> data = {};
-    data['meeting_id'] =value.toString();
+    data['meeting_id'] = value.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -1359,18 +1399,13 @@ class _MeetingsPageState extends State<MeetingsPage> {
         taskprovider().viewmeetingapi(data).then((response) async {
           viewmeetinmodal =
               ViewMeetinModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 &&
-              viewmeetinmodal?.status == 1) {
+          if (response.statusCode == 200 && viewmeetinmodal?.status == 1) {
             print("done api");
-            setState(() {
-
-            });
+            setState(() {});
           } else {
-            buildErrorDialog(context, " Error",
-                (viewmeetinmodal?.message ?? "").toString());
-            setState(() {
-
-            });
+            buildErrorDialog(
+                context, " Error", (viewmeetinmodal?.message ?? "").toString());
+            setState(() {});
           }
         });
       } else {
@@ -1378,6 +1413,4 @@ class _MeetingsPageState extends State<MeetingsPage> {
       }
     });
   }
-
-
 }
