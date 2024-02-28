@@ -807,7 +807,8 @@ class _RequestSupplierState extends State<RequestSupplier> {
                 "",
                 reqsetssuppliersmodal?.message ?? "",
                 () {
-                  Get.to(ReqestventSupplierscreen(sele: 0));
+
+                  Get.off(ReqestventSupplierscreen(sele: 0));
                 },
               );
             } else {

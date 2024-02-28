@@ -47,7 +47,7 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
   int? sel1 = 3;
   bool isLoading = true;
   bool isload = true;
-
+  bool ld = true;
   List<cate> nextWeekDatesWithDay = [];
   DateTime currentDate = DateTime.now();
   List<String> date1 = [];
@@ -164,10 +164,9 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
                             onTap: () {
                               setState(() {
                                 sel1 = index;
-                                isload=true;
+                                isload = true;
                               });
                               pedingmeetingap();
-
                             },
                             child: Container(
                               width: 21.w,
@@ -239,179 +238,207 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
                     SizedBox(height: 1.5.h),
                     Container(
                       height: 60.h,
-                      child:isload ? Container( height: 60.h, child: Center(child: CircularProgressIndicator()),):pedingmeetinmodal?.meetingsByDate == null ||
-                          pedingmeetinmodal?.meetingsByDate?.length == 0
+                      child: isload
                           ? Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "No Meetings Available",
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'sofi',
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: 1,
-                            color: Colors.black,
-                          ),
-                        ),
-                      )
-                          : ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: pedingmeetinmodal?.meetingsByDate?.length,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: (){
-                              viewmeetingapi(pedingmeetinmodal?.meetingsByDate?[index].id ?? "");
-                              addmeetttttingdialog();
-                            },
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 2.w, vertical: 1.h),
-                              margin: EdgeInsets.symmetric(vertical: 1.h),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 10.h,
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 2.5.h,
-                                          width: 5.w,
-                                          decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                begin:
-                                                Alignment.topCenter,
-                                                end: Alignment
-                                                    .bottomCenter,
-                                                colors: [
-                                                  Colors.blue,
-                                                  Colors.blue.shade500,
-                                                  Colors.blue.shade300,
-                                                  Colors.blue.shade200,
-                                                  Colors.white12
+                              height: 60.h,
+                              child: Center(child: CircularProgressIndicator()),
+                            )
+                          : pedingmeetinmodal?.meetingsByDate == null ||
+                                  pedingmeetinmodal?.meetingsByDate?.length == 0
+                              ? Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "No Pending Meetings Available",
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontFamily: 'sofi',
+                                      fontWeight: FontWeight.w900,
+                                      letterSpacing: 1,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                )
+                              : ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  itemCount:
+                                      pedingmeetinmodal?.meetingsByDate?.length,
+                                  itemBuilder: (context, index) {
+                                    return InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          ld = true;
+                                        });
+                                        viewmeetingapi(pedingmeetinmodal
+                                                ?.meetingsByDate?[index].id ??
+                                            "");
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w, vertical: 1.h),
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 1.h),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              height: 10.h,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    height: 2.5.h,
+                                                    width: 5.w,
+                                                    decoration: BoxDecoration(
+                                                        gradient:
+                                                            LinearGradient(
+                                                          begin: Alignment
+                                                              .topCenter,
+                                                          end: Alignment
+                                                              .bottomCenter,
+                                                          colors: [
+                                                            Colors.blue,
+                                                            Colors
+                                                                .blue.shade500,
+                                                            Colors
+                                                                .blue.shade300,
+                                                            Colors
+                                                                .blue.shade200,
+                                                            Colors.white12
+                                                          ],
+                                                        ),
+                                                        shape: BoxShape.circle),
+                                                  ),
+                                                  Container(
+                                                    height: 7.h,
+                                                    width: 1.w,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
+                                                      ),
+                                                      gradient: LinearGradient(
+                                                        begin:
+                                                            Alignment.topCenter,
+                                                        end: Alignment
+                                                            .bottomCenter,
+                                                        colors: [
+                                                          Colors.blue,
+                                                          Colors
+                                                              .lightBlueAccent,
+                                                          Colors.white
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
-                                              shape: BoxShape.circle),
-                                        ),
-                                        Container(
-                                          height: 7.h,
-                                          width: 1.w,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.only(
-                                              topLeft:
-                                              Radius.circular(10),
-                                              topRight:
-                                              Radius.circular(10),
                                             ),
-                                            gradient: LinearGradient(
-                                              begin: Alignment.topCenter,
-                                              end: Alignment.bottomCenter,
-                                              colors: [
-                                                Colors.blue,
-                                                Colors.lightBlueAccent,
-                                                Colors.white
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 10.h,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.start ,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment
-                                              .spaceAround,
-                                          children: [
-                                            Icon(Icons.alarm,size: 18.sp,color: Colors.blue,),
-                                            SizedBox(width:1.w,),
-                                            Text(
-                                              pedingmeetinmodal
-                                                  ?.meetingsByDate?[
-                                              index]
-                                                  .endTime ==
-                                                  '' ||
-                                                  pedingmeetinmodal
-                                                      ?.meetingsByDate?[
-                                                  index]
-                                                      .endTime ==
-                                                      null
-                                                  ? 'N/A'
-                                                  : pedingmeetinmodal
-                                                  ?.meetingsByDate?[
-                                              index]
-                                                  .endTime ??
-                                                  "",
-                                              style: TextStyle(
-                                                fontSize: 12.sp,
-                                                fontFamily: 'sofi',
-                                                fontWeight:
-                                                FontWeight.bold,
-                                                letterSpacing: 1,
-                                                color: Colors.black
-                                                    .withOpacity(0.75),
+                                            Container(
+                                              height: 10.h,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Icon(
+                                                        Icons.alarm,
+                                                        size: 18.sp,
+                                                        color: Colors.blue,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 1.w,
+                                                      ),
+                                                      Text(
+                                                        pedingmeetinmodal
+                                                                        ?.meetingsByDate?[
+                                                                            index]
+                                                                        .endTime ==
+                                                                    '' ||
+                                                                pedingmeetinmodal
+                                                                        ?.meetingsByDate?[
+                                                                            index]
+                                                                        .endTime ==
+                                                                    null
+                                                            ? 'N/A'
+                                                            : pedingmeetinmodal
+                                                                    ?.meetingsByDate?[
+                                                                        index]
+                                                                    .endTime ??
+                                                                "",
+                                                        style: TextStyle(
+                                                          fontSize: 12.sp,
+                                                          fontFamily: 'sofi',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          letterSpacing: 1,
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.75),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: 1.h,
+                                                  ),
+                                                  Container(
+                                                    width: 81.w,
+                                                    child: Text(
+                                                      pedingmeetinmodal
+                                                                      ?.meetingsByDate?[
+                                                                          index]
+                                                                      .taskDesc ==
+                                                                  '' ||
+                                                              pedingmeetinmodal
+                                                                      ?.meetingsByDate?[
+                                                                          index]
+                                                                      .taskDesc ==
+                                                                  null
+                                                          ? 'N/A'
+                                                          : pedingmeetinmodal
+                                                                  ?.meetingsByDate?[
+                                                                      index]
+                                                                  .taskDesc ??
+                                                              "",
+                                                      style: TextStyle(
+                                                        fontSize: 12.sp,
+                                                        fontFamily: 'sofi',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        letterSpacing: 1,
+                                                        color: Colors.black
+                                                            .withOpacity(0.75),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 0.5.h,
+                                                  )
+                                                ],
                                               ),
                                             ),
-
                                           ],
                                         ),
-                                        SizedBox(height: 1.h,),
-                                        Container(
-                                          width: 81.w,
-                                          child: Text(
-                                            pedingmeetinmodal
-                                                ?.meetingsByDate?[
-                                            index]
-                                                .taskDesc ==
-                                                '' ||
-                                                pedingmeetinmodal
-                                                    ?.meetingsByDate?[
-                                                index]
-                                                    .taskDesc ==
-                                                    null
-                                                ? 'N/A'
-                                                : pedingmeetinmodal
-                                                ?.meetingsByDate?[
-                                            index]
-                                                .taskDesc ??
-                                                "",
-                                            style: TextStyle(
-                                              fontSize: 12.sp,
-                                              fontFamily: 'sofi',
-                                              fontWeight: FontWeight.bold,
-                                              letterSpacing: 1,
-                                              color: Colors.black
-                                                  .withOpacity(0.75),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 0.5.h,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                                      ),
+                                    );
+                                  },
+                                ),
                     ),
                   ],
                 ),
@@ -424,16 +451,19 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
     checkInternet().then((internet) async {
       if (internet) {
         taskprovider().pedingmeetingapi(date1[sel1!]).then((response) async {
-          pedingmeetinmodal = PedingMeetinModal.fromJson(json.decode(response.body));
+          pedingmeetinmodal =
+              PedingMeetinModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 && viewpostmodal?.status == "1") {
             setState(() {
               isLoading = false;
-              isload=false;
+              isload = false;
+              ld = false;
             });
           } else {
             setState(() {
               isLoading = false;
-              isload=false;
+              isload = false;
+              ld = false;
             });
           }
         });
@@ -851,81 +881,142 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
       ),
       context: context,
       builder: (context) {
-        return Stack(
-          children: [
-            Container(
-              // width: 80.w,
-              // height: 70.h,
-                child: Padding(
-                    padding:
-                    EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        // mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Center(
-                            child: Text(
-                              "Meeting Detail",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'sofi',
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold,
-                                  height: 0.17.h,
-                                  letterSpacing: 1),
-                            ),
-                          ),
-                          SizedBox(height: 2.h),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.edit,
-                                color: Colors.blue,
-                              ),
-                              SizedBox(width: 2.w),
-                              Text(
-                                "State Date : ",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    height: 0.17.h,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(width: 2.w),
-                              Text(
-                                viewmeetinmodal?.data?.startTime==""||viewmeetinmodal?.data?.startTime==null?"N/A":viewmeetinmodal?.data?.startTime ?? "",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black.withOpacity(0.7),
-                                    fontWeight: FontWeight.bold,
-                                    height: 0.17.h,
-                                    letterSpacing: 1),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 1.h),
-                          Column(
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Stack(
+              children: [
+                Container(
+                    // width: 80.w,
+                    // height: 70.h,
+                    child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 2.h, horizontal: 3.w),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            // mainAxisSize: MainAxisSize.min,
                             children: [
+                              Center(
+                                child: Text(
+                                  "Meeting Detail",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontFamily: 'sofi',
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      height: 0.17.h,
+                                      letterSpacing: 1),
+                                ),
+                              ),
+                              SizedBox(height: 2.h),
                               Row(
                                 children: [
                                   Icon(
-                                    Icons.description,
+                                    Icons.edit,
                                     color: Colors.blue,
                                   ),
                                   SizedBox(width: 2.w),
                                   Text(
-                                    "Description : ",
+                                    "State Date : ",
                                     textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    viewmeetinmodal?.data?.startTime == "" ||
+                                            viewmeetinmodal?.data?.startTime ==
+                                                null
+                                        ? "N/A"
+                                        : viewmeetinmodal?.data?.startTime ??
+                                            "",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black.withOpacity(0.7),
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 1.h),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.description,
+                                        color: Colors.blue,
+                                      ),
+                                      SizedBox(width: 2.w),
+                                      Text(
+                                        "Description : ",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 16.sp,
+                                            fontFamily: 'sofi',
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            height: 0.17.h,
+                                            letterSpacing: 1),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 1.h),
+                                  Text(
+                                    viewmeetinmodal?.data?.taskDesc == "" ||
+                                            viewmeetinmodal?.data?.taskDesc ==
+                                                null
+                                        ? "N/A"
+                                        : viewmeetinmodal?.data?.taskDesc ?? "",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black.withOpacity(0.7),
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 2.h),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_month,
+                                    color: Colors.blue,
+                                  ),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    "Start Time : ",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    viewmeetinmodal?.data?.endTime == "" ||
+                                            viewmeetinmodal?.data?.endTime ==
+                                                null
+                                        ? "N/A"
+                                        : viewmeetinmodal?.data?.endTime ?? "",
                                     style: TextStyle(
                                         fontSize: 16.sp,
                                         fontFamily: 'sofi',
@@ -937,106 +1028,63 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
                                 ],
                               ),
                               SizedBox(height: 1.h),
-                              Text(
-                                viewmeetinmodal?.data?.taskDesc==""||viewmeetinmodal?.data?.taskDesc==null ? "N/A":viewmeetinmodal?.data?.taskDesc ?? "",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black.withOpacity(0.7),
-                                    fontWeight: FontWeight.bold,
-                                    height: 0.17.h,
-                                    letterSpacing: 1),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.info,
+                                    color: Colors.blue,
+                                  ),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    "Status : ",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black.withOpacity(0.7),
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                  SizedBox(width: 2.w),
+                                  Text(
+                                    viewmeetinmodal?.data?.isCompleted == "0"
+                                        ? "Pending"
+                                        : "Completed",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black.withOpacity(0.7),
+                                        fontWeight: FontWeight.bold,
+                                        height: 0.17.h,
+                                        letterSpacing: 1),
+                                  ),
+                                ],
                               ),
+                              SizedBox(height: 1.5.h),
                             ],
                           ),
-                          SizedBox(height: 2.h),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.calendar_month,
-                                color: Colors.blue,
-                              ),
-                              SizedBox(width: 2.w),
-                              Text(
-                                "Start Time : ",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    height: 0.17.h,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(width: 2.w),
-                              Text(
-                                  viewmeetinmodal?.data?.endTime==""|| viewmeetinmodal?.data?.endTime==null ? "N/A":viewmeetinmodal?.data?.endTime ?? "",
-                                  style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontFamily: 'sofi',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  height: 0.17.h,
-                                  letterSpacing: 1),
-                              ),
-
-                            ],
-                          ),
-                          SizedBox(height: 1.h),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.info,
-                                color: Colors.blue,
-                              ),
-                              SizedBox(width: 2.w),
-                              Text(
-                                "Status : ",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black.withOpacity(0.7),
-                                    fontWeight: FontWeight.bold,
-                                    height: 0.17.h,
-                                    letterSpacing: 1),
-                              ),
-                              SizedBox(width: 2.w),
-                              Text(
-                                viewmeetinmodal?.data?.isCompleted=="0"?"Pending":"Completed",
-
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'sofi',
-                                    color: Colors.black.withOpacity(0.7),
-                                    fontWeight: FontWeight.bold,
-                                    height: 0.17.h,
-                                    letterSpacing: 1),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 1.5.h),
-                        ],
-                      ),
-                    ))),
-            Positioned(
-                top: 1.1.h,
-                right: 0,
-                child: IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(CupertinoIcons.clear_circled_solid)))
-          ],
+                        ))),
+                Positioned(
+                    top: 1.1.h,
+                    right: 0,
+                    child: IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(CupertinoIcons.clear_circled_solid)))
+              ],
+            );
+          },
         );
       },
     );
   }
+
   viewmeetingapi(String value) {
     final Map<String, String> data = {};
-    data['meeting_id'] =value.toString();
+    data['meeting_id'] = value.toString();
 
     print(data);
     checkInternet().then((internet) async {
@@ -1044,25 +1092,26 @@ class _PedingMeetingScreenState extends State<PedingMeetingScreen> {
         taskprovider().viewmeetingapi(data).then((response) async {
           viewmeetinmodal =
               ViewMeetinModal.fromJson(json.decode(response.body));
-          if (response.statusCode == 200 &&
-              viewmeetinmodal?.status == 1) {
+          if (response.statusCode == 200 && viewmeetinmodal?.status == 1) {
             print("done api");
+            addmeetttttingdialog();
             setState(() {
-
+              ld = false;
             });
           } else {
-            buildErrorDialog(context, " Error",
-                (viewmeetinmodal?.message ?? "").toString());
+            buildErrorDialog(
+                context, " Error", (viewmeetinmodal?.message ?? "").toString());
             setState(() {
-
+              ld = false;
             });
           }
         });
       } else {
+        setState(() {
+          ld = false;
+        });
         buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
-
 }
-

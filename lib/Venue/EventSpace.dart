@@ -568,10 +568,8 @@ class _EventSpaceState extends State<EventSpace> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                (singaleventviewmodal?.docFile)
-                                                    .toString()
-                                                    .split('/')
-                                                    .last,
+                                                (singaleventviewmodal?.docFile?[index])
+                                                    .toString().split('/').last,
                                                 textAlign: TextAlign.start,
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,
@@ -598,6 +596,7 @@ class _EventSpaceState extends State<EventSpace> {
                                                                 index] ??
                                                             '',
                                                       ));
+                                                      print(singaleventviewmodal?.docFile);
                                                     },
                                                     child: Text(
                                                       'View File',
