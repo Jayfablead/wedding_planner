@@ -30,15 +30,27 @@ class VenueDetails {
   String? email;
   String? contact;
   String? profile;
+  String? uid;
+  String? vName;
+  String? address;
+  String? subscriptionRenewal;
+  String? vid;
+  String? coupleEmail;
   MoreInfo? moreInfo;
 
   VenueDetails(
       {this.id,
-      this.name,
-      this.email,
-      this.contact,
-      this.profile,
-      this.moreInfo});
+        this.name,
+        this.email,
+        this.contact,
+        this.profile,
+        this.uid,
+        this.vName,
+        this.address,
+        this.subscriptionRenewal,
+        this.vid,
+        this.coupleEmail,
+        this.moreInfo});
 
   VenueDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -46,6 +58,12 @@ class VenueDetails {
     email = json['email'];
     contact = json['contact'];
     profile = json['profile'];
+    uid = json['uid'];
+    vName = json['v_name'];
+    address = json['address'];
+    subscriptionRenewal = json['subscription_renewal'];
+    vid = json['vid'];
+    coupleEmail = json['couple_email'];
     moreInfo = json['moreInfo'] != null
         ? new MoreInfo.fromJson(json['moreInfo'])
         : null;
@@ -58,6 +76,12 @@ class VenueDetails {
     data['email'] = this.email;
     data['contact'] = this.contact;
     data['profile'] = this.profile;
+    data['uid'] = this.uid;
+    data['v_name'] = this.vName;
+    data['address'] = this.address;
+    data['subscription_renewal'] = this.subscriptionRenewal;
+    data['vid'] = this.vid;
+    data['couple_email'] = this.coupleEmail;
     if (this.moreInfo != null) {
       data['moreInfo'] = this.moreInfo!.toJson();
     }
@@ -70,9 +94,11 @@ class MoreInfo {
   String? uid;
   String? vName;
   String? address;
+  String? subscriptionRenewal;
   String? photos;
   String? vCapacity;
   String? vDetails;
+  String? loadingUnloading;
   String? parkingInfo;
   String? furnitureInfo;
   String? kitchenBarInfo;
@@ -86,31 +112,35 @@ class MoreInfo {
 
   MoreInfo(
       {this.id,
-      this.uid,
-      this.vName,
-      this.address,
-      this.photos,
-      this.vCapacity,
-      this.vDetails,
-      this.parkingInfo,
-      this.furnitureInfo,
-      this.kitchenBarInfo,
-      this.soundInfo,
-      this.safetyInfo,
-      this.supplierAccess,
-      this.guestAccess,
-      this.riggingAllowed,
-      this.onsiteAccomodation,
-      this.createdAt});
+        this.uid,
+        this.vName,
+        this.address,
+        this.subscriptionRenewal,
+        this.photos,
+        this.vCapacity,
+        this.vDetails,
+        this.loadingUnloading,
+        this.parkingInfo,
+        this.furnitureInfo,
+        this.kitchenBarInfo,
+        this.soundInfo,
+        this.safetyInfo,
+        this.supplierAccess,
+        this.guestAccess,
+        this.riggingAllowed,
+        this.onsiteAccomodation,
+        this.createdAt});
 
   MoreInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uid = json['uid'];
     vName = json['v_name'];
     address = json['address'];
+    subscriptionRenewal = json['subscription_renewal'];
     photos = json['photos'];
     vCapacity = json['v_capacity'];
     vDetails = json['v_details'];
+    loadingUnloading = json['loading_unloading'];
     parkingInfo = json['parking_info'];
     furnitureInfo = json['furniture_info'];
     kitchenBarInfo = json['kitchen_bar_info'];
@@ -129,9 +159,11 @@ class MoreInfo {
     data['uid'] = this.uid;
     data['v_name'] = this.vName;
     data['address'] = this.address;
+    data['subscription_renewal'] = this.subscriptionRenewal;
     data['photos'] = this.photos;
     data['v_capacity'] = this.vCapacity;
     data['v_details'] = this.vDetails;
+    data['loading_unloading'] = this.loadingUnloading;
     data['parking_info'] = this.parkingInfo;
     data['furniture_info'] = this.furnitureInfo;
     data['kitchen_bar_info'] = this.kitchenBarInfo;

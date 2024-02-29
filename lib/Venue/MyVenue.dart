@@ -145,7 +145,7 @@ class _VenueViewState extends State<VenueView> {
                                                                   .circular(7),
                                                           color: Colors.blue),
                                                       child: Icon(
-                                                        CupertinoIcons.info,
+                                                        Icons.person,
                                                         color: Colors.white,
                                                         size: 18.sp,
                                                       ),
@@ -176,20 +176,7 @@ class _VenueViewState extends State<VenueView> {
                                                         SizedBox(
                                                           width: 52.w,
                                                           child: Text(
-                                                            venuedetail?.venueDetails?.moreInfo
-                                                                            ?.vName ==
-                                                                        '' ||
-                                                                    venuedetail
-                                                                            ?.venueDetails
-                                                                            ?.moreInfo
-                                                                            ?.vName ==
-                                                                        null
-                                                                ? 'N/A'
-                                                                : venuedetail
-                                                                        ?.venueDetails
-                                                                        ?.moreInfo
-                                                                        ?.vName ??
-                                                                    "",
+                                                            venuedetail?.venueDetails?.vName==""||venuedetail?.venueDetails?.vName==null?"N/A":venuedetail?.venueDetails?.vName ?? "",
                                                             style: TextStyle(
                                                                 fontSize: 15.sp,
                                                                 color: Colors
@@ -270,18 +257,7 @@ class _VenueViewState extends State<VenueView> {
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
-                                                    venuedetail?.venueDetails
-                                                                    ?.email ==
-                                                                '' ||
-                                                            venuedetail
-                                                                    ?.venueDetails
-                                                                    ?.email ==
-                                                                null
-                                                        ? 'N/A'
-                                                        : venuedetail
-                                                                ?.venueDetails
-                                                                ?.email ??
-                                                            "",
+                                                    venuedetail?.venueDetails?.email==""||venuedetail?.venueDetails?.email==null ?"N/A":venuedetail?.venueDetails?.email ?? "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -291,6 +267,80 @@ class _VenueViewState extends State<VenueView> {
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 1.5.h),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 90.w,
+                                        height: 10.h,
+                                        padding: EdgeInsets.only(left: 2.15.w),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                          BorderRadius.circular(15),
+                                          color: Colors.white,
+                                        ),
+                                        child: Row(
+                                          // mainAxisAlignment: MainAxisAlignment.start,
+                                          // crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.all(3.w),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(7),
+                                                  color: Colors.blue),
+                                              child: Icon(
+                                                Icons.home,
+                                                color: Colors.white,
+                                                size: 18.sp,
+                                              ),
+                                            ),
+                                            SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Venue Address : ',
+                                                  style: TextStyle(
+                                                      fontSize: 17.sp,
+                                                      color: Colors.blue,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                      FontWeight.bold),
+                                                ),
+                                                SizedBox(height: 0.5.h),
+                                                Text(
+                                                  venuedetail
+                                                      ?.venueDetails
+                                                      ?.address==""||venuedetail
+                                                      ?.venueDetails
+                                                      ?.address==null?"N/A":venuedetail
+                                                      ?.venueDetails
+                                                      ?.address ??
+                                                      "",
+                                                  style: TextStyle(
+                                                      fontSize: 16.sp,
+                                                      color: Colors.black
+                                                          .withOpacity(0.8),
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                      FontWeight.bold),
                                                 ),
                                               ],
                                             ),
@@ -377,6 +427,82 @@ class _VenueViewState extends State<VenueView> {
                                       ),
                                     ],
                                   ),
+                                  SizedBox(height: 1.5.h),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 90.w,
+                                        height: 10.h,
+                                        padding: EdgeInsets.only(left: 2.15.w),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                          BorderRadius.circular(15),
+                                          color: Colors.white,
+                                        ),
+                                        child: Row(
+                                          // mainAxisAlignment: MainAxisAlignment.start,
+                                          // crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.all(3.w),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(7),
+                                                  color: Colors.blue),
+                                              child: Icon(
+                                                Icons.email_outlined,
+                                                color: Colors.white,
+                                                size: 18.sp,
+                                              ),
+                                            ),
+                                            SizedBox(width: 5.w),
+                                            Column(
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Event Email : ',
+                                                  style: TextStyle(
+                                                      fontSize: 17.sp,
+                                                      color: Colors.blue,
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                      FontWeight.bold),
+                                                ),
+                                                SizedBox(height: 0.5.h),
+                                                Text(
+                                                  venuedetail
+                                                      ?.venueDetails
+                                                      ?.coupleEmail==""||venuedetail
+                                                      ?.venueDetails
+                                                      ?.coupleEmail==null?"N/A":venuedetail
+                                                      ?.venueDetails
+                                                      ?.coupleEmail ??
+                                                      "",
+                                                  style: TextStyle(
+                                                      fontSize: 16.sp,
+                                                      color: Colors.black
+                                                          .withOpacity(0.8),
+                                                      fontFamily: 'sofi',
+                                                      letterSpacing: 1,
+                                                      fontWeight:
+                                                      FontWeight.bold),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+
                                   SizedBox(height: 2.5.h),
                                 ],
                               ),
