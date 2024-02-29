@@ -130,16 +130,37 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      content: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl: filePath ?? '',
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) =>
-                                                CircularProgressIndicator(),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/def.jpeg',
-                                        ),
+                                      content: Stack(
+                                        children: [
+                                          CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl: filePath ?? '',
+                                            progressIndicatorBuilder:
+                                                (context, url, progress) =>
+                                                    Center(child: CircularProgressIndicator()),
+                                            errorWidget: (context, url, error) =>
+                                                Image.asset(
+                                              'assets/def.jpeg',
+                                            ),
+                                          ),
+                                          Positioned(
+                                              top: 1.h,
+                                              left: 58.w,
+                                              child:Container(
+                                                  height: 10.w,
+                                                  width: 10.w,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(100),
+                                                    color: Colors.blue,
+                                                  ),
+                                                  child: InkWell(
+                                                    onTap: (){
+                                                      Get.back();
+                                                    },
+                                                      child: Icon(Icons.close,color: Colors.white,))
+                                              ))
+                                        ],
                                       ),
                                     );
                                   },
