@@ -121,9 +121,9 @@ List<chat> mesgs = [
       'A decorations of your garden'),
 ];
 
-bool more = true;
+
 bool isLoading = true;
-bool getsuppliers = true;
+bool getsuppliers = false;
 
 class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
   @override
@@ -135,7 +135,7 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
     Suppliertypeap();
     setState(() {
       isLoading = true;
-      more = true;
+
     });
   }
 
@@ -310,6 +310,7 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                                               '${allsuupliertypes?.data?[index].categoryName}');
 
                                                           setState(() {
+
                                                             getsuppliers = true;
                                                             singalgetdatasupplier(
                                                                 (allsuupliertypes
@@ -403,20 +404,12 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                   ),
                                 )
                               : Container(
-                                  height: more ? 50.5.h : 71.h,
+                                  height: 71.h,
                                   padding:
                                       EdgeInsets.symmetric(horizontal: 2.w),
                                   child: ListView.builder(
                                     padding: EdgeInsets.zero,
-                                    itemCount: more
-                                        ? (getsuppliersservicemodal
-                                                        ?.data?.length ??
-                                                    0) <=
-                                                3
-                                            ? getsuppliersservicemodal
-                                                ?.data?.length
-                                            : 3
-                                        : getsuppliersservicemodal
+                                    itemCount: getsuppliersservicemodal
                                             ?.data?.length,
                                     itemBuilder: (context, index) {
                                       return Container(
@@ -615,22 +608,7 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
 
                       getsuppliers
                           ? Container()
-                          : mysupps?.suppliersDetails?.length == 0 ||
-                                  mysupps?.suppliersDetails?.length == null
-                              ? Container(
-                                  height: 80.h,
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "No Suppliers Available",
-                                    style: TextStyle(
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1,
-                                        fontFamily: 'sofi',
-                                        color: Colors.black),
-                                  ),
-                                )
-                              : approvedsuppliersmodal?.suppliers?.length ==
+                          :  approvedsuppliersmodal?.suppliers?.length ==
                                           0 ||
                                       approvedsuppliersmodal
                                               ?.suppliers?.length ==
@@ -649,20 +627,12 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                       ),
                                     )
                                   : Container(
-                                      height: more ? 57.h : 72.h,
+                                      height:72.h,
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 2.w),
                                       child: ListView.builder(
                                         padding: EdgeInsets.zero,
-                                        itemCount: more
-                                            ? (approvedsuppliersmodal?.suppliers
-                                                            ?.length ??
-                                                        0) <=
-                                                    4
-                                                ? approvedsuppliersmodal
-                                                    ?.suppliers?.length
-                                                : 4
-                                            : approvedsuppliersmodal
+                                        itemCount:approvedsuppliersmodal
                                                 ?.suppliers?.length,
                                         itemBuilder: (context, index) {
                                           return Container(
@@ -847,40 +817,40 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                       ),
                                     ),
                       SizedBox(height: 1.2.h),
-                      approvedsuppliersmodal?.suppliers?.length == 0 ||
-                              approvedsuppliersmodal?.suppliers?.length == null
-                          ? Container()
-                          : (approvedsuppliersmodal?.suppliers?.length ?? 0) <=
-                                  4
-                              ? Container()
-                              : Center(
-                                  child: InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        more = !more;
-                                      });
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 5.h,
-                                      width: 38.w,
-                                      decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius:
-                                              BorderRadius.circular(90)),
-                                      child: Text(
-                                        more ? 'View More' : 'View Less',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 13.sp,
-                                          fontFamily: 'sofi',
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 2,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                      // approvedsuppliersmodal?.suppliers?.length == 0 ||
+                      //         approvedsuppliersmodal?.suppliers?.length == null
+                      //     ? Container()
+                      //     : (approvedsuppliersmodal?.suppliers?.length ?? 0) <=
+                      //             4
+                      //         ? Container()
+                      //         : Center(
+                      //             child: InkWell(
+                      //               onTap: () {
+                      //                 setState(() {
+                      //
+                      //                 });
+                      //               },
+                      //               child: Container(
+                      //                 alignment: Alignment.center,
+                      //                 height: 5.h,
+                      //                 width: 38.w,
+                      //                 decoration: BoxDecoration(
+                      //                     color: Colors.blue,
+                      //                     borderRadius:
+                      //                         BorderRadius.circular(90)),
+                      //                 child: Text(
+                      //                   more ? 'View More' : 'View Less',
+                      //                   style: TextStyle(
+                      //                     color: Colors.white,
+                      //                     fontSize: 13.sp,
+                      //                     fontFamily: 'sofi',
+                      //                     fontWeight: FontWeight.bold,
+                      //                     letterSpacing: 2,
+                      //                   ),
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //           ),
                       SizedBox(height: 2.h),
                     ],
                   ),
@@ -898,6 +868,7 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
               ApprovedSuppliersModal.fromJson(json.decode(response.body));
           if (response.statusCode == 200 &&
               approvedsuppliersmodal?.status == "1") {
+            print("approved suppliers");
             print("done");
             setState(() {
               isLoading = false;
