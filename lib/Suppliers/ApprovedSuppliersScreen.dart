@@ -121,7 +121,6 @@ List<chat> mesgs = [
       'A decorations of your garden'),
 ];
 
-
 bool isLoading = true;
 bool getsuppliers = false;
 
@@ -135,7 +134,6 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
     Suppliertypeap();
     setState(() {
       isLoading = true;
-
     });
   }
 
@@ -310,7 +308,6 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                                               '${allsuupliertypes?.data?[index].categoryName}');
 
                                                           setState(() {
-
                                                             getsuppliers = true;
                                                             singalgetdatasupplier(
                                                                 (allsuupliertypes
@@ -409,8 +406,8 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
                                       EdgeInsets.symmetric(horizontal: 2.w),
                                   child: ListView.builder(
                                     padding: EdgeInsets.zero,
-                                    itemCount: getsuppliersservicemodal
-                                            ?.data?.length,
+                                    itemCount:
+                                        getsuppliersservicemodal?.data?.length,
                                     itemBuilder: (context, index) {
                                       return Container(
                                         padding: EdgeInsets.symmetric(
@@ -608,214 +605,198 @@ class _AppRovedSuppliersScreenState extends State<AppRovedSuppliersScreen> {
 
                       getsuppliers
                           ? Container()
-                          :  approvedsuppliersmodal?.suppliers?.length ==
-                                          0 ||
-                                      approvedsuppliersmodal
-                                              ?.suppliers?.length ==
-                                          null
-                                  ? Container(
-                                      height: 80.h,
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "No Approved Suppliers Available",
-                                        style: TextStyle(
-                                            fontSize: 17.sp,
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            fontFamily: 'sofi',
-                                            color: Colors.black),
-                                      ),
-                                    )
-                                  : Container(
-                                      height:72.h,
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 2.w),
-                                      child: ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        itemCount:approvedsuppliersmodal
-                                                ?.suppliers?.length,
-                                        itemBuilder: (context, index) {
-                                          return Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 2.w, vertical: 2.h),
-                                            margin: EdgeInsets.symmetric(
-                                                vertical: 0.5.h),
-                                            decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.black26,
-                                                    // Color of the shadow
-                                                    offset: Offset(0.2, 0.5),
+                          : approvedsuppliersmodal?.suppliers?.length == 0 ||
+                                  approvedsuppliersmodal?.suppliers?.length ==
+                                      null
+                              ? Container(
+                                  height: 80.h,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "No Approved Suppliers Available",
+                                    style: TextStyle(
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                        fontFamily: 'sofi',
+                                        color: Colors.black),
+                                  ),
+                                )
+                              : Container(
+                                  height: 72.h,
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 2.w),
+                                  child: ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    itemCount: approvedsuppliersmodal
+                                        ?.suppliers?.length,
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2.w, vertical: 2.h),
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: 0.5.h),
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black26,
+                                                // Color of the shadow
+                                                offset: Offset(0.2, 0.5),
 
-                                                    blurRadius:
-                                                        2, // Spread of the shadow
-                                                    // How much the shadow extends
-                                                  ),
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            alignment: Alignment.center,
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                                blurRadius:
+                                                    2, // Spread of the shadow
+                                                // How much the shadow extends
+                                              ),
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        alignment: Alignment.center,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Row(
                                               children: [
-                                                Row(
+                                                Container(
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal: 1.w),
+                                                  height: 22.w,
+                                                  width: 22.w,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
+                                                    child: CachedNetworkImage(
+                                                      fit: BoxFit.cover,
+                                                      imageUrl:
+                                                          approvedsuppliersmodal
+                                                                  ?.suppliers?[
+                                                                      index]
+                                                                  .profile ??
+                                                              "",
+                                                      progressIndicatorBuilder:
+                                                          (context, url,
+                                                                  progress) =>
+                                                              CircularProgressIndicator(),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Image.asset(
+                                                        'assets/user.png',
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 5.w,
+                                                ),
+                                                Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 1.w),
-                                                      height: 22.w,
-                                                      width: 22.w,
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(90),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fit: BoxFit.cover,
-                                                          imageUrl:
-                                                              approvedsuppliersmodal
-                                                                      ?.suppliers?[
-                                                                          index]
-                                                                      .profile ??
-                                                                  "",
-                                                          progressIndicatorBuilder:
-                                                              (context, url,
-                                                                      progress) =>
-                                                                  CircularProgressIndicator(),
-                                                          errorWidget: (context,
-                                                                  url, error) =>
-                                                              Image.asset(
-                                                            'assets/user.png',
-                                                            color: Colors.black,
-                                                          ),
+                                                    Text(
+                                                      approvedsuppliersmodal
+                                                              ?.suppliers?[
+                                                                  index]
+                                                              .name ??
+                                                          "",
+                                                      style: TextStyle(
+                                                          fontSize: 16.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          letterSpacing: 1,
+                                                          fontFamily: 'sofi',
+                                                          color: Colors.black),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 55.w,
+                                                      child: Text(
+                                                        approvedsuppliersmodal
+                                                                ?.suppliers?[
+                                                                    index]
+                                                                .description ??
+                                                            "",
+                                                        maxLines: 2,
+                                                        style: TextStyle(
+                                                          height: 1.3,
+                                                          fontSize: 14.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontFamily: 'sofi',
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.75),
                                                         ),
                                                       ),
                                                     ),
                                                     SizedBox(
-                                                      width: 5.w,
+                                                      height: 1.5.h,
                                                     ),
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          approvedsuppliersmodal
-                                                                  ?.suppliers?[
-                                                                      index]
-                                                                  .name ??
-                                                              "",
-                                                          style: TextStyle(
-                                                              fontSize: 16.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              letterSpacing: 1,
-                                                              fontFamily:
-                                                                  'sofi',
-                                                              color:
-                                                                  Colors.black),
-                                                        ),
-                                                        SizedBox(
-                                                          width: 55.w,
-                                                          child: Text(
-                                                            approvedsuppliersmodal
+                                                    Center(
+                                                      child: InkWell(
+                                                        onTap: () {
+                                                          Get.to(
+                                                              SupplierfourScreen(
+                                                            catid: approvedsuppliersmodal
                                                                     ?.suppliers?[
                                                                         index]
-                                                                    .description ??
+                                                                    .categoryId ??
                                                                 "",
-                                                            maxLines: 2,
+                                                            suppid: approvedsuppliersmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .id ??
+                                                                "",
+                                                            service: approvedsuppliersmodal
+                                                                    ?.suppliers?[
+                                                                        index]
+                                                                    .categoryName ??
+                                                                "",
+                                                          ));
+                                                        },
+                                                        child: Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          height: 4.5.h,
+                                                          width: 38.w,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  Colors.blue,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          90)),
+                                                          child: Text(
+                                                            'View Details',
                                                             style: TextStyle(
-                                                              height: 1.3,
-                                                              fontSize: 14.sp,
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 13.sp,
+                                                              fontFamily:
+                                                                  'sofi',
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              fontFamily:
-                                                                  'sofi',
-                                                              color: Colors
-                                                                  .black
-                                                                  .withOpacity(
-                                                                      0.75),
+                                                              letterSpacing: 2,
                                                             ),
                                                           ),
                                                         ),
-                                                        SizedBox(
-                                                          height: 1.5.h,
-                                                        ),
-                                                        Center(
-                                                          child: InkWell(
-                                                            onTap: () {
-                                                              Get.to(
-                                                                  SupplierfourScreen(
-                                                                catid: approvedsuppliersmodal
-                                                                        ?.suppliers?[
-                                                                            index]
-                                                                        .categoryId ??
-                                                                    "",
-                                                                suppid: approvedsuppliersmodal
-                                                                        ?.suppliers?[
-                                                                            index]
-                                                                        .id ??
-                                                                    "",
-                                                                service: approvedsuppliersmodal
-                                                                        ?.suppliers?[
-                                                                            index]
-                                                                        .categoryName ??
-                                                                    "",
-                                                              ));
-                                                            },
-                                                            child: Container(
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              height: 4.5.h,
-                                                              width: 38.w,
-                                                              decoration: BoxDecoration(
-                                                                  color: Colors
-                                                                      .blue,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              90)),
-                                                              child: Text(
-                                                                'View Details',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize:
-                                                                      13.sp,
-                                                                  fontFamily:
-                                                                      'sofi',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  letterSpacing:
-                                                                      2,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
                                               ],
                                             ),
-                                          );
-                                        },
-                                      ),
-                                    ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
                       SizedBox(height: 1.2.h),
                       // approvedsuppliersmodal?.suppliers?.length == 0 ||
                       //         approvedsuppliersmodal?.suppliers?.length == null

@@ -914,7 +914,7 @@ class taskprovider with ChangeNotifier {
   }
 
   Future<http.Response> requsestsuppiersapi(
-      Map<String, String> bodyData) async {
+      Map<String, String> bodyData, List<String> imagePaths) async {
     print(bodyData);
     String? url = '$baseUrl/requestSupplier/${userData?.user?.id.toString()}';
     var responseJson;
@@ -928,6 +928,16 @@ class taskprovider with ChangeNotifier {
           contentType: MediaType('image', 'jpg,png'),
         );
         imageUploadRequest.files.add(file);
+      }
+      if (imagePaths.isNotEmpty) {
+        for (var imagePath in imagePaths) {
+          var file = await http.MultipartFile.fromPath(
+            'c_img[]',
+            imagePath!,
+            contentType: MediaType('image', 'jpg'),
+          );
+          imageUploadRequest.files.add(file);
+        }
       }
       imageUploadRequest.fields.addAll(bodyData);
       final streamResponse = await imageUploadRequest.send();

@@ -135,31 +135,38 @@ class _AddViewItenraryState extends State<AddViewItenrary> {
                                           CachedNetworkImage(
                                             fit: BoxFit.cover,
                                             imageUrl: filePath ?? '',
-                                            progressIndicatorBuilder:
-                                                (context, url, progress) =>
-                                                    Center(child: CircularProgressIndicator()),
-                                            errorWidget: (context, url, error) =>
-                                                Image.asset(
+                                            progressIndicatorBuilder: (context,
+                                                    url, progress) =>
+                                                Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Image.asset(
                                               'assets/def.jpeg',
                                             ),
                                           ),
                                           Positioned(
                                               top: 1.h,
                                               left: 58.w,
-                                              child:Container(
+                                              child: Container(
                                                   height: 10.w,
                                                   width: 10.w,
                                                   alignment: Alignment.center,
                                                   decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(100),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100),
                                                     color: Colors.blue,
                                                   ),
                                                   child: InkWell(
-                                                    onTap: (){
-                                                      Get.back();
-                                                    },
-                                                      child: Icon(Icons.close,color: Colors.white,))
-                                              ))
+                                                      onTap: () {
+                                                        Get.back();
+                                                      },
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color: Colors.white,
+                                                      ))))
                                         ],
                                       ),
                                     );

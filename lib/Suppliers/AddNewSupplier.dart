@@ -37,6 +37,18 @@ class _RequestSupplierState extends State<RequestSupplier> {
   final _formKey = GlobalKey<FormState>();
   ImagePicker _picker = ImagePicker();
   File? _pickedFile;
+  List<XFile>? resultList;
+  List<XFile>? resultList1;
+  List<File> selectedImages = [];
+  List<String> imagePaths = [];
+  List<XFile> imagesList = <XFile>[];
+  String _error = 'No Error Dectected';
+  List<String> imageNames = [];
+  ImagePicker _picker1 = ImagePicker();
+  int maxImageLimit = 9;
+  File? selectedimage;
+
+  List<String> networkImageUrls = [];
 
   @override
   void initState() {
@@ -722,6 +734,220 @@ class _RequestSupplierState extends State<RequestSupplier> {
                           ),
                   ],
                 ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Select Photo :- ",
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontFamily: 'get',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1,
+                            color: Colors.blue),
+                      ),
+                      InkWell(
+                        onTap: () async {
+                          resultList1 = await ImagePicker().pickMultiImage();
+                          if (resultList1 != null) {
+                            if (resultList1!.length + selectedImages.length >
+                                maxImageLimit) {
+                              // Handle maximum image limit exceeded
+                            } else {
+                              setState(() {
+                                print(selectedImages);
+                                selectedImages.addAll(resultList1!
+                                    .map((XFile file) => File(file.path))
+                                    .toList());
+                                imagePaths = resultList1!
+                                    .map((file) => file.path)
+                                    .toList();
+                              });
+                            }
+                          }
+                        },
+                        child: Container(
+                          height: 6.h,
+                          width: 50.w,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(25.sp),
+                          ),
+                          child: Text(
+                            "Select Photo",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'get',
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 1.5.h,
+                ),
+                SizedBox(
+                    // height: 200.h,
+                    width: 225.w,
+                    child: Column(
+                      children: [
+                        //for first select
+                        selectedImages.isEmpty
+                            ? GridView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3),
+                                itemBuilder: (context, index) {
+                                  return GestureDetector(
+                                    onTap: () async {
+                                      resultList =
+                                          await ImagePicker().pickMultiImage();
+
+                                      if (resultList != null) {
+                                        if (resultList!.length +
+                                                selectedImages.length >
+                                            maxImageLimit) {
+                                          print('Maximum image limit exceeded');
+                                        } else {
+                                          setState(() {
+                                            selectedImages = resultList!
+                                                .map((XFile file) =>
+                                                    File(file.path))
+                                                .toList()!;
+                                            imagePaths.addAll(resultList!
+                                                .map((file) => file.path)
+                                                .toList());
+                                          });
+                                        }
+                                      }
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.all(3.w),
+                                      height: 60.h,
+                                      width: 70.w,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border:
+                                              Border.all(color: Colors.grey)),
+                                    ),
+                                  );
+                                },
+                                itemCount: 9,
+                              )
+                            : Container(),
+                        selectedImages.isEmpty
+                            ? Container()
+                            :
+                            //disply after first selection
+                            GridView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3),
+                                itemCount: 9,
+                                itemBuilder: (context, index) {
+                                  if (index < selectedImages.length &&
+                                      selectedImages[index] != null) {
+                                    return Stack(
+                                      children: [
+                                        Container(
+                                            margin: EdgeInsets.all(3.w),
+                                            height: 70.h,
+                                            width: 70.w,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                border: Border.all(
+                                                    color: Colors.grey)),
+                                            child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                child: Image.file(
+                                                    selectedImages[index],
+                                                    height: 60.h,
+                                                    width: 70.w,
+                                                    fit: BoxFit.cover))),
+                                        Positioned(
+                                            left: 50.w,
+                                            top: 10.h,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedImages
+                                                      .removeAt(index);
+                                                  imagePaths.removeAt(index);
+                                                });
+                                              },
+                                              child: Container(
+                                                  height: 15.w,
+                                                  width: 15.w,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.white),
+                                                  child: Icon(
+                                                    Icons.close,
+                                                    size: 15.sp,
+                                                  )),
+                                            ))
+                                      ],
+                                    );
+                                  } else {
+                                    //remaining container
+                                    return GestureDetector(
+                                      onTap: () async {
+                                        resultList1 = await ImagePicker()
+                                            .pickMultiImage();
+                                        if (resultList1 != null) {
+                                          if (resultList1!.length +
+                                                  selectedImages.length >
+                                              maxImageLimit) {
+                                            // Handle maximum image limit exceeded
+                                            buildErrorDialog(
+                                                context, "", "您选择的图像超过 9 张");
+                                          } else {
+                                            setState(() {
+                                              print(selectedImages);
+                                              selectedImages.addAll(resultList1!
+                                                  .map((XFile file) =>
+                                                      File(file.path))
+                                                  .toList());
+                                              imagePaths = resultList1!
+                                                  .map((file) => file.path)
+                                                  .toList();
+                                            });
+                                          }
+                                        }
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.all(3.w),
+                                        height: 60.h,
+                                        width: 70.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            border:
+                                                Border.all(color: Colors.grey)),
+                                      ),
+                                    );
+                                  }
+                                },
+                              )
+                      ],
+                    )),
                 SizedBox(
                   height: 3.h,
                 ),
@@ -794,14 +1020,20 @@ class _RequestSupplierState extends State<RequestSupplier> {
       data['password'] = '123456';
       data['categoryId'] = category.toString();
       data['category_detail'] = _details.text.trim().toString();
+      // data['c_img[]'] = _pickedFile != null ? _pickedFile!.path : "" ;
       print(data);
       checkInternet().then((internet) async {
         if (internet) {
-          taskprovider().requsestsuppiersapi(data).then((response) async {
+          taskprovider()
+              .requsestsuppiersapi(data, imagePaths)
+              .then((response) async {
             reqsetssuppliersmodal =
                 ReqsetsSuppliersModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 &&
                 reqsetssuppliersmodal?.status == "1") {
+              List<File> selectedImages = [];
+              List<String> imagePaths = [];
+              List<XFile> imagesList = <XFile>[];
               buildErrorDialog1(
                 context,
                 "",

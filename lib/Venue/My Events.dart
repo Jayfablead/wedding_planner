@@ -174,7 +174,12 @@ class _My_EventState extends State<My_Event> {
                                                                       myevent?.eventDetails
                                                                               ?.groomName ==
                                                                           null
-                                                                  ? 'N/A'
+                                                                  ? (myevent
+                                                                          ?.eventDetails
+                                                                          ?.eventCompanies?[
+                                                                              0]
+                                                                          .companyName)
+                                                                      .toString()
                                                                   : "${myevent?.eventDetails?.groomName} ${myevent?.eventDetails?.brideName}",
                                                               style: TextStyle(
                                                                   fontSize:
@@ -326,8 +331,9 @@ class _My_EventState extends State<My_Event> {
                                                                             MainAxisAlignment.center,
                                                                         children: [
                                                                           Text(
-                                                                            myevent?.eventDetails?.eventCompanies?[i].companyName ??
-                                                                                '',
+                                                                            myevent?.eventDetails?.eventCompanies?[i].companyName == "" || myevent?.eventDetails?.eventCompanies?[i].companyName == null
+                                                                                ? "N/A"
+                                                                                : myevent?.eventDetails?.eventCompanies?[i].companyName ?? '',
                                                                             style: TextStyle(
                                                                                 fontSize: 17.sp,
                                                                                 color: Colors.blue,

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/widgets/drawer.dart';
@@ -157,17 +156,20 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         SizedBox(
                                                           width: 52.w,
                                                           child: Text(
-                                                            venuedetail
-                                                                ?.venueDetails
-                                                                ?.moreInfo
-                                                                ?.loadingUnloading==""||venuedetail
-                                                                ?.venueDetails
-                                                                ?.moreInfo
-                                                                ?.loadingUnloading==null?"N/A":venuedetail
-                                                                ?.venueDetails
-                                                                ?.moreInfo
-                                                                ?.loadingUnloading ??
-                                                                "",
+                                                            venuedetail?.venueDetails?.moreInfo
+                                                                            ?.loadingUnloading ==
+                                                                        "" ||
+                                                                    venuedetail
+                                                                            ?.venueDetails
+                                                                            ?.moreInfo
+                                                                            ?.loadingUnloading ==
+                                                                        null
+                                                                ? "N/A"
+                                                                : venuedetail
+                                                                        ?.venueDetails
+                                                                        ?.moreInfo
+                                                                        ?.loadingUnloading ??
+                                                                    "",
                                                             style: TextStyle(
                                                                 fontSize: 15.sp,
                                                                 color: Colors
@@ -269,16 +271,20 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         SizedBox(
                                                           width: 52.w,
                                                           child: Text(
-                                                            venuedetail
-                                                                ?.venueDetails
-                                                                ?.moreInfo
-                                                                ?.parkingInfo==""||venuedetail
-                                                                ?.venueDetails
-                                                                ?.moreInfo
-                                                                ?.parkingInfo==null?"N/A":venuedetail
-                                                                ?.venueDetails
-                                                                ?.moreInfo
-                                                                ?.parkingInfo ?? "",
+                                                            venuedetail?.venueDetails?.moreInfo
+                                                                            ?.parkingInfo ==
+                                                                        "" ||
+                                                                    venuedetail
+                                                                            ?.venueDetails
+                                                                            ?.moreInfo
+                                                                            ?.parkingInfo ==
+                                                                        null
+                                                                ? "N/A"
+                                                                : venuedetail
+                                                                        ?.venueDetails
+                                                                        ?.moreInfo
+                                                                        ?.parkingInfo ??
+                                                                    "",
                                                             style: TextStyle(
                                                                 fontSize: 15.sp,
                                                                 color: Colors
@@ -360,12 +366,17 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.furnitureInfo==""||venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.furnitureInfo==null?"N/A":venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.furnitureInfo ==
+                                                                "" ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.furnitureInfo ==
+                                                                null
+                                                        ? "N/A"
+                                                        : venuedetail
                                                                 ?.venueDetails
                                                                 ?.moreInfo
                                                                 ?.furnitureInfo ??
@@ -477,32 +488,32 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
-                                              Icons.surround_sound,
+                                                Icons.surround_sound,
                                                 color: Colors.white,
                                                 size: 18.sp,
                                               ),
@@ -510,9 +521,9 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Sound Restrictions : ',
@@ -522,28 +533,28 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.soundInfo ==
-                                                        '' ||
-                                                        venuedetail
-                                                            ?.venueDetails
-                                                            ?.moreInfo
-                                                            ?.soundInfo ==
-                                                            null
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.soundInfo ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.soundInfo ==
+                                                                null
                                                         ? 'N/A'
                                                         : venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.soundInfo ??
-                                                        "",
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.soundInfo ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -551,7 +562,7 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -564,29 +575,29 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.fire_extinguisher,
@@ -597,9 +608,9 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Firesafety Restrictions: ',
@@ -609,28 +620,28 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.safetyInfo ==
-                                                        '' ||
-                                                        venuedetail
-                                                            ?.venueDetails
-                                                            ?.moreInfo
-                                                            ?.safetyInfo ==
-                                                            null
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.safetyInfo ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.safetyInfo ==
+                                                                null
                                                         ? 'N/A'
                                                         : venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.safetyInfo ??
-                                                        "",
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.safetyInfo ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -638,7 +649,7 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -651,29 +662,29 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.time_to_leave_outlined,
@@ -684,9 +695,9 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Suppliers Timings: ',
@@ -696,28 +707,28 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.supplierAccess ==
-                                                        '' ||
-                                                        venuedetail
-                                                            ?.venueDetails
-                                                            ?.moreInfo
-                                                            ?.supplierAccess ==
-                                                            null
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.supplierAccess ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.supplierAccess ==
+                                                                null
                                                         ? 'N/A'
                                                         : venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?. supplierAccess??
-                                                        "",
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.supplierAccess ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -725,7 +736,7 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -738,29 +749,29 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.timelapse_rounded,
@@ -771,9 +782,9 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Guest Timings: ',
@@ -783,28 +794,28 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.guestAccess ==
-                                                        '' ||
-                                                        venuedetail
-                                                            ?.venueDetails
-                                                            ?.moreInfo
-                                                            ?.guestAccess ==
-                                                            null
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.guestAccess ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.guestAccess ==
+                                                                null
                                                         ? 'N/A'
                                                         : venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.guestAccess ??
-                                                        "",
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.guestAccess ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -812,7 +823,7 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -825,29 +836,29 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.hotel_class,
@@ -858,9 +869,9 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Accommodation Details: ',
@@ -870,28 +881,28 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.onsiteAccomodation ==
-                                                        '' ||
-                                                        venuedetail
-                                                            ?.venueDetails
-                                                            ?.moreInfo
-                                                            ?.onsiteAccomodation ==
-                                                            null
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.onsiteAccomodation ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.onsiteAccomodation ==
+                                                                null
                                                         ? 'N/A'
                                                         : venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.onsiteAccomodation ??
-                                                        "",
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.onsiteAccomodation ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -899,7 +910,7 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -912,29 +923,29 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                   SizedBox(height: 1.5.h),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
                                         height: 10.h,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.rice_bowl,
@@ -945,9 +956,9 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Rigging Allowed: ',
@@ -957,28 +968,28 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
                                                     venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.riggingAllowed ==
-                                                        '' ||
-                                                        venuedetail
-                                                            ?.venueDetails
-                                                            ?.moreInfo
-                                                            ?.riggingAllowed ==
-                                                            null
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.riggingAllowed ==
+                                                                '' ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.moreInfo
+                                                                    ?.riggingAllowed ==
+                                                                null
                                                         ? 'N/A'
                                                         : venuedetail
-                                                        ?.venueDetails
-                                                        ?.moreInfo
-                                                        ?.riggingAllowed ??
-                                                        "",
+                                                                ?.venueDetails
+                                                                ?.moreInfo
+                                                                ?.riggingAllowed ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -986,7 +997,7 @@ class _VenueDetailsviewState extends State<VenueDetailsview> {
                                                         fontFamily: 'sofi',
                                                         letterSpacing: 1,
                                                         fontWeight:
-                                                        FontWeight.bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ),
                                               ],

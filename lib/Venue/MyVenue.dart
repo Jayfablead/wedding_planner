@@ -176,7 +176,18 @@ class _VenueViewState extends State<VenueView> {
                                                         SizedBox(
                                                           width: 52.w,
                                                           child: Text(
-                                                            venuedetail?.venueDetails?.vName==""||venuedetail?.venueDetails?.vName==null?"N/A":venuedetail?.venueDetails?.vName ?? "",
+                                                            venuedetail?.venueDetails
+                                                                            ?.vName ==
+                                                                        "" ||
+                                                                    venuedetail
+                                                                            ?.venueDetails
+                                                                            ?.vName ==
+                                                                        null
+                                                                ? "N/A"
+                                                                : venuedetail
+                                                                        ?.venueDetails
+                                                                        ?.vName ??
+                                                                    "",
                                                             style: TextStyle(
                                                                 fontSize: 15.sp,
                                                                 color: Colors
@@ -257,7 +268,18 @@ class _VenueViewState extends State<VenueView> {
                                                 SizedBox(
                                                   width: 67.w,
                                                   child: Text(
-                                                    venuedetail?.venueDetails?.email==""||venuedetail?.venueDetails?.email==null ?"N/A":venuedetail?.venueDetails?.email ?? "",
+                                                    venuedetail?.venueDetails
+                                                                    ?.email ==
+                                                                "" ||
+                                                            venuedetail
+                                                                    ?.venueDetails
+                                                                    ?.email ==
+                                                                null
+                                                        ? "N/A"
+                                                        : venuedetail
+                                                                ?.venueDetails
+                                                                ?.email ??
+                                                            "",
                                                     style: TextStyle(
                                                         fontSize: 15.sp,
                                                         color: Colors.black
@@ -279,7 +301,7 @@ class _VenueViewState extends State<VenueView> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
@@ -287,7 +309,7 @@ class _VenueViewState extends State<VenueView> {
                                         padding: EdgeInsets.only(left: 2.15.w),
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
@@ -298,7 +320,7 @@ class _VenueViewState extends State<VenueView> {
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.home,
@@ -309,9 +331,9 @@ class _VenueViewState extends State<VenueView> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Venue Address : ',
@@ -321,18 +343,22 @@ class _VenueViewState extends State<VenueView> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 Text(
-                                                  venuedetail
-                                                      ?.venueDetails
-                                                      ?.address==""||venuedetail
-                                                      ?.venueDetails
-                                                      ?.address==null?"N/A":venuedetail
-                                                      ?.venueDetails
-                                                      ?.address ??
-                                                      "",
+                                                  venuedetail?.venueDetails
+                                                                  ?.address ==
+                                                              "" ||
+                                                          venuedetail
+                                                                  ?.venueDetails
+                                                                  ?.address ==
+                                                              null
+                                                      ? "N/A"
+                                                      : venuedetail
+                                                              ?.venueDetails
+                                                              ?.address ??
+                                                          "",
                                                   style: TextStyle(
                                                       fontSize: 16.sp,
                                                       color: Colors.black
@@ -340,7 +366,7 @@ class _VenueViewState extends State<VenueView> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                               ],
                                             ),
@@ -431,7 +457,7 @@ class _VenueViewState extends State<VenueView> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 90.w,
@@ -439,7 +465,7 @@ class _VenueViewState extends State<VenueView> {
                                         padding: EdgeInsets.only(left: 2.15.w),
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                           color: Colors.white,
                                         ),
                                         child: Row(
@@ -450,7 +476,7 @@ class _VenueViewState extends State<VenueView> {
                                               padding: EdgeInsets.all(3.w),
                                               decoration: BoxDecoration(
                                                   borderRadius:
-                                                  BorderRadius.circular(7),
+                                                      BorderRadius.circular(7),
                                                   color: Colors.blue),
                                               child: Icon(
                                                 Icons.email_outlined,
@@ -461,9 +487,9 @@ class _VenueViewState extends State<VenueView> {
                                             SizedBox(width: 5.w),
                                             Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Event Email : ',
@@ -473,18 +499,22 @@ class _VenueViewState extends State<VenueView> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                                 SizedBox(height: 0.5.h),
                                                 Text(
-                                                  venuedetail
-                                                      ?.venueDetails
-                                                      ?.coupleEmail==""||venuedetail
-                                                      ?.venueDetails
-                                                      ?.coupleEmail==null?"N/A":venuedetail
-                                                      ?.venueDetails
-                                                      ?.coupleEmail ??
-                                                      "",
+                                                  venuedetail?.venueDetails
+                                                                  ?.coupleEmail ==
+                                                              "" ||
+                                                          venuedetail
+                                                                  ?.venueDetails
+                                                                  ?.coupleEmail ==
+                                                              null
+                                                      ? "N/A"
+                                                      : venuedetail
+                                                              ?.venueDetails
+                                                              ?.coupleEmail ??
+                                                          "",
                                                   style: TextStyle(
                                                       fontSize: 16.sp,
                                                       color: Colors.black
@@ -492,7 +522,7 @@ class _VenueViewState extends State<VenueView> {
                                                       fontFamily: 'sofi',
                                                       letterSpacing: 1,
                                                       fontWeight:
-                                                      FontWeight.bold),
+                                                          FontWeight.bold),
                                                 ),
                                               ],
                                             ),
@@ -501,8 +531,6 @@ class _VenueViewState extends State<VenueView> {
                                       ),
                                     ],
                                   ),
-
-
                                   SizedBox(height: 2.5.h),
                                 ],
                               ),

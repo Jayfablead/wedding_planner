@@ -40,17 +40,17 @@ class VenueDetails {
 
   VenueDetails(
       {this.id,
-        this.name,
-        this.email,
-        this.contact,
-        this.profile,
-        this.uid,
-        this.vName,
-        this.address,
-        this.subscriptionRenewal,
-        this.vid,
-        this.coupleEmail,
-        this.moreInfo});
+      this.name,
+      this.email,
+      this.contact,
+      this.profile,
+      this.uid,
+      this.vName,
+      this.address,
+      this.subscriptionRenewal,
+      this.vid,
+      this.coupleEmail,
+      this.moreInfo});
 
   VenueDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -112,24 +112,24 @@ class MoreInfo {
 
   MoreInfo(
       {this.id,
-        this.uid,
-        this.vName,
-        this.address,
-        this.subscriptionRenewal,
-        this.photos,
-        this.vCapacity,
-        this.vDetails,
-        this.loadingUnloading,
-        this.parkingInfo,
-        this.furnitureInfo,
-        this.kitchenBarInfo,
-        this.soundInfo,
-        this.safetyInfo,
-        this.supplierAccess,
-        this.guestAccess,
-        this.riggingAllowed,
-        this.onsiteAccomodation,
-        this.createdAt});
+      this.uid,
+      this.vName,
+      this.address,
+      this.subscriptionRenewal,
+      this.photos,
+      this.vCapacity,
+      this.vDetails,
+      this.loadingUnloading,
+      this.parkingInfo,
+      this.furnitureInfo,
+      this.kitchenBarInfo,
+      this.soundInfo,
+      this.safetyInfo,
+      this.supplierAccess,
+      this.guestAccess,
+      this.riggingAllowed,
+      this.onsiteAccomodation,
+      this.createdAt});
 
   MoreInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];

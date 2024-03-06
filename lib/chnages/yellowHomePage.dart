@@ -103,26 +103,26 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                           width: 70.w,
                                           child: Text(
                                             "Hi, " +
-                                                (homemodal?.userData
+                                                (homemodal?.events?.groomName ==
+                                                            "" ||
+                                                        homemodal?.events
                                                                 ?.groomName ==
-                                                            null ||
-                                                        homemodal?.userData
-                                                                ?.groomName ==
-                                                            ""
-                                                    ? "N/A"
-                                                    : (homemodal?.userData
-                                                            ?.groomName)
+                                                            null
+                                                    ? (homemodal?.events
+                                                            ?.companyNames?[0])
+                                                        .toString()
+                                                    : (homemodal
+                                                            ?.events?.groomName)
                                                         .toString()) +
                                                 " & " +
-                                                (homemodal?.userData
+                                                (homemodal?.events?.brideName ==
+                                                            "" ||
+                                                        homemodal?.events
                                                                 ?.brideName ==
-                                                            null ||
-                                                        homemodal?.userData
-                                                                ?.brideName ==
-                                                            ""
-                                                    ? "N/A"
-                                                    : (homemodal?.userData
-                                                            ?.brideName)
+                                                            null
+                                                    ? ""
+                                                    : (homemodal
+                                                            ?.events?.brideName)
                                                         .toString()),
                                             style: TextStyle(
                                                 fontSize: 23.sp,
@@ -157,15 +157,10 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                         Padding(
                                           padding: EdgeInsets.only(top: 0.4.h),
                                           child: Text(
-                                            homemodal?.userData?.functionDate ==
-                                                        null ||
-                                                    homemodal?.userData
-                                                            ?.functionDate ==
-                                                        ""
+                                            homemodal?.events?.eventDate == null
                                                 ? "N/A"
-                                                : homemodal?.userData
-                                                        ?.functionDate ??
-                                                    "",
+                                                : (homemodal?.events?.eventDate)
+                                                    .toString(),
                                             style: TextStyle(
                                                 fontSize: 13.sp,
                                                 fontFamily: 'sofi',
