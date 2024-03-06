@@ -103,27 +103,9 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                           width: 70.w,
                                           child: Text(
                                             "Hi, " +
-                                                (homemodal?.events?.groomName ==
-                                                            "" ||
-                                                        homemodal?.events
-                                                                ?.groomName ==
-                                                            null
-                                                    ? (homemodal?.events
-                                                            ?.companyNames?[0])
-                                                        .toString()
-                                                    : (homemodal
-                                                            ?.events?.groomName)
-                                                        .toString()) +
+                                                  (homemodal?.events?.groomName==""||homemodal?.events?.groomName==null?( homemodal?.events?.companyNames?[0]).toString():(homemodal?.events?.groomName).toString()) +
                                                 " & " +
-                                                (homemodal?.events?.brideName ==
-                                                            "" ||
-                                                        homemodal?.events
-                                                                ?.brideName ==
-                                                            null
-                                                    ? ""
-                                                    : (homemodal
-                                                            ?.events?.brideName)
-                                                        .toString()),
+                                                (homemodal?.events?.brideName==""||homemodal?.events?.brideName==null?"":(homemodal?.events?.brideName).toString()),
                                             style: TextStyle(
                                                 fontSize: 23.sp,
                                                 fontFamily: 'sofi',
@@ -157,10 +139,7 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                         Padding(
                                           padding: EdgeInsets.only(top: 0.4.h),
                                           child: Text(
-                                            homemodal?.events?.eventDate == null
-                                                ? "N/A"
-                                                : (homemodal?.events?.eventDate)
-                                                    .toString(),
+                                            homemodal?.events?.eventDate ==null?"N/A":(homemodal?.events?.eventDate).toString(),
                                             style: TextStyle(
                                                 fontSize: 13.sp,
                                                 fontFamily: 'sofi',
