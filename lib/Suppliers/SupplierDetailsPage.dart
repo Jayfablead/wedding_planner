@@ -139,7 +139,10 @@ class _SupplierfourScreenState extends State<SupplierfourScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              showDialog(
+                              supplierdetailmodal
+                                  ?.supplierInfo
+                                  ?.images?[0]==null?Container()
+                                  :showDialog(
                                 context: context,
                                 builder: (context) {
                                   return Stack(

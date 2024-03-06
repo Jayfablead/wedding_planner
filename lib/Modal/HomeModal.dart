@@ -1,23 +1,16 @@
 class HomeModal {
   String? status;
   String? message;
-  UserData? userData;
   List<Services>? services;
   List<Suppliers>? suppliers;
+  Events? events;
 
   HomeModal(
-      {this.status,
-      this.message,
-      this.userData,
-      this.services,
-      this.suppliers});
+      {this.status, this.message, this.services, this.suppliers, this.events});
 
   HomeModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    userData = json['userData'] != null
-        ? new UserData.fromJson(json['userData'])
-        : null;
     if (json['services'] != null) {
       services = <Services>[];
       json['services'].forEach((v) {
@@ -30,50 +23,23 @@ class HomeModal {
         suppliers!.add(new Suppliers.fromJson(v));
       });
     }
+    events =
+    json['events'] != null ? new Events.fromJson(json['events']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
     data['message'] = this.message;
-    if (this.userData != null) {
-      data['userData'] = this.userData!.toJson();
-    }
     if (this.services != null) {
       data['services'] = this.services!.map((v) => v.toJson()).toList();
     }
     if (this.suppliers != null) {
       data['suppliers'] = this.suppliers!.map((v) => v.toJson()).toList();
     }
-    return data;
-  }
-}
-
-class UserData {
-  String? id;
-  String? vid;
-  String? brideName;
-  String? groomName;
-  String? functionDate;
-
-  UserData(
-      {this.id, this.vid, this.brideName, this.groomName, this.functionDate});
-
-  UserData.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    vid = json['vid'];
-    brideName = json['BrideName'];
-    groomName = json['GroomName'];
-    functionDate = json['FunctionDate'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['vid'] = this.vid;
-    data['BrideName'] = this.brideName;
-    data['GroomName'] = this.groomName;
-    data['FunctionDate'] = this.functionDate;
+    if (this.events != null) {
+      data['events'] = this.events!.toJson();
+    }
     return data;
   }
 }
@@ -87,10 +53,10 @@ class Services {
 
   Services(
       {this.categoryId,
-      this.categoryIcon,
-      this.categoryName,
-      this.categoryDesc,
-      this.createdAt});
+        this.categoryIcon,
+        this.categoryName,
+        this.categoryDesc,
+        this.createdAt});
 
   Services.fromJson(Map<String, dynamic> json) {
     categoryId = json['category_id'];
@@ -116,7 +82,7 @@ class Suppliers {
   String? name;
   String? role;
   String? profilePath;
-  String? servicePhotos;
+  String? servicePhotos; // Adjusted type
   String? categoryId;
   String? description;
   String? cost;
@@ -127,17 +93,17 @@ class Suppliers {
 
   Suppliers(
       {this.id,
-      this.name,
-      this.role,
-      this.profilePath,
-      this.servicePhotos,
-      this.categoryId,
-      this.description,
-      this.cost,
-      this.images,
-      this.fav,
-      this.serviceId,
-      this.service});
+        this.name,
+        this.role,
+        this.profilePath,
+        this.servicePhotos,
+        this.categoryId,
+        this.description,
+        this.cost,
+        this.images,
+        this.fav,
+        this.serviceId,
+        this.service});
 
   Suppliers.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -168,6 +134,43 @@ class Suppliers {
     data['fav'] = this.fav;
     data['service_id'] = this.serviceId;
     data['service'] = this.service;
+    return data;
+  }
+}
+
+class Events {
+  String? eventId;
+  String? eventType;
+  String? eventDate;
+  String? brideName;
+  String? groomName;
+  List<String>? companyNames;
+
+  Events(
+      {this.eventId,
+        this.eventType,
+        this.eventDate,
+        this.brideName,
+        this.groomName,
+        this.companyNames});
+
+  Events.fromJson(Map<String, dynamic> json) {
+    eventId = json['event_id'];
+    eventType = json['event_type'];
+    eventDate = json['event_date'];
+    brideName = json['bride_name'];
+    groomName = json['groom_name'];
+    companyNames = json['company_names'].cast<String>();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['event_id'] = this.eventId;
+    data['event_type'] = this.eventType;
+    data['event_date'] = this.eventDate;
+    data['bride_name'] = this.brideName;
+    data['groom_name'] = this.groomName;
+    data['company_names'] = this.companyNames;
     return data;
   }
 }
