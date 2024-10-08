@@ -9,9 +9,12 @@ import 'package:sizer/sizer.dart';
 import 'package:wedding_planner/Meetings/Meetings%20Page.dart';
 import 'package:wedding_planner/Modal/AddtofavouriteModal.dart';
 import 'package:wedding_planner/Modal/HomeModal.dart';
+import 'package:wedding_planner/Modal/My_Event_Detials_Modal.dart';
 import 'package:wedding_planner/Modal/NotificationModal.dart';
 import 'package:wedding_planner/Modal/SuppliersearchModal.dart';
 import 'package:wedding_planner/Modal/UnreadnotiModal.dart';
+import 'package:wedding_planner/Modal/UserProfileModal.dart';
+import 'package:wedding_planner/Provider/authprovider.dart';
 import 'package:wedding_planner/Provider/taskprovider.dart';
 import 'package:wedding_planner/Suppliers/SupplierDetailsPage.dart';
 import 'package:wedding_planner/widgets/bottamnav.dart';
@@ -43,6 +46,8 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    userprofileap();
+    MyEventDetailsapi();
     setState(() {
       sel = 1;
     });
@@ -102,10 +107,26 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                         Container(
                                           width: 70.w,
                                           child: Text(
+
                                             "Hi, " +
-                                                  (homemodal?.events?.groomName==""||homemodal?.events?.groomName==null?( homemodal?.events?.companyNames?[0]).toString():(homemodal?.events?.groomName).toString()) +
-                                                " & " +
-                                                (homemodal?.events?.brideName==""||homemodal?.events?.brideName==null?"":(homemodal?.events?.brideName).toString()),
+                                            ((userprofile?.userDetails?.groomName
+                                                .toString() ==
+                                                null ||
+                                                userprofile?.userDetails?.groomName
+                                                    .toString() ==
+                                                    "")
+                                                ? "N/A"
+                                                : (userprofile?.userDetails?.groomName)
+                                                .toString()) +  " & " +((userprofile?.userDetails?.brideName
+                                                .toString() ==
+                                                null ||
+                                                userprofile?.userDetails?.brideName
+                                                    .toString() ==
+                                                    "")
+                                                ? "N/A"
+                                                : (userprofile?.userDetails?.brideName)
+                                                .toString()),
+
                                             style: TextStyle(
                                                 fontSize: 23.sp,
                                                 fontFamily: 'sofi',
@@ -139,7 +160,16 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
                                         Padding(
                                           padding: EdgeInsets.only(top: 0.4.h),
                                           child: Text(
-                                            homemodal?.events?.eventDate ==null?"N/A":(homemodal?.events?.eventDate).toString(),
+                                            myevent?.eventDetails?.functionDate ==
+                                                '' ||
+                                                myevent?.eventDetails?.functionDate ==
+                                                    null
+                                                ? 'N/A'
+                                                : myevent
+                                                ?.eventDetails
+                                                ?.functionDate ??
+                                                "",
+
                                             style: TextStyle(
                                                 fontSize: 13.sp,
                                                 fontFamily: 'sofi',
@@ -1048,6 +1078,52 @@ class _YellowHomeScreenState extends State<YellowHomeScreen> {
           } else {}
         });
       } else {}
+    });
+  }
+
+
+
+  userprofileap() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().userprofileapi().then((response) async {
+          userprofile = UserProfileModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && userprofile?.status == "1") {
+            print(userprofile?.userDetails?.groomName);
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
+    });
+  }
+
+
+  MyEventDetailsapi() {
+    checkInternet().then((internet) async {
+      if (internet) {
+        taskprovider().MyEventDetailsApi().then((response) async {
+          myevent = My_Event_Details_Modal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && myevent?.status == "0") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        buildErrorDialog(context, 'Error', "Internet Required");
+      }
     });
   }
 }
